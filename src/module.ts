@@ -2,8 +2,9 @@ import type { HookResult } from '@nuxt/schema'
 import type { ModuleDependencies } from 'nuxt/schema'
 import type { ColorModeType, ColorModeTypeLight } from './runtime/types'
 import { defu } from 'defu'
-import { createResolver, defineNuxtModule, addComponentsDir, addImportsDir, addPlugin, hasNuxtModule } from '@nuxt/kit'
+import { createResolver, defineNuxtModule, addComponentsDir, addImports, addImportsDir, addPlugin, hasNuxtModule } from '@nuxt/kit'
 import { addTemplates } from './templates'
+import { publicComposables } from './imports'
 // @memo skep:  resolveColors
 import { defaultOptions, getDefaultConfig } from './utils/defaults'
 import { name, version } from '../package.json'
@@ -15,7 +16,7 @@ export type * from './runtime/types'
 
 export interface ModuleOptions {
   /**
-   * Enable or disable `@vueuse/core` color-mode integration
+   * Enable or disable `@vueuse/core` color-mode module
    * @memo We not use `@nuxtjs/color-mode`
    * @defaultValue `true`
    * @link https://bitrix24.github.io/b24ui/docs/getting-started/installation/nuxt/#colormode
@@ -48,11 +49,9 @@ export interface ModuleOptions {
    * @defaultValue true
    */
   mdc?: boolean
-
   /**
    * Force the import of content & prose components even if `@nuxt/content` is not installed
    * @defaultValue false
-   * @see https://bitrix24.github.io/b24ui/docs/getting-started/installation/nuxt/#content
    */
   content?: boolean
 
@@ -94,7 +93,6 @@ export default defineNuxtModule<ModuleOptions>({
   defaults: defaultOptions,
   moduleDependencies(nuxt): ModuleDependencies {
     const userUiOptions = nuxt.options.b24ui || {}
-
     return {
       '@bitrix24/b24icons-nuxt': {
         defaults: {}
@@ -228,7 +226,11 @@ export default defineNuxtModule<ModuleOptions>({
       ignore: ['color-mode/**', 'content/**', 'prose/**']
     })
 
-    addImportsDir(resolve('./runtime/composables'))
+    addImports(
+      Object.entries(publicComposables).flatMap(([file, exports]) =>
+        exports.map(name => ({ name, from: resolve(`./runtime/composables/${file}`) }))
+      )
+    )
 
     addTemplates(options, nuxt, resolve)
   }

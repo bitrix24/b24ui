@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type { ContentNavigationItem } from '@nuxt/content'
-import { useFilter } from 'reka-ui'
+import { useFilter } from '@bitrix24/b24ui-nuxt/composables'
 
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 
 const route = useRoute()
-const { contains } = useFilter({ sensitivity: 'base' })
+const { scoreItem } = useFilter()
 
 // region Navigation ////
 const { navigationMenuByCategory } = useNavigation(navigation!)
@@ -13,7 +13,7 @@ const filteredNavigation = computed(() => {
   if (!cleanedSearchTerm.value) {
     return navigationMenuByCategory.value
   }
-  return navigationMenuByCategory.value?.filter(item => contains(item.label ?? '', cleanedSearchTerm.value) || contains(item?.description ?? '', cleanedSearchTerm.value))
+  return navigationMenuByCategory.value?.filter(item => scoreItem(item, cleanedSearchTerm.value, ['title', 'description']))
 })
 // endregion ////
 

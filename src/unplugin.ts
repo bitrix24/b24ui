@@ -7,11 +7,13 @@ import type { Options as AutoImportOptions } from 'unplugin-auto-import/types'
 import type { Options as ComponentsOptions } from 'unplugin-vue-components/types'
 import { defu } from 'defu'
 import tailwind from '@tailwindcss/vite'
+// import type colors from 'tailwindcss/colors'
 
 import type * as b24ui from '#build/b24ui'
 
 import { defaultOptions, getDefaultConfig } from './utils/defaults'
 import type { ModuleOptions } from './module'
+// import type icons from './theme/icons'
 
 import TemplatePlugin from './plugins/templates'
 import PluginsPlugin from './plugins/plugins'
@@ -45,13 +47,13 @@ export interface Bitrix24UIOptions extends Omit<ModuleOptions, 'colorMode'> {
    */
   colorModeStorageKey?: string | null
   /**
-   * Override options for `unplugin-auto-import`
+   * Override options for `unplugin-auto-import`, or `false` to disable composable auto-imports
    */
-  autoImport?: Partial<AutoImportOptions>
+  autoImport?: false | Partial<AutoImportOptions>
   /**
-   * Override options for `unplugin-vue-components`
+   * Override options for `unplugin-vue-components`, or `false` to disable component auto-imports
    */
-  components?: Partial<ComponentsOptions>
+  components?: false | Partial<ComponentsOptions>
   /**
    * Router integration mode
    * - `true` (default): Use vue-router integration
@@ -77,6 +79,7 @@ export const Bitrix24UIPlugin = createUnplugin<Bitrix24UIOptions | undefined>((_
   const options = defu(_options, { }, defaultOptions)
 
   options.theme = options.theme || {}
+  // options.theme.colors = resolveColors(options.theme.colors)
 
   const appConfig = defu(
     {
@@ -106,10 +109,10 @@ export const Bitrix24UIPlugin = createUnplugin<Bitrix24UIOptions | undefined>((_
         configResolved(config) {
           const plugins = config.plugins || []
 
-          if (plugins.filter(i => i.name === 'unplugin-auto-import').length > 1) {
+          if (options.autoImport !== false && plugins.filter(i => i.name === 'unplugin-auto-import').length > 1) {
             throw new Error('[Bitrix24 UI] Multiple instances of `unplugin-auto-import` detected. Bitrix24 UI includes `unplugin-auto-import` already, and you can configure it using `autoImport` option in Bitrix24 UI module options.')
           }
-          if (plugins.filter(i => i.name === 'unplugin-vue-components').length > 1) {
+          if (options.components !== false && plugins.filter(i => i.name === 'unplugin-vue-components').length > 1) {
             throw new Error('[Bitrix24 UI] Multiple instances of `unplugin-vue-components` detected. Bitrix24 UI includes `unplugin-vue-components` already, and you can configure it using `components` option in Bitrix24 UI module options.')
           }
         }

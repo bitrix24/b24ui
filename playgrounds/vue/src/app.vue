@@ -49,84 +49,82 @@ defineShortcuts({
 </script>
 
 <template>
-  <B24App :toaster="appConfig.toaster" :dir="appConfig.dir">
-    <B24DashboardGroup unit="px" storage="local">
-      <B24DashboardSidebar
-        id="default"
-        mode="slideover"
-        collapsible
-        resizable
-        class="light:bg-(--ui-color-base-0)/5"
-      >
-        <template #header="{ collapsed }">
-          <B24DashboardSidebarCollapse :icon="HamburgerMenuIcon" class="size-9 px-2" />
-          <RouterLink to="/" class="text-(--b24ui-typography-label-color) inline-flex" aria-label="Home">
-            <Logo v-if="!collapsed" class="h-5 w-auto shrink-0 text-(--b24ui-typography-label-color)" />
-          </RouterLink>
-        </template>
+  <Suspense>
+    <B24App :toaster="appConfig.toaster" :dir="appConfig.dir">
+      <B24DashboardGroup unit="px" storage="local">
+        <B24DashboardSidebar
+          id="default"
+          mode="slideover"
+          collapsible
+          resizable
+          class="light:bg-(--ui-color-base-0)/5"
+        >
+          <template #header="{ collapsed }">
+            <B24DashboardSidebarCollapse :icon="HamburgerMenuIcon" class="size-9 px-2" />
+            <RouterLink to="/" class="text-(--b24ui-typography-label-color) inline-flex" aria-label="Home">
+              <Logo v-if="!collapsed" class="h-5 w-auto shrink-0 text-(--b24ui-typography-label-color)" />
+            </RouterLink>
+          </template>
 
-        <template #default="{ collapsed }">
-          <div v-if="!collapsed" class="flex items-center">
-            <B24Tooltip :content="{ side: 'bottom' }" text="Switch color mode" :kbds="['shift', 'D']">
-              <B24RadioGroup
-                v-model="colorModel"
-                :items="colorList"
-                class="w-full"
-                size="sm"
-                orientation="vertical"
-                variant="table"
-                indicator="hidden"
-                @change="syncColorModePreference"
-              />
-            </B24Tooltip>
-          </div>
+          <template #default="{ collapsed }">
+            <div v-if="!collapsed" class="flex items-center">
+              <B24Tooltip :content="{ side: 'bottom' }" text="Switch color mode" :kbds="['shift', 'D']">
+                <B24RadioGroup
+                  v-model="colorModel"
+                  :items="colorList"
+                  class="w-full"
+                  size="sm"
+                  orientation="vertical"
+                  variant="table"
+                  indicator="hidden"
+                  @change="syncColorModePreference"
+                />
+              </B24Tooltip>
+            </div>
 
-          <B24DashboardSearchButton
-            :collapsed="collapsed"
-            class="opacity-70 hover:opacity-100"
-          />
+            <B24DashboardSearchButton
+              :collapsed="collapsed"
+              class="opacity-70 hover:opacity-100"
+            />
 
-          <B24NavigationMenu
-            :collapsed="collapsed"
-            :items="items"
-            orientation="vertical"
-            tooltip
-            popover
-          />
+            <B24NavigationMenu
+              :collapsed="collapsed"
+              :items="items"
+              orientation="vertical"
+              tooltip
+              popover
+            />
 
-          <B24NavigationMenu
-            :collapsed="collapsed"
-            :items="components"
-            orientation="vertical"
-            tooltip
-            popover
-            class="mt-auto"
-          />
-        </template>
-      </B24DashboardSidebar>
+            <B24NavigationMenu
+              :collapsed="collapsed"
+              :items="components"
+              orientation="vertical"
+              tooltip
+              popover
+              class="mt-auto"
+            />
+          </template>
+        </B24DashboardSidebar>
 
-      <Suspense v-if="route.path.startsWith('/components/sidebar')">
-        <RouterView />
-      </Suspense>
-      <B24DashboardPanel
-        v-else
-        :b24ui="{
-          body: [
-            route.path.startsWith('/components') && 'mt-17',
-            route.path.startsWith('/components/scroll-area') && 'p-0!'
-          ]
-        }"
-      >
-        <template #body>
-          <div class="flex flex-col items-center justify-center min-h-full shrink-0">
-            <Suspense>
+        <RouterView v-if="route.path.startsWith('/components/sidebar')" />
+        <B24DashboardPanel
+          v-else
+          :b24ui="{
+            body: [
+              route.path.startsWith('/components') && 'mt-17',
+              route.path.startsWith('/components/scroll-area') && 'p-0!'
+            ]
+          }"
+        >
+          <template #body>
+            <div class="flex flex-col items-center justify-center min-h-full shrink-0">
               <RouterView />
-            </Suspense>
-          </div>
-        </template>
-      </B24DashboardPanel>
+            </div>
+          </template>
+        </B24DashboardPanel>
 
-      <B24DashboardSearch :groups="groups" :color-mode="false" :fuse="{ resultLimit: 100 }" />
-    </B24DashboardGroup>
-  </B24App>
+        <B24DashboardSearch :groups="groups" :color-mode="false" :fuse="{ resultLimit: 100 }" />
+      </B24DashboardGroup>
+    </B24App>
+  </Suspense>
 </template>

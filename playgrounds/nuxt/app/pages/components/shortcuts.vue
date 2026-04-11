@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ShortcutsConfig } from '@bitrix24/b24ui-nuxt/composables/defineShortcuts'
+import type { ShortcutsConfig } from '@bitrix24/b24ui-nuxt/composables'
 import { ref, nextTick, useTemplateRef } from 'vue'
 import TrashBinIcon from '@bitrix24/b24icons-vue/main/TrashBinIcon'
 import CheckIcon from '@bitrix24/b24icons-vue/main/CheckIcon'

@@ -89,6 +89,36 @@ export default function ComponentImportPlugin(
   const packagesRegex = packagesToScan.map(escapeRegex).join('|')
   const excludeRegex = new RegExp(`[\\\\/]node_modules[\\\\/](?!\\.pnpm|${packagesRegex})`)
 
+  const internalResolverPlugin: UnpluginOptions = {
+    /**
+     * This plugin aims to ensure we override certain components with Vue-compatible versions:
+     * <B24Link> currently.
+     */
+    name: 'bitrix24:b24ui:components',
+    enforce: 'pre',
+    resolveId(id, importer) {
+      if (!importer || !normalize(importer).includes(runtimeDir)) {
+        return
+      }
+
+      if (!RELATIVE_IMPORT_RE.test(id)) {
+        return
+      }
+
+      const filename = id.match(/([^/]+)\.vue$/)?.[1]
+      if (filename) {
+        for (const source of sources) {
+          const resolved = source.resolveFile(filename)
+          if (resolved) return resolved
+        }
+      }
+    }
+  }
+
+  if (options.components === false) {
+    return [internalResolverPlugin] satisfies UnpluginOptions[]
+  }
+
   const pluginOptions = defu(options.components, <ComponentsOptions>{
     dts: options.dts ?? true,
     exclude: [
@@ -107,33 +137,7 @@ export default function ComponentImportPlugin(
   })
 
   return [
-    /**
-     * This plugin aims to ensure we override certain components with Vue-compatible versions:
-     * <B24Link> currently.
-     */
-    {
-      name: 'bitrix24:b24ui:components',
-      enforce: 'pre',
-      resolveId(id, importer) {
-        // only apply to runtime nuxt b24ui components
-        if (!importer || !normalize(importer).includes(runtimeDir)) {
-          return
-        }
-
-        // only apply to relative imports
-        if (!RELATIVE_IMPORT_RE.test(id)) {
-          return
-        }
-
-        const filename = id.match(/([^/]+)\.vue$/)?.[1]
-        if (filename) {
-          for (const source of sources) {
-            const resolved = source.resolveFile(filename)
-            if (resolved) return resolved
-          }
-        }
-      }
-    },
+    internalResolverPlugin,
     AutoImportComponents.raw(pluginOptions, meta) as UnpluginOptions
   ] satisfies UnpluginOptions[]
 }

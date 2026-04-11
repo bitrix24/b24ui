@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import theme from '#build/b24ui/kbd'
-import { kbdKeysMap } from '@bitrix24/b24ui-nuxt/composables/useKbd'
+import { kbdKeysMap } from '@bitrix24/b24ui-nuxt/composables'
 
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 const accents = Object.keys(theme.variants.accent) as Array<keyof typeof theme.variants.accent>

@@ -20,6 +20,7 @@
 * fix(Modal|Slideover): improve theme
 * fix(ChatShimmer): handle RTL mode
 * fix(DashboardSearchButton): use valid HTML structure for trailing slot
+* fix(module): only auto-import public composables and allow Vite opt-out
 * 
 * docs: improve build performance and client-side navigation
 * docs(table): add column span example
