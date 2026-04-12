@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { h, resolveComponent } from 'vue'
 import type { TableColumn } from '@bitrix24/b24ui-nuxt'
+import type { RowPinningState } from '@tanstack/table-core'
+import FavoriteIcon from '@bitrix24/b24icons-vue/outline/FavoriteIcon'
+import FavoriteSolidIcon from '@bitrix24/b24icons-vue/solid/FavoriteIcon'
 
-const B24Checkbox = resolveComponent('B24Checkbox')
+const B24Button = resolveComponent('B24Button')
 const B24Badge = resolveComponent('B24Badge')
 
 type Payment = {
@@ -48,22 +51,58 @@ const data = ref<Payment[]>([
     status: 'paid',
     email: 'ethan.harris@example.com',
     amount: 639
+  },
+  {
+    id: '4595',
+    date: '2024-03-10T13:40:00',
+    status: 'refunded',
+    email: 'ava.thomas@example.com',
+    amount: 428
+  },
+  {
+    id: '4594',
+    date: '2024-03-10T09:15:00',
+    status: 'paid',
+    email: 'michael.wilson@example.com',
+    amount: 683
+  },
+  {
+    id: '4593',
+    date: '2024-03-09T20:25:00',
+    status: 'failed',
+    email: 'olivia.taylor@example.com',
+    amount: 947
+  },
+  {
+    id: '4592',
+    date: '2024-03-09T18:45:00',
+    status: 'paid',
+    email: 'benjamin.jackson@example.com',
+    amount: 851
+  },
+  {
+    id: '4591',
+    date: '2024-03-09T16:05:00',
+    status: 'paid',
+    email: 'sophia.miller@example.com',
+    amount: 762
   }
 ])
 
 const columns: TableColumn<Payment>[] = [{
-  id: 'select',
-  header: ({ table }) => h(B24Checkbox, {
-    'modelValue': table.getIsSomePageRowsSelected() ? 'indeterminate' : table.getIsAllPageRowsSelected(),
-    'onUpdate:modelValue': (value: boolean | 'indeterminate') => table.toggleAllPageRowsSelected(!!value),
-    'size': 'sm',
-    'aria-label': 'Select all'
-  }),
-  cell: ({ row }) => h(B24Checkbox, {
-    'modelValue': row.getIsSelected(),
-    'onUpdate:modelValue': (value: boolean | 'indeterminate') => row.toggleSelected(!!value),
-    'size': 'sm',
-    'aria-label': 'Select row'
+  id: 'pin',
+  cell: ({ row }) => h(B24Button, {
+    'icon': row.getIsPinned() ? FavoriteSolidIcon : FavoriteIcon,
+    'color': row.getIsPinned() ? 'air-tertiary-accent' : 'air-tertiary-no-accent',
+    'variant': 'ghost',
+    'aria-label': row.getIsPinned() ? 'Unpin row' : 'Pin row to top',
+    'onClick': () => {
+      if (row.getIsPinned()) {
+        row.pin(false)
+      } else {
+        row.pin('top')
+      }
+    }
   })
 }, {
   accessorKey: 'date',
@@ -111,30 +150,15 @@ const columns: TableColumn<Payment>[] = [{
   }
 }]
 
-const table = useTemplateRef('table')
-
-const rowSelection = ref({ 1: true })
+const rowPinning = ref<RowPinningState>({ top: ['4599', '4597'], bottom: [] })
 </script>
 
 <template>
-  <B24Card
-    variant="outline"
-    class="flex-1 w-full"
-    :b24ui="{
-      header: 'p-[12px] px-[14px] py-[14px] sm:px-[14px] sm:py-[14px]',
-      body: 'p-0 sm:px-0 sm:py-0',
-      footer: 'p-[12px] px-[14px] py-[14px] sm:px-[14px] sm:py-[14px] text-(length:--ui-font-size-xs) text-legend'
-    }"
-  >
-    <B24Table
-      ref="table"
-      v-model:row-selection="rowSelection"
-      :data="data"
-      :columns="columns"
-    />
-    <template #footer>
-      {{ table?.tableApi?.getFilteredSelectedRowModel().rows.length || 0 }} of
-      {{ table?.tableApi?.getFilteredRowModel().rows.length || 0 }} row(s) selected.
-    </template>
-  </B24Card>
+  <B24Table
+    v-model:row-pinning="rowPinning"
+    :data="data"
+    :columns="columns"
+    :get-row-id="(row: Payment) => row.id"
+    class="flex-1 h-96"
+  />
 </template>

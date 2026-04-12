@@ -1868,6 +1868,82 @@ exports[`Table > renders with meta prop correctly 1`] = `
 </div>"
 `;
 
+exports[`Table > renders with row pinning and virtualization correctly 1`] = `
+"<div data-slot="root" class="relative overflow-auto style-filled">
+  <div style="height: 325px;">
+    <table data-slot="base" class="min-w-full font-[family-name:var(--ui-font-family-primary)] table-fixed border-separate border-spacing-0">
+      <!--v-if-->
+      <thead data-slot="thead" class="relative [&amp;>tr]:[&amp;>th]:h-[45px]">
+        <tr data-slot="tr" class="data-[selected=true]:bg-(--ui-color-bg-content-tertiary) light:data-[selected=true]:bg-[#f4fcde] relative before:absolute before:z-1 before:w-full before:border-b before:border-b-(--ui-color-divider-default)">
+          <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Id</th>
+          <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Amount</th>
+          <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Status</th>
+          <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Email</th>
+        </tr>
+        <tr data-slot="separator" class="absolute z-1 left-0 w-full h-px bg-(--ui-color-design-tinted-na-stroke)"></tr>
+      </thead>
+      <tbody data-slot="tbody" class="isolate [&amp;>tr]:data-[selectable=true]:hover:bg-(--ui-color-bg-content-secondary) light:[&amp;>tr]:data-[selectable=true]:hover:bg-[#f6f8f9] [&amp;>tr]:data-[selectable=true]:focus-visible:outline-(--ui-color-accent-soft-element-blue) [&amp;>tr]:data-[selected=true]:hover:bg-(--ui-color-bg-content-secondary) light:[&amp;>tr]:data-[selected=true]:hover:bg-(#eff7d7) [&amp;>tr]:data-[selected=true]:focus-visible:outline-(--ui-color-accent-soft-element-blue) [&amp;>tr]:last:[&amp;>td]:border-b-0"></tbody>
+      <!--v-if-->
+    </table>
+  </div>
+</div>"
+`;
+
+exports[`Table > renders with row pinning correctly 1`] = `
+"<div data-slot="root" class="relative overflow-auto style-filled">
+  <table data-slot="base" class="min-w-full font-[family-name:var(--ui-font-family-primary)] table-fixed border-separate border-spacing-0 overflow-clip">
+    <!--v-if-->
+    <thead data-slot="thead" class="relative [&amp;>tr]:[&amp;>th]:h-[45px]">
+      <tr data-slot="tr" class="data-[selected=true]:bg-(--ui-color-bg-content-tertiary) light:data-[selected=true]:bg-[#f4fcde]">
+        <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Id</th>
+        <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Amount</th>
+        <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Status</th>
+        <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Email</th>
+      </tr>
+      <tr data-slot="separator" class="absolute z-1 left-0 w-full h-px bg-(--ui-color-design-tinted-na-stroke)"></tr>
+    </thead>
+    <tbody data-slot="tbody" class="isolate [&amp;>tr]:data-[selectable=true]:hover:bg-(--ui-color-bg-content-secondary) light:[&amp;>tr]:data-[selectable=true]:hover:bg-[#f6f8f9] [&amp;>tr]:data-[selectable=true]:focus-visible:outline-(--ui-color-accent-soft-element-blue) [&amp;>tr]:data-[selected=true]:hover:bg-(--ui-color-bg-content-secondary) light:[&amp;>tr]:data-[selected=true]:hover:bg-(#eff7d7) [&amp;>tr]:data-[selected=true]:focus-visible:outline-(--ui-color-accent-soft-element-blue) [&amp;>tr]:last:[&amp;>td]:border-b-0 divide-y divide-(--ui-color-divider-default)">
+      <tr data-selected="false" data-selectable="false" data-expanded="false" data-pinned="top" data-slot="tr" class="data-[selected=true]:bg-(--ui-color-bg-content-tertiary) light:data-[selected=true]:bg-[#f4fcde]">
+        <td data-pinned="false" data-slot="td" class="p-4 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">derv1ws0</td>
+        <td data-pinned="false" data-slot="td" class="p-4 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">837</td>
+        <td data-pinned="false" data-slot="td" class="p-4 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">processing</td>
+        <td data-pinned="false" data-slot="td" class="p-4 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Monserrat44@gmail.com</td>
+      </tr>
+      <!--v-if-->
+      <tr data-selected="false" data-selectable="false" data-expanded="false" data-slot="tr" class="data-[selected=true]:bg-(--ui-color-bg-content-tertiary) light:data-[selected=true]:bg-[#f4fcde]">
+        <td data-pinned="false" data-slot="td" class="p-4 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">m5gr84i9</td>
+        <td data-pinned="false" data-slot="td" class="p-4 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">316</td>
+        <td data-pinned="false" data-slot="td" class="p-4 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">success</td>
+        <td data-pinned="false" data-slot="td" class="p-4 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">ken99@yahoo.com</td>
+      </tr>
+      <!--v-if-->
+      <tr data-selected="false" data-selectable="false" data-expanded="false" data-slot="tr" class="data-[selected=true]:bg-(--ui-color-bg-content-tertiary) light:data-[selected=true]:bg-[#f4fcde]">
+        <td data-pinned="false" data-slot="td" class="p-4 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">3u1reuv4</td>
+        <td data-pinned="false" data-slot="td" class="p-4 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">242</td>
+        <td data-pinned="false" data-slot="td" class="p-4 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">success</td>
+        <td data-pinned="false" data-slot="td" class="p-4 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Abe45@gmail.com</td>
+      </tr>
+      <!--v-if-->
+      <tr data-selected="false" data-selectable="false" data-expanded="false" data-slot="tr" class="data-[selected=true]:bg-(--ui-color-bg-content-tertiary) light:data-[selected=true]:bg-[#f4fcde]">
+        <td data-pinned="false" data-slot="td" class="p-4 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">bhqecj4p</td>
+        <td data-pinned="false" data-slot="td" class="p-4 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">721</td>
+        <td data-pinned="false" data-slot="td" class="p-4 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">failed</td>
+        <td data-pinned="false" data-slot="td" class="p-4 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">carmella@hotmail.com</td>
+      </tr>
+      <!--v-if-->
+      <tr data-selected="false" data-selectable="false" data-expanded="false" data-pinned="bottom" data-slot="tr" class="data-[selected=true]:bg-(--ui-color-bg-content-tertiary) light:data-[selected=true]:bg-[#f4fcde]">
+        <td data-pinned="false" data-slot="td" class="p-4 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">5kma53ae</td>
+        <td data-pinned="false" data-slot="td" class="p-4 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">874</td>
+        <td data-pinned="false" data-slot="td" class="p-4 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">success</td>
+        <td data-pinned="false" data-slot="td" class="p-4 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color) whitespace-nowrap font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Silas22@gmail.com</td>
+      </tr>
+      <!--v-if-->
+    </tbody>
+    <!--v-if-->
+  </table>
+</div>"
+`;
+
 exports[`Table > renders with sticky correctly 1`] = `
 "<div data-slot="root" class="relative overflow-auto style-filled">
   <table data-slot="base" class="min-w-full font-[family-name:var(--ui-font-family-primary)] table-fixed border-separate border-spacing-0 overflow-clip">

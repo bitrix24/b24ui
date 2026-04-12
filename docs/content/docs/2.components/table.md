@@ -291,7 +291,7 @@ class: '!p-0'
 ::
 
 ::tip
-You can use the `expanded` prop to control the expandable state of the rows (can be binded with `v-model`).
+You can use the `expanded` prop to control the expandable state of the rows (can be bound with `v-model`).
 ::
 
 ::note
@@ -322,6 +322,30 @@ class: '!p-0'
 ---
 ::
 
+### With row pinning :badge{label="Soon" class="align-text-top"}
+
+You can add a column that renders a [Button](/docs/components/button/) component inside the `cell` to toggle the pinning state of a row using the TanStack Table [Row Pinning APIs](https://tanstack.com/table/latest/docs/api/features/row-pinning). Pinned rows will stay at the top or bottom of the table regardless of sorting or filtering.
+
+::component-example
+---
+prettier: true
+collapse: true
+name: 'table-row-pinning-example'
+overflowHidden: true
+highlights:
+  - 91
+  - 107
+  - 160
+  - 165
+  - 168
+class: '!p-0'
+---
+::
+
+::tip
+You can use the `row-pinning` prop to control the pinning state of the rows (can be bound with `v-model`).
+::
+
 ### With row selection
 
 You can add a new column that renders a [Checkbox](/docs/components/checkbox/) component inside the `header` and `cell` to select rows using the TanStack Table [Row Selection APIs](https://tanstack.com/table/latest/docs/api/features/row-selection).
@@ -340,7 +364,7 @@ class: '!p-0'
 ::
 
 ::tip
-You can use the `row-selection` prop to control the selection state of the rows (can be binded with `v-model`).
+You can use the `row-selection` prop to control the selection state of the rows (can be bound with `v-model`).
 ::
 
 ### With row select event
@@ -463,7 +487,7 @@ class: '!p-0'
 ::
 
 ::tip
-You can use the `sorting` prop to control the sorting state of the columns (can be binded with `v-model`).
+You can use the `sorting` prop to control the sorting state of the columns (can be bound with `v-model`).
 ::
 
 You can also create a reusable component to make any column header sortable.
@@ -506,7 +530,7 @@ class: '!p-0 overflow-clip'
 ::
 
 ::tip
-You can use the `column-pinning` prop to control the pinning state of the columns (can be binded with `v-model`).
+You can use the `column-pinning` prop to control the pinning state of the columns (can be bound with `v-model`).
 ::
 
 ### With column visibility
@@ -527,7 +551,7 @@ class: '!p-0'
 ::
 
 ::tip
-You can use the `column-visibility` prop to control the visibility state of the columns (can be binded with `v-model`).
+You can use the `column-visibility` prop to control the visibility state of the columns (can be bound with `v-model`).
 ::
 
 ### With column filters
@@ -548,7 +572,7 @@ class: '!p-0'
 ::
 
 ::tip
-You can use the `column-filters` prop to control the filters state of the columns (can be binded with `v-model`).
+You can use the `column-filters` prop to control the filters state of the columns (can be bound with `v-model`).
 ::
 
 ### With global filter
@@ -568,7 +592,7 @@ highlights:
 ::
 
 ::tip
-You can use the `global-filter` prop to control the global filter state (can be binded with `v-model`).
+You can use the `global-filter` prop to control the global filter state (can be bound with `v-model`).
 ::
 
 ### With pagination
@@ -591,7 +615,7 @@ highlights:
 ::
 
 ::tip
-You can use the `pagination` prop to control the pagination state (can be binded with `v-model`).
+You can use the `pagination` prop to control the pagination state (can be bound with `v-model`).
 ::
 
 ### With fetched data

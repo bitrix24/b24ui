@@ -2,7 +2,7 @@
 import { h, resolveComponent, ref } from 'vue'
 import { upperFirst } from 'scule'
 import type { TableColumn, TableRow } from '@bitrix24/b24ui-nuxt'
-import type { Column } from '@tanstack/vue-table'
+import type { Column, RowPinningState } from '@tanstack/vue-table'
 import { getPaginationRowModel } from '@tanstack/vue-table'
 import { useClipboard, refDebounced } from '@vueuse/core'
 import { useState } from '#imports'
@@ -95,7 +95,21 @@ function getRowItems(row: TableRow<Payment>) {
   ]
 }
 
+const rowPinning = ref<RowPinningState>({ top: [], bottom: [] })
+
 const columns: TableColumn<Payment>[] = [
+  {
+    id: 'pin',
+    cell: ({ row }) => h(B24Button, {
+      'icon': row.getIsPinned() ? UnpinIcon : PinIcon,
+      'color': row.getIsPinned() ? 'air-selection' : 'air-tertiary-no-accent',
+      'aria-label': row.getIsPinned() ? 'Unpin row' : 'Pin row to top',
+      'onClick': () => row.pin(row.getIsPinned() ? false : 'top')
+    }),
+    enableSorting: false,
+    enableHiding: false,
+    size: 64
+  },
   {
     id: 'select',
     meta: {
@@ -174,7 +188,8 @@ const columns: TableColumn<Payment>[] = [
         month: 'short',
         hour: '2-digit',
         minute: '2-digit',
-        hour12: false
+        hour12: false,
+        timeZone: 'UTC'
       })
     },
     size: 192
@@ -269,7 +284,7 @@ function getPinnedHeader(column: Column<Payment>, label: string, position: 'left
 
 const loading = ref(true)
 const columnPinning = ref({
-  left: ['select'],
+  left: ['pin', 'select'],
   right: ['actions']
 })
 
@@ -372,7 +387,7 @@ onMounted(() => {
     <template #default="{ cardVariant, cardBorderClass }">
       <B24Card
         :variant="cardVariant"
-        :class="[cardBorderClass, 'flex-1 w-full']"
+        :class="[cardBorderClass, 'flex-1 w-full  max-h-[calc(100vh-7rem)]']"
         :b24ui="{
           body: 'p-0 sm:px-0 sm:py-0',
           footer: 'p-[12px] px-[14px] py-[14px] sm:px-[14px] sm:py-[14px] text-(length:--ui-font-size-xs) text-(--b24ui-typography-legend-color)'
@@ -382,6 +397,7 @@ onMounted(() => {
           <B24Table
             ref="table"
             :key="String(virtualize)"
+            v-model:row-pinning="rowPinning"
             :data="data"
             :columns="columns"
             :column-pinning="columnPinning"
