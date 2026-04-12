@@ -1,6 +1,5 @@
 // Keep in sync with the actual named exports from each composable file.
 // Used by both the Nuxt module (`addImports`) and Vite plugin (`unplugin-auto-import`).
-import {useLocale} from "#b24ui/composables";
 
 export const publicComposables: Record<string, string[]> = {
   defineLocale: ['defineLocale', 'extendLocale'],
