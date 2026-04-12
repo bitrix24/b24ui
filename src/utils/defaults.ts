@@ -23,6 +23,7 @@ export const defaultOptions = {
   colorModeTypeLight: 'light' as const,
   colorModeStorageKey: 'vueuse-color-scheme' as const,
   version,
+  prose: true,
   mdc: true,
   content: false
 }

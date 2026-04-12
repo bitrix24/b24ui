@@ -48,7 +48,6 @@ export default function ComponentImportPlugin(
   const colorModeIgnore = !options.colorMode ? ['color-mode/**/*.vue'] : []
   const routerMode = resolveRouterMode(options)
 
-  // Component sources in priority order (first match wins)
   const routerOverrides: Record<string, ComponentSource> = {
     'vue-router': createComponentSource(join(runtimeDir, 'vue/overrides/vue-router'), 'B24'),
     'inertia': createComponentSource(join(runtimeDir, 'vue/overrides/inertia'), 'B24'),
@@ -61,33 +60,8 @@ export default function ComponentImportPlugin(
     colorModeIgnore
   )
 
-  const defaultComponents = createComponentSource(
-    join(runtimeDir, 'components'),
-    'B24',
-    [...colorModeIgnore, 'content/*.vue', 'prose/**/*.vue']
-  )
-
-  // @memo import Prose* all time
-  const defaultProseComponents = createComponentSource(
-    join(runtimeDir, 'components/prose'),
-    'Prose',
-    []
-  )
-
-  const sources = [
-    routerOverrides[routerMode],
-    unpluginComponents,
-    defaultComponents,
-    defaultProseComponents
-  ].filter((s): s is ComponentSource => !!s)
-  const packagesToScan = [
-    '@bitrix24/b24ui-nuxt',
-    '@compodium/examples',
-    ...(Array.isArray(options.scanPackages) ? options.scanPackages : [])
-  ]
-  const escapeRegex = (str: string) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-  const packagesRegex = packagesToScan.map(escapeRegex).join('|')
-  const excludeRegex = new RegExp(`[\\\\/]node_modules[\\\\/](?!\\.pnpm|${packagesRegex})`)
+  // Override sources only: Vue-compatible replacements for Icon and Link
+  const overrideSources = [routerOverrides[routerMode], unpluginComponents].filter((s): s is ComponentSource => !!s)
 
   const internalResolverPlugin: UnpluginOptions = {
     /**
@@ -107,7 +81,7 @@ export default function ComponentImportPlugin(
 
       const filename = id.match(/([^/]+)\.vue$/)?.[1]
       if (filename) {
-        for (const source of sources) {
+        for (const source of overrideSources) {
           const resolved = source.resolveFile(filename)
           if (resolved) return resolved
         }
@@ -119,6 +93,28 @@ export default function ComponentImportPlugin(
     return [internalResolverPlugin] satisfies UnpluginOptions[]
   }
 
+  const defaultComponents = createComponentSource(
+    join(runtimeDir, 'components'),
+    'B24',
+    [...colorModeIgnore, 'content/*.vue', 'prose/**/*.vue']
+  )
+
+  const proseComponents = (options.prose || options.mdc)
+    ? createComponentSource(join(runtimeDir, 'components/prose'), 'Prose')
+    : undefined
+
+  const allSources: (ComponentSource | undefined)[] = [routerOverrides[routerMode], unpluginComponents, defaultComponents, proseComponents]
+  const filteredSources = allSources.filter((s): s is ComponentSource => !!s)
+
+  const packagesToScan = [
+    '@bitrix24/b24ui-nuxt',
+    '@compodium/examples',
+    ...(Array.isArray(options.scanPackages) ? options.scanPackages : [])
+  ]
+  const escapeRegex = (str: string) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  const packagesRegex = packagesToScan.map(escapeRegex).join('|')
+  const excludeRegex = new RegExp(`[\\\\/]node_modules[\\\\/](?!\\.pnpm|${packagesRegex})`)
+
   const pluginOptions = defu(options.components, <ComponentsOptions>{
     dts: options.dts ?? true,
     exclude: [
@@ -128,7 +124,7 @@ export default function ComponentImportPlugin(
     ],
     resolvers: [
       (componentName) => {
-        for (const source of sources) {
+        for (const source of filteredSources) {
           const resolved = source.resolve(componentName)
           if (resolved) return resolved
         }

@@ -29,13 +29,14 @@ type AppConfigB24UI = {
   prefix?: string
 } & TVConfig<typeof b24ui>
 
-export interface Bitrix24UIOptions extends Omit<ModuleOptions, 'colorMode'> {
+export interface Bitrix24UIOptions extends Omit<ModuleOptions, 'colorMode' | 'content' | 'experimental'> {
   /** Whether to generate declaration files for auto-imported components. */
   dts?: boolean
   b24ui?: AppConfigB24UI
   /**
    * Enable or disable `@vueuse/core` color-mode integration
    * @defaultValue `true`
+   * @see https://bitrix24.github.io/b24ui/docs/getting-started/installation/vue/#colormode
    */
   colorMode?: boolean
   colorModeInitialValue?: ColorModeType
@@ -48,10 +49,12 @@ export interface Bitrix24UIOptions extends Omit<ModuleOptions, 'colorMode'> {
   colorModeStorageKey?: string | null
   /**
    * Override options for `unplugin-auto-import`, or `false` to disable composable auto-imports
+   * @see https://bitrix24.github.io/b24ui/docs/getting-started/installation/vue/#autoimport
    */
   autoImport?: false | Partial<AutoImportOptions>
   /**
    * Override options for `unplugin-vue-components`, or `false` to disable component auto-imports
+   * @see https://bitrix24.github.io/b24ui/docs/getting-started/installation/vue/#components
    */
   components?: false | Partial<ComponentsOptions>
   /**
@@ -60,6 +63,7 @@ export interface Bitrix24UIOptions extends Omit<ModuleOptions, 'colorMode'> {
    * - `false`: Disable routing, use anchor tags
    * - `'inertia'`: Use Inertia.js compatibility layer
    * @defaultValue `true`
+   * @see https://bitrix24.github.io/b24ui/docs/getting-started/installation/vue/#router
    */
   router?: boolean | 'inertia'
   /**
@@ -69,6 +73,7 @@ export interface Bitrix24UIOptions extends Omit<ModuleOptions, 'colorMode'> {
   inertia?: boolean
   /**
    * Additional packages to scan for components using Nuxt UI
+   * @see https://bitrix24.github.io/b24ui/docs/getting-started/installation/vue/#scanpackages
    */
   scanPackages?: string[]
 }

@@ -21,6 +21,10 @@ export default function PluginsPlugin(options: Bitrix24UIOptions) {
     plugins.push(resolvePathSync('../runtime/vue/plugins/color-mode', { extensions: ['.ts', '.mjs', '.js'], url: import.meta.url }))
   }
 
+  const proseComponents = (options.prose || options.mdc)
+    ? globSync(['**/*.vue'], { cwd: join(runtimeDir, 'components/prose'), absolute: true })
+    : []
+
   return {
     name: 'bitrix24:b24ui:plugins',
     enforce: 'pre',
@@ -44,12 +48,19 @@ export default function PluginsPlugin(options: Bitrix24UIOptions) {
     },
     loadInclude: id => id === 'virtual:bitrix24-ui-plugins',
     load() {
+      const proseImports = proseComponents.map((p) => {
+        const name = `Prose${p.split('/').pop()?.replace(/\.vue$/, '')}`
+        return { name, path: p }
+      })
+
       return `
         ${plugins.map(p => `import ${genSafeVariableName(p)} from "${p}"`).join('\n')}
+        ${proseImports.map(c => `import ${c.name} from "${c.path}"`).join('\n')}
 
 export default {
   install (app, pluginOptions = {}) {
 ${plugins.map(p => `    app.use(${genSafeVariableName(p)}, pluginOptions)`).join('\n')}
+${proseImports.map(c => `    app.component('${c.name}', ${c.name})`).join('\n')}
   }
 }
         `

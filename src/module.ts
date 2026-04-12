@@ -47,11 +47,20 @@ export interface ModuleOptions {
   /**
    * Force the import of prose components even if `@nuxtjs/mdc` or `@nuxt/content` are not installed
    * @defaultValue true
+   * @see https://bitrix24.github.io/b24ui/docs/getting-started/installation/nuxt/#prose
+   */
+  prose?: boolean
+
+  /**
+   * @deprecated Use `prose` instead
+   * @see https://bitrix24.github.io/b24ui/docs/getting-started/installation/nuxt/#mdc
    */
   mdc?: boolean
+
   /**
    * Force the import of content & prose components even if `@nuxt/content` is not installed
    * @defaultValue false
+   * @see https://bitrix24.github.io/b24ui/docs/getting-started/installation/nuxt/#content
    */
   content?: boolean
 
@@ -191,7 +200,7 @@ export default defineNuxtModule<ModuleOptions>({
     addPlugin({ src: resolve('./runtime/plugins/ui-version') })
     addPlugin({ src: resolve('./runtime/plugins/platform') })
 
-    if (options.mdc || options.content || hasNuxtModule('@nuxtjs/mdc') || hasNuxtModule('@nuxt/content')) {
+    if (options.prose || options.mdc || options.content || hasNuxtModule('@nuxtjs/mdc') || hasNuxtModule('@nuxt/content')) {
       addComponentsDir({
         path: resolve('./runtime/components/prose'),
         pathPrefix: false,

@@ -13,6 +13,7 @@
 * feat(FileUpload): add `fileImage` prop
 * feat(ChatTool): new component
 * feat(Table): implement row pinning
+* feat(unplugin): add support for prose components
 * 
 * fix(Error): support `status` and `statusText` properties
 * fix(ContentSurround): handle RTL mode
