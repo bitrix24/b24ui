@@ -5,6 +5,9 @@ import { Repl, useStore, useVueImportMap } from '@vue/repl'
 import CodeMirror from '@vue/repl/codemirror-editor'
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
 
+// const colorMode = useColorMode()
+// const theme = computed(() => colorMode.preference === 'dark' ? 'dark' : 'light')
+
 const {
   importMap: vueImportMap,
   vueVersion
@@ -18,7 +21,11 @@ const builtinImportMap = computed(() => ({
   imports: {
     ...vueImportMap.value.imports,
     '@bitrix24/b24ui-builtin': '/bitrix24-b24ui.js',
-    'zod': 'https://esm.sh/zod@4?external=vue'
+    'zod': 'https://esm.sh/zod@4?external=vue',
+    '@vueuse/core': 'https://esm.sh/@vueuse/core?external=vue',
+    '@tanstack/vue-table': 'https://esm.sh/@tanstack/vue-table?external=vue',
+    '@internationalized/date': 'https://esm.sh/@internationalized/date',
+    'scule': 'https://esm.sh/scule'
   }
 }))
 
@@ -77,78 +84,88 @@ const state = reactive<Partial<Schema>>({
 <\/script>
 
 <template>
-  <B24App>
-    <div class="min-h-screen p-4 sm:p-6 lg:p-8 flex flex-col justify-center antialiased font-sans isolate">
-      <B24Card class="max-w-md mx-auto" variant="tinted-no-accent">
-        <B24Form :schema="schema" :state="state" class="space-y-6">
-          <B24PageCard title="Payment method" description="All transactions are secure and encrypted" variant="tinted-warning" />
+  <div class="min-h-screen p-4 sm:p-6 lg:p-8 flex flex-col justify-center">
+    <B24Card class="max-w-md mx-auto" variant="tinted-no-accent">
+      <B24Form :schema="schema" :state="state" class="space-y-6">
+        <B24PageCard title="Payment method" description="All transactions are secure and encrypted" variant="tinted-warning" />
 
-          <B24FormField name="name" label="Name" required>
-            <B24Input v-model="state.name" placeholder="John Doe" class="w-full" />
+        <B24FormField name="name" label="Name" required>
+          <B24Input v-model="state.name" placeholder="John Doe" class="w-full" />
+        </B24FormField>
+
+        <div class="grid grid-cols-3 gap-4">
+          <B24FormField name="cardNumber" label="Card number" help="Enter your 16-digit number." required class="col-span-2">
+            <B24Input v-model="state.cardNumber" placeholder="1234 5678 9012 3456" class="w-full" />
           </B24FormField>
 
-          <div class="grid grid-cols-3 gap-4">
-            <B24FormField name="cardNumber" label="Card number" help="Enter your 16-digit number." required class="col-span-2">
-              <B24Input v-model="state.cardNumber" placeholder="1234 5678 9012 3456" class="w-full" />
-            </B24FormField>
+          <B24FormField name="cvv" label="CVV" required>
+            <B24Input v-model="state.cvv" placeholder="123" class="w-full" />
+          </B24FormField>
+        </div>
 
-            <B24FormField name="cvv" label="CVV" required>
-              <B24Input v-model="state.cvv" placeholder="123" class="w-full" />
-            </B24FormField>
-          </div>
-
-          <div class="grid grid-cols-2 gap-4">
-            <B24FormField name="month" label="Month" required>
-              <B24Select v-model="state.month" :items="months" placeholder="MM" value-key="value" class="w-full" />
-            </B24FormField>
-
-            <B24FormField name="year" label="Year" required>
-              <B24Select v-model="state.year" :items="years" placeholder="YYYY" value-key="value" class="w-full" />
-            </B24FormField>
-          </div>
-
-          <B24Separator />
-
-          <B24PageCard title="Billing address" description="The billing address associated with your payment method" variant="filled-copilot" />
-
-          <B24FormField name="sameAsShipping">
-            <B24Checkbox v-model="state.sameAsShipping" label="Same as shipping address" />
+        <div class="grid grid-cols-2 gap-4">
+          <B24FormField name="month" label="Month" required>
+            <B24Select v-model="state.month" :items="months" placeholder="MM" value-key="value" class="w-full" />
           </B24FormField>
 
-          <B24Separator />
-
-          <B24FormField name="comments" label="Comments">
-            <B24Textarea v-model="state.comments" placeholder="Add any additional comments" :rows="3" class="w-full" />
+          <B24FormField name="year" label="Year" required>
+            <B24Select v-model="state.year" :items="years" placeholder="YYYY" value-key="value" class="w-full" />
           </B24FormField>
+        </div>
 
-          <div class="flex gap-3">
-            <B24Button type="submit" label="Submit" color="air-primary" />
-            <B24Button type="button" label="Cancel" color="air-secondary-no-accent" />
-          </div>
-        </B24Form>
-      </B24Card>
-    </div>
-  </B24App>
+        <B24Separator />
+
+        <B24PageCard title="Billing address" description="The billing address associated with your payment method" variant="filled-copilot" />
+
+        <B24FormField name="sameAsShipping">
+          <B24Checkbox v-model="state.sameAsShipping" label="Same as shipping address" />
+        </B24FormField>
+
+        <B24Separator />
+
+        <B24FormField name="comments" label="Comments">
+          <B24Textarea v-model="state.comments" placeholder="Add any additional comments" :rows="3" class="w-full" />
+        </B24FormField>
+
+        <div class="flex gap-3">
+          <B24Button type="submit" label="Submit" color="air-primary" />
+          <B24Button type="button" label="Cancel" color="air-secondary-no-accent" />
+        </div>
+      </B24Form>
+    </B24Card>
+  </div>
 </template>`
 
-if (!location.hash) {
+const hasInitialHash = !!location.hash
+
+if (!hasInitialHash) {
   store.setFiles({
     'src/App.vue': defaultCode
   }, 'src/App.vue')
 }
 
-watchEffect(() => history.replaceState({}, '', store.serialize()))
+watchEffect(() => {
+  const serialized = store.serialize()
+  if (!hasInitialHash && store.getFiles()['App.vue']?.trimEnd() === defaultCode.trimEnd()) {
+    if (location.hash) {
+      history.replaceState({}, '', location.pathname)
+    }
+    return
+  }
+  history.replaceState({}, '', serialized)
+})
 
 const previewOptions = {
   headHTML: [
     '<script>window.__VUE_PROD_DEVTOOLS__=false<\/script>',
     '<link rel="stylesheet" href="/bitrix24-b24ui.css">',
     '<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"><\/script>',
-    '<style type="text/tailwindcss">@layer base { .light, :root { --air-theme-bg-color: #ffffff; } .dark { --air-theme-bg-color: #000000; } }</style>'
+    '<style type="text/tailwindcss">@layer base { .light, :root { --air-theme-bg-color: #ffffff; } .dark { --air-theme-bg-color: #000000; } }</style>',
+    '<style>#app { isolation: isolate; }</style>'
   ].join(''),
   customCode: {
-    importCode: 'import b24Ui from \'@bitrix24/b24ui-builtin\'',
-    useCode: 'app.use(b24Ui)'
+    importCode: `import b24Ui, { useToast, useOverlay, defineShortcuts, useDevice, useConfetti, useSpeechRecognition, useColorMode } from '@bitrix24/b24ui-builtin'\nimport { h } from 'vue'\nwindow.useToast = useToast\nwindow.useOverlay = useOverlay\nwindow.defineShortcuts = defineShortcuts\nwindow.useDevice = useDevice\nwindow.useConfetti = useConfetti\nwindow.useSpeechRecognition = useSpeechRecognition\nwindow.useColorMode = useColorMode`,
+    useCode: `app.use(b24Ui)\napp.component('Placeholder', { template: '<div class="relative overflow-hidden rounded-sm border border-dashed border-accented opacity-75 px-4 flex items-center justify-center"><svg class="absolute inset-0 h-full w-full stroke-(--ui-color-divider-vibrant-accent-more)" fill="none"><defs><pattern id="placeholder-pattern" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M-3 13 15-5M-5 5l18-18M-1 21 17 3" /></pattern></defs><rect stroke="none" fill="url(#placeholder-pattern)" width="100%" height="100%" /></svg><slot /></div>' })\nconst _Root = app._component\nconst _B24App = app.component('B24App')\nconst _origMount = app.mount\napp.mount = function(el) {\n  const wrapper = _createApp({ render() { return h(_B24App, null, { default: () => h(_Root) }) } })\n  Object.assign(wrapper._context.components, app._context.components)\n  Object.assign(wrapper._context.directives, app._context.directives)\n  Object.assign(wrapper._context.provides, app._context.provides)\n  wrapper.config.errorHandler = e => console.error(e)\n  wrapper.mount(el)\n  window.__app__ = wrapper\n}`
   }
 }
 </script>
@@ -193,6 +210,11 @@ const previewOptions = {
 </template>
 
 <style>
+.iframe-container,
+.iframe-container iframe {
+  background-color: var(--ui-color-bg-content-primary) !important;
+}
+
 .vue-repl,
 .dark .vue-repl {
   --bg: var(--ui-color-bg-content-primary);
