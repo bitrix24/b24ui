@@ -24,6 +24,7 @@
 * fix(DashboardSearchButton): use valid HTML structure for trailing slot
 * fix(module): only auto-import public composables and allow Vite opt-out
 * fix(FileUpload): make multiple, accept and reset options reactive
+* fix(Editor): guard `lift` calls for unavailable list extensions
 * 
 * docs: improve build performance and client-side navigation
 * docs(table): add column span example
