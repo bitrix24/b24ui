@@ -34,6 +34,7 @@
 * chore(translate-ui): add script with `ai`
 * chore(deps): update nuxt framework to ^4.4.2
 * chore: move contributing skill to AGENTS.md
+* chore: add VSCode settings and simplify IntelliSense classRegex
 * 
 * playground: prevent component cutoff on small screen heights
 
