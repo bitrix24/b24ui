@@ -39,4 +39,8 @@ playgrounds/demo/components.d.ts
 playgrounds/demo/tsconfig.app.tsbuildinfo
 playgrounds/demo/tsconfig.node.tsbuildinfo
 
-# Docs
+# REPL playground
+playgrounds/repl/auto-imports.d.ts
+playgrounds/repl/components.d.ts
+playgrounds/repl/public/bitrix24-b24ui.*
+playgrounds/repl/dist/

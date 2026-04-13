@@ -14,6 +14,7 @@
 * feat(ChatTool): new component
 * feat(Table): implement row pinning
 * feat(unplugin): add support for prose components
+* feat: add standalone Vue REPL playground
 * 
 * fix(Error): support `status` and `statusText` properties
 * fix(ContentSurround): handle RTL mode
