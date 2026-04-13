@@ -494,7 +494,7 @@ ${props.slots?.default}
   return code
 })
 
-const codeKey = computed(() => `component-code-${name}-${hash(props)}-${helperForChangeComponentProps.value}`)
+const codeKey = computed(() => `component-code-${name}-${hash(props)}-${framework.value}-${helperForChangeComponentProps.value}`)
 
 const wrapperContainer = ref<HTMLElement | null>(null)
 const componentContainer = ref<HTMLElement | null>(null)

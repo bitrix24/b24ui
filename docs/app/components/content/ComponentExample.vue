@@ -126,7 +126,7 @@ ${source}
   return code
 })
 
-const { data: ast } = useAsyncData(`component-example-${camelName}${hash({ props: componentProps, collapse: props.collapse })}`, async () => {
+const { data: ast } = useAsyncData(`component-example-${camelName}${hash({ props: componentProps, collapse: props.collapse, framework: framework.value })}`, async () => {
   if (!props.prettier) {
     return cachedParseMarkdown(code.value)
   }
