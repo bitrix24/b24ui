@@ -35,6 +35,7 @@
 * docs(input): fix duplicated calling code in phone number example
 * docs: add Vue imports to code examples in Vue mode
 * docs(ComponentCode/ComponentExample): include framework in code key
+* docs(ComponentCode/ComponentExample): pre-render both framework code variants
 * 
 * chore(agents): add guide for coding agents
 * chore(deps): update dependency reka-ui to v2.9.0

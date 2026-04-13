@@ -191,7 +191,6 @@ const props = defineProps<{
 
 const route = useRoute()
 const { $prettier } = useNuxtApp()
-const { framework } = useFrameworks()
 
 const camelName = camelCase(props.slug ?? route.path.split('/').filter(Boolean).pop() ?? '')
 const name = `${props.prose ? 'Prose' : 'B24'}${upperFirst(camelName)}`
@@ -282,7 +281,7 @@ const options = computed(() => {
 /**
  * @see docs/server/utils/transformMDC.ts -> generateComponentCode
  */
-const code = computed(() => {
+function buildCode() {
   let code = ''
 
   let isUseIcon = false
@@ -345,17 +344,6 @@ ${props.slots?.default}
 <script setup lang="ts">
 `
     const importsBySource = new Map<string, Set<string>>()
-
-    // Collect vue reactivity imports first so they appear before other imports
-    if (framework.value === 'vue') {
-      const vueImports = new Set<string>()
-      for (const key of props.external!) {
-        vueImports.add(props.cast?.[key] ? 'shallowRef' : 'ref')
-      }
-      if (vueImports.size) {
-        importsBySource.set('vue', vueImports)
-      }
-    }
 
     // Collect imports from cast types
     if (props.external?.length) {
@@ -492,9 +480,27 @@ ${props.slots?.default}
   }
 
   return code
+}
+
+function wrapCode(markdown: string, cssClass: string) {
+  if (props.collapse) {
+    return markdown.replace('::code-collapse', `::code-collapse{class="${cssClass}"}`)
+  }
+  return `::div{class="${cssClass}"}\n${markdown}\n::`
+}
+
+const code = computed(() => {
+  const nuxtCode = buildCode()
+  const vueCode = addVueImports(nuxtCode)
+
+  if (vueCode !== nuxtCode) {
+    return wrapCode(nuxtCode, 'nuxt-only') + '\n\n' + wrapCode(vueCode, 'vue-only')
+  }
+
+  return nuxtCode
 })
 
-const codeKey = computed(() => `component-code-${name}-${hash(props)}-${framework.value}-${helperForChangeComponentProps.value}`)
+const codeKey = computed(() => `component-code-${name}-${hash(props)}-${helperForChangeComponentProps.value}`)
 
 const wrapperContainer = ref<HTMLElement | null>(null)
 const componentContainer = ref<HTMLElement | null>(null)

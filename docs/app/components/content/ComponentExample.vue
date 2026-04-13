@@ -90,7 +90,6 @@ const wrapperContainer = ref<HTMLElement | null>(null)
 const componentContainer = ref<HTMLElement | null>(null)
 
 const { $prettier } = useNuxtApp()
-const { framework } = useFrameworks()
 const { width } = useElementSize(el)
 const config = useRuntimeConfig()
 
@@ -104,29 +103,38 @@ const { data } = await useFetchComponentExample(camelName)
 
 const componentProps = reactive({ ...(props.props || {}) })
 
-const code = computed(() => {
-  let code = ''
-
-  if (props.collapse) {
-    code += `::code-collapse
-`
-  }
-
-  const source = framework.value === 'vue' && props.lang === 'vue' ? addVueImports(data.value?.code ?? '') : (data.value?.code ?? '')
-
-  code += `\`\`\`${props.lang} ${props.preview ? '' : ` [${props.filename ?? data.value?.pascalName}.${props.lang}]`}${props.highlights?.length ? `{${props.highlights.join('-')}}` : ''}
+function buildCodeBlock(source: string, cssClass?: string) {
+  const codeFence = `\`\`\`${props.lang} ${props.preview ? '' : ` [${props.filename ?? data.value?.pascalName}.${props.lang}]`}${props.highlights?.length ? `{${props.highlights.join('-')}}` : ''}
 ${source}
 \`\`\``
 
   if (props.collapse) {
-    code += `
+    return `::code-collapse${cssClass ? `{class="${cssClass}"}` : ''}
+${codeFence}
 ::`
   }
 
-  return code
+  if (cssClass) {
+    return `::div{class="${cssClass}"}
+${codeFence}
+::`
+  }
+
+  return codeFence
+}
+
+const code = computed(() => {
+  const rawCode = data.value?.code ?? ''
+  const vueCode = addVueImports(rawCode)
+
+  if (vueCode !== rawCode) {
+    return buildCodeBlock(rawCode, 'nuxt-only') + '\n\n' + buildCodeBlock(vueCode, 'vue-only')
+  }
+
+  return buildCodeBlock(rawCode)
 })
 
-const { data: ast } = useAsyncData(`component-example-${camelName}${hash({ props: componentProps, collapse: props.collapse, framework: framework.value })}`, async () => {
+const { data: ast } = useAsyncData(`component-example-${camelName}${hash({ props: componentProps, collapse: props.collapse })}`, async () => {
   if (!props.prettier) {
     return cachedParseMarkdown(code.value)
   }
