@@ -179,7 +179,7 @@ const urlSearchParams = computed(() => {
         class="relative group/component"
       >
         <div
-          class="relative z-[1]"
+          class="relative z-1"
           :class="[{
             'border-(--ui-color-divider-accent) border': props.border,
             'border-b-0 rounded-t-md': props.source,
@@ -248,14 +248,14 @@ const urlSearchParams = computed(() => {
     </template>
 
     <template v-if="props.source">
-      <div v-if="!!slots.code" class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0 scrollbar-transparent">
+      <div v-if="!!slots.code" class="[&_pre]:rounded-t-none! [&_div.my-5]:mt-0! scrollbar-transparent">
         <slot name="code" />
       </div>
       <MDCRenderer
         v-else-if="ast"
         :body="ast.body"
         :data="ast.data"
-        class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0 scrollbar-transparent"
+        class="[&_pre]:rounded-t-none! [&_div.my-5]:mt-0! scrollbar-transparent"
       />
     </template>
   </div>

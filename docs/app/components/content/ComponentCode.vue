@@ -553,7 +553,7 @@ const { data: ast } = useAsyncData(codeKey, async () => {
         v-if="component"
         ref="componentContainer"
         style="background-position: 10px 10px"
-        class="flex justify-center border border-b-0 border-muted relative p-4 z-[1]"
+        class="flex justify-center border border-b-0 border-muted relative p-4 z-1"
         :class="[
           !options.length && 'rounded-t-md',
           props.class,
@@ -584,7 +584,7 @@ const { data: ast } = useAsyncData(codeKey, async () => {
       v-if="ast"
       :body="ast.body"
       :data="ast.data"
-      class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0"
+      class="[&_pre]:rounded-t-none! [&_div.my-5]:mt-0!"
     />
   </div>
 </template>

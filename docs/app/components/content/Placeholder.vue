@@ -6,7 +6,7 @@ const patternId = `pattern-${useId()}`
 
 <template>
   <div class="relative overflow-hidden rounded-sm border border-dashed border-(--ui-color-divider-vibrant-accent-more) px-4 flex items-center justify-center">
-    <svg class="absolute inset-0 h-full w-full stroke-(--ui-color-divider-vibrant-accent-more)">
+    <svg class="absolute inset-0 size-full stroke-(--ui-color-divider-vibrant-accent-more)">
       <defs>
         <pattern
           :id="patternId"
