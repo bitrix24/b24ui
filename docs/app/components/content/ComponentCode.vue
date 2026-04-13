@@ -8,6 +8,7 @@ import { CalendarDate, Time } from '@internationalized/date'
 import * as theme from '#build/b24ui'
 import { get, set } from '#b24ui/utils'
 import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
+import PlayLIcon from "@bitrix24/b24icons-vue/dist/outline/esm/PlayLIcon";
 // import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 // import MoreMIcon from '@bitrix24/b24icons-vue/outline/MoreMIcon'
 // import InfoIcon from '@bitrix24/b24icons-vue/button/InfoIcon'
@@ -500,6 +501,14 @@ const code = computed(() => {
   return nuxtCode
 })
 
+const playgroundUrl = computed(() => {
+  if (props.prose) return null
+  const rawMarkdown = buildCode()
+  const vueMarkdown = addVueImports(rawMarkdown)
+  const match = vueMarkdown.match(/```vue[^\n]*\n([\s\S]*?)\n```/)
+  return match?.[1] ? getPlaygroundUrl(match[1].trim()) : null
+})
+
 const codeKey = computed(() => `component-code-${name}-${hash(props)}-${helperForChangeComponentProps.value}`)
 
 const wrapperContainer = ref<HTMLElement | null>(null)
@@ -590,6 +599,17 @@ const { data: ast } = useAsyncData(codeKey, async () => {
       </div>
 
       <ClientOnly>
+        <B24Tooltip v-if="playgroundUrl" text="Open in playground" :content="{ side: 'right' }">
+          <B24Button
+            :to="playgroundUrl"
+            target="_blank"
+            :icon="PlayLIcon"
+            size="sm"
+            class="absolute -bottom-[13px] -right-[13px] z-1 rounded-full lg:opacity-0 lg:group-hover/component:opacity-100 ring-muted transition-opacity duration-200"
+            aria-label="Open in playground"
+          />
+        </B24Tooltip>
+
         <LazyComponentThemeVisualizer
           :container="componentContainer"
           :position-container="wrapperContainer"

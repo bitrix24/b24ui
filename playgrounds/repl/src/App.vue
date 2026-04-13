@@ -20,7 +20,7 @@ const {
 const builtinImportMap = computed(() => ({
   imports: {
     ...vueImportMap.value.imports,
-    '@bitrix24/b24ui-builtin': '/bitrix24-b24ui.js',
+    '@bitrix24/b24ui-builtin': './bitrix24-b24ui.js',
     'zod': 'https://esm.sh/zod@4?external=vue',
     '@vueuse/core': 'https://esm.sh/@vueuse/core?external=vue',
     '@tanstack/vue-table': 'https://esm.sh/@tanstack/vue-table?external=vue',
@@ -158,7 +158,7 @@ watchEffect(() => {
 const previewOptions = {
   headHTML: [
     '<script>window.__VUE_PROD_DEVTOOLS__=false<\/script>',
-    '<link rel="stylesheet" href="/bitrix24-b24ui.css">',
+    '<link rel="stylesheet" href="./bitrix24-b24ui.css">',
     '<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"><\/script>',
     '<style type="text/tailwindcss">@layer base { .light, :root { --air-theme-bg-color: #ffffff; } .dark { --air-theme-bg-color: #000000; } }</style>',
     '<style>#app { isolation: isolate; }</style>'

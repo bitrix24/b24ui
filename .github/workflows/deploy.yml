@@ -60,12 +60,26 @@ jobs:
       - name: Generate Demo
         run: pnpm run demo:generate
 
+      - name: Build Repl
+        run: pnpm repl:build
+
+      - name: Prepare SPA fallback
+        run: |
+          cd playgrounds/repl/dist
+          cp index.html 404.html
+          touch .nojekyll
+
       - name: Create combined artifact
         run: |
           mkdir -p combined-artifact
           cp -r docs/.output/public/* combined-artifact/
           mkdir -p combined-artifact/demo
           cp -r playgrounds/demo/dist/* combined-artifact/demo/
+          mkdir -p combined-artifact/play
+          cp -r playgrounds/repl/dist/* combined-artifact/play/
+          cp playgrounds/repl/public/bitrix24-b24ui.css combined-artifact/play/
+          cp playgrounds/repl/public/bitrix24-b24ui.js combined-artifact/play/
+          cp playgrounds/repl/dist/.nojekyll combined-artifact/ 2>/dev/null || true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
