@@ -30,7 +30,7 @@ export default defineNuxtConfig({
 
 #### Import Tailwind CSS in your CSS
 
-```css [assets/css/main.css]
+```css [app/assets/css/main.css]
 @import "tailwindcss";
 ```
 
@@ -57,7 +57,7 @@ export default defineNuxtConfig({
 
 #### Import Tailwind CSS in your CSS
 
-```css [assets/css/main.css]
+```css [app/assets/css/main.css]
 @import "tailwindcss";
 ```
 

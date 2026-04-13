@@ -28,6 +28,7 @@
 * docs: improve build performance and client-side navigation
 * docs(table): add column span example
 * docs(editor): reorder drag handle as last child in examples
+* docs(content): update filenames to be consistent
 * 
 * chore(agents): add guide for coding agents
 * chore(deps): update dependency reka-ui to v2.9.0

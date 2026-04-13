@@ -229,7 +229,7 @@ props:
     - label: 'Colors'
       content: 'Choose a primary and a neutral color from your Tailwind CSS theme.'
     - label: 'Components'
-      content: 'You can customize components by using the `class` / `b24ui` props or in your app.config.ts.'
+      content: 'You can customize components by using the `class` / `b24ui` props or in your `app/app.config.ts`.'
 ---
 ::
 

@@ -19,7 +19,7 @@ Wrap your code-block with a `code-collapse` component to display a collapsible c
 
 ::code-collapse{class="[&>div]:my-0"}
 
-```css [main.css]
+```css [app/assets/css/main.css]
 @import "tailwindcss";
 @import "@bitrix24/b24ui-nuxt";
 
@@ -39,7 +39,7 @@ Wrap your code-block with a `code-collapse` component to display a collapsible c
 ````mdc
 ::code-collapse
 
-```css [main.css]
+```css [app/assets/css/main.css]
 @import "tailwindcss";
 @import "@bitrix24/b24ui-nuxt";
 
