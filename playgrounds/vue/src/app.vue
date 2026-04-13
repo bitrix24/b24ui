@@ -11,7 +11,7 @@ const router = useRouter()
 const appConfig = useAppConfig()
 const { components, groups, items } = useNavigation()
 
-appConfig.dir = ref('ltr')
+appConfig.dir = ref('ltr') // ltr - rtl
 appConfig.toaster = reactive({
   position: 'top-right' as const,
   duration: 5000,
@@ -112,7 +112,8 @@ defineShortcuts({
           :b24ui="{
             body: [
               route.path.startsWith('/components') && 'mt-17',
-              route.path.startsWith('/components/scroll-area') && 'p-0!'
+              route.path.startsWith('/components/scroll-area') && 'p-0!',
+              route.path.startsWith('/components/navigation-menu') && 'overflow-y-visible'
             ]
           }"
         >

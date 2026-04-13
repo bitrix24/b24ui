@@ -114,17 +114,13 @@ const items = [
 </script>
 
 <template>
-  <PlaygroundPage
-    :b24ui="{
-      root: 'overflow-visible'
-    }"
-  >
+  <PlaygroundPage :b24ui="{ root: 'overflow-visible lg:w-full' }">
     <template #controls>
-      <B24Select v-model="orientation" :items="orientations" placeholder="Orientation" />
+      <B24Select v-model="orientation" :items="orientations" size="xs" placeholder="Orientation" />
       <template v-if="orientation ==='vertical'">
-        <B24Switch v-model="collapsed" label="isCollapsed" />
-        <B24Switch v-model="tooltip" label="isTooltip" />
-        <B24Switch v-model="popover" label="isPopover" />
+        <B24Switch v-model="collapsed" size="xs" label="isCollapsed" />
+        <B24Switch v-model="tooltip" size="xs" label="isTooltip" />
+        <B24Switch v-model="popover" size="xs" label="isPopover" />
       </template>
     </template>
 

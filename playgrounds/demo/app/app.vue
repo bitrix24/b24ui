@@ -102,7 +102,8 @@ defineShortcuts({
         :b24ui="{
           body: [
             route.path.startsWith('/components') && 'mt-17',
-            route.path.startsWith('/components/scroll-area') && 'p-0!'
+            route.path.startsWith('/components/scroll-area') && 'p-0!',
+            route.path.startsWith('/components/navigation-menu') && 'overflow-y-visible'
           ]
         }"
       >

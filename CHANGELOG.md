@@ -25,6 +25,7 @@
 * fix(module): only auto-import public composables and allow Vite opt-out
 * fix(FileUpload): make multiple, accept and reset options reactive
 * fix(Editor): guard `lift` calls for unavailable list extensions
+* fix(NavigationMenu): improve RTL support for viewport and indicator
 * 
 * docs: improve build performance and client-side navigation
 * docs(table): add column span example

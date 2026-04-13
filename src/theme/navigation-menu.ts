@@ -7,7 +7,8 @@
  * @memo remove contentOrientation
  * @memo remove highlight
  * @memo remove highlightColor
- * @memo remove arrow indicator
+ * @memo remove arrow
+ * @memo remove indicator
  * @memo remove color
  * @memo remove variant (link) -> use variant.pill
  */
@@ -94,9 +95,10 @@ export default {
       'shadow-(--popup-window-box-shadow)',
       'h-(--reka-navigation-menu-viewport-height)',
       'w-(--reka-navigation-menu-viewport-width) left-(--reka-navigation-menu-viewport-left)',
+      'rtl:left-auto rtl:right-[calc(100%-var(--reka-navigation-menu-viewport-left)-var(--reka-navigation-menu-viewport-width))]',
       'rounded-(--ui-border-radius-xl) will-change-[opacity]',
-      '[&:has(>[data-viewport=rtl])]:left-auto [&:has(>[data-viewport=rtl])]:-right-[calc(100%-var(--reka-navigation-menu-viewport-width))]',
-      'transition-[width,height] duration-200 origin-[top_center]', // left
+      // '[&:has(>[data-viewport=rtl])]:left-auto [&:has(>[data-viewport=rtl])]:-right-[calc(100%-var(--reka-navigation-menu-viewport-width))]',
+      'transition-[width,height,left,right] duration-200 origin-[top_center]', // left,right
       // @memo see components/popup.css
       // 'border border-(--popup-window-border)'
       'z-1'
