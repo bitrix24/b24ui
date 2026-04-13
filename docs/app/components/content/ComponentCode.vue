@@ -8,7 +8,7 @@ import { CalendarDate, Time } from '@internationalized/date'
 import * as theme from '#build/b24ui'
 import { get, set } from '#b24ui/utils'
 import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
-import PlayLIcon from "@bitrix24/b24icons-vue/dist/outline/esm/PlayLIcon";
+import PlayLIcon from '@bitrix24/b24icons-vue/outline/PlayLIcon'
 // import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 // import MoreMIcon from '@bitrix24/b24icons-vue/outline/MoreMIcon'
 // import InfoIcon from '@bitrix24/b24icons-vue/button/InfoIcon'
