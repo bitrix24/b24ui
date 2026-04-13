@@ -29,6 +29,7 @@
 * docs(table): add column span example
 * docs(editor): reorder drag handle as last child in examples
 * docs(content): update filenames to be consistent
+* docs(input): fix duplicated calling code in phone number example
 * 
 * chore(agents): add guide for coding agents
 * chore(deps): update dependency reka-ui to v2.9.0
