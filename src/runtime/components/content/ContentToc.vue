@@ -14,6 +14,10 @@ export type ContentTocLink = TocLink & {
   b24ui?: Pick<ContentToc['slots'], 'item' | 'itemWithChildren' | 'link' | 'linkText'>
 }
 
+/**
+ * @memo We not support: color, highlight, highlightColor, highlightVariant
+ * @todo refactoring is necessary
+ */
 export interface ContentTocProps<T extends ContentTocLink = ContentTocLink> extends Pick<CollapsibleRootProps, 'defaultOpen' | 'open'> {
   /**
    * The element or component this component should render as.
