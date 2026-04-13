@@ -15,7 +15,7 @@ const attrs = reactive({
     </template>
 
     <Matrix v-slot="props" :attrs="attrs" :b24ui="{ root: 'max-w-80' }">
-      <B24Skeleton class="h-12 w-12 rounded-full" v-bind="props" />
+      <B24Skeleton class="size-12 rounded-full" v-bind="props" />
       <div class="space-y-2">
         <B24Skeleton class="h-4 w-[150px]" v-bind="props" />
         <B24Skeleton class="h-4 w-[100px]" v-bind="props" />
