@@ -160,7 +160,7 @@ function onClose() {
       tabindex="-1"
       raw
     >
-      <span class="absolute inset-0 " aria-hidden="true" />
+      <span class="absolute inset-0" aria-hidden="true" />
     </B24Link>
 
     <B24Container data-slot="container" :class="b24ui.container({ class: uiProp?.container })">
