@@ -106,7 +106,7 @@ const b24ui = computed(() => tv({
   }, appConfig.b24ui?.link || {})
 }))
 
-const href = computed(() => props.to ?? props.href)
+const href = computed(() => props.to ?? props.href ?? '')
 
 const isExternal = computed(() => {
   if (props.target === '_blank') {

@@ -105,7 +105,7 @@ const b24ui = computed(() => tv({
   }, appConfig.b24ui?.link || {})
 }))
 
-const to = computed(() => props.to ?? props.href)
+const to = computed(() => props.to ?? props.href ?? '')
 
 const isExternal = computed(() => {
   if (props.external) {
