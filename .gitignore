@@ -44,3 +44,5 @@ playgrounds/repl/auto-imports.d.ts
 playgrounds/repl/components.d.ts
 playgrounds/repl/public/bitrix24-b24ui.*
 playgrounds/repl/dist/
+
+settings.local.json

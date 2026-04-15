@@ -67,10 +67,14 @@ export default {
       'group relative',
       'size-full',
       'flex flex-row rtl:flex-row-reverse items-center transition-colors',
-      'text-start'
+      'text-start',
+      'cursor-pointer select-none outline-none',
+      'data-disabled:cursor-not-allowed data-disabled:opacity-30',
+      'gap-2',
+      'transition-colors'
     ].join(' '),
-    childLinkWrapper: 'min-w-0 flex-1 flex flex-row items-center justify-start rtl:justify-end gap-0.5',
-    childLinkIcon: 'size-4.5 shrink-0',
+    childLinkWrapper: 'min-w-0 flex-1 flex flex-row items-center justify-start rtl:justify-end gap-2',
+    childLinkIcon: 'size-[25px] shrink-0 text-(--ui-color-base-5) group-data-highlighted:text-(--ui-color-accent-main-primary) group-data-[state=open]:text-(--ui-color-accent-main-primary) transition-colors',
     childLinkHint: [
       'inline-flex m-0 absolute -top-0.5 left-6',
       'text-(length:--ui-font-size-4xs)',
@@ -134,8 +138,12 @@ export default {
           'whitespace-nowrap',
           'font-[family-name:var(--ui-font-family-primary)]',
           'text-(length:--ui-font-size-md)',
-          'text-(--b24ui-typography-legend-color) hover:text-(--b24ui-typography-label-color)',
-          'hover:bg-(--ui-color-divider-optical-1-alt)'
+          'text-(--ui-color-base-1)',
+          'hover:text-(--ui-color-base-1)',
+          'data-highlighted:text-(--ui-color-base-1) data-[state=open]:text-(--ui-color-base-1)',
+          'hover:bg-(--ui-color-divider-optical-1-alt)',
+          'data-highlighted:bg-(--ui-color-divider-optical-1-alt) data-[state=open]:bg-(--ui-color-divider-optical-1-alt)',
+          'bitrix-mobile:data-[state=open]:bg-(--ui-color-bg-state-hover-default)'
         ].join(' '),
         childLinkLabel: '',
         content: 'absolute top-0 left-0 w-full max-h-[70vh] overflow-y-auto scrollbar-thin scrollbar-transparent'
@@ -168,8 +176,11 @@ export default {
           'whitespace-nowrap',
           'font-[family-name:var(--ui-font-family-primary)]',
           'text-(length:--ui-font-size-md)',
-          'text-(--b24ui-typography-legend-color) hover:text-(--b24ui-typography-label-color)',
-          'hover:bg-(--ui-color-divider-optical-1-alt)'
+          'text-(--ui-color-base-1)',
+          'hover:text-(--ui-color-base-1)',
+          'data-highlighted:text-(--ui-color-base-1) data-[state=open]:text-(--ui-color-base-1)',
+          'hover:bg-(--ui-color-divider-optical-1-alt)',
+          'data-highlighted:bg-(--ui-color-divider-optical-1-alt) data-[state=open]:bg-(--ui-color-divider-optical-1-alt)'
         ].join(' '),
         // @memo 10 + 15 = 25 != 18
         childLabel: [
