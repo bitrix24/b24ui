@@ -376,11 +376,11 @@ Check the **Chat** overview page for installation instructions, server setup and
 
 ### With indicator slot
 
-You can customize the loading indicator that appears when the status is `submitted`.
+Use the `#indicator` slot to customize the loading indicator with a [`ChatShimmer`](/docs/components/chat-shimmer/) effect.
 
 ::component-example
 ---
-name: "chat-messages-indicator-slot-example"
+name: 'chat-messages-indicator-slot-example'
 class: 'overflow-y-auto'
 collapse: true
 ---
