@@ -7,6 +7,7 @@
 * fix(Link): prevent double-prefixing with `@nuxtjs/i18n` auto-localization
 * fix(playgrounds/repl): use b24-icons
 * fix(playgrounds/repl): use b24Link props
+* fix(playgrounds/nuxt|demo): control size (tsk:32362)
 * fix(tw:size): improve size based on Tailwind CSS default widths (tsk:31740)
 * docs(ColorMode): improve
 * docs(form): document `error-pattern` usage

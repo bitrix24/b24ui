@@ -10,7 +10,14 @@ const attrs = reactive({
 <template>
   <PlaygroundPage>
     <template #controls>
-      <B24Select v-model="attrs.variant" class="w-56" :items="variants" placeholder="Variant" multiple />
+      <B24Select
+        v-model="attrs.variant"
+        class="w-56"
+        :items="variants"
+        placeholder="Variant"
+        multiple
+        size="xs"
+      />
     </template>
 
     <Matrix :attrs="attrs">

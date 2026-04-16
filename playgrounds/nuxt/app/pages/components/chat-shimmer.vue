@@ -6,11 +6,11 @@ const spread = ref(2)
 <template>
   <PlaygroundPage>
     <template #controls>
-      <B24FormField label="Duration" orientation="horizontal">
-        <B24InputNumber v-model="duration" size="sm" class="w-28" />
+      <B24FormField label="Duration" orientation="horizontal" size="xs">
+        <B24InputNumber v-model="duration" size="xs" class="w-28" />
       </B24FormField>
-      <B24FormField label="Spread" orientation="horizontal">
-        <B24InputNumber v-model="spread" size="sm" class="w-28" />
+      <B24FormField label="Spread" orientation="horizontal" size="xs">
+        <B24InputNumber v-model="spread" size="xs" class="w-28" />
       </B24FormField>
     </template>
 

@@ -106,6 +106,7 @@ defineShortcuts({
           class="w-20"
           :min="0"
           :max="9"
+          size="xs"
         />
       </B24FormField>
 

@@ -9,7 +9,7 @@ const inset = ref(false)
 <template>
   <PlaygroundPage :b24ui="{ body: 'flex-col gap-2 max-w-100 mx-auto' }">
     <template #controls>
-      <B24Switch v-model="inset" label="Inset" />
+      <B24Switch v-model="inset" label="Inset" size="xs" />
     </template>
 
     <div class="flex flex-col gap-2 min-h-0">

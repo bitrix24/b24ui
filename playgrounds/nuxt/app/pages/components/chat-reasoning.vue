@@ -22,7 +22,7 @@ async function simulateStreaming() {
 <template>
   <PlaygroundPage>
     <template #controls>
-      <B24Button label="Simulate streaming" size="sm" @click="simulateStreaming" />
+      <B24Button label="Simulate streaming" size="xs" @click="simulateStreaming" />
     </template>
 
     <div class="w-60 flex flex-col gap-4 items-start">

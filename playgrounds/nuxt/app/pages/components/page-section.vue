@@ -39,8 +39,8 @@ const features = ref([
 <template>
   <PlaygroundPage>
     <template #controls>
-      <B24Select v-model="orientation" :items="orientations" />
-      <B24Switch v-model="reverse" label="Reverse" />
+      <B24Select v-model="orientation" :items="orientations" size="xs" />
+      <B24Switch v-model="reverse" label="Reverse" size="xs" />
     </template>
 
     <B24PageSection

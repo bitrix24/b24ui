@@ -21,20 +21,20 @@ const modal = ref(false)
 <template>
   <PlaygroundPage :b24ui="{ body: 'flex-col max-w-60 mx-auto' }">
     <template #controls>
-      <B24Tooltip text="content.align">
+      <B24Tooltip text="content.align" size="xs">
         <B24Select v-model="align" placeholder="content.align" size="xs" :items="contentAligns" />
       </B24Tooltip>
-      <B24Tooltip text="content.side">
+      <B24Tooltip text="content.side" size="xs">
         <B24Select v-model="side" placeholder="content.side" size="xs" :items="contentSides" />
       </B24Tooltip>
-      <B24Tooltip text="content.sideOffset">
+      <B24Tooltip text="content.sideOffset" size="xs">
         <B24InputNumber v-model="sideOffset" size="xs" placeholder="content.sideOffset" class="w-20" />
       </B24Tooltip>
 
-      <B24Tooltip text="Open delay (hover)">
+      <B24Tooltip text="Open delay (hover)" size="xs">
         <B24InputNumber v-model="openDelay" size="xs" placeholder="openDelay" class="w-20" />
       </B24Tooltip>
-      <B24Tooltip text="Close delay (hover)">
+      <B24Tooltip text="Close delay (hover)" size="xs">
         <B24InputNumber v-model="closeDelay" size="xs" placeholder="closeDelay" class="w-20" />
       </B24Tooltip>
       <B24Switch v-model="arrow" size="xs" label="Arrow" />

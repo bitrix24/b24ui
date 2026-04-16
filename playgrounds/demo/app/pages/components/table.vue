@@ -349,17 +349,18 @@ onMounted(() => {
 <template>
   <PlaygroundPage :b24ui="{ root: 'backdrop-blur-none' }">
     <template #controls>
-      <B24Switch v-model="virtualize" label="Virtualize" />
+      <B24Switch v-model="virtualize" label="Virtualize" size="xs" />
 
       <B24Input
         :model-value="(table?.tableApi?.getColumn('email')?.getFilterValue() as string)"
         class="min-w-44 w-44"
         placeholder="Filter emails..."
+        size="xs"
         @update:model-value="table?.tableApi?.getColumn('email')?.setFilterValue($event)"
       />
 
-      <B24Button color="air-primary-copilot" label="Randomize" @click="randomize" />
-      <B24Button color="air-primary" label="Add element" @click="addElement" />
+      <B24Button color="air-primary-copilot" label="Randomize" size="xs" @click="randomize" />
+      <B24Button color="air-primary" label="Add element" size="xs" @click="addElement" />
 
       <B24DropdownMenu
         :items="table?.tableApi?.getAllColumns().filter(column => column.getCanHide()).map(column => ({
@@ -380,6 +381,7 @@ onMounted(() => {
           color="air-secondary-accent-1"
           use-dropdown
           class="ms-auto"
+          size="xs"
         />
       </B24DropdownMenu>
     </template>
