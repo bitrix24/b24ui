@@ -149,6 +149,9 @@ The `label` as prop or slot is optional so you can use the Button as an avatar-o
 ::component-code
 ---
 prettier: true
+ignore:
+  - avatar.src
+  - avatar.loading
 props:
   avatar:
     src: '/b24ui/avatar/employee.png'

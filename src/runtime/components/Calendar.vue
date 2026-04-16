@@ -26,6 +26,9 @@ type _CalendarRootProps = Omit<CalendarRootProps, 'as' | 'asChild' | 'modelValue
 // @memo not skip 'locale'
 type _RangeCalendarRootProps = Omit<RangeCalendarRootProps, 'as' | 'asChild' | 'modelValue' | 'defaultValue' | 'dir' | 'calendarLabel' | 'multiple'>
 
+/**
+ * @memo: we not use variant
+ */
 export interface CalendarProps<R extends boolean = false, M extends boolean = false> extends _RangeCalendarRootProps, _CalendarRootProps {
   /**
    * The element or component this component should render as.
@@ -40,7 +43,7 @@ export interface CalendarProps<R extends boolean = false, M extends boolean = fa
   nextYearIcon?: IconComponent
   /**
    * Configure the next year button.
-   * `{ color: 'air-tertiary' }`{lang="ts"}
+   * `{ color: 'air-tertiary' }`{lang="ts-type"}
    */
   nextYear?: Omit<ButtonProps, LinkPropsKeys>
   /**
@@ -51,7 +54,7 @@ export interface CalendarProps<R extends boolean = false, M extends boolean = fa
   nextMonthIcon?: IconComponent
   /**
    * Configure the next month button.
-   * `{ color: 'air-tertiary' }`{lang="ts"}
+   * `{ color: 'air-tertiary' }`{lang="ts-type"}
    */
   nextMonth?: Omit<ButtonProps, LinkPropsKeys>
   /**
@@ -62,7 +65,7 @@ export interface CalendarProps<R extends boolean = false, M extends boolean = fa
   prevYearIcon?: IconComponent
   /**
    * Configure the prev year button.
-   * `{ color: 'air-tertiary' }`{lang="ts"}
+   * `{ color: 'air-tertiary' }`{lang="ts-type"}
    */
   prevYear?: Omit<ButtonProps, LinkPropsKeys>
   /**
@@ -73,7 +76,7 @@ export interface CalendarProps<R extends boolean = false, M extends boolean = fa
   prevMonthIcon?: IconComponent
   /**
    * Configure the prev month button.
-   * `{ color: 'air-tertiary' }`{lang="ts"}
+   * `{ color: 'air-tertiary' }`{lang="ts-type"}
    */
   prevMonth?: Omit<ButtonProps, LinkPropsKeys>
   /**
@@ -84,19 +87,13 @@ export interface CalendarProps<R extends boolean = false, M extends boolean = fa
    * @defaultValue 'md'
    */
   size?: Calendar['variants']['size']
-  /** Whether a range of dates can be selected */
+  /** Whether or not a range of dates can be selected */
   range?: R & boolean
-  /** Whether multiple dates can be selected */
+  /** Whether or not multiple dates can be selected */
   multiple?: M & boolean
-  /**
-   * Show month controls
-   * @defaultValue 'true'
-   */
+  /** Show month controls */
   monthControls?: boolean
-  /**
-   * Show year controls
-   * @defaultValue 'false'
-   */
+  /** Show year controls */
   yearControls?: boolean
   defaultValue?: CalendarDefaultValue<R, M>
   modelValue?: CalendarModelValue<R, M>
@@ -105,8 +102,8 @@ export interface CalendarProps<R extends boolean = false, M extends boolean = fa
   b24ui?: Calendar['slots']
 }
 
-export interface CalendarEmits<R extends boolean, M extends boolean> extends Omit<CalendarRootEmits & RangeCalendarRootEmits, 'update:modelValue'> {
-  'update:modelValue': [date: CalendarModelValue<R, M>]
+export interface CalendarEmits<R extends boolean = false, M extends boolean = false> extends Omit<CalendarRootEmits & RangeCalendarRootEmits, 'update:modelValue'> {
+  'update:modelValue': [value: CalendarModelValue<R, M>]
 }
 
 export interface CalendarSlots {
@@ -140,6 +137,7 @@ const { dir, t, locale } = useLocale()
 const appConfig = useAppConfig() as Calendar['AppConfig']
 const uiProp = useComponentUI('calendar', props)
 
+/** @memo we not use `variant` */
 const rootProps = useForwardPropsEmits(reactiveOmit(props, 'range', 'modelValue', 'defaultValue', 'color', 'size', 'monthControls', 'yearControls', 'class', 'b24ui'), emits)
 
 const nextYearIcon = computed(() => props.nextYearIcon || (dir.value === 'rtl' ? icons.chevronDoubleLeft : icons.chevronDoubleRight))

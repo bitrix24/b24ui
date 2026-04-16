@@ -205,7 +205,7 @@ prettier: true
 ignore:
   - placeholder
   - avatar.src
-  - loading.src
+  - avatar.loading
 props:
   avatar:
     src: '/b24ui/avatar/employee.png'

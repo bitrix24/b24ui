@@ -158,6 +158,8 @@ ignore:
   - variant
   - role
   - id
+  - avatar.src
+  - avatar.loading
 props:
   avatar:
     src: 'https://github.com/bitrix24.png'

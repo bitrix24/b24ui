@@ -26,6 +26,10 @@ const singleAttrs = reactive({
 })
 
 const value = shallowRef(new Time(12, 30))
+const range = shallowRef({
+  start: new Time(8, 0),
+  end: new Time(16, 30)
+})
 </script>
 
 <template>
@@ -54,19 +58,24 @@ const value = shallowRef(new Time(12, 30))
       <B24Switch v-model="singleAttrs.rounded" size="xs" label="Rounded" />
     </template>
 
-    <Matrix v-slot="props" :attrs="attrs" :b24ui="{ root: 'max-w-60' }">
-      <B24InputTime v-model="value" autofocus v-bind="{ ...singleAttrs, ...props }" class="w-full" />
-      <B24InputTime :default-value="new Time(12, 30)" v-bind="{ ...singleAttrs, ...props }" class="w-full" />
-      <B24InputTime :default-value="new Time(12, 30)" :hour-cycle="24" v-bind="{ ...singleAttrs, ...props }" class="w-full" />
-      <B24InputTime :default-value="new Time(12, 30)" locale="ru" v-bind="{ ...singleAttrs, ...props }" class="w-full" />
-      <B24InputTime required v-bind="{ ...singleAttrs, ...props }" class="w-full" />
-      <B24InputTime no-padding v-bind="{ ...singleAttrs, ...props }" class="w-full" />
-      <B24InputTime no-border v-bind="{ ...singleAttrs, ...props }" class="w-full" />
-      <B24InputTime underline v-bind="{ ...singleAttrs, ...props }" class="w-full" />
-      <B24InputTime tag="note" tag-color="air-primary-copilot" v-bind="{ ...singleAttrs, ...props }" class="w-full" />
-      <B24InputTime :icon="ClockIcon" v-bind="{ ...singleAttrs, ...props }" class="w-full" />
-      <B24InputTime :avatar="{ src: 'https://github.com/bitrix24.png' }" trailing v-bind="{ ...singleAttrs, ...props }" class="w-full" />
-      <B24InputTime :icon="ClockIcon" :trailing-icon="ChevronDownLIcon" v-bind="{ ...singleAttrs, ...props }" class="w-full" />
+    <Matrix v-slot="props" :attrs="attrs" :b24ui="{ root: 'max-w-70' }">
+      <B24InputTime v-model="value" autofocus v-bind="{ ...singleAttrs, ...props }" />
+      <B24InputTime :default-value="new Time(12, 30)" v-bind="{ ...singleAttrs, ...props }" />
+      <B24InputTime :default-value="new Time(12, 30)" :hour-cycle="24" v-bind="{ ...singleAttrs, ...props }" />
+      <B24InputTime :default-value="new Time(12, 30)" locale="ru" v-bind="{ ...singleAttrs, ...props }" />
+
+      <B24InputTime v-model="range" range v-bind="{ ...singleAttrs, ...props }" />
+      <B24InputTime :default-value="{ start: new Time(8, 0), end: new Time(16, 30) }" range v-bind="{ ...singleAttrs, ...props }" />
+
+      <B24InputTime required v-bind="{ ...singleAttrs, ...props }" />
+      <B24InputTime :hour-cycle="24" v-bind="props" />
+      <B24InputTime no-padding v-bind="{ ...singleAttrs, ...props }" />
+      <B24InputTime no-border v-bind="{ ...singleAttrs, ...props }" />
+      <B24InputTime underline v-bind="{ ...singleAttrs, ...props }" />
+      <B24InputTime tag="note" tag-color="air-primary-copilot" v-bind="{ ...singleAttrs, ...props }" />
+      <B24InputTime :icon="ClockIcon" v-bind="{ ...singleAttrs, ...props }" />
+      <B24InputTime :avatar="{ src: 'https://github.com/bitrix24.png' }" trailing v-bind="{ ...singleAttrs, ...props }" />
+      <B24InputTime :icon="ClockIcon" :trailing-icon="ChevronDownLIcon" v-bind="{ ...singleAttrs, ...props }" />
     </Matrix>
   </PlaygroundPage>
 </template>

@@ -59,22 +59,22 @@ const range = shallowRef({
     </template>
 
     <Matrix v-slot="props" :attrs="attrs" :b24ui="{ root: 'max-w-80' }">
-      <B24InputDate v-model="value" autofocus v-bind="{ ...singleAttrs, ...props }" class="w-full" />
-      <B24InputDate :default-value="new CalendarDate(2022, 1, 10)" v-bind="{ ...singleAttrs, ...props }" class="w-full" />
-      <B24InputDate :default-value="new CalendarDate(2022, 1, 10)" locale="ru" v-bind="{ ...singleAttrs, ...props }" class="w-full" />
-      <B24InputDate v-model="range" range v-bind="{ ...singleAttrs, ...props }" class="w-full" />
-      <B24InputDate :default-value="{ start: new CalendarDate(2022, 1, 10), end: new CalendarDate(2022, 1, 20) }" range v-bind="{ ...singleAttrs, ...props }" class="w-full" />
-      <B24InputDate locale="ru" v-bind="{ ...singleAttrs, ...props }" class="w-full" />
-      <B24InputDate v-bind="{ ...singleAttrs, ...props }" class="w-full" />
-      <B24InputDate required v-bind="{ ...singleAttrs, ...props }" class="w-full" />
-      <B24InputDate no-padding v-bind="{ ...singleAttrs, ...props }" class="w-full" />
-      <B24InputDate no-border v-bind="{ ...singleAttrs, ...props }" class="w-full" />
-      <B24InputDate underline v-bind="{ ...singleAttrs, ...props }" class="w-full" />
-      <B24InputDate v-bind="{ ...singleAttrs, ...props }" class="w-full" />
-      <B24InputDate tag="note" tag-color="air-primary-alert" v-bind="{ ...singleAttrs, ...props }" class="w-full" />
-      <B24InputDate :icon="ClockIcon" v-bind="{ ...singleAttrs, ...props }" class="w-full" />
-      <B24InputDate :avatar="{ src: 'https://github.com/bitrix24.png' }" v-bind="{ ...singleAttrs, ...props }" class="w-full" />
-      <B24InputDate :icon="ClockIcon" :trailing-icon="ChevronDownLIcon" v-bind="{ ...singleAttrs, ...props }" class="w-full" />
+      <B24InputDate v-model="value" autofocus v-bind="{ ...singleAttrs, ...props }" />
+      <B24InputDate :default-value="new CalendarDate(2022, 1, 10)" v-bind="{ ...singleAttrs, ...props }" />
+      <B24InputDate :default-value="new CalendarDate(2022, 1, 10)" locale="ru" v-bind="{ ...singleAttrs, ...props }" />
+      <B24InputDate v-model="range" range v-bind="{ ...singleAttrs, ...props }" />
+      <B24InputDate :default-value="{ start: new CalendarDate(2022, 1, 10), end: new CalendarDate(2022, 1, 20) }" range v-bind="{ ...singleAttrs, ...props }" />
+      <B24InputDate locale="ru" v-bind="{ ...singleAttrs, ...props }" />
+      <B24InputDate v-bind="{ ...singleAttrs, ...props }" />
+      <B24InputDate required v-bind="{ ...singleAttrs, ...props }" />
+      <B24InputDate no-padding v-bind="{ ...singleAttrs, ...props }" />
+      <B24InputDate no-border v-bind="{ ...singleAttrs, ...props }" />
+      <B24InputDate underline v-bind="{ ...singleAttrs, ...props }" />
+      <B24InputDate v-bind="{ ...singleAttrs, ...props }" />
+      <B24InputDate tag="note" tag-color="air-primary-alert" v-bind="{ ...singleAttrs, ...props }" />
+      <B24InputDate :icon="ClockIcon" v-bind="{ ...singleAttrs, ...props }" />
+      <B24InputDate :avatar="{ src: 'https://github.com/bitrix24.png' }" v-bind="{ ...singleAttrs, ...props }" />
+      <B24InputDate :icon="ClockIcon" :trailing-icon="ChevronDownLIcon" v-bind="{ ...singleAttrs, ...props }" />
     </Matrix>
   </PlaygroundPage>
 </template>

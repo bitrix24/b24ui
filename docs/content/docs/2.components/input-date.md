@@ -153,22 +153,6 @@ props:
 ---
 ::
 
-### Separator Icon
-
-Use the `separator-icon` prop to change the icon of the range separator.
-
-::component-code
----
-ignore:
-  - separatorIcon
-cast:
-  separatorIcon: 'RocketIcon'
-props:
-  range: true
-  separatorIcon: 'RocketIcon'
----
-::
-
 ### Icon
 
 Use the `icon` prop to show an [Icon](https://bitrix24.github.io/b24icons/icons/) inside the InputDate.
@@ -184,6 +168,23 @@ props:
 ---
 ::
 
+### Separator Icon
+
+Use the `separator-icon` prop to change the [Icon](https://bitrix24.github.io/b24icons/icons/) of the range separator.
+
+::component-code
+---
+ignore:
+  - range
+  - separatorIcon
+cast:
+  separatorIcon: 'RocketIcon'
+props:
+  range: true
+  separatorIcon: 'RocketIcon'
+---
+::
+
 ### Avatar
 
 Use the `avatar` prop to show an [Avatar](/docs/components/avatar/) inside the InputDate.
@@ -193,9 +194,11 @@ Use the `avatar` prop to show an [Avatar](/docs/components/avatar/) inside the I
 prettier: true
 ignore:
   - avatar.src
+  - avatar.loading
 props:
   avatar:
     src: '/b24ui/avatar/employee.png'
+    loading: lazy
   size: md
 ---
 ::

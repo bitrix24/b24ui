@@ -15,6 +15,9 @@ type _RangeDateFieldRootProps = Omit<DateRangeFieldRootProps, 'as' | 'asChild' |
 type InputDateDefaultValue<R extends boolean = false> = R extends true ? DateRangeFieldRootProps['defaultValue'] : DateFieldRootProps['defaultValue']
 type InputDateModelValue<R extends boolean = false> = (R extends true ? DateRangeFieldRootProps['modelValue'] : DateFieldRootProps['modelValue']) | undefined
 
+/**
+ * @memo: we not use variant
+ */
 export interface InputDateProps<R extends boolean = false> extends UseComponentIconsProps, _DateFieldRootProps, _RangeDateFieldRootProps {
   /**
    * The element or component this component should render as.
@@ -56,7 +59,7 @@ export interface InputDateProps<R extends boolean = false> extends UseComponentI
   tagColor?: BadgeProps['color']
   /** Highlight the ring color like a focus state. */
   highlight?: boolean
-  /** Keep the mobile text size on all breakpoints. (Left for backward compatibility.) */
+  /** Keep the mobile text size on all breakpoints. */
   fixed?: boolean
   autofocus?: boolean
   autofocusDelay?: number
@@ -74,8 +77,8 @@ export interface InputDateProps<R extends boolean = false> extends UseComponentI
   b24ui?: InputDate['slots']
 }
 
-export interface InputDateEmits<R extends boolean> extends Omit<DateFieldRootEmits & DateRangeFieldRootEmits, 'update:modelValue'> {
-  'update:modelValue': [date: InputDateModelValue<R>]
+export interface InputDateEmits<R extends boolean = false> extends Omit<DateFieldRootEmits & DateRangeFieldRootEmits, 'update:modelValue'> {
+  'update:modelValue': [value: InputDateModelValue<R>]
   'change': [event: Event]
   'blur': [event: FocusEvent]
   'focus': [event: FocusEvent]
@@ -115,7 +118,7 @@ const slots = defineSlots<InputDateSlots>()
 const appConfig = useAppConfig() as InputDate['AppConfig']
 const uiProp = useComponentUI('inputDate', props)
 
-/** @memo we not use `leading`, `leadingIcon`, `trailing` and `loadingIcon` */
+/** @memo we not use `variant`, `leading`, `leadingIcon`, `trailing` and `loadingIcon` */
 const rootProps = useForwardPropsEmits(reactiveOmit(props, 'id', 'name', 'range', 'modelValue', 'defaultValue', 'color', 'size', 'highlight', 'fixed', 'disabled', 'autofocus', 'autofocusDelay', 'icon', 'avatar', 'trailingIcon', 'loading', 'separatorIcon', 'class', 'b24ui'), emits)
 const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, size: formGroupSize, color, id, name, highlight, disabled, ariaAttrs } = useFormField<InputDateProps<R>>(props)
 const { orientation, size: fieldGroupSize } = useFieldGroup<InputDateProps<R>>(props)
@@ -237,11 +240,7 @@ defineExpose({
     <template v-else>
       <ReuseSegmentsTemplate :segments="segments.start" type="start" />
       <slot name="separator" :b24ui="b24ui">
-        <Component
-          :is="separatorIcon || icons.minus"
-          data-slot="separatorIcon"
-          :class="b24ui.separatorIcon({ class: uiProp?.separatorIcon })"
-        />
+        <Component :is="separatorIcon || icons.minus" data-slot="separatorIcon" :class="b24ui.separatorIcon({ class: uiProp?.separatorIcon })" />
       </slot>
       <ReuseSegmentsTemplate :segments="segments.end" type="end" />
     </template>
@@ -250,30 +249,14 @@ defineExpose({
 
     <span v-if="isLeading || !!avatar || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: uiProp?.leading })">
       <slot name="leading" :b24ui="b24ui">
-        <Component
-          :is="leadingIconName"
-          v-if="isLeading && leadingIconName"
-          data-slot="leadingIcon"
-          :class="b24ui.leadingIcon({ class: uiProp?.leadingIcon })"
-        />
-        <B24Avatar
-          v-else-if="!!avatar"
-          :size="((uiProp?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
-          v-bind="avatar"
-          data-slot="leadingAvatar"
-          :class="b24ui.leadingAvatar({ class: uiProp?.leadingAvatar })"
-        />
+        <Component :is="leadingIconName" v-if="isLeading && leadingIconName" data-slot="leadingIcon" :class="b24ui.leadingIcon({ class: uiProp?.leadingIcon })" />
+        <B24Avatar v-else-if="!!avatar" :size="((uiProp?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])" v-bind="avatar" data-slot="leadingAvatar" :class="b24ui.leadingAvatar({ class: uiProp?.leadingAvatar })" />
       </slot>
     </span>
 
     <span v-if="isTrailing || !!slots.trailing" data-slot="trailing" :class="b24ui.trailing({ class: uiProp?.trailing })">
       <slot name="trailing" :b24ui="b24ui">
-        <Component
-          :is="trailingIconName"
-          v-if="trailingIconName"
-          data-slot="trailingIcon"
-          :class="b24ui.trailingIcon({ class: uiProp?.trailingIcon })"
-        />
+        <Component :is="trailingIconName" v-if="trailingIconName" data-slot="trailingIcon" :class="b24ui.trailingIcon({ class: uiProp?.trailingIcon })" />
       </slot>
     </span>
   </DateField.Root>

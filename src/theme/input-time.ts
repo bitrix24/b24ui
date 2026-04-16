@@ -39,7 +39,8 @@ export default () => {
         'data-disabled:resize-none',
         'transition-colors',
         'focus:bg-(--ui-color-bg-content-secondary)'
-      ].join(' ')
+      ].join(' '),
+      separatorIcon: 'shrink-0 size-4 text-muted'
     },
     variants: {
       ...fieldGroupVariant,

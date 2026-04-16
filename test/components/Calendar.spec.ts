@@ -21,6 +21,8 @@ describe('Calendar', () => {
     ['with modelValue', { props: { modelValue: new CalendarDate(2025, 1, 1) } }],
     ['with default value', { props: { defaultValue: new CalendarDate(2025, 1, 1) } }],
     ['with range', { props: { range: true } }],
+    ['with range and modelValue', { props: { range: true, modelValue: { start: new CalendarDate(2025, 1, 1), end: new CalendarDate(2025, 1, 2) } } }],
+    ['with range and defaultValue', { props: { range: true, defaultValue: { start: new CalendarDate(2025, 1, 1), end: new CalendarDate(2025, 1, 2) } } }],
     ['with multiple', { props: { multiple: true } }],
     ['with disabled', { props: { disabled: true } }],
     ['with readonly', { props: { readonly: true } }],
@@ -49,7 +51,7 @@ describe('Calendar', () => {
   ])
 
   describe('emits', () => {
-    test('update:modelValue event single', async () => {
+    test('update:modelValue event', async () => {
       const wrapper = await mountSuspended(Calendar)
       const date = new CalendarDate(2025, 1, 1)
 
@@ -59,7 +61,7 @@ describe('Calendar', () => {
 
     test('update:modelValue event range', async () => {
       const wrapper = await mountSuspended(Calendar, { props: { range: true } })
-      const date = [new CalendarDate(2025, 1, 1), new CalendarDate(2025, 1, 2)]
+      const date = { start: new CalendarDate(2025, 1, 1), end: new CalendarDate(2025, 1, 2) }
 
       await wrapper.setValue(date)
       expect(wrapper.emitted()).toMatchObject({ 'update:modelValue': [[date]] })

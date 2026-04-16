@@ -16,11 +16,15 @@ links:
     avatar:
       src: /b24ui/avatar/rekaui.svg
     to: https://reka-ui.com/docs/components/time-field
+  - label: TimeRangeField
+    avatar:
+      src: /b24ui/avatar/rekaui.svg
+    to: https://reka-ui.com/docs/components/time-range-field
 ---
 
 ## Usage
 
-Use the `v-model` directive to control the selected date.
+Use the `v-model` directive to control the selected time.
 
 ::component-code
 ---
@@ -46,7 +50,7 @@ ignore:
 external:
   - defaultValue
 props:
-  defaultValue: [12, 30, 0]
+  defaultValue: [9, 45, 0]
 ---
 ::
 
@@ -61,6 +65,30 @@ This component uses the `@internationalized/date` package for locale-aware forma
 This component uses the `@internationalized/date` package for locale-aware formatting. The time format is determined by the `locale` prop of the App component.
 :::
 ::
+
+### Range
+
+Use the `range` prop to enable time range selection with start and end times.
+
+::component-code
+---
+prettier: true
+cast:
+  modelValue: TimeRangeValue
+ignore:
+  - range
+  - modelValue.start
+  - modelValue.end
+external:
+  - modelValue
+props:
+  range: true
+  modelValue:
+    start: [9, 0, 0]
+    end: [17, 30, 0]
+---
+::
+
 
 ### Hour Cycle
 
@@ -165,6 +193,23 @@ cast:
   icon: 'RocketIcon'
 props:
   icon: 'RocketIcon'
+---
+::
+
+### Separator Icon
+
+Use the `separator-icon` prop to change the [Icon](https://bitrix24.github.io/b24icons/icons/) of the range separator.
+
+::component-code
+---
+ignore:
+  - range
+  - separatorIcon
+cast:
+  separatorIcon: 'RocketIcon'
+props:
+  range: true
+  separatorIcon: 'RocketIcon'
 ---
 ::
 

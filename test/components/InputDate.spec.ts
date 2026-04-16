@@ -5,6 +5,8 @@ import { renderEach } from '../component-render'
 import { CalendarDate } from '@internationalized/date'
 import InputDate from '../../src/runtime/components/InputDate.vue'
 import theme from '#build/b24ui/input-date'
+import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
+import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
 
 describe('InputDate', () => {
   const sizes = Object.keys(theme.variants.size) as any
@@ -21,11 +23,17 @@ describe('InputDate', () => {
     ['with modelValue', { props: { modelValue: new CalendarDate(2025, 1, 1) } }],
     ['with default value', { props: { defaultValue: new CalendarDate(2025, 1, 1) } }],
     ['with range', { props: { range: true } }],
+    ['with range and modelValue', { props: { range: true, modelValue: { start: new CalendarDate(2025, 1, 1), end: new CalendarDate(2025, 1, 15) } } }],
+    ['with range and defaultValue', { props: { range: true, defaultValue: { start: new CalendarDate(2025, 1, 1), end: new CalendarDate(2025, 1, 15) } } }],
     ['with disabled', { props: { disabled: true } }],
     ['with readonly', { props: { readonly: true } }],
     ['with isDateUnavailable', { props: { isDateUnavailable: () => true } }],
     ['with minValue', { props: { minValue: new CalendarDate(2025, 1, 1) } }],
     ['with maxValue', { props: { maxValue: new CalendarDate(2025, 1, 31) } }],
+    ['with icon', { props: { icon: SignIcon } }],
+    ['with leadingIcon', { props: { leadingIcon: Cross30Icon } }],
+    ['with trailingIcon', { props: { trailingIcon: SignIcon } }],
+    ['with separatorIcon', { props: { range: true, separatorIcon: Cross30Icon } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { size } }]),
     ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],
     ['with as', { props: { as: 'section' } }],
@@ -39,7 +47,7 @@ describe('InputDate', () => {
   ])
 
   describe('emits', () => {
-    test('update:modelValue event single', async () => {
+    test('update:modelValue event', async () => {
       const wrapper = await mountSuspended(InputDate)
       const date = new CalendarDate(2025, 1, 1)
 
@@ -49,7 +57,7 @@ describe('InputDate', () => {
 
     test('update:modelValue event range', async () => {
       const wrapper = await mountSuspended(InputDate, { props: { range: true } })
-      const date = [new CalendarDate(2025, 1, 1), new CalendarDate(2025, 1, 2)]
+      const date = { start: new CalendarDate(2025, 1, 1), end: new CalendarDate(2025, 1, 2) }
 
       await wrapper.setValue(date)
       expect(wrapper.emitted()).toMatchObject({ 'update:modelValue': [[date]] })
