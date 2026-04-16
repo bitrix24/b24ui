@@ -32,6 +32,7 @@
 * fix(NavigationMenu): propagate disabled state to item in vertical orientation
 * fix(Modal/Slideover/Popover/Drawer): prevent double `close:prevent` emit
 * fix(ChatMessages): keep indicator visible until first content arrives
+* fix(ChatMessage): hide files slot when no file parts exist
 * 
 * docs: improve build performance and client-side navigation
 * docs(table): add column span example

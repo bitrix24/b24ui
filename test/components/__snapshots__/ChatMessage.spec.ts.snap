@@ -93,7 +93,9 @@ exports[`ChatMessage > renders with files slot correctly 1`] = `
   <div data-slot="files" class="flex items-center gap-1.5 mb-1.5">Files slot</div>
   <div data-slot="container" class="relative flex items-start gap-3 pb-8">
     <!--v-if-->
-    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight-alt) text-(--ui-color-design-outline-content-secondary) space-y-4 px-3 py-2 rounded-md min-h-[42px]">Hello, how are you?</div>
+    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight-alt) text-(--ui-color-design-outline-content-secondary) space-y-4 px-3 py-2 rounded-md min-h-[42px]">Hello, how are you?
+      <!--v-if-->
+    </div>
     <!--v-if-->
   </div>
 </article>"
