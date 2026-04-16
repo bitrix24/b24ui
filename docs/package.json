@@ -41,7 +41,7 @@
     "nuxt-llms": "^0.2.0",
     "nuxt-og-image": "^6.3.2",
     "prettier": "^3.8.1",
-    "shiki": "^3.23.0",
+    "shiki": "^4.0.2",
     "shiki-stream": "^0.1.4",
     "shiki-transformer-color-highlight": "^1.1.0",
     "@shikijs/core": "^3.22.0",
