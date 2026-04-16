@@ -288,14 +288,21 @@ defineShortcuts({
                 class="*:first:mt-0 *:last:mb-0"
               />
             </B24ChatReasoning>
-            <MDCCached
-              v-else-if="isTextUIPart(part) && part.text.length > 0"
-              :value="part.text"
-              :cache-key="`${message.id}-${index}`"
-              :components="components"
-              :parser-options="{ highlight: false }"
-              class="*:first:mt-0 *:last:mb-0"
-            />
+
+            <template v-else-if="isTextUIPart(part) && part.text.length > 0">
+              <MDCCached
+                v-if="message.role === 'assistant'"
+                :value="part.text"
+                :cache-key="`${message.id}-${index}`"
+                :components="components"
+                :parser-options="{ highlight: false }"
+                class="*:first:mt-0 *:last:mb-0"
+              />
+              <p v-else-if="message.role === 'user'" class="whitespace-pre-wrap">
+                {{ part.text }}
+              </p>
+            </template>
+
             <B24ChatTool
               v-else-if="isToolUIPart(part)"
               :text="getToolText(part)"
