@@ -8,7 +8,7 @@ import { createDeepSeek } from '@ai-sdk/deepseek'
  * @memo sync with: docs/content/docs/2.components/chat.md:297
  */
 
-const maxStepCount = 6
+const maxStepCount = 5
 
 export default defineEventHandler(async (event) => {
   const { messages } = await readBody(event)
@@ -71,7 +71,7 @@ Guidelines:
     // @todo fix me deepseek-reasoner | deepseek-chat
     model: deepseek('deepseek-reasoner'),
     // @todo fix me 10000 | 8100
-    maxOutputTokens: 10000,
+    maxOutputTokens: 8000,
     providerOptions: {},
     system,
     messages: await convertToModelMessages(messages),

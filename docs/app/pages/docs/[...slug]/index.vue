@@ -182,8 +182,8 @@ function makeExplain() {
     v-if="page"
     :b24ui="{
       root: 'lg:gap-2.5 lg:py-3',
-      center: 'flex flex-col lg:gap-4',
-      right: 'lg:col-span-2 order-first lg:order-last lg:top-[0px]'
+      center: `flex flex-col lg:gap-4 ${open ? 'lg:col-span-10' : ''}`,
+      right: `order-first lg:order-last lg:top-[0px] ${open ? 'lg:col-span-0' : 'lg:col-span-2'}`
     }"
   >
     <PageHeader>

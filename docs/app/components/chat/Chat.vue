@@ -15,6 +15,7 @@ import AiStarsIcon from '@bitrix24/b24icons-vue/outline/AiStarsIcon'
 import SearchIcon from '@bitrix24/b24icons-vue/outline/SearchIcon'
 import FileIcon from '@bitrix24/b24icons-vue/outline/FileIcon'
 import TrashcanIcon from '@bitrix24/b24icons-vue/outline/TrashcanIcon'
+import CopilotAi2Icon from '@bitrix24/b24icons-vue/main/CopilotAi2Icon'
 
 const components = {
   pre: ProseStreamPre as unknown as DefineComponent
@@ -267,6 +268,10 @@ defineShortcuts({
         class="px-0 gap-2"
         :user="{ b24ui: { container: 'max-w-full' } }"
       >
+        <template #indicator>
+          <B24ChatTool :icon="CopilotAi2Icon" text="Thinking..." streaming />
+        </template>
+
         <template #content="{ message }">
           <template v-for="(part, index) in message.parts" :key="`${message.id}-${part.type}-${index}`">
             <B24ChatReasoning
