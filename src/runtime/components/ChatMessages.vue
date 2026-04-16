@@ -105,7 +105,6 @@ const showIndicator = computed(() => {
   return lastMessage?.role === 'assistant' && !lastMessage.parts?.length
 })
 
-
 const appConfig = useAppConfig() as ChatMessages['AppConfig']
 const uiProp = useComponentUI('chatMessages', props)
 
