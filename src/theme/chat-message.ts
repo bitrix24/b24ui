@@ -12,6 +12,7 @@ export default {
     leadingIcon: 'shrink-0 text-(--ui-color-design-plain-content-icon-secondary)',
     leadingAvatar: 'shrink-0',
     leadingAvatarSize: '',
+    files: 'flex items-center gap-1.5 mb-1.5',
     content: 'relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0',
     actions: [
       'opacity-0 group-hover/message:opacity-100 absolute bottom-0 flex items-center',
@@ -31,11 +32,10 @@ export default {
       }
     },
     side: {
-      left: {
-        container: 'rtl:justify-end'
-      },
+      left: {},
       right: {
-        container: 'ltr:justify-end ms-auto max-w-[85%]'
+        container: 'justify-end ms-auto max-w-[75%]',
+        files: 'justify-end'
       }
     },
     leading: {

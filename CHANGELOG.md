@@ -16,6 +16,7 @@
 * feat(unplugin): add support for prose components
 * feat: add standalone Vue REPL playground
 * feat(InputTime): add `range` prop
+* feat(ChatMessage): add `files` slot
 * 
 * fix(Error): support `status` and `statusText` properties
 * fix(ContentSurround): handle RTL mode
