@@ -93,12 +93,12 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 <template>
   <PlaygroundPage>
     <template #controls>
-      <B24Select v-model="attrs.size" class="w-32" :items="sizes" placeholder="Size" multiple />
-      <B24Select v-model="attrs.color" class="w-44" :items="colors" placeholder="Color" multiple />
-      <B24Select v-model="singleAttrs.variant" class="w-32" :items="variants" placeholder="Variant" />
-      <B24Select v-model="singleAttrs.layout" class="w-32" :items="layouts" placeholder="Layout" />
-      <B24Select v-model="singleAttrs.position" class="w-32" :items="positions" placeholder="Position" />
-      <B24Switch v-model="singleAttrs.preview" label="Preview" />
+      <B24Select v-model="attrs.size" class="w-32" :items="sizes" placeholder="Size" multiple size="xs" />
+      <B24Select v-model="attrs.color" class="w-44" :items="colors" placeholder="Color" multiple size="xs" />
+      <B24Select v-model="singleAttrs.variant" class="w-32" :items="variants" placeholder="Variant" size="xs" />
+      <B24Select v-model="singleAttrs.layout" class="w-32" :items="layouts" placeholder="Layout" size="xs" />
+      <B24Select v-model="singleAttrs.position" class="w-32" :items="positions" placeholder="Position" size="xs" />
+      <B24Switch v-model="singleAttrs.preview" label="Preview" size="xs" />
     </template>
 
     <Matrix v-slot="props" :attrs="attrs" :b24ui="{ root: 'max-w-80' }">

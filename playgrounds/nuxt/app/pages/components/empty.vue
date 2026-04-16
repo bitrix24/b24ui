@@ -24,9 +24,9 @@ const inverted = ref(false)
 <template>
   <PlaygroundPage>
     <template #controls>
-      <B24Select v-model="attrs.color" class="w-44" :items="airColors" multiple placeholder="Color" />
-      <B24Select v-model="attrs.size" class="w-32" :items="sizes" multiple placeholder="Size" />
-      <B24Switch v-model="inverted" label="Inverted" />
+      <B24Select v-model="attrs.color" class="w-44" :items="airColors" multiple placeholder="Color" size="xs" />
+      <B24Select v-model="attrs.size" class="w-32" :items="sizes" multiple placeholder="Size" size="xs" />
+      <B24Switch v-model="inverted" label="Inverted" size="xs" />
     </template>
 
     <Matrix v-slot="props" :attrs="attrs" :b24ui="{ root: 'max-w-120' }">

@@ -105,7 +105,7 @@ defineShortcuts({
           v-model="singleAttrs.rows"
           class="w-20"
           :min="0"
-          :max="9"
+          :max="9" size="xs"
         />
       </B24FormField>
 

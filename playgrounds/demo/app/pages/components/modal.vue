@@ -38,12 +38,12 @@ function openModal() {
 <template>
   <PlaygroundPage :b24ui="{ body: 'flex-col gap-2 max-w-100 mx-auto' }">
     <template #controls>
-      <B24Switch v-model="attrs.overlay" label="Overlay" />
-      <B24Switch v-model="attrs.modal" label="Modal" />
-      <B24Switch v-model="attrs.transition" label="Transition" />
-      <B24Switch v-model="attrs.close" label="Close" />
-      <B24Switch v-model="attrs.portal" label="Portal" />
-      <B24Switch v-model="attrs.fullscreen" label="Fullscreen" />
+      <B24Switch v-model="attrs.overlay" label="Overlay" size="xs" />
+      <B24Switch v-model="attrs.modal" label="Modal" size="xs" />
+      <B24Switch v-model="attrs.transition" label="Transition" size="xs" />
+      <B24Switch v-model="attrs.close" label="Close" size="xs" />
+      <B24Switch v-model="attrs.portal" label="Portal" size="xs" />
+      <B24Switch v-model="attrs.fullscreen" label="Fullscreen" size="xs" />
     </template>
 
     <B24Modal title="First modal" v-bind="attrs">

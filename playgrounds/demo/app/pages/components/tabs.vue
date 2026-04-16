@@ -44,8 +44,8 @@ const items = [
 <template>
   <PlaygroundPage>
     <template #controls>
-      <B24Select v-model="attrs.size" class="w-32" :items="sizes" placeholder="Size" multiple />
-      <B24Select v-model="orientation" class="w-44" :items="orientations" placeholder="Orientation" />
+      <B24Select v-model="attrs.size" class="w-32" :items="sizes" placeholder="Size" multiple size="xs" />
+      <B24Select v-model="orientation" class="w-44" :items="orientations" placeholder="Orientation" size="xs" />
     </template>
 
     <Matrix v-slot="props" :attrs="attrs" :b24ui="{ root: 'grow-0', body: 'overflow-x-auto' }">

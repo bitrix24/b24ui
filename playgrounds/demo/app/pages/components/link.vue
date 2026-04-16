@@ -16,14 +16,14 @@ const classes = reactive({
 <template>
   <PlaygroundPage>
     <template #controls>
-      <B24Input v-model="attrs.to" class="min-w-52" type="url" placeholder="to" />
-      <B24Input v-model="classes.activeClass" class="min-w-52" placeholder="activeClass" />
-      <B24Input v-model="classes.inactiveClass" class="min-w-52" placeholder="inactiveClass" />
+      <B24Input v-model="attrs.to" class="min-w-52" type="url" placeholder="to" size="xs" />
+      <B24Input v-model="classes.activeClass" class="min-w-52" placeholder="activeClass" size="xs" />
+      <B24Input v-model="classes.inactiveClass" class="min-w-52" placeholder="inactiveClass" size="xs" />
 
-      <B24Switch v-model="attrs.active" label="Active" />
-      <B24Switch v-model="attrs.disabled" label="Disabled" />
-      <B24Switch v-model="attrs.raw" label="Raw" />
-      <B24Switch v-model="attrs.isAction" label="isAction" />
+      <B24Switch v-model="attrs.active" label="Active" size="xs" />
+      <B24Switch v-model="attrs.disabled" label="Disabled" size="xs" />
+      <B24Switch v-model="attrs.raw" label="Raw" size="xs" />
+      <B24Switch v-model="attrs.isAction" label="isAction" size="xs" />
     </template>
 
     <template #default="{ cardVariant, cardBorderClass }">

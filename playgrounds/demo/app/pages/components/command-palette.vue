@@ -226,7 +226,7 @@ defineShortcuts({
 
   <PlaygroundPage>
     <template #controls>
-      <B24Modal v-model:open="open" :b24ui="{ content: 'p-0 pt-0 pb-[0px]' }">
+      <B24Modal v-model:open="open" :b24ui="{ content: 'p-0 pt-0 pb-[0px]' }" size="xs">
         <B24Button label="Open modal" size="xs" />
         <template #content>
           <ReuseTemplate :close="true" @update:open="open = $event" />

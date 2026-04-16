@@ -46,41 +46,41 @@ const virtualizeOptions = computed(() => {
 <template>
   <PlaygroundPage>
     <template #controls>
-      <B24Switch v-model="virtualize" label="Virtualize" />
+      <B24Switch v-model="virtualize" label="Virtualize" size="xs" />
       <B24FieldGroup>
         <B24Button
           active-color="air-primary"
           :active="orientation === 'vertical'"
           :icon="MoreVerticalLIcon"
-          @click="orientation = 'vertical'"
+          @click="orientation = 'vertical'" size="xs"
         />
         <B24Button
           active-color="air-primary"
           :active="orientation === 'horizontal'"
           :icon="MoreLIcon"
-          @click="orientation = 'horizontal'"
+          @click="orientation = 'horizontal'" size="xs"
         />
       </B24FieldGroup>
       <template v-if="virtualize">
-        <B24FormField label="gap" orientation="horizontal">
+        <B24FormField label="gap" orientation="horizontal" size="xs">
           <B24InputNumber
             v-model="gap"
             class="w-16"
             :min="0"
             :icon="ColumnsIcon"
             :max="48"
-            orientation="vertical"
+            orientation="vertical" size="xs"
           />
         </B24FormField>
 
-        <B24FormField label="lanes" orientation="horizontal">
+        <B24FormField label="lanes" orientation="horizontal" size="xs">
           <B24InputNumber
             v-model="lanes"
             class="w-16"
             :min="1"
             :icon="AppsIcon"
             :max="10"
-            orientation="vertical"
+            orientation="vertical" size="xs"
           />
         </B24FormField>
       </template>

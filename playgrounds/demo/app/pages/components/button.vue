@@ -30,12 +30,12 @@ function onClick() {
 <template>
   <PlaygroundPage>
     <template #controls>
-      <B24Select v-model="multipleAttrs.color" class="w-44" :items="airColors" placeholder="Color" multiple />
-      <B24Select v-model="multipleAttrs.size" class="w-32" :items="sizes" placeholder="Size" multiple />
+      <B24Select v-model="multipleAttrs.color" class="w-44" :items="airColors" placeholder="Color" multiple size="xs" />
+      <B24Select v-model="multipleAttrs.size" class="w-32" :items="sizes" placeholder="Size" multiple size="xs" />
 
-      <B24Switch v-model="singleAttrs.useDropdown" label="useDropdown" />
-      <B24Switch v-model="singleAttrs.rounded" label="Rounded" />
-      <B24Switch v-model="singleAttrs.loading" label="Loading" />
+      <B24Switch v-model="singleAttrs.useDropdown" label="useDropdown" size="xs" />
+      <B24Switch v-model="singleAttrs.rounded" label="Rounded" size="xs" />
+      <B24Switch v-model="singleAttrs.loading" label="Loading" size="xs" />
     </template>
 
     <Matrix v-slot="props" :attrs="multipleAttrs" :b24ui="{ root: 'max-w-70' }">

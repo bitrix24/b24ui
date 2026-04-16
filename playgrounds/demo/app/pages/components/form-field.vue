@@ -21,8 +21,8 @@ const feedbacks = [
 <template>
   <PlaygroundPage>
     <template #controls>
-      <B24Select v-model="attrs.size" class="w-32" :items="sizes" multiple placeholder="Size" />
-      <B24Select v-model="attrs.orientation" class="w-44" :items="orientations" multiple placeholder="Orientation" />
+      <B24Select v-model="attrs.size" class="w-32" :items="sizes" multiple placeholder="Size" size="xs" />
+      <B24Select v-model="attrs.orientation" class="w-44" :items="orientations" multiple placeholder="Orientation" size="xs" />
     </template>
 
     <Matrix v-slot="props" :attrs="attrs" :b24ui="{ root: 'max-w-100' }">

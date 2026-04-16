@@ -174,7 +174,7 @@ function removeToast() {
           aria-label="Duration"
           :min="1000"
           :max="50000"
-          :step="500"
+          :step="500" size="xs"
         />
       </B24FormField>
       <B24Input v-model="(appConfig.toaster as ToasterProps).max" size="xs" placeholder="Max" type="number" class="min-w-24 w-24" />

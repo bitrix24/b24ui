@@ -54,12 +54,12 @@ const airColors = computed(() => {
 <template>
   <PlaygroundPage>
     <template #controls>
-      <B24Select v-model="multipleAttrs.color" class="w-44" :items="airColors" placeholder="Color" multiple />
-      <B24Select v-model="multipleAttrs.size" class="w-32" :items="sizes" placeholder="Size" multiple />
-      <B24Select v-model="multipleAttrs.variant" class="w-32" :items="variants" placeholder="Variant" multiple />
-      <B24Select v-model="multipleAttrs.indicator" class="w-32" :items="indicators" placeholder="Indicator" multiple />
-      <B24Select v-model="singleAttrs.orientation" class="w-32" :items="orientations" placeholder="Orientation" />
-      <B24Switch v-model="singleAttrs.disabled" class="w-24" label="Disabled" />
+      <B24Select v-model="multipleAttrs.color" class="w-44" :items="airColors" placeholder="Color" multiple size="xs" />
+      <B24Select v-model="multipleAttrs.size" class="w-32" :items="sizes" placeholder="Size" multiple size="xs" />
+      <B24Select v-model="multipleAttrs.variant" class="w-32" :items="variants" placeholder="Variant" multiple size="xs" />
+      <B24Select v-model="multipleAttrs.indicator" class="w-32" :items="indicators" placeholder="Indicator" multiple size="xs" />
+      <B24Select v-model="singleAttrs.orientation" class="w-32" :items="orientations" placeholder="Orientation" size="xs" />
+      <B24Switch v-model="singleAttrs.disabled" class="w-24" label="Disabled" size="xs" />
     </template>
     <Matrix v-slot="props" :attrs="multipleAttrs" :b24ui="{ root: 'grow-0', body: 'overflow-x-auto' }">
       <B24CheckboxGroup v-model="value" :items="items" v-bind="{ ...singleAttrs, ...props }" />

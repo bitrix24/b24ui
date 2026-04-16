@@ -47,9 +47,9 @@ const stepper = useTemplateRef('stepper')
 <template>
   <PlaygroundPage :b24ui="{ body: 'flex-col gap-10 overflow-x-auto flex-nowrap justify-start p-0' }">
     <template #controls>
-      <B24Select v-model="color" class="w-44" :items="colors" placeholder="Color" />
-      <B24Select v-model="size" class="w-32" :items="sizes" placeholder="Size" />
-      <B24Select v-model="orientation" class="w-44" :items="orientations" placeholder="Orientation" />
+      <B24Select v-model="color" class="w-44" :items="colors" placeholder="Color" size="xs" />
+      <B24Select v-model="size" class="w-32" :items="sizes" placeholder="Size" size="xs" />
+      <B24Select v-model="orientation" class="w-44" :items="orientations" placeholder="Orientation" size="xs" />
     </template>
 
     <B24Stepper

@@ -51,11 +51,11 @@ onMounted(() => {
 <template>
   <PlaygroundPage>
     <template #controls>
-      <B24Select v-model="attrs.color" class="w-44" :items="airColors" placeholder="Color" multiple />
-      <B24Select v-model="attrs.size" class="w-32" :items="sizes" placeholder="Size" multiple />
-      <B24Select v-model="attrs.animation" class="w-40" :items="animations" placeholder="Animation" multiple />
-      <B24Select v-model="singleAttrs.orientation" class="w-40" :items="orientations" placeholder="Orientation" />
-      <B24Switch v-model="singleAttrs.inverted" label="Inverted" />
+      <B24Select v-model="attrs.color" class="w-44" :items="airColors" placeholder="Color" multiple size="xs" />
+      <B24Select v-model="attrs.size" class="w-32" :items="sizes" placeholder="Size" multiple size="xs" />
+      <B24Select v-model="attrs.animation" class="w-40" :items="animations" placeholder="Animation" multiple size="xs" />
+      <B24Select v-model="singleAttrs.orientation" class="w-40" :items="orientations" placeholder="Orientation" size="xs" />
+      <B24Switch v-model="singleAttrs.inverted" label="Inverted" size="xs" />
     </template>
 
     <Matrix

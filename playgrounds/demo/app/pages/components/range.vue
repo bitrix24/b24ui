@@ -32,12 +32,12 @@ const airColors = computed(() => {
 <template>
   <PlaygroundPage>
     <template #controls>
-      <B24Select v-model="multipleAttrs.color" class="w-44" :items="airColors" placeholder="Color" multiple />
-      <B24Select v-model="multipleAttrs.size" class="w-32" :items="sizes" placeholder="Size" multiple />
-      <B24Select v-model="singleAttrs.orientation" class="w-44" :items="orientations" placeholder="Orientation" />
+      <B24Select v-model="multipleAttrs.color" class="w-44" :items="airColors" placeholder="Color" multiple size="xs" />
+      <B24Select v-model="multipleAttrs.size" class="w-32" :items="sizes" placeholder="Size" multiple size="xs" />
+      <B24Select v-model="singleAttrs.orientation" class="w-44" :items="orientations" placeholder="Orientation" size="xs" />
 
-      <B24Switch v-model="singleAttrs.inverted" label="Inverted" />
-      <B24Switch v-model="singleAttrs.disabled" label="Disabled" />
+      <B24Switch v-model="singleAttrs.inverted" label="Inverted" size="xs" />
+      <B24Switch v-model="singleAttrs.disabled" label="Disabled" size="xs" />
     </template>
 
     <Matrix

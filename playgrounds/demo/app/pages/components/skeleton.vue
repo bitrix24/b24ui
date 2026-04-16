@@ -11,7 +11,7 @@ const attrs = reactive({
 <template>
   <PlaygroundPage>
     <template #controls>
-      <B24Select v-model="attrs.accent" class="w-32" :items="accents" placeholder="Accent" multiple />
+      <B24Select v-model="attrs.accent" class="w-32" :items="accents" placeholder="Accent" multiple size="xs" />
     </template>
 
     <Matrix v-slot="props" :attrs="attrs" :b24ui="{ root: 'max-w-80' }">

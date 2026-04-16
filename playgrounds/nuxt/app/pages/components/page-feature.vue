@@ -10,7 +10,7 @@ const orientation = ref('horizontal' as keyof typeof theme.variants.orientation)
 <template>
   <PlaygroundPage>
     <template #controls>
-      <B24Select v-model="orientation" :items="orientations" />
+      <B24Select v-model="orientation" :items="orientations" size="xs" />
     </template>
 
     <B24PageFeature

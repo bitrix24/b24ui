@@ -22,14 +22,14 @@ const singleAttrs = reactive({
 <template>
   <PlaygroundPage>
     <template #controls>
-      <B24Select v-model="multipleAttrs.size" class="w-32" :items="sizes" placeholder="Size" multiple />
-      <B24Select v-model="multipleAttrs.accent" class="w-44" :items="accents" placeholder="Accent" multiple />
-      <B24Select v-model="multipleAttrs.type" class="w-32" :items="types" placeholder="Type" multiple />
+      <B24Select v-model="multipleAttrs.size" class="w-32" :items="sizes" placeholder="Size" multiple size="xs" />
+      <B24Select v-model="multipleAttrs.accent" class="w-44" :items="accents" placeholder="Accent" multiple size="xs" />
+      <B24Select v-model="multipleAttrs.type" class="w-32" :items="types" placeholder="Type" multiple size="xs" />
 
-      <B24Input v-model="singleAttrs.label" class="min-w-32 w-32" placeholder="Label" />
+      <B24Input v-model="singleAttrs.label" class="min-w-32 w-32" placeholder="Label" size="xs" />
 
-      <B24Switch v-model="singleAttrs.useIcon" label="Icon" />
-      <B24Switch v-model="singleAttrs.useLabel" label="Label" />
+      <B24Switch v-model="singleAttrs.useIcon" label="Icon" size="xs" />
+      <B24Switch v-model="singleAttrs.useLabel" label="Label" size="xs" />
     </template>
 
     <Matrix v-slot="props" :attrs="multipleAttrs" :b24ui="{ root: 'max-w-80' }">

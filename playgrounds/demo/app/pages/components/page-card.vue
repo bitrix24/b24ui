@@ -21,12 +21,12 @@ const singleAttrs = reactive({
 <template>
   <PlaygroundPage>
     <template #controls>
-      <B24Select v-model="attrs.variant" class="w-32" :items="variants" multiple placeholder="Variant" />
-      <B24Select v-model="singleAttrs.highlightColor" class="w-44" :items="colors" placeholder="Highlight color" />
-      <B24Select v-model="singleAttrs.orientation" class="w-44" :items="orientations" placeholder="Orientation" />
+      <B24Select v-model="attrs.variant" class="w-32" :items="variants" multiple placeholder="Variant" size="xs" />
+      <B24Select v-model="singleAttrs.highlightColor" class="w-44" :items="colors" placeholder="Highlight color" size="xs" />
+      <B24Select v-model="singleAttrs.orientation" class="w-44" :items="orientations" placeholder="Orientation" size="xs" />
 
-      <B24Switch v-model="singleAttrs.highlight" label="Highlight" />
-      <B24Switch v-model="singleAttrs.reverse" label="Reverse" />
+      <B24Switch v-model="singleAttrs.highlight" label="Highlight" size="xs" />
+      <B24Switch v-model="singleAttrs.reverse" label="Reverse" size="xs" />
     </template>
 
     <Matrix v-slot="props" :attrs="attrs" :b24ui="{ root: 'grow-0' }">
