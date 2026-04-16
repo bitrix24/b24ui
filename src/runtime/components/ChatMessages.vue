@@ -97,6 +97,15 @@ const slots = defineSlots<ChatMessagesSlots>()
 
 const getProxySlots = () => omit(slots, ['default', 'indicator', 'viewport'])
 
+const showIndicator = computed(() => {
+  if (props.status === 'submitted') return true
+  if (props.status !== 'streaming') return false
+
+  const lastMessage = props.messages?.[props.messages.length - 1]
+  return lastMessage?.role === 'assistant' && !lastMessage.parts?.length
+})
+
+
 const appConfig = useAppConfig() as ChatMessages['AppConfig']
 const uiProp = useComponentUI('chatMessages', props)
 
@@ -312,7 +321,7 @@ onMounted(() => {
     </slot>
 
     <B24ChatMessage
-      v-if="status === 'submitted'"
+      v-if="showIndicator"
       id="indicator"
       role="assistant"
       v-bind="{ ...assistantProps, actions: undefined, parts: [] }"
