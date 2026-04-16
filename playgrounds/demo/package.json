@@ -27,7 +27,7 @@
     "maska": "^3.2.0"
   },
   "devDependencies": {
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.2",
     "vue-tsc": "^3.2.6"
   }
 }
