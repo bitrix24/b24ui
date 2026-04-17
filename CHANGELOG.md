@@ -45,6 +45,7 @@
 * docs(ComponentCode/ComponentExample): pre-render both framework code variants
 * docs(header): add animated toggle example
 * docs(chat): render user messages as plain text instead of markdown
+* docs(select): remove `by` prop mention
 * 
 * chore(agents): add guide for coding agents
 * chore(deps): update dependency reka-ui to v2.9.0
