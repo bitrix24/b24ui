@@ -33,6 +33,8 @@ playgrounds/
 pnpm run dev:prepare  # Generate type stubs (run after install)
 pnpm run dev          # Nuxt playground
 pnpm run dev:vue      # Vue playground
+pnpm run dev:repl     # REPL playground
+pnpm run demo:dev     # Demo playground
 pnpm run docs         # Documentation site
 pnpm run lint         # Check linting
 pnpm run lint:fix     # Fix linting
