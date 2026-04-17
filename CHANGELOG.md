@@ -34,6 +34,7 @@
 * fix(ChatMessages): keep indicator visible until first content arrives
 * fix(ChatMessage): hide files slot when no file parts exist
 * fix(AI): use `part.state` for streaming detection and deprecate `isReasoningStreaming`
+* fix(module): inline defaultVariants and prefix in dev template
 * 
 * docs: improve build performance and client-side navigation
 * docs(table): add column span example
