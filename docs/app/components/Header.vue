@@ -27,6 +27,7 @@ defineShortcuts({
 // endregion ////
 </script>
 
+<!-- eslint-disable vue/no-template-shadow -->
 <template>
   <B24Header
     mode="modal"
