@@ -2,7 +2,7 @@
 import { isReasoningUIPart, isTextUIPart, isToolUIPart, getToolName } from 'ai'
 import type { UIMessage } from 'ai'
 import { Chat } from '@ai-sdk/vue'
-import { isReasoningStreaming, isToolStreaming } from '@bitrix24/b24ui-nuxt/utils/ai'
+import { isPartStreaming, isToolStreaming } from '@bitrix24/b24ui-nuxt/utils/ai'
 import AlertIcon from '@bitrix24/b24icons-vue/outline/AlertIcon'
 import RobotIcon from '@bitrix24/b24icons-vue/outline/RobotIcon'
 
@@ -74,7 +74,7 @@ function getFaviconUrl(url: string): string {
           <B24ChatReasoning
             v-if="isReasoningUIPart(part)"
             :text="part.text"
-            :streaming="isReasoningStreaming(message, index, chat)"
+            :streaming="isPartStreaming(part)"
             chevron="leading"
             :b24ui="{ body: 'scrollbar-thin scrollbar-transparent' }"
           >

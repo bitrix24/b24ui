@@ -347,7 +347,7 @@ Use the `Chat` class from `@ai-sdk/vue` to manage chat state and connect to your
 import type { UIMessage } from 'ai'
 import { isReasoningUIPart, isTextUIPart, isToolUIPart, getToolName } from 'ai'
 import { Chat } from '@ai-sdk/vue'
-import { isReasoningStreaming, isToolStreaming } from '@bitrix24/b24ui-nuxt'
+import { isPartStreaming, isToolStreaming } from '@bitrix24/b24ui-nuxt'
 
 const input = ref('')
 
@@ -377,7 +377,7 @@ function onSubmit() {
         <B24ChatReasoning
           v-if="isReasoningUIPart(part)"
           :text="part.text"
-          :streaming="isReasoningStreaming(message, index, chat)"
+          :streaming="isPartStreaming(part)"
         >
           <MDC
             :value="part.text"

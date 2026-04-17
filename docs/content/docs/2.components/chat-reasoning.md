@@ -69,8 +69,8 @@ props:
 ---
 ::
 
-::tip{to="#within-a-page"}
-Use the `isReasoningStreaming` utility from `@bitrix24/b24ui-nuxt/utils/ai` to determine if a reasoning part is currently being streamed.
+::tip
+Use the `isPartStreaming` utility from `@bitrix24/b24ui-nuxt/utils/ai` to determine if a reasoning part is currently being streamed.
 ::
 
 ### Shimmer
