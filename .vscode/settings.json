@@ -11,12 +11,14 @@
   },
   "prettier.enable": false,
   "tailwindCSS.classAttributes": ["class", "b24ui"],
+  "tailwindCSS.classFunctions": ["defineAppConfig"],
   "tailwindCSS.experimental.classRegex": [
-    ["['\"`]([^'\"`]*)['\"`]"]
+    ["[:\\[,]\\s*['\"`]([^'\"`]*)['\"`]"]
   ],
   "tailwindCSS.experimental.configFile": {
     "playgrounds/nuxt/app/assets/css/main.css": ["playgrounds/nuxt/**", "src/**"],
     "playgrounds/vue/src/assets/css/main.css": "playgrounds/vue/**",
+    "playgrounds/repl/src/main.css": "playgrounds/repl/**",
     "playgrounds/demo/app/assets/css/main.css": "playgrounds/demo/**",
     "docs/app/assets/css/main.css": "docs/**"
   }
