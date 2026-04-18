@@ -100,7 +100,6 @@
   "main": "./dist/module.mjs",
   "files": [
     "README.md",
-    "README-AI.md",
     "LICENSE",
     ".nuxt/b24ui.css",
     "dist",
@@ -266,8 +265,7 @@
     }
   },
   "resolutions": {
-    "@nuxt/kit": "4.4.2",
-    "nuxt": "4.4.2",
+    "@nuxt/kit": "^4.4.2",
     "@bitrix24/b24ui-nuxt": "workspace:*",
     "nitropack": "^2.13.0",
     "unplugin": "^3.0.0",
