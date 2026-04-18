@@ -39,6 +39,7 @@
 * fix(DashboardSidebar): always pass `collapsed: false` in mobile menu slots
 * fix(module): transpile `reka-ui` to prevent injection errors
 * fix(Modal/Slideover/Drawer): suppress reka ui title and description warnings
+* fix(ChatMessages): reset scroll icon when messages are cleared
 * 
 * docs: improve build performance and client-side navigation
 * docs(table): add column span example
