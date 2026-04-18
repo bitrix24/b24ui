@@ -39,6 +39,7 @@
 * fix(DashboardSidebar): always pass `collapsed: false` in mobile menu slots
 * fix(module): transpile `reka-ui` to prevent injection errors
 * fix(Modal/Slideover/Drawer): suppress reka ui title and description warnings
+* fix(Header/DashboardSidebar/Sidebar): allow autofocus in menu for proper focus trapping
 * fix(ChatMessages): reset scroll icon when messages are cleared
 * fix(ChatMessages): prevent layout shift caused by indicator during streaming
 * 

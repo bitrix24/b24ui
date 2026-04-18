@@ -150,7 +150,6 @@ const menuProps = toRef(() => {
 
   const result = defu(
     props.menu,
-    { content: { onOpenAutoFocus: (e: Event) => e.preventDefault() } },
     modeSettings
   ) as DashboardSidebarMenu<T>
 

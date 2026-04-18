@@ -220,7 +220,6 @@ const menuProps = toRef(() => {
       close: props.close,
       closeIcon: props.closeIcon
     },
-    { content: { onOpenAutoFocus: (e: Event) => e.preventDefault() } },
     modeSettings
   ) as SidebarMenu<T>
 
