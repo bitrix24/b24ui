@@ -60,8 +60,8 @@
 * chore(deps): update nuxt framework to ^4.4.2
 * chore: move contributing skill to AGENTS.md
 * chore: add VSCode settings and simplify IntelliSense classRegex
-* 
-* playground: prevent component cutoff on small screen heights
+* chore(playground): prevent component cutoff on small screen heights
+* chore(playground): add clear messages button to chat page
 
 ## [2.5.3](https://github.com/bitrix24/b24ui/compare/v2.5.2...v2.5.3) (2026-03-30)
 
