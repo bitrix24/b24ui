@@ -28,9 +28,10 @@ const appConfig = useAppConfig()
 const toast = useToast()
 const { track } = useAnalytics()
 const { open, messages } = useChat()
-const { resetTheme, applyThemeSettings, hasCSSChanges, hasAppConfigChanges } = useTheme()
+const { framework } = useFrameworks()
+const { resetTheme, applyThemeSettings, hasCSSChanges, hasConfigChanges } = useTheme()
 
-const hasThemeChanges = computed(() => hasCSSChanges.value || hasAppConfigChanges.value)
+const hasThemeChanges = computed(() => hasCSSChanges.value || hasConfigChanges.value)
 
 let _skipSync = false
 const _themeApplied = new Set<string>()
@@ -60,7 +61,7 @@ const chat = new Chat({
   transport: new DefaultChatTransport({
     api: `${config.public.baseUrl}/api/ai`,
     // api: '/api/ai',
-    body: { theme }
+    body: () => ({ theme, framework: framework.value })
   }),
   onError: (error) => {
     let message = error.message

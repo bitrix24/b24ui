@@ -54,6 +54,7 @@
 * docs(select): remove `by` prop mention
 * docs(installation): replace `classRegex` with `classFunctions` for Tailwind CSS IntelliSense
 * docs(Chat): add line height to user message text
+* docs(Chat): extract theme guide into tool and add framework context
 * 
 * chore(agents): add guide for coding agents
 * chore(deps): update dependency reka-ui to v2.9.0
