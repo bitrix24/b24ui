@@ -1,9 +1,14 @@
 import { queryCollection } from '@nuxt/content/server'
 
-// title: '',
 export default defineMcpTool({
   title: 'List Composables',
   description: 'Lists all available Bitrix24 UI composables with their categories and basic information',
+  annotations: {
+    readOnlyHint: true,
+    destructiveHint: false,
+    idempotentHint: true,
+    openWorldHint: false
+  },
   cache: '1h',
   async handler() {
     const event = useEvent()
@@ -13,6 +18,6 @@ export default defineMcpTool({
       .select('path', 'title', 'description')
       .all()
 
-    return jsonResult(composables)
+    return composables
   }
 })

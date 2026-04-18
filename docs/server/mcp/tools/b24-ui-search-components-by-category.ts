@@ -5,10 +5,21 @@ import { withTrailingSlash } from 'ufo'
 export default defineMcpTool({
   title: 'Search Components by Category',
   description: 'Searches components by category or text filter',
+  annotations: {
+    readOnlyHint: true,
+    destructiveHint: false,
+    idempotentHint: true,
+    openWorldHint: false
+  },
   inputSchema: {
     category: z.string().optional().describe('Filter components by category'),
     search: z.string().optional().describe('Search term to filter components by name or description')
   },
+  inputExamples: [
+    { category: 'layout' },
+    { search: 'table' },
+    { category: 'forms', search: 'input' }
+  ],
   cache: '30m',
   async handler({ category, search }) {
     const event = useEvent()
@@ -46,10 +57,10 @@ export default defineMcpTool({
       )
     }
 
-    return jsonResult({
+    return {
       components: results.sort((a, b) => (a.name || '').localeCompare(b.name || '')),
       total: results.length,
       filters: { category, search }
-    })
+    }
   }
 })

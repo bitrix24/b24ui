@@ -4,16 +4,27 @@ import { queryCollection } from '@nuxt/content/server'
 import { normalizeComponentName } from '~~/server/utils/normalizeComponentName'
 import { withTrailingSlash, withoutTrailingSlash } from 'ufo'
 
-const sectionList = ['usage', 'examples', 'api', 'theme']
+const sectionList = ['usage', 'examples', 'api', 'theme', 'changelog']
 const sectionEnum = z.enum(sectionList)
 
 export default defineMcpTool({
   title: 'Get Component',
   description: 'Retrieves Bitrix24 UI component documentation and details. Use the `sections` parameter to fetch only specific parts of the documentation to reduce response size.',
+  annotations: {
+    readOnlyHint: true,
+    destructiveHint: false,
+    idempotentHint: true,
+    openWorldHint: false
+  },
   inputSchema: {
     componentName: z.string().describe('The name of the component (PascalCase)'),
     sections: z.array(sectionEnum).optional().describe(`Specific sections to return: ${sectionList.join(', ')}. If omitted, returns full documentation.`)
   },
+  inputExamples: [
+    { componentName: 'Button', sections: ['usage', 'api'] },
+    { componentName: 'B24Modal' },
+    { componentName: 'Table', sections: ['examples'] }
+  ],
   cache: '30m',
   async handler({ componentName, sections }) {
     const event = useEvent()
@@ -32,8 +43,10 @@ export default defineMcpTool({
       .first()
 
     if (!page) {
-      return errorResult(`Component '${componentName}' not found in documentation`)
+      throw createError({ status: 404, message: `Component '${componentName}' not found in documentation` })
     }
+
+    const config = useRuntimeConfig()
 
     const fullDocumentation = await $fetch<string>(`/raw${withoutTrailingSlash(page.path)}.md`)
 
@@ -44,9 +57,7 @@ export default defineMcpTool({
       documentation = extractSections(fullDocumentation, sections)
     }
 
-    const config = useRuntimeConfig()
-
-    return jsonResult({
+    return {
       name: normalizedName,
       title: page.title,
       description: page.description,
@@ -54,73 +65,6 @@ export default defineMcpTool({
       documentation,
       documentation_url: `${config.public.canonicalUrl}${config.public.baseUrl}${withTrailingSlash(page.path)}`,
       sections_returned: sections || ['full']
-    })
+    }
   }
 })
-
-/**
- * Extract specific sections from markdown content based on h2 headings
- */
-function extractSections(markdown: string, sections: string[]): string {
-  const lines = markdown.split('\n')
-  const result: string[] = []
-
-  // Section mapping from parameter names to heading patterns
-  const sectionHeadings: Record<string, string[]> = {
-    usage: ['## Usage'],
-    examples: ['## Examples'],
-    api: ['## API'],
-    theme: ['## Theme']
-  }
-
-  // Always include title (h1) and description (first blockquote)
-  let inHeader = true
-  for (const line of lines) {
-    if (inHeader) {
-      result.push(line)
-      // Stop after the description blockquote
-      if (line.startsWith('>') && result.length > 1) {
-        result.push('')
-        inHeader = false
-      }
-      continue
-    }
-    break
-  }
-
-  // Find and extract requested sections
-  for (const section of sections) {
-    const headings = sectionHeadings[section]
-    if (!headings) continue
-
-    let inSection = false
-    const sectionContent: string[] = []
-
-    for (let i = 0; i < lines.length; i++) {
-      const line = lines[i]
-
-      // Check if we're entering a requested section
-      if (!inSection && headings.some(h => line.startsWith(h))) {
-        inSection = true
-        sectionContent.push(line)
-        continue
-      }
-
-      // Check if we're leaving the section (next h2)
-      if (inSection && line.startsWith('## ') && !headings.some(h => line.startsWith(h))) {
-        break
-      }
-
-      if (inSection) {
-        sectionContent.push(line)
-      }
-    }
-
-    if (sectionContent.length > 0) {
-      result.push(...sectionContent)
-      result.push('')
-    }
-  }
-
-  return result.join('\n').trim()
-}

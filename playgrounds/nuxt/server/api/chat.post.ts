@@ -2,7 +2,11 @@ import { streamText, convertToModelMessages, stepCountIs } from 'ai'
 import { createDeepSeek } from '@ai-sdk/deepseek'
 
 export default defineEventHandler(async (event) => {
-  const { messages } = await readBody(event)
+  const { messages } = (await readBody<{ messages?: any }>(event)) || {}
+
+  if (!messages || !Array.isArray(messages)) {
+    throw createError({ status: 400, message: 'Invalid or missing messages array.' })
+  }
 
   const deepseek = createDeepSeek({
     apiKey: process.env.DEEPSEEK_API_KEY ?? ''

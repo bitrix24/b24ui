@@ -1,6 +1,5 @@
-import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js'
 import { streamText, convertToModelMessages, stepCountIs, smoothStream } from 'ai'
-import { experimental_createMCPClient } from '@ai-sdk/mcp'
+import { createMCPClient } from '@ai-sdk/mcp'
 import { createDeepSeek } from '@ai-sdk/deepseek'
 
 /**
@@ -11,7 +10,7 @@ import { createDeepSeek } from '@ai-sdk/deepseek'
 const maxStepCount = 5
 
 export default defineEventHandler(async (event) => {
-  const { messages, framework } = await readBody(event)
+  const { messages, framework } = (await readBody<{ messages?: any, framework?: string }>(event)) || {}
 
   if (!messages || !Array.isArray(messages)) {
     throw createError({ status: 400, message: 'Invalid or missing messages array.' })
@@ -22,11 +21,10 @@ export default defineEventHandler(async (event) => {
   let mcpTools
   try {
     const mcpUrl = import.meta.dev
-      ? new URL(`${config.public.baseUrl}/mcp/`, getRequestURL(event).origin)
-      : new URL(`${config.public.siteUrl}${config.public.baseUrl}/mcp/`)
-    const httpTransport = new StreamableHTTPClientTransport(mcpUrl)
-    httpClient = await experimental_createMCPClient({
-      transport: httpTransport
+      ? new URL(`${config.public.baseUrl}/mcp/`, getRequestURL(event).origin).href
+      : `${config.public.siteUrl}${config.public.baseUrl}/mcp/`
+    httpClient = await createMCPClient({
+      transport: { type: 'http', url: mcpUrl }
     })
     mcpTools = await httpClient.tools()
   } catch (error) {
