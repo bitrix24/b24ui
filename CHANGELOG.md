@@ -37,6 +37,7 @@
 * fix(module): inline defaultVariants and prefix in dev template
 * fix(ChatPrompt): guard enter during composition
 * fix(DashboardSidebar): always pass `collapsed: false` in mobile menu slots
+* fix(module): transpile `reka-ui` to prevent injection errors
 * 
 * docs: improve build performance and client-side navigation
 * docs(table): add column span example

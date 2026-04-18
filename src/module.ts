@@ -183,6 +183,8 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.appConfig.version = version
     nuxt.options.appConfig.b24ui = defu(nuxt.options.appConfig.b24ui || {}, getDefaultConfig(options.theme))
 
+    nuxt.options.build.transpile.push('reka-ui')
+
     // Isolate root node from portaled components
     nuxt.options.app.rootAttrs = nuxt.options.app.rootAttrs || {}
     nuxt.options.app.rootAttrs.class = [nuxt.options.app.rootAttrs.class, `${options.theme?.prefix ? options.theme.prefix + ':' : ''}isolate`].filter(Boolean).join(' ')
