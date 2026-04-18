@@ -143,14 +143,16 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.drawer
       <DrawerContent data-slot="content" :class="b24ui.content({ class: [!slots.default && props.class, uiProp?.content] })" v-bind="contentProps" v-on="contentEvents">
         <DrawerHandle v-if="handle" data-slot="handle" :class="b24ui.handle({ class: uiProp?.handle })" />
 
-        <VisuallyHidden v-if="!!slots.content && ((title || !!slots.title) || (description || !!slots.description))">
-          <DrawerTitle v-if="title || !!slots.title">
+        <VisuallyHidden v-if="(!title && !slots.title) || (!description && !slots.description) || !!slots.content">
+          <DrawerTitle v-if="!title && !slots.title" />
+          <DrawerTitle v-else-if="!!slots.content">
             <slot name="title">
               {{ title }}
             </slot>
           </DrawerTitle>
 
-          <DrawerDescription v-if="description || !!slots.description">
+          <DrawerDescription v-if="!description && !slots.description" />
+          <DrawerDescription v-else-if="!!slots.content">
             <slot name="description">
               {{ description }}
             </slot>
@@ -161,13 +163,15 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.drawer
           <div data-slot="container" :class="b24ui.container({ class: uiProp?.container })">
             <div v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description)" data-slot="header" :class="b24ui.header({ class: uiProp?.header })">
               <slot name="header">
-                <DrawerTitle v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
+                <DrawerTitle v-if="!title && !slots.title" />
+                <DrawerTitle v-else data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
                   <slot name="title">
                     {{ title }}
                   </slot>
                 </DrawerTitle>
 
-                <DrawerDescription v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: uiProp?.description })">
+                <DrawerDescription v-if="!description && !slots.description" />
+                <DrawerDescription v-else data-slot="description" :class="b24ui.description({ class: uiProp?.description })">
                   <slot name="description">
                     {{ description }}
                   </slot>

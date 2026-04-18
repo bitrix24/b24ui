@@ -167,19 +167,16 @@ const isBtnCloseExternal = computed(() => (!props.inset && ['left', 'right', 'bo
         @after-leave="emits('after:leave')"
         v-on="contentEvents"
       >
-        <VisuallyHidden
-          v-if="
-            !!slots.content && ((title || !!slots.title) || (description || !!slots.description))
-              || (!slots.content && !!slots.header && (!slots.title || !slots.description))
-          "
-        >
-          <DialogTitle v-if="title || !!slots.title">
+        <VisuallyHidden v-if="(!title && !slots.title) || (!description && !slots.description) || !!slots.content">
+          <DialogTitle v-if="!title && !slots.title" />
+          <DialogTitle v-else-if="!!slots.content">
             <slot name="title">
               {{ title }}
             </slot>
           </DialogTitle>
 
-          <DialogDescription v-if="description || !!slots.description">
+          <DialogDescription v-if="!description && !slots.description" />
+          <DialogDescription v-else-if="!!slots.content">
             <slot name="description">
               {{ description }}
             </slot>
@@ -216,13 +213,15 @@ const isBtnCloseExternal = computed(() => (!props.inset && ['left', 'right', 'bo
           >
             <slot name="header" :close="close">
               <div data-slot="wrapper" :class="b24ui.wrapper({ class: uiProp?.wrapper })">
-                <DialogTitle v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
+                <DialogTitle v-if="!title && !slots.title" />
+                <DialogTitle v-else data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
                   <slot name="title">
                     {{ title }}
                   </slot>
                 </DialogTitle>
 
-                <DialogDescription v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: uiProp?.description })">
+                <DialogDescription v-if="!description && !slots.description" />
+                <DialogDescription v-else data-slot="description" :class="b24ui.description({ class: uiProp?.description })">
                   <slot name="description">
                     {{ description }}
                   </slot>

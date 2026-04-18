@@ -50,8 +50,18 @@ function openModal() {
       <B24Button label="Open with nested" />
 
       <template #footer>
-        <B24Modal title="Second modal" v-bind="attrs">
+        <B24Modal v-bind="attrs" :close="false">
           <B24Button label="Open second" color="air-primary" />
+          <template #body>
+            <ProseH2 class="mt-4">
+              Second modal
+            </ProseH2>
+          </template>
+          <template #footer>
+            <B24ModalDialogClose>
+              <B24Button label="Cancel" color="air-tertiary" />
+            </B24ModalDialogClose>
+          </template>
         </B24Modal>
       </template>
     </B24Modal>

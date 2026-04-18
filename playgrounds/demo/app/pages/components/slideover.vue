@@ -171,8 +171,6 @@ const openSliderTopAndBottomVer2 = async () => {
     </B24Slideover>
 
     <B24Slideover
-      title="Slideover with scoped slot close"
-      description="This slideover has a scoped slot close that can be used to close the slideover from within the content."
       v-bind="attrs"
       :b24ui="{ content: 'sm:max-w-1/2 lg:max-w-1/4' }"
     >
@@ -220,8 +218,6 @@ const openSliderTopAndBottomVer2 = async () => {
 
     <B24Slideover
       v-model:open="openTopAndBottom"
-      title="Bottom"
-      description="Some description"
       v-bind="{ ...attrs }"
       side="bottom"
       :dismissible="false"
@@ -264,8 +260,6 @@ const openSliderTopAndBottomVer2 = async () => {
     </B24Slideover>
     <B24Slideover
       v-model:open="openTopAndBottom"
-      title="Top"
-      description="Some description"
       v-bind="{ ...attrs }"
       side="top"
       :dismissible="false"
@@ -287,8 +281,6 @@ const openSliderTopAndBottomVer2 = async () => {
 
     <B24Slideover
       v-model:open="openTopAndBottomVer2"
-      title="Bottom"
-      description="Some description"
       v-bind="{ ...attrs }"
       side="bottom"
       :dismissible="false"
@@ -370,8 +362,6 @@ const openSliderTopAndBottomVer2 = async () => {
     </B24Slideover>
     <B24Slideover
       v-model:open="openTopAndBottomVer2"
-      title="Top"
-      description="Some description"
       v-bind="{ ...attrs }"
       side="top"
       :dismissible="false"
@@ -392,8 +382,6 @@ const openSliderTopAndBottomVer2 = async () => {
     <B24Button label="Top & Bottom Ver2" color="air-secondary-accent" @click="openSliderTopAndBottomVer2" />
 
     <B24Slideover
-      title="List"
-      description="Some description"
       :use-light-content="false"
       :b24ui="{
         content: [
@@ -529,8 +517,6 @@ const openSliderTopAndBottomVer2 = async () => {
     </B24Slideover>
     <B24Slideover
       v-model:open="openListItem"
-      title="Item"
-      description="Some description"
       :use-light-content="false"
       :b24ui="{
         content: [
