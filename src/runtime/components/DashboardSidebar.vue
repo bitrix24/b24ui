@@ -133,6 +133,9 @@ const Menu = computed(() => ({
   drawer: B24Drawer
 })[props.mode as DashboardSidebarMode])
 
+/**
+ * @memo We move b24ui.overlay && b24ui.content from <template> in menuProps
+ */
 const menuProps = toRef(() => {
   const modeSettings: any = props.mode === 'modal'
     ? { fullscreen: true, transition: false }
@@ -140,7 +143,7 @@ const menuProps = toRef(() => {
       ? { side: 'left', close: false }
       : {}
 
-  // @memo thi fix componentMeta
+  // @memo fix componentMeta
   if (props.mode === 'modal') {
     modeSettings['b24ui'] = { content: 'p-0 pt-0' }
   }
@@ -151,7 +154,8 @@ const menuProps = toRef(() => {
     modeSettings
   ) as DashboardSidebarMenu<T>
 
-  // @memo thi fix componentMeta
+  // @memo fix componentMeta
+  // @memo fix componentMeta
   result['b24ui'] = {
     overlay: b24ui.value.overlay({ class: uiProp.value?.overlay }),
     content: b24ui.value.content({
@@ -231,17 +235,17 @@ function toggleOpen() {
         <div v-if="!!slots.header || mode !== 'drawer'" data-slot="header" :class="b24ui.header({ class: uiProp?.header, menu: true })">
           <ReuseToggleTemplate v-if="mode !== 'drawer' && toggleSide === 'left'" />
 
-          <slot name="header" :collapsed="isCollapsed" :collapse="collapse" />
+          <slot name="header" :collapsed="false" :collapse="() => {}" />
 
           <ReuseToggleTemplate v-if="mode !== 'drawer' && toggleSide === 'right'" />
         </div>
 
         <div data-slot="body" :class="b24ui.body({ class: uiProp?.body, menu: true })">
-          <slot :collapsed="isCollapsed" :collapse="collapse" />
+          <slot :collapsed="false" :collapse="() => {}" />
         </div>
 
         <div v-if="!!slots.footer" data-slot="footer" :class="b24ui.footer({ class: uiProp?.footer, menu: true })">
-          <slot name="footer" :collapsed="isCollapsed" :collapse="collapse" />
+          <slot name="footer" :collapsed="false" :collapse="() => {}" />
         </div>
       </slot>
     </template>

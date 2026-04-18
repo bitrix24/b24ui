@@ -36,6 +36,7 @@
 * fix(AI): use `part.state` for streaming detection and deprecate `isReasoningStreaming`
 * fix(module): inline defaultVariants and prefix in dev template
 * fix(ChatPrompt): guard enter during composition
+* fix(DashboardSidebar): always pass `collapsed: false` in mobile menu slots
 * 
 * docs: improve build performance and client-side navigation
 * docs(table): add column span example
