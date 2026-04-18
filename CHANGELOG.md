@@ -40,6 +40,7 @@
 * fix(module): transpile `reka-ui` to prevent injection errors
 * fix(Modal/Slideover/Drawer): suppress reka ui title and description warnings
 * fix(ChatMessages): reset scroll icon when messages are cleared
+* fix(ChatMessages): prevent layout shift caused by indicator during streaming
 * 
 * docs: improve build performance and client-side navigation
 * docs(table): add column span example

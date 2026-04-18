@@ -314,17 +314,18 @@ onMounted(() => {
     :style="{ '--last-message-height': `${lastMessageHeight}px` }"
   >
     <slot>
-      <B24ChatMessage
-        v-for="message in messages"
-        :key="message.id"
-        v-bind="{ ...(message.role === 'user' ? userProps : assistantProps), ...message }"
-        :ref="el => registerMessageRef(message.id, el as ComponentPublicInstance)"
-        :compact="compact"
-      >
-        <template v-for="(_, name) in getProxySlots()" #[name]="slotData">
-          <slot :name="name" v-bind="(slotData as any)" :message="message" />
-        </template>
-      </B24ChatMessage>
+      <template v-for="message in messages" :key="message.id">
+        <B24ChatMessage
+          v-if="message.parts?.length"
+          v-bind="{ ...(message.role === 'user' ? userProps : assistantProps), ...message }"
+          :ref="el => registerMessageRef(message.id, el as ComponentPublicInstance)"
+          :compact="compact"
+        >
+          <template v-for="(_, name) in getProxySlots()" #[name]="slotData">
+            <slot :name="name" v-bind="(slotData as any)" :message="message" />
+          </template>
+        </B24ChatMessage>
+      </template>
     </slot>
 
     <B24ChatMessage
