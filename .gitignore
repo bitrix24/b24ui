@@ -44,3 +44,8 @@ playgrounds/repl/auto-imports.d.ts
 playgrounds/repl/components.d.ts
 playgrounds/repl/public/bitrix24-b24ui.*
 playgrounds/repl/dist/
+
+# AI
+.claude/settings.local.json
+.claude/channels/
+.claude/debug/
