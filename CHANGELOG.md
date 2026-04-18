@@ -53,6 +53,7 @@
 * docs(chat): render user messages as plain text instead of markdown
 * docs(select): remove `by` prop mention
 * docs(installation): replace `classRegex` with `classFunctions` for Tailwind CSS IntelliSense
+* docs(Chat): add line height to user message text
 * 
 * chore(agents): add guide for coding agents
 * chore(deps): update dependency reka-ui to v2.9.0
