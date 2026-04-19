@@ -125,8 +125,8 @@ export function useTheme() {
     return lines.join('\n')
   }
 
-  function exportAppConfig(): string {
-    track('Theme Exported', { type: 'AppConfig' })
+  function exportConfig(): string {
+    track('Theme Exported', { type: 'Config', framework: framework.value })
 
     const config: Record<string, any> = { b24ui: {} }
 
@@ -186,7 +186,7 @@ export function useTheme() {
     hasConfigChanges,
     configLabel: computed(() => framework.value === 'vue' ? 'vite.config.ts' : 'app.config.ts'),
     exportCSS,
-    exportAppConfig,
+    exportConfig,
     applyThemeSettings,
     resetTheme
   }

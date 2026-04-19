@@ -23,7 +23,7 @@ export function useSearch() {
   const searchTerm = ref('')
 
   function onSelect() {
-    track('AI Chat Opened', { hasSearchTerm: !!searchTerm.value })
+    track('AI Chat Opened', { source: 'search', hasSearchTerm: !!searchTerm.value })
 
     // @memo this for NUXT.UI.docs
     if (searchTerm.value) {
