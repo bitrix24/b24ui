@@ -43,6 +43,7 @@
 * fix(ChatMessages): reset scroll icon when messages are cleared
 * fix(ChatMessages): prevent layout shift caused by indicator during streaming
 * fix(Link): ensure single-root rendering for `v-show` and `$el` resolution
+* fix(module): use relative `tagPriority` for inline style tags
 * 
 * docs: improve build performance and client-side navigation
 * docs(table): add column span example

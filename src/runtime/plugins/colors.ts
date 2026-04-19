@@ -51,7 +51,7 @@ export default defineNuxtPlugin(() => {
   const headData: UseHeadInput = {
     style: [{
       innerHTML: () => root.value,
-      tagPriority: -2,
+      tagPriority: 'critical',
       id: 'bitrix24-ui-colors'
     }]
   }
