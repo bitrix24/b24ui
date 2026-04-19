@@ -3,12 +3,9 @@ import type { UIMessageStreamWriter, ToolCallPart, ToolSet } from 'ai'
 import { createMCPClient } from '@ai-sdk/mcp'
 import { createDeepSeek } from '@ai-sdk/deepseek'
 
-/**
- * @docs https://ai-sdk.dev/providers/ai-sdk-providers/deepseek
- */
-
 const MAX_STEPS = 10
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function stopWhenResponseComplete({ steps }: { steps: any[] }): boolean {
   const lastStep = steps.at(-1)
   if (!lastStep) return false
@@ -41,6 +38,11 @@ function getSystemPrompt(siteName: string) {
 - Be concise, helpful, and direct
 - Guide users like a friendly expert would
 
+**Links and exploration:**
+- Tool results include a \`url\` for each page — prefer markdown links \`[label](url)\` so users can open the doc in one click
+- When it helps, add extra links (related pages, “read more”, side topics) — make the answer easy to dig into, not a wall of text
+- Stick to URLs from tool results (\`url\` / \`path\`) so links stay valid
+
 **FORMATTING RULES (CRITICAL):**
 - NEVER use markdown headings (#, ##, ###, etc.)
 - Use **bold text** for emphasis and section labels
@@ -58,17 +60,18 @@ function getSystemPrompt(siteName: string) {
 export default defineEventHandler(async (event) => {
   const { messages } = await readBody(event)
   const config = useRuntimeConfig()
-  const siteConfig = getSiteConfig(event)
 
-  const siteName = siteConfig.name || 'Documentation'
+  // @todo fix this
+  const siteName = 'Documentation'
 
   const mcpServer = config.bxAssistant.mcpServer
   const isExternalUrl = mcpServer.startsWith('http://') || mcpServer.startsWith('https://')
+  const baseURL = config.app?.baseURL?.replace(/\/$/, '') || ''
   const mcpUrl = isExternalUrl
     ? mcpServer
     : import.meta.dev
-      ? `http://localhost:3000${mcpServer}`
-      : `${getRequestURL(event).origin}${mcpServer}`
+      ? `http://localhost:3000${baseURL}${mcpServer}`
+      : `${getRequestURL(event).origin}${baseURL}${mcpServer}`
 
   const httpClient = await createMCPClient({
     transport: { type: 'http', url: mcpUrl }
@@ -84,8 +87,7 @@ export default defineEventHandler(async (event) => {
       const modelMessages = await convertToModelMessages(messages)
       const result = streamText({
         model: deepseek(config.bxAssistant.modelDeepSeek),
-        // @memo Possible values: `10000` | `8100` | `4000`
-        maxOutputTokens: 4000,
+        maxOutputTokens: 4000, // Possible values: `10000` | `8100` | `4000`
         maxRetries: 2,
         stopWhen: stopWhenResponseComplete,
         system: getSystemPrompt(siteName),

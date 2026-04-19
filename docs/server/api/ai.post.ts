@@ -79,13 +79,8 @@ Guidelines:
     tools: {
       ...mcpTools
     },
-    onFinish: () => {
-      event.waitUntil(httpClient?.close())
-    },
     onError: (error) => {
       console.error('streamText error:', error)
-
-      event.waitUntil(httpClient?.close())
     }
   }).toUIMessageStreamResponse()
 })

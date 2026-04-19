@@ -226,7 +226,7 @@ export default defineEventHandler(async (event) => {
       await httpClient.close()
     },
     onError: async (error) => {
-      console.error(error)
+      console.error('streamText error:', error)
       await httpClient.close()
     }
   }).toUIMessageStreamResponse()
@@ -314,7 +314,7 @@ export default defineEventHandler(async (event) => {
 ```ts [server/api/chat.post.ts]
 import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js'
 import { streamText, convertToModelMessages, stepCountIs, smoothStream } from 'ai'
-import { experimental_createMCPClient } from '@ai-sdk/mcp'
+import { createMCPClient } from '@ai-sdk/mcp'
 import { createDeepSeek } from '@ai-sdk/deepseek'
 
 export default defineEventHandler(async (event) => {
@@ -324,11 +324,8 @@ export default defineEventHandler(async (event) => {
     throw createError({ status: 400, message: 'Invalid or missing messages array.' })
   }
 
-  const httpTransport = new StreamableHTTPClientTransport(
-    new URL('https://your-app.com/mcp')
-  )
-  const httpClient = await experimental_createMCPClient({
-    transport: httpTransport
+  const httpClient = await createMCPClient({
+    transport: { type: 'http', url: 'https://your-app.com/mcp' }
   })
   const tools = await httpClient.tools()
 
@@ -342,12 +339,11 @@ export default defineEventHandler(async (event) => {
     stopWhen: stepCountIs(6),
     tools,
     onFinish: async () => {
-      event.waitUntil(httpClient?.close())
+      await httpClient.close()
     },
     onError: async (error) => {
       console.error('streamText error:', error)
-
-      event.waitUntil(httpClient?.close())
+      await httpClient.close()
     }
   }).toUIMessageStreamResponse()
 })

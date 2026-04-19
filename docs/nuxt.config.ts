@@ -252,8 +252,6 @@ export default defineNuxtConfig({
     'nuxt-llms',
     // @memo off this
     'nuxt-og-image',
-    // @memo off this
-    'nuxt-site-config', // use in nuxt-og-image
     'motion-v/nuxt'
   ],
 
