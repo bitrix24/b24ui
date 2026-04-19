@@ -75,6 +75,7 @@ export interface LinkSlots {
 <script setup lang="ts">
 import { computed, inject } from 'vue'
 import { defu } from 'defu'
+import { Slot } from 'reka-ui'
 import { hasProtocol } from 'ufo'
 import { useAppConfig } from '#imports'
 import { mergeClasses } from '../../../utils'
@@ -177,7 +178,7 @@ const navigate = handleNavigation
 </script>
 
 <template>
-  <template v-if="custom">
+  <Slot v-if="custom">
     <slot
       v-bind="{
         ...$attrs,
@@ -192,7 +193,7 @@ const navigate = handleNavigation
         active: isLinkActive
       }"
     />
-  </template>
+  </Slot>
   <B24LinkBase
     v-else
     v-bind="{

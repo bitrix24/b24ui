@@ -10,7 +10,15 @@ exports[`Link > renders with default slot correctly 1`] = `"<button type="button
 
 exports[`Link > renders with disabled correctly 1`] = `"<button type="button" disabled="" class="focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start text-(--ui-color-design-selection-content) underline-offset-2 cursor-not-allowed opacity-75"></button>"`;
 
+exports[`Link > renders with external prop correctly 1`] = `"<a href="/api/download" rel="noopener noreferrer" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start text-(--ui-color-design-selection-content) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt-2) hover:underline"></a>"`;
+
+exports[`Link > renders with external to and target correctly 1`] = `"<a href="https://example.com" rel="noopener noreferrer" target="_blank" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start text-(--ui-color-design-selection-content) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt-2) hover:underline"></a>"`;
+
+exports[`Link > renders with external to correctly 1`] = `"<a href="https://example.com" rel="noopener noreferrer" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start text-(--ui-color-design-selection-content) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt-2) hover:underline"></a>"`;
+
 exports[`Link > renders with inactiveClass correctly 1`] = `"<button type="button" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start text-(--ui-color-design-selection-content) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt-2) hover:underline"></button>"`;
+
+exports[`Link > renders with internal to and target correctly 1`] = `"<a href="/about" rel="noopener noreferrer" target="_blank" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start text-(--ui-color-design-selection-content) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt-2) hover:underline"></a>"`;
 
 exports[`Link > renders with raw activeClass correctly 1`] = `"<button type="button" class="text-(--ui-color-accent-main-success)"></button>"`;
 

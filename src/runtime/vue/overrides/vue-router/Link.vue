@@ -66,7 +66,7 @@ export interface LinkSlots {
 import { computed } from 'vue'
 import { defu } from 'defu'
 import { isEqual } from 'ohash/utils'
-import { useForwardProps } from 'reka-ui'
+import { useForwardProps, Slot } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 import { hasProtocol } from 'ufo'
 import { useRoute, RouterLink } from 'vue-router'
@@ -188,27 +188,9 @@ function resolveLinkClass({ route, isActive, isExactActive }: any = {}) {
 
 <!-- eslint-disable vue/no-template-shadow -->
 <template>
-  <template v-if="!isExternal && !!to">
-    <RouterLink v-slot="{ href, navigate, route: linkRoute, isActive, isExactActive }" v-bind="routerLinkProps" :to="to" custom>
-      <template v-if="custom">
-        <slot
-          v-bind="{
-            ...$attrs,
-            ...(exact && isExactActive ? { 'aria-current': props.ariaCurrentValue } : {}),
-            as,
-            type,
-            disabled,
-            href,
-            navigate,
-            rel,
-            target,
-            isExternal,
-            active: isLinkActive({ route: linkRoute, isActive, isExactActive })
-          }"
-        />
-      </template>
-      <B24LinkBase
-        v-else
+  <RouterLink v-if="!isExternal && !!to" v-slot="{ href, navigate, route: linkRoute, isActive, isExactActive }" v-bind="routerLinkProps" :to="to" custom>
+    <Slot v-if="custom">
+      <slot
         v-bind="{
           ...$attrs,
           ...(exact && isExactActive ? { 'aria-current': props.ariaCurrentValue } : {}),
@@ -219,46 +201,60 @@ function resolveLinkClass({ route, isActive, isExactActive }: any = {}) {
           navigate,
           rel,
           target,
-          isExternal
-        }"
-        :class="resolveLinkClass({ route: linkRoute, isActive, isExactActive })"
-      >
-        <slot :active="isLinkActive({ route: linkRoute, isActive, isExactActive })" />
-      </B24LinkBase>
-    </RouterLink>
-  </template>
-
-  <template v-else>
-    <template v-if="custom">
-      <slot
-        v-bind="{
-          ...$attrs,
-          as,
-          type,
-          disabled,
-          href: to,
-          rel,
-          target,
-          active: active ?? false,
-          isExternal
+          isExternal,
+          active: isLinkActive({ route: linkRoute, isActive, isExactActive })
         }"
       />
-    </template>
+    </Slot>
     <B24LinkBase
       v-else
+      v-bind="{
+        ...$attrs,
+        ...(exact && isExactActive ? { 'aria-current': props.ariaCurrentValue } : {}),
+        as,
+        type,
+        disabled,
+        href,
+        navigate,
+        rel,
+        target,
+        isExternal
+      }"
+      :class="resolveLinkClass({ route: linkRoute, isActive, isExactActive })"
+    >
+      <slot :active="isLinkActive({ route: linkRoute, isActive, isExactActive })" />
+    </B24LinkBase>
+  </RouterLink>
+
+  <Slot v-else-if="custom">
+    <slot
       v-bind="{
         ...$attrs,
         as,
         type,
         disabled,
-        href: (to as string),
+        href: to,
         rel,
         target,
+        active: active ?? false,
         isExternal
       }"
-      :class="resolveLinkClass()"
-    >
-      <slot :active="active ?? false" />
-    </B24LinkBase>
-  </template>
+    />
+  </Slot>
+  <B24LinkBase
+    v-else
+    v-bind="{
+      ...$attrs,
+      as,
+      type,
+      disabled,
+      href: (to as string),
+      rel,
+      target,
+      isExternal
+    }"
+    :class="resolveLinkClass()"
+  >
+    <slot :active="active ?? false" />
+  </B24LinkBase>
 </template>

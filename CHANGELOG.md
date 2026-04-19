@@ -42,6 +42,7 @@
 * fix(Header/DashboardSidebar/Sidebar): allow autofocus in menu for proper focus trapping
 * fix(ChatMessages): reset scroll icon when messages are cleared
 * fix(ChatMessages): prevent layout shift caused by indicator during streaming
+* fix(Link): ensure single-root rendering for `v-show` and `$el` resolution
 * 
 * docs: improve build performance and client-side navigation
 * docs(table): add column span example

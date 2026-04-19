@@ -72,7 +72,7 @@ export interface LinkSlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { defu } from 'defu'
-import { useForwardProps } from 'reka-ui'
+import { useForwardProps, Slot } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 import { usePage } from '@inertiajs/vue3'
 import { hasProtocol } from 'ufo'
@@ -186,7 +186,7 @@ const linkClass = computed(() => {
 </script>
 
 <template>
-  <template v-if="custom">
+  <Slot v-if="custom">
     <slot
       v-bind="{
         ...$attrs,
@@ -201,7 +201,7 @@ const linkClass = computed(() => {
         isExternal
       }"
     />
-  </template>
+  </Slot>
   <B24LinkBase
     v-else
     v-bind="{
