@@ -5,7 +5,6 @@ import { createDeepSeek } from '@ai-sdk/deepseek'
 
 const MAX_STEPS = 10
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function stopWhenResponseComplete({ steps }: { steps: any[] }): boolean {
   const lastStep = steps.at(-1)
   if (!lastStep) return false
