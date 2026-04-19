@@ -160,6 +160,9 @@ onMounted(() => {
   isMounted.value = true
 })
 
+// @see docs/app/components/PageHeaderLinks.vue:16
+const aiPrompt = computed(() => `I'm looking at this Bitrix24 UI documentation: ${page.value?.path}\nHelp me understand how to use it. Be ready to explain concepts, give examples, or help debug based on it.`)
+
 function makeExplain() {
   // @memo this for NUXT.UI.docs
   messages.value = [
@@ -167,13 +170,13 @@ function makeExplain() {
     {
       id: String(Date.now()),
       role: 'user',
-      parts: [{ type: 'text', text: `Read the documentation page at ${page.value?.path} and summarize it. I want to ask questions about it.` }]
+      parts: [{ type: 'text', text: aiPrompt.value }]
     }
   ]
   open.value = true
 
   // @memo this for docus
-  // openAIChat(`Explain the page ${pageUrl}`, true)
+  // openAIChat(aiPrompt.value, true)
 }
 </script>
 
