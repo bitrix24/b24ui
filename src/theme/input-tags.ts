@@ -6,6 +6,7 @@
  */
 import { defuFn } from 'defu'
 import input from './input'
+import { fieldGroupVariant } from './field-group'
 
 export default () => {
   return defuFn({
@@ -73,6 +74,7 @@ export default () => {
       ].join(' ')
     },
     variants: {
+      ...fieldGroupVariant,
       size: {
         xss: {
           base: [
