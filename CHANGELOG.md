@@ -45,6 +45,7 @@
 * fix(Link): ensure single-root rendering for `v-show` and `$el` resolution
 * fix(module): use relative `tagPriority` for inline style tags
 * fix(InputTags): add missing field group variant
+* fix(ProsePre): get code from DOM if `code` prop is missing
 * 
 * docs: improve build performance and client-side navigation
 * docs(table): add column span example
