@@ -5,6 +5,7 @@ exports[`Slideover > renders with actions slot correctly 1`] = `
 <!--teleport start-->
 
 
+
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
 <div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="base-mode fixed bg-(--ui-color-gray-05) dark:bg-(--ui-color-base-black-fixed) sm:shadow-lg flex flex-col focus:outline-none h-full max-h-full sm:max-h-[calc(100%-18px)] right-[5px] top-0 sm:top-4.5 bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open"><span aria-hidden="true" style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); white-space: nowrap; word-wrap: normal; top: -1px; left: -1px;"><h2 id="reka-dialog-title-v-0"></h2><p id="reka-dialog-description-v-1"></p></span><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pl-1.5 pr-[4px] top-[17px] -translate-x-full left-0 rounded-l-full">
     <!--v-if-->
@@ -21,12 +22,14 @@ exports[`Slideover > renders with actions slot correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Slideover > renders with b24ui correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -45,12 +48,14 @@ exports[`Slideover > renders with b24ui correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Slideover > renders with body slot correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -69,12 +74,14 @@ exports[`Slideover > renders with body slot correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Slideover > renders with bottom side correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -100,12 +107,14 @@ exports[`Slideover > renders with bottom side correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Slideover > renders with bottom side inset correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -131,12 +140,14 @@ exports[`Slideover > renders with bottom side inset correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Slideover > renders with class correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -155,12 +166,14 @@ exports[`Slideover > renders with class correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Slideover > renders with close slot correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -171,12 +184,14 @@ exports[`Slideover > renders with close slot correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Slideover > renders with closeIcon correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -195,12 +210,14 @@ exports[`Slideover > renders with closeIcon correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Slideover > renders with content slot correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -215,12 +232,14 @@ exports[`Slideover > renders with content slot correctly 1`] = `
   </button>Content slot</div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Slideover > renders with default slot correctly 1`] = `
 "Default slot
 <!--teleport start-->
+
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -239,12 +258,14 @@ exports[`Slideover > renders with default slot correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Slideover > renders with description correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -270,12 +291,14 @@ exports[`Slideover > renders with description correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Slideover > renders with description slot correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -300,12 +323,14 @@ exports[`Slideover > renders with description slot correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Slideover > renders with footer slot correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -324,12 +349,14 @@ exports[`Slideover > renders with footer slot correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Slideover > renders with header slot correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -348,12 +375,14 @@ exports[`Slideover > renders with header slot correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Slideover > renders with left side correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -379,12 +408,14 @@ exports[`Slideover > renders with left side correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Slideover > renders with left side inset correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -410,12 +441,14 @@ exports[`Slideover > renders with left side inset correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Slideover > renders with open correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -434,12 +467,14 @@ exports[`Slideover > renders with open correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Slideover > renders with right side correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -465,12 +500,14 @@ exports[`Slideover > renders with right side correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Slideover > renders with right side inset correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -496,12 +533,14 @@ exports[`Slideover > renders with right side inset correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Slideover > renders with title correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -526,12 +565,14 @@ exports[`Slideover > renders with title correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Slideover > renders with title slot correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -556,12 +597,14 @@ exports[`Slideover > renders with title slot correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Slideover > renders with top side correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -587,12 +630,14 @@ exports[`Slideover > renders with top side correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Slideover > renders with top side inset correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -618,12 +663,14 @@ exports[`Slideover > renders with top side inset correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Slideover > renders without close correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -642,12 +689,14 @@ exports[`Slideover > renders without close correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Slideover > renders without overlay correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 <!--v-if-->
@@ -673,12 +722,14 @@ exports[`Slideover > renders without overlay correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Slideover > renders without transition correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e]"></div>
@@ -702,6 +753,7 @@ exports[`Slideover > renders without transition correctly 1`] = `
   <!--v-if-->
   <!--v-if-->
 </div>
+
 
 
 <!--teleport end-->"

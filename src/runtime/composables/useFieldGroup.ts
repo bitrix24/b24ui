@@ -1,5 +1,5 @@
 import type { InjectionKey, ComputedRef } from 'vue'
-import { inject, computed } from 'vue'
+import { computed, defineComponent, inject, provide } from 'vue'
 import type { FieldGroupProps } from '../components/FieldGroup.vue'
 import type { GetObjectField } from '../types/utils'
 
@@ -21,3 +21,15 @@ export function useFieldGroup<T>(props: Props<T>) {
     noSplit: computed(() => (fieldGroup?.value.orientation !== 'horizontal') || fieldGroup?.value.noSplit === true)
   }
 }
+
+export const FieldGroupReset = defineComponent({
+  name: 'FieldGroupReset',
+  setup(_, { slots }) {
+    provide(fieldGroupInjectionKey, computed(() => ({
+      size: undefined,
+      orientation: undefined,
+      noSplit: undefined
+    })))
+    return () => slots.default?.()
+  }
+})

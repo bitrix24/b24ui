@@ -46,6 +46,7 @@
 * fix(module): use relative `tagPriority` for inline style tags
 * fix(InputTags): add missing field group variant
 * fix(ProsePre): get code from DOM if `code` prop is missing
+* fix(FieldGroup): prevent context from leaking into portals
 * 
 * docs: improve build performance and client-side navigation
 * docs(table): add column span example

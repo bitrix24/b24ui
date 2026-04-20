@@ -1248,6 +1248,7 @@ exports[`InputMenu > renders with multiple and modelValue correctly 1`] = `
 <!--teleport start-->
 
 
+
 <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
   <div data-dismissable-layer="" style="display: flex; flex-direction: column; box-sizing: border-box; --reka-combobox-content-transform-origin: var(--reka-popper-transform-origin); --reka-combobox-content-available-width: var(--reka-popper-available-width); --reka-combobox-content-available-height: var(--reka-popper-available-height); --reka-combobox-trigger-width: var(--reka-popper-anchor-width); --reka-combobox-trigger-height: var(--reka-popper-anchor-height); animation: none; outline-color: none; outline-style: none; outline-width: initial;" tabindex="-1" data-slot="content" class="base-mode bg-(--ui-color-bg-content-primary) shadow-(--popup-window-box-shadow) rounded-(--ui-border-radius-xl) will-change-[opacity] motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-dropdown-menu-content-transform-origin) font-[family-name:var(--ui-font-family-primary)] relative isolate px-0 py-(--menu-popup-padding) pointer-events-auto" role="listbox" aria-orientation="vertical" aria-multiselectable="true" data-orientation="vertical" position="popper" id="reka-combobox-content-v-2" data-state="open" data-side="bottom" data-align="center">
     <!--v-if-->
@@ -1282,6 +1283,7 @@ exports[`InputMenu > renders with multiple and modelValue correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->
 <!--v-if-->"
 `;
@@ -1296,6 +1298,7 @@ exports[`InputMenu > renders with multiple correctly 1`] = `
     </svg></button>
 </div>
 <!--teleport start-->
+
 
 
 <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
@@ -1330,6 +1333,7 @@ exports[`InputMenu > renders with multiple correctly 1`] = `
     <!--v-if-->
   </div>
 </div>
+
 
 
 <!--teleport end-->

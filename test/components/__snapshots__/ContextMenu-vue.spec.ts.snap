@@ -6,6 +6,7 @@ exports[`ContextMenu > renders with b24ui correctly 1`] = `
 
 
 
+
 <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
   <div data-dismissable-layer="" style="pointer-events: auto; --reka-context-menu-content-transform-origin: var(--reka-popper-transform-origin); --reka-context-menu-content-available-width: var(--reka-popper-available-width); --reka-context-menu-content-available-height: var(--reka-popper-available-height); --reka-context-menu-trigger-width: var(--reka-popper-anchor-width); --reka-context-menu-trigger-height: var(--reka-popper-anchor-height); animation: none; outline-color: none; outline-style: none; outline-width: initial;" tabindex="-1" data-slot="content" class="base-mode bg-(--ui-color-bg-content-primary) shadow-(--popup-window-box-shadow) rounded-(--ui-border-radius-xl) will-change-[opacity] motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-context-menu-content-transform-origin) font-[family-name:var(--ui-font-family-primary)] relative isolate px-0 py-(--menu-popup-padding) pointer-events-auto" data-orientation="vertical" dir="ltr" role="menu" aria-orientation="vertical" data-reka-menu-content="" data-state="open" data-side="right" data-align="start">
     <div role="presentation" data-slot="viewport" class="relative w-full max-h-[40vh] min-w-48 scroll-py-1 overflow-x-hidden overflow-y-auto scrollbar-thin">
@@ -54,6 +55,7 @@ exports[`ContextMenu > renders with b24ui correctly 1`] = `
     </div>
   </div>
 </div>
+
 
 
 
@@ -66,6 +68,7 @@ exports[`ContextMenu > renders with class correctly 1`] = `
 
 
 
+
 <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
   <div data-dismissable-layer="" style="pointer-events: auto; --reka-context-menu-content-transform-origin: var(--reka-popper-transform-origin); --reka-context-menu-content-available-width: var(--reka-popper-available-width); --reka-context-menu-content-available-height: var(--reka-popper-available-height); --reka-context-menu-trigger-width: var(--reka-popper-anchor-width); --reka-context-menu-trigger-height: var(--reka-popper-anchor-height); animation: none; outline-color: none; outline-style: none; outline-width: initial;" tabindex="-1" data-slot="content" class="base-mode bg-(--ui-color-bg-content-primary) shadow-(--popup-window-box-shadow) rounded-(--ui-border-radius-xl) will-change-[opacity] motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-context-menu-content-transform-origin) font-[family-name:var(--ui-font-family-primary)] relative isolate px-0 py-(--menu-popup-padding) pointer-events-auto" data-orientation="vertical" dir="ltr" role="menu" aria-orientation="vertical" data-reka-menu-content="" data-state="open" data-side="right" data-align="start">
     <div role="presentation" data-slot="viewport" class="relative w-full max-h-[40vh] min-w-48 scroll-py-1 overflow-x-hidden overflow-y-auto scrollbar-thin">
@@ -114,6 +117,7 @@ exports[`ContextMenu > renders with class correctly 1`] = `
     </div>
   </div>
 </div>
+
 
 
 
@@ -126,6 +130,7 @@ exports[`ContextMenu > renders with color air-primary correctly 1`] = `
 
 
 
+
 <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
   <div data-dismissable-layer="" style="pointer-events: auto; --reka-context-menu-content-transform-origin: var(--reka-popper-transform-origin); --reka-context-menu-content-available-width: var(--reka-popper-available-width); --reka-context-menu-content-available-height: var(--reka-popper-available-height); --reka-context-menu-trigger-width: var(--reka-popper-anchor-width); --reka-context-menu-trigger-height: var(--reka-popper-anchor-height); animation: none; outline-color: none; outline-style: none; outline-width: initial;" tabindex="-1" data-slot="content" class="base-mode bg-(--ui-color-bg-content-primary) shadow-(--popup-window-box-shadow) rounded-(--ui-border-radius-xl) will-change-[opacity] motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-context-menu-content-transform-origin) font-[family-name:var(--ui-font-family-primary)] relative isolate px-0 py-(--menu-popup-padding) pointer-events-auto" data-orientation="vertical" dir="ltr" role="menu" aria-orientation="vertical" data-reka-menu-content="" data-state="open" data-side="right" data-align="start">
     <div role="presentation" data-slot="viewport" class="relative w-full max-h-[40vh] min-w-48 scroll-py-1 overflow-x-hidden overflow-y-auto scrollbar-thin">
@@ -174,6 +179,7 @@ exports[`ContextMenu > renders with color air-primary correctly 1`] = `
     </div>
   </div>
 </div>
+
 
 
 
@@ -186,6 +192,7 @@ exports[`ContextMenu > renders with color air-primary-alert correctly 1`] = `
 
 
 
+
 <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
   <div data-dismissable-layer="" style="pointer-events: auto; --reka-context-menu-content-transform-origin: var(--reka-popper-transform-origin); --reka-context-menu-content-available-width: var(--reka-popper-available-width); --reka-context-menu-content-available-height: var(--reka-popper-available-height); --reka-context-menu-trigger-width: var(--reka-popper-anchor-width); --reka-context-menu-trigger-height: var(--reka-popper-anchor-height); animation: none; outline-color: none; outline-style: none; outline-width: initial;" tabindex="-1" data-slot="content" class="base-mode bg-(--ui-color-bg-content-primary) shadow-(--popup-window-box-shadow) rounded-(--ui-border-radius-xl) will-change-[opacity] motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-context-menu-content-transform-origin) font-[family-name:var(--ui-font-family-primary)] relative isolate px-0 py-(--menu-popup-padding) pointer-events-auto" data-orientation="vertical" dir="ltr" role="menu" aria-orientation="vertical" data-reka-menu-content="" data-state="open" data-side="right" data-align="start">
     <div role="presentation" data-slot="viewport" class="relative w-full max-h-[40vh] min-w-48 scroll-py-1 overflow-x-hidden overflow-y-auto scrollbar-thin">
@@ -234,6 +241,7 @@ exports[`ContextMenu > renders with color air-primary-alert correctly 1`] = `
     </div>
   </div>
 </div>
+
 
 
 
@@ -246,6 +254,7 @@ exports[`ContextMenu > renders with color air-primary-copilot correctly 1`] = `
 
 
 
+
 <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
   <div data-dismissable-layer="" style="pointer-events: auto; --reka-context-menu-content-transform-origin: var(--reka-popper-transform-origin); --reka-context-menu-content-available-width: var(--reka-popper-available-width); --reka-context-menu-content-available-height: var(--reka-popper-available-height); --reka-context-menu-trigger-width: var(--reka-popper-anchor-width); --reka-context-menu-trigger-height: var(--reka-popper-anchor-height); animation: none; outline-color: none; outline-style: none; outline-width: initial;" tabindex="-1" data-slot="content" class="base-mode bg-(--ui-color-bg-content-primary) shadow-(--popup-window-box-shadow) rounded-(--ui-border-radius-xl) will-change-[opacity] motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-context-menu-content-transform-origin) font-[family-name:var(--ui-font-family-primary)] relative isolate px-0 py-(--menu-popup-padding) pointer-events-auto" data-orientation="vertical" dir="ltr" role="menu" aria-orientation="vertical" data-reka-menu-content="" data-state="open" data-side="right" data-align="start">
     <div role="presentation" data-slot="viewport" class="relative w-full max-h-[40vh] min-w-48 scroll-py-1 overflow-x-hidden overflow-y-auto scrollbar-thin">
@@ -294,6 +303,7 @@ exports[`ContextMenu > renders with color air-primary-copilot correctly 1`] = `
     </div>
   </div>
 </div>
+
 
 
 
@@ -306,6 +316,7 @@ exports[`ContextMenu > renders with color air-primary-success correctly 1`] = `
 
 
 
+
 <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
   <div data-dismissable-layer="" style="pointer-events: auto; --reka-context-menu-content-transform-origin: var(--reka-popper-transform-origin); --reka-context-menu-content-available-width: var(--reka-popper-available-width); --reka-context-menu-content-available-height: var(--reka-popper-available-height); --reka-context-menu-trigger-width: var(--reka-popper-anchor-width); --reka-context-menu-trigger-height: var(--reka-popper-anchor-height); animation: none; outline-color: none; outline-style: none; outline-width: initial;" tabindex="-1" data-slot="content" class="base-mode bg-(--ui-color-bg-content-primary) shadow-(--popup-window-box-shadow) rounded-(--ui-border-radius-xl) will-change-[opacity] motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-context-menu-content-transform-origin) font-[family-name:var(--ui-font-family-primary)] relative isolate px-0 py-(--menu-popup-padding) pointer-events-auto" data-orientation="vertical" dir="ltr" role="menu" aria-orientation="vertical" data-reka-menu-content="" data-state="open" data-side="right" data-align="start">
     <div role="presentation" data-slot="viewport" class="relative w-full max-h-[40vh] min-w-48 scroll-py-1 overflow-x-hidden overflow-y-auto scrollbar-thin">
@@ -354,6 +365,7 @@ exports[`ContextMenu > renders with color air-primary-success correctly 1`] = `
     </div>
   </div>
 </div>
+
 
 
 
@@ -366,6 +378,7 @@ exports[`ContextMenu > renders with color air-primary-warning correctly 1`] = `
 
 
 
+
 <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
   <div data-dismissable-layer="" style="pointer-events: auto; --reka-context-menu-content-transform-origin: var(--reka-popper-transform-origin); --reka-context-menu-content-available-width: var(--reka-popper-available-width); --reka-context-menu-content-available-height: var(--reka-popper-available-height); --reka-context-menu-trigger-width: var(--reka-popper-anchor-width); --reka-context-menu-trigger-height: var(--reka-popper-anchor-height); animation: none; outline-color: none; outline-style: none; outline-width: initial;" tabindex="-1" data-slot="content" class="base-mode bg-(--ui-color-bg-content-primary) shadow-(--popup-window-box-shadow) rounded-(--ui-border-radius-xl) will-change-[opacity] motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-context-menu-content-transform-origin) font-[family-name:var(--ui-font-family-primary)] relative isolate px-0 py-(--menu-popup-padding) pointer-events-auto" data-orientation="vertical" dir="ltr" role="menu" aria-orientation="vertical" data-reka-menu-content="" data-state="open" data-side="right" data-align="start">
     <div role="presentation" data-slot="viewport" class="relative w-full max-h-[40vh] min-w-48 scroll-py-1 overflow-x-hidden overflow-y-auto scrollbar-thin">
@@ -414,6 +427,7 @@ exports[`ContextMenu > renders with color air-primary-warning correctly 1`] = `
     </div>
   </div>
 </div>
+
 
 
 
@@ -426,6 +440,7 @@ exports[`ContextMenu > renders with custom slot correctly 1`] = `
 
 
 
+
 <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
   <div data-dismissable-layer="" style="pointer-events: auto; --reka-context-menu-content-transform-origin: var(--reka-popper-transform-origin); --reka-context-menu-content-available-width: var(--reka-popper-available-width); --reka-context-menu-content-available-height: var(--reka-popper-available-height); --reka-context-menu-trigger-width: var(--reka-popper-anchor-width); --reka-context-menu-trigger-height: var(--reka-popper-anchor-height); animation: none; outline-color: none; outline-style: none; outline-width: initial;" tabindex="-1" data-slot="content" class="base-mode bg-(--ui-color-bg-content-primary) shadow-(--popup-window-box-shadow) rounded-(--ui-border-radius-xl) will-change-[opacity] motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-context-menu-content-transform-origin) font-[family-name:var(--ui-font-family-primary)] relative isolate px-0 py-(--menu-popup-padding) pointer-events-auto" data-orientation="vertical" dir="ltr" role="menu" aria-orientation="vertical" data-reka-menu-content="" data-state="open" data-side="right" data-align="start">
     <div role="presentation" data-slot="viewport" class="relative w-full max-h-[40vh] min-w-48 scroll-py-1 overflow-x-hidden overflow-y-auto scrollbar-thin">
@@ -474,6 +489,7 @@ exports[`ContextMenu > renders with custom slot correctly 1`] = `
     </div>
   </div>
 </div>
+
 
 
 
@@ -486,6 +502,7 @@ exports[`ContextMenu > renders with default slot correctly 1`] = `
 
 
 
+
 <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
   <div data-dismissable-layer="" style="pointer-events: auto; --reka-context-menu-content-transform-origin: var(--reka-popper-transform-origin); --reka-context-menu-content-available-width: var(--reka-popper-available-width); --reka-context-menu-content-available-height: var(--reka-popper-available-height); --reka-context-menu-trigger-width: var(--reka-popper-anchor-width); --reka-context-menu-trigger-height: var(--reka-popper-anchor-height); animation: none; outline-color: none; outline-style: none; outline-width: initial;" tabindex="-1" data-slot="content" class="base-mode bg-(--ui-color-bg-content-primary) shadow-(--popup-window-box-shadow) rounded-(--ui-border-radius-xl) will-change-[opacity] motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-context-menu-content-transform-origin) font-[family-name:var(--ui-font-family-primary)] relative isolate px-0 py-(--menu-popup-padding) pointer-events-auto" data-orientation="vertical" dir="ltr" role="menu" aria-orientation="vertical" data-reka-menu-content="" data-state="open" data-side="right" data-align="start">
     <div role="presentation" data-slot="viewport" class="relative w-full max-h-[40vh] min-w-48 scroll-py-1 overflow-x-hidden overflow-y-auto scrollbar-thin">
@@ -537,12 +554,14 @@ exports[`ContextMenu > renders with default slot correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`ContextMenu > renders with descriptionKey correctly 1`] = `
 "<span data-state="open" style="pointer-events: auto;" class="">Right Click</span>
 <!--teleport start-->
+
 
 
 
@@ -568,6 +587,7 @@ exports[`ContextMenu > renders with descriptionKey correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
@@ -577,7 +597,9 @@ exports[`ContextMenu > renders with disabled correctly 1`] = `
 
 
 
+
 <!---->
+
 
 
 
@@ -587,6 +609,7 @@ exports[`ContextMenu > renders with disabled correctly 1`] = `
 exports[`ContextMenu > renders with externalIcon correctly 1`] = `
 "<span data-state="open" style="pointer-events: auto;" class="">Right Click</span>
 <!--teleport start-->
+
 
 
 
@@ -641,12 +664,14 @@ exports[`ContextMenu > renders with externalIcon correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`ContextMenu > renders with item slot correctly 1`] = `
 "<span data-state="open" style="pointer-events: auto;" class="">Right Click</span>
 <!--teleport start-->
+
 
 
 
@@ -674,12 +699,14 @@ exports[`ContextMenu > renders with item slot correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`ContextMenu > renders with item-description slot correctly 1`] = `
 "<span data-state="open" style="pointer-events: auto;" class="">Right Click</span>
 <!--teleport start-->
+
 
 
 
@@ -705,12 +732,14 @@ exports[`ContextMenu > renders with item-description slot correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`ContextMenu > renders with item-label slot correctly 1`] = `
 "<span data-state="open" style="pointer-events: auto;" class="">Right Click</span>
 <!--teleport start-->
+
 
 
 
@@ -765,12 +794,14 @@ exports[`ContextMenu > renders with item-label slot correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`ContextMenu > renders with item-leading slot correctly 1`] = `
 "<span data-state="open" style="pointer-events: auto;" class="">Right Click</span>
 <!--teleport start-->
+
 
 
 
@@ -816,12 +847,14 @@ exports[`ContextMenu > renders with item-leading slot correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`ContextMenu > renders with item-trailing slot correctly 1`] = `
 "<span data-state="open" style="pointer-events: auto;" class="">Right Click</span>
 <!--teleport start-->
+
 
 
 
@@ -876,12 +909,14 @@ exports[`ContextMenu > renders with item-trailing slot correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`ContextMenu > renders with items correctly 1`] = `
 "<span data-state="open" style="pointer-events: auto;" class="">Right Click</span>
 <!--teleport start-->
+
 
 
 
@@ -936,12 +971,14 @@ exports[`ContextMenu > renders with items correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`ContextMenu > renders with items with description correctly 1`] = `
 "<span data-state="open" style="pointer-events: auto;" class="">Right Click</span>
 <!--teleport start-->
+
 
 
 
@@ -967,12 +1004,14 @@ exports[`ContextMenu > renders with items with description correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`ContextMenu > renders with labelKey correctly 1`] = `
 "<span data-state="open" style="pointer-events: auto;" class="">Right Click</span>
 <!--teleport start-->
+
 
 
 
@@ -1042,12 +1081,14 @@ exports[`ContextMenu > renders with labelKey correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`ContextMenu > renders without externalIcon correctly 1`] = `
 "<span data-state="open" style="pointer-events: auto;" class="">Right Click</span>
 <!--teleport start-->
+
 
 
 
@@ -1099,6 +1140,7 @@ exports[`ContextMenu > renders without externalIcon correctly 1`] = `
     </div>
   </div>
 </div>
+
 
 
 

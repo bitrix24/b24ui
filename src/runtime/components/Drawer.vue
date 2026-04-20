@@ -80,6 +80,7 @@ import { DrawerRoot, DrawerRootNested, DrawerTrigger, DrawerPortal, DrawerOverla
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useComponentUI } from '../composables/useComponentUI'
+import { FieldGroupReset } from '../composables/useFieldGroup'
 import { usePortal } from '../composables/usePortal'
 import { pointerDownOutside } from '../utils/overlay'
 import { tv } from '../utils/tv'
@@ -138,57 +139,59 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.drawer
     </DrawerTrigger>
 
     <DrawerPortal v-bind="portalProps">
-      <DrawerOverlay v-if="overlay" data-slot="overlay" :class="b24ui.overlay({ class: uiProp?.overlay })" />
+      <FieldGroupReset>
+        <DrawerOverlay v-if="overlay" data-slot="overlay" :class="b24ui.overlay({ class: uiProp?.overlay })" />
 
-      <DrawerContent data-slot="content" :class="b24ui.content({ class: [!slots.default && props.class, uiProp?.content] })" v-bind="contentProps" v-on="contentEvents">
-        <DrawerHandle v-if="handle" data-slot="handle" :class="b24ui.handle({ class: uiProp?.handle })" />
+        <DrawerContent data-slot="content" :class="b24ui.content({ class: [!slots.default && props.class, uiProp?.content] })" v-bind="contentProps" v-on="contentEvents">
+          <DrawerHandle v-if="handle" data-slot="handle" :class="b24ui.handle({ class: uiProp?.handle })" />
 
-        <VisuallyHidden v-if="(!title && !slots.title) || (!description && !slots.description) || !!slots.content">
-          <DrawerTitle v-if="!title && !slots.title" />
-          <DrawerTitle v-else-if="!!slots.content">
-            <slot name="title">
-              {{ title }}
-            </slot>
-          </DrawerTitle>
-
-          <DrawerDescription v-if="!description && !slots.description" />
-          <DrawerDescription v-else-if="!!slots.content">
-            <slot name="description">
-              {{ description }}
-            </slot>
-          </DrawerDescription>
-        </VisuallyHidden>
-
-        <slot name="content">
-          <div data-slot="container" :class="b24ui.container({ class: uiProp?.container })">
-            <div v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description)" data-slot="header" :class="b24ui.header({ class: uiProp?.header })">
-              <slot name="header">
-                <DrawerTitle v-if="!title && !slots.title" />
-                <DrawerTitle v-else data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
-                  <slot name="title">
-                    {{ title }}
-                  </slot>
-                </DrawerTitle>
-
-                <DrawerDescription v-if="!description && !slots.description" />
-                <DrawerDescription v-else data-slot="description" :class="b24ui.description({ class: uiProp?.description })">
-                  <slot name="description">
-                    {{ description }}
-                  </slot>
-                </DrawerDescription>
+          <VisuallyHidden v-if="(!title && !slots.title) || (!description && !slots.description) || !!slots.content">
+            <DrawerTitle v-if="!title && !slots.title" />
+            <DrawerTitle v-else-if="!!slots.content">
+              <slot name="title">
+                {{ title }}
               </slot>
-            </div>
+            </DrawerTitle>
 
-            <div v-if="!!slots.body" data-slot="body" :class="b24ui.body({ class: uiProp?.body })">
-              <slot name="body" />
-            </div>
+            <DrawerDescription v-if="!description && !slots.description" />
+            <DrawerDescription v-else-if="!!slots.content">
+              <slot name="description">
+                {{ description }}
+              </slot>
+            </DrawerDescription>
+          </VisuallyHidden>
 
-            <div v-if="!!slots.footer" data-slot="footer" :class="b24ui.footer({ class: uiProp?.footer })">
-              <slot name="footer" />
+          <slot name="content">
+            <div data-slot="container" :class="b24ui.container({ class: uiProp?.container })">
+              <div v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description)" data-slot="header" :class="b24ui.header({ class: uiProp?.header })">
+                <slot name="header">
+                  <DrawerTitle v-if="!title && !slots.title" />
+                  <DrawerTitle v-else data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
+                    <slot name="title">
+                      {{ title }}
+                    </slot>
+                  </DrawerTitle>
+
+                  <DrawerDescription v-if="!description && !slots.description" />
+                  <DrawerDescription v-else data-slot="description" :class="b24ui.description({ class: uiProp?.description })">
+                    <slot name="description">
+                      {{ description }}
+                    </slot>
+                  </DrawerDescription>
+                </slot>
+              </div>
+
+              <div v-if="!!slots.body" data-slot="body" :class="b24ui.body({ class: uiProp?.body })">
+                <slot name="body" />
+              </div>
+
+              <div v-if="!!slots.footer" data-slot="footer" :class="b24ui.footer({ class: uiProp?.footer })">
+                <slot name="footer" />
+              </div>
             </div>
-          </div>
-        </slot>
-      </DrawerContent>
+          </slot>
+        </DrawerContent>
+      </FieldGroupReset>
     </DrawerPortal>
   </component>
 </template>

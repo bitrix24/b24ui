@@ -39,6 +39,8 @@ import { computed, toRef } from 'vue'
 import { ContextMenu } from 'reka-ui/namespaced'
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit, createReusableTemplate } from '@vueuse/core'
+// import { useAppConfig } from '#imports'
+import { FieldGroupReset } from '../composables/useFieldGroup'
 import { useLocale } from '../composables/useLocale'
 import { usePortal } from '../composables/usePortal'
 import { omit, get, isArrayOfArray } from '../utils'
@@ -174,97 +176,99 @@ const groups = computed<ContextMenuItem[][]>(() =>
   </DefineItemTemplate>
 
   <ContextMenu.Portal v-bind="portalProps">
-    <component
-      :is="sub ? ContextMenu.SubContent : ContextMenu.Content"
-      data-slot="content"
-      :class="b24ui.content({ class: [b24uiOverride?.content, props.class] })"
-      v-bind="contentProps"
-    >
-      <slot name="content-top" :sub="sub ?? false" />
+    <FieldGroupReset>
+      <component
+        :is="sub ? ContextMenu.SubContent : ContextMenu.Content"
+        data-slot="content"
+        :class="b24ui.content({ class: [b24uiOverride?.content, props.class] })"
+        v-bind="contentProps"
+      >
+        <slot name="content-top" :sub="sub ?? false" />
 
-      <div role="presentation" data-slot="viewport" :class="b24ui.viewport({ class: b24uiOverride?.viewport })">
-        <ContextMenu.Group
-          v-for="(group, groupIndex) in groups"
-          :key="`group-${groupIndex}`"
-          data-slot="group"
-          :class="b24ui.group({ class: b24uiOverride?.group })"
-        >
-          <template v-for="(item, index) in group" :key="`group-${groupIndex}-${index}`">
-            <ContextMenu.Label v-if="item.type === 'label'" data-slot="label" :class="b24ui.label({ class: [b24uiOverride?.label, item.b24ui?.label, item.class] })">
-              <ReuseItemTemplate :item="item" :index="index" />
-            </ContextMenu.Label>
-            <ContextMenu.Separator v-else-if="item.type === 'separator'" data-slot="separator" :class="b24ui.separator({ class: [b24uiOverride?.separator, item.b24ui?.separator, item.class] })" />
-            <ContextMenu.Sub
-              v-else-if="item?.children?.length"
-              :open="item.open"
-              :default-open="item.defaultOpen"
-            >
-              <ContextMenu.SubTrigger
-                as="button"
-                type="button"
+        <div role="presentation" data-slot="viewport" :class="b24ui.viewport({ class: b24uiOverride?.viewport })">
+          <ContextMenu.Group
+            v-for="(group, groupIndex) in groups"
+            :key="`group-${groupIndex}`"
+            data-slot="group"
+            :class="b24ui.group({ class: b24uiOverride?.group })"
+          >
+            <template v-for="(item, index) in group" :key="`group-${groupIndex}-${index}`">
+              <ContextMenu.Label v-if="item.type === 'label'" data-slot="label" :class="b24ui.label({ class: [b24uiOverride?.label, item.b24ui?.label, item.class] })">
+                <ReuseItemTemplate :item="item" :index="index" />
+              </ContextMenu.Label>
+              <ContextMenu.Separator v-else-if="item.type === 'separator'" data-slot="separator" :class="b24ui.separator({ class: [b24uiOverride?.separator, item.b24ui?.separator, item.class] })" />
+              <ContextMenu.Sub
+                v-else-if="item?.children?.length"
+                :open="item.open"
+                :default-open="item.defaultOpen"
+              >
+                <ContextMenu.SubTrigger
+                  as="button"
+                  type="button"
+                  :disabled="item.disabled"
+                  :text-value="get(item, props.labelKey as string)"
+                  data-slot="item"
+                  :class="b24ui.item({ class: [b24uiOverride?.item, item.b24ui?.item, item.class], color: item?.color })"
+                >
+                  <ReuseItemTemplate :item="item" :index="index" />
+                </ContextMenu.SubTrigger>
+
+                <B24ContextMenuContent
+                  sub
+                  :class="item.b24ui?.content"
+                  :b24ui="b24ui"
+                  :b24ui-override="b24uiOverride"
+                  :portal="portal"
+                  :items="(item.children as T)"
+                  :align-offset="-4"
+                  :label-key="labelKey"
+                  :description-key="descriptionKey"
+                  :checked-icon="checkedIcon"
+                  :loading-icon="loadingIcon"
+                  :external-icon="externalIcon"
+                  v-bind="item.content"
+                >
+                  <template v-for="(_, name) in getProxySlots()" #[name]="slotData">
+                    <slot :name="(name as keyof ContextMenuSlots<T>)" v-bind="slotData" />
+                  </template>
+                </B24ContextMenuContent>
+              </ContextMenu.Sub>
+              <ContextMenu.CheckboxItem
+                v-else-if="item.type === 'checkbox'"
+                :model-value="item.checked"
                 :disabled="item.disabled"
                 :text-value="get(item, props.labelKey as string)"
                 data-slot="item"
                 :class="b24ui.item({ class: [b24uiOverride?.item, item.b24ui?.item, item.class], color: item?.color })"
-              >
-                <ReuseItemTemplate :item="item" :index="index" />
-              </ContextMenu.SubTrigger>
-
-              <B24ContextMenuContent
-                sub
-                :class="item.b24ui?.content"
-                :b24ui="b24ui"
-                :b24ui-override="b24uiOverride"
-                :portal="portal"
-                :items="(item.children as T)"
-                :align-offset="-4"
-                :label-key="labelKey"
-                :description-key="descriptionKey"
-                :checked-icon="checkedIcon"
-                :loading-icon="loadingIcon"
-                :external-icon="externalIcon"
-                v-bind="item.content"
-              >
-                <template v-for="(_, name) in getProxySlots()" #[name]="slotData">
-                  <slot :name="(name as keyof ContextMenuSlots<T>)" v-bind="slotData" />
-                </template>
-              </B24ContextMenuContent>
-            </ContextMenu.Sub>
-            <ContextMenu.CheckboxItem
-              v-else-if="item.type === 'checkbox'"
-              :model-value="item.checked"
-              :disabled="item.disabled"
-              :text-value="get(item, props.labelKey as string)"
-              data-slot="item"
-              :class="b24ui.item({ class: [b24uiOverride?.item, item.b24ui?.item, item.class], color: item?.color })"
-              @update:model-value="item.onUpdateChecked"
-              @select="item.onSelect"
-            >
-              <ReuseItemTemplate :item="item" :index="index" />
-            </ContextMenu.CheckboxItem>
-            <B24Link v-else v-slot="{ active, ...slotProps }" v-bind="pickLinkProps(item as Omit<ContextMenuItem, 'type'>)" custom>
-              <ContextMenu.Item
-                as-child
-                :disabled="item.disabled"
-                :text-value="get(item, props.labelKey as string)"
+                @update:model-value="item.onUpdateChecked"
                 @select="item.onSelect"
               >
-                <B24LinkBase
-                  v-bind="slotProps"
-                  data-slot="item"
-                  :class="b24ui.item({ class: [b24uiOverride?.item, item.b24ui?.item, item.class], color: item?.color, active })"
+                <ReuseItemTemplate :item="item" :index="index" />
+              </ContextMenu.CheckboxItem>
+              <B24Link v-else v-slot="{ active, ...slotProps }" v-bind="pickLinkProps(item as Omit<ContextMenuItem, 'type'>)" custom>
+                <ContextMenu.Item
+                  as-child
+                  :disabled="item.disabled"
+                  :text-value="get(item, props.labelKey as string)"
+                  @select="item.onSelect"
                 >
-                  <ReuseItemTemplate :item="item" :active="active" :index="index" />
-                </B24LinkBase>
-              </ContextMenu.Item>
-            </B24Link>
-          </template>
-        </ContextMenu.Group>
-      </div>
+                  <B24LinkBase
+                    v-bind="slotProps"
+                    data-slot="item"
+                    :class="b24ui.item({ class: [b24uiOverride?.item, item.b24ui?.item, item.class], color: item?.color, active })"
+                  >
+                    <ReuseItemTemplate :item="item" :active="active" :index="index" />
+                  </B24LinkBase>
+                </ContextMenu.Item>
+              </B24Link>
+            </template>
+          </ContextMenu.Group>
+        </div>
 
-      <slot />
+        <slot />
 
-      <slot name="content-bottom" :sub="sub ?? false" />
-    </component>
+        <slot name="content-bottom" :sub="sub ?? false" />
+      </component>
+    </FieldGroupReset>
   </ContextMenu.Portal>
 </template>

@@ -120,7 +120,7 @@ const uiProp = useComponentUI('inputDate', props)
 
 /** @memo we not use `variant`, `leading`, `leadingIcon`, `trailing` and `loadingIcon` */
 const rootProps = useForwardPropsEmits(reactiveOmit(props, 'id', 'name', 'range', 'modelValue', 'defaultValue', 'color', 'size', 'highlight', 'fixed', 'disabled', 'autofocus', 'autofocusDelay', 'icon', 'avatar', 'trailingIcon', 'loading', 'separatorIcon', 'class', 'b24ui'), emits)
-const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, size: formGroupSize, color, id, name, highlight, disabled, ariaAttrs } = useFormField<InputDateProps<R>>(props)
+const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, size: formFieldSize, color, id, name, highlight, disabled, ariaAttrs } = useFormField<InputDateProps<R>>(props)
 const { orientation, size: fieldGroupSize } = useFieldGroup<InputDateProps<R>>(props)
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(props)
 
@@ -129,7 +129,7 @@ const [DefineSegmentsTemplate, ReuseSegmentsTemplate] = createReusableTemplate<{
   type?: 'start' | 'end'
 }>()
 
-const inputSize = computed(() => fieldGroupSize.value || formGroupSize.value)
+const inputSize = computed(() => fieldGroupSize.value || formFieldSize.value)
 
 const isTag = computed(() => {
   return props.tag

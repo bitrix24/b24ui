@@ -57,6 +57,7 @@ import { TooltipRoot, TooltipTrigger, TooltipPortal, TooltipContent, TooltipArro
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useComponentUI } from '../composables/useComponentUI'
+import { FieldGroupReset } from '../composables/useFieldGroup'
 import { usePortal } from '../composables/usePortal'
 import { tv } from '../utils/tv'
 import B24Kbd from './Kbd.vue'
@@ -101,23 +102,25 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.toolti
     </TooltipTrigger>
 
     <TooltipPortal v-bind="portalProps">
-      <TooltipContent v-bind="contentProps" data-slot="content" :class="b24ui.content({ class: [!slots.default && props.class, uiProp?.content] })">
-        <slot name="content" :b24ui="b24ui">
-          <span v-if="text" data-slot="text" :class="b24ui.text({ class: uiProp?.text })">{{ text }}</span>
+      <FieldGroupReset>
+        <TooltipContent v-bind="contentProps" data-slot="content" :class="b24ui.content({ class: [!slots.default && props.class, uiProp?.content] })">
+          <slot name="content" :b24ui="b24ui">
+            <span v-if="text" data-slot="text" :class="b24ui.text({ class: uiProp?.text })">{{ text }}</span>
 
-          <span v-if="kbds?.length" data-slot="kbds" :class="b24ui.kbds({ class: uiProp?.kbds })">
-            <B24Kbd
-              v-for="(kbd, index) in kbds"
-              :key="index"
-              :size="((uiProp?.kbdsSize || b24ui.kbdsSize()) as KbdProps['size'])"
-              :accent="((uiProp?.kbdsAccent || b24ui.kbdsAccent()) as KbdProps['accent'])"
-              v-bind="typeof kbd === 'string' ? { value: kbd } : kbd"
-            />
-          </span>
-        </slot>
+            <span v-if="kbds?.length" data-slot="kbds" :class="b24ui.kbds({ class: uiProp?.kbds })">
+              <B24Kbd
+                v-for="(kbd, index) in kbds"
+                :key="index"
+                :size="((uiProp?.kbdsSize || b24ui.kbdsSize()) as KbdProps['size'])"
+                :accent="((uiProp?.kbdsAccent || b24ui.kbdsAccent()) as KbdProps['accent'])"
+                v-bind="typeof kbd === 'string' ? { value: kbd } : kbd"
+              />
+            </span>
+          </slot>
 
-        <TooltipArrow v-if="!!arrow" v-bind="arrowProps" data-slot="arrow" :class="b24ui.arrow({ class: uiProp?.arrow })" />
-      </TooltipContent>
+          <TooltipArrow v-if="!!arrow" v-bind="arrowProps" data-slot="arrow" :class="b24ui.arrow({ class: uiProp?.arrow })" />
+        </TooltipContent>
+      </FieldGroupReset>
     </TooltipPortal>
   </TooltipRoot>
 </template>

@@ -137,10 +137,10 @@ const uiProp = useComponentUI('inputNumber', props)
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'stepSnapping', 'formatOptions', 'disableWheelChange', 'invertWheelChange', 'required', 'readonly', 'focusOnChange'), emits)
 
-const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, id, color, size: formGroupSize, name, highlight, disabled, ariaAttrs } = useFormField<InputNumberProps<T, Mod>>(props)
+const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, id, color, size: formFieldSize, name, highlight, disabled, ariaAttrs } = useFormField<InputNumberProps<T, Mod>>(props)
 const { orientation, size: fieldGroupSize } = useFieldGroup<InputNumberProps<T, Mod>>(props)
 
-const inputSize = computed(() => fieldGroupSize.value || formGroupSize.value)
+const inputSize = computed(() => fieldGroupSize.value || formFieldSize.value)
 
 const isTag = computed(() => {
   return props.tag

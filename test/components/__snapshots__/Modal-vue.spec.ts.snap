@@ -6,6 +6,7 @@ exports[`Modal > renders with actions slot correctly 1`] = `
 
 
 
+
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 motion-safe:backdrop-blur-0.5 motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in] bg-[#003366]/20"></div>
 <div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-slot="content" class="base-mode bg-(--ui-color-bg-content-primary) flex flex-col gap-0 focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] w-[calc(100vw-2rem)] max-w-[32rem] rounded-[calc(var(--ui-border-radius-2xl)+2px)] shadow-lg fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)]" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open"><span aria-hidden="true" style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); white-space: nowrap; word-wrap: normal; top: -1px; left: -1px;"><h2 id="reka-dialog-title-v-0"></h2><p id="reka-dialog-description-v-1"></p></span>
   <div data-slot="contentWrapper" class="flex-1 flex flex-col gap-0 overflow-hidden">
@@ -30,12 +31,14 @@ exports[`Modal > renders with actions slot correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Modal > renders with b24ui correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 
@@ -63,12 +66,14 @@ exports[`Modal > renders with b24ui correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Modal > renders with body slot correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 
@@ -96,12 +101,14 @@ exports[`Modal > renders with body slot correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Modal > renders with class correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 
@@ -129,12 +136,14 @@ exports[`Modal > renders with class correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Modal > renders with close slot correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 
@@ -154,12 +163,14 @@ exports[`Modal > renders with close slot correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Modal > renders with closeIcon correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 
@@ -187,6 +198,7 @@ exports[`Modal > renders with closeIcon correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
@@ -196,8 +208,10 @@ exports[`Modal > renders with content slot correctly 1`] = `
 
 
 
+
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 motion-safe:backdrop-blur-0.5 motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in] bg-[#003366]/20"></div>
 <div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-slot="content" class="base-mode bg-(--ui-color-bg-content-primary) flex flex-col gap-0 focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] w-[calc(100vw-2rem)] max-w-[32rem] rounded-[calc(var(--ui-border-radius-2xl)+2px)] shadow-lg fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)]" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open"><span aria-hidden="true" style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); white-space: nowrap; word-wrap: normal; top: -1px; left: -1px;"><h2 id="reka-dialog-title-v-0"></h2><p id="reka-dialog-description-v-1"></p></span>Content slot</div>
+
 
 
 
@@ -207,6 +221,7 @@ exports[`Modal > renders with content slot correctly 1`] = `
 exports[`Modal > renders with default slot correctly 1`] = `
 "Default slot
 <!--teleport start-->
+
 
 
 
@@ -234,12 +249,14 @@ exports[`Modal > renders with default slot correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Modal > renders with description correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 
@@ -268,12 +285,14 @@ exports[`Modal > renders with description correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Modal > renders with description slot correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 
@@ -301,12 +320,14 @@ exports[`Modal > renders with description slot correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Modal > renders with footer slot correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 
@@ -334,12 +355,14 @@ exports[`Modal > renders with footer slot correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Modal > renders with fullscreen correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 
@@ -368,12 +391,14 @@ exports[`Modal > renders with fullscreen correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Modal > renders with header slot correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 
@@ -388,12 +413,14 @@ exports[`Modal > renders with header slot correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Modal > renders with open correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 
@@ -421,12 +448,14 @@ exports[`Modal > renders with open correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Modal > renders with scrollable and fullscreen correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 motion-safe:backdrop-blur-0.5 motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in] bg-[#003366]/20 overflow-y-auto">
@@ -454,12 +483,14 @@ exports[`Modal > renders with scrollable and fullscreen correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Modal > renders with scrollable and without overlay correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 motion-safe:backdrop-blur-0.5 motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in] overflow-y-auto grid place-items-center p-4 sm:py-8">
@@ -487,12 +518,14 @@ exports[`Modal > renders with scrollable and without overlay correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Modal > renders with scrollable correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 motion-safe:backdrop-blur-0.5 motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in] bg-[#003366]/20 overflow-y-auto grid place-items-center p-4 sm:py-8">
@@ -520,12 +553,14 @@ exports[`Modal > renders with scrollable correctly 1`] = `
 </div>
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Modal > renders with title correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 
@@ -553,12 +588,14 @@ exports[`Modal > renders with title correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Modal > renders with title slot correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 
@@ -586,12 +623,14 @@ exports[`Modal > renders with title slot correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Modal > renders without close correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 
@@ -613,12 +652,14 @@ exports[`Modal > renders without close correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Modal > renders without overlay correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 
@@ -647,12 +688,14 @@ exports[`Modal > renders without overlay correctly 1`] = `
 
 
 
+
 <!--teleport end-->"
 `;
 
 exports[`Modal > renders without transition correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
+
 
 
 
@@ -678,6 +721,7 @@ exports[`Modal > renders without transition correctly 1`] = `
   </div>
   <!--v-if-->
 </div>
+
 
 
 
