@@ -79,6 +79,26 @@ Use the `char` prop to change the trigger character. Defaults to `:`{lang="ts-ty
 </template>
 ```
 
+### Suggestion :badge{label="Soon" class="align-text-top"}
+
+Use the `suggestion` prop to customize TipTap's [Suggestion matching behavior](https://tiptap.dev/docs/editor/api/utilities/suggestion#settings).
+
+This is useful when the trigger character should open directly after other characters instead of requiring the default whitespace prefix.
+
+```vue
+<template>
+  <B24Editor v-slot="{ editor }">
+    <B24EditorEmojiMenu
+      :editor="editor"
+      :items="items"
+      :suggestion="{
+        allowedPrefixes: null
+      }"
+    />
+  </B24Editor>
+</template>
+```
+
 ### Options
 
 Use the `options` prop to customize the positioning behavior using [Floating UI options](https://floating-ui.com/docs/computeposition#options).

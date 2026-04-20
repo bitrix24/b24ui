@@ -17,6 +17,7 @@
 * feat: add standalone Vue REPL playground
 * feat(InputTime): add `range` prop
 * feat(ChatMessage): add `files` slot
+* feat(EditorSuggestionMenu): expose suggestion matching options
 * 
 * fix(Error): support `status` and `statusText` properties
 * fix(ContentSurround): handle RTL mode

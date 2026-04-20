@@ -20,7 +20,7 @@ export interface EditorMentionMenuItem {
   [key: string]: any
 }
 
-export interface EditorMentionMenuProps<T extends EditorMentionMenuItem = EditorMentionMenuItem> extends Partial<Pick<EditorMenuOptions<T>, 'editor' | 'char' | 'pluginKey' | 'filterFields' | 'limit' | 'options' | 'appendTo'>> {
+export interface EditorMentionMenuProps<T extends EditorMentionMenuItem = EditorMentionMenuItem> extends Partial<Pick<EditorMenuOptions<T>, 'editor' | 'char' | 'pluginKey' | 'filterFields' | 'limit' | 'options' | 'suggestion' | 'appendTo'>> {
   /**
    * @defaultValue 'md'
    */
@@ -68,6 +68,7 @@ onMounted(async () => {
     filterFields: props.filterFields,
     limit: props.limit,
     options: props.options,
+    suggestion: props.suggestion,
     appendTo: props.appendTo,
     b24ui,
     onSelect: (editor, range, item) => {
