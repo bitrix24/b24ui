@@ -1,4 +1,5 @@
-import { streamText, convertToModelMessages, stepCountIs, smoothStream } from 'ai'
+// @memo we not use jsonSchema
+import { streamText, convertToModelMessages, smoothStream, stepCountIs } from 'ai'
 import { createMCPClient } from '@ai-sdk/mcp'
 import { createDeepSeek } from '@ai-sdk/deepseek'
 
@@ -10,7 +11,7 @@ import { createDeepSeek } from '@ai-sdk/deepseek'
 const maxStepCount = 5
 
 export default defineEventHandler(async (event) => {
-  const { messages, framework } = (await readBody<{ messages?: any, framework?: string }>(event)) || {}
+  const { messages, framework, currentPage } = (await readBody<{ messages?: any, framework?: string, currentPage?: string }>(event)) || {}
 
   if (!messages || !Array.isArray(messages)) {
     throw createError({ status: 400, message: 'Invalid or missing messages array.' })
@@ -40,10 +41,15 @@ export default defineEventHandler(async (event) => {
     apiKey: process.env.DEEPSEEK_API_KEY ?? ''
   })
 
+  const abortController = new AbortController()
+  event.node.req.on('close', () => abortController.abort())
+
+  const closeMcp = () => event.waitUntil(httpClient?.close())
+
   const system = `You are a helpful assistant for Bitrix24 UI, a UI library for Nuxt and Vue. Use your knowledge base tools to search for relevant information before answering questions.
 
 The user is using **${framework === 'vue' ? 'Vue' : 'Nuxt'}**. Tailor your answers accordingly — ${framework === 'vue' ? 'use the Vite plugin setup, Vue Router, and vite.config.ts instead of Nuxt-specific features like modules or app.config.ts. IMPORTANT: The Vite plugin auto-imports components and Bitrix24 UI composables, but Vue core APIs and VueUse must be explicitly imported — always include these in code examples (e.g. `import { ref, computed } from \'vue\'`).' : 'use Nuxt modules, auto-imports, app.config.ts, and other Nuxt-specific features. Nuxt auto-imports Vue APIs (ref, computed, etc.), composables, and components — do not include these imports in code examples.'}
-
+${currentPage ? `\nThe user is currently viewing the documentation page at \`${currentPage}\`. Use this context to provide more relevant answers (e.g. read that page first if the question seems related), but don't limit yourself to that page if the question is broader or unrelated.\n` : ''}
 Guidelines:
 - For documentation questions, ALWAYS use tools to search for information. Never rely on pre-trained knowledge for Bitrix24 UI APIs, props, or usage.
 — When users ask you to apply a theme change in real time (e.g., "make it blue," "create a Sakura theme," "change the font"), tell them that the library style matches the Bitrix24 style and suggest using standard properties (color, variant).
@@ -71,6 +77,7 @@ Guidelines:
     // @todo fix me deepseek-reasoner | deepseek-chat
     model: deepseek('deepseek-reasoner'),
     maxOutputTokens: 8000, // 10000 | 8100
+    abortSignal: abortController.signal,
     providerOptions: {},
     system,
     messages: await convertToModelMessages(messages),
@@ -79,8 +86,11 @@ Guidelines:
     tools: {
       ...mcpTools
     },
+    onFinish: closeMcp,
+    onAbort: closeMcp,
     onError: (error) => {
       console.error('streamText error:', error)
+      closeMcp()
     }
   }).toUIMessageStreamResponse()
 })

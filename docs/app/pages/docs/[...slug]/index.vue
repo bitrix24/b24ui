@@ -161,7 +161,8 @@ onMounted(() => {
 
 // @todo fix this
 // @see docs/app/components/PageHeaderLinks.vue:16
-const aiPrompt = computed(() => `I'm looking at this Bitrix24 UI documentation: ${page.value?.path}\nHelp me understand how to use it. Be ready to explain concepts, give examples, or help debug based on it.`)
+// const aiPrompt = computed(() => `I'm looking at this Bitrix24 UI documentation: ${page.value?.path}\nHelp me understand how to use it. Be ready to explain concepts, give examples, or help debug based on it.`)
+const aiPrompt = ref('Read this documentation page and summarize it. I want to ask questions about it.')
 
 function makeExplain() {
   // @memo this for NUXT.UI.docs
