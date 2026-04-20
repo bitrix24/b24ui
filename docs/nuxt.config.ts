@@ -353,6 +353,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-01-14',
 
   nitro: {
+    publicAssets: [{
+      dir: resolve('../skills'),
+      baseURL: '/.well-known/skills',
+      maxAge: 60 * 60 * 24
+    }],
     prerender: {
       routes: [
         ...pages.map((page: string) => `${withoutTrailingSlash(`/raw${page}`)}.md`),

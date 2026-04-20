@@ -158,12 +158,12 @@ function getToolIcon(part: ToolPart): IconComponent {
   const toolName = getToolName(part)
 
   const iconMap: Record<string, IconComponent> = {
-    'get-component': FileIcon,
-    'get-component-metadata': FileIcon,
-    'get-template': FileIcon,
-    'get-documentation-page': FileIcon,
-    'get-migration-guide': FileIcon,
-    'get-example': FileIcon
+    'b24-ui-get-component': FileIcon,
+    'b24-ui-get-component-metadata': FileIcon,
+    'b24-ui-get-template': FileIcon,
+    'b24-ui-get-documentation-page': FileIcon,
+    'b24-ui-get-migration-guide': FileIcon,
+    'b24-ui-get-example': FileIcon
   }
 
   return iconMap[toolName] || SearchIcon

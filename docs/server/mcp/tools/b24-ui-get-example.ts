@@ -25,7 +25,7 @@ export default defineMcpTool({
       const err = error as { status?: number, response?: { status?: number } }
       const status = err?.status ?? err?.response?.status
       if (status === 404) {
-        throw createError({ status: 404, message: `Example '${exampleName}' not found. Use the b24-ui-list-examples tool to see all available examples.` })
+        throw createError({ status: 404, message: `Example '${exampleName}' not found. Use the b24_ui_list-examples tool to see all available examples.` })
       }
       throw error
     }
