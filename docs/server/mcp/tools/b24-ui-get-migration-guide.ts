@@ -20,11 +20,12 @@ export default defineMcpTool({
   cache: '30m',
   async handler({ version }) {
     const event = useEvent()
+    const config = useRuntimeConfig()
 
     const page = await queryCollection(event, 'docs')
       .where('path', 'LIKE', `%/migration/${version}`)
       .where('extension', '=', 'md')
-      .select('title', 'description', 'path', 'body')
+      .select('title', 'description', 'path')
       .first()
 
     if (!page) {
@@ -32,7 +33,6 @@ export default defineMcpTool({
     }
 
     const documentation = await $fetch<string>(`/raw${page.path}.md`)
-    const config = useRuntimeConfig()
 
     return {
       version,

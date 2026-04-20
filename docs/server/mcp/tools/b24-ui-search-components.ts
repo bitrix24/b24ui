@@ -3,8 +3,8 @@ import { queryCollection } from '@nuxt/content/server'
 import { withTrailingSlash } from 'ufo'
 
 export default defineMcpTool({
-  title: 'Search Components by Category',
-  description: 'Searches components by category or text filter',
+  title: 'Search Components',
+  description: 'Search components by name, description, or category',
   annotations: {
     readOnlyHint: true,
     destructiveHint: false,
@@ -23,6 +23,7 @@ export default defineMcpTool({
   cache: '30m',
   async handler({ category, search }) {
     const event = useEvent()
+    const config = useRuntimeConfig()
 
     let query = queryCollection(event, 'docs')
       .where('path', 'LIKE', '/docs/components/%')
@@ -35,7 +36,6 @@ export default defineMcpTool({
     }
 
     const components = await query.all()
-    const config = useRuntimeConfig()
 
     let results = components.map(component => ({
       name: component.path.split('/').pop(),
@@ -47,7 +47,6 @@ export default defineMcpTool({
       links: component.links
     }))
 
-    // Apply search filter if provided
     if (search) {
       const searchLower = search.toLowerCase()
       results = results.filter(component =>

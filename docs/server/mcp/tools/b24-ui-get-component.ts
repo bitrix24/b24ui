@@ -28,6 +28,7 @@ export default defineMcpTool({
   cache: '30m',
   async handler({ componentName, sections }) {
     const event = useEvent()
+    const config = useRuntimeConfig()
 
     // Normalize component name by removing "B24" or "b24-" prefix if present
     const normalizedName = normalizeComponentName(componentName)
@@ -45,8 +46,6 @@ export default defineMcpTool({
     if (!page) {
       throw createError({ status: 404, message: `Component '${componentName}' not found in documentation` })
     }
-
-    const config = useRuntimeConfig()
 
     const fullDocumentation = await $fetch<string>(`/raw${withoutTrailingSlash(page.path)}.md`)
 

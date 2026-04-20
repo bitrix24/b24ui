@@ -23,6 +23,7 @@ export default defineMcpTool({
   cache: '30m',
   async handler({ componentName }) {
     const event = useEvent()
+    const config = useRuntimeConfig()
 
     // Normalize component name by removing "B24" or "b24-" prefix if present
     const normalizedName = normalizeComponentName(componentName)
@@ -45,7 +46,6 @@ export default defineMcpTool({
     const camelName = camelCase(normalizedName)
     const componentMetaName = `B24${upperFirst(camelName)}`
 
-    const config = useRuntimeConfig()
     let metadata
     try {
       metadata = await $fetch<Record<string, any>>(`/api/component-meta/${componentMetaName}.json`)

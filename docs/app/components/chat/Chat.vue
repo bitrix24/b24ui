@@ -130,19 +130,19 @@ function getToolMessage(state: ToolState, toolName: string, input: Record<string
   const readVerb = state === 'output-available' ? 'Read' : 'Reading'
 
   return {
-    'b24-ui-list-components': `${searchVerb} components`,
-    'b24-ui-list-composables': `${searchVerb} composables`,
+    'b24-ui-search-components': `${searchVerb} components${input.category ? ` in ${input.category} category` : ''}${input.search ? ` for "${input.search}"` : ''}`,
+    'b24-ui-search-composables': `${searchVerb} composables${input.search ? ` for "${input.search}"` : ''}`,
+    'b24-ui-search-documentation': `${searchVerb} documentation${input.section ? ` in ${input.section}` : ''}${input.search ? ` for "${input.search}"` : ''}`,
+    'b24-ui-search-icons': `${searchVerb} icons${input.query ? ` for "${input.query}"` : ''}`,
     'b24-ui-get-component': `${readVerb} ${upperName(input.componentName || '')} component`,
     'b24-ui-get-component-metadata': `${readVerb} metadata for component ${upperName(input.componentName || '')}`,
     'b24-ui-list-templates': `${searchVerb} templates${input.category ? ` in ${input.category} category` : ''}`,
     'b24-ui-get-template': `${readVerb} template ${upperName(input.templateName || '')}`,
     'b24-ui-get-documentation-page': `${readVerb} ${input.path || ''} page`,
-    'b24-ui-list-documentation-pages': `${searchVerb} documentation pages`,
     'b24-ui-list-getting-started-guides': `${searchVerb} documentation guides`,
     'b24-ui-get-migration-guide': `${readVerb} migration guide${input.version ? ` for ${input.version}` : ''}`,
     'b24-ui-list-examples': `${searchVerb} examples`,
-    'b24-ui-get-example': `${readVerb} ${upperName(input.exampleName || '')} example`,
-    'b24-ui-search-components-by-category': `${searchVerb} components${input.category ? ` in ${input.category} category` : ''}${input.search ? ` for "${input.search}"` : ''}`
+    'b24-ui-get-example': `${readVerb} ${upperName(input.exampleName || '')} example`
   }[toolName] || `${searchVerb} ${toolName}`
 }
 
