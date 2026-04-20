@@ -1,9 +1,21 @@
+// import { defu } from 'defu'
 import { useLocalStorage } from '@vueuse/core'
+// import { themeIcons, cssVariableDefaults } from '../utils/theme'
 import { omit } from '#b24ui/utils'
 import colors from 'tailwindcss/colors'
 import ContrastIcon from '@bitrix24/b24icons-vue/outline/ContrastIcon'
 import SunIcon from '@bitrix24/b24icons-vue/outline/SunIcon'
 import MoonIcon from '@bitrix24/b24icons-vue/outline/MoonIcon'
+
+// function readLocalStorage<T>(key: string, fallback: T): T {
+//   if (!import.meta.client) return fallback
+//   try {
+//     const raw = window.localStorage.getItem(key)
+//     return raw ? JSON.parse(raw) : fallback
+//   } catch {
+//     return fallback
+//   }
+// }
 
 export function useTheme() {
   const colorMode = useColorMode()
@@ -103,11 +115,11 @@ export function useTheme() {
   const link = computed(() => [])
 
   const style = [
-    { innerHTML: radiusStyle, id: 'b24-ui-radius', tagPriority: 'critical' as const },
-    { innerHTML: blackAsPrimaryStyle, id: 'b24-ui-black-as-primary', tagPriority: 'critical' as const },
-    { innerHTML: fontStyle, id: 'b24-ui-font', tagPriority: 'critical' as const },
-    { innerHTML: customColorsStyle, id: 'chat-custom-colors', tagPriority: 'critical' as const },
-    { innerHTML: cssVariablesStyle, id: 'chat-css-variables', tagPriority: 'critical' as const }
+    { innerHTML: radiusStyle, id: 'b24-ui-radius', tagPriority: -2 },
+    { innerHTML: blackAsPrimaryStyle, id: 'b24-ui-black-as-primary', tagPriority: -2 },
+    { innerHTML: fontStyle, id: 'b24-ui-font', tagPriority: -2 },
+    { innerHTML: customColorsStyle, id: 'chat-custom-colors', tagPriority: -2 },
+    { innerHTML: cssVariablesStyle, id: 'chat-css-variables', tagPriority: -2 }
   ]
 
   const hasCSSChanges = computed(() => false)

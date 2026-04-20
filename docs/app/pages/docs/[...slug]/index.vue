@@ -95,14 +95,13 @@ useSeoMeta({
 // }
 
 // Pre-render the markdown path + add it to alternate links
-const site = useSiteConfig()
 const path = computed(() => pageUrl.replace(/\/$/, ''))
 prerenderRoutes([joinURL(`${config.public.baseUrl}/raw`, `${path.value}.md`)])
 useHead({
   link: [
     {
       rel: 'alternate',
-      href: joinURL(site.url, `${config.public.baseUrl}/raw`, `${path.value}.md`),
+      href: joinURL(config.public.siteUrl, `${config.public.baseUrl}/raw`, `${path.value}.md`),
       type: 'text/markdown'
     }
   ]
