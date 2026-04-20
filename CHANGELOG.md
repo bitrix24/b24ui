@@ -66,6 +66,7 @@
 * docs(mcp): update to latest version
 * docs(chat): update tool names to match consolidated MCP tools
 * docs(chat): pass current page context and handle request abort
+* docs(chat): call tools directly instead of self-referential HTTP
 * 
 * chore(agents): add guide for coding agents
 * chore(deps): update dependency reka-ui to v2.9.0
