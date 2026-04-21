@@ -49,6 +49,7 @@
 * fix(ProsePre): get code from DOM if `code` prop is missing
 * fix(FieldGroup): prevent context from leaking into portals
 * fix(ChatPromptSubmit): ignore `disabled` prop when status is not `ready`
+* fix(ChatMessages): use MutationObserver for auto-scroll during streaming
 * 
 * docs: improve build performance and client-side navigation
 * docs(table): add column span example
