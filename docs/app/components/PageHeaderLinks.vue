@@ -34,7 +34,7 @@ const items = [
     label: 'View as Markdown',
     avatar: { icon: MarkdownIcon },
     target: '_blank',
-    to: `${withoutTrailingSlash(`/raw${route.path}`)}.md`,
+    to: `${withoutTrailingSlash(`${config.public.baseUrl}/raw${route.path}`)}.md`,
     onSelect() {
       track('Page Action', { action: 'View as Markdown', page: route.path })
     }
