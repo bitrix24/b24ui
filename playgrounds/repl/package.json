@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "bundle": "vite build --config vite.config.bundle.ts",
-    "build": "pnpm bundle && vite build"
+    "build": "pnpm bundle && vite build",
+    "repl:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare"
   },
   "dependencies": {
     "@bitrix24/b24ui-nuxt": "workspace:*",
