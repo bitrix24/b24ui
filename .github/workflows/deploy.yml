@@ -60,6 +60,9 @@ jobs:
       - name: Generate Demo
         run: pnpm run demo:generate
 
+      - name: Prepare Repl
+        run: pnpm run repl:prepare
+
       - name: Build Repl
         run: pnpm repl:build
 
