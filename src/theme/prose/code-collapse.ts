@@ -3,7 +3,7 @@
  */
 export default {
   slots: {
-    root: 'relative [&_pre]:h-[200px]',
+    root: 'relative [&_pre]:h-[200px] bg-(--ui-color-design-outline-bg)',
     footer: [
       'h-[64px]',
       'absolute inset-x-px bottom-px',
