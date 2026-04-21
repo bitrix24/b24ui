@@ -91,7 +91,10 @@ const { t } = useLocale()
 const appConfig = useAppConfig() as ChatPromptSubmit['AppConfig']
 const uiProp = useComponentUI('chatPromptSubmit', props)
 
-const buttonProps = useForwardProps(reactiveOmit(props, 'icon', 'color', 'status', 'streamingIcon', 'streamingColor', 'submittedIcon', 'submittedColor', 'errorIcon', 'errorColor', 'class', 'b24ui'))
+// @memo we not use `variant`, `streamingVariant`, `submittedVariant`, `errorVariant`
+const buttonProps = useForwardProps(reactiveOmit(props, 'icon', 'color', 'status', 'disabled', 'streamingIcon', 'streamingColor', 'submittedIcon', 'submittedColor', 'errorIcon', 'errorColor', 'class', 'b24ui'))
+
+const disabled = computed(() => props.status === 'ready' ? props.disabled : false)
 
 const statusButtonProps = computed(() => ({
   ready: {
@@ -131,6 +134,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chatPr
     v-bind="{
       ...buttonProps,
       ...statusButtonProps,
+      disabled,
       'aria-label': t('chatPromptSubmit.label'),
       'rounded': true,
       ...$attrs

@@ -48,6 +48,7 @@
 * fix(InputTags): add missing field group variant
 * fix(ProsePre): get code from DOM if `code` prop is missing
 * fix(FieldGroup): prevent context from leaking into portals
+* fix(ChatPromptSubmit): ignore `disabled` prop when status is not `ready`
 * 
 * docs: improve build performance and client-side navigation
 * docs(table): add column span example
