@@ -1,406 +1,169 @@
 # Components
 
-125+ Vue components powered by Tailwind CSS and Reka UI. For any component's theme slots, read the generated theme file (Nuxt: `.nuxt/b24ui/<component>.ts`, Vue: `node_modules/.b24ui-nuxt/b24ui/<component>.ts`).
+Quick-reference index of 125+ components. For detailed API specifications (props, slots, events, and examples), please refer to the official documentation.
 
 ## Layout
 
-Core structural components for organizing your application's layout.
-
-| Component | Purpose |
-|---|---|
-| `B24App` | **Required** root wrapper for toasts, tooltips, overlays |
-| `B24Header` | Responsive header with mobile menu (`#title`, `#default`, `#right`, `#body`) |
-| `B24Footer` | Footer (`#left`, `#default`, `#right`, `#top`, `#bottom`) |
-| `B24FooterColumns` | Multi-column footer with link groups |
-| `B24Main` | Main content area (respects `--b24ui-header-height`) |
-| `B24Container` | Centered max-width container (`--b24ui-container-width`) |
+| Component | Purpose | Docs |
+|-----------|---------|------|
+| `B24App` | **Required** root wrapper — toasts, tooltips, overlays, i18n | [app.md](https://bitrix24.github.io/b24ui/raw/docs/components/app.md) |
+| `B24Header` | Responsive header with mobile menu | [header.md](https://bitrix24.github.io/b24ui/raw/docs/components/header.md) |
+| `B24Footer` | Footer with left/right/top/bottom slots | [footer.md](https://bitrix24.github.io/b24ui/raw/docs/components/footer.md) |
+| `B24FooterColumns` | Multi-column footer with link groups | [footer-columns.md](https://bitrix24.github.io/b24ui/raw/docs/components/footer-columns.md) |
+| `B24Main` | Main content area | [main.md](https://bitrix24.github.io/b24ui/raw/docs/components/main.md) |
+| `B24Container` | Centered max-width container | [container.md](https://bitrix24.github.io/b24ui/raw/docs/components/container.md) |
+| `B24Link` | Enhanced link — NuxtLink/RouterLink with active states | [link.md](https://bitrix24.github.io/b24ui/raw/docs/components/link.md) |
 
 ## Element
 
-Essential UI building blocks.
-
-| Component | Key props |
-|---|---|
-| `B24Button` | `label`, `icon`, `color`, `size`, `loading`, `disabled`, `to` |
-| `B24Badge` | `label`, `color`, `size` |
-| `B24Avatar` | `src`, `alt`, `icon`, `text`, `size` |
-| `B24AvatarGroup` | `max`, `size` — wraps multiple `B24Avatar` |
-| `B24Icon` | `name`, `size` |
-| `B24Card` | `variant` — slots: `#header`, `#default`, `#footer` |
-| `B24Alert` | `title`, `description`, `icon`, `color`, `close` |
-| `B24Banner` | `title`, `icon`, `close` — sticky top banner |
-| `B24Chip` | `color`, `size`, `position` — notification dot on children |
-| `B24Kbd` | `value` — keyboard key display |
-| `B24Separator` | `label`, `icon`, `orientation`, `type` |
-| `B24Skeleton` | `class` — loading placeholder |
-| `B24Progress` | `value`, `max`, `color`, `size` |
-| `B24Calendar` | `v-model`, `range` (boolean), `multiple` (boolean) |
-| `B24Collapsible` | `v-model:open` — animated expand/collapse |
-| `B24FieldGroup` | Groups form inputs horizontally/vertically |
+| Component | Purpose | Docs |
+|-----------|---------|------|
+| `B24Button` | Buttons — links, actions, icons, loading states | [button.md](https://bitrix24.github.io/b24ui/raw/docs/components/button.md) |
+| `B24Badge` | Labels, tags, status indicators | [badge.md](https://bitrix24.github.io/b24ui/raw/docs/components/badge.md) |
+| `B24Avatar` | User photos, initials, icons | [avatar.md](https://bitrix24.github.io/b24ui/raw/docs/components/avatar.md) |
+| `B24AvatarGroup` | Stacked avatars with `max` limit | [avatar-group.md](https://bitrix24.github.io/b24ui/raw/docs/components/avatar-group.md) |
+| `B24Card` | Bordered container with header/body/footer | [card.md](https://bitrix24.github.io/b24ui/raw/docs/components/card.md) |
+| `B24Alert` | Inline messages — info, warning, error, success | [alert.md](https://bitrix24.github.io/b24ui/raw/docs/components/alert.md) |
+| `B24Banner` | App-wide sticky announcement bar | [banner.md](https://bitrix24.github.io/b24ui/raw/docs/components/banner.md) |
+| `B24Chip` | Notification dot overlay on children | [chip.md](https://bitrix24.github.io/b24ui/raw/docs/components/chip.md) |
+| `B24Kbd` | Keyboard key display | [kbd.md](https://bitrix24.github.io/b24ui/raw/docs/components/kbd.md) |
+| `B24Separator` | Divider line with optional label | [separator.md](https://bitrix24.github.io/b24ui/raw/docs/components/separator.md) |
+| `B24Skeleton` | Loading placeholder | [skeleton.md](https://bitrix24.github.io/b24ui/raw/docs/components/skeleton.md) |
+| `B24Progress` | Progress bar | [progress.md](https://bitrix24.github.io/b24ui/raw/docs/components/progress.md) |
+| `B24Toast` | Toast notification (shown via `useToast`) | [toast.md](https://bitrix24.github.io/b24ui/raw/docs/components/toast.md) |
+| `B24Calendar` | Date calendar (single, range, multiple) | [calendar.md](https://bitrix24.github.io/b24ui/raw/docs/components/calendar.md) |
+| `B24Collapsible` | Animated expand/collapse | [collapsible.md](https://bitrix24.github.io/b24ui/raw/docs/components/collapsible.md) |
+| `B24FieldGroup` | Group form inputs horizontally | [field-group.md](https://bitrix24.github.io/b24ui/raw/docs/components/field-group.md) |
+| `B24Empty` | Empty state placeholder with icon, title, actions | [empty.md](https://bitrix24.github.io/b24ui/raw/docs/components/empty.md) |
+| `B24Error` | Error display with retry action | [error.md](https://bitrix24.github.io/b24ui/raw/docs/components/error.md) |
+| `B24ScrollArea` | Scrollable area with custom scrollbar | [scroll-area.md](https://bitrix24.github.io/b24ui/raw/docs/components/scroll-area.md) |
+| `B24Timeline` | Timeline display for events and activity | [timeline.md](https://bitrix24.github.io/b24ui/raw/docs/components/timeline.md) |
+| `B24User` | User display — avatar + name + description | [user.md](https://bitrix24.github.io/b24ui/raw/docs/components/user.md) |
+| `B24Theme` | Theme provider — scoped color overrides for children | [theme.md](https://bitrix24.github.io/b24ui/raw/docs/components/theme.md) |
 
 ## Form
 
-Comprehensive form components for user input.
-
-| Component | Key props |
-|---|---|
-| `B24Input` | `v-model`, `type`, `placeholder`, `icon`, `loading` |
-| `B24Textarea` | `v-model`, `rows`, `autoresize`, `maxrows` |
-| `B24Select` | `v-model`, `items` (flat `T[]` or grouped `T[][]`), `placeholder` |
-| `B24SelectMenu` | `v-model`, `items` (flat `T[]` or grouped `T[][]`), `searchable`, `multiple` |
-| `B24InputMenu` | `v-model`, `items` (flat `T[]` or grouped `T[][]`), `searchable` — autocomplete |
-| `B24InputNumber` | `v-model`, `min`, `max`, `step` |
-| `B24InputDate` | `v-model`, `range` (boolean for range selection), `locale` |
-| `B24InputTime` | `v-model`, `hour-cycle` (12/24), `granularity` |
-| `B24InputTags` | `v-model`, `max`, `placeholder` |
-| `B24PinInput` | `v-model`, `length`, `type`, `mask` |
-| `B24Checkbox` | `v-model`, `label`, `description` |
-| `B24CheckboxGroup` | `v-model`, `items`, `orientation` |
-| `B24RadioGroup` | `v-model`, `items`, `orientation` |
-| `B24Switch` | `v-model`, `label`, `checked-icon`, `unchecked-icon` |
-| `B24Range` | `v-model`, `min`, `max`, `step` |
-| `B24ColorPicker` | `v-model`, `format` (hex/rgb/hsl/cmyk/lab), `size` |
-| `B24FileUpload` | `v-model`, `accept`, `multiple`, `variant` (area/button) |
-| `B24Form` | `schema`, `state`, `@submit` — validation wrapper |
-| `B24FormField` | `name`, `label`, `description`, `hint`, `required` |
-
-### Form validation
-
-Uses Standard Schema — works with Zod, Valibot, Yup, or Joi.
-
-```vue
-<script setup lang="ts">
-import { z } from 'zod'
-
-const schema = z.object({
-  email: z.email('Invalid email'),
-  password: z.string().min(8, 'Min 8 characters')
-})
-
-type Schema = z.output<typeof schema>
-const state = reactive<Partial<Schema>>({ email: '', password: '' })
-const form = ref()
-
-async function onSubmit() {
-  await form.value.validate()
-}
-</script>
-
-<template>
-  <B24Form ref="form" :schema="schema" :state="state" @submit="onSubmit">
-    <B24FormField name="email" label="Email" required>
-      <B24Input v-model="state.email" type="email" />
-    </B24FormField>
-
-    <B24FormField name="password" label="Password" required>
-      <B24Input v-model="state.password" type="password" />
-    </B24FormField>
-
-    <B24Button color="air-primary" type="submit">Submit</B24Button>
-  </B24Form>
-</template>
-```
-
-With Valibot:
-
-```vue
-<script setup lang="ts">
-import * as v from 'valibot'
-
-const schema = v.object({
-  email: v.pipe(v.string(), v.email('Invalid email')),
-  password: v.pipe(v.string(), v.minLength(8, 'Min 8 characters'))
-})
-</script>
-```
-
-### File upload
-
-```vue
-<script setup>
-import UploadIcon from '@bitrix24/b24icons-vue/outline/UploadIcon'
-
-const files = ref<File[]>([])
-</script>
-
-<template>
-  <B24FileUpload v-model="files" accept="image/*" multiple>
-    <template #actions="{ open }">
-      <B24Button label="Upload" :icon="UploadIcon" @click="open()" />
-    </template>
-  </B24FileUpload>
-</template>
-```
-
-## Data
-
-Components for displaying and organizing data.
-
-| Component | Key props |
-|---|---|
-| `B24Table` | `data`, `columns`, `loading`, `sticky` |
-| `B24Accordion` | `items`, `type` (single/multiple), `collapsible` |
-| `B24Timeline` | `items` — vertical timeline |
-| `B24User` | `name`, `description`, `avatar` — user display |
-| `B24Empty` | `icon`, `title`, `description` — empty state |
-| `B24ScrollArea` | Custom scrollbar wrapper |
-
-## Navigation
-
-Components for user navigation and wayfinding.
-
-| Component | Key props |
-|---|---|
-| `B24NavigationMenu` | `items` (flat `T[]` or grouped `T[][]`), `orientation` (horizontal/vertical) |
-| `B24Breadcrumb` | `items` |
-| `B24Tabs` | `items` |
-| `B24Stepper` | `items`, `orientation`, `color` |
-| `B24Pagination` | `v-model`, `total`, `items-per-page` |
-| `B24Link` | `to`, `active`, `inactive` — styled NuxtLink |
-| `B24CommandPalette` | `v-model:open`, `groups` (`{ id, label, items }[]`), `placeholder` |
+| Component | Purpose | Docs |
+|-----------|---------|------|
+| `B24Input` | Text input — text, email, password, search | [input.md](https://bitrix24.github.io/b24ui/raw/docs/components/input.md) |
+| `B24Textarea` | Multi-line text with autoresize | [textarea.md](https://bitrix24.github.io/b24ui/raw/docs/components/textarea.md) |
+| `B24Select` | Native-like dropdown for small lists | [select.md](https://bitrix24.github.io/b24ui/raw/docs/components/select.md) |
+| `B24SelectMenu` | Rich searchable dropdown, multi-select, groups | [select-menu.md](https://bitrix24.github.io/b24ui/raw/docs/components/select-menu.md) |
+| `B24InputMenu` | Autocomplete / combobox | [input-menu.md](https://bitrix24.github.io/b24ui/raw/docs/components/input-menu.md) |
+| `B24InputNumber` | Numeric input with +/- controls | [input-number.md](https://bitrix24.github.io/b24ui/raw/docs/components/input-number.md) |
+| `B24InputDate` | Date picker with calendar | [input-date.md](https://bitrix24.github.io/b24ui/raw/docs/components/input-date.md) |
+| `B24InputTime` | Time picker (12/24h) | [input-time.md](https://bitrix24.github.io/b24ui/raw/docs/components/input-time.md) |
+| `B24InputTags` | Tag/chip input | [input-tags.md](https://bitrix24.github.io/b24ui/raw/docs/components/input-tags.md) |
+| `B24PinInput` | Verification code input | [pin-input.md](https://bitrix24.github.io/b24ui/raw/docs/components/pin-input.md) |
+| `B24Checkbox` | Single boolean checkbox | [checkbox.md](https://bitrix24.github.io/b24ui/raw/docs/components/checkbox.md) |
+| `B24CheckboxGroup` | Multiple checkboxes | [checkbox-group.md](https://bitrix24.github.io/b24ui/raw/docs/components/checkbox-group.md) |
+| `B24RadioGroup` | Radio button group | [radio-group.md](https://bitrix24.github.io/b24ui/raw/docs/components/radio-group.md) |
+| `B24Switch` | Toggle switch | [switch.md](https://bitrix24.github.io/b24ui/raw/docs/components/switch.md) |
+| `B24Slider` | Range slider | [range.md](https://bitrix24.github.io/b24ui/raw/docs/components/range.md) |
+| `B24ColorPicker` | Color picker (hex/rgb/hsl) | [color-picker.md](https://bitrix24.github.io/b24ui/raw/docs/components/color-picker.md) |
+| `B24FileUpload` | File upload (button or drop area) | [file-upload.md](https://bitrix24.github.io/b24ui/raw/docs/components/file-upload.md) |
+| `B24Form` | Validation wrapper with Standard Schema | [form.md](https://bitrix24.github.io/b24ui/raw/docs/components/form.md) |
+| `B24FormField` | Field wrapper with label, hint, errors | [form-field.md](https://bitrix24.github.io/b24ui/raw/docs/components/form-field.md) |
 
 ## Overlay
 
-Floating UI elements that appear above the main content. **All require `<B24App>` wrapper.**
+| Component | Purpose | Docs |
+|-----------|---------|------|
+| `B24Modal` | Centered dialog — confirmations, forms | [modal.md](https://bitrix24.github.io/b24ui/raw/docs/components/modal.md) |
+| `B24Slideover` | Side panel — details, editing | [slideover.md](https://bitrix24.github.io/b24ui/raw/docs/components/slideover.md) |
+| `B24Drawer` | Bottom sheet — mobile actions | [drawer.md](https://bitrix24.github.io/b24ui/raw/docs/components/drawer.md) |
+| `B24Popover` | Contextual popup attached to trigger | [popover.md](https://bitrix24.github.io/b24ui/raw/docs/components/popover.md) |
+| `B24Tooltip` | Hover/focus hint (non-interactive) | [tooltip.md](https://bitrix24.github.io/b24ui/raw/docs/components/tooltip.md) |
+| `B24ContextMenu` | Right-click menu | [context-menu.md](https://bitrix24.github.io/b24ui/raw/docs/components/context-menu.md) |
+| `B24CommandPalette` | Search + keyboard navigation (Cmd+K) | [command-palette.md](https://bitrix24.github.io/b24ui/raw/docs/components/command-palette.md) |
 
-| Component | Key props |
-|---|---|
-| `B24Modal` | `v-model:open`, `title`, `description`, `fullscreen`, `scrollable` |
-| `B24Slideover` | `v-model:open`, `title`, `side` (left/right/top/bottom) |
-| `B24Drawer` | `v-model:open`, `title`, `handle` |
-| `B24Popover` | `arrow`, `content: { side, align }`, `openDelay`, `closeDelay` |
-| `B24Tooltip` | `text`, `content: { side }`, `delayDuration` |
-| `B24DropdownMenu` | `items` (flat `T[]` or grouped `T[][]` with separators, supports nested `children`) |
-| `B24ContextMenu` | `items` (flat `T[]` or grouped `T[][]`) — right-click menu |
-| `B24Toast` | Used via `B24seToast()` composable |
+## Navigation
 
-### Modal
+| Component | Purpose | Docs |
+|-----------|---------|------|
+| `B24Sidebar` | Standalone sidebar with header/body/footer | [sidebar.md](https://bitrix24.github.io/b24ui/raw/docs/components/sidebar.md) |
+| `B24NavigationMenu` | Primary nav — horizontal or vertical | [navigation-menu.md](https://bitrix24.github.io/b24ui/raw/docs/components/navigation-menu.md) |
+| `B24Tabs` | Tab switcher within a page | [tabs.md](https://bitrix24.github.io/b24ui/raw/docs/components/tabs.md) |
+| `B24DropdownMenu` | Action menu on a trigger | [dropdown-menu.md](https://bitrix24.github.io/b24ui/raw/docs/components/dropdown-menu.md) |
+| `B24Pagination` | Page navigation | [pagination.md](https://bitrix24.github.io/b24ui/raw/docs/components/pagination.md) |
+| `B24Stepper` | Multi-step wizard | [stepper.md](https://bitrix24.github.io/b24ui/raw/docs/components/stepper.md) |
+| `B24Accordion` | Collapsible sections | [accordion.md](https://bitrix24.github.io/b24ui/raw/docs/components/accordion.md) |
 
-```vue
-<B24Modal v-model:open="isOpen" title="Edit" description="Edit your profile">
-  <template #body>Content</template>
-  <template #footer>
-    <B24Button
-      size="lg"
-      color="air-primary"
-      label="Save"
-      loading-auto
-      @click="save"
-    />
-    <B24Button
-      size="sm"
-      color="air-tertiary"
-      label="Cancel"
-      :normal-case="false"
-      @click="isOpen = false"
-    />
-  </template>
-</B24Modal>
-```
+## Data
 
-Slots: `#content`, `#header`, `#body`, `#footer`
-
-### Slideover
-
-```vue
-<B24Slideover v-model:open="isOpen" title="Settings" side="right">
-  <template #body>Content</template>
-</B24Slideover>
-```
-
-### Drawer
-
-```vue
-<B24Drawer v-model:open="isOpen" title="Options" handle>
-  <template #body>Content</template>
-</B24Drawer>
-```
-
-### DropdownMenu
-
-Items accept a flat array or a nested array (each sub-array is rendered as a group separated by dividers):
-
-```vue
-<script setup lang="ts">
-import MoreLIcon from '@bitrix24/b24icons-vue/outline/MoreLIcon'
-import PersonIcon from '@bitrix24/b24icons-vue/main/PersonIcon'
-import TrashcanIcon from '@bitrix24/b24icons-vue/outline/TrashcanIcon'
-</script>
-
-<template>
-  <!-- Flat array -->
-  <B24DropdownMenu
-    :items="[
-      { label: 'Edit', icon: PersonIcon, onSelect: () => edit() },
-      { type: 'separator' },
-      { label: 'Delete', icon: TrashcanIcon, color: 'air-primary-alert' }
-    ]"
-    :content="{ side: 'bottom', align: 'end' }"
-  >
-    <B24Button :icon="MoreLIcon" color="air-secondary-accent" />
-  </B24DropdownMenu>
-</template>
-```
-
-```vue
-<script setup lang="ts">
-import MoreLIcon from '@bitrix24/b24icons-vue/outline/MoreLIcon'
-import PersonIcon from '@bitrix24/b24icons-vue/main/PersonIcon'
-import CopyIcon from '@bitrix24/b24icons-vue/outline/CopyIcon'
-import TrashcanIcon from '@bitrix24/b24icons-vue/outline/TrashcanIcon'
-</script>
-
-<template>
-  <!-- Nested array (groups with automatic separators) -->
-  <B24DropdownMenu
-    :items="[
-      [{ label: 'Edit', icon: PersonIcon, onSelect: () => edit() }, { label: 'Duplicate', icon: CopyIcon }],
-      [{ label: 'Delete', icon: TrashcanIcon, color: 'air-primary-alert' }]
-    ]"
-    :content="{ side: 'bottom', align: 'end' }"
-  >
-    <B24Button :icon="MoreLIcon" color="air-secondary-accent" />
-  </B24DropdownMenu>
-</template>
-```
-
-### Toast
-
-```ts
-import CircleCheckIcon from '@bitrix24/b24icons-vue/outline/CircleCheckIcon'
-
-const toast = useToast()
-
-toast.add({
-  title: 'Success',
-  description: 'Changes saved',
-  color: 'air-primary-success',
-  icon: CircleCheckIcon,
-  duration: 5000,
-  actions: [{ label: 'Undo', onClick: () => undo() }]
-})
-```
-
-### Programmatic overlays
-
-```ts
-const overlay = useOverlay()
-
-// create() returns a reusable instance
-const confirmDialog = overlay.create(ConfirmDialog)
-
-// open() returns an object with .result (a Promise)
-const { result } = confirmDialog.open({
-  title: 'Delete?',
-  message: 'This cannot be undone.'
-})
-
-if (await result) {
-  // User confirmed
-}
-
-// Inside the overlay component, emit close with a value:
-// emit('close', true) or emit('close', false)
-```
-
-### CommandPalette
-
-```vue
-<script setup>
-import PlusLIcon from '@bitrix24/b24icons-vue/outline/PlusLIcon'
-
-const groups = [{
-  id: 'actions',
-  label: 'Actions',
-  items: [
-    { label: 'New file', icon: PlusLIcon, onSelect: () => {} },
-    { label: 'Settings', to: '/settings' }
-  ]
-}]
-
-defineShortcuts({ meta_k: () => { isOpen.value = true } })
-</script>
-
-<B24CommandPalette v-model:open="isOpen" :groups="groups" placeholder="Search..." />
-```
-
-## Page
-
-Pre-built sections for marketing and content pages.
-
-| Component | Purpose |
-|---|---|
-| `B24Page` | Multi-column grid (`#left`, `#default`, `#right`) |
-| `B24PageAside` | Sticky sidebar wrapper (visible from `lg`) |
-| `B24PageSection` | Content section with headline, features grid |
-| `B24PageHeader` | Page title and description |
-| `B24PageBody` | Main content area with prose styling |
-| `B24PageFeature` | Individual feature item |
-| `B24PageGrid` | Grid layout for cards |
-| `B24PageColumns` | Multi-column layout |
-| `B24PageCard` | Content card for grids |
-| `B24PageLinks` | Related resource links |
-| `B24PageList` | List items |
+| Component | Purpose | Docs |
+|-----------|---------|------|
+| `B24Table` | Data table (TanStack Table) with sorting, selection, pinning | [table.md](https://bitrix24.github.io/b24ui/raw/docs/components/table.md) |
 
 ## Dashboard
 
-Specialized components for admin interfaces with resizable panels and sidebars.
+| Component | Purpose | Docs |
+|-----------|---------|------|
+| `B24DashboardGroup` | Root dashboard wrapper | [dashboard-group.md](https://bitrix24.github.io/b24ui/raw/docs/components/dashboard-group.md) |
+| `B24DashboardSidebar` | Resizable, collapsible sidebar | [dashboard-sidebar.md](https://bitrix24.github.io/b24ui/raw/docs/components/dashboard-sidebar.md) |
+| `B24DashboardPanel` | Content panel with header/body/footer | [dashboard-panel.md](https://bitrix24.github.io/b24ui/raw/docs/components/dashboard-panel.md) |
+| `B24DashboardNavbar` | Panel header bar | [dashboard-navbar.md](https://bitrix24.github.io/b24ui/raw/docs/components/dashboard-navbar.md) |
+| `B24DashboardToolbar` | Filter/action bar below navbar | [dashboard-toolbar.md](https://bitrix24.github.io/b24ui/raw/docs/components/dashboard-toolbar.md) |
+| `B24DashboardResizeHandle` | Resize handle between panels | [dashboard-resize-handle.md](https://bitrix24.github.io/b24ui/raw/docs/components/dashboard-resize-handle.md) |
+| `B24DashboardSidebarToggle` | Mobile sidebar toggle button | [dashboard-sidebar-toggle.md](https://bitrix24.github.io/b24ui/raw/docs/components/dashboard-sidebar-toggle.md) |
+| `B24DashboardSearchButton` | Search button for sidebar | [dashboard-search-button.md](https://bitrix24.github.io/b24ui/raw/docs/components/dashboard-search-button.md) |
+| `B24DashboardSearch` | Dashboard-level search overlay | [dashboard-search.md](https://bitrix24.github.io/b24ui/raw/docs/components/dashboard-search.md) |
+| `B24DashboardSidebarCollapse` | Collapse button for sidebar | [dashboard-sidebar-collapse.md](https://bitrix24.github.io/b24ui/raw/docs/components/dashboard-sidebar-collapse.md) |
 
-| Component | Purpose |
-|---|---|
-| `B24DashboardGroup` | Root wrapper — manages sidebar state |
-| `B24DashboardSidebar` | Resizable/collapsible sidebar (`#header`, `#default`, `#footer`) |
-| `B24DashboardPanel` | Content panel (`#header`, `#body`, `#footer`) |
-| `B24DashboardNavbar` | Panel navbar (`#left`, `#default`, `#right`) |
-| `B24DashboardToolbar` | Toolbar for filters/actions |
-| `B24DashboardSearch` | Command palette for dashboards |
-| `B24DashboardSearchButton` | Search trigger button |
-| `B24DashboardSidebarToggle` | Mobile sidebar toggle |
-| `B24DashboardSidebarCollapse` | Desktop collapse button |
-| `B24DashboardResizeHandle` | Custom resize handle |
+## Page (marketing)
 
-## Chat
+| Component | Purpose | Docs |
+|-----------|---------|------|
+| `B24Page` | Multi-column layout with left/right sidebars | [page.md](https://bitrix24.github.io/b24ui/raw/docs/components/page.md) |
+| `B24PageSection` | Content section with features grid | [page-section.md](https://bitrix24.github.io/b24ui/raw/docs/components/page-section.md) |
+| `B24PageHeader` | Page title and description | [page-header.md](https://bitrix24.github.io/b24ui/raw/docs/components/page-header.md) |
+| `B24PageBody` | Main content area | [page-body.md](https://bitrix24.github.io/b24ui/raw/docs/components/page-body.md) |
+| `B24PageGrid` | Card grid layout | [page-grid.md](https://bitrix24.github.io/b24ui/raw/docs/components/page-grid.md) |
+| `B24PageColumns` | Multi-column layout | [page-columns.md](https://bitrix24.github.io/b24ui/raw/docs/components/page-columns.md) |
+| `B24PageCard` | Content card for grids | [page-card.md](https://bitrix24.github.io/b24ui/raw/docs/components/page-card.md) |
+| `B24PageAside` | Sticky sidebar wrapper | [page-aside.md](https://bitrix24.github.io/b24ui/raw/docs/components/page-aside.md) |
+| `B24PageLinks` | Related resource links | [page-links.md](https://bitrix24.github.io/b24ui/raw/docs/components/page-links.md) |
+| `B24PageList` | List layout for page items | [page-list.md](https://bitrix24.github.io/b24ui/raw/docs/components/page-list.md) |
 
-Components for conversational AI interfaces, powered by [Vercel AI SDK](https://ai-sdk.dev/).
+## Content (Nuxt Content)
 
-| Component | Purpose |
-|---|---|
-| `B24ChatMessages` | Scrollable message list with auto-scroll |
-| `B24ChatMessage` | Individual message display |
-| `B24ChatPrompt` | Enhanced textarea for prompts |
-| `B24ChatPromptSubmit` | Submit button with status handling |
-| `B24ChatPalette` | Chat layout for overlays |
+| Component | Purpose | Docs |
+|-----------|---------|------|
+| `B24ContentToc` | Table of contents | [content-toc.md](https://bitrix24.github.io/b24ui/raw/docs/components/content-toc.md) |
+| `B24ContentSurround` | Prev/next navigation | [content-surround.md](https://bitrix24.github.io/b24ui/raw/docs/components/content-surround.md) |
+| `B24ContentSearch` | Search command palette | [content-search.md](https://bitrix24.github.io/b24ui/raw/docs/components/content-search.md) |
+| `B24ContentSearchButton` | Trigger for content search | [content-search-button.md](https://bitrix24.github.io/b24ui/raw/docs/components/content-search-button.md) |
+
+## Chat (AI)
+
+| Component | Purpose | Docs |
+|-----------|---------|------|
+| `B24ChatMessages` | Scrollable message list | [chat-messages.md](https://bitrix24.github.io/b24ui/raw/docs/components/chat-messages.md) |
+| `B24ChatMessage` | Individual message bubble | [chat-message.md](https://bitrix24.github.io/b24ui/raw/docs/components/chat-message.md) |
+| `B24ChatReasoning` | Collapsible AI reasoning block | [chat-reasoning.md](https://bitrix24.github.io/b24ui/raw/docs/components/chat-reasoning.md) |
+| `B24ChatTool` | Tool invocation status | [chat-tool.md](https://bitrix24.github.io/b24ui/raw/docs/components/chat-tool.md) |
+| `B24ChatShimmer` | Streaming text animation | [chat-shimmer.md](https://bitrix24.github.io/b24ui/raw/docs/components/chat-shimmer.md) |
+| `B24ChatPrompt` | Enhanced textarea for prompts | [chat-prompt.md](https://bitrix24.github.io/b24ui/raw/docs/components/chat-prompt.md) |
+| `B24ChatPromptSubmit` | Submit button with status | [chat-prompt-submit.md](https://bitrix24.github.io/b24ui/raw/docs/components/chat-prompt-submit.md) |
+| `B24ChatPalette` | Chat layout for overlays | [chat-palette.md](https://bitrix24.github.io/b24ui/raw/docs/components/chat-palette.md) |
 
 ## Editor
 
-Rich text editor powered by [TipTap](https://tiptap.dev/).
-
-| Component | Purpose |
-|---|---|
-| `B24Editor` | Editor (`v-model`, `content-type`: json/html/markdown) |
-| `B24EditorToolbar` | Toolbar (`layout`: fixed/bubble/floating) |
-| `B24EditorDragHandle` | Block drag-and-drop |
-| `B24EditorSuggestionMenu` | Slash command menu |
-| `B24EditorMentionMenu` | @ mention menu |
-| `B24EditorEmojiMenu` | Emoji picker |
-
-## Content
-
-Components integrating with `@nuxt/content`.
-
-| Component | Purpose |
-|---|---|
-| `B24ContentToc` | Table of contents |
-| `B24ContentSurround` | Prev/next links |
-| `B24ContentSearch` | Search command palette |
-| `B24ContentSearchButton` | Search trigger button |
+| Component | Purpose | Docs |
+|-----------|---------|------|
+| `B24Editor` | Rich text editor (JSON/HTML/Markdown) | [editor.md](https://bitrix24.github.io/b24ui/raw/docs/components/editor.md) |
+| `B24EditorToolbar` | Toolbar (fixed/bubble/floating) | [editor-toolbar.md](https://bitrix24.github.io/b24ui/raw/docs/components/editor-toolbar.md) |
+| `B24EditorDragHandle` | Block drag-and-drop | [editor-drag-handle.md](https://bitrix24.github.io/b24ui/raw/docs/components/editor-drag-handle.md) |
+| `B24EditorSuggestionMenu` | Slash command menu | [editor-suggestion-menu.md](https://bitrix24.github.io/b24ui/raw/docs/components/editor-suggestion-menu.md) |
+| `B24EditorMentionMenu` | @ mention menu | [editor-mention-menu.md](https://bitrix24.github.io/b24ui/raw/docs/components/editor-mention-menu.md) |
+| `B24EditorEmojiMenu` | Emoji picker | [editor-emoji-menu.md](https://bitrix24.github.io/b24ui/raw/docs/components/editor-emoji-menu.md) |
 
 ## Color Mode
 
-| Component | Purpose |
-|---|---|
-| `B24ColorModeButton` | Toggle light/dark button |
-| `B24ColorModeSwitch` | Toggle light/dark switch |
-| `B24ColorModeSelect` | Dropdown selector |
-| `B24ColorModeAvatar` | Avatar with different src per mode |
-| `B24ColorModeImage` | Image with different src per mode |
+| Component | Purpose | Docs |
+|-----------|---------|------|
+| `B24ColorModeButton` | Toggle button (light/dark) | [color-mode-button.md](https://bitrix24.github.io/b24ui/raw/docs/components/color-mode-button.md) |
+| `B24ColorModeSwitch` | Toggle switch (light/dark) | [color-mode-switch.md](https://bitrix24.github.io/b24ui/raw/docs/components/color-mode-switch.md) |
+| `B24ColorModeSelect` | Dropdown (light/dark/system) | [color-mode-select.md](https://bitrix24.github.io/b24ui/raw/docs/components/color-mode-select.md) |
+| `B24ColorModeAvatar` | Avatar that changes with color mode | [color-mode-avatar.md](https://bitrix24.github.io/b24ui/raw/docs/components/color-mode-avatar.md) |
+| `B24ColorModeImage` | Image that changes with color mode | [color-mode-image.md](https://bitrix24.github.io/b24ui/raw/docs/components/color-mode-image.md) |

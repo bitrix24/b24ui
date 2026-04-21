@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { DefineComponent } from 'vue'
 import type { ToolUIPart, DynamicToolUIPart } from 'ai'
 import type { IconComponent } from '@bitrix24/b24ui-nuxt'
 import { DefaultChatTransport, isToolUIPart, isReasoningUIPart, isTextUIPart, getToolName } from 'ai'
@@ -7,7 +6,6 @@ import { Chat } from '@ai-sdk/vue'
 import { isPartStreaming, isToolStreaming } from '@bitrix24/b24ui-nuxt/utils/ai'
 import { useMemoize } from '@vueuse/core'
 import * as theme from '#build/b24ui'
-import ProseStreamPre from '../prose/PreStream.vue'
 import AlertIcon from '@bitrix24/b24icons-vue/outline/AlertIcon'
 import UndoIcon from '@bitrix24/b24icons-vue/outline/UndoIcon'
 import CloseChatIcon from '@bitrix24/b24icons-vue/outline/CloseChatIcon'
@@ -16,10 +14,6 @@ import SearchIcon from '@bitrix24/b24icons-vue/outline/SearchIcon'
 import FileIcon from '@bitrix24/b24icons-vue/outline/FileIcon'
 import TrashcanIcon from '@bitrix24/b24icons-vue/outline/TrashcanIcon'
 import CopilotAi2Icon from '@bitrix24/b24icons-vue/main/CopilotAi2Icon'
-
-const components = {
-  pre: ProseStreamPre as unknown as DefineComponent
-}
 
 const input = ref('')
 
@@ -283,22 +277,17 @@ defineShortcuts({
               :icon="AiStarsIcon"
               chevron="leading"
             >
-              <MDCCached
-                :value="part.text"
-                :cache-key="`reasoning-${message.id}-${index}`"
-                :parser-options="{ highlight: false }"
-                class="*:first:mt-0 *:last:mb-0"
+              <ChatComark
+                :markdown="part.text"
+                :streaming="isPartStreaming(part)"
               />
             </B24ChatReasoning>
 
             <template v-else-if="isTextUIPart(part) && part.text.length > 0">
-              <MDCCached
+              <ChatComark
                 v-if="message.role === 'assistant'"
-                :value="part.text"
-                :cache-key="`${message.id}-${index}`"
-                :components="components"
-                :parser-options="{ highlight: false }"
-                class="*:first:mt-0 *:last:mb-0"
+                :markdown="part.text"
+                :streaming="isPartStreaming(part)"
               />
               <p v-else-if="message.role === 'user'" class="whitespace-pre-wrap text-sm/6">
                 {{ part.text }}

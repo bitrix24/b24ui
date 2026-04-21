@@ -2,6 +2,14 @@
 
 Build app interfaces with resizable sidebars, multi-panel layouts, and toolbars.
 
+## When to use
+
+- Application for Bitrix24
+- Admin panels, back-office UIs
+- Email clients, project management tools
+- Any app with a persistent sidebar and content panels
+- Combine with chat or editor layouts for specialized dashboards
+
 ## Component tree
 
 ```
@@ -58,9 +66,9 @@ const items = computed<NavigationMenuItem[]>(() => [{
 
       <template #default="{ collapsed }">
         <B24NavigationMenu
+          :collapsed="collapsed"
           :items="items"
           orientation="vertical"
-          :b24ui="{ link: collapsed ? 'justify-center' : undefined }"
         />
       </template>
 
@@ -93,6 +101,9 @@ definePageMeta({ layout: 'dashboard' })
   <B24DashboardPanel>
     <template #header>
       <B24DashboardNavbar title="Home">
+        <template #leading>
+          <B24DashboardSidebarCollapse />
+        </template>
         <template #right>
           <B24Button :icon="PlusLIcons" label="New" />
         </template>
@@ -106,15 +117,21 @@ definePageMeta({ layout: 'dashboard' })
 </template>
 ```
 
+### Common mistakes
+
+- Forgetting `definePageMeta({ layout: 'dashboard' })` — the page won't use the dashboard layout without it.
+- Putting content directly in `B24DashboardPanel` without using `#body` slot — content won't scroll properly.
+- Not handling the `collapsed` slot prop — sidebar content should adapt when collapsed (hide labels, center icons).
+
 ## Key components
 
 ### DashboardGroup
 
-Root layout wrapper. Manages sidebar state and persistence.
+Root wrapper. Manages sidebar state and persistence.
 
-| Prop | Default | Description |
+| Prop | Default | Purpose |
 |---|---|---|
-| `storage` | `'cookie'` | State persistence: `'cookie'`, `'localStorage'`, `false` |
+| `storage` | `'cookie'` | `'cookie'`, `'localStorage'`, `false` |
 | `storage-key` | `'dashboard'` | Storage key name |
 | `unit` | `'pixels'` | Size unit: `'pixels'` or `'percentages'` |
 
@@ -122,33 +139,33 @@ Root layout wrapper. Manages sidebar state and persistence.
 
 Resizable, collapsible sidebar. Must be inside `DashboardGroup`.
 
-| Prop | Default | Description |
+| Prop | Default | Purpose |
 |---|---|---|
-| `resizable` | `false` | Enable resize by dragging |
-| `collapsible` | `false` | Enable collapse when dragged to edge |
+| `resizable` | `false` | Drag to resize |
+| `collapsible` | `false` | Collapse when dragged to edge |
 | `side` | `'left'` | `'left'` or `'right'` |
-| `mode` | `'slideover'` | Mobile menu mode: `'modal'`, `'slideover'`, `'drawer'` |
+| `mode` | `'slideover'` | Mobile: `'modal'`, `'slideover'`, `'drawer'` |
 
-Slots receive `{ collapsed }` prop. Control state: `v-model:collapsed`, `v-model:open` (mobile).
+All slots receive `{ collapsed, collapse }` — `collapsed` is the boolean state, `collapse(value)` toggles it programmatically. Use `v-model:collapsed` and `v-model:open` (mobile) for state control.
 
 ### DashboardPanel
 
-Content panel with `#header`, `#body` (scrollable), `#footer`, and `#default` (raw) slots.
-
-| Prop | Default | Description |
-|---|---|---|
-| `id` | `—` | Unique ID (required for multi-panel) |
-| `resizable` | `false` | Enable resize by dragging |
+Content panel with `#header`, `#body` (scrollable), `#footer`, and `#default` (raw, no scroll) slots.
 
 ### DashboardNavbar / DashboardToolbar
 
-Navbar has `#left`, `#default`, `#right` slots and a `title` prop. Toolbar has the same slots for filters/actions below the navbar.
+Navbar: `#leading`, `#left`, `#default`, `#right` slots + `title` prop. Use `B24DashboardSidebarCollapse` in `#leading` to toggle sidebar on mobile.
+Toolbar: same slots, sits below navbar for filters/actions.
+
+### B24NavigationMenu in sidebar
+
+Always pass `:collapsed="collapsed"` to `B24NavigationMenu` inside a collapsible sidebar — it auto-hides labels and centers icons. Use `NavigationMenuItem[][]` (array of arrays) for separate groups (main nav + footer links).
 
 ## Multi-panel (list-detail)
 
 ```vue [pages/dashboard/inbox.vue]
 <script setup lang="ts">
-definePageMeta({ layout: 'dashboard' })
+  definePageMeta({ layout: 'dashboard' })
 </script>
 
 <template>
@@ -183,7 +200,6 @@ import SearchIcon from '@bitrix24/b24icons-vue/outline/SearchIcon'
   <B24DashboardPanel>
     <template #header>
       <B24DashboardNavbar title="Users" />
-  
       <B24DashboardToolbar>
         <template #left>
           <B24Input :icon="SearchIcon" placeholder="Search..." />

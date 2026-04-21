@@ -37,13 +37,14 @@ yarn add @bitrix24/b24ui-nuxt @bitrix24/b24icons-vue tailwindcss
 
 ```ts [nuxt.config.ts]
 export default defineNuxtConfig({
-  modules: ['@bitrix24/b24ui-nuxt']
+  modules: ['@bitrix24/b24ui-nuxt'],
+  css: ['~/assets/css/main.css']
 })
 ```
 
 2. Import Tailwind CSS and Bitrix24 UI in your CSS:
 
-```css [assets/css/main.css]
+```css [app/assets/css/main.css]
 @import "tailwindcss";
 @import "@bitrix24/b24ui-nuxt";
 ```
@@ -69,7 +70,9 @@ export default defineConfig({
 
 2. Use the Bitrix24 UI Vue plugin in your `main.ts`:
 
-```ts [main.ts]
+```ts [src/main.ts]
+import './assets/css/main.css'
+
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import b24UiPlugin from '@bitrix24/b24ui-nuxt/vue-plugin'
@@ -90,7 +93,7 @@ app.mount('#app')
 
 3. Import Tailwind CSS and Bitrix24 UI in your CSS:
 
-```css [assets/main.css]
+```css [src/assets/css/main.css]
 @import "tailwindcss";
 @import "@bitrix24/b24ui-nuxt";
 ```

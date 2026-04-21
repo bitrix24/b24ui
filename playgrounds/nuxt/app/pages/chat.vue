@@ -3,6 +3,8 @@ import { isReasoningUIPart, isTextUIPart, isToolUIPart, getToolName } from 'ai'
 import type { UIMessage } from 'ai'
 import { Chat } from '@ai-sdk/vue'
 import { isPartStreaming, isToolStreaming } from '@bitrix24/b24ui-nuxt/utils/ai'
+import { Comark } from '@comark/vue'
+import highlight from '@comark/vue/plugins/highlight'
 import AlertIcon from '@bitrix24/b24icons-vue/outline/AlertIcon'
 import RobotIcon from '@bitrix24/b24icons-vue/outline/RobotIcon'
 import TrashcanIcon from '@bitrix24/b24icons-vue/outline/TrashcanIcon'
@@ -96,17 +98,19 @@ function getFaviconUrl(url: string): string {
             chevron="leading"
             :b24ui="{ body: 'scrollbar-thin scrollbar-transparent' }"
           >
-            <MDC
-              :value="part.text"
-              :cache-key="`reasoning-${message.id}-${index}`"
+            <Comark
+              :markdown="part.text"
+              :streaming="isPartStreaming(part)"
+              :plugins="[highlight()]"
               class="*:first:mt-0 *:last:mb-0"
             />
           </B24ChatReasoning>
           <template v-else-if="isTextUIPart(part)">
-            <MDC
+            <Comark
               v-if="message.role === 'assistant'"
-              :value="part.text"
-              :cache-key="`${message.id}-${index}`"
+              :markdown="part.text"
+              :streaming="isPartStreaming(part)"
+              :plugins="[highlight()]"
               class="*:first:mt-0 *:last:mb-0"
             />
             <p v-else-if="message.role === 'user'" class="whitespace-pre-wrap">
