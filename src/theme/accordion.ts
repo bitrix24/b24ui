@@ -21,7 +21,7 @@ export default {
     body: 'text-(length:--ui-font-size-sm) pb-[12px]',
     leadingIcon: 'shrink-0 size-[20px]',
     trailingIcon: 'shrink-0 size-[20px] ms-auto group-data-[state=open]:rotate-180 transition-transform duration-200',
-    label: 'text-start break-words'
+    label: 'text-start wrap-break-word'
   },
   variants: {
     disabled: {

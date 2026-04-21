@@ -37,12 +37,12 @@ export default {
       'font-(--ui-font-weight-bold)',
       'mb-0',
       'text-[calc(var(--ui-font-size-2xl)+1px)]/(--ui-font-size-2xl)',
-      'break-words'
+      'wrap-break-word'
     ].join(' '),
     description: [
       'text-(--b24ui-typography-description-color)',
       'text-(length:--ui-font-size-sm)',
-      'break-words'
+      'wrap-break-word'
     ].join(' '),
     close: '[--ui-btn-height:24px]'
   },

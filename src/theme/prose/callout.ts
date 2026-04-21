@@ -27,7 +27,7 @@ export default {
       '[&>h4]:text-(--b24ui-color)',
       '[&>h5]:text-(--b24ui-color)',
       '[&>h6]:text-(--b24ui-color)',
-      '[&>*]:last:!mb-0',
+      '*:last:mb-0!',
       '[&_li]:my-1.5 [&_li]:ps-1 [&_li]:text-(length:--ui-font-size-md)/(--ui-font-line-height-3xs) [&_li]:text-(--b24ui-color)',
       '[&_a]:underline',
       'transition-colors'

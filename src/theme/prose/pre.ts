@@ -34,7 +34,7 @@ export default {
       'rounded-(--ui-border-radius-md)',
       'px-4 py-3',
       'whitespace-pre-wrap',
-      'break-words',
+      'wrap-break-word',
       'overflow-x-auto',
       'focus:outline-none',
       '**:[.line]:block',

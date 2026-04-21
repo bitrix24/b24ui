@@ -6,7 +6,7 @@
 
 export default {
   slots: {
-    root: 'relative group *:not-first:!my-0 *:not-first:!static my-5',
+    root: 'relative group *:not-first:my-0! *:not-first:static! my-5',
     list: [
       'relative',
       'flex items-center gap-1',
