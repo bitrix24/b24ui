@@ -94,6 +94,7 @@ import { RadioGroupRoot, RadioGroupItem as RRadioGroupItem, RadioGroupIndicator,
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useComponentUI } from '../composables/useComponentUI'
+import { useResolvedVariants } from '../composables/useResolvedVariants'
 import { useFormField } from '../composables/useFormField'
 import { get } from '../utils'
 import { tv } from '../utils/tv'
@@ -115,13 +116,15 @@ const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'loop', 'requir
 const { emitFormChange, emitFormInput, color, name, size, id: _id, disabled, ariaAttrs } = useFormField<RadioGroupProps<T>>(props, { bind: false })
 const id = _id.value ?? useId()
 
+const { variant } = useResolvedVariants('radioGroup', props, theme, ['variant'])
+
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.radioGroup || {}) })({
   size: size.value,
   color: color.value,
   disabled: disabled.value,
   required: props.required,
   orientation: props.orientation,
-  variant: props.variant,
+  variant: variant.value,
   indicator: props.indicator
 }))
 
@@ -193,7 +196,7 @@ function onUpdate(value: any) {
       </legend>
 
       <component
-        :is="(!variant || variant === 'list') ? 'div' : Label"
+        :is="variant === 'list' ? 'div' : Label"
         v-for="item in normalizedItems"
         :key="item.value"
         data-slot="item"
@@ -217,7 +220,7 @@ function onUpdate(value: any) {
           :class="b24ui.wrapper({ class: [uiProp?.wrapper, item.b24ui?.wrapper] })"
         >
           <component
-            :is="(!variant || variant === 'list') ? Label : 'p'"
+            :is="variant === 'list' ? Label : 'p'"
             v-if="item.label || !!slots.label"
             :for="item.id"
             data-slot="label"

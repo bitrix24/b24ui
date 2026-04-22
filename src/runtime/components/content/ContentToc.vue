@@ -63,6 +63,7 @@ import { CollapsibleRoot, CollapsibleTrigger, CollapsibleContent, useForwardProp
 import { reactivePick, createReusableTemplate } from '@vueuse/core'
 import { useRouter, useAppConfig, useNuxtApp } from '#imports'
 import { useComponentUI } from '../../composables/useComponentUI'
+// import { useResolvedVariants } from '../../composables/useResolvedVariants'
 import { useScrollspy } from '../../composables/useScrollspy'
 import { useLocale } from '../../composables/useLocale'
 import { tv } from '../../utils/tv'
@@ -82,6 +83,8 @@ const { t } = useLocale()
 const router = useRouter()
 const appConfig = useAppConfig() as ContentToc['AppConfig']
 const uiProp = useComponentUI('contentToc', props)
+// @memo We not support: highlightVariant
+// const { highlightVariant } = useResolvedVariants('contentToc', props, theme, ['highlightVariant'])
 const { activeHeadings, updateHeadings } = useScrollspy()
 
 const [DefineListTemplate, ReuseListTemplate] = createReusableTemplate<{ links: T[], level: number }>({

@@ -11,8 +11,8 @@ import { name, version } from '../package.json'
 
 export type * from './runtime/types'
 
-// type Color = 'air-primary' | 'air-secondary' | 'air-tertiary' | 'air-primary-success' | 'air-primary-warning' | 'air-primary-alert' | 'air-primary-copilot' | 'air-secondary-accent' | 'air-secondary-accent-1' | (string & {})
-// type Size = 'xss' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | (string & {})
+type Color = 'air-primary' | 'air-secondary' | 'air-tertiary' | 'air-primary-success' | 'air-primary-warning' | 'air-primary-alert' | 'air-primary-copilot' | 'air-secondary-accent' | 'air-secondary-accent-1' | (string & {})
+type Size = 'xss' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | (string & {})
 
 export interface ModuleOptions {
   /**
@@ -36,6 +36,24 @@ export interface ModuleOptions {
    * @see https://bitrix24.github.io/b24ui/docs/getting-started/theme/design-system/
    */
   theme?: {
+    /**
+     * The default variants to use for components
+     * @see https://bitrix24.github.io/b24ui/docs/getting-started/installation/nuxt/#themedefaultvariants
+     */
+    defaultVariants?: {
+      /**
+       * The default color variant to use for components
+       * @defaultValue `'primary'`
+       */
+      color?: Color
+
+      /**
+       * The default size variant to use for components
+       * @defaultValue `'md'`
+       */
+      size?: Size
+    }
+
     /**
      * Prefix for Tailwind CSS utility classes
      * @see https://bitrix24.github.io/b24ui/docs/getting-started/installation/nuxt/#themeprefix

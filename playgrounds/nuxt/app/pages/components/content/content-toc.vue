@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { Comark } from '@comark/vue'
 
-const highlight = ref(true)
-
 const links = [
   {
     id: 'usage',
@@ -110,23 +108,20 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor i
 </script>
 
 <template>
-  <Navbar>
-    <B24Switch v-model="highlight" label="Highlight" />
-  </Navbar>
+  <PlaygroundPage>
+    <div class="w-full flex flex-col lg:grid lg:grid-cols-10 lg:gap-10">
+      <Comark :markdown="value" class="lg:col-span-8 max-w-xl mx-auto text-muted" />
 
-  <div class="w-full flex flex-col lg:grid lg:grid-cols-10 lg:gap-10">
-    <Comark :markdown="value" class="lg:col-span-8 max-w-xl mx-auto text-muted" />
+      <B24ContentToc
+        :links="links"
+        class="lg:col-span-2 order-first lg:order-last top-0 max-h-[calc(100vh-12rem)]"
+      >
+        <template #bottom>
+          <B24Separator type="dashed" />
 
-    <B24ContentToc
-      :links="links"
-      :highlight="highlight"
-      class="lg:col-span-2 order-first lg:order-last top-0 max-h-[calc(100vh-12rem)]"
-    >
-      <template #bottom>
-        <B24Separator type="dashed" />
-
-        <Placeholder class="h-32" />
-      </template>
-    </B24ContentToc>
-  </div>
+          <Placeholder class="h-32" />
+        </template>
+      </B24ContentToc>
+    </div>
+  </PlaygroundPage>
 </template>

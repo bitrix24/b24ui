@@ -53,6 +53,7 @@ import { Primitive, CheckboxRoot, CheckboxIndicator, Label, useForwardPropsEmits
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useComponentUI } from '../composables/useComponentUI'
+import { useResolvedVariants } from '../composables/useResolvedVariants'
 import { useFormField } from '../composables/useFormField'
 import { tv } from '../utils/tv'
 import Minus20Icon from '@bitrix24/b24icons-vue/actions/Minus20Icon'
@@ -72,6 +73,8 @@ const rootProps = useForwardPropsEmits(reactivePick(props, 'required', 'value', 
 const { id: _id, emitFormChange, emitFormInput, size, color, name, disabled, ariaAttrs } = useFormField<CheckboxProps<T>>(props)
 const id = _id.value ?? useId()
 
+const { variant } = useResolvedVariants('checkbox', props, theme, ['variant'])
+
 const attrs = useAttrs()
 // Omit `data-state` to prevent conflicts with parent components (e.g. TooltipTrigger)
 const forwardedAttrs = computed(() => {
@@ -82,7 +85,7 @@ const forwardedAttrs = computed(() => {
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.checkbox || {}) })({
   size: size.value,
   color: color.value,
-  variant: props.variant,
+  variant: variant.value,
   indicator: props.indicator,
   required: props.required,
   disabled: disabled.value
@@ -99,7 +102,7 @@ function onUpdate(value: any) {
 
 <!-- eslint-disable vue/no-template-shadow -->
 <template>
-  <Primitive :as="(!variant || variant === 'list') ? as : Label" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
+  <Primitive :as="variant === 'list' ? as : Label" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
     <div data-slot="container" :class="b24ui.container({ class: uiProp?.container })">
       <CheckboxRoot
         :id="id"
@@ -121,7 +124,7 @@ function onUpdate(value: any) {
 
     <div v-if="(label || !!slots.label) || (description || !!slots.description)" data-slot="wrapper" :class="b24ui.wrapper({ class: uiProp?.wrapper })">
       <component
-        :is="(!variant || variant === 'list') ? Label : 'p'"
+        :is="variant === 'list' ? Label : 'p'"
         v-if="label || !!slots.label"
         :for="id"
         data-slot="label"

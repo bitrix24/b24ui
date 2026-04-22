@@ -11,7 +11,7 @@ const surround = [{
 </script>
 
 <template>
-  <Navbar />
-
-  <B24ContentSurround :surround="surround" />
+  <PlaygroundPage>
+    <B24ContentSurround :surround="surround" />
+  </PlaygroundPage>
 </template>

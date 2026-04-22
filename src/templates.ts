@@ -6,8 +6,7 @@ import { addTemplate, addTypeTemplate, hasNuxtModule, logger, updateTemplates, g
 import type { Nuxt, NuxtTemplate, NuxtTypeTemplate } from '@nuxt/schema'
 import type { Resolver } from '@nuxt/kit'
 import type { ModuleOptions } from './module'
-// import { applyDefaultVariants, applyPrefixToObject } from './utils/theme'
-import { applyPrefixToObject } from './utils/theme'
+import { applyDefaultVariants, applyPrefixToObject } from './utils/theme'
 import { detectUsedComponents } from './utils/components'
 import * as theme from './theme'
 import * as themeProse from './theme/prose'
@@ -32,7 +31,7 @@ export function getTemplates(options: ModuleOptions, uiConfig: Record<string, an
           let result = typeof template === 'function' ? template(options) : template
 
           // Override default variants from nuxt.config.ts
-          // result = applyDefaultVariants(result, options.theme?.defaultVariants)
+          result = applyDefaultVariants(result, options.theme?.defaultVariants)
           // Apply Tailwind prefix if configured
           result = applyPrefixToObject(result, options.theme?.prefix)
 
@@ -64,17 +63,17 @@ export function getTemplates(options: ModuleOptions, uiConfig: Record<string, an
           if (isDev) {
             const templatePath = fileURLToPath(new URL(`./theme/${path ? `${path}/` : ''}${kebabCase(component)}`, import.meta.url))
             const themeUtilsPath = fileURLToPath(new URL('./utils/theme', import.meta.url))
-            // const defaultVariantsJson = 'undefined'
+            const defaultVariantsJson = JSON.stringify(options.theme?.defaultVariants) ?? 'undefined'
             const prefixJson = 'undefined'
 
             return [
               `import template from ${JSON.stringify(templatePath)}`,
-              // `import { applyDefaultVariants, applyPrefixToObject } from ${JSON.stringify(themeUtilsPath)}`,
+              `import { applyDefaultVariants, applyPrefixToObject } from ${JSON.stringify(themeUtilsPath)}`,
               `import { applyPrefixToObject } from ${JSON.stringify(themeUtilsPath)}`,
               ...generateVariantDeclarations(variants),
               `const options = ${JSON.stringify(options, null, 2)}`,
               `let result = typeof template === 'function' ? (template as Function)(options) : template`,
-              // `result = applyDefaultVariants(result, ${defaultVariantsJson})`,
+              `result = applyDefaultVariants(result, ${defaultVariantsJson})`,
               `result = applyPrefixToObject(result, ${prefixJson})`,
               `const theme = ${json}`,
               `export default result as typeof theme`

@@ -177,6 +177,7 @@ import { defu } from 'defu'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useComponentUI } from '../composables/useComponentUI'
+import { useResolvedVariants } from '../composables/useResolvedVariants'
 import { useFieldGroup, FieldGroupReset } from '../composables/useFieldGroup'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { useFormField } from '../composables/useFormField'
@@ -205,10 +206,9 @@ const uiProp = useComponentUI('select', props)
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'open', 'defaultOpen', 'disabled', 'autocomplete', 'required', 'multiple'), emits)
 const portalProps = usePortal(toRef(() => props.portal))
-// Resolve `position` from props > `app.config.ts` `defaultVariants` > hardcoded default,
-// so both the template logic (`isItemAligned`) and the Reka UI primitive see the same value.
-// `tv()` only applies `defaultVariants` to classes, not to runtime logic
-const position = computed(() => props.content?.position ?? appConfig.b24ui?.select?.defaultVariants?.position ?? 'popper')
+const { position } = useResolvedVariants('select', props, theme, ['position'], {
+  position: () => props.content?.position
+})
 const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffset: 8, collisionPadding: 8, position: position.value }) as SelectContentProps)
 const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10 }) as SelectArrowProps)
 
