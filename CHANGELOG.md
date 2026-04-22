@@ -57,6 +57,7 @@
 * fix(ProseImg): respect markdown width attribute
 * fix(InputDate/InputTime): increase segments width
 * fix(useDevice): use breakpointsTailwind from '@vueuse/core'
+* fix(ContentToc): use links for scrollspy instead of hardcoded h2/h3
 * 
 * docs: improve build performance and client-side navigation
 * docs(table): add column span example
