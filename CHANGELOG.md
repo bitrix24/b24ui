@@ -54,6 +54,8 @@
 * fix(ChatMessages): use MutationObserver for auto-scroll during streaming
 * fix(ProseCodeCollapse): match background on overscroll
 * fix(ProseImg): respect markdown width attribute
+* fix(InputDate/InputTime): increase segments width
+* fix(useDevice): use breakpointsTailwind from '@vueuse/core'
 * 
 * docs: improve build performance and client-side navigation
 * docs(table): add column span example

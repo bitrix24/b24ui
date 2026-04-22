@@ -1,20 +1,9 @@
 import { useState } from '#imports'
 import { computed, readonly } from 'vue'
-import { createSharedComposable, useMediaQuery } from '@vueuse/core'
-
-/**
- * Breakpoints Tailwind
- */
-const TAILWIND_BREAKPOINTS = {
-  'sm': 640,
-  'md': 768,
-  'lg': 1024,
-  'xl': 1280,
-  '2xl': 1536
-} as const
+import { createSharedComposable, useMediaQuery, breakpointsTailwind } from '@vueuse/core'
 
 export type PlatformName = 'web' | 'bitrix-mobile' | 'bitrix-desktop'
-export type ScreenSize = keyof typeof TAILWIND_BREAKPOINTS | 'xs'
+export type ScreenSize = keyof typeof breakpointsTailwind | 'xs'
 
 /**
  * Device Reactivity: Platform and Screen Information
@@ -35,11 +24,11 @@ const _useDevice = () => {
   // 2. Media queries for Tailwind breakpoints
   // For each breakpoint, create a ref<boolean> (it will be false on the server)
   const mediaQueries = {
-    'sm': useMediaQuery(`(min-width: ${TAILWIND_BREAKPOINTS['sm']}px)`),
-    'md': useMediaQuery(`(min-width: ${TAILWIND_BREAKPOINTS['md']}px)`),
-    'lg': useMediaQuery(`(min-width: ${TAILWIND_BREAKPOINTS['lg']}px)`),
-    'xl': useMediaQuery(`(min-width: ${TAILWIND_BREAKPOINTS['xl']}px)`),
-    '2xl': useMediaQuery(`(min-width: ${TAILWIND_BREAKPOINTS['2xl']}px)`)
+    'sm': useMediaQuery(`(min-width: ${breakpointsTailwind['sm']}px)`),
+    'md': useMediaQuery(`(min-width: ${breakpointsTailwind['md']}px)`),
+    'lg': useMediaQuery(`(min-width: ${breakpointsTailwind['lg']}px)`),
+    'xl': useMediaQuery(`(min-width: ${breakpointsTailwind['xl']}px)`),
+    '2xl': useMediaQuery(`(min-width: ${breakpointsTailwind['2xl']}px)`)
   }
 
   // 3. Convenient computed for screen sizes

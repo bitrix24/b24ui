@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import { shallowRef } from 'vue'
-import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
 import { DateFormatter, getLocalTimeZone, today } from '@internationalized/date'
 import Calendar1Icon from '@bitrix24/b24icons-vue/main/Calendar1Icon'
 
+const { screen } = useDevice()
 const df = new DateFormatter('en-US', { dateStyle: 'medium' })
 const tz = getLocalTimeZone()
-const breakpoints = useBreakpoints(breakpointsTailwind)
-const isDesktop = breakpoints.greaterOrEqual('sm')
 
 const ranges = [
   { label: 'Last 7 days', days: 7 },
@@ -67,7 +65,7 @@ function selectRange(range: typeof ranges[number]) {
           />
         </div>
 
-        <B24Calendar v-model="modelValue" class="p-2" :number-of-months="isDesktop ? 2 : 1" range />
+        <B24Calendar v-model="modelValue" class="p-2" :number-of-months="screen.isDesktop ? 2 : 1" range />
       </div>
     </template>
   </B24Popover>
