@@ -21,6 +21,7 @@
 * feat(Select): support `item-aligned` position mode
 * feat(components): resolve `defaultVariants` in template logic
 * feat(CommandPalette): add `group-label` slot
+* feat(Textarea): expose `autoResize` method
 * 
 * fix(Error): support `status` and `statusText` properties
 * fix(ContentSurround): handle RTL mode
