@@ -172,7 +172,7 @@ export interface SelectSlots<
 <script setup lang="ts" generic="T extends ArrayOrNested<SelectItem>, VK extends GetItemKeys<T> = 'value', M extends boolean = false, Mod extends Omit<ModelModifiers, 'lazy'> = Omit<ModelModifiers, 'lazy'>">
 import { useTemplateRef, computed, onMounted, toRef } from 'vue'
 // @memo we use Primitive
-import { Primitive, SelectRoot, SelectArrow, SelectTrigger, SelectPortal, SelectContent, SelectLabel, SelectGroup, SelectItem as RSelectItem, SelectItemIndicator, SelectItemText, SelectSeparator, useForwardPropsEmits } from 'reka-ui'
+import { Primitive, SelectRoot, SelectArrow, SelectTrigger, SelectPortal, SelectContent, SelectViewport, SelectValue as RSelectValue, SelectLabel, SelectGroup, SelectItem as RSelectItem, SelectItemIndicator, SelectItemText, SelectSeparator, useForwardPropsEmits } from 'reka-ui'
 import { defu } from 'defu'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
@@ -205,7 +205,11 @@ const uiProp = useComponentUI('select', props)
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'open', 'defaultOpen', 'disabled', 'autocomplete', 'required', 'multiple'), emits)
 const portalProps = usePortal(toRef(() => props.portal))
-const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffset: 8, collisionPadding: 8, position: 'popper' }) as SelectContentProps)
+// Resolve `position` from props > `app.config.ts` `defaultVariants` > hardcoded default,
+// so both the template logic (`isItemAligned`) and the Reka UI primitive see the same value.
+// `tv()` only applies `defaultVariants` to classes, not to runtime logic
+const position = computed(() => props.content?.position ?? appConfig.b24ui?.select?.defaultVariants?.position ?? 'popper')
+const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffset: 8, collisionPadding: 8, position: position.value }) as SelectContentProps)
 const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10 }) as SelectArrowProps)
 
 const { emitFormChange, emitFormInput, emitFormBlur, emitFormFocus, size: formFieldSize, color, id, name, highlight, disabled, ariaAttrs } = useFormField<InputProps>(props)
@@ -213,6 +217,8 @@ const { orientation, size: fieldGroupSize } = useFieldGroup<InputProps>(props)
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(toRef(() => defu(props, { trailingIcon: icons.chevronDown })))
 
 const selectSize = computed(() => fieldGroupSize.value || formFieldSize.value)
+
+const isItemAligned = computed(() => position.value === 'item-aligned')
 
 const isTag = computed(() => {
   return props.tag
@@ -229,7 +235,8 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.select
   highlight: highlight.value,
   leading: Boolean(isLeading.value || !!props.avatar || !!slots.leading),
   trailing: Boolean(isTrailing.value || !!slots.trailing),
-  fieldGroup: orientation.value
+  fieldGroup: orientation.value,
+  position: position.value
 }))
 
 const groups = computed<SelectItem[][]>(() =>
@@ -320,7 +327,10 @@ const viewportRef = useTemplateRef('viewportRef')
 
 defineExpose({
   triggerRef: toRef(() => triggerRef.value?.$el as HTMLButtonElement),
-  viewportRef: toRef(() => viewportRef.value)
+  viewportRef: toRef(() => {
+    const instance = viewportRef.value
+    return (instance && typeof instance === 'object' && '$el' in instance ? instance.$el : instance) as HTMLElement | null
+  })
 })
 </script>
 
@@ -371,24 +381,16 @@ defineExpose({
           </slot>
         </span>
 
-        <slot :model-value="(modelValue as ApplyModifiers<GetModelValue<T, VK, M, ExcludeItem>, Mod>)" :open="open" :b24ui="b24ui">
-          <template v-for="displayedModelValue in [displayValue(modelValue as any)]" :key="displayedModelValue">
-            <span
-              v-if="displayedModelValue !== undefined && displayedModelValue !== null"
-              data-slot="value"
-              :class="b24ui.value({ class: uiProp?.value })"
-            >
-              {{ displayedModelValue }}
-            </span>
-            <span
-              v-else
-              data-slot="placeholder"
-              :class="b24ui.placeholder({ class: uiProp?.placeholder })"
-            >
-              {{ placeholder ?? '&nbsp;' }}
-            </span>
-          </template>
-        </slot>
+        <template v-for="displayedModelValue in [displayValue(modelValue as any)]" :key="displayedModelValue">
+          <RSelectValue
+            :data-slot="displayedModelValue != null ? 'value' : 'placeholder'"
+            :class="displayedModelValue != null ? b24ui.value({ class: uiProp?.value }) : b24ui.placeholder({ class: uiProp?.placeholder })"
+          >
+            <slot :model-value="(modelValue as ApplyModifiers<GetModelValue<T, VK, M, ExcludeItem>, Mod>)" :open="open" :b24ui="b24ui">
+              {{ displayedModelValue ?? (placeholder ?? '&nbsp;') }}
+            </slot>
+          </RSelectValue>
+        </template>
 
         <span v-if="isTrailing || !!slots.trailing" data-slot="trailing" :class="b24ui.trailing({ class: uiProp?.trailing })">
           <slot name="trailing" :model-value="(modelValue as ApplyModifiers<GetModelValue<T, VK, M, ExcludeItem>, Mod>)" :open="open" :b24ui="b24ui">
@@ -407,7 +409,8 @@ defineExpose({
           <SelectContent data-slot="content" :class="b24ui.content({ class: uiProp?.content })" v-bind="contentProps">
             <slot name="content-top" />
 
-            <div
+            <component
+              :is="isItemAligned ? SelectViewport : 'div'"
               ref="viewportRef"
               role="presentation"
               data-slot="viewport"
@@ -493,7 +496,7 @@ defineExpose({
                   </RSelectItem>
                 </template>
               </SelectGroup>
-            </div>
+            </component>
 
             <slot name="content-bottom" />
 

@@ -40,7 +40,7 @@ export default () => {
           'bg-(--ui-color-bg-content-primary)',
           'shadow-(--popup-window-box-shadow)',
           'rounded-(--ui-border-radius-xl) will-change-[opacity]',
-          'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]',
+          // 'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]',
           'origin-(--reka-dropdown-menu-content-transform-origin)',
           'font-[family-name:var(--ui-font-family-primary)]',
           'relative',
@@ -188,6 +188,15 @@ export default () => {
           'secondary': { item: 'style-old-secondary' },
           'collab': { item: 'style-old-collab' },
           'ai': { item: 'style-old-ai' }
+        },
+        position: {
+          'popper': {
+            content: 'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]'
+          },
+          'item-aligned': {
+            content: '',
+            viewport: 'w-full'
+          }
         }
       },
       compoundVariants: (prev: Record<string, any>[]) => {
@@ -261,6 +270,9 @@ export default () => {
                 : item.class
           }))
         ]
+      },
+      defaultVariants: {
+        position: 'popper'
       }
     },
     input

@@ -18,6 +18,7 @@
 * feat(InputTime): add `range` prop
 * feat(ChatMessage): add `files` slot
 * feat(EditorSuggestionMenu): expose suggestion matching options
+* feat(Select): support `item-aligned` position mode
 * 
 * fix(Error): support `status` and `statusText` properties
 * fix(ContentSurround): handle RTL mode

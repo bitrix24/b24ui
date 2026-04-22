@@ -136,7 +136,7 @@ function getUserAvatar(value: string) {
       <B24Switch v-model="singleAttrs.rounded" size="xs" label="Rounded" />
     </template>
 
-    <Matrix v-slot="props" :attrs="multipleAttrs" :b24ui="{ root: 'max-w-80' }">
+    <Matrix v-slot="props" :attrs="multipleAttrs" :b24ui="{ root: 'w-90' }">
       <B24Select
         v-model="value"
         :items="items"
@@ -154,6 +154,7 @@ function getUserAvatar(value: string) {
         :tag-color="props?.color"
         :b24ui="{ root: 'w-full' }"
       />
+      <B24Select :default-value="value" :items="items" v-bind="{ ...singleAttrs, ...props }" :content="{ position: 'item-aligned' }" :b24ui="{ root: 'w-full' }" />
       <B24Select placeholder="Search..." :avatar="{ src: '/b24ui/demo/avatar/employee.png' }" :items="items" v-bind="{ ...singleAttrs, ...props }" :b24ui="{ root: 'w-full' }" />
       <B24Select placeholder="Loading trailing" v-bind="{ ...singleAttrs, ...props }" trailing :items="items" :b24ui="{ root: 'w-full' }" />
       <B24Select placeholder="Trailing icon" :trailing-icon="RocketIcon" v-bind="{ ...singleAttrs, ...props }" :items="items" :b24ui="{ root: 'w-full' }" />
