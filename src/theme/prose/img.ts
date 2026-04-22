@@ -18,6 +18,9 @@ export default {
     },
     open: {
       true: ''
+    },
+    width: {
+      false: 'w-full'
     }
   },
   compoundVariants: [{

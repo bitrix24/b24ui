@@ -47,7 +47,8 @@ const open = ref(false)
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.img || {}) })({
   zoom: props.zoom,
-  open: open.value
+  open: open.value,
+  width: !!props.width
 }))
 
 const refinedSrc = computed(() => resolveBaseURL(props.src, useRuntimeConfig().app.baseURL))
