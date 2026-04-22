@@ -418,7 +418,7 @@ function onSubmit() {
         </template>
       </template>
     </template>
-  </UChatMessages>
+  </B24ChatMessages>
 
   <B24ChatPrompt
     v-model="input"
