@@ -198,8 +198,13 @@ export type CommandPaletteEmits<T extends CommandPaletteItem = CommandPaletteIte
 }
 
 type SlotProps<T> = (props: { item: T, index: number, b24ui: CommandPalette['b24ui'] }) => VNode[]
+type GroupSlotProps<T extends CommandPaletteItem = CommandPaletteItem, G extends CommandPaletteGroup<T> = CommandPaletteGroup<T>> = (props: { group: G, label: string, b24ui: CommandPalette['b24ui'] }) => VNode[]
 
-export type CommandPaletteSlots<T extends CommandPaletteItem = CommandPaletteItem> = {
+type GroupSlots<T extends CommandPaletteItem = CommandPaletteItem, G extends CommandPaletteGroup<T> = CommandPaletteGroup<T>> = {
+  'group-label'?: GroupSlotProps<T, G>
+} & Record<`${string}-group-label`, GroupSlotProps<T, G>>
+
+export type CommandPaletteSlots<T extends CommandPaletteItem = CommandPaletteItem, G extends CommandPaletteGroup<T> = CommandPaletteGroup<T>> = {
   'empty'?(props: { searchTerm?: string }): VNode[]
   'footer'?(props: { b24ui: CommandPalette['b24ui'] }): VNode[]
   'back'?(props: { b24ui: CommandPalette['b24ui'] }): VNode[]
@@ -209,7 +214,7 @@ export type CommandPaletteSlots<T extends CommandPaletteItem = CommandPaletteIte
   'item-label'?: SlotProps<T>
   'item-description'?: SlotProps<T>
   'item-trailing'?: SlotProps<T>
-} & Record<string, SlotProps<T>>
+} & Record<string, SlotProps<T>> & GroupSlots<T, G>
 
 </script>
 
@@ -249,7 +254,7 @@ const props = withDefaults(defineProps<CommandPaletteProps<G, T>>(), {
   highlightOnHover: true
 })
 const emits = defineEmits<CommandPaletteEmits<T>>()
-const slots = defineSlots<CommandPaletteSlots<T>>()
+const slots = defineSlots<CommandPaletteSlots<T, G>>()
 
 const searchTerm = defineModel<string>('searchTerm', { default: '' })
 
@@ -680,8 +685,10 @@ function onSelect(e: Event, item: T) {
 
         <template v-else>
           <ListboxGroup v-for="group in filteredGroups" :key="`group-${group.id}`" data-slot="group" :class="b24ui.group({ class: uiProp?.group })">
-            <ListboxGroupLabel v-if="get(group, props.labelKey as string)" data-slot="label" :class="b24ui.label({ class: uiProp?.label })">
-              {{ get(group, props.labelKey as string) }}
+            <ListboxGroupLabel v-if="get(group, props.labelKey as string) || !!slots[(group.slot ? `${group.slot}-group-label` : 'group-label') as keyof CommandPaletteSlots<T, G>]" data-slot="label" :class="b24ui.label({ class: uiProp?.label })">
+              <slot :name="((group.slot ? `${group.slot}-group-label` : 'group-label') as keyof GroupSlots<T, G>)" :group="group" :label="get(group, props.labelKey as string)" :b24ui="b24ui">
+                {{ get(group, props.labelKey as string) }}
+              </slot>
             </ListboxGroupLabel>
 
             <ReuseItemTemplate
