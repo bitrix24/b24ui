@@ -46,27 +46,27 @@ export default () => {
       size: {
         xss: {
           base: (prev: string) => [prev, 'gap-0.20', 'px-1'].join(' '),
-          segment: 'data-[segment=day]:w-6 data-[segment=month]:w-6 data-[segment=year]:w-9'
+          segment: 'data-[segment=day]:w-8 data-[segment=month]:w-8 data-[segment=year]:w-10'
         },
         xs: {
           base: (prev: string) => [prev, 'gap-0.25', 'px-2'].join(' '),
-          segment: 'data-[segment=day]:w-6 data-[segment=month]:w-6 data-[segment=year]:w-9'
+          segment: 'data-[segment=day]:w-8 data-[segment=month]:w-8 data-[segment=year]:w-10'
         },
         sm: {
           base: (prev: string) => [prev, 'gap-0.5', 'px-2'].join(' '),
-          segment: 'data-[segment=day]:w-6 data-[segment=month]:w-6 data-[segment=year]:w-9'
+          segment: 'data-[segment=day]:w-8 data-[segment=month]:w-8 data-[segment=year]:w-10'
         },
         md: {
           base: (prev: string) => [prev, 'gap-0.5', 'px-3'].join(' '),
-          segment: 'data-[segment=day]:w-7 data-[segment=month]:w-7 data-[segment=year]:w-11'
+          segment: 'data-[segment=day]:w-9 data-[segment=month]:w-9 data-[segment=year]:w-11'
         },
         lg: {
           base: (prev: string) => [prev, 'gap-0.75', 'px-3'].join(' '),
-          segment: 'data-[segment=day]:w-7 data-[segment=month]:w-7 data-[segment=year]:w-11'
+          segment: 'data-[segment=day]:w-10 data-[segment=month]:w-10 data-[segment=year]:w-12'
         },
         xl: {
           base: (prev: string) => [prev, 'gap-0.75', 'px-3'].join(' '),
-          segment: 'data-[segment=day]:w-8 data-[segment=month]:w-8 data-[segment=year]:w-13'
+          segment: 'data-[segment=day]:w-10 data-[segment=month]:w-10 data-[segment=year]:w-12'
         }
       }
     },
