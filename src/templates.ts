@@ -69,7 +69,6 @@ export function getTemplates(options: ModuleOptions, uiConfig: Record<string, an
             return [
               `import template from ${JSON.stringify(templatePath)}`,
               `import { applyDefaultVariants, applyPrefixToObject } from ${JSON.stringify(themeUtilsPath)}`,
-              `import { applyPrefixToObject } from ${JSON.stringify(themeUtilsPath)}`,
               ...generateVariantDeclarations(variants),
               `const options = ${JSON.stringify(options, null, 2)}`,
               `let result = typeof template === 'function' ? (template as Function)(options) : template`,
