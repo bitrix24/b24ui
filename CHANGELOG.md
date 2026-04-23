@@ -1,105 +1,105 @@
 # Changelog
 
-## [2.5.4](https://github.com/bitrix24/b24ui/compare/v2.5.5...v2.5.4) (2026-04-xx)
+## [2.6.0](https://github.com/bitrix24/b24ui/compare/v2.5.3...v2.6.0) (2026-04-23)
 
-* feat(module)!: use `moduleDependencies` to manipulate options
-* feat(Sidebar): new component
-* feat(ChatShimmer): new component
-* feat(ChatReasoning): new component
-* feat(Tooltip): support global content configuration via App tooltip prop
-* feat(DropdownMenu): add `filter` prop
-* feat(InputMenu): add `autocomplete` prop
-* feat(Checkbox/Switch): add support for `trueValue` / `falseValue`
-* feat(FileUpload): add `fileImage` prop
-* feat(ChatTool): new component
-* feat(Table): implement row pinning
-* feat(unplugin): add support for prose components
-* feat: add standalone Vue REPL playground
-* feat(InputTime): add `range` prop
-* feat(ChatMessage): add `files` slot
-* feat(EditorSuggestionMenu): expose suggestion matching options
-* feat(Select): support `item-aligned` position mode
-* feat(components): resolve `defaultVariants` in template logic
-* feat(CommandPalette): add `group-label` slot
-* feat(Textarea): expose `autoResize` method
-* feat(Link): auto-localize internal links when `@nuxtjs/i18n` is installed
-* feat(Table): support sticky header/footer in virtualized mode
-* feat(Card): add `title` and `description` props
-* 
-* fix(Error): support `status` and `statusText` properties
-* fix(ContentSurround): handle RTL mode
-* fix(Avatar): use resolved size for image width/height
-* fix(ProsePre): move shiki line highlight styles to theme
-* fix(Modal|Slideover): improve theme
-* fix(ChatShimmer): handle RTL mode
-* fix(DashboardSearchButton): use valid HTML structure for trailing slot
-* fix(module): only auto-import public composables and allow Vite opt-out
-* fix(FileUpload): make multiple, accept and reset options reactive
-* fix(Editor): guard `lift` calls for unavailable list extensions
-* fix(NavigationMenu): improve RTL support for viewport and indicator
-* fix(NavigationMenu): propagate disabled state to item in vertical orientation
-* fix(Modal/Slideover/Popover/Drawer): prevent double `close:prevent` emit
-* fix(ChatMessages): keep indicator visible until first content arrives
-* fix(ChatMessage): hide files slot when no file parts exist
-* fix(AI): use `part.state` for streaming detection and deprecate `isReasoningStreaming`
-* fix(module): inline defaultVariants and prefix in dev template
-* fix(ChatPrompt): guard enter during composition
-* fix(DashboardSidebar): always pass `collapsed: false` in mobile menu slots
-* fix(module): transpile `reka-ui` to prevent injection errors
-* fix(Modal/Slideover/Drawer): suppress reka ui title and description warnings
-* fix(Header/DashboardSidebar/Sidebar): allow autofocus in menu for proper focus trapping
-* fix(ChatMessages): reset scroll icon when messages are cleared
-* fix(ChatMessages): prevent layout shift caused by indicator during streaming
-* fix(Link): ensure single-root rendering for `v-show` and `$el` resolution
-* fix(module): use relative `tagPriority` for inline style tags
-* fix(InputTags): add missing field group variant
-* fix(ProsePre): get code from DOM if `code` prop is missing
-* fix(FieldGroup): prevent context from leaking into portals
-* fix(ChatPromptSubmit): ignore `disabled` prop when status is not `ready`
-* fix(ChatMessages): use MutationObserver for auto-scroll during streaming
-* fix(ProseCodeCollapse): match background on overscroll
-* fix(ProseImg): respect markdown width attribute
-* fix(InputDate/InputTime): increase segments width
-* fix(useDevice): use breakpointsTailwind from '@vueuse/core'
-* fix(ContentToc): use links for scrollspy instead of hardcoded h2/h3
-* fix(Accordion/Tabs): use item value as stable key to avoid remounts
-* fix(Modal/Slideover): drop empty header wrapper when empty
-* fix(FileUpload): use form field `color` and `highlight` instead of raw props
-* fix(Tooltip): resolve incorrect style application for content slot via b24ui and class
-* fix(LocaleSelect): resolve incorrect flag display
-* 
-* docs: improve build performance and client-side navigation
-* docs(table): add column span example
-* docs(editor): reorder drag handle as last child in examples
-* docs(content): update filenames to be consistent
-* docs(input): fix duplicated calling code in phone number example
-* docs: add Vue imports to code examples in Vue mode
-* docs(ComponentCode/ComponentExample): include framework in code key
-* docs(ComponentCode/ComponentExample): pre-render both framework code variants
-* docs(header): add animated toggle example
-* docs(chat): render user messages as plain text instead of markdown
-* docs(select): remove `by` prop mention
-* docs(installation): replace `classRegex` with `classFunctions` for Tailwind CSS IntelliSense
-* docs(Chat): add line height to user message text
-* docs(Chat): extract theme guide into tool and add framework context
-* docs(mcp): update to latest version
-* docs(chat): update tool names to match consolidated MCP tools
-* docs(chat): pass current page context and handle request abort
-* docs(chat): call tools directly instead of self-referential HTTP
-* docs(chat): migrate from `@nuxtjs/mdc` to `@comark/nuxt`
-* docs(calendar): improve date range picker example
-* docs: improve agent readability score
-* docs(form): update elements example
-* docs(form): add missing input tags in example
-* 
-* chore(agents): add guide for coding agents
-* chore(deps): update dependency reka-ui to v2.9.0
-* chore(translate-ui): add script with `ai`
-* chore(deps): update nuxt framework to ^4.4.2
-* chore: move contributing skill to AGENTS.md
-* chore: add VSCode settings and simplify IntelliSense classRegex
-* chore(playground): prevent component cutoff on small screen heights
-* chore(playground): add clear messages button to chat page
+### ⚠ BREAKING CHANGES
+
+* **module ** use `moduleDependencies` to manipulate options
+
+### Features
+
+* add standalone [Vue REPL playground](https://bitrix24.github.io/b24ui/play/#eNp9kT1PwzAQhv+K8VwSIWCpAhKgSoUBKmD0EjlHSHFsy3duI1X575wdWjpU3ez34/ycvJMP3hebCHIuK9Sh8yQQKHphatveKUmo5L2yylblZE8Xgt6bmoBvQlSr4BCWV0KbGpFL/eUtt5ZgjBNbF0xzUZV/GS5U5VFbzvgJ7exX1xZrdJY5dmmmktr1vjMQ3jx1zjLGXGQneTVP3r5kjUKE2V7X36B/TuhrHJKm5CoAQtiAkgeP6tACTfbi4xUGPh/M3jXRcPqM+Q7oTEyMU+wx2oaxj3KZ9rn3LlBn209cDAQW90sl0JQcc15J/oynM6v/414XN7mn7CjHX85Vljw=)
+* **Sidebar:** new component
+* **ChatShimmer:** new component
+* **ChatReasoning:** new component
+* **ChatTool:** new component
+* **Tooltip:** support global content configuration via App tooltip prop
+* **DropdownMenu:** add `filter` prop
+* **InputMenu:** add `autocomplete` prop
+* **Checkbox/Switch:** add support for `trueValue` / `falseValue`
+* **FileUpload:** add `fileImage` prop
+* **Table:** implement row pinning
+* **unplugin:** add support for prose components
+* **InputTime:** add `range` prop
+* **ChatMessage:** add `files` slot
+* **EditorSuggestionMenu:** expose suggestion matching options
+* **Select:** support `item-aligned` position mode
+* **components:** resolve `defaultVariants` in template logic
+* **CommandPalette:** add `group-label` slot
+* **Textarea:** expose `autoResize` method
+* **Link:** auto-localize internal links when `@nuxtjs/i18n` is installed
+* **Table:** support sticky header/footer in virtualized mode
+* **Card:** add `title` and `description` props
+
+### Bug Fixes
+
+* **Error:** support `status` and `statusText` properties
+* **ContentSurround:** handle RTL mode
+* **Avatar:** use resolved size for image width/height
+* **ProsePre:** move shiki line highlight styles to theme
+* **Modal|Slideover:** improve theme
+* **ChatShimmer:** handle RTL mode
+* **DashboardSearchButton:** use valid HTML structure for trailing slot
+* **module:** only auto-import public composables and allow Vite opt-out
+* **FileUpload:** make multiple, accept and reset options reactive
+* **Editor:** guard `lift` calls for unavailable list extensions
+* **NavigationMenu:** improve RTL support for viewport and indicator
+* **NavigationMenu:** propagate disabled state to item in vertical orientation
+* **Modal/Slideover/Popover/Drawer:** prevent double `close:prevent` emit
+* **ChatMessages:** keep indicator visible until first content arrives
+* **ChatMessage:** hide files slot when no file parts exist
+* **AI:** use `part.state` for streaming detection and deprecate `isReasoningStreaming`
+* **module:** inline defaultVariants and prefix in dev template
+* **ChatPrompt:** guard enter during composition
+* **DashboardSidebar:** always pass `collapsed: false` in mobile menu slots
+* **module:** transpile `reka-ui` to prevent injection errors
+* **Modal/Slideover/Drawer:** suppress reka ui title and description warnings
+* **Header/DashboardSidebar/Sidebar:** allow autofocus in menu for proper focus trapping
+* **ChatMessages:** reset scroll icon when messages are cleared
+* **ChatMessages:** prevent layout shift caused by indicator during streaming
+* **Link:** ensure single-root rendering for `v-show` and `$el` resolution
+* **module:** use relative `tagPriority` for inline style tags
+* **InputTags:** add missing field group variant
+* **ProsePre:** get code from DOM if `code` prop is missing
+* **FieldGroup:** prevent context from leaking into portals
+* **ChatPromptSubmit:** ignore `disabled` prop when status is not `ready`
+* **ChatMessages:** use MutationObserver for auto-scroll during streaming
+* **ProseCodeCollapse:** match background on overscroll
+* **ProseImg:** respect markdown width attribute
+* **InputDate/InputTime:** increase segments width
+* **useDevice:** use breakpointsTailwind from '@vueuse/core'
+* **ContentToc:** use links for scrollspy instead of hardcoded h2/h3
+* **Accordion/Tabs:** use item value as stable key to avoid remounts
+* **Modal/Slideover:** drop empty header wrapper when empty
+* **FileUpload:** use form field `color` and `highlight` instead of raw props
+* **Tooltip:** resolve incorrect style application for content slot via b24ui and class
+* **LocaleSelect:** resolve incorrect flag display
+
+### Docs
+
+* improve build performance and client-side navigation
+* **table:** add column span example
+* **editor:** reorder drag handle as last child in examples
+* **content:** update filenames to be consistent
+* **input:** fix duplicated calling code in phone number example
+* add Vue imports to code examples in Vue mode
+* **ComponentCode/ComponentExample:** include framework in code key
+* **ComponentCode/ComponentExample:** pre-render both framework code variants
+* **header:** add animated toggle example
+* **chat:** render user messages as plain text instead of markdown
+* **select:** remove `by` prop mention
+* **installation:** replace `classRegex` with `classFunctions` for Tailwind CSS IntelliSense
+* **Chat:** add line height to user message text
+* **Chat:** extract theme guide into tool and add framework context
+* **mcp:** update to latest version
+* **chat:** update tool names to match consolidated MCP tools
+* **chat:** pass current page context and handle request abort
+* **chat:** call tools directly instead of self-referential HTTP
+* **chat:** migrate from `@nuxtjs/mdc` to `@comark/nuxt`
+* **calendar:** improve date range picker example
+* improve agent readability score
+* **form:** update elements example
+* **form:** add missing input tags in example
 
 ## [2.5.3](https://github.com/bitrix24/b24ui/compare/v2.5.2...v2.5.3) (2026-03-30)
 
