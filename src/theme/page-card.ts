@@ -4,7 +4,6 @@
  * ---
  * @see src/theme/card.ts
  */
-
 export default {
   slots: {
     root: 'relative flex rounded-lg',
@@ -285,7 +284,7 @@ export default {
         ].join(' '),
         leadingIcon: 'text-(--ui-color-design-plain-na-content-icon)',
         title: 'text-(--ui-color-design-plain-na-content)',
-        description: 'text-(--ui-color-design-plain-na-content)'
+        description: 'text-(--ui-color-design-plain-na-content-secondary)'
       },
       'selection': {
         root: [

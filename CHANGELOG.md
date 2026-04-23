@@ -24,6 +24,7 @@
 * feat(Textarea): expose `autoResize` method
 * feat(Link): auto-localize internal links when `@nuxtjs/i18n` is installed
 * feat(Table): support sticky header/footer in virtualized mode
+* feat(Card): add `title` and `description` props
 * 
 * fix(Error): support `status` and `statusText` properties
 * fix(ContentSurround): handle RTL mode

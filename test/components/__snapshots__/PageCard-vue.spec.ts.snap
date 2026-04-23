@@ -1460,7 +1460,7 @@ exports[`PageCard > renders with variant plain-no-accent correctly 1`] = `
         </svg></div>
       <div data-slot="body" class="flex-1">
         <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-na-content)">Title</div>
-        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-plain-na-content) mt-1">Description</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-plain-na-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1479,7 +1479,7 @@ exports[`PageCard > renders with variant plain-no-accent highlight correctly 1`]
         </svg></div>
       <div data-slot="body" class="flex-1">
         <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-na-content)">Title</div>
-        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-plain-na-content) mt-1">Description</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-plain-na-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1498,7 +1498,7 @@ exports[`PageCard > renders with variant plain-no-accent to correctly 1`] = `
         </svg></div>
       <div data-slot="body" class="flex-1">
         <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-na-content)">Title</div>
-        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-plain-na-content) mt-1">Description</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-plain-na-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>

@@ -253,7 +253,8 @@
     --ui-color-design-outline-warning-content: var(--ui-color-accent-main-warning);
     --ui-color-design-outline-warning-content-icon: var(--ui-color-accent-main-warning);
     --ui-color-design-outline-warning-content-chevron: var(--ui-color-accent-main-warning);
-    --ui-color-design-outline-warning-content-divider: #d0ffe9;
+    /* --ui-color-design-outline-warning-content-divider: #d0ffe9; */
+    --ui-color-design-outline-warning-content-divider: var(--ui-color-accent-soft-orange-1);
     --ui-color-design-outline-copilot-bg: var(--ui-color-bg-content-primary);
     --ui-color-design-outline-copilot-stroke: var(--ui-color-copilot-bg-content-2);
     --ui-design-outline-copilot-stroke-weight: var(--ui-border-width-medium);
