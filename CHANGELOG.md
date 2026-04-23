@@ -65,6 +65,8 @@
 * fix(Accordion/Tabs): use item value as stable key to avoid remounts
 * fix(Modal/Slideover): drop empty header wrapper when empty
 * fix(FileUpload): use form field `color` and `highlight` instead of raw props
+* fix(Tooltip): resolve incorrect style application for content slot via b24ui and class
+* fix(LocaleSelect): resolve incorrect flag display
 * 
 * docs: improve build performance and client-side navigation
 * docs(table): add column span example

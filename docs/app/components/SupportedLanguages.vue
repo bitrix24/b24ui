@@ -11,7 +11,7 @@ function getEmojiFlag(locale: string): string {
   const languageToCountry: Record<string, string> = {
     en: 'us', // English -> USA
     de: 'de', // Deutsch
-    es: 'es', // Catalan -> Spain
+    la: 'es', // Catalan -> Spain
 
     br: 'br', // Português
     fr: 'fr', // Français
@@ -22,14 +22,14 @@ function getEmojiFlag(locale: string): string {
     ua: 'ua', // Ukrainian -> Ukraine
 
     tr: 'tr', // Türkçe
-    sc: 'sc', // 中文（简体）
-    tc: 'tc', // 中文（繁體)
+    sc: 'cn', // 中文（简体）
+    tc: 'tw', // 中文（繁體)
 
     ja: 'jp', // Japanese -> Japan
     vn: 'vn', // Tiếng Việt
     id: 'id', // Bahasa Indonesia
 
-    ms: 'ms', // Bahasa Melayu
+    ms: 'my', // Bahasa Melayu
     th: 'th', // ภาษาไทย
     ar: 'sa', // Arabic -> Saudi Arabia
 
@@ -67,7 +67,7 @@ const localeList = computed(() => {
       <div v-for="locale in localeList" :key="locale.code">
         <div class="flex gap-3 items-center">
           <B24Avatar size="md" class="text-legend">
-            {{ getEmojiFlag(locale.locale) }}
+            {{ getEmojiFlag(locale.code) }}
           </B24Avatar>
 
           <div>

@@ -28,7 +28,7 @@ function getEmojiFlag(locale: string): string {
   const languageToCountry: Record<string, string> = {
     en: 'us', // English -> USA
     de: 'de', // Deutsch
-    es: 'es', // Catalan -> Spain
+    la: 'es', // Catalan -> Spain
 
     br: 'br', // Português
     fr: 'fr', // Français
@@ -39,14 +39,14 @@ function getEmojiFlag(locale: string): string {
     ua: 'ua', // Ukrainian -> Ukraine
 
     tr: 'tr', // Türkçe
-    sc: 'sc', // 中文（简体）
-    tc: 'tc', // 中文（繁體)
+    sc: 'cn', // 中文（简体）
+    tc: 'tw', // 中文（繁體)
 
     ja: 'jp', // Japanese -> Japan
     vn: 'vn', // Tiếng Việt
     id: 'id', // Bahasa Indonesia
 
-    ms: 'ms', // Bahasa Melayu
+    ms: 'my', // Bahasa Melayu
     th: 'th', // ภาษาไทย
     ar: 'sa', // Arabic -> Saudi Arabia
 
@@ -78,7 +78,7 @@ function getEmojiFlag(locale: string): string {
 
     <template #item-leading="{ item }">
       <span class="size-5 text-center">
-        {{ getEmojiFlag(item.locale) }}
+        {{ getEmojiFlag(item.code) }}
       </span>
     </template>
   </B24SelectMenu>
