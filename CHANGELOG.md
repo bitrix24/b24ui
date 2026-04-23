@@ -62,6 +62,7 @@
 * fix(ContentToc): use links for scrollspy instead of hardcoded h2/h3
 * fix(Accordion/Tabs): use item value as stable key to avoid remounts
 * fix(Modal/Slideover): drop empty header wrapper when empty
+* fix(FileUpload): use form field `color` and `highlight` instead of raw props
 * 
 * docs: improve build performance and client-side navigation
 * docs(table): add column span example
