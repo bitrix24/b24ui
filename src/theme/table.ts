@@ -23,7 +23,8 @@ export default {
       '[&>tr]:data-[selected=true]:hover:bg-(--ui-color-bg-content-secondary)',
       'light:[&>tr]:data-[selected=true]:hover:bg-(#eff7d7)',
       '[&>tr]:data-[selected=true]:focus-visible:outline-(--ui-color-accent-soft-element-blue)',
-      '[&>tr]:last:[&>td]:border-b-0'
+      '[&>tr]:last:[&>td]:border-b-0',
+      'divide-y divide-(--ui-color-divider-default)'
     ].join(' '),
     tfoot: 'relative',
     tr: [
@@ -68,10 +69,6 @@ export default {
     virtualize: {
       true: {
         tr: 'relative before:absolute before:z-1 before:w-full before:border-b before:border-b-(--ui-color-divider-default)'
-      },
-      false: {
-        base: 'overflow-clip',
-        tbody: 'divide-y divide-(--ui-color-divider-default)'
       }
     },
     pinned: {

@@ -79,6 +79,7 @@ const columns: TableColumn<Payment>[] = [
 
 <template>
   <B24Table
+    sticky
     virtualize
     :data="data"
     :columns="columns"

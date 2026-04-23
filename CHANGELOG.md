@@ -23,6 +23,7 @@
 * feat(CommandPalette): add `group-label` slot
 * feat(Textarea): expose `autoResize` method
 * feat(Link): auto-localize internal links when `@nuxtjs/i18n` is installed
+* feat(Table): support sticky header/footer in virtualized mode
 * 
 * fix(Error): support `status` and `statusText` properties
 * fix(ContentSurround): handle RTL mode
