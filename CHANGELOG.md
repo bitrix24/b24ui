@@ -60,6 +60,7 @@
 * fix(InputDate/InputTime): increase segments width
 * fix(useDevice): use breakpointsTailwind from '@vueuse/core'
 * fix(ContentToc): use links for scrollspy instead of hardcoded h2/h3
+* fix(Accordion/Tabs): use item value as stable key to avoid remounts
 * 
 * docs: improve build performance and client-side navigation
 * docs(table): add column span example
