@@ -85,6 +85,8 @@
 * docs(chat): migrate from `@nuxtjs/mdc` to `@comark/nuxt`
 * docs(calendar): improve date range picker example
 * docs: improve agent readability score
+* docs(form): update elements example
+* docs(form): add missing input tags in example
 * 
 * chore(agents): add guide for coding agents
 * chore(deps): update dependency reka-ui to v2.9.0
