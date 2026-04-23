@@ -28,8 +28,8 @@ const pages = [
   '/docs/getting-started/ai/llms-txt/',
   '/docs/getting-started/ai/skills/',
   // endregion ////
-  '/docs/components/',
   // region Layout ////
+  '/docs/components/',
   '/docs/components/app/',
   '/docs/components/sidebar-layout/',
   '/docs/components/container/',
@@ -145,7 +145,7 @@ const pages = [
   '/docs/components/chat-shimmer/',
   '/docs/components/chat-tool/',
   // endregion ////
-  // region editor ////
+  // region Editor ////
   '/docs/components/editor/',
   '/docs/components/editor-drag-handle/',
   '/docs/components/editor-emoji-menu/',
@@ -202,7 +202,6 @@ const pages = [
   '/docs/composables/use-toast/',
   '/docs/composables/use-speech-recognition/',
   '/docs/composables/use-device/'
-  // endregion ////
 ]
 
 /**
@@ -229,7 +228,9 @@ const pagesService = [
   '/api/countries.json',
   '/api/phone-codes.json',
   '/api/locales.json',
-  '/404.html'
+  '/404.html',
+  '/sitemap.xml',
+  '/sitemap.md'
 ]
 
 const extraAllowedHosts = (process?.env.NUXT_ALLOWED_HOSTS?.split(',').map((s: string) => s.trim()).filter(Boolean)) ?? []
@@ -308,37 +309,22 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    // v4 redirects - moved to `docs/`
-    // '/getting-started/**': { redirect: { to: '/docs/getting-started/**', statusCode: 301 }, prerender: false },
-    // '/components/**': { redirect: { to: '/docs/components/**', statusCode: 301 }, prerender: false },
-    // '/composables/**': { redirect: { to: '/docs/composables/**', statusCode: 301 }, prerender: false },
+    // @memo But at GitHub Pages we use /raw
+    '/docs/**': { headers: { Vary: 'Accept, User-Agent' } },
     // v4 redirects - default root pages
-    '/docs': { redirect: '/docs/getting-started/', prerender: false },
-    '/docs/composables': { redirect: '/docs/composables/define-shortcuts/', prerender: false },
+    '/docs/': { redirect: '/docs/getting-started/', prerender: false },
+    '/docs/getting-started/migration/': { redirect: '/docs/getting-started/migration/v2/', prerender: false },
+    '/docs/getting-started/theme/': { redirect: '/docs/getting-started/theme/design-system/', prerender: false },
+    '/docs/getting-started/integrations/': { redirect: '/docs/getting-started/integrations/icons/', prerender: false },
+    '/docs/getting-started/ai/': { redirect: '/docs/getting-started/ai/llms-txt/', prerender: false },
+    '/docs/composables/': { redirect: '/docs/composables/define-shortcuts/', prerender: false },
     // v4 redirects - default shadow pages
     '/docs/getting-started/installation/': { redirect: '/docs/getting-started/installation/nuxt/', prerender: false },
     '/docs/getting-started/integrations/icons/': { redirect: '/docs/getting-started/integrations/icons/nuxt/', prerender: false },
     '/docs/getting-started/integrations/color-mode/': { redirect: '/docs/getting-started/integrations/color-mode/nuxt/', prerender: false },
     '/docs/getting-started/integrations/i18n/': { redirect: '/docs/getting-started/integrations/i18n/nuxt/', prerender: false }
-    // '/docs/getting-started/migration': { redirect: '/docs/getting-started/migration/v4', prerender: false },
-    // v4 redirects - default shadow pages
-    // '/docs/getting-started/installation': { redirect: '/docs/getting-started/installation/nuxt', prerender: false },
-    // '/docs/getting-started/icons': { redirect: '/docs/getting-started/icons/nuxt', prerender: false },
-    // '/docs/getting-started/color-mode': { redirect: '/docs/getting-started/color-mode/nuxt', prerender: false },
-    // '/docs/getting-started/i18n': { redirect: '/docs/getting-started/i18n/nuxt', prerender: false },
+    // v4 redirects - renamed pages
     // v4 redirects - renamed components
-    // '/docs/components/button-group': { redirect: { to: '/docs/components/field-group', statusCode: 301 }, prerender: false },
-    // '/docs/components/page-accordion': { redirect: { to: '/docs/components/accordion', statusCode: 301 }, prerender: false },
-    // '/docs/components/page-marquee': { redirect: { to: '/docs/components/marquee', statusCode: 301 }, prerender: false },
-    // v4 redirects - removed pro pages
-    // '/pro': { redirect: { to: '/pro/activate', statusCode: 301 }, prerender: false },
-    // '/pro/pricing': { redirect: { to: '/pro/activate', statusCode: 301 }, prerender: false },
-    // '/pro/purchase': { redirect: { to: '/pro/activate', statusCode: 301 }, prerender: false },
-    // '/pro/templates': { redirect: { to: '/templates', statusCode: 301 }, prerender: false },
-    // '/docs/getting-started/license': { redirect: { to: '/docs/getting-started', statusCode: 301 }, prerender: false },
-    // '/docs/getting-started/installation/pro': { redirect: '/docs/getting-started/installation/nuxt', prerender: false },
-    // '/docs/getting-started/installation/pro/nuxt': { redirect: { to: '/docs/getting-started/installation/nuxt', statusCode: 301 }, prerender: false },
-    // '/docs/getting-started/installation/pro/vue': { redirect: { to: '/docs/getting-started/installation/vue', statusCode: 301 }, prerender: false },
   },
 
   experimental: {

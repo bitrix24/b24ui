@@ -33,7 +33,7 @@ const { isEnabled } = useAssistant()
 
 const { data: page } = await useAsyncData(kebabCase(pageUrl), () => queryCollection('docs').path(pageUrl).first())
 if (!page.value) {
-  throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
+  throw createError({ status: 404, statusText: 'Page not found', fatal: true })
 }
 
 // Update the framework if the page has different one
@@ -45,9 +45,9 @@ watch(page, () => {
 
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 
-const { findSurround } = useNavigation(navigation!)
+const { findSurround, findBreadcrumb } = useNavigation(navigation!)
 
-//  breadcrumb = computed(() => findBreadcrumb(page.value?.path as string))
+const breadcrumb = computed(() => findBreadcrumb(page.value?.path as string))
 const surround = computed(() => findSurround(page.value?.path as string))
 
 if (!import.meta.prerender) {
@@ -101,10 +101,33 @@ useHead({
   link: [
     {
       rel: 'alternate',
+      // @memo we use redirect in `docs/modules/md-rewrite.ts`
+      // href: joinURL(config.public.siteUrl, `${config.public.baseUrl}/raw`, `${path.value}.md`),
+      // @memo But at GitHub Pages we use /raw
+      // href: joinURL(config.public.siteUrl, `${config.public.baseUrl}`, `${path.value}.md`),
       href: joinURL(config.public.siteUrl, `${config.public.baseUrl}/raw`, `${path.value}.md`),
       type: 'text/markdown'
     }
-  ]
+  ],
+  script: [{
+    type: 'application/ld+json',
+    innerHTML: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'TechArticle',
+      'headline': `${prefix}${title} ${suffix}`.trim(),
+      'description': description,
+      'url': joinURL(config.public.siteUrl, config.public.baseUrl, path.value),
+      'breadcrumb': {
+        '@type': 'BreadcrumbList',
+        'itemListElement': breadcrumb.value?.map((item, index) => ({
+          '@type': 'ListItem',
+          'position': index + 1,
+          'name': item.label,
+          'item': item.to ? joinURL(config.public.siteUrl, config.public.baseUrl, String(item.to)) : undefined
+        })) || []
+      }
+    }).replace(/</g, '\\u003c').replace(/>/g, '\\u003e')
+  }]
 })
 
 const communityLinks = computed(() => [

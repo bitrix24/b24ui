@@ -81,6 +81,7 @@
 * docs(chat): call tools directly instead of self-referential HTTP
 * docs(chat): migrate from `@nuxtjs/mdc` to `@comark/nuxt`
 * docs(calendar): improve date range picker example
+* docs: improve agent readability score
 * 
 * chore(agents): add guide for coding agents
 * chore(deps): update dependency reka-ui to v2.9.0

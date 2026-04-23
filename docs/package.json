@@ -39,7 +39,7 @@
     "nuxt": "^4.4.2",
     "nuxt-component-meta": "^0.17.2",
     "nuxt-llms": "^0.2.0",
-    "nuxt-og-image": "^5.1.13",
+    "nuxt-og-image": "^6.4.5",
     "prettier": "^3.8.3",
     "shiki": "^4.0.2",
     "shiki-transformer-color-highlight": "^1.1.0",
