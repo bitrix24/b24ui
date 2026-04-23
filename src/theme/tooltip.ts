@@ -18,7 +18,7 @@ export default {
       'shadow-xl/20',
       'select-none',
       'motion-safe:data-[state=delayed-open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]',
-      'p-[13px] ps-[26px]',
+      'p-[13px]',
       'text-(length:--ui-font-size-lg)/[normal] font-[family-name:var(--ui-font-family-system)]',
       'bg-(--ui-color-bg-content-inapp)',
       'text-(--ui-color-base-8)',
