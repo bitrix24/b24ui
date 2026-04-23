@@ -214,7 +214,11 @@ const isBtnCloseExternal = computed(() => (!props.inset && ['left', 'right', 'bo
               :class="b24ui.header({ class: uiProp?.header })"
             >
               <slot name="header" :close="close">
-                <div data-slot="wrapper" :class="b24ui.wrapper({ class: uiProp?.wrapper })">
+                <div
+                  v-if="title || !!slots.title || description || !!slots.description"
+                  data-slot="wrapper"
+                  :class="b24ui.wrapper({ class: uiProp?.wrapper })"
+                >
                   <DialogTitle v-if="!title && !slots.title" />
                   <DialogTitle v-else data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
                     <slot name="title">
