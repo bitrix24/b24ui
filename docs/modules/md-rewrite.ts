@@ -1,5 +1,8 @@
 import { defineNuxtModule } from 'nuxt/kit'
 
+const AGENT_UA_PATTERN
+  = '.*(ClaudeBot|Claude-Web|anthropic-ai|GPTBot|ChatGPT-User|OAI-SearchBot|Google-Extended|Google-CloudVertexBot|Meta-ExternalAgent|Meta-ExternalFetcher|PerplexityBot|YouBot|DeepSeekBot|Amazonbot|cohere-ai|AI2Bot|Applebot-Extended|Bytespider).*'
+
 export default defineNuxtModule((_options, nuxt) => {
   nuxt.hooks.hook('nitro:init', (nitro) => {
     if (nitro.options.dev || !nitro.options.preset.includes('vercel')) {
@@ -28,6 +31,18 @@ export default defineNuxtModule((_options, nuxt) => {
           src: `^${config.public.baseUrl}/docs/(.*)\\.md$`,
           dest: `${config.public.baseUrl}/raw/docs/$1.md`
         },
+        // Serve markdown for the homepage when Accept: text/markdown is requested
+        {
+          src: '^/$',
+          dest: '/raw/index.md',
+          has: [{ type: 'header', key: 'accept', value: '(.*)text/markdown(.*)' }]
+        },
+        // Serve markdown for the homepage to known AI agent user agents
+        {
+          src: '^/$',
+          dest: '/raw/index.md',
+          has: [{ type: 'header', key: 'user-agent', value: AGENT_UA_PATTERN }]
+        },
         // Serve markdown when Accept: text/markdown is requested
         {
           src: `^${config.public.baseUrl}/docs/(.*)$`,
@@ -38,7 +53,7 @@ export default defineNuxtModule((_options, nuxt) => {
         {
           src: `^${config.public.baseUrl}/docs/(.*)$`,
           dest: `${config.public.baseUrl}/raw/docs/$1.md`,
-          has: [{ type: 'header', key: 'user-agent', value: '.*(ClaudeBot|Claude-Web|anthropic-ai|GPTBot|ChatGPT-User|OAI-SearchBot|Google-Extended|Google-CloudVertexBot|Meta-ExternalAgent|Meta-ExternalFetcher|PerplexityBot|YouBot|DeepSeekBot|Amazonbot|cohere-ai|AI2Bot|Applebot-Extended|Bytespider).*' }]
+          has: [{ type: 'header', key: 'user-agent', value: AGENT_UA_PATTERN }]
         }
       )
       await writeFile(vcJSON, JSON.stringify(vcConfig, null, 2), 'utf8')

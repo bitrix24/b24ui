@@ -8,6 +8,7 @@ const { resolve } = createResolver(import.meta.url)
  * @memo need add pages for raw/***.md
  */
 const pages = [
+  '/',
   // region getting-started ////
   '/docs/getting-started/',
   '/docs/getting-started/installation/nuxt/',
@@ -309,6 +310,22 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
+    // Agent discovery Link headers on the homepage (RFC 8288, RFC 9727)
+    '/': {
+      headers: {
+        Link: [
+          '</sitemap.xml>; rel="sitemap"; type="application/xml"',
+          '</sitemap.md>; rel="describedby"; type="text/markdown"',
+          '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"',
+          '</.well-known/mcp/server-card.json>; rel="service-desc"; type="application/json"',
+          '</docs>; rel="service-doc"; type="text/html"',
+          '</llms.txt>; rel="describedby"; type="text/plain"',
+          '</llms-full.txt>; rel="describedby"; type="text/plain"',
+          '</>; rel="alternate"; type="text/markdown"'
+        ].join(', '),
+        Vary: 'Accept, User-Agent'
+      }
+    },
     // @memo But at GitHub Pages we use /raw
     '/docs/**': { headers: { Vary: 'Accept, User-Agent' } },
     // v4 redirects - default root pages
