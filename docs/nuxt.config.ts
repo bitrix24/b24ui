@@ -376,6 +376,24 @@ export default defineNuxtConfig({
     server: {
       // Fix: "Blocked request. This host is not allowed" when using tunnels like ngrok
       allowedHosts: [...extraAllowedHosts]
+    },
+    optimizeDeps: {
+      include: [
+        'tailwindcss/colors',
+        'ai',
+        '@ai-sdk/vue',
+        'prettier',
+        'tailwind-variants',
+        '@comark/vue',
+        '@comark/vue/plugins/highlight',
+        'vaul-vue',
+        '@vueuse/integrations/useFuse',
+        '@floating-ui/dom',
+        '@tiptap/vue-3',
+        '@tiptap/suggestion',
+        '@tiptap/pm/state',
+        'shiki-transformer-color-highlight'
+      ]
     }
   },
 
