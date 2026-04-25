@@ -2,9 +2,8 @@
 <script lang="ts">
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
-import type { UseFuseOptions } from '@vueuse/integrations/useFuse'
 import theme from '#build/b24ui/dashboard-search'
-import type { ButtonProps, InputProps, ModalProps, CommandPaletteProps, CommandPaletteSlots, CommandPaletteGroup, CommandPaletteItem, IconComponent, LinkPropsKeys } from '../types'
+import type { ButtonProps, ModalProps, CommandPaletteProps, CommandPaletteSlots, CommandPaletteGroup, CommandPaletteItem, LinkPropsKeys } from '../types'
 import type { ComponentConfig } from '../types/tv'
 
 type DashboardSearch = ComponentConfig<typeof theme, AppConfig, 'dashboardSearch'>
@@ -12,29 +11,11 @@ type DashboardSearch = ComponentConfig<typeof theme, AppConfig, 'dashboardSearch
 /**
  * @memo not use loadingIcon
  */
-export interface DashboardSearchProps<T extends CommandPaletteItem = CommandPaletteItem> extends Pick<ModalProps, 'title' | 'description' | 'overlay' | 'transition' | 'content' | 'dismissible' | 'fullscreen' | 'modal' | 'portal'> {
+export interface DashboardSearchProps<T extends CommandPaletteItem = CommandPaletteItem> extends Pick<ModalProps, 'title' | 'description' | 'overlay' | 'transition' | 'content' | 'dismissible' | 'fullscreen' | 'modal' | 'portal'>, Pick<CommandPaletteProps<CommandPaletteGroup<T>, T>, 'icon' | 'placeholder' | 'autofocus' | 'loading' | 'closeIcon' | 'groups' | 'fuse'> {
   /**
    * @defaultValue 'md'
    */
   size?: DashboardSearch['variants']['size']
-  /**
-   * The icon displayed in the input.
-   * @defaultValue icons.search
-   * @IconComponent
-   */
-  icon?: IconComponent
-  /**
-   * The placeholder text for the input.
-   * @defaultValue t('commandPalette.placeholder')
-   */
-  placeholder?: InputProps['placeholder']
-  /**
-   * Automatically focus the input when component is mounted.
-   * @defaultValue true
-   */
-  autofocus?: boolean
-  /** When `true`, the loading icon will be displayed. */
-  loading?: boolean
   /**
    * Display a close button in the input (useful when inside a Modal for example).
    * `{ size: 'sm', color: 'air-tertiary-no-accent' }`{lang="ts-type"}
@@ -43,22 +24,10 @@ export interface DashboardSearchProps<T extends CommandPaletteItem = CommandPale
    */
   close?: boolean | Omit<ButtonProps, LinkPropsKeys>
   /**
-   * The icon displayed in the close button.
-   * @defaultValue icons.close
-   * @IconComponent
-   */
-  closeIcon?: IconComponent
-  /**
    * Keyboard shortcut to open the search (used by [`defineShortcuts`](https://bitrix24.github.io/b24ui/docs/composables/define-shortcuts/))
    * @defaultValue 'meta_k'
    */
   shortcut?: string
-  groups?: CommandPaletteGroup<T>[]
-  /**
-   * Options for [useFuse](https://vueuse.org/integrations/useFuse) passed to the [CommandPalette](https://bitrix24.github.io/b24ui/docs/components/command-palette/).
-   * @defaultValue {}
-   */
-  fuse?: UseFuseOptions<T>
   /**
    * Delay (in milliseconds) before the search term is passed to Fuse (debounced).
    * Useful for large datasets where running fuzzy search on every keystroke is the bottleneck — the input stays responsive while Fuse only re-runs after typing settles.
