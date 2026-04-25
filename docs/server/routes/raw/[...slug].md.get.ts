@@ -16,7 +16,7 @@ export default eventHandler(async (event) => {
   const slug = getRouterParams(event)['slug.md']
   if (!slug?.endsWith('.md')) {
     setHeader(event, 'Content-Type', 'text/markdown; charset=utf-8')
-    return '---\ntitle: Not Found\n---\n\n# Page Not Found\n\nThe requested page does not exist. Browse the [sitemap](/sitemap.md) to find available pages.\n'
+    return `---\ntitle: Not Found\n---\n\n# Page Not Found\n\nThe requested page does not exist. Browse the [sitemap](${config.public.baseUrl}/sitemap.md) to find available pages.\n`
   }
 
   let path = withLeadingSlash(slug.replace('.md', ''))
@@ -36,7 +36,7 @@ export default eventHandler(async (event) => {
 
   if (!page) {
     setHeader(event, 'Content-Type', 'text/markdown; charset=utf-8')
-    return `---\ntitle: Not Found\n---\n\n# Page Not Found\n\nThe page \`${path}\` does not exist. Browse the [sitemap](${config.public.baseUrl}/sitemap.md) to find available pages.\n`
+    return `---\ntitle: Not Found\n---\n\n# Page Not Found\n\nThe page \`${config.public.baseUrl}${path}\` does not exist. Browse the [sitemap](${config.public.baseUrl}/sitemap.md) to find available pages.\n`
   }
 
   // Transform MDC components to standard elements for LLM consumption
@@ -63,5 +63,5 @@ export default eventHandler(async (event) => {
   setHeader(event, 'Link', `<${canonicalUrl}>; rel="canonical"`)
   // @see docs/server/plugins/llms.ts
   const body = clearMD(stringify({ ...page.body, type: 'minimark' }, { format: 'markdown/html' }))
-  return frontmatter + body + '\n\n## Sitemap\n\nSee the full [sitemap](${config.public.baseUrl}/sitemap.md) for all pages.\n'
+  return frontmatter + body + `\n\n## Sitemap\n\nSee the full [sitemap](${config.public.baseUrl}/sitemap.md) for all pages.\n`
 })
