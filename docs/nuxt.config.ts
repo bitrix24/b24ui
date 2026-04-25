@@ -396,7 +396,9 @@ export default defineNuxtConfig({
         // @memo: custom sources
         'fflate',
         '@vueuse/core',
+        'json5',
         'canvas-confetti',
+        '@internationalized/date',
         '@bitrix24/b24icons-vue/outline/MobileSelectedIcon',
         '@bitrix24/b24icons-vue/social/GitHubIcon',
         '@bitrix24/b24icons-vue/outline/AiStarsIcon',
@@ -476,6 +478,7 @@ export default defineNuxtConfig({
         '@bitrix24/b24icons-vue/file-type/NuxtIcon',
         '@bitrix24/b24icons-vue/outline/DemonstrationOnIcon',
         '@bitrix24/b24icons-vue/editor/EncloseTextInCodeTagIcon',
+        '@bitrix24/b24icons-vue/social/MdnwebdocsIcon',
         '@bitrix24/b24icons-vue/file-type/MarkdownIcon'
       ]
     }
