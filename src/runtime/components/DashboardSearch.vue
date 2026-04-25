@@ -60,6 +60,13 @@ export interface DashboardSearchProps<T extends CommandPaletteItem = CommandPale
    */
   fuse?: UseFuseOptions<T>
   /**
+   * Delay (in milliseconds) before the search term is passed to Fuse (debounced).
+   * Useful for large datasets where running fuzzy search on every keystroke is the bottleneck — the input stays responsive while Fuse only re-runs after typing settles.
+   * Set to `0` to disable.
+   * @defaultValue 100
+   */
+  searchDelay?: number
+  /**
    * When `true`, the theme command will be added to the groups.
    * @defaultValue true
    */
@@ -92,7 +99,8 @@ const props = withDefaults(defineProps<DashboardSearchProps>(), {
   shortcut: 'meta_k',
   colorMode: true,
   close: true,
-  fullscreen: false
+  fullscreen: false,
+  searchDelay: 100
 })
 const slots = defineSlots<DashboardSearchSlots>()
 
@@ -110,7 +118,7 @@ const appConfig = useAppConfig() as DashboardSearch['AppConfig']
 const uiProp = useComponentUI('dashboardSearch', props)
 
 /** @memo not use loadingIcon */
-const commandPaletteProps = useForwardProps(reactivePick(props, 'size', 'icon', 'placeholder', 'autofocus', 'loading', 'close', 'closeIcon'))
+const commandPaletteProps = useForwardProps(reactivePick(props, 'size', 'icon', 'placeholder', 'autofocus', 'loading', 'close', 'closeIcon', 'searchDelay'))
 const modalProps = useForwardProps(reactivePick(props, 'overlay', 'transition', 'content', 'dismissible', 'fullscreen', 'modal', 'portal'))
 
 const getProxySlots = () => omit(slots, ['content'])

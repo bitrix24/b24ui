@@ -395,6 +395,7 @@ export default defineNuxtConfig({
         'shiki-transformer-color-highlight',
         // @memo: custom sources
         '@vueuse/core',
+        'canvas-confetti',
         '@bitrix24/b24icons-vue/outline/MobileSelectedIcon',
         '@bitrix24/b24icons-vue/social/GitHubIcon',
         '@bitrix24/b24icons-vue/outline/AiStarsIcon',
