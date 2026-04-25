@@ -42,7 +42,7 @@ export function useSearch() {
   }
 
   const links = computed(() => [
-    isAssistantEnabled.value && !searchTerm.value && {
+    isAssistantEnabled.value && {
       label: 'Ask AI',
       description: 'Ask the AI assistant powered by our custom MCP server for help.',
       icon: RobotIcon,
@@ -93,33 +93,9 @@ export function useSearch() {
       to: 'https://github.com/bitrix24/b24ui',
       target: '_blank'
     }
-  ].filter(link => !!link) as ContentSearchLink[])
+  ].filter(link => !!link) as ContentSearchLink[]) // @memo: use filter: `isAssistantEnabled`
 
   const groups = computed(() => [
-    ...(
-      isAssistantEnabled.value
-        ? [{
-            id: 'ai',
-            label: 'AI',
-            ignoreFilter: true,
-            postFilter: (searchTerm: string, items: any[]) => {
-              if (!searchTerm) {
-                return []
-              }
-
-              return items
-            },
-            items: [{
-              label: 'Ask AI',
-              icon: RobotIcon,
-              b24ui: {
-                itemLeadingIcon: 'text-primary group-data-highlighted:not-group-data-disabled:text-primary-copilot'
-              },
-              onSelect
-            }]
-          }]
-        : []
-    ),
     {
       id: 'framework',
       label: 'Framework',
