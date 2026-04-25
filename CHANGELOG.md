@@ -11,6 +11,7 @@
 * fix(ContentSearch/DashboardSearch): pick shared props from CommandPalette
 * fix(ContentSearch): speed up navigation mapping
 * fix(ChatMessage/ChatMessages): preserve generic message type in slot scope
+* fix(Drawer): handle RTL mode
 
 
 ## [2.6.0](https://github.com/bitrix24/b24ui/compare/v2.5.3...v2.6.0) (2026-04-23)
