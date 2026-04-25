@@ -394,6 +394,7 @@ export default defineNuxtConfig({
         '@tiptap/pm/state',
         'shiki-transformer-color-highlight',
         // @memo: custom sources
+        'fflate',
         '@vueuse/core',
         'canvas-confetti',
         '@bitrix24/b24icons-vue/outline/MobileSelectedIcon',
@@ -474,6 +475,7 @@ export default defineNuxtConfig({
         '@bitrix24/b24icons-vue/outline/MoreMIcon',
         '@bitrix24/b24icons-vue/file-type/NuxtIcon',
         '@bitrix24/b24icons-vue/outline/DemonstrationOnIcon',
+        '@bitrix24/b24icons-vue/editor/EncloseTextInCodeTagIcon',
         '@bitrix24/b24icons-vue/file-type/MarkdownIcon'
       ]
     }
