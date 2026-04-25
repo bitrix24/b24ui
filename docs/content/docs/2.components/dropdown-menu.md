@@ -227,7 +227,7 @@ slots:
 :b24-button{label="Open"}
 ::
 
-### Filter :badge{label="Soon" class="align-text-top"}
+### Filter
 
 Use the `filter` prop to display a filter input inside the DropdownMenu. Defaults to `false`.
 
@@ -403,7 +403,7 @@ name: 'dropdown-menu-color-items-example'
 ---
 ::
 
-### With filter items :badge{label="Soon" class="align-text-top"}
+### With filter items
 
 You can use the `filter` property on items with `children` to display a filter input inside the sub-menu.
 
@@ -462,7 +462,7 @@ name: 'dropdown-menu-switch-items-example'
 ---
 ::
 
-### With ignore filter :badge{label="Soon" class="align-text-top"}
+### With ignore filter
 
 When using the `filter` prop or the `filter` field on items with `children`, you can set the `ignore-filter` prop to `true` to disable the internal search and use your own search logic.
 
@@ -477,7 +477,7 @@ name: 'dropdown-menu-ignore-filter-example'
 This example uses [`refDebounced`](https://vueuse.org/shared/refDebounced/#refdebounced) to debounce the API calls. The fetch is deferred with `immediate: false` so no request is made until the menu opens.
 ::
 
-### With filter fields :badge{label="Soon" class="align-text-top"}
+### With filter fields
 
 When using the `filter` prop or the `filter` field on items with `children`, you can set the `filter-fields` prop with an array of fields to filter on. Defaults to `[labelKey]`.
 

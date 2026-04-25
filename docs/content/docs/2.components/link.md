@@ -109,7 +109,7 @@ If you're using the [Tailwind CSS IntelliSense](https://marketplace.visualstudio
 ```
 ::
 
-### Locale :badge{label="Soon" class="align-text-top"}
+### Locale
 
 The Link component automatically integrates with [`@nuxtjs/i18n`](https://i18n.nuxtjs.org/) when installed. Internal links are automatically localized using the `$localePath` helper without requiring manual wrapping.
 

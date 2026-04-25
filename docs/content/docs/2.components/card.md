@@ -49,7 +49,7 @@ slots:
 :placeholder{class="h-8"}
 ::
 
-### Title :badge{label="Soon" class="align-text-top"}
+### Title
 
 Use the `title` prop to set the title of the Card's header.
 
@@ -71,7 +71,7 @@ slots:
 :placeholder{class="h-32"}
 ::
 
-### Description :badge{label="Soon" class="align-text-top"}
+### Description
 
 Use the `description` prop to set the description of the Card's header.
 

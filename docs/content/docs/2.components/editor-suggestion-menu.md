@@ -75,7 +75,7 @@ Use the `char` prop to change the trigger character. Defaults to `/`{lang="ts-ty
 </template>
 ```
 
-### Suggestion :badge{label="Soon" class="align-text-top"}
+### Suggestion
 
 Use the `suggestion` prop to customize TipTap's [Suggestion matching behavior](https://tiptap.dev/docs/editor/api/utilities/suggestion#settings).
 

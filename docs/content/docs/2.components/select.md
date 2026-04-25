@@ -276,7 +276,7 @@ props:
 These options only apply when `content.position` is `popper` (default).
 ::
 
-### Position :badge{label="Soon" class="align-text-top"}
+### Position
 
 Use the `content.position` prop to control how the Select content is positioned relative to the trigger. Defaults to `popper`, which positions the content like other popovers. Set it to `item-aligned` to align the content with the selected item (similar to a native macOS menu).
 
