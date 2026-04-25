@@ -331,6 +331,11 @@ export default defineNuxtConfig({
     },
     // @memo But at GitHub Pages we use /raw
     '/docs/**': { headers: { Vary: 'Accept, User-Agent' } },
+    // Our markdown rewrites (see `modules/md-rewrite.ts`) internally route
+    // `/` and `/docs/**` to `/raw/**`, so the `Vary` rules above no longer
+    // match the rewritten path. This rule re-applies it on the actual
+    // served response.
+    '/raw/**': { headers: { Vary: 'Accept, User-Agent' } },
     // v4 redirects - default root pages
     '/docs/': { redirect: '/docs/getting-started/', prerender: false },
     '/docs/getting-started/migration/': { redirect: '/docs/getting-started/migration/v2/', prerender: false },

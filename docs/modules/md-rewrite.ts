@@ -22,6 +22,11 @@ export default defineNuxtModule((_options, nuxt) => {
       // Nuxt `routeRules` in `nuxt.config.ts` — Nitro's Vercel preset emits it
       // into this same config.json, so it doesn't need to be duplicated here.
       const vcConfig = JSON.parse(await readFile(vcJSON, 'utf8'))
+      // Note: `Vary: Accept, User-Agent` is set on all served responses via
+      // `/` and `/docs/**` (for HTML) and `/raw/**` (for the rewritten
+      // markdown responses) routeRules in `nuxt.config.ts` — Nitro's Vercel
+      // preset emits them into this same config.json, so they don't need to
+      // be duplicated here.
       /**
        * @memo need test `config.public.baseUrl`
        */
