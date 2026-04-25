@@ -2,15 +2,25 @@
 <script lang="ts">
 import type { ComponentPublicInstance, VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
-import type { UIMessage, ChatStatus } from 'ai'
+import type { UIDataTypes, UIMessage, UITools, ChatStatus } from 'ai'
 import theme from '#build/b24ui/chat-messages'
 import type { ButtonProps, ChatMessageProps, ChatMessageSlots, IconComponent, LinkPropsKeys } from '../types'
 import type { ComponentConfig } from '../types/tv'
 
 type ChatMessages = ComponentConfig<typeof theme, AppConfig, 'chatMessages'>
 
-export interface ChatMessagesProps {
-  messages?: UIMessage[]
+type MessageBase<T extends UIMessage[]>
+  = T[number] extends UIMessage<infer M, infer D, infer U>
+    ? UIMessage<M, D, U>
+    : UIMessage<unknown, UIDataTypes, UITools>
+
+type PropsBase<T extends UIMessage[]>
+  = MessageBase<T> extends UIMessage<infer M, infer D, infer U>
+    ? ChatMessageProps<M, D, U>
+    : never
+
+export interface ChatMessagesProps<T extends UIMessage[] = UIMessage[]> {
+  messages?: T
   status?: ChatStatus
   /**
    * Whether to automatically scroll to the bottom when a message is streaming.
@@ -38,12 +48,12 @@ export interface ChatMessagesProps {
    * The `user` messages props.
    * `{ side: 'right', variant: 'message' }`{lang="ts-type"}
    */
-  user?: Pick<ChatMessageProps, 'icon' | 'avatar' | 'variant' | 'side' | 'actions' | 'b24ui'>
+  user?: Pick<PropsBase<T>, 'icon' | 'avatar' | 'variant' | 'side' | 'actions' | 'b24ui'>
   /**
    * The `assistant` messages props.
    * `{ side: 'left', variant: 'message' }`{lang="ts-type"}
    */
-  assistant?: Pick<ChatMessageProps, 'icon' | 'avatar' | 'variant' | 'side' | 'actions' | 'b24ui'>
+  assistant?: Pick<PropsBase<T>, 'icon' | 'avatar' | 'variant' | 'side' | 'actions' | 'b24ui'>
   /**
    * Render the messages in a compact style.
    * This is done automatically when used inside a `UChatPalette`{lang="ts-type"}.
@@ -59,22 +69,19 @@ export interface ChatMessagesProps {
   b24ui?: ChatMessages['slots']
 }
 
-type ExtendSlotWithVersion<K extends keyof ChatMessageSlots>
-  = Required<ChatMessageSlots>[K] extends (props: infer P) => VNode[]
-    ? (props: P & { message: UIMessage }) => VNode[]
-    : Required<ChatMessageSlots>[K]
-
-export type ChatMessagesSlots = {
-  [K in keyof ChatMessageSlots]?: ExtendSlotWithVersion<K>
-} & {
+export type ChatMessagesSlots<T extends UIMessage[] = UIMessage[]> = {
   default?(props?: {}): VNode[]
   indicator?(props: { b24ui: ChatMessages['b24ui'] }): VNode[]
   viewport?(props: { b24ui: ChatMessages['b24ui'], onClick: () => void }): VNode[]
+} & {
+  [K in keyof ChatMessageSlots]?: NonNullable<ChatMessageSlots[K]> extends (props: infer P) => VNode[]
+    ? (props: P & { message: MessageBase<T> }) => VNode[]
+    : never
 }
 
 </script>
 
-<script setup lang="ts">
+<script setup lang="ts" generic="T extends UIMessage[] = UIMessage[]">
 import { ref, computed, watch, nextTick, toRef, onMounted } from 'vue'
 import { Presence } from 'reka-ui'
 import { defu } from 'defu'
@@ -87,13 +94,13 @@ import icons from '../dictionary/icons'
 import B24ChatMessage from './ChatMessage.vue'
 import B24Button from './Button.vue'
 
-const props = withDefaults(defineProps<ChatMessagesProps>(), {
+const props = withDefaults(defineProps<ChatMessagesProps<T>>(), {
   autoScroll: true,
   shouldAutoScroll: false,
   shouldScrollToBottom: true,
   spacingOffset: 0
 })
-const slots = defineSlots<ChatMessagesSlots>()
+const slots = defineSlots<ChatMessagesSlots<T>>()
 
 const getProxySlots = () => omit(slots, ['default', 'indicator', 'viewport'])
 
@@ -319,7 +326,7 @@ onMounted(() => {
           :compact="compact"
         >
           <template v-for="(_, name) in getProxySlots()" #[name]="slotData">
-            <slot :name="name" v-bind="(slotData as any)" :message="message" />
+            <slot :name="name" v-bind="{ ...(slotData as any), message }" />
           </template>
         </B24ChatMessage>
       </template>
