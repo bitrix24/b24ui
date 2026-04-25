@@ -8,7 +8,6 @@ const { resolve } = createResolver(import.meta.url)
  * @memo need add pages for raw/***.md
  */
 const pages = [
-  '/',
   // region getting-started ////
   '/docs/getting-started/',
   '/docs/getting-started/installation/nuxt/',
@@ -226,6 +225,10 @@ const pagesFrameExamples = [
 ]
 
 const pagesService = [
+  // Prerender the homepage markdown so Vercel's filesystem check after the
+  // `/` → `/raw/index.md` rewrite (see `modules/md-rewrite.ts`) resolves
+  // to a static file, the same way `/docs/*.md` does.
+  '/raw/index.md',
   '/api/countries.json',
   '/api/phone-codes.json',
   '/api/locales.json',
