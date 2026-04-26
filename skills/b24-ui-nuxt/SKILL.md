@@ -19,7 +19,7 @@ When you need to know **what a component accepts** or **how its API works**, use
 2. **Always use semantic colors** — `text-description`, `bg-elevated`, `border-muted`, etc. Never use raw Tailwind palette colors like `text-gray-500`.
 3. **Read generated theme files for slot names** — Nuxt: `.nuxt/ui/<component>.ts`, Vue: `node_modules/.b24ui-nuxt/b24ui/<component>.ts`. These show every slot, variant, and default class for any component.
 4. **Override priority** (highest wins): `b24ui` prop / `class` prop → global config → theme defaults.
-5. See [icons guideline](icons.md) for find icons.
+5. See [icons guideline](references/guidelines/icons.md) for find icons.
 
 ## How to use this skill
 

@@ -5,7 +5,7 @@ Decision matrices for choosing the right component. A list of all components is 
 ## Overlays
 
 | Need | Component | Docs | Why |
-|------|-----------|------|-----|
+|---|---|---|---|
 | Confirmation dialog, focused task, form | `B24Modal` | [modal.md](https://bitrix24.github.io/b24ui/raw/docs/components/modal.md) | Blocks page interaction, centered, draws focus |
 | Detail panel, settings, secondary content | `B24Slideover` | [slideover.md](https://bitrix24.github.io/b24ui/raw/docs/components/slideover.md) | Slides from edge, doesn't feel as interruptive as modal |
 | Mobile-first bottom sheet | `B24Drawer` | [drawer.md](https://bitrix24.github.io/b24ui/raw/docs/components/drawer.md) | Natural mobile pattern, swipe to dismiss |
@@ -23,7 +23,7 @@ Decision matrices for choosing the right component. A list of all components is 
 ## Navigation
 
 | Need | Component | Docs | Why |
-|------|-----------|------|-----|
+|---|---|---|---|
 | Primary site/app navigation | `B24NavigationMenu` | [navigation-menu.md](https://bitrix24.github.io/b24ui/raw/docs/components/navigation-menu.md) | Horizontal (header) or vertical (sidebar) |
 | Switch between views on same page | `B24Tabs` | [tabs.md](https://bitrix24.github.io/b24ui/raw/docs/components/tabs.md) | Content stays on page, no route change needed |
 | Show current location in hierarchy | `B24Breadcrumb` | [breadcrumb.md](https://bitrix24.github.io/b24ui/raw/docs/components/breadcrumb.md) | Nested page structures |
@@ -40,7 +40,7 @@ Decision matrices for choosing the right component. A list of all components is 
 ## Inputs
 
 | Need | Component | Docs | Why |
-|------|-----------|------|-----|
+|---|---|---|---|
 | Small fixed list (< 10 items) | `B24Select` | [select.md](https://bitrix24.github.io/b24ui/raw/docs/components/select.md) | Native-like, simple, lightweight |
 | Searchable list, multiple selection, groups | `B24SelectMenu` | [select-menu.md](https://bitrix24.github.io/b24ui/raw/docs/components/select-menu.md) | Rich dropdown with search, multi-select, grouped items |
 | Autocomplete / combobox (type + select) | `B24InputMenu` | [input-menu.md](https://bitrix24.github.io/b24ui/raw/docs/components/input-menu.md) | User can type freely AND pick from suggestions |
@@ -70,7 +70,7 @@ Decision matrices for choosing the right component. A list of all components is 
 ## Feedback
 
 | Need | Component | Docs | Why |
-|------|-----------|------|-----|
+|---|---|---|---|
 | Ephemeral notification after action | `useToast()` | [use-toast.md](https://bitrix24.github.io/b24ui/raw/docs/composables/use-toast.md) | Auto-dismisses, stacks, non-blocking |
 | Inline persistent message | `B24Alert` | [alert.md](https://bitrix24.github.io/b24ui/raw/docs/components/alert.md) | Stays visible, in-page context |
 | App-wide announcement | `B24Banner` | [banner.md](https://bitrix24.github.io/b24ui/raw/docs/components/banner.md) | Sticky top bar, dismissible |
@@ -86,7 +86,7 @@ Decision matrices for choosing the right component. A list of all components is 
 ## Layout containers
 
 | Need | Component | Docs | Why |
-|------|-----------|------|-----|
+|---|---|---|---|
 | Grouped content with header/body/footer | `B24Card` | [card.md](https://bitrix24.github.io/b24ui/raw/docs/components/card.md) | Bordered/shadow container with slots |
 | Rich content card with icon, badge, links | `B24PageCard` | [page-card.md](https://bitrix24.github.io/b24ui/raw/docs/components/page-card.md) | Extended card for grids — supports icon, badge, highlight, links |
 | Marketing page section | `B24PageSection` | [page-section.md](https://bitrix24.github.io/b24ui/raw/docs/components/page-section.md) | Full-width section with headline, title, features |

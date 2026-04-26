@@ -5,7 +5,7 @@ Quick-reference index of 125+ components. For detailed API specifications (props
 ## Layout
 
 | Component | Purpose | Docs |
-|-----------|---------|------|
+|---|---|---|
 | `B24App` | **Required** root wrapper — toasts, tooltips, overlays, i18n | [app.md](https://bitrix24.github.io/b24ui/raw/docs/components/app.md) |
 | `B24Header` | Responsive header with mobile menu | [header.md](https://bitrix24.github.io/b24ui/raw/docs/components/header.md) |
 | `B24Footer` | Footer with left/right/top/bottom slots | [footer.md](https://bitrix24.github.io/b24ui/raw/docs/components/footer.md) |
@@ -17,7 +17,7 @@ Quick-reference index of 125+ components. For detailed API specifications (props
 ## Element
 
 | Component | Purpose | Docs |
-|-----------|---------|------|
+|---|---|---|
 | `B24Button` | Buttons — links, actions, icons, loading states | [button.md](https://bitrix24.github.io/b24ui/raw/docs/components/button.md) |
 | `B24Badge` | Labels, tags, status indicators | [badge.md](https://bitrix24.github.io/b24ui/raw/docs/components/badge.md) |
 | `B24Avatar` | User photos, initials, icons | [avatar.md](https://bitrix24.github.io/b24ui/raw/docs/components/avatar.md) |
@@ -44,7 +44,7 @@ Quick-reference index of 125+ components. For detailed API specifications (props
 ## Form
 
 | Component | Purpose | Docs |
-|-----------|---------|------|
+|---|---|---|
 | `B24Input` | Text input — text, email, password, search | [input.md](https://bitrix24.github.io/b24ui/raw/docs/components/input.md) |
 | `B24Textarea` | Multi-line text with autoresize | [textarea.md](https://bitrix24.github.io/b24ui/raw/docs/components/textarea.md) |
 | `B24Select` | Native-like dropdown for small lists | [select.md](https://bitrix24.github.io/b24ui/raw/docs/components/select.md) |
@@ -68,7 +68,7 @@ Quick-reference index of 125+ components. For detailed API specifications (props
 ## Overlay
 
 | Component | Purpose | Docs |
-|-----------|---------|------|
+|---|---|---|
 | `B24Modal` | Centered dialog — confirmations, forms | [modal.md](https://bitrix24.github.io/b24ui/raw/docs/components/modal.md) |
 | `B24Slideover` | Side panel — details, editing | [slideover.md](https://bitrix24.github.io/b24ui/raw/docs/components/slideover.md) |
 | `B24Drawer` | Bottom sheet — mobile actions | [drawer.md](https://bitrix24.github.io/b24ui/raw/docs/components/drawer.md) |
@@ -80,7 +80,7 @@ Quick-reference index of 125+ components. For detailed API specifications (props
 ## Navigation
 
 | Component | Purpose | Docs |
-|-----------|---------|------|
+|---|---|---|
 | `B24Sidebar` | Standalone sidebar with header/body/footer | [sidebar.md](https://bitrix24.github.io/b24ui/raw/docs/components/sidebar.md) |
 | `B24NavigationMenu` | Primary nav — horizontal or vertical | [navigation-menu.md](https://bitrix24.github.io/b24ui/raw/docs/components/navigation-menu.md) |
 | `B24Tabs` | Tab switcher within a page | [tabs.md](https://bitrix24.github.io/b24ui/raw/docs/components/tabs.md) |
@@ -92,13 +92,13 @@ Quick-reference index of 125+ components. For detailed API specifications (props
 ## Data
 
 | Component | Purpose | Docs |
-|-----------|---------|------|
+|---|---|---|
 | `B24Table` | Data table (TanStack Table) with sorting, selection, pinning | [table.md](https://bitrix24.github.io/b24ui/raw/docs/components/table.md) |
 
 ## Dashboard
 
 | Component | Purpose | Docs |
-|-----------|---------|------|
+|---|---|---|
 | `B24DashboardGroup` | Root dashboard wrapper | [dashboard-group.md](https://bitrix24.github.io/b24ui/raw/docs/components/dashboard-group.md) |
 | `B24DashboardSidebar` | Resizable, collapsible sidebar | [dashboard-sidebar.md](https://bitrix24.github.io/b24ui/raw/docs/components/dashboard-sidebar.md) |
 | `B24DashboardPanel` | Content panel with header/body/footer | [dashboard-panel.md](https://bitrix24.github.io/b24ui/raw/docs/components/dashboard-panel.md) |
@@ -113,7 +113,7 @@ Quick-reference index of 125+ components. For detailed API specifications (props
 ## Page (marketing)
 
 | Component | Purpose | Docs |
-|-----------|---------|------|
+|---|---|---|
 | `B24Page` | Multi-column layout with left/right sidebars | [page.md](https://bitrix24.github.io/b24ui/raw/docs/components/page.md) |
 | `B24PageSection` | Content section with features grid | [page-section.md](https://bitrix24.github.io/b24ui/raw/docs/components/page-section.md) |
 | `B24PageHeader` | Page title and description | [page-header.md](https://bitrix24.github.io/b24ui/raw/docs/components/page-header.md) |
@@ -128,7 +128,7 @@ Quick-reference index of 125+ components. For detailed API specifications (props
 ## Content (Nuxt Content)
 
 | Component | Purpose | Docs |
-|-----------|---------|------|
+|---|---|---|
 | `B24ContentToc` | Table of contents | [content-toc.md](https://bitrix24.github.io/b24ui/raw/docs/components/content-toc.md) |
 | `B24ContentSurround` | Prev/next navigation | [content-surround.md](https://bitrix24.github.io/b24ui/raw/docs/components/content-surround.md) |
 | `B24ContentSearch` | Search command palette | [content-search.md](https://bitrix24.github.io/b24ui/raw/docs/components/content-search.md) |
@@ -137,7 +137,7 @@ Quick-reference index of 125+ components. For detailed API specifications (props
 ## Chat (AI)
 
 | Component | Purpose | Docs |
-|-----------|---------|------|
+|---|---|---|
 | `B24ChatMessages` | Scrollable message list | [chat-messages.md](https://bitrix24.github.io/b24ui/raw/docs/components/chat-messages.md) |
 | `B24ChatMessage` | Individual message bubble | [chat-message.md](https://bitrix24.github.io/b24ui/raw/docs/components/chat-message.md) |
 | `B24ChatReasoning` | Collapsible AI reasoning block | [chat-reasoning.md](https://bitrix24.github.io/b24ui/raw/docs/components/chat-reasoning.md) |
@@ -150,7 +150,7 @@ Quick-reference index of 125+ components. For detailed API specifications (props
 ## Editor
 
 | Component | Purpose | Docs |
-|-----------|---------|------|
+|---|---|---|
 | `B24Editor` | Rich text editor (JSON/HTML/Markdown) | [editor.md](https://bitrix24.github.io/b24ui/raw/docs/components/editor.md) |
 | `B24EditorToolbar` | Toolbar (fixed/bubble/floating) | [editor-toolbar.md](https://bitrix24.github.io/b24ui/raw/docs/components/editor-toolbar.md) |
 | `B24EditorDragHandle` | Block drag-and-drop | [editor-drag-handle.md](https://bitrix24.github.io/b24ui/raw/docs/components/editor-drag-handle.md) |
@@ -161,7 +161,7 @@ Quick-reference index of 125+ components. For detailed API specifications (props
 ## Color Mode
 
 | Component | Purpose | Docs |
-|-----------|---------|------|
+|---|---|---|
 | `B24ColorModeButton` | Toggle button (light/dark) | [color-mode-button.md](https://bitrix24.github.io/b24ui/raw/docs/components/color-mode-button.md) |
 | `B24ColorModeSwitch` | Toggle switch (light/dark) | [color-mode-switch.md](https://bitrix24.github.io/b24ui/raw/docs/components/color-mode-switch.md) |
 | `B24ColorModeSelect` | Dropdown (light/dark/system) | [color-mode-select.md](https://bitrix24.github.io/b24ui/raw/docs/components/color-mode-select.md) |

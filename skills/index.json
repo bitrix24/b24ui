@@ -1,0 +1,22 @@
+{
+  "skills": [
+    {
+      "name": "b24-ui-nuxt",
+      "description": "Build UIs with @bitrix24/b24ui-nuxt v2 — 125+ accessible Vue components with Tailwind CSS theming. Use when creating interfaces, building forms, or composing layouts for Bitrix24 application.",
+      "files": [
+        "SKILL.md",
+        "references/components.md",
+        "references/guidelines/component-selection.md",
+        "references/guidelines/conventions.md",
+        "references/guidelines/design-system.md",
+        "references/guidelines/forms.md",
+        "references/guidelines/icons.md",
+        "references/layouts/dashboard.md",
+        "references/layouts/landing.md",
+        "references/recipes/data-tables.md",
+        "references/recipes/navigation.md",
+        "references/recipes/overlays.md"
+      ]
+    }
+  ]
+}
