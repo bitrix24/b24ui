@@ -110,26 +110,32 @@ class Bitrix24TaskAutomation:
         """Create a new git branch for the task"""
         print(f"Creating git branch: {self.branch_name}")
 
-        # Check if we're in a git repository
         try:
             subprocess.run(['git', 'status'], check=True, capture_output=True)
         except subprocess.CalledProcessError:
             raise Exception("Not a git repository or git not installed")
 
-        # Check if branch already exists
-        result = subprocess.run(
-            ['git', 'branch', '--list', self.branch_name],
-            capture_output=True,
-            text=True
-        )
+        branch_to_create = self.branch_name
+        counter = 1
 
-        if result.stdout.strip():
-            print(f"Branch {self.branch_name} already exists, checking out...")
-            subprocess.run(['git', 'checkout', self.branch_name], check=True)
-        else:
-            # Create and checkout new branch
-            subprocess.run(['git', 'checkout', '-b', self.branch_name], check=True)
-            print(f"Created and switched to branch {self.branch_name}")
+        while True:
+            result = subprocess.run(
+                ['git', 'branch', '--list', branch_to_create],
+                capture_output=True,
+                text=True
+            )
+
+            if not result.stdout.strip():
+                break
+
+            branch_to_create = f"{self.branch_name}-({counter})"
+            counter += 1
+
+        self.branch_name = branch_to_create
+
+        # Create and checkout new branch
+        subprocess.run(['git', 'checkout', '-b', self.branch_name], check=True)
+        print(f"Created and switched to branch {self.branch_name}")
 
     def create_checklist(self):
         """Create checklist with two items: [AI-agent] Execute and [You] Check"""
@@ -179,7 +185,6 @@ class Bitrix24TaskAutomation:
         """Run Claude AI with task description"""
         print("Running Claude AI...")
 
-        # Prepare the prompt for Claude
         prompt = textwrap.dedent(f"""\
         Your task:
 
@@ -203,7 +208,6 @@ class Bitrix24TaskAutomation:
         """).strip()
 
         try:
-            # Run Claude in background
             cmd = [
                 'claude',
                 '-p', prompt,
@@ -220,7 +224,9 @@ class Bitrix24TaskAutomation:
                 cmd,
                 capture_output=True,
                 text=True,
-                timeout=43200  # 12 hours
+                timeout=43200,
+                encoding='utf-8',
+                errors='replace'
             )
 
             if result.returncode == 0:
@@ -232,33 +238,43 @@ class Bitrix24TaskAutomation:
                 raise Exception(f"Claude failed: {error_msg}")
 
         except subprocess.TimeoutExpired:
-            raise Exception("Claude execution timed out after 5 minutes")
+            raise Exception("Claude execution timed out after 12 hours")
         except FileNotFoundError:
             raise Exception("Claude CLI not found. Make sure Claude Code is installed and in PATH")
         except Exception as e:
             raise Exception(f"Failed to run Claude: {e}")
 
     def save_result(self):
-        """Save Claude output to task result field"""
-        if not self.claude_output:
+      """Save Claude output to task result field"""
+      if not self.claude_output:
           self.claude_output = "No output to save"
 
-        print("Saving result to task...")
+      print("Saving result to task...")
 
-        # Format result with backticks
-        formatted_result = f"🤖 [b]Mission accomplished![/b]\n\nThe process is over, and you can find all the results in this report.\n\n{self.claude_output}\n"
+      # Ensure proper UTF-8 encoding
+      try:
+          if isinstance(self.claude_output, bytes):
+              claude_text = self.claude_output.decode('utf-8', errors='replace')
+          else:
+              claude_text = str(self.claude_output)
 
-        try:
+          claude_text = claude_text.encode('utf-8', errors='replace').decode('utf-8')
+
+      except Exception as e:
+          print(f"Warning: Encoding issue: {e}")
+          claude_text = str(self.claude_output)
+
+      formatted_result = f"🤖 [b]Mission accomplished![/b]\n\nThe process is over, and you can find all the results in this report.\n\n{claude_text}\n"
+
+      try:
           bitrix_response = self.bx24.tasks.task.chat.message.send({
-            "taskId": self.task_id,
-            "text": formatted_result
+              "taskId": self.task_id,
+              "text": formatted_result
           }).response
           print("Result saved successfully")
           return
 
-          print("Warning: Could not save result using any available method")
-
-        except Exception as e:
+      except Exception as e:
           print(f"❌ Warning: Failed to save result: {e}")
 
     def save_problem(self, description):
