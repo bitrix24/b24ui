@@ -35,25 +35,22 @@ python scripts/b24-self-task/make.py 2026
 
 ## What the script does
 
-1. **Fetches task details** from Bitrix24 by ID
+1. **Fetches task details** from Bitrix24 by `ID`
 2. **Creates a git branch** named `fix/tsk-{ID}`
 4. **Creates a checklist** with two items: `[AI-agent] Execute` and `[You] Check`
 5. **Extracts task description** from the task (if no description found, use title)
 6. **Runs Claude AI** in background with the task description
-7. **Saves result** in task field "Result" (wrapped in backticks)
+7. **Saves result** in task chat
 8. **Commits changes** in the git repository
 9. **Pushes changes** to remote repository
-10. **Marks checklist item** "[AI-agent] Execute" as completed
+10. **Marks checklist item** `[AI-agent] Execute` as completed
 
 ## Requirements
 
 - Python 3.7+
 - Git installed and configured
 - Claude Code CLI installed and in PATH
-- Bitrix24 webhook with permissions: 
-  - `tasks`, `task`
-    - `tasks.task.get`, `tasks.task.update`
-    - `task.checklistitem.add`, `task.checklistitem.getlist`, `task.checklistitem.update`
+- Bitrix24 webhook with permissions: `tasks`, `task`
 
 ## Troubleshooting
 
@@ -89,3 +86,7 @@ You can modify the script to:
 - Keep your `.env` file secure and never commit it to git
 - Ensure your Bitrix24 webhook has minimal necessary permissions
 - Review Claude output before committing sensitive changes
+
+## Credits
+
+- [Python SDK](https://github.com/bitrix24/b24pysdk)
