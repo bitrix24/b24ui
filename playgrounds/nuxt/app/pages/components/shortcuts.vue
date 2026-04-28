@@ -69,15 +69,13 @@ function scrollToBottom() {
 
 <template>
   <PlaygroundPage
+    to="https://bitrix24.github.io/b24ui/docs/composables/define-shortcuts/"
     :b24ui="{
-      root: 'flex-1',
+      root: 'flex-1 w-full',
       body: 'relative isolate overflow-hidden h-full p-0 sm:p-0'
     }"
   >
-    <B24Card
-      dd-class="base-mode"
-      :b24ui="{ root: 'flex-1', body: 'relative h-full flex !px-0 !py-0' }"
-    >
+    <B24Card :b24ui="{ root: 'flex-1', body: 'relative h-full flex !px-0 !py-0' }">
       <B24DashboardGroup class="flex-1 relative overflow-clip" storage="local" unit="px">
         <B24DashboardSidebar
           id="shortcuts"

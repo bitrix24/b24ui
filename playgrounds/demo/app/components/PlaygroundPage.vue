@@ -7,6 +7,10 @@ defineProps<{
    * B24UI props for the playground area card
    */
   b24ui?: CardProps['b24ui']
+  /**
+   * Link to documentation
+   */
+  to?: string
 }>()
 
 const slots = defineSlots<{
@@ -20,7 +24,7 @@ const { cardVariant, cardBorderClass } = usePlaygroundCardStyles(playgroundConte
 </script>
 
 <template>
-  <Navbar>
+  <Navbar :to="to">
     <template #trailing>
       <B24Switch v-model="playgroundContext.isUseBg.value" label="isUseBg" size="xs" />
     </template>
