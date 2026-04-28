@@ -16,14 +16,14 @@ const classes = reactive({
 <template>
   <PlaygroundPage>
     <template #controls>
-      <B24Input v-model="attrs.to" class="min-w-52" type="url" placeholder="to" />
-      <B24Input v-model="classes.activeClass" class="min-w-52" placeholder="activeClass" />
-      <B24Input v-model="classes.inactiveClass" class="min-w-52" placeholder="inactiveClass" />
+      <B24Input v-model="attrs.to" class="min-w-52" type="url" size="xs" placeholder="to" />
+      <B24Input v-model="classes.activeClass" class="min-w-52" size="xs" placeholder="activeClass" />
+      <B24Input v-model="classes.inactiveClass" class="min-w-52" size="xs" placeholder="inactiveClass" />
 
-      <B24Switch v-model="attrs.active" label="Active" />
-      <B24Switch v-model="attrs.disabled" label="Disabled" />
-      <B24Switch v-model="attrs.raw" label="Raw" />
-      <B24Switch v-model="attrs.isAction" label="isAction" />
+      <B24Switch v-model="attrs.active" size="xs" label="Active" />
+      <B24Switch v-model="attrs.disabled" size="xs" label="Disabled" />
+      <B24Switch v-model="attrs.raw" size="xs" label="Raw" />
+      <B24Switch v-model="attrs.isAction" size="xs" label="isAction" />
     </template>
 
     <template #default="{ cardVariant, cardBorderClass }">
@@ -33,7 +33,7 @@ const classes = reactive({
       >
         <template #header>
           <ProseH5 class="mb-0">
-            {{ attrs.to ? 'As link (tag <a>)' : 'As tag <button>' }}
+            {{ attrs.to ? 'As tag &lt;a&gt;' : 'As tag &lt;button&gt;' }}
           </ProseH5>
         </template>
 
