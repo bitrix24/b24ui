@@ -17,7 +17,14 @@ const showGroup = ref(false)
       <B24Switch v-model="showGroup" label="Group" />
     </template>
 
-    <Matrix v-slot="props" :attrs="attrs" :b24ui="{ root: 'max-w-50' }">
+    <Matrix
+      v-slot="props"
+      :attrs="attrs"
+      :b24ui="{
+        root: 'max-w-100',
+        body: [showGroup ? 'flex-col' : 'flex-row', 'flex-wrap overflow-x-auto']
+      }"
+    >
       <template v-if="showGroup">
         <B24AvatarGroup :max="3" :size="props?.size">
           <B24Avatar
