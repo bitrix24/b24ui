@@ -50,14 +50,14 @@ const disabled = ref(false)
 
       <B24Card :variant="cardVariant" :class="[cardBorderClass, 'grow']" :b24ui="{ body: 'overflow-x-auto' }">
         <template #header>
-          <div class="py-2 px-4 flex gap-4 items-center overflow-x-auto">
+          <div class="flex gap-4 items-center overflow-x-auto">
             <B24FormField label="Validate on" orientation="horizontal">
               <B24SelectMenu v-model="validateOn" :items="['input', 'change', 'blur']" multiple class="w-48" />
             </B24FormField>
             <B24Checkbox v-model="disabled" label="Disabled" />
           </div>
         </template>
-        <FormExampleElements :validate-on="validateOn" :disabled="disabled" class="p-4 w-120" />
+        <FormExampleElements :validate-on="validateOn" :disabled="disabled" />
       </B24Card>
     </template>
   </PlaygroundPage>
