@@ -116,7 +116,7 @@ const items = [
 </script>
 
 <template>
-  <PlaygroundPage :b24ui="{ root: 'overflow-visible lg:w-full' }">
+  <PlaygroundPage :b24ui="{ root: 'overflow-visible w-full' }">
     <template #controls>
       <B24Select v-model="orientation" :items="orientations" size="xs" placeholder="Orientation" />
       <template v-if="orientation ==='vertical'">
@@ -126,9 +126,7 @@ const items = [
       </template>
     </template>
 
-    <div
-      :class="['flex gap-2 w-full py-3 px-1', { 'flex-col min-h-52': orientation === 'horizontal' }]"
-    >
+    <div :class="['flex gap-2 w-full py-3 px-1', { 'flex-col min-h-52': orientation === 'horizontal' }]">
       <B24NavigationMenu
         :tooltip="tooltip"
         :popover="popover"
