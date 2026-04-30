@@ -40,6 +40,12 @@ export default defineNuxtConfig({
 
   compatibilityDate: '2024-07-09',
 
+  nitro: {
+    output: {
+      publicDir: '.output/public/b24ui/demo'
+    }
+  },
+
   vite: {
     server: {
       // Fix: "Blocked request. This host is not allowed" when using tunnels like ngrok
@@ -106,12 +112,6 @@ export default defineNuxtConfig({
         '@bitrix24/b24icons-vue/outline/RobotIcon',
         '@bitrix24/b24icons-vue/outline/TrashcanIcon'
       ]
-    }
-  },
-
-  nitro: {
-    output: {
-      publicDir: '.output/public/b24ui/demo'
     }
   },
 
