@@ -2,10 +2,11 @@
 
 ## [2.6.2](https://github.com/bitrix24/b24ui/compare/v2.6.1...v2.6.2) (2026-04-xx)
 
-* docs(ColorMode): improve
 * fix(ChatMessage): make actions slot accessible on touch devices
 * fix(ProseImg): close zoom overlay on Escape key
 * fix(Link): prevent double-prefixing with `@nuxtjs/i18n` auto-localization
+* docs(ColorMode): improve
+* docs(form): document `error-pattern` usage
 
 ## [2.6.1](https://github.com/bitrix24/b24ui/compare/v2.6.0...v2.6.1) (2026-04-27)
 

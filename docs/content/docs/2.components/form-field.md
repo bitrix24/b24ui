@@ -145,6 +145,14 @@ slots:
 :b24-input{placeholder="Enter your email" class="w-full"}
 ::
 
+### Error pattern
+
+Use the `error-pattern` prop to match form errors with a regular expression. This is especially relevant for components with array values such as [InputTags](/docs/components/input-tags/), where errors include array indices in their name (e.g. `tags.0`).
+
+::tip{to="/docs/components/form/#error-reporting"}
+See an example of using `error-pattern` within a Form.
+::
+
 ### Size
 
 Use the `size` prop to change the size of the FormField, the `size` is proxied to the form control.
