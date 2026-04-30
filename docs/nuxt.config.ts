@@ -402,11 +402,15 @@ export default defineNuxtConfig({
         '@tiptap/pm/state',
         'shiki-transformer-color-highlight',
         'json5',
-        // @memo: custom sources
+        '@internationalized/date',
         'fflate',
+        'shiki/wasm',
+        '@tanstack/vue-table',
+        '@tanstack/vue-virtual',
+        '@vueuse/integrations/useSortable',
+        // @memo: custom sources
         '@vueuse/core',
         'canvas-confetti',
-        '@internationalized/date',
         '@bitrix24/b24icons-vue/outline/MobileSelectedIcon',
         '@bitrix24/b24icons-vue/social/GitHubIcon',
         '@bitrix24/b24icons-vue/outline/AiStarsIcon',
