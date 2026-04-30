@@ -4,6 +4,7 @@
 
 * docs(ColorMode): improve
 * fix(ChatMessage): make actions slot accessible on touch devices
+* fix(ProseImg): close zoom overlay on Escape key
 
 ## [2.6.1](https://github.com/bitrix24/b24ui/compare/v2.6.0...v2.6.1) (2026-04-27)
 
