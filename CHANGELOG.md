@@ -7,6 +7,7 @@
 * fix(Link): prevent double-prefixing with `@nuxtjs/i18n` auto-localization
 * docs(ColorMode): improve
 * docs(form): document `error-pattern` usage
+* test(Countdown): improve
 
 ## [2.6.1](https://github.com/bitrix24/b24ui/compare/v2.6.0...v2.6.1) (2026-04-27)
 
