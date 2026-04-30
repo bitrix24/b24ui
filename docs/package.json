@@ -14,7 +14,7 @@
     "@ai-sdk/deepseek": "^2.0.29",
     "@ai-sdk/mcp": "^1.0.36",
     "@ai-sdk/vue": "^3.0.168",
-    "@comark/vue": "^0.2.1",
+    "@comark/vue": "^0.3.1",
     "@nuxt/a11y": "1.0.0-alpha.1",
     "@nuxt/content": "^3.13.0",
     "@nuxt/image": "^2.0.0",

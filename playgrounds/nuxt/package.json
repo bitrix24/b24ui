@@ -13,7 +13,7 @@
   "dependencies": {
     "@ai-sdk/deepseek": "^2.0.29",
     "@ai-sdk/vue": "^3.0.168",
-    "@comark/vue": "^0.2.1",
+    "@comark/vue": "^0.3.1",
     "@internationalized/date": "^3.12.1",
     "@nuxt/content": "^3.13.0",
     "@bitrix24/b24ui-nuxt": "workspace:*",
