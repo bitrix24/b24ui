@@ -6,6 +6,7 @@
 * fix(ProseImg): close zoom overlay on Escape key
 * fix(Link): prevent double-prefixing with `@nuxtjs/i18n` auto-localization
 * fix(playgrounds/repl): use b24-icons
+* fix(playgrounds/repl): use b24Link props
 * docs(ColorMode): improve
 * docs(form): document `error-pattern` usage
 * test(Countdown): improve
