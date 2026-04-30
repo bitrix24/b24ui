@@ -5,6 +5,7 @@
 * fix(ChatMessage): make actions slot accessible on touch devices
 * fix(ProseImg): close zoom overlay on Escape key
 * fix(Link): prevent double-prefixing with `@nuxtjs/i18n` auto-localization
+* fix(playgrounds/repl): use b24-icons
 * docs(ColorMode): improve
 * docs(form): document `error-pattern` usage
 * test(Countdown): improve

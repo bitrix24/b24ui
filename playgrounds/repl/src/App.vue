@@ -21,6 +21,8 @@ const builtinImportMap = computed(() => ({
   imports: {
     ...vueImportMap.value.imports,
     '@bitrix24/b24ui-builtin': './bitrix24-b24ui.js',
+    '@bitrix24/b24icons-vue': 'https://esm.sh/@bitrix24/b24icons-vue@2.0.7',
+    '@bitrix24/b24icons-vue/': 'https://esm.sh/@bitrix24/b24icons-vue@2.0.7/',
     'zod': 'https://esm.sh/zod@4?external=vue',
     '@vueuse/core': 'https://esm.sh/@vueuse/core?external=vue',
     '@tanstack/vue-table': 'https://esm.sh/@tanstack/vue-table?external=vue',
