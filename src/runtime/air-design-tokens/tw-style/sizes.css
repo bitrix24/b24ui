@@ -1,0 +1,110 @@
+@theme {
+  /* Width scale - based on Tailwind CSS default widths */
+  --width-xs: 20rem;    /* 320px */
+  --width-sm: 24rem;    /* 384px */
+  --width-md: 28rem;    /* 448px */
+  --width-lg: 32rem;    /* 512px */
+  --width-xl: 36rem;    /* 576px */
+  --width-2xl: 42rem;   /* 672px */
+  --width-3xl: 48rem;   /* 768px */
+  --width-4xl: 56rem;   /* 896px */
+  --width-5xl: 64rem;   /* 1024px */
+  --width-6xl: 72rem;   /* 1152px */
+  --width-7xl: 80rem;   /* 1280px */
+  --width-full: 100%;
+  --width-screen: 100vw;
+  --width-min: min-content;
+  --width-max: max-content;
+  --width-fit: fit-content;
+
+  /* Height scale - same as width scale */
+  --height-xs: 20rem;
+  --height-sm: 24rem;
+  --height-md: 28rem;
+  --height-lg: 32rem;
+  --height-xl: 36rem;
+  --height-2xl: 42rem;
+  --height-3xl: 48rem;
+  --height-4xl: 56rem;
+  --height-5xl: 64rem;
+  --height-6xl: 72rem;
+  --height-7xl: 80rem;
+  --height-full: 100%;
+  --height-screen: 100vh;
+  --height-min: min-content;
+  --height-max: max-content;
+  --height-fit: fit-content;
+
+  /* Max-width scale - commonly used for container widths */
+  --max-width-xs: 20rem;
+  --max-width-sm: 24rem;
+  --max-width-md: 28rem;
+  --max-width-lg: 32rem;
+  --max-width-xl: 36rem;
+  --max-width-2xl: 42rem;
+  --max-width-3xl: 48rem;
+  --max-width-4xl: 56rem;
+  --max-width-5xl: 64rem;
+  --max-width-6xl: 72rem;
+  --max-width-7xl: 80rem;
+  --max-width-full: 100%;
+  --max-width-screen: 100vw;
+  --max-width-min: min-content;
+  --max-width-max: max-content;
+  --max-width-fit: fit-content;
+  --max-width-prose: 65ch; /* Tailwind's prose max-width */
+
+  /* Min-width scale */
+  --min-width-xs: 20rem;
+  --min-width-sm: 24rem;
+  --min-width-md: 28rem;
+  --min-width-lg: 32rem;
+  --min-width-xl: 36rem;
+  --min-width-2xl: 42rem;
+  --min-width-3xl: 48rem;
+  --min-width-4xl: 56rem;
+  --min-width-5xl: 64rem;
+  --min-width-6xl: 72rem;
+  --min-width-7xl: 80rem;
+  --min-width-full: 100%;
+  --min-width-screen: 100vw;
+  --min-width-min: min-content;
+  --min-width-max: max-content;
+  --min-width-fit: fit-content;
+
+  /* Max-height scale */
+  --max-height-xs: 20rem;
+  --max-height-sm: 24rem;
+  --max-height-md: 28rem;
+  --max-height-lg: 32rem;
+  --max-height-xl: 36rem;
+  --max-height-2xl: 42rem;
+  --max-height-3xl: 48rem;
+  --max-height-4xl: 56rem;
+  --max-height-5xl: 64rem;
+  --max-height-6xl: 72rem;
+  --max-height-7xl: 80rem;
+  --max-height-full: 100%;
+  --max-height-screen: 100vh;
+  --max-height-min: min-content;
+  --max-height-max: max-content;
+  --max-height-fit: fit-content;
+
+  /* Min-height scale */
+  --min-height-xs: 20rem;
+  --min-height-sm: 24rem;
+  --min-height-md: 28rem;
+  --min-height-lg: 32rem;
+  --min-height-xl: 36rem;
+  --min-height-2xl: 42rem;
+  --min-height-3xl: 48rem;
+  --min-height-4xl: 56rem;
+  --min-height-5xl: 64rem;
+  --min-height-6xl: 72rem;
+  --min-height-7xl: 80rem;
+  --min-height-full: 100%;
+  --min-height-screen: 100vh;
+  --min-height-min: min-content;
+  --min-height-max: max-content;
+  --min-height-fit: fit-content;
+}
