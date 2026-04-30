@@ -401,10 +401,10 @@ export default defineNuxtConfig({
         '@tiptap/suggestion',
         '@tiptap/pm/state',
         'shiki-transformer-color-highlight',
+        'json5',
         // @memo: custom sources
         'fflate',
         '@vueuse/core',
-        'json5',
         'canvas-confetti',
         '@internationalized/date',
         '@bitrix24/b24icons-vue/outline/MobileSelectedIcon',
