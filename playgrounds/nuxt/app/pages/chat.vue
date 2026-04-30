@@ -84,8 +84,8 @@ function getFaviconUrl(url: string): string {
       :messages="chat.messages"
       :status="chat.status"
       :user="{ avatar: { src: '/avatar/assistant.png' } }"
-      :assistant="{ icon: RobotIcon }"
-      :spacing-offset="48"
+      :spacing-offset="72"
+      :assistant="{ actions: [{ label: 'Edit', icon: RobotIcon, onClick: () => console.log('edit') }] }"
     >
       <template #content="{ message }">
         <template

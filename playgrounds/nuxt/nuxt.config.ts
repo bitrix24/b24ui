@@ -52,6 +52,10 @@ export default defineNuxtConfig({
         'vaul-vue',
         'tailwind-variants',
         '@vueuse/integrations/useFuse',
+        'ai',
+        '@ai-sdk/vue',
+        '@comark/vue',
+        '@comark/vue/plugins/highlight',
         '@bitrix24/b24icons-vue/outline/HamburgerMenuIcon',
         '@bitrix24/b24icons-vue/main/B24Icon',
         '@bitrix24/b24icons-vue/actions/ArrowToTheLeftIcon',
@@ -98,7 +102,9 @@ export default defineNuxtConfig({
         '@bitrix24/b24icons-vue/crm/ItemIcon',
         '@bitrix24/b24icons-vue/outline/TextIcon',
         '@bitrix24/b24icons-vue/outline/HomeIcon',
-        '@bitrix24/b24icons-vue/outline/CopilotIcon'
+        '@bitrix24/b24icons-vue/outline/CopilotIcon',
+        '@bitrix24/b24icons-vue/outline/RobotIcon',
+        '@bitrix24/b24icons-vue/outline/TrashcanIcon'
       ]
     }
   }

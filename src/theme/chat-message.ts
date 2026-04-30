@@ -15,7 +15,7 @@ export default {
     files: 'flex items-center gap-1.5 mb-1.5',
     content: 'relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0',
     actions: [
-      'opacity-0 group-hover/message:opacity-100 absolute bottom-0 flex items-center',
+      '[@media(hover:hover)]:opacity-0 group-hover/message:opacity-100 absolute bottom-0 flex items-center',
       'transition-opacity'
     ].join(' ')
   },

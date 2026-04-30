@@ -3,6 +3,7 @@
 ## [2.6.2](https://github.com/bitrix24/b24ui/compare/v2.6.1...v2.6.2) (2026-04-xx)
 
 * docs(ColorMode): improve
+* fix(ChatMessage): make actions slot accessible on touch devices
 
 ## [2.6.1](https://github.com/bitrix24/b24ui/compare/v2.6.0...v2.6.1) (2026-04-27)
 
