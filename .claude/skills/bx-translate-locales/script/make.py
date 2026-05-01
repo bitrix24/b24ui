@@ -21,7 +21,7 @@ Usage:
 
     source_locale defaults to "en".
 
-Environment overrides:
+Environment overrides (also loaded from project root .env):
     BX_TRANSLATE_WORKERS  — max parallel translation workers (default: 5)
     BX_TRANSLATE_TIMEOUT  — subprocess timeout in seconds      (default: 120)
     BX_TRANSLATE_RETRIES  — retry attempts on transient errors (default: 2)
@@ -31,6 +31,7 @@ from __future__ import annotations
 
 import json
 import os
+import platform
 import re
 import subprocess
 import sys
@@ -39,6 +40,10 @@ import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
 
@@ -74,29 +79,32 @@ CHAT_CONTEXT_MARKER = "chat"  # top-level message keys containing this substring
 
 IGNORED_FILES: set[str] = {
     # Comment out a locale to re-enable translation for it.
-    "br.ts",
-    "de.ts",
-    "fr.ts",
-    "it.ts",
-    "tr.ts",
-    "sc.ts",
-    "tc.ts",
-    "ja.ts",
-    "vn.ts",
-    "id.ts",
-    "ms.ts",
-    "th.ts",
-    "in.ts",
-    "ar.ts",
-    "ko.ts",
-    "hi.ts",
-    "la.ts",
-    "es.ts",
-    "pt.ts",
-    "ro.ts",
-    "sk.ts",
-    "sl.ts",
-    "sq.ts",
+    # "kz.ts",
+    # "ua.ts",
+    # "pl.ts",
+    # "br.ts",
+    # "de.ts",
+    # "fr.ts",
+    # "it.ts",
+    # "tr.ts",
+    # "sc.ts",
+    # "tc.ts",
+    # "ja.ts",
+    # "vn.ts",
+    # "id.ts",
+    # "ms.ts",
+    # "th.ts",
+    # "in.ts",
+    # "ar.ts",
+    # "ko.ts",
+    # "hi.ts",
+    # "la.ts",
+    # "es.ts",
+    # "pt.ts",
+    # "ro.ts",
+    # "sk.ts",
+    # "sl.ts",
+    # "sq.ts",
 }
 
 # Locales that need dir: 'rtl' in the generated .ts file.
@@ -610,11 +618,14 @@ def process_all_targets(
 
 def run_eslint() -> None:
     """Run eslint --fix on the locale directory to normalize code style."""
+    # On Windows, pnpm is a .cmd file and needs shell=True to resolve.
+    shell = platform.system() == "Windows"
     result = subprocess.run(
         ["pnpm", "exec", "eslint", "--fix", f"{LOCALE_DIR}/"],
         capture_output=True,
         text=True,
         timeout=60,
+        shell=shell,
     )
     # Non-zero exit is common with warnings-only ESLint runs; only print if there's output.
     if result.returncode != 0 and result.stderr:

@@ -3,7 +3,7 @@ name: bx-translate-locales
 description: >-
   Translates UI locale strings. Reads a JSON payload from a temp file,
   translates all message values preserving key order and structure, and outputs
-  a JSON object with translations. Called by scripts/bx-translate-locales/make.py.
+  a JSON object with translations. Called by .claude/skills/bx-translate-locales/script/make.py.
 argument-hint: <path-to-payload-json>
 disable-model-invocation: true
 allowed-tools: Read
