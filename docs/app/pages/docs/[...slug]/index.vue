@@ -97,7 +97,7 @@ useSeoMeta({
 const path = computed(() => pageUrl.replace(/\/$/, ''))
 
 if (import.meta.server) {
-  prerenderRoutes([joinURL(`${config.public.baseUrl}raw`, `${path.value}.md`)])
+  prerenderRoutes([joinURL(`${config.public.baseUrl}/raw`, `${path.value}.md`)])
 }
 
 // @memo we use redirect in `docs/modules/md-rewrite.ts`
