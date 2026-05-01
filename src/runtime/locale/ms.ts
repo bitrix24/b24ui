@@ -10,18 +10,18 @@ export default defineLocale<Messages>({
       close: 'Tutup'
     },
     authForm: {
-      hidePassword: 'Sembunyikan kata laluan',
-      showPassword: 'Tunjukkan kata laluan',
+      hidePassword: 'Sembunyi kata laluan',
+      showPassword: 'Tunjuk kata laluan',
       submit: 'Teruskan'
     },
     banner: {
       close: 'Tutup'
     },
     calendar: {
-      nextMonth: 'Bulan seterusnya',
-      nextYear: 'Tahun seterusnya',
-      prevMonth: 'Bulan sebelumnya',
-      prevYear: 'Tahun sebelumnya'
+      nextMonth: 'Bulan depan',
+      nextYear: 'Tahun depan',
+      prevMonth: 'Bulan lepas',
+      prevYear: 'Tahun lepas'
     },
     carousel: {
       dots: 'Pilih slaid untuk dipaparkan',
@@ -30,7 +30,7 @@ export default defineLocale<Messages>({
       prev: 'Sebelumnya'
     },
     chatPrompt: {
-      placeholder: 'Masukkan mesej anda di sini...'
+      placeholder: 'Taip mesej anda di sini…'
     },
     chatPromptSubmit: {
       label: 'Hantar'
@@ -47,17 +47,17 @@ export default defineLocale<Messages>({
       close: 'Tutup',
       noData: 'Tiada data',
       noMatch: 'Tiada padanan ditemui',
-      placeholder: 'Masukkan arahan atau carian...'
+      placeholder: 'Masukkan arahan atau cari…'
     },
     contentSearch: {
       links: 'Keputusan',
       theme: 'Tema'
     },
     contentSearchButton: {
-      label: 'Cari...'
+      label: 'Cari…'
     },
     contentToc: {
-      title: 'Pada halaman ini'
+      title: 'Di halaman ini'
     },
     dropdownMenu: {
       noMatch: 'Tiada data yang sepadan',
@@ -67,7 +67,7 @@ export default defineLocale<Messages>({
       theme: 'Tema'
     },
     dashboardSearchButton: {
-      label: 'Cari...'
+      label: 'Cari…'
     },
     dashboardSidebarCollapse: {
       collapse: 'Runtuhkan bar sisi',
@@ -94,7 +94,7 @@ export default defineLocale<Messages>({
     },
     inputNumber: {
       decrement: 'Kurangkan',
-      increment: 'Tambah'
+      increment: 'Tambahkan'
     },
     modal: {
       close: 'Tutup'
@@ -104,23 +104,27 @@ export default defineLocale<Messages>({
     },
     prose: {
       codeCollapse: {
-        closeText: 'Sembunyikan',
+        closeText: 'Sembunyi',
         name: 'kod',
-        openText: 'Tunjukkan'
+        openText: 'Tunjuk'
       },
       collapsible: {
-        closeText: 'Sembunyikan',
+        closeText: 'Sembunyi',
         name: 'sifat',
-        openText: 'Tunjukkan'
+        openText: 'Tunjuk'
       },
       pre: {
-        copy: 'Salin'
+        copy: 'Salin kod ke papan klip'
+      },
+      prompt: {
+        copy: 'Salin arahan',
+        openIn: 'Buka dalam {name}'
       }
     },
     chatReasoning: {
-      thinking: 'Berfikir...',
-      thought: 'Fikiran',
-      thoughtFor: 'Fikiran untuk {duration}'
+      thinking: 'Berfikir…',
+      thought: 'Selesai berfikir',
+      thoughtFor: 'Berfikir selama {duration}'
     },
     sidebar: {
       close: 'Tutup',
@@ -130,7 +134,7 @@ export default defineLocale<Messages>({
       create: 'Cipta "{label}"',
       noData: 'Tiada data',
       noMatch: 'Tiada padanan ditemui',
-      search: 'Cari...'
+      search: 'Cari…'
     },
     slideover: {
       close: 'Tutup'

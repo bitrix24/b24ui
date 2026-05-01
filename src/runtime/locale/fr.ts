@@ -30,7 +30,7 @@ export default defineLocale<Messages>({
       prev: 'Précédent'
     },
     chatPrompt: {
-      placeholder: 'Saisissez votre message ici...'
+      placeholder: 'Saisissez votre message ici…'
     },
     chatPromptSubmit: {
       label: 'Envoyer'
@@ -47,14 +47,14 @@ export default defineLocale<Messages>({
       close: 'Fermer',
       noData: 'Aucune donnée',
       noMatch: 'Aucun résultat trouvé',
-      placeholder: 'Saisir une commande ou rechercher...'
+      placeholder: 'Entrez une commande ou recherchez…'
     },
     contentSearch: {
       links: 'Résultats',
       theme: 'Thème'
     },
     contentSearchButton: {
-      label: 'Rechercher...'
+      label: 'Rechercher…'
     },
     contentToc: {
       title: 'Sur cette page'
@@ -67,7 +67,7 @@ export default defineLocale<Messages>({
       theme: 'Thème'
     },
     dashboardSearchButton: {
-      label: 'Rechercher...'
+      label: 'Rechercher…'
     },
     dashboardSidebarCollapse: {
       collapse: 'Réduire la barre latérale',
@@ -100,7 +100,7 @@ export default defineLocale<Messages>({
       close: 'Fermer'
     },
     pricingTable: {
-      caption: 'Comparaison des offres tarifaires'
+      caption: 'Comparaison des forfaits'
     },
     prose: {
       codeCollapse: {
@@ -114,13 +114,17 @@ export default defineLocale<Messages>({
         openText: 'Afficher'
       },
       pre: {
-        copy: 'Copier'
+        copy: 'Copier le code dans le presse-papier'
+      },
+      prompt: {
+        copy: 'Copier le prompt',
+        openIn: 'Ouvrir dans {name}'
       }
     },
     chatReasoning: {
-      thinking: 'Réflexion...',
-      thought: 'Pensée',
-      thoughtFor: 'Pensée pendant {duration}'
+      thinking: 'Réfléchit…',
+      thought: 'Réflexion terminée',
+      thoughtFor: 'Réflexion a pris {duration}'
     },
     sidebar: {
       close: 'Fermer',
@@ -130,7 +134,7 @@ export default defineLocale<Messages>({
       create: 'Créer "{label}"',
       noData: 'Aucune donnée',
       noMatch: 'Aucun résultat trouvé',
-      search: 'Rechercher...'
+      search: 'Rechercher…'
     },
     slideover: {
       close: 'Fermer'

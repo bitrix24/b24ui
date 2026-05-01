@@ -24,42 +24,37 @@ export default defineLocale<Messages>({
       prevYear: 'Попередній рік'
     },
     carousel: {
-      dots: 'Виберіть слайд для відображення',
+      dots: 'Виберіть слайд для показу',
       goto: 'Перейти до {slide}',
       next: 'Далі',
       prev: 'Назад'
     },
     chatPrompt: {
-      placeholder: 'Введіть ваше повідомлення тут...'
+      placeholder: 'Введіть ваше повідомлення…'
     },
     chatPromptSubmit: {
       label: 'Надіслати'
     },
-    chatReasoning: {
-      thinking: 'Думає...',
-      thought: 'Думка',
-      thoughtFor: 'Думка для {duration}'
-    },
     colorMode: {
       dark: 'Темна',
       light: 'Світла',
-      switchToDark: 'Перейти на темну тему',
-      switchToLight: 'Перейти на світлу тему',
+      switchToDark: 'Перемкнути на темну тему',
+      switchToLight: 'Перемкнути на світлу тему',
       system: 'Системна'
     },
     commandPalette: {
       back: 'Назад',
       close: 'Закрити',
       noData: 'Немає даних',
-      noMatch: 'Нічого не знайдено',
-      placeholder: 'Введіть команду або пошук...'
+      noMatch: 'Збігів не знайдено',
+      placeholder: 'Введіть команду або пошук…'
     },
     contentSearch: {
       links: 'Результати',
       theme: 'Тема'
     },
     contentSearchButton: {
-      label: 'Пошук...'
+      label: 'Пошук…'
     },
     contentToc: {
       title: 'На цій сторінці'
@@ -72,7 +67,7 @@ export default defineLocale<Messages>({
       theme: 'Тема'
     },
     dashboardSearchButton: {
-      label: 'Пошук...'
+      label: 'Пошук…'
     },
     dashboardSidebarCollapse: {
       collapse: 'Згорнути бічну панель',
@@ -95,7 +90,7 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: 'Створити "{label}"',
       noData: 'Немає даних',
-      noMatch: 'Нічого не знайдено'
+      noMatch: 'Збігів не знайдено'
     },
     inputNumber: {
       decrement: 'Зменшити',
@@ -119,8 +114,17 @@ export default defineLocale<Messages>({
         openText: 'Показати'
       },
       pre: {
-        copy: 'Копіювати'
+        copy: 'Копіювати код у буфер обміну'
+      },
+      prompt: {
+        copy: 'Копіювати промпт',
+        openIn: 'Відкрити в {name}'
       }
+    },
+    chatReasoning: {
+      thinking: 'Думає…',
+      thought: 'Подумав',
+      thoughtFor: 'Думав {duration}'
     },
     sidebar: {
       close: 'Закрити',
@@ -129,8 +133,8 @@ export default defineLocale<Messages>({
     selectMenu: {
       create: 'Створити "{label}"',
       noData: 'Немає даних',
-      noMatch: 'Нічого не знайдено',
-      search: 'Пошук...'
+      noMatch: 'Збігів не знайдено',
+      search: 'Пошук…'
     },
     slideover: {
       close: 'Закрити'

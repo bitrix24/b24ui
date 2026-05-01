@@ -16,7 +16,7 @@ make.py
   │
   └─ for each target locale (in parallel):
        │
-       ├─ write  scripts/bx-translate-locales/.temp/translate-<code>.json
+       ├─ write  .claude/skills/bx-translate-locales/script/.temp/translate-<code>.json
        │         (payload: source messages + typography rules + chat context)
        │
        ├─ call   claude -p /bx-translate-locales <temp-file>
@@ -29,7 +29,21 @@ make.py
   └─ eslint --fix  src/runtime/locale/
 ```
 
-The skill (`skills/bx-translate-locales/SKILL.md`) is a Claude Code slash command with `allowed-tools: Read` — it can only read the temp file, nothing else.
+The skill (`.claude/skills/bx-translate-locales/SKILL.md`) is a Claude Code slash command with `allowed-tools: Read` — it can only read the temp file, nothing else.
+
+---
+
+## Quick start
+
+```bash
+# 1. Install Python dependencies
+pip install -r .claude/skills/bx-translate-locales/script/requirements.txt
+
+# 2. Translate all active locales from English
+python .claude/skills/bx-translate-locales/script/make.py
+```
+
+The script creates or updates locale files in `src/runtime/locale/`. Existing files are **fully overwritten** with fresh translations — there is no merge. See [Skipping a locale](#skipping-a-locale) to protect files from overwrite.
 
 ---
 
@@ -38,6 +52,11 @@ The skill (`skills/bx-translate-locales/SKILL.md`) is a Claude Code slash comman
 - Python 3.11+
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) CLI (`claude` on PATH, logged in)
 - pnpm (for ESLint post-processing — `pnpm exec eslint`)
+- Python packages from `requirements.txt` (see [Quick start](#quick-start) above)
+
+### Skill setup
+
+The skill at `.claude/skills/bx-translate-locales/` is auto-detected when working in the repo with Claude Code or Cursor (Claude model). You can also invoke it manually by typing `/bx-translate-locales` in the agent chat.
 
 ---
 
@@ -45,15 +64,13 @@ The skill (`skills/bx-translate-locales/SKILL.md`) is a Claude Code slash comman
 
 ```bash
 # Translate all active locales from English (default)
-python scripts/bx-translate-locales/make.py
+python .claude/skills/bx-translate-locales/script/make.py
 
 # Translate from a different source locale
-python scripts/bx-translate-locales/make.py ru
+python .claude/skills/bx-translate-locales/script/make.py ru
 ```
 
-No dependencies to install — the script uses only the Python standard library.
-
----
+--
 
 ## Configuration
 
@@ -66,9 +83,18 @@ No dependencies to install — the script uses only the Python standard library.
 | `BX_TRANSLATE_RETRIES` | `2` | Retry attempts on transient Claude errors |
 
 ```bash
-# Example: slower machine, more retries
-BX_TRANSLATE_WORKERS=2 BX_TRANSLATE_TIMEOUT=180 BX_TRANSLATE_RETRIES=3 \
-  python scripts/bx-translate-locales/make.py
+# .env.example — copy to .env at the repo root to override defaults
+
+# Number of locale files to translate concurrently.
+# Lower this if Claude API rate-limits you.
+# BX_TRANSLATE_WORKERS=5
+
+# Max time (seconds) to wait for a single Claude invocation.
+# Increase for large locale files or slow models.
+# BX_TRANSLATE_TIMEOUT=120
+
+# How many times to retry a failed translation before giving up.
+# BX_TRANSLATE_RETRIES=2
 ```
 
 ### Skipping a locale
@@ -102,14 +128,13 @@ For RTL locales (`ar`, `he`, `fa`, `ur`) the script adds `dir: 'rtl'` to the gen
 ## File layout
 
 ```
-scripts/bx-translate-locales/
-├── make.py                  # main script
-├── README.md                # this file
-├── translate.log.jsonl      # error log (created on first error)
-└── .temp/                   # temp payload files (auto-cleaned after each run)
-
-skills/bx-translate-locales/
-└── SKILL.md                 # Claude Code skill — the translation prompt
+.claude/skills/bx-translate-locales/
+ ├──/script/
+ │  ├── make.py                  # main script
+ │  ├── translate.log.jsonl      # error log (created on first error)
+ │  └── .temp/                   # temp payload files (auto-cleaned after each run)
+ ├── README.md                # this file
+ └── SKILL.md                 # Claude Code skill — the translation prompt
 
 src/runtime/locale/
 ├── en.ts                    # source (read-only for this script)

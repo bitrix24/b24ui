@@ -19,18 +19,18 @@ export default defineLocale<Messages>({
     },
     calendar: {
       nextMonth: '下个月',
-      nextYear: '下一年',
+      nextYear: '明年',
       prevMonth: '上个月',
-      prevYear: '上一年'
+      prevYear: '去年'
     },
     carousel: {
       dots: '选择要显示的幻灯片',
-      goto: '转到 {slide}',
-      next: '下一个',
-      prev: '上一个'
+      goto: '转到第 {slide} 张',
+      next: '下一步',
+      prev: '上一步'
     },
     chatPrompt: {
-      placeholder: '在此输入您的消息...'
+      placeholder: '在此输入消息…'
     },
     chatPromptSubmit: {
       label: '发送'
@@ -45,16 +45,16 @@ export default defineLocale<Messages>({
     commandPalette: {
       back: '返回',
       close: '关闭',
-      noData: '无数据',
+      noData: '暂无数据',
       noMatch: '未找到匹配项',
-      placeholder: '输入命令或搜索...'
+      placeholder: '输入命令或搜索…'
     },
     contentSearch: {
       links: '结果',
       theme: '主题'
     },
     contentSearchButton: {
-      label: '搜索...'
+      label: '搜索…'
     },
     contentToc: {
       title: '本页内容'
@@ -67,10 +67,10 @@ export default defineLocale<Messages>({
       theme: '主题'
     },
     dashboardSearchButton: {
-      label: '搜索...'
+      label: '搜索…'
     },
     dashboardSidebarCollapse: {
-      collapse: '折叠侧边栏',
+      collapse: '收起侧边栏',
       expand: '展开侧边栏'
     },
     dashboardSidebarToggle: {
@@ -81,15 +81,15 @@ export default defineLocale<Messages>({
       clear: '重试'
     },
     fileUpload: {
-      removeFile: '移除 {filename}'
+      removeFile: '删除 {filename}'
     },
     header: {
       close: '关闭菜单',
       open: '打开菜单'
     },
     inputMenu: {
-      create: '创建 "{label}"',
-      noData: '无数据',
+      create: '创建"{label}"',
+      noData: '暂无数据',
       noMatch: '未找到匹配项'
     },
     inputNumber: {
@@ -114,29 +114,33 @@ export default defineLocale<Messages>({
         openText: '显示'
       },
       pre: {
-        copy: '复制'
+        copy: '复制代码到剪贴板'
+      },
+      prompt: {
+        copy: '复制提示词',
+        openIn: '在 {name} 中打开'
       }
     },
     chatReasoning: {
-      thinking: '思考中...',
-      thought: '思考',
-      thoughtFor: '为 {duration} 的思考'
+      thinking: '思考中…',
+      thought: '思考完成',
+      thoughtFor: '思考用时 {duration}'
     },
     sidebar: {
       close: '关闭',
       toggle: '切换'
     },
     selectMenu: {
-      create: '创建 "{label}"',
-      noData: '无数据',
+      create: '创建"{label}"',
+      noData: '暂无数据',
       noMatch: '未找到匹配项',
-      search: '搜索...'
+      search: '搜索…'
     },
     slideover: {
       close: '关闭'
     },
     table: {
-      noData: '无数据'
+      noData: '暂无数据'
     },
     toast: {
       close: '关闭'

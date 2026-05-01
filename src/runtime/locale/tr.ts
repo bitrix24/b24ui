@@ -10,8 +10,8 @@ export default defineLocale<Messages>({
       close: 'Kapat'
     },
     authForm: {
-      hidePassword: 'Parolayı gizle',
-      showPassword: 'Parolayı göster',
+      hidePassword: 'Şifreyi gizle',
+      showPassword: 'Şifreyi göster',
       submit: 'Devam et'
     },
     banner: {
@@ -24,13 +24,13 @@ export default defineLocale<Messages>({
       prevYear: 'Önceki yıl'
     },
     carousel: {
-      dots: 'Görüntülenecek slaydı seç',
-      goto: '{slide} sayfasına git',
+      dots: 'Görüntülenecek slaytı seç',
+      goto: '{slide} slaydına git',
       next: 'Sonraki',
       prev: 'Önceki'
     },
     chatPrompt: {
-      placeholder: 'Mesajınızı buraya girin...'
+      placeholder: 'Mesajınızı buraya yazın…'
     },
     chatPromptSubmit: {
       label: 'Gönder'
@@ -47,14 +47,14 @@ export default defineLocale<Messages>({
       close: 'Kapat',
       noData: 'Veri yok',
       noMatch: 'Eşleşme bulunamadı',
-      placeholder: 'Komut gir veya ara...'
+      placeholder: 'Komut girin veya arayın…'
     },
     contentSearch: {
       links: 'Sonuçlar',
       theme: 'Tema'
     },
     contentSearchButton: {
-      label: 'Ara...'
+      label: 'Ara…'
     },
     contentToc: {
       title: 'Bu sayfada'
@@ -67,7 +67,7 @@ export default defineLocale<Messages>({
       theme: 'Tema'
     },
     dashboardSearchButton: {
-      label: 'Ara...'
+      label: 'Ara…'
     },
     dashboardSidebarCollapse: {
       collapse: 'Kenar çubuğunu daralt',
@@ -94,7 +94,7 @@ export default defineLocale<Messages>({
     },
     inputNumber: {
       decrement: 'Azalt',
-      increment: 'Arttır'
+      increment: 'Artır'
     },
     modal: {
       close: 'Kapat'
@@ -105,32 +105,36 @@ export default defineLocale<Messages>({
     prose: {
       codeCollapse: {
         closeText: 'Gizle',
-        name: 'code',
+        name: 'kod',
         openText: 'Göster'
       },
       collapsible: {
         closeText: 'Gizle',
-        name: 'properties',
+        name: 'özellikler',
         openText: 'Göster'
       },
       pre: {
-        copy: 'Kopyala'
+        copy: 'Kodu panoya kopyala'
+      },
+      prompt: {
+        copy: 'Komut istemini kopyala',
+        openIn: '{name} ile aç'
       }
     },
     chatReasoning: {
-      thinking: 'Düşünüyor...',
-      thought: 'Düşünce',
-      thoughtFor: '{duration} süresince düşünüldü'
+      thinking: 'Düşünüyor…',
+      thought: 'Düşünüldü',
+      thoughtFor: '{duration} düşünüldü'
     },
     sidebar: {
       close: 'Kapat',
-      toggle: 'Aç/Kapat'
+      toggle: 'Aç/kapat'
     },
     selectMenu: {
       create: '"{label}" oluştur',
       noData: 'Veri yok',
       noMatch: 'Eşleşme bulunamadı',
-      search: 'Ara...'
+      search: 'Ara…'
     },
     slideover: {
       close: 'Kapat'

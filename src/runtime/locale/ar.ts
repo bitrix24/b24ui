@@ -20,7 +20,7 @@ export default defineLocale<Messages>({
     },
     calendar: {
       nextMonth: 'الشهر التالي',
-      nextYear: 'السنة التالية',
+      nextYear: 'السنة القادمة',
       prevMonth: 'الشهر السابق',
       prevYear: 'السنة السابقة'
     },
@@ -31,7 +31,7 @@ export default defineLocale<Messages>({
       prev: 'السابق'
     },
     chatPrompt: {
-      placeholder: 'أدخل رسالتك هنا...'
+      placeholder: 'أدخل رسالتك هنا…'
     },
     chatPromptSubmit: {
       label: 'إرسال'
@@ -47,28 +47,28 @@ export default defineLocale<Messages>({
       back: 'رجوع',
       close: 'إغلاق',
       noData: 'لا توجد بيانات',
-      noMatch: 'لم يتم العثور على تطابقات',
-      placeholder: 'أدخل أمرًا أو ابحث...'
+      noMatch: 'لم يتم العثور على نتائج',
+      placeholder: 'أدخل أمرًا أو ابحث…'
     },
     contentSearch: {
       links: 'النتائج',
-      theme: 'الموضوع'
+      theme: 'السمة'
     },
     contentSearchButton: {
-      label: 'بحث...'
+      label: 'بحث…'
     },
     contentToc: {
       title: 'في هذه الصفحة'
     },
     dropdownMenu: {
       noMatch: 'لا توجد بيانات مطابقة',
-      search: 'بحث...'
+      search: 'بحث…'
     },
     dashboardSearch: {
-      theme: 'الموضوع'
+      theme: 'السمة'
     },
     dashboardSearchButton: {
-      label: 'بحث...'
+      label: 'بحث…'
     },
     dashboardSidebarCollapse: {
       collapse: 'طي الشريط الجانبي',
@@ -91,7 +91,7 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: 'إنشاء "{label}"',
       noData: 'لا توجد بيانات',
-      noMatch: 'لم يتم العثور على تطابقات'
+      noMatch: 'لم يتم العثور على نتائج'
     },
     inputNumber: {
       decrement: 'إنقاص',
@@ -101,27 +101,31 @@ export default defineLocale<Messages>({
       close: 'إغلاق'
     },
     pricingTable: {
-      caption: 'مقارنة خطط التسعير'
+      caption: 'مقارنة خطط الأسعار'
     },
     prose: {
       codeCollapse: {
         closeText: 'إخفاء',
-        name: 'code',
+        name: 'رمز',
         openText: 'إظهار'
       },
       collapsible: {
         closeText: 'إخفاء',
-        name: 'properties',
+        name: 'خصائص',
         openText: 'إظهار'
       },
       pre: {
-        copy: 'نسخ'
+        copy: 'نسخ الرمز إلى الحافظة'
+      },
+      prompt: {
+        copy: 'نسخ الموجه',
+        openIn: 'فتح في {name}'
       }
     },
     chatReasoning: {
-      thinking: 'جاري التفكير...',
-      thought: 'فكرة',
-      thoughtFor: 'فكرة لمدة {duration}'
+      thinking: 'يفكر…',
+      thought: 'تم التفكير',
+      thoughtFor: 'استغرق التفكير {duration}'
     },
     sidebar: {
       close: 'إغلاق',
@@ -130,8 +134,8 @@ export default defineLocale<Messages>({
     selectMenu: {
       create: 'إنشاء "{label}"',
       noData: 'لا توجد بيانات',
-      noMatch: 'لم يتم العثور على تطابقات',
-      search: 'بحث...'
+      noMatch: 'لم يتم العثور على نتائج',
+      search: 'بحث…'
     },
     slideover: {
       close: 'إغلاق'

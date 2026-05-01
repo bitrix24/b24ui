@@ -2,6 +2,7 @@
 
 ## [2.6.2](https://github.com/bitrix24/b24ui/compare/v2.6.1...v2.6.2) (2026-04-xx)
 
+* feat(ProsePrompt): new component
 * fix(ChatMessage): make actions slot accessible on touch devices
 * fix(ProseImg): close zoom overlay on Escape key
 * fix(Link): prevent double-prefixing with `@nuxtjs/i18n` auto-localization
@@ -10,6 +11,7 @@
 * fix(playgrounds/repl):error NuxtLink (tsk:32534)
 * fix(playgrounds/nuxt|demo): control size (tsk:32362)
 * fix(tw:size): improve size based on Tailwind CSS default widths (tsk:31740)
+* fix(scripts/bx-translate-locales): rebase to .claude
 * docs(ColorMode): improve
 * docs(form): document `error-pattern` usage
 * test(Countdown): improve

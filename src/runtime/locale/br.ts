@@ -24,13 +24,13 @@ export default defineLocale<Messages>({
       prevYear: 'Ano anterior'
     },
     carousel: {
-      dots: 'Selecione o slide para exibir',
+      dots: 'Selecionar slide para exibir',
       goto: 'Ir para {slide}',
       next: 'Próximo',
       prev: 'Anterior'
     },
     chatPrompt: {
-      placeholder: 'Digite sua mensagem aqui...'
+      placeholder: 'Digite sua mensagem aqui…'
     },
     chatPromptSubmit: {
       label: 'Enviar'
@@ -38,23 +38,23 @@ export default defineLocale<Messages>({
     colorMode: {
       dark: 'Escuro',
       light: 'Claro',
-      switchToDark: 'Mudar para modo escuro',
-      switchToLight: 'Mudar para modo claro',
+      switchToDark: 'Alternar para o modo escuro',
+      switchToLight: 'Alternar para o modo claro',
       system: 'Sistema'
     },
     commandPalette: {
       back: 'Voltar',
       close: 'Fechar',
       noData: 'Sem dados',
-      noMatch: 'Nenhuma correspondência encontrada',
-      placeholder: 'Digite um comando ou pesquise...'
+      noMatch: 'Nenhum resultado encontrado',
+      placeholder: 'Digite um comando ou pesquise…'
     },
     contentSearch: {
       links: 'Resultados',
       theme: 'Tema'
     },
     contentSearchButton: {
-      label: 'Pesquisar...'
+      label: 'Pesquisar…'
     },
     contentToc: {
       title: 'Nesta página'
@@ -67,7 +67,7 @@ export default defineLocale<Messages>({
       theme: 'Tema'
     },
     dashboardSearchButton: {
-      label: 'Pesquisar...'
+      label: 'Pesquisar…'
     },
     dashboardSidebarCollapse: {
       collapse: 'Recolher barra lateral',
@@ -90,7 +90,7 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: 'Criar "{label}"',
       noData: 'Sem dados',
-      noMatch: 'Nenhuma correspondência encontrada'
+      noMatch: 'Nenhum resultado encontrado'
     },
     inputNumber: {
       decrement: 'Diminuir',
@@ -114,13 +114,17 @@ export default defineLocale<Messages>({
         openText: 'Mostrar'
       },
       pre: {
-        copy: 'Copiar'
+        copy: 'Copiar código para a área de transferência'
+      },
+      prompt: {
+        copy: 'Copiar prompt',
+        openIn: 'Abrir em {name}'
       }
     },
     chatReasoning: {
-      thinking: 'Pensando...',
-      thought: 'Pensamento',
-      thoughtFor: 'Pensamento por {duration}'
+      thinking: 'Pensando…',
+      thought: 'Raciocínio concluído',
+      thoughtFor: 'Raciocínio concluído em {duration}'
     },
     sidebar: {
       close: 'Fechar',
@@ -129,8 +133,8 @@ export default defineLocale<Messages>({
     selectMenu: {
       create: 'Criar "{label}"',
       noData: 'Sem dados',
-      noMatch: 'Nenhuma correspondência encontrada',
-      search: 'Pesquisar...'
+      noMatch: 'Nenhum resultado encontrado',
+      search: 'Pesquisar…'
     },
     slideover: {
       close: 'Fechar'

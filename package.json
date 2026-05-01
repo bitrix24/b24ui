@@ -135,7 +135,7 @@
     "test": "vitest",
     "test:vue": "vitest --project vue",
     "test:nuxt": "vitest --project nuxt",
-    "translate-ui": "tsx tools/translate.ui.ts"
+    "translate-ui": "python .claude/skills/bx-translate-locales/script/make.py"
   },
   "dependencies": {
     "@floating-ui/dom": "^1.7.6",
@@ -222,11 +222,7 @@
     "vue": "^3.5.30",
     "vue-tsc": "^3.2.7",
     "@types/canvas-confetti": "^1.9.0",
-    "@types/node": "^25.3.0",
-    "esno": "^4.8.0",
-    "sharp": "^0.34.5",
-    "openai": "^6.33.0",
-    "dotenv": "^17.4.0"
+    "@types/node": "^25.3.0"
   },
   "peerDependencies": {
     "@inertiajs/vue3": "^2.0.7 || ^3.0.0",

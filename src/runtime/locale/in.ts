@@ -10,8 +10,8 @@ export default defineLocale<Messages>({
       close: 'बंद करें'
     },
     authForm: {
-      hidePassword: 'पासवर्ड छुपाएं',
-      showPassword: 'पासवर्ड दिखाएं',
+      hidePassword: 'पासवर्ड छुपाएँ',
+      showPassword: 'पासवर्ड दिखाएँ',
       submit: 'जारी रखें'
     },
     banner: {
@@ -19,18 +19,18 @@ export default defineLocale<Messages>({
     },
     calendar: {
       nextMonth: 'अगला महीना',
-      nextYear: 'अगला साल',
+      nextYear: 'अगला वर्ष',
       prevMonth: 'पिछला महीना',
-      prevYear: 'पिछला साल'
+      prevYear: 'पिछला वर्ष'
     },
     carousel: {
-      dots: 'दिखाने के लिए स्लाइड चुनें',
-      goto: '{slide} पर जाएं',
+      dots: 'प्रदर्शित करने के लिए स्लाइड चुनें',
+      goto: '{slide} पर जाएँ',
       next: 'अगला',
       prev: 'पिछला'
     },
     chatPrompt: {
-      placeholder: 'अपना संदेश यहां दर्ज करें...'
+      placeholder: 'अपना संदेश यहाँ लिखें…'
     },
     chatPromptSubmit: {
       label: 'भेजें'
@@ -43,34 +43,34 @@ export default defineLocale<Messages>({
       system: 'सिस्टम'
     },
     commandPalette: {
-      back: 'पीछे',
+      back: 'वापस',
       close: 'बंद करें',
       noData: 'कोई डेटा नहीं',
       noMatch: 'कोई मिलान नहीं मिला',
-      placeholder: 'कमांड दर्ज करें या खोजें...'
+      placeholder: 'कमांड दर्ज करें या खोजें…'
     },
     contentSearch: {
       links: 'परिणाम',
       theme: 'थीम'
     },
     contentSearchButton: {
-      label: 'खोजें...'
+      label: 'खोजें…'
     },
     contentToc: {
       title: 'इस पृष्ठ पर'
     },
     dropdownMenu: {
-      noMatch: 'कोई मिलान डेटा नहीं',
+      noMatch: 'कोई मेल खाता डेटा नहीं',
       search: 'खोजें…'
     },
     dashboardSearch: {
       theme: 'थीम'
     },
     dashboardSearchButton: {
-      label: 'खोजें...'
+      label: 'खोजें…'
     },
     dashboardSidebarCollapse: {
-      collapse: 'साइडबार संकुचित करें',
+      collapse: 'साइडबार संक्षिप्त करें',
       expand: 'साइडबार विस्तृत करें'
     },
     dashboardSidebarToggle: {
@@ -81,56 +81,60 @@ export default defineLocale<Messages>({
       clear: 'पुनः प्रयास करें'
     },
     fileUpload: {
-      removeFile: '{filename} हटाएं'
+      removeFile: '{filename} हटाएँ'
     },
     header: {
       close: 'मेनू बंद करें',
       open: 'मेनू खोलें'
     },
     inputMenu: {
-      create: '"{label}" बनाएं',
+      create: '"{label}" बनाएँ',
       noData: 'कोई डेटा नहीं',
       noMatch: 'कोई मिलान नहीं मिला'
     },
     inputNumber: {
-      decrement: 'घटाएं',
-      increment: 'बढ़ाएं'
+      decrement: 'घटाएँ',
+      increment: 'बढ़ाएँ'
     },
     modal: {
       close: 'बंद करें'
     },
     pricingTable: {
-      caption: 'मूल्य निर्धारण योजनाओं की तुलना'
+      caption: 'मूल्य योजनाओं की तुलना'
     },
     prose: {
       codeCollapse: {
-        closeText: 'छुपाएं',
+        closeText: 'छुपाएँ',
         name: 'कोड',
-        openText: 'दिखाएं'
+        openText: 'दिखाएँ'
       },
       collapsible: {
-        closeText: 'छुपाएं',
+        closeText: 'छुपाएँ',
         name: 'गुण',
-        openText: 'दिखाएं'
+        openText: 'दिखाएँ'
       },
       pre: {
-        copy: 'कॉपी करें'
+        copy: 'कोड क्लिपबोर्ड पर कॉपी करें'
+      },
+      prompt: {
+        copy: 'प्रॉम्प्ट कॉपी करें',
+        openIn: '{name} में खोलें'
       }
     },
     chatReasoning: {
-      thinking: 'सोच रहा हूँ...',
-      thought: 'विचार',
-      thoughtFor: '{duration} के लिए विचार'
+      thinking: 'सोच रहा है…',
+      thought: 'सोच पूरी हुई',
+      thoughtFor: '{duration} तक सोचा'
     },
     sidebar: {
       close: 'बंद करें',
       toggle: 'टॉगल करें'
     },
     selectMenu: {
-      create: '"{label}" बनाएं',
+      create: '"{label}" बनाएँ',
       noData: 'कोई डेटा नहीं',
       noMatch: 'कोई मिलान नहीं मिला',
-      search: 'खोजें...'
+      search: 'खोजें…'
     },
     slideover: {
       close: 'बंद करें'

@@ -18,8 +18,8 @@ export default defineLocale<Messages>({
       close: 'Cerrar'
     },
     calendar: {
-      nextMonth: 'Próximo mes',
-      nextYear: 'Próximo año',
+      nextMonth: 'Mes siguiente',
+      nextYear: 'Año siguiente',
       prevMonth: 'Mes anterior',
       prevYear: 'Año anterior'
     },
@@ -30,15 +30,10 @@ export default defineLocale<Messages>({
       prev: 'Anterior'
     },
     chatPrompt: {
-      placeholder: 'Ingresa tu mensaje aquí...'
+      placeholder: 'Escribe tu mensaje aquí…'
     },
     chatPromptSubmit: {
       label: 'Enviar'
-    },
-    chatReasoning: {
-      thinking: 'Pensando...',
-      thought: 'Pensamiento',
-      thoughtFor: 'Pensamiento por {duration}'
     },
     colorMode: {
       dark: 'Oscuro',
@@ -52,27 +47,27 @@ export default defineLocale<Messages>({
       close: 'Cerrar',
       noData: 'Sin datos',
       noMatch: 'No se encontraron coincidencias',
-      placeholder: 'Ingresa comando o busca...'
+      placeholder: 'Ingresa un comando o busca…'
     },
     contentSearch: {
       links: 'Resultados',
       theme: 'Tema'
     },
     contentSearchButton: {
-      label: 'Buscar...'
+      label: 'Buscar…'
     },
     contentToc: {
       title: 'En esta página'
     },
     dropdownMenu: {
-      noMatch: 'No hay datos coincidentes',
+      noMatch: 'Sin datos coincidentes',
       search: 'Buscar…'
     },
     dashboardSearch: {
       theme: 'Tema'
     },
     dashboardSearchButton: {
-      label: 'Buscar...'
+      label: 'Buscar…'
     },
     dashboardSidebarCollapse: {
       collapse: 'Contraer barra lateral',
@@ -98,8 +93,8 @@ export default defineLocale<Messages>({
       noMatch: 'No se encontraron coincidencias'
     },
     inputNumber: {
-      decrement: 'Decrementar',
-      increment: 'Incrementar'
+      decrement: 'Disminuir',
+      increment: 'Aumentar'
     },
     modal: {
       close: 'Cerrar'
@@ -119,14 +114,27 @@ export default defineLocale<Messages>({
         openText: 'Mostrar'
       },
       pre: {
-        copy: 'Copiar'
+        copy: 'Copiar código al portapapeles'
+      },
+      prompt: {
+        copy: 'Copiar prompt',
+        openIn: 'Abrir en {name}'
       }
+    },
+    chatReasoning: {
+      thinking: 'Pensando…',
+      thought: 'Razonamiento completado',
+      thoughtFor: 'Razonamiento tardó {duration}'
+    },
+    sidebar: {
+      close: 'Cerrar',
+      toggle: 'Alternar'
     },
     selectMenu: {
       create: 'Crear "{label}"',
       noData: 'Sin datos',
       noMatch: 'No se encontraron coincidencias',
-      search: 'Buscar...'
+      search: 'Buscar…'
     },
     slideover: {
       close: 'Cerrar'
@@ -142,10 +150,6 @@ export default defineLocale<Messages>({
       close: 'Cerrar navegación',
       slideoverTitle: 'Navegación',
       slideoverDescription: 'Navegación de contenido'
-    },
-    sidebar: {
-      close: 'Cerrar',
-      toggle: 'Alternar'
     }
   }
 })

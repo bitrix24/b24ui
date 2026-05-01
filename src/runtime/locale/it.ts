@@ -24,21 +24,16 @@ export default defineLocale<Messages>({
       prevYear: 'Anno precedente'
     },
     carousel: {
-      dots: 'Seleziona la slide da visualizzare',
+      dots: 'Seleziona la diapositiva da mostrare',
       goto: 'Vai a {slide}',
-      next: 'Successiva',
+      next: 'Successivo',
       prev: 'Precedente'
     },
     chatPrompt: {
-      placeholder: 'Inserisci il tuo messaggio qui...'
+      placeholder: 'Scrivi il tuo messaggio qui…'
     },
     chatPromptSubmit: {
       label: 'Invia'
-    },
-    chatReasoning: {
-      thinking: 'Pensando...',
-      thought: 'Pensiero',
-      thoughtFor: 'Pensiero per {duration}'
     },
     colorMode: {
       dark: 'Scuro',
@@ -51,15 +46,15 @@ export default defineLocale<Messages>({
       back: 'Indietro',
       close: 'Chiudi',
       noData: 'Nessun dato',
-      noMatch: 'Nessuna corrispondenza trovata',
-      placeholder: 'Inserisci comando o cerca...'
+      noMatch: 'Nessun risultato trovato',
+      placeholder: 'Inserisci comando o cerca…'
     },
     contentSearch: {
       links: 'Risultati',
       theme: 'Tema'
     },
     contentSearchButton: {
-      label: 'Cerca...'
+      label: 'Cerca…'
     },
     contentToc: {
       title: 'In questa pagina'
@@ -72,15 +67,15 @@ export default defineLocale<Messages>({
       theme: 'Tema'
     },
     dashboardSearchButton: {
-      label: 'Cerca...'
+      label: 'Cerca…'
     },
     dashboardSidebarCollapse: {
-      collapse: 'Riduci barra laterale',
-      expand: 'Espandi barra laterale'
+      collapse: 'Comprimi sidebar',
+      expand: 'Espandi sidebar'
     },
     dashboardSidebarToggle: {
-      close: 'Chiudi barra laterale',
-      open: 'Apri barra laterale'
+      close: 'Chiudi sidebar',
+      open: 'Apri sidebar'
     },
     error: {
       clear: 'Riprova'
@@ -95,7 +90,7 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: 'Crea "{label}"',
       noData: 'Nessun dato',
-      noMatch: 'Nessuna corrispondenza trovata'
+      noMatch: 'Nessun risultato trovato'
     },
     inputNumber: {
       decrement: 'Decrementa',
@@ -119,18 +114,27 @@ export default defineLocale<Messages>({
         openText: 'Mostra'
       },
       pre: {
-        copy: 'Copia'
+        copy: 'Copia il codice negli appunti'
+      },
+      prompt: {
+        copy: 'Copia prompt',
+        openIn: 'Apri in {name}'
       }
+    },
+    chatReasoning: {
+      thinking: 'Sta pensando…',
+      thought: 'Ragionamento completato',
+      thoughtFor: 'Il ragionamento ha impiegato {duration}'
     },
     sidebar: {
       close: 'Chiudi',
-      toggle: 'Attiva/Disattiva'
+      toggle: 'Commuta'
     },
     selectMenu: {
       create: 'Crea "{label}"',
       noData: 'Nessun dato',
-      noMatch: 'Nessuna corrispondenza trovata',
-      search: 'Cerca...'
+      noMatch: 'Nessun risultato trovato',
+      search: 'Cerca…'
     },
     slideover: {
       close: 'Chiudi'

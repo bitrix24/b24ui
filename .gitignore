@@ -22,6 +22,7 @@ logs
 .fleet
 .idea
 /@tmp
+.temp
 .todo.md
 
 # Local env files
