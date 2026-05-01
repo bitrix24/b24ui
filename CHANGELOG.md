@@ -1,22 +1,33 @@
 # Changelog
 
-## [2.6.2](https://github.com/bitrix24/b24ui/compare/v2.6.1...v2.6.2) (2026-04-xx)
+## [2.7.0](https://github.com/bitrix24/b24ui/compare/v2.6.1...v2.7.0) (2026-05-01)
 
-* feat(ProsePrompt): new component
-* fix(ChatMessage): make actions slot accessible on touch devices
-* fix(ProseImg): close zoom overlay on Escape key
-* fix(Link): prevent double-prefixing with `@nuxtjs/i18n` auto-localization
-* fix(playgrounds/repl): use b24-icons
-* fix(playgrounds/repl): use b24Link props
-* fix(playgrounds/repl):error NuxtLink (tsk:32534)
-* fix(playgrounds/nuxt|demo): control size (tsk:32362)
-* fix(tw:size): improve size based on Tailwind CSS default widths (tsk:31740)
-* fix(scripts/bx-translate-locales): rebase to .claude
-* docs(ColorMode): improve
-* docs(form): document `error-pattern` usage
-* docs: upgrade `nuxt-og-image` and add `nuxt-schema-org`
-* test(Countdown): improve
-* test(DescriptionList): improve
+### Features
+
+* **ProsePrompt:** new component
+* **tw:size:** improve size based on Tailwind CSS default widths (tsk:31740)
+
+### Bug Fixes
+
+* **ChatMessage:** make actions slot accessible on touch devices
+* **ProseImg:** close zoom overlay on Escape key
+* **Link:** prevent double-prefixing with `@nuxtjs/i18n` auto-localization
+* **playgrounds/repl:** use b24-icons
+* **playgrounds/repl:** use b24Link props
+* **playgrounds/repl:** error NuxtLink (tsk:32534)
+* **playgrounds/nuxt|demo:** control size (tsk:32362)
+* **scripts/bx-translate-locales:** rebase to .claude
+
+### Docs
+
+* **ColorMode:** improve
+* **form:** document `error-pattern` usage
+* upgrade `nuxt-og-image` and add `nuxt-schema-org`
+
+### Tests
+
+* **Countdown:** improve
+* **DescriptionList:** improve
 
 ## [2.6.1](https://github.com/bitrix24/b24ui/compare/v2.6.0...v2.6.1) (2026-04-27)
 
