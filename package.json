@@ -221,11 +221,7 @@
     "vue": "^3.5.30",
     "vue-tsc": "^3.2.7",
     "@types/canvas-confetti": "^1.9.0",
-    "@types/node": "^25.3.0",
-    "esno": "^4.8.0",
-    "sharp": "^0.34.5",
-    "openai": "^6.33.0",
-    "dotenv": "^17.4.0"
+    "@types/node": "^25.3.0"
   },
   "peerDependencies": {
     "@inertiajs/vue3": "^2.0.7 || ^3.0.0",

@@ -70,7 +70,7 @@ python .claude/skills/bx-translate-locales/script/make.py
 python .claude/skills/bx-translate-locales/script/make.py ru
 ```
 
----
+--
 
 ## Configuration
 
@@ -81,6 +81,21 @@ python .claude/skills/bx-translate-locales/script/make.py ru
 | `BX_TRANSLATE_WORKERS` | `5` | Max locales translated in parallel |
 | `BX_TRANSLATE_TIMEOUT` | `120` | Seconds before a Claude subprocess is killed |
 | `BX_TRANSLATE_RETRIES` | `2` | Retry attempts on transient Claude errors |
+
+```bash
+# .env.example — copy to .env at the repo root to override defaults
+
+# Number of locale files to translate concurrently.
+# Lower this if Claude API rate-limits you.
+# BX_TRANSLATE_WORKERS=5
+
+# Max time (seconds) to wait for a single Claude invocation.
+# Increase for large locale files or slow models.
+# BX_TRANSLATE_TIMEOUT=120
+
+# How many times to retry a failed translation before giving up.
+# BX_TRANSLATE_RETRIES=2
+```
 
 ### Skipping a locale
 
