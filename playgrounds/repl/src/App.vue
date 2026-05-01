@@ -3,6 +3,7 @@
 import { ref, computed, watchEffect } from 'vue'
 import { Repl, useStore, useVueImportMap } from '@vue/repl'
 import CodeMirror from '@vue/repl/codemirror-editor'
+import GraduationCapIcon from '@bitrix24/b24icons-vue/outline/GraduationCapIcon'
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
 
 // const colorMode = useColorMode()
@@ -181,6 +182,14 @@ const previewOptions = {
         </template>
 
         <template #right>
+          <B24Button
+            aria-label="Bitrix24 UI on GitHub"
+            color="air-tertiary-no-accent"
+            to="/b24ui/"
+            target="_blank"
+            :icon="GraduationCapIcon"
+            size="sm"
+          />
           <B24ColorModeButton />
 
           <B24Tooltip text="Open on GitHub">
