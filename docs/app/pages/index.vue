@@ -14,7 +14,7 @@ if (!page.value) {
 const config = useRuntimeConfig()
 
 if (import.meta.server) {
-  prerenderRoutes([`${config.public.baseUrl}raw/index.md`])
+  prerenderRoutes([`${config.public.baseUrl}/raw/index.md`])
 
   useSchemaOrg([
     defineSoftwareApp({

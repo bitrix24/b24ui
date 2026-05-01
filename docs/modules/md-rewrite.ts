@@ -49,7 +49,7 @@ export default defineNuxtModule((_options, nuxt) => {
         // Serve markdown for the homepage to known AI agent user agents
         {
           src: '^/$',
-          dest: `${config.public.baseUrl}raw/index.md`,
+          dest: `${config.public.baseUrl}/raw/index.md`,
           has: [{ type: 'header', key: 'user-agent', value: AGENT_UA_PATTERN }],
           check: true
         },
