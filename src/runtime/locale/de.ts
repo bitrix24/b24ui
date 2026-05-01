@@ -24,13 +24,13 @@ export default defineLocale<Messages>({
       prevYear: 'Vorheriges Jahr'
     },
     carousel: {
-      dots: 'Folie zum Anzeigen auswählen',
-      goto: 'Gehe zu {slide}',
+      dots: 'Slide zum Anzeigen auswählen',
+      goto: 'Zu {slide} gehen',
       next: 'Weiter',
       prev: 'Zurück'
     },
     chatPrompt: {
-      placeholder: 'Geben Sie hier Ihre Nachricht ein...'
+      placeholder: 'Geben Sie Ihre Nachricht hier ein…'
     },
     chatPromptSubmit: {
       label: 'Senden'
@@ -38,8 +38,8 @@ export default defineLocale<Messages>({
     colorMode: {
       dark: 'Dunkel',
       light: 'Hell',
-      switchToDark: 'Zu dunklem Modus wechseln',
-      switchToLight: 'Zu hellem Modus wechseln',
+      switchToDark: 'Zu Dunkelmodus wechseln',
+      switchToLight: 'Zu Hellmodus wechseln',
       system: 'System'
     },
     commandPalette: {
@@ -47,14 +47,14 @@ export default defineLocale<Messages>({
       close: 'Schließen',
       noData: 'Keine Daten',
       noMatch: 'Keine Übereinstimmungen gefunden',
-      placeholder: 'Befehl eingeben oder suchen...'
+      placeholder: 'Befehl eingeben oder suchen…'
     },
     contentSearch: {
       links: 'Ergebnisse',
       theme: 'Thema'
     },
     contentSearchButton: {
-      label: 'Suchen...'
+      label: 'Suchen…'
     },
     contentToc: {
       title: 'Auf dieser Seite'
@@ -67,15 +67,15 @@ export default defineLocale<Messages>({
       theme: 'Thema'
     },
     dashboardSearchButton: {
-      label: 'Suchen...'
+      label: 'Suchen…'
     },
     dashboardSidebarCollapse: {
-      collapse: 'Seitenleiste einklappen',
-      expand: 'Seitenleiste ausklappen'
+      collapse: 'Sidebar einklappen',
+      expand: 'Sidebar ausklappen'
     },
     dashboardSidebarToggle: {
-      close: 'Seitenleiste schließen',
-      open: 'Seitenleiste öffnen'
+      close: 'Sidebar schließen',
+      open: 'Sidebar öffnen'
     },
     error: {
       clear: 'Erneut versuchen'
@@ -100,27 +100,31 @@ export default defineLocale<Messages>({
       close: 'Schließen'
     },
     pricingTable: {
-      caption: 'Preispläne im Vergleich'
+      caption: 'Preisplan-Vergleich'
     },
     prose: {
       codeCollapse: {
         closeText: 'Ausblenden',
-        name: 'code',
-        openText: 'Anzeigen'
+        name: 'Code',
+        openText: 'Einblenden'
       },
       collapsible: {
         closeText: 'Ausblenden',
         name: 'Eigenschaften',
-        openText: 'Anzeigen'
+        openText: 'Einblenden'
       },
       pre: {
-        copy: 'Kopieren'
+        copy: 'Code in die Zwischenablage kopieren'
+      },
+      prompt: {
+        copy: 'Prompt kopieren',
+        openIn: 'In {name} öffnen'
       }
     },
     chatReasoning: {
-      thinking: 'Denke...',
-      thought: 'Gedanke',
-      thoughtFor: 'Gedanke für {duration}'
+      thinking: 'Denkt…',
+      thought: 'Gedankengang beendet',
+      thoughtFor: 'Gedankengang dauerte {duration}'
     },
     sidebar: {
       close: 'Schließen',
@@ -130,7 +134,7 @@ export default defineLocale<Messages>({
       create: '"{label}" erstellen',
       noData: 'Keine Daten',
       noMatch: 'Keine Übereinstimmungen gefunden',
-      search: 'Suchen...'
+      search: 'Suchen…'
     },
     slideover: {
       close: 'Schließen'

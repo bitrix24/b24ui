@@ -30,7 +30,7 @@ export default defineLocale<Messages>({
       prev: 'Poprzedni'
     },
     chatPrompt: {
-      placeholder: 'Wpisz swoją wiadomość tutaj...'
+      placeholder: 'Wpisz swoją wiadomość…'
     },
     chatPromptSubmit: {
       label: 'Wyślij'
@@ -40,21 +40,21 @@ export default defineLocale<Messages>({
       light: 'Jasny',
       switchToDark: 'Przełącz na tryb ciemny',
       switchToLight: 'Przełącz na tryb jasny',
-      system: 'System'
+      system: 'Systemowy'
     },
     commandPalette: {
       back: 'Wstecz',
       close: 'Zamknij',
       noData: 'Brak danych',
       noMatch: 'Nie znaleziono pasujących wyników',
-      placeholder: 'Wpisz polecenie lub szukaj...'
+      placeholder: 'Wpisz polecenie lub szukaj…'
     },
     contentSearch: {
       links: 'Wyniki',
       theme: 'Motyw'
     },
     contentSearchButton: {
-      label: 'Szukaj...'
+      label: 'Szukaj…'
     },
     contentToc: {
       title: 'Na tej stronie'
@@ -67,15 +67,15 @@ export default defineLocale<Messages>({
       theme: 'Motyw'
     },
     dashboardSearchButton: {
-      label: 'Szukaj...'
+      label: 'Szukaj…'
     },
     dashboardSidebarCollapse: {
-      collapse: 'Zwiń pasek boczny',
-      expand: 'Rozwiń pasek boczny'
+      collapse: 'Zwiń panel boczny',
+      expand: 'Rozwiń panel boczny'
     },
     dashboardSidebarToggle: {
-      close: 'Zamknij pasek boczny',
-      open: 'Otwórz pasek boczny'
+      close: 'Zamknij panel boczny',
+      open: 'Otwórz panel boczny'
     },
     error: {
       clear: 'Spróbuj ponownie'
@@ -114,13 +114,17 @@ export default defineLocale<Messages>({
         openText: 'Pokaż'
       },
       pre: {
-        copy: 'Kopiuj'
+        copy: 'Skopiuj kod do schowka'
+      },
+      prompt: {
+        copy: 'Skopiuj prompt',
+        openIn: 'Otwórz w {name}'
       }
     },
     chatReasoning: {
-      thinking: 'Myśli...',
-      thought: 'Myśl',
-      thoughtFor: 'Myśl przez {duration}'
+      thinking: 'Myśli…',
+      thought: 'Myślenie zakończone',
+      thoughtFor: 'Myślenie zajęło {duration}'
     },
     sidebar: {
       close: 'Zamknij',
@@ -130,7 +134,7 @@ export default defineLocale<Messages>({
       create: 'Utwórz "{label}"',
       noData: 'Brak danych',
       noMatch: 'Nie znaleziono pasujących wyników',
-      search: 'Szukaj...'
+      search: 'Szukaj…'
     },
     slideover: {
       close: 'Zamknij'
@@ -145,7 +149,7 @@ export default defineLocale<Messages>({
       open: 'Otwórz nawigację',
       close: 'Zamknij nawigację',
       slideoverTitle: 'Nawigacja',
-      slideoverDescription: 'Nawigacja treści'
+      slideoverDescription: 'Nawigacja po treści'
     }
   }
 })

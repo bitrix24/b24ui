@@ -10,9 +10,9 @@ export default defineLocale<Messages>({
       close: '閉じる'
     },
     authForm: {
-      hidePassword: 'パスワードを隠す',
+      hidePassword: 'パスワードを非表示',
       showPassword: 'パスワードを表示',
-      submit: '続ける'
+      submit: '続行'
     },
     banner: {
       close: '閉じる'
@@ -30,7 +30,7 @@ export default defineLocale<Messages>({
       prev: '前へ'
     },
     chatPrompt: {
-      placeholder: 'メッセージを入力...'
+      placeholder: 'メッセージを入力してください…'
     },
     chatPromptSubmit: {
       label: '送信'
@@ -46,15 +46,15 @@ export default defineLocale<Messages>({
       back: '戻る',
       close: '閉じる',
       noData: 'データがありません',
-      noMatch: '一致する結果が見つかりません',
-      placeholder: 'コマンドまたは検索を入力...'
+      noMatch: '一致する結果がありません',
+      placeholder: 'コマンドを入力または検索…'
     },
     contentSearch: {
       links: '結果',
       theme: 'テーマ'
     },
     contentSearchButton: {
-      label: '検索...'
+      label: '検索…'
     },
     contentToc: {
       title: 'このページの内容'
@@ -67,7 +67,7 @@ export default defineLocale<Messages>({
       theme: 'テーマ'
     },
     dashboardSearchButton: {
-      label: '検索...'
+      label: '検索…'
     },
     dashboardSidebarCollapse: {
       collapse: 'サイドバーを折りたたむ',
@@ -90,7 +90,7 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: '"{label}" を作成',
       noData: 'データがありません',
-      noMatch: '一致する結果が見つかりません'
+      noMatch: '一致する結果がありません'
     },
     inputNumber: {
       decrement: '減らす',
@@ -100,7 +100,7 @@ export default defineLocale<Messages>({
       close: '閉じる'
     },
     pricingTable: {
-      caption: '料金プラン比較'
+      caption: '料金プランの比較'
     },
     prose: {
       codeCollapse: {
@@ -114,13 +114,17 @@ export default defineLocale<Messages>({
         openText: '表示'
       },
       pre: {
-        copy: 'コピー'
+        copy: 'コードをクリップボードにコピー'
+      },
+      prompt: {
+        copy: 'プロンプトをコピー',
+        openIn: '{name} で開く'
       }
     },
     chatReasoning: {
-      thinking: '考え中...',
-      thought: '思考',
-      thoughtFor: '{duration} 間の思考'
+      thinking: '思考中…',
+      thought: '思考完了',
+      thoughtFor: '思考時間: {duration}'
     },
     sidebar: {
       close: '閉じる',
@@ -129,8 +133,8 @@ export default defineLocale<Messages>({
     selectMenu: {
       create: '"{label}" を作成',
       noData: 'データがありません',
-      noMatch: '一致する結果が見つかりません',
-      search: '検索...'
+      noMatch: '一致する結果がありません',
+      search: '検索…'
     },
     slideover: {
       close: '閉じる'

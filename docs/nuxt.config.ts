@@ -492,6 +492,7 @@ export default defineNuxtConfig({
         '@bitrix24/b24icons-vue/editor/EncloseTextInCodeTagIcon',
         '@bitrix24/b24icons-vue/social/MdnwebdocsIcon',
         '@bitrix24/b24icons-vue/crm/Refresh9Icon',
+        '@bitrix24/b24icons-vue/outline/UploadIcon',
         '@bitrix24/b24icons-vue/file-type/MarkdownIcon'
       ]
     }

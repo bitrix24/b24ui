@@ -26,11 +26,11 @@ export default defineLocale<Messages>({
     carousel: {
       dots: 'Выберите слайд для отображения',
       goto: 'Перейти к {slide}',
-      next: 'Следующий',
-      prev: 'Предыдущий'
+      next: 'Далее',
+      prev: 'Назад'
     },
     chatPrompt: {
-      placeholder: 'Введите ваше сообщение здесь…'
+      placeholder: 'Введите сообщение…'
     },
     chatPromptSubmit: {
       label: 'Отправить'
@@ -38,8 +38,8 @@ export default defineLocale<Messages>({
     colorMode: {
       dark: 'Тёмная',
       light: 'Светлая',
-      switchToDark: 'Переключить на тёмный режим',
-      switchToLight: 'Переключить на светлый режим',
+      switchToDark: 'Переключить на тёмную тему',
+      switchToLight: 'Переключить на светлую тему',
       system: 'Системная'
     },
     commandPalette: {
@@ -100,7 +100,7 @@ export default defineLocale<Messages>({
       close: 'Закрыть'
     },
     pricingTable: {
-      caption: 'Сравнение тарифных планов'
+      caption: 'Сравнение тарифов'
     },
     prose: {
       codeCollapse: {
@@ -114,7 +114,11 @@ export default defineLocale<Messages>({
         openText: 'Показать'
       },
       pre: {
-        copy: 'Копировать'
+        copy: 'Скопировать код в буфер обмена'
+      },
+      prompt: {
+        copy: 'Скопировать промпт',
+        openIn: 'Открыть в {name}'
       }
     },
     chatReasoning: {

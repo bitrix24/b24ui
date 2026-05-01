@@ -30,7 +30,7 @@ export default defineLocale<Messages>({
       prev: 'Previous'
     },
     chatPrompt: {
-      placeholder: 'Enter your message here...'
+      placeholder: 'Enter your message here…'
     },
     chatPromptSubmit: {
       label: 'Send'
@@ -47,14 +47,14 @@ export default defineLocale<Messages>({
       close: 'Close',
       noData: 'No data',
       noMatch: 'No matches found',
-      placeholder: 'Enter command or search...'
+      placeholder: 'Enter command or search…'
     },
     contentSearch: {
       links: 'Results',
       theme: 'Theme'
     },
     contentSearchButton: {
-      label: 'Search...'
+      label: 'Search…'
     },
     contentToc: {
       title: 'On this page'
@@ -67,7 +67,7 @@ export default defineLocale<Messages>({
       theme: 'Theme'
     },
     dashboardSearchButton: {
-      label: 'Search...'
+      label: 'Search…'
     },
     dashboardSidebarCollapse: {
       collapse: 'Collapse sidebar',
@@ -114,11 +114,15 @@ export default defineLocale<Messages>({
         openText: 'Show'
       },
       pre: {
-        copy: 'Copy'
+        copy: 'Copy code to clipboard'
+      },
+      prompt: {
+        copy: 'Copy prompt',
+        openIn: 'Open in {name}'
       }
     },
     chatReasoning: {
-      thinking: 'Thinking...',
+      thinking: 'Thinking…',
       thought: 'Thought',
       thoughtFor: 'Thought for {duration}'
     },
@@ -130,7 +134,7 @@ export default defineLocale<Messages>({
       create: 'Create "{label}"',
       noData: 'No data',
       noMatch: 'No matches found',
-      search: 'Search...'
+      search: 'Search…'
     },
     slideover: {
       close: 'Close'

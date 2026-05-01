@@ -35,7 +35,7 @@ export default {
     icon: [
       'shrink-0 size-5',
       'inline-block',
-      'me-[6px]',
+      'me-2',
       'text-(--b24ui-icon)',
       'transition-colors'
     ].join(' '),

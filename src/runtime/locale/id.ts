@@ -25,20 +25,15 @@ export default defineLocale<Messages>({
     },
     carousel: {
       dots: 'Pilih slide untuk ditampilkan',
-      goto: 'Pergi ke {slide}',
+      goto: 'Buka {slide}',
       next: 'Selanjutnya',
       prev: 'Sebelumnya'
     },
     chatPrompt: {
-      placeholder: 'Masukkan pesan Anda di sini...'
+      placeholder: 'Masukkan pesan Anda di sini…'
     },
     chatPromptSubmit: {
       label: 'Kirim'
-    },
-    chatReasoning: {
-      thinking: 'Sedang berpikir...',
-      thought: 'Pemikiran',
-      thoughtFor: 'Pemikiran untuk {duration}'
     },
     colorMode: {
       dark: 'Gelap',
@@ -51,15 +46,15 @@ export default defineLocale<Messages>({
       back: 'Kembali',
       close: 'Tutup',
       noData: 'Tidak ada data',
-      noMatch: 'Tidak ada hasil yang cocok',
-      placeholder: 'Masukkan perintah atau cari...'
+      noMatch: 'Tidak ditemukan hasil',
+      placeholder: 'Masukkan perintah atau cari…'
     },
     contentSearch: {
       links: 'Hasil',
       theme: 'Tema'
     },
     contentSearchButton: {
-      label: 'Cari...'
+      label: 'Cari…'
     },
     contentToc: {
       title: 'Di halaman ini'
@@ -72,15 +67,15 @@ export default defineLocale<Messages>({
       theme: 'Tema'
     },
     dashboardSearchButton: {
-      label: 'Cari...'
+      label: 'Cari…'
     },
     dashboardSidebarCollapse: {
-      collapse: 'Ciutkan bilah sisi',
-      expand: 'Bentangkan bilah sisi'
+      collapse: 'Ciutkan sidebar',
+      expand: 'Perluas sidebar'
     },
     dashboardSidebarToggle: {
-      close: 'Tutup bilah sisi',
-      open: 'Buka bilah sisi'
+      close: 'Tutup sidebar',
+      open: 'Buka sidebar'
     },
     error: {
       clear: 'Coba lagi'
@@ -95,7 +90,7 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: 'Buat "{label}"',
       noData: 'Tidak ada data',
-      noMatch: 'Tidak ada hasil yang cocok'
+      noMatch: 'Tidak ditemukan hasil'
     },
     inputNumber: {
       decrement: 'Kurangi',
@@ -119,8 +114,17 @@ export default defineLocale<Messages>({
         openText: 'Tampilkan'
       },
       pre: {
-        copy: 'Salin'
+        copy: 'Salin kode ke papan klip'
+      },
+      prompt: {
+        copy: 'Salin prompt',
+        openIn: 'Buka di {name}'
       }
+    },
+    chatReasoning: {
+      thinking: 'Berpikir…',
+      thought: 'Pemikiran selesai',
+      thoughtFor: 'Pemikiran selama {duration}'
     },
     sidebar: {
       close: 'Tutup',
@@ -129,8 +133,8 @@ export default defineLocale<Messages>({
     selectMenu: {
       create: 'Buat "{label}"',
       noData: 'Tidak ada data',
-      noMatch: 'Tidak ada hasil yang cocok',
-      search: 'Cari...'
+      noMatch: 'Tidak ditemukan hasil',
+      search: 'Cari…'
     },
     slideover: {
       close: 'Tutup'

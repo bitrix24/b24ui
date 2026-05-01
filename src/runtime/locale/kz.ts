@@ -10,8 +10,8 @@ export default defineLocale<Messages>({
       close: 'Жабу'
     },
     authForm: {
-      hidePassword: 'Құпия сөзді жасыру',
-      showPassword: 'Құпия сөзді көрсету',
+      hidePassword: 'Құпиясөзді жасыру',
+      showPassword: 'Құпиясөзді көрсету',
       submit: 'Жалғастыру'
     },
     banner: {
@@ -24,64 +24,64 @@ export default defineLocale<Messages>({
       prevYear: 'Алдыңғы жыл'
     },
     carousel: {
-      dots: 'Көрсетілетін слайдты таңдау',
+      dots: 'Көрсету үшін слайдты таңдаңыз',
       goto: '{slide} слайдына өту',
       next: 'Келесі',
       prev: 'Алдыңғы'
     },
     chatPrompt: {
-      placeholder: 'Хабарламаңызды осында енгізіңіз...'
+      placeholder: 'Хабарламаңызды осында енгізіңіз…'
     },
     chatPromptSubmit: {
       label: 'Жіберу'
     },
     colorMode: {
       dark: 'Қараңғы',
-      light: 'Ашық',
+      light: 'Жарық',
       switchToDark: 'Қараңғы режимге ауысу',
-      switchToLight: 'Ашық режимге ауысу',
-      system: 'Жүйе'
+      switchToLight: 'Жарық режимге ауысу',
+      system: 'Жүйелік'
     },
     commandPalette: {
       back: 'Артқа',
       close: 'Жабу',
-      noData: 'Деректер жоқ',
-      noMatch: 'Сәйкестік табылмады',
-      placeholder: 'Бұйрық енгізіңіз немесе іздеңіз...'
+      noData: 'Дерек жоқ',
+      noMatch: 'Сәйкестіктер табылмады',
+      placeholder: 'Команда енгізіңіз немесе іздеңіз…'
     },
     contentSearch: {
       links: 'Нәтижелер',
       theme: 'Тақырып'
     },
     contentSearchButton: {
-      label: 'Іздеу...'
+      label: 'Іздеу…'
     },
     contentToc: {
       title: 'Осы бетте'
     },
     dropdownMenu: {
-      noMatch: 'Сәйкес деректер жоқ',
+      noMatch: 'Сәйкес дерек жоқ',
       search: 'Іздеу…'
     },
     dashboardSearch: {
       theme: 'Тақырып'
     },
     dashboardSearchButton: {
-      label: 'Іздеу...'
+      label: 'Іздеу…'
     },
     dashboardSidebarCollapse: {
-      collapse: 'Бүйір панельді жию',
-      expand: 'Бүйір панельді кеңейту'
+      collapse: 'Бүйірлік тақтаны жию',
+      expand: 'Бүйірлік тақтаны кеңейту'
     },
     dashboardSidebarToggle: {
-      close: 'Бүйір панельді жабу',
-      open: 'Бүйір панельді ашу'
+      close: 'Бүйірлік тақтаны жабу',
+      open: 'Бүйірлік тақтаны ашу'
     },
     error: {
-      clear: 'Қайтадан көру'
+      clear: 'Қайталап көру'
     },
     fileUpload: {
-      removeFile: '{filename} файлын жою'
+      removeFile: '{filename} жою'
     },
     header: {
       close: 'Мәзірді жабу',
@@ -89,12 +89,12 @@ export default defineLocale<Messages>({
     },
     inputMenu: {
       create: '"{label}" жасау',
-      noData: 'Деректер жоқ',
-      noMatch: 'Сәйкестік табылмады'
+      noData: 'Дерек жоқ',
+      noMatch: 'Сәйкестіктер табылмады'
     },
     inputNumber: {
-      decrement: 'Азайту',
-      increment: 'Көбейту'
+      decrement: 'Кеміту',
+      increment: 'Арттыру'
     },
     modal: {
       close: 'Жабу'
@@ -110,17 +110,21 @@ export default defineLocale<Messages>({
       },
       collapsible: {
         closeText: 'Жасыру',
-        name: 'сипаттамалар',
+        name: 'қасиеттер',
         openText: 'Көрсету'
       },
       pre: {
-        copy: 'Көшіру'
+        copy: 'Кодты алмасу буферіне көшіру'
+      },
+      prompt: {
+        copy: 'Нұсқауды көшіру',
+        openIn: '{name} ішінде ашу'
       }
     },
     chatReasoning: {
-      thinking: 'Ойлануда...',
-      thought: 'Ой',
-      thoughtFor: '{duration} уақыт бойы ойлану'
+      thinking: 'Ойлануда…',
+      thought: 'Ойлану аяқталды',
+      thoughtFor: 'Ойлану {duration} созылды'
     },
     sidebar: {
       close: 'Жабу',
@@ -128,15 +132,15 @@ export default defineLocale<Messages>({
     },
     selectMenu: {
       create: '"{label}" жасау',
-      noData: 'Деректер жоқ',
-      noMatch: 'Сәйкестік табылмады',
-      search: 'Іздеу...'
+      noData: 'Дерек жоқ',
+      noMatch: 'Сәйкестіктер табылмады',
+      search: 'Іздеу…'
     },
     slideover: {
       close: 'Жабу'
     },
     table: {
-      noData: 'Деректер жоқ'
+      noData: 'Дерек жоқ'
     },
     toast: {
       close: 'Жабу'

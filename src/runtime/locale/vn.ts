@@ -25,12 +25,12 @@ export default defineLocale<Messages>({
     },
     carousel: {
       dots: 'Chọn slide để hiển thị',
-      goto: 'Đi tới {slide}',
+      goto: 'Đi đến {slide}',
       next: 'Tiếp',
       prev: 'Trước'
     },
     chatPrompt: {
-      placeholder: 'Nhập tin nhắn của bạn tại đây...'
+      placeholder: 'Nhập tin nhắn của bạn tại đây…'
     },
     chatPromptSubmit: {
       label: 'Gửi'
@@ -46,18 +46,18 @@ export default defineLocale<Messages>({
       back: 'Quay lại',
       close: 'Đóng',
       noData: 'Không có dữ liệu',
-      noMatch: 'Không tìm thấy kết quả phù hợp',
-      placeholder: 'Nhập lệnh hoặc tìm kiếm...'
+      noMatch: 'Không tìm thấy kết quả',
+      placeholder: 'Nhập lệnh hoặc tìm kiếm…'
     },
     contentSearch: {
       links: 'Kết quả',
       theme: 'Chủ đề'
     },
     contentSearchButton: {
-      label: 'Tìm kiếm...'
+      label: 'Tìm kiếm…'
     },
     contentToc: {
-      title: 'Trên trang này'
+      title: 'Trong trang này'
     },
     dropdownMenu: {
       noMatch: 'Không có dữ liệu phù hợp',
@@ -67,7 +67,7 @@ export default defineLocale<Messages>({
       theme: 'Chủ đề'
     },
     dashboardSearchButton: {
-      label: 'Tìm kiếm...'
+      label: 'Tìm kiếm…'
     },
     dashboardSidebarCollapse: {
       collapse: 'Thu gọn thanh bên',
@@ -90,7 +90,7 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: 'Tạo "{label}"',
       noData: 'Không có dữ liệu',
-      noMatch: 'Không tìm thấy kết quả phù hợp'
+      noMatch: 'Không tìm thấy kết quả'
     },
     inputNumber: {
       decrement: 'Giảm',
@@ -100,27 +100,31 @@ export default defineLocale<Messages>({
       close: 'Đóng'
     },
     pricingTable: {
-      caption: 'So sánh các gói giá'
+      caption: 'So sánh gói giá'
     },
     prose: {
       codeCollapse: {
         closeText: 'Ẩn',
-        name: 'code',
+        name: 'mã',
         openText: 'Hiện'
       },
       collapsible: {
         closeText: 'Ẩn',
-        name: 'properties',
+        name: 'thuộc tính',
         openText: 'Hiện'
       },
       pre: {
-        copy: 'Sao chép'
+        copy: 'Sao chép mã vào bộ nhớ tạm'
+      },
+      prompt: {
+        copy: 'Sao chép prompt',
+        openIn: 'Mở trong {name}'
       }
     },
     chatReasoning: {
-      thinking: 'Đang suy nghĩ...',
-      thought: 'Suy nghĩ',
-      thoughtFor: 'Suy nghĩ cho {duration}'
+      thinking: 'Đang suy nghĩ…',
+      thought: 'Đã suy nghĩ',
+      thoughtFor: 'Đã suy nghĩ trong {duration}'
     },
     sidebar: {
       close: 'Đóng',
@@ -129,8 +133,8 @@ export default defineLocale<Messages>({
     selectMenu: {
       create: 'Tạo "{label}"',
       noData: 'Không có dữ liệu',
-      noMatch: 'Không tìm thấy kết quả phù hợp',
-      search: 'Tìm kiếm...'
+      noMatch: 'Không tìm thấy kết quả',
+      search: 'Tìm kiếm…'
     },
     slideover: {
       close: 'Đóng'

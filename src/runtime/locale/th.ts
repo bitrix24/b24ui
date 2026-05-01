@@ -24,13 +24,13 @@ export default defineLocale<Messages>({
       prevYear: 'ปีก่อนหน้า'
     },
     carousel: {
-      dots: 'เลือกสไลด์เพื่อแสดง',
-      goto: 'ไปที่ {slide}',
+      dots: 'เลือกสไลด์ที่จะแสดง',
+      goto: 'ไปที่{slide}',
       next: 'ถัดไป',
       prev: 'ก่อนหน้า'
     },
     chatPrompt: {
-      placeholder: 'พิมพ์ข้อความของคุณที่นี่...'
+      placeholder: 'พิมพ์ข้อความของคุณที่นี่…'
     },
     chatPromptSubmit: {
       label: 'ส่ง'
@@ -43,18 +43,18 @@ export default defineLocale<Messages>({
       system: 'ระบบ'
     },
     commandPalette: {
-      back: 'ย้อนกลับ',
+      back: 'กลับ',
       close: 'ปิด',
       noData: 'ไม่มีข้อมูล',
-      noMatch: 'ไม่พบข้อมูลที่ตรงกัน',
-      placeholder: 'ป้อนคำสั่งหรือค้นหา...'
+      noMatch: 'ไม่พบรายการที่ตรงกัน',
+      placeholder: 'ป้อนคำสั่งหรือค้นหา…'
     },
     contentSearch: {
       links: 'ผลลัพธ์',
       theme: 'ธีม'
     },
     contentSearchButton: {
-      label: 'ค้นหา...'
+      label: 'ค้นหา…'
     },
     contentToc: {
       title: 'ในหน้านี้'
@@ -67,7 +67,7 @@ export default defineLocale<Messages>({
       theme: 'ธีม'
     },
     dashboardSearchButton: {
-      label: 'ค้นหา...'
+      label: 'ค้นหา…'
     },
     dashboardSidebarCollapse: {
       collapse: 'ย่อแถบด้านข้าง',
@@ -81,20 +81,20 @@ export default defineLocale<Messages>({
       clear: 'ลองอีกครั้ง'
     },
     fileUpload: {
-      removeFile: 'ลบ {filename}'
+      removeFile: 'ลบ{filename}'
     },
     header: {
       close: 'ปิดเมนู',
       open: 'เปิดเมนู'
     },
     inputMenu: {
-      create: 'สร้าง "{label}"',
+      create: 'สร้าง"{label}"',
       noData: 'ไม่มีข้อมูล',
-      noMatch: 'ไม่พบข้อมูลที่ตรงกัน'
+      noMatch: 'ไม่พบรายการที่ตรงกัน'
     },
     inputNumber: {
-      decrement: 'ลดค่า',
-      increment: 'เพิ่มค่า'
+      decrement: 'ลดลง',
+      increment: 'เพิ่มขึ้น'
     },
     modal: {
       close: 'ปิด'
@@ -105,32 +105,36 @@ export default defineLocale<Messages>({
     prose: {
       codeCollapse: {
         closeText: 'ซ่อน',
-        name: 'code',
+        name: 'โค้ด',
         openText: 'แสดง'
       },
       collapsible: {
         closeText: 'ซ่อน',
-        name: 'properties',
+        name: 'คุณสมบัติ',
         openText: 'แสดง'
       },
       pre: {
-        copy: 'คัดลอก'
+        copy: 'คัดลอกโค้ดไปยังคลิปบอร์ด'
+      },
+      prompt: {
+        copy: 'คัดลอกพรอมต์',
+        openIn: 'เปิดใน{name}'
       }
     },
     chatReasoning: {
-      thinking: 'กำลังคิด...',
-      thought: 'ความคิด',
-      thoughtFor: 'คิดเป็นเวลา {duration}'
+      thinking: 'กำลังคิด…',
+      thought: 'คิดแล้ว',
+      thoughtFor: 'ใช้เวลาคิด{duration}'
     },
     sidebar: {
       close: 'ปิด',
       toggle: 'สลับ'
     },
     selectMenu: {
-      create: 'สร้าง "{label}"',
+      create: 'สร้าง"{label}"',
       noData: 'ไม่มีข้อมูล',
-      noMatch: 'ไม่พบข้อมูลที่ตรงกัน',
-      search: 'ค้นหา...'
+      noMatch: 'ไม่พบรายการที่ตรงกัน',
+      search: 'ค้นหา…'
     },
     slideover: {
       close: 'ปิด'

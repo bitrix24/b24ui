@@ -134,7 +134,7 @@
     "test": "vitest",
     "test:vue": "vitest --project vue",
     "test:nuxt": "vitest --project nuxt",
-    "translate-ui": "tsx tools/translate.ui.ts"
+    "translate-ui": "python .claude/skills/bx-translate-locales/script/make.py"
   },
   "dependencies": {
     "@floating-ui/dom": "^1.7.6",
