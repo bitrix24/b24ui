@@ -79,14 +79,14 @@ useSeoMeta({
   ogDescription: description
 })
 
-// if (pageUrl.startsWith('/docs/components/')) {
-//   defineOgImageComponent('OgImageComponent', {
+// if (route.path.startsWith('/docs/components/')) {
+//   defineOgImage('Component.takumi', {
 //     title: page.value.title,
 //     description: page.value.description,
-//     component: (route.params.slug as string[]).pop() as string
+//     slug: (route.params.slug as string[]).pop() as string
 //   })
 // } else {
-//   defineOgImageComponent('Docs', {
+//   defineOgImage('Docs.takumi', {
 //     title: page.value.title,
 //     description: page.value.description,
 //     headline: breadcrumb.value?.[breadcrumb.value.length - 1]?.label || 'Bitrix24 UI',
@@ -94,81 +94,29 @@ useSeoMeta({
 //   })
 // }
 
-const today = new Date().toISOString().split('T')[0]
-
-// Pre-render the markdown path + add it to alternate links
 const path = computed(() => pageUrl.replace(/\/$/, ''))
-prerenderRoutes([joinURL(`${config.public.baseUrl}/raw`, `${path.value}.md`)])
-useHead({
-  link: [
-    {
-      rel: 'alternate',
-      // @memo we use redirect in `docs/modules/md-rewrite.ts`
-      // href: joinURL(config.public.siteUrl, `${config.public.baseUrl}/raw`, `${path.value}.md`),
-      // @memo But at GitHub Pages we use /raw
-      // href: joinURL(config.public.siteUrl, `${config.public.baseUrl}`, `${path.value}.md`),
-      href: joinURL(config.public.siteUrl, `${config.public.baseUrl}/raw`, `${path.value}.md`),
-      type: 'text/markdown'
-    }
-  ],
-  script: [{
-    type: 'application/ld+json',
-    innerHTML: JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'TechArticle',
-      'dateModified': today,
-      'proficiencyLevel': 'Beginner',
-      'dependencies': 'Vue 3, Nuxt (optional)',
-      'headline': `${prefix}${title} ${suffix}`.trim(),
-      'description': description,
-      'url': joinURL(config.public.siteUrl, config.public.baseUrl, path.value + '/'),
-      'mainEntityOfPage': {
-        '@type': 'WebPage',
-        '@id': joinURL(config.public.siteUrl, config.public.baseUrl, path.value + '/')
-      },
-      'breadcrumb': {
-        '@type': 'BreadcrumbList',
-        'itemListElement': [
-          {
-            '@type': 'ListItem',
-            'position': 1,
-            'name': 'Home',
-            'item': {
-              '@id': `${config.public.siteUrl}${config.public.baseUrl}/`
-            }
-          },
-          ...(breadcrumb.value?.map((item, index) => ({
-            '@type': 'ListItem',
-            'position': index + 2,
-            'name': item.label,
-            'item': {
-              '@id': item.to ? joinURL(config.public.siteUrl, config.public.baseUrl, String(item.to) + '/') : undefined
-            }
-          })) || []),
-          {
-            '@type': 'ListItem',
-            'position': (breadcrumb.value?.length || 0) + 2,
-            'name': `${prefix}${title} ${suffix}`.trim(),
-            'item': {
-              '@id': joinURL(config.public.siteUrl, config.public.baseUrl, path.value + '/')
-            }
-          }
-        ]
-      },
-      'author': { '@type': 'Organization', 'name': 'Bitrix24' },
-      'publisher': {
-        '@type': 'Organization',
-        'name': 'Bitrix24',
-        'logo': {
-          '@type': 'ImageObject',
-          'url': 'https://bitrix24.github.io/b24ui/avatar/b24-logo.jpg',
-          'width': 460,
-          'height': 460
-        }
-      }
-    }).replace(/</g, '\\u003c').replace(/>/g, '\\u003e')
-  }]
-})
+
+if (import.meta.server) {
+  prerenderRoutes([joinURL(`${config.public.baseUrl}raw`, `${path.value}.md`)])
+}
+
+// @memo we use redirect in `docs/modules/md-rewrite.ts`
+// @memo But at GitHub Pages we use /raw
+useCanonical(computed(() => `/raw${path.value}.md`))
+
+useSchemaOrg([
+  defineArticle({
+    '@type': 'TechArticle',
+    'headline': `${prefix}${title} ${suffix}`.trim(),
+    'description': description
+  }),
+  defineBreadcrumb({
+    itemListElement: breadcrumb.value?.map(item => ({
+      name: item.label,
+      item: item.to ? String(item.to) : undefined
+    })) || []
+  })
+])
 
 const communityLinks = computed(() => [
   {

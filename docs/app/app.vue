@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import type { ToasterProps } from '@bitrix24/b24ui-nuxt'
-import { withTrailingSlash } from 'ufo'
 
 const route = useRoute()
 const appConfig = useAppConfig()
-const config = useRuntimeConfig()
 const { style, link } = useTheme()
 const { isEnabled: isAssistantEnabled } = useAssistant()
 // @memo this for docus
@@ -30,22 +28,31 @@ const { data: files } = useLazyAsyncData(
   }
 )
 
+useCanonical()
+
 useHead({
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' }
   ],
   link: computed(() => [
-    { rel: 'canonical', href: `${config.public.canonicalUrl}${config.public.baseUrl}${withTrailingSlash(route.path)}` },
     ...link.value
   ]),
   style,
   htmlAttrs: { lang: 'en', class: '' }
 })
 
-useServerSeoMeta({
-  ogSiteName: 'Bitrix24 UI',
-  twitterCard: 'summary_large_image'
-})
+if (import.meta.server) {
+  useSeoMeta({
+    ogSiteName: 'Bitrix24 UI',
+    twitterCard: 'summary_large_image'
+  })
+
+  useSchemaOrg([
+    defineWebSite({
+      name: useSiteConfig().name
+    })
+  ])
+}
 
 const { rootNavigation, navigationByFramework } = useNavigation(navigation)
 provide('navigation', rootNavigation)

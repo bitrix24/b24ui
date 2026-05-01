@@ -11,6 +11,23 @@ if (!page.value) {
   throw createError({ status: 404, statusText: 'Page not found', fatal: true })
 }
 
+const config = useRuntimeConfig()
+
+if (import.meta.server) {
+  prerenderRoutes([`${config.public.baseUrl}raw/index.md`])
+
+  useSchemaOrg([
+    defineSoftwareApp({
+      name: 'Bitrix24 UI',
+      operatingSystem: 'Web',
+      applicationCategory: 'DeveloperApplication',
+      offers: { price: 0, priceCurrency: 'USD' }
+    })
+  ])
+}
+
+useCanonical(`/raw/index.md`)
+
 useSeoMeta({
   titleTemplate: '%s - Bitrix24 UI',
   title: page.value.title,

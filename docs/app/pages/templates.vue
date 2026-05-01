@@ -16,7 +16,9 @@ useSeoMeta({
   ogDescription: page.value.description
 })
 
-// defineOgImageComponent('Docs')
+useCanonical()
+
+// defineOgImage('Docs.takumi')
 </script>
 
 <!-- eslint-disable vue/no-v-html -->

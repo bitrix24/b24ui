@@ -225,10 +225,6 @@ const pagesFrameExamples = [
 ]
 
 const pagesService = [
-  // Prerender the homepage markdown so Vercel's filesystem check after the
-  // `/` → `/raw/index.md` rewrite (see `modules/md-rewrite.ts`) resolves
-  // to a static file, the same way `/docs/*.md` does.
-  '/raw/index.md',
   '/api/countries.json',
   '/api/phone-codes.json',
   '/api/locales.json',
@@ -257,7 +253,8 @@ export default defineNuxtConfig({
     'nuxt-llms',
     // @memo off this
     'nuxt-og-image',
-    'motion-v/nuxt'
+    'motion-v/nuxt',
+    'nuxt-schema-org'
   ],
 
   ssr: true,
@@ -279,6 +276,10 @@ export default defineNuxtConfig({
   },
 
   css: ['~/assets/css/main.css'],
+
+  site: {
+    name: 'Bitrix24 UI'
+  },
 
   content: {
     build: {
@@ -493,6 +494,46 @@ export default defineNuxtConfig({
         '@bitrix24/b24icons-vue/social/MdnwebdocsIcon',
         '@bitrix24/b24icons-vue/crm/Refresh9Icon',
         '@bitrix24/b24icons-vue/outline/UploadIcon',
+        '@bitrix24/b24icons-vue/file-type/TerminalIcon',
+        '@bitrix24/b24icons-vue/file-type/YamlIcon',
+        '@bitrix24/b24icons-vue/file-type/BunIcon',
+        '@bitrix24/b24icons-vue/file-type/YarnIcon',
+        '@bitrix24/b24icons-vue/file-type/NpmIcon',
+        '@bitrix24/b24icons-vue/file-type/PnpmIcon',
+        '@bitrix24/b24icons-vue/file-type/FaviconIcon',
+        '@bitrix24/b24icons-vue/file-type/DartlangIcon',
+        '@bitrix24/b24icons-vue/file-type/JuliaIcon',
+        '@bitrix24/b24icons-vue/file-type/PerlIcon',
+        '@bitrix24/b24icons-vue/file-type/ArduinoIcon',
+        '@bitrix24/b24icons-vue/file-type/CppheaderIcon',
+        '@bitrix24/b24icons-vue/file-type/ScalaIcon',
+        '@bitrix24/b24icons-vue/file-type/ErlangIcon',
+        '@bitrix24/b24icons-vue/file-type/ElixirIcon',
+        '@bitrix24/b24icons-vue/file-type/BicepIcon',
+        '@bitrix24/b24icons-vue/file-type/GleamIcon',
+        '@bitrix24/b24icons-vue/file-type/GoIcon',
+        '@bitrix24/b24icons-vue/file-type/PowershellIcon',
+        '@bitrix24/b24icons-vue/file-type/LispIcon',
+        '@bitrix24/b24icons-vue/file-type/RubyIcon',
+        '@bitrix24/b24icons-vue/file-type/RustIcon',
+        '@bitrix24/b24icons-vue/file-type/KotlinIcon',
+        '@bitrix24/b24icons-vue/file-type/FsharpIcon',
+        '@bitrix24/b24icons-vue/file-type/HaskellIcon',
+        '@bitrix24/b24icons-vue/file-type/FortranIcon',
+        '@bitrix24/b24icons-vue/file-type/AssemblyIcon',
+        '@bitrix24/b24icons-vue/file-type/CsharpIcon',
+        '@bitrix24/b24icons-vue/file-type/PythonIcon',
+        '@bitrix24/b24icons-vue/file-type/JsIcon',
+        '@bitrix24/b24icons-vue/file-type/TypescriptIcon',
+        '@bitrix24/b24icons-vue/file-type/VueIcon',
+        '@bitrix24/b24icons-vue/file-type/TailwindIcon',
+        '@bitrix24/b24icons-vue/file-type/VscodeIcon',
+        '@bitrix24/b24icons-vue/file-type/DotenvIcon',
+        '@bitrix24/b24icons-vue/file-type/GitIcon',
+        '@bitrix24/b24icons-vue/file-type/EslintIcon',
+        '@bitrix24/b24icons-vue/file-type/EditorconfigIcon',
+        '@bitrix24/b24icons-vue/file-type/TsconfigIcon',
+        '@bitrix24/b24icons-vue/file-type/NodeIcon',
         '@bitrix24/b24icons-vue/file-type/MarkdownIcon'
       ]
     }
@@ -569,6 +610,7 @@ export default defineNuxtConfig({
       '@comark/vue',
       'nuxt/dist',
       'nuxt-og-image',
+      'nuxt-schema-org',
       resolve('./app/components'),
       resolve('./modules')
     ],
@@ -648,6 +690,21 @@ export default defineNuxtConfig({
     browserRedirect: '/docs/getting-started/' // '/docs/getting-started/ai/mcp'
   },
 
-  // @memo off for generate
-  ogImage: { enabled: false }
+  ogImage: {
+    zeroRuntime: true,
+    security: {
+      renderTimeout: 60000
+    }
+  },
+
+  schemaOrg: {
+    identity: {
+      type: 'Organization',
+      name: 'Bitrix24',
+      logo: '/b24-logo.svg',
+      sameAs: [
+        'https://github.com/bitrix24'
+      ]
+    }
+  }
 })

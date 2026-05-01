@@ -14,6 +14,7 @@
 * fix(scripts/bx-translate-locales): rebase to .claude
 * docs(ColorMode): improve
 * docs(form): document `error-pattern` usage
+* docs: upgrade `nuxt-og-image` and add `nuxt-schema-org`
 * test(Countdown): improve
 * test(DescriptionList): improve
 

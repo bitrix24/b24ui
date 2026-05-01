@@ -1,9 +1,8 @@
 import { queryCollection } from '@nuxt/content/server'
-import { eventHandler, setHeader } from 'h3'
 
 // const DOMAIN = 'https://bitrix24.github.io/b24ui'
 
-export default eventHandler(async (event) => {
+export default defineCachedEventHandler(async (event) => {
   const config = useRuntimeConfig()
   const baseUrl = `${config.public.canonicalUrl}${config.public.baseUrl}`
   const DOMAIN = baseUrl
@@ -64,7 +63,10 @@ Bitrix24 UI is a free and open source Vue UI library powered by [Reka UI](https:
 - Community: <https://t.me/b24_dev>
 `
 
-  setHeader(event, 'Content-Type', 'text/markdown; charset=utf-8')
-  setHeader(event, 'Link', `<${DOMAIN}>; rel="canonical"`)
+  setResponseHeader(event, 'Content-Type', 'text/markdown; charset=utf-8')
+  setResponseHeader(event, 'Link', `<${DOMAIN}>; rel="canonical", <${DOMAIN}>; rel="alternate"; type="text/html"`)
   return frontmatter + body
+}, {
+  swr: true,
+  maxAge: 60 * 60
 })

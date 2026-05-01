@@ -11,6 +11,10 @@ useSeoMeta({
   ogTitle: `${page.value.title} - Bitrix24 UI`,
   ogDescription: page.value.description
 })
+
+useCanonical()
+
+// defineOgImage('Docs.takumi')
 </script>
 
 <!-- eslint-disable vue/no-v-html -->

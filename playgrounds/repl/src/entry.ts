@@ -10,7 +10,7 @@ const NuxtLink = defineComponent({
     href: String,
     target: String,
     rel: String,
-    custom: Boolean,
+    custom: Boolean
   },
   setup(props, { slots }) {
     const href = typeof props.to === 'string' ? props.to : (props.href ?? '#')
@@ -29,7 +29,7 @@ for (const [path, mod] of Object.entries(componentModules)) {
 }
 
 export function install(app: App) {
-  app.component('NuxtLink', NuxtLink)  // ← до basePlugin
+  app.component('NuxtLink', NuxtLink)
   app.use(basePlugin)
   for (const [name, component] of Object.entries(components)) {
     app.component(name, component)

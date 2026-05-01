@@ -1,5 +1,4 @@
 import { queryCollection } from '@nuxt/content/server'
-import { eventHandler, setHeader } from 'h3'
 
 // const DOMAIN = 'https://bitrix24.github.io/b24ui'
 
@@ -7,7 +6,7 @@ function xmlEscape(str: string): string {
   return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;')
 }
 
-export default eventHandler(async (event) => {
+export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
   const baseUrl = `${config.public.canonicalUrl}${config.public.baseUrl}`
 
@@ -28,6 +27,6 @@ export default eventHandler(async (event) => {
 ${urls}
 </urlset>`
 
-  setHeader(event, 'Content-Type', 'application/xml; charset=utf-8')
+  setResponseHeader(event, 'Content-Type', 'application/xml; charset=utf-8')
   return xml
 })

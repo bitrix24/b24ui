@@ -22,11 +22,12 @@ useSeoMeta({
   title: props.error.status
 })
 
-useServerSeoMeta({
-  ogSiteName: 'Bitrix24 UI',
-  twitterCard: 'summary_large_image'
-})
-
+if (import.meta.server) {
+  useSeoMeta({
+    ogSiteName: 'Bitrix24 UI',
+    twitterCard: 'summary_large_image'
+  })
+}
 const { rootNavigation } = useNavigation(navigation)
 
 provide('navigation', rootNavigation)
