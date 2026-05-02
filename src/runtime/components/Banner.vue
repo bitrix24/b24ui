@@ -101,7 +101,7 @@ const isVisible = ref(true)
 const hasPersistence = computed(() => !!props.id)
 
 onMounted(() => {
-  if (hasPersistence.value && typeof localStorage !== 'undefined') {
+  if (hasPersistence.value && typeof localStorage !== 'undefined' && typeof localStorage.getItem === 'function') {
     const isClosed = localStorage.getItem(id.value) === 'true'
     isVisible.value = !isClosed
   }
@@ -134,7 +134,7 @@ useHead(() => {
 })
 
 function onClose() {
-  if (hasPersistence.value) {
+  if (hasPersistence.value && typeof localStorage !== 'undefined' && typeof localStorage.setItem === 'function') {
     localStorage.setItem(id.value, 'true')
     document.documentElement.style.setProperty(`--${id.value}-display`, 'none')
   }
