@@ -51,3 +51,6 @@ CLAUDE.md
 .claude/settings.local.json
 .claude/channels/
 .claude/debug/
+/.claude/skills/b24-ui-nuxt/
+/.agents/
+/skills-lock.json
