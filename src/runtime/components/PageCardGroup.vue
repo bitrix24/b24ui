@@ -63,25 +63,34 @@ export interface PageCardGroupProps {
   required?: boolean
   name?: string
   /**
+   * Card size — drives the icon-circle, icon, gap and inner title/description text size.
+   * @defaultValue 'md'
+   */
+  size?: PageCardGroup['variants']['size']
+  /**
    * Variant forwarded to each `PageCard`.
    * @defaultValue 'outline'
    */
   variant?: PageCardProps['variant']
   /**
-   * Highlight color forwarded to the selected `PageCard`.
+   * Umbrella accent color. Drives both the highlighted card border and the corner badge
+   * unless `highlightColor` / `badgeColor` are set explicitly.
    * @defaultValue 'air-primary-success'
+   */
+  color?: PageCardProps['highlightColor']
+  /**
+   * Highlight color forwarded to the selected `PageCard`. Falls back to `color` when not set.
    */
   highlightColor?: PageCardProps['highlightColor']
   /**
-   * Card orientation forwarded to each `PageCard`.
-   * @defaultValue 'horizontal'
-   */
-  orientation?: PageCardProps['orientation']
-  /**
-   * Color of the corner badge shown on the selected card.
-   * @defaultValue 'air-primary-success'
+   * Color of the corner badge shown on the selected card. Falls back to `color` when not set.
    */
   badgeColor?: BadgeProps['color']
+  /**
+   * Size of the corner badge shown on the selected card. Falls back to a value derived
+   * from the group `size` when not set.
+   */
+  badgeSize?: BadgeProps['size']
   /**
    * Max columns on desktop.
    * @defaultValue 3
@@ -123,10 +132,9 @@ const _props = withDefaults(defineProps<PageCardGroupProps>(), {
   iconKey: 'icon',
   categoryKey: 'category',
   multiple: false,
-  orientation: 'horizontal',
+  size: 'md',
   variant: 'outline',
-  highlightColor: 'air-primary-success',
-  badgeColor: 'air-primary-success'
+  color: 'air-primary-success'
 })
 
 const emits = defineEmits<PageCardGroupEmits>()
@@ -137,9 +145,7 @@ const props = useComponentProps<PageCardGroupProps>('pageCardGroup', _props)
 const appConfig = useAppConfig() as PageCardGroup['AppConfig']
 
 // Pass raw `_props` so a wrapping `<B24FormField>` keeps precedence over
-// `<B24Theme :props>` / `withDefaults` / `app.config` defaults. Fall back to
-// the proxy in `tv()` reads (`disabled.value` is sufficient here because the
-// composable's own fallback already accepts `_props.disabled`).
+// `<B24Theme :props>` / `withDefaults` / `app.config` defaults.
 const { emitFormChange, emitFormInput, name, id: _id, disabled, ariaAttrs } = useFormField<PageCardGroupProps>(_props, { bind: false })
 const groupId = _id.value ?? useId()
 
@@ -155,8 +161,33 @@ const currentValue = computed<PageCardGroupValue | PageCardGroupValue[] | undefi
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pageCardGroup || {}) })({
+  size: props.size,
   columns: props.columns,
   disabled: disabled.value
+}))
+
+// Sync defaults: highlightColor and badgeColor fall back to the umbrella `color`.
+const effectiveHighlightColor = computed(() => props.highlightColor ?? props.color)
+const effectiveBadgeColor = computed(() => props.badgeColor ?? props.color)
+
+const sizeToBadgeSize: Record<NonNullable<PageCardGroupProps['size']>, BadgeProps['size']> = {
+  sm: 'sm',
+  md: 'md',
+  lg: 'lg'
+}
+const effectiveBadgeSize = computed<BadgeProps['size']>(() =>
+  props.badgeSize ?? sizeToBadgeSize[props.size as NonNullable<PageCardGroupProps['size']>] ?? 'md'
+)
+
+// Slot-class overrides forwarded to the inner `B24PageCard` via its `b24ui` prop.
+// Layered over user-provided overrides (`props.b24ui?.cardX`).
+const innerCardUI = computed(() => ({
+  container: b24ui.value.cardContainer({ class: props.b24ui?.cardContainer }),
+  wrapper: b24ui.value.cardWrapper({ class: props.b24ui?.cardWrapper }),
+  leading: b24ui.value.cardLeading({ class: props.b24ui?.cardLeading }),
+  body: b24ui.value.cardBody({ class: props.b24ui?.cardBody }),
+  title: b24ui.value.cardTitle({ class: props.b24ui?.cardTitle }),
+  description: b24ui.value.cardDescription({ class: props.b24ui?.cardDescription })
 }))
 
 function getItemValue(item: PageCardGroupItem): PageCardGroupValue {
@@ -251,6 +282,7 @@ const groupedItems = computed<{ category?: string, items: PageCardGroupItem[] }[
             v-for="item in group.items"
             :key="String(getItemValue(item))"
             data-slot="item"
+            :data-disabled="(item.disabled || disabled) || undefined"
             :class="b24ui.item({ class: [props.b24ui?.item, item.class] })"
           >
             <input
@@ -268,10 +300,11 @@ const groupedItems = computed<{ category?: string, items: PageCardGroupItem[] }[
               :title="get(item, props.labelKey!)"
               :description="get(item, props.descriptionKey!)"
               :variant="props.variant"
-              :orientation="props.orientation"
+              orientation="vertical"
               :highlight="isSelected(item)"
-              :highlight-color="props.highlightColor"
+              :highlight-color="effectiveHighlightColor"
               :class="b24ui.card({ class: props.b24ui?.card })"
+              :b24ui="innerCardUI"
             >
               <template v-if="get(item, props.iconKey!) || !!slots.leading" #leading>
                 <slot name="leading" :item="item" :selected="isSelected(item)" :b24ui="b24ui">
@@ -286,9 +319,9 @@ const groupedItems = computed<{ category?: string, items: PageCardGroupItem[] }[
                   <slot name="badge" :item="item" :selected="true" :b24ui="b24ui">
                     <B24Badge
                       :icon="CheckLIcon"
-                      :color="props.badgeColor"
+                      :color="effectiveBadgeColor"
+                      :size="effectiveBadgeSize"
                       square
-                      :size="((props.b24ui?.badgeIconSize || b24ui.badgeIconSize()) as BadgeProps['size'])"
                       :class="b24ui.badgeIcon({ class: props.b24ui?.badgeIcon })"
                     />
                   </slot>

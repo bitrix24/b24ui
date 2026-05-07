@@ -42,23 +42,56 @@ Set the `multiple` prop to switch to multi-select mode. The `v-model` binds to a
 
 Use the `columns` prop (`'1'`, `'2'`, `'3'`, `'4'`) to set the maximum number of columns on desktop. The grid is always responsive — 1 column on mobile, 2 on tablet, then up to `columns` on `lg+`.
 
+### Size
+
+Use the `size` prop (`'sm'`, `'md'`, `'lg'`) to scale the icon circle, the inner icon, the inner gap, and the title/description font sizes. Defaults to `'md'`. The corner badge size is derived from `size` unless `badge-size` is set explicitly.
+
 ### Variant
 
 The `variant` prop is forwarded to each inner [PageCard](/docs/components/page-card/) and controls its base style. See PageCard variants for the full list.
 
+### Color
+
+The `color` prop is the umbrella accent — it drives both the highlighted border on the selected card and the corner badge color. Defaults to `air-primary-success`.
+
+```vue
+<B24PageCardGroup v-model="value" :items="items" color="air-primary" />
+```
+
 ### Highlight color
 
-The `highlight-color` prop is forwarded to the selected `PageCard`. Defaults to `air-primary-success`.
+Override the umbrella `color` for the card border only with `highlight-color`. Falls back to `color` when not set.
 
 ### Badge color
 
-The `badge-color` prop sets the color of the corner [Badge](/docs/components/badge/) shown on the selected card. Defaults to `air-primary-success`.
+Override the umbrella `color` for the corner [Badge](/docs/components/badge/) only with `badge-color`. Falls back to `color` when not set.
+
+### Badge size
+
+Override the badge size derived from `size` with `badge-size`.
 
 ### Category grouping
 
 When items contain a `category` field (or another field set via `category-key`), the group renders one section per category with a heading above each grid. Pass `category-key=""` to disable grouping.
 
 ## Examples
+
+### Click / change handler
+
+Listen to the `change` event to react to user selections. The event fires after `v-model` updates and receives the native `change` event.
+
+```vue
+<script setup lang="ts">
+const value = ref('callback')
+function onChange(event: Event) {
+  console.log('selected', value.value, event)
+}
+</script>
+
+<template>
+  <B24PageCardGroup v-model="value" :items="items" @change="onChange" />
+</template>
+```
 
 ### Disable an item
 
