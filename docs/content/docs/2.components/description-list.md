@@ -22,6 +22,8 @@ Use the `items` prop as an array of objects to control the value of the Descript
 - [`actions?: ButtonProps[]`{lang="ts-type"}](#with-actions-in-items)
 - [`orientation?: "horizontal" | "vertical"`{lang="ts-type"}](#with-actions-in-items)
 - [`slot?: string`{lang="ts-type"}](#with-custom-slot)
+- [`to?: RouteLocationRaw | string`{lang="ts-type"}](#with-link-in-items)
+- [`target?: "_blank" | "_self" | "_parent" | "_top"`{lang="ts-type"}](#with-link-in-items)
 - `class?: any`{lang="ts-type"}
 - `b24ui?: { labelWrapper?: ClassNameValue, icon?: ClassNameValue, avatar?: ClassNameValue, label?: ClassNameValue, descriptionWrapper?: ClassNameValue, description?: ClassNameValue, actions?: ClassNameValue }`{lang="ts-type"}
 
