@@ -18,6 +18,10 @@ export interface CardProps {
    * @defaultValue 'outline'
    */
   variant?: Card['variants']['variant']
+  /**
+   * @defaultValue 'md'
+   */
+  size?: Card['variants']['size']
   class?: any
   b24ui?: Card['slots']
 }
@@ -47,7 +51,8 @@ const appConfig = useAppConfig() as Card['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.card || {}) })({
-  variant: props.variant
+  variant: props.variant,
+  size: props.size
 }))
 </script>
 

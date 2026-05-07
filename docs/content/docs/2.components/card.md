@@ -95,6 +95,16 @@ slots:
 :placeholder{class="h-32"}
 ::
 
+### Size
+
+Use the `size` prop to control the padding of the header, body and footer.
+
+::component-example
+---
+name: 'card-size-example'
+---
+::
+
 ### Variant
 
 Use the `variant` prop to change the variant of the Card.

@@ -2,8 +2,10 @@
 import theme from '#build/b24ui/card'
 
 const variants = Object.keys(theme.variants.variant)
+const sizes = Object.keys(theme.variants.size)
 const attrs = reactive({
-  variant: [theme.defaultVariants.variant]
+  variant: [theme.defaultVariants.variant],
+  size: [theme.defaultVariants.size]
 })
 </script>
 
@@ -15,6 +17,14 @@ const attrs = reactive({
         class="w-56"
         :items="variants"
         placeholder="Variant"
+        multiple
+        size="xs"
+      />
+      <B24Select
+        v-model="attrs.size"
+        class="w-32"
+        :items="sizes"
+        placeholder="Size"
         multiple
         size="xs"
       />
