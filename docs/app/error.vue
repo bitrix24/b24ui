@@ -37,19 +37,16 @@ provide('navigation', rootNavigation)
   <B24App>
     <NuxtLoadingIndicator color="var(--ui-color-accent-main-primary)" :height="2" />
 
-    <div :class="[route.path.startsWith('/docs/') && 'root']">
-      <!-- <Banner /> -->
+    <div class="flex">
+      <div class="flex-1 min-w-0" :class="[route.path.startsWith('/docs/') && 'root']">
+        <!-- <Banner /> -->
 
-      <Header />
+        <Header />
 
-      <B24Error
-        :error="error"
-        :b24ui="{
-          root: 'min-h-[calc(100vh-var(--topbar-height)-var(--topbar-height))]'
-        }"
-      />
+        <B24Error :error="error" :b24ui="{ root: 'min-h-[calc(100vh-var(--topbar-height)-var(--topbar-height))]' }" />
 
-      <Footer />
+        <Footer />
+      </div>
     </div>
   </B24App>
 </template>

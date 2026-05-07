@@ -5,6 +5,7 @@
 * fix(Banner): test localStorage
 * feat(Theme): override component prop defaults
 * docs(Search): stabilize Fuse config reference to prevent re-indexing on every keystroke
+* docs(app): move Search inside ClientOnly alongside Chat
 
 ## [2.7.0](https://github.com/bitrix24/b24ui/compare/v2.6.1...v2.7.0) (2026-05-01)
 

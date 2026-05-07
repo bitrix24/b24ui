@@ -86,17 +86,19 @@ provide('files', files)
 
         <template v-if="!route.path.startsWith('/examples')">
           <Footer />
-
-          <ClientOnly>
-            <Search :files="files" :navigation="navigationByFramework" />
-            <!-- @memo this for docus -->
-            <!-- template v-if="isAssistantEnabled">
-              <LazyAssistantPanel />
-              <LazyAssistantFloatingInput />
-            </template -->
-          </ClientOnly>
         </template>
       </div>
+
+      <template v-if="!route.path.startsWith('/examples')">
+        <ClientOnly>
+          <Search :files="files" :navigation="navigationByFramework" />
+          <!-- @memo this for docus -->
+          <!-- template v-if="isAssistantEnabled">
+            <LazyAssistantPanel />
+            <LazyAssistantFloatingInput />
+          </template -->
+        </ClientOnly>
+      </template>
 
       <!-- @memo this for NUXT.UI.docs -->
       <template v-if="isAssistantEnabled && !route.path.startsWith('/examples')">
