@@ -263,6 +263,17 @@ name: 'popover-anchor-slot-example'
 ---
 ::
 
+### Entity info card
+
+Real-world example: an account or deal summary shown in a hover popover, assembled from [`Card`](/docs/components/card/), [`Avatar`](/docs/components/avatar/), [`Separator`](/docs/components/separator/), [`Button`](/docs/components/button/), [`Link`](/docs/components/link/) and [`DescriptionList`](/docs/components/description-list/) — no custom styling beyond the avatar accent.
+
+::component-example
+---
+collapse: true
+name: 'popover-entity-info-example'
+---
+::
+
 ## API
 
 ### Props

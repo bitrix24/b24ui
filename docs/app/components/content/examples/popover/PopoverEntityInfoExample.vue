@@ -1,0 +1,51 @@
+<script setup lang="ts">
+import UserGroupIcon from '@bitrix24/b24icons-vue/common-b24/UserGroupIcon'
+import type { DescriptionListItem } from '@bitrix24/b24ui-nuxt'
+
+const items: DescriptionListItem[] = [
+  { label: 'Account manager', description: 'Sample owner', slot: 'owner' },
+  { label: 'Created', description: 'Oct 6, 2024 08:37' },
+  { label: 'Segment', description: 'Enterprise' }
+]
+</script>
+
+<template>
+  <B24Popover mode="hover" :content="{ side: 'bottom', sideOffset: 8 }" :b24ui="{ content: 'p-0' }">
+    <B24Link is-action>
+      ACME Corp.
+    </B24Link>
+
+    <template #content>
+      <div class="w-[280px] sm:w-xs p-md flex flex-col gap-md">
+        <div class="flex items-center gap-3">
+          <B24Avatar
+            size="lg"
+            :icon="UserGroupIcon"
+            :b24ui="{
+              root: 'bg-(--ui-color-design-filled-alert-bg)',
+              icon: 'text-(--ui-color-design-filled-alert-content)'
+            }"
+          />
+          <div class="min-w-0">
+            <div class="font-(--ui-font-weight-semi-bold) truncate">
+              ACME Corp.
+            </div>
+            <div class="text-sm text-(--ui-color-design-plain-a-content) truncate">
+              12 contacts
+            </div>
+          </div>
+        </div>
+
+        <B24Button block color="air-secondary-no-accent" label="Open account" />
+
+        <B24Separator />
+
+        <B24DescriptionList size="sm" :items="items">
+          <template #owner="{ item }">
+            <B24Link>{{ item.description }}</B24Link>
+          </template>
+        </B24DescriptionList>
+      </div>
+    </template>
+  </B24Popover>
+</template>

@@ -40,7 +40,7 @@ Based on the task, load the relevant reference files **before writing any code**
 
 **Recipes** — complete patterns for common tasks:
 - [data-tables](references/recipes/data-tables.md) — tables with filters, pagination, sorting, selection
-- [overlays](references/recipes/overlays.md) — modals, slideovers, drawers, command palette
+- [overlays](references/recipes/overlays.md) — modals, slideovers, drawers, command palette, info popovers
 - [navigation](references/recipes/navigation.md) — headers, sidebars, breadcrumbs, tabs
 - [card-pickers](references/recipes/card-pickers.md) — icon-and-description card grids for picking a setting variant or toggling capabilities (`B24PageCardGroup`)
 
