@@ -304,6 +304,23 @@ props:
 ---
 ::
 
+## Examples
+
+### Settings layout (rich radio cards)
+
+Use the `card` variant together with the `#label` slot to render a settings-style picker where each option has a title, description, a "Learn more" link and a preview image. The label slot renders inside a `<span>`, so any phrasing-content layout (flex, link, image) works.
+
+::component-example
+---
+collapse: true
+name: 'radio-group-settings-example'
+---
+::
+
+::tip
+Stop the click from toggling the radio when the user follows the inline link by adding `@click.stop` to it.
+::
+
 ## API
 
 ### Props
