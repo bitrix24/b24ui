@@ -67,6 +67,7 @@ Options:
 - **Conventional commits**: All commit messages must follow [conventional commits](https://conventionalcommits.org) (e.g. `fix(Button): resolve hover state`, `feat(Modal): add fullscreen prop`).
 - **Semantic colors**: Use `text-description`, `bg-elevated`, etc. — never raw Tailwind palette colors like `text-gray-500`.
 - **`Soon` badge on docs headings**: PRs that introduce a new feature or fix often add `:badge{label="Soon" class="align-text-top"}` to the relevant docs heading. This is intentional: the docs site redeploys on merge, but the feature only ships on the next npm release — the badge bridges that gap. Do NOT flag this as inconsistent in reviews. See [documentation.md](.github/contributing/documentation.md) for details.
+- **Skill files live in `skills/`**: Whenever a request mentions editing, adding, or refining a skill (`SKILL.md`, references, recipes, guidelines, layouts), modify the tracked tree under `skills/<skill-name>/` — NOT under `.claude/skills/` (which is gitignored and local-only). The exception is when the user explicitly names the `.claude/skills/` path. If both copies exist, treat `skills/` as the source of truth and ignore `.claude/skills/`.
 
 ## Library Source (`src/` and `test/`)
 
