@@ -231,6 +231,17 @@ name: 'description-list-custom-slot-example'
 ---
 ::
 
+### With link in items
+
+Use the `to` property on an item to render the description as a [Link](/docs/components/link/). Pair it with `target: '_blank'` for external destinations. Items that set their own `slot` are not affected.
+
+::component-example
+---
+collapse: true
+name: 'description-list-link-example'
+---
+::
+
 ## API
 
 ### Props
