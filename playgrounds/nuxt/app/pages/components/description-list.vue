@@ -141,6 +141,24 @@ const itemsIcons: DescriptionListItem[] = [
   }
 ]
 
+const itemsLink: DescriptionListItem[] = [
+  {
+    label: 'Account manager',
+    description: 'Sample owner',
+    to: '/users/owner'
+  },
+  {
+    label: 'External profile',
+    description: 'View on partner portal',
+    to: 'https://example.com',
+    target: '_blank'
+  },
+  {
+    label: 'Created',
+    description: 'Oct 6, 2024 08:37'
+  }
+]
+
 const itemsCustom: (DescriptionListItem & { value?: Date | string })[] = [
   {
     label: 'Amount',
@@ -194,6 +212,17 @@ const itemsCustom: (DescriptionListItem & { value?: Date | string })[] = [
           legend="Applicant Information"
           text="Personal details and application."
           :items="itemsIcons"
+        />
+      </div>
+    </ExampleCard>
+
+    <ExampleCard title="link" :use-bg="isUseBg" class="sm:col-span-2">
+      <B24Separator class="my-3" type="dotted" />
+      <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
+        <B24DescriptionList
+          legend="With link in items"
+          text="Use item.to to render the description as a B24Link."
+          :items="itemsLink"
         />
       </div>
     </ExampleCard>

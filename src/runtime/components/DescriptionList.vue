@@ -1,6 +1,7 @@
 <script lang="ts">
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
+import type { RouteLocationRaw } from 'vue-router'
 import theme from '#build/b24ui/description-list'
 import type { AvatarProps, ButtonProps, IconComponent } from '../types'
 import type { DynamicSlots } from '../types/utils'
@@ -18,6 +19,15 @@ export interface DescriptionListItem {
   avatar?: AvatarProps
   slot?: string
   description?: string
+  /**
+   * Render the description as a link. Accepts any value supported by `B24Link` `to`.
+   * Ignored when `slot` is set, since the consumer is rendering the description manually.
+   */
+  to?: RouteLocationRaw | string
+  /**
+   * Forwarded to `B24Link` when `to` is set.
+   */
+  target?: '_blank' | '_parent' | '_self' | '_top' | (string & {}) | null
   /**
    * The orientation between the content and the actions.
    * @defaultValue 'vertical'
@@ -81,6 +91,7 @@ import { get } from '../utils'
 import { tv } from '../utils/tv'
 import B24Avatar from './Avatar.vue'
 import B24Button from './Button.vue'
+import B24Link from './Link.vue'
 
 const _props = withDefaults(defineProps<DescriptionListProps<T>>(), {
   labelKey: 'label',
@@ -231,7 +242,12 @@ const normalizedItems = computed(() => {
               })"
             >
               <slot name="description" :item="item" :index="index" :b24ui="b24ui">
-                {{ item.description }}
+                <B24Link v-if="item.to" :to="item.to" :target="item.target">
+                  {{ item.description }}
+                </B24Link>
+                <template v-else>
+                  {{ item.description }}
+                </template>
               </slot>
             </span>
             <span
