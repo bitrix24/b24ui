@@ -55,6 +55,7 @@ Decision matrices for choosing the right component. A list of all components is 
 | Boolean checkbox | `B24Checkbox` | [checkbox.md](https://bitrix24.github.io/b24ui/raw/docs/components/checkbox.md) | Single option with label |
 | Multiple choices from a list | `B24CheckboxGroup` | [checkbox-group.md](https://bitrix24.github.io/b24ui/raw/docs/components/checkbox-group.md) | Multiple selection, vertical or horizontal |
 | Single choice from a list (visible) | `B24RadioGroup` | [radio-group.md](https://bitrix24.github.io/b24ui/raw/docs/components/radio-group.md) | All options visible, one selected |
+| Card-style picker (icon + title + description, single or multi) | `B24PageCardGroup` | [page-card-group.md](https://bitrix24.github.io/b24ui/raw/docs/components/page-card-group.md) | Visual selection grid, optional category grouping, single/multi mode |
 | Range value | `B24Slider` | [range.md](https://bitrix24.github.io/b24ui/raw/docs/components/range.md) | Min/max with visual track |
 | Color value | `B24ColorPicker` | [color-picker.md](https://bitrix24.github.io/b24ui/raw/docs/components/color-picker.md) | Hex/RGB/HSL picker |
 | File upload | `B24FileUpload` | [file-upload.md](https://bitrix24.github.io/b24ui/raw/docs/components/file-upload.md) | Button or drop area variants |
@@ -66,6 +67,7 @@ Decision matrices for choosing the right component. A list of all components is 
 - Use `B24InputMenu` when the user might want to type a value that's not in the list
 - Wrap all form inputs in `B24FormField` for labels, descriptions, hints, and validation errors
 - Group related inline inputs with `B24FieldGroup`
+- Use `B24PageCardGroup` when each option needs an icon, title, and description rendered as a card grid (e.g. wizard step "pick a feature"); fall back to `B24RadioGroup` / `B24CheckboxGroup` for compact text-only lists
 
 ## Feedback
 

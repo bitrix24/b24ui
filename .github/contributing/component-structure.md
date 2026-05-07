@@ -310,6 +310,29 @@ Add to `src/runtime/types/index.ts`:
 export * from '../components/ComponentName.vue'
 ```
 
+## Playground and Demo Registration
+
+Every component must be reachable from both playground sidebars, otherwise reviewers cannot open it. After creating a demo page, register its slug in the matching `useNavigation.ts`.
+
+| Page file | Navigation file |
+|---|---|
+| `playgrounds/nuxt/app/pages/components/<name>.vue` | `playgrounds/nuxt/app/composables/useNavigation.ts` |
+| `playgrounds/demo/app/pages/components/<name>.vue` | `playgrounds/demo/app/composables/useNavigation.ts` |
+
+In each `useNavigation.ts`, add the kebab-case slug to the `components` array (alphabetical, matching the file name):
+
+```ts
+const components = [
+  // ...
+  'page-card',
+  'page-card-group', // <-- new entry
+  'page-columns',
+  // ...
+]
+```
+
+Both arrays must stay in sync. Forgetting either side leaves an orphan page that 404s from the sidebar.
+
 ## Register in `ThemeDefaults`
 
 The `ThemeDefaults` interface in `src/runtime/composables/useComponentProps.ts` powers autocomplete inside `<B24Theme :props="{ componentName: { … } }">`. The CLI scaffolder (`bitrix24-ui make component`) auto-inserts the entry; only do this manually if you skipped the CLI:

@@ -121,6 +121,7 @@ Quick-reference index of 125+ components. For detailed API specifications (props
 | `B24PageGrid` | Card grid layout | [page-grid.md](https://bitrix24.github.io/b24ui/raw/docs/components/page-grid.md) |
 | `B24PageColumns` | Multi-column layout | [page-columns.md](https://bitrix24.github.io/b24ui/raw/docs/components/page-columns.md) |
 | `B24PageCard` | Content card for grids | [page-card.md](https://bitrix24.github.io/b24ui/raw/docs/components/page-card.md) |
+| `B24PageCardGroup` | Selectable group of PageCard items (single/multi, category grouping) | [page-card-group.md](https://bitrix24.github.io/b24ui/raw/docs/components/page-card-group.md) |
 | `B24PageAside` | Sticky sidebar wrapper | [page-aside.md](https://bitrix24.github.io/b24ui/raw/docs/components/page-aside.md) |
 | `B24PageLinks` | Related resource links | [page-links.md](https://bitrix24.github.io/b24ui/raw/docs/components/page-links.md) |
 | `B24PageList` | List layout for page items | [page-list.md](https://bitrix24.github.io/b24ui/raw/docs/components/page-list.md) |
