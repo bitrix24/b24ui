@@ -49,6 +49,18 @@ export default defineLocale<Messages>({
       noMatch: 'Збігів не знайдено',
       placeholder: 'Введіть команду або пошук…'
     },
+    dateTimePicker: {
+      backToDate: 'До дати',
+      hours: 'Години',
+      minutes: 'Хвилини',
+      presets: {
+        today: 'Сьогодні',
+        tomorrow: 'Завтра',
+        endOfWeek: 'У кінці тижня',
+        inAWeek: 'Через тиждень',
+        endOfMonth: 'У кінці місяця'
+      }
+    },
     contentSearch: {
       links: 'Результати',
       theme: 'Тема'

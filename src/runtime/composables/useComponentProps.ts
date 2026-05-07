@@ -80,6 +80,7 @@ export interface ThemeDefaults {
   dashboardSidebarCollapse?: Partial<ComponentTypes.DashboardSidebarCollapseProps>
   dashboardSidebarToggle?: Partial<ComponentTypes.DashboardSidebarToggleProps>
   dashboardToolbar?: Partial<ComponentTypes.DashboardToolbarProps>
+  dateTimePicker?: Partial<ComponentTypes.DateTimePickerProps>
   drawer?: Partial<ComponentTypes.DrawerProps>
   dropdownMenu?: Partial<ComponentTypes.DropdownMenuProps>
   editor?: Partial<ComponentTypes.EditorProps>

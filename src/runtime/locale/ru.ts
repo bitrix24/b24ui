@@ -49,6 +49,18 @@ export default defineLocale<Messages>({
       noMatch: 'Совпадений не найдено',
       placeholder: 'Введите команду или поиск…'
     },
+    dateTimePicker: {
+      backToDate: 'К дате',
+      hours: 'Часы',
+      minutes: 'Минуты',
+      presets: {
+        today: 'Сегодня',
+        tomorrow: 'Завтра',
+        endOfWeek: 'В конце недели',
+        inAWeek: 'Через неделю',
+        endOfMonth: 'В конце месяца'
+      }
+    },
     contentSearch: {
       links: 'Результаты',
       theme: 'Тема'

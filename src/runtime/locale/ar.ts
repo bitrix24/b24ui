@@ -50,6 +50,18 @@ export default defineLocale<Messages>({
       noMatch: 'لم يتم العثور على نتائج',
       placeholder: 'أدخل أمرًا أو ابحث…'
     },
+    dateTimePicker: {
+      backToDate: 'العودة إلى التاريخ',
+      hours: 'ساعات',
+      minutes: 'دقائق',
+      presets: {
+        today: 'اليوم',
+        tomorrow: 'غدًا',
+        endOfWeek: 'نهاية الأسبوع',
+        inAWeek: 'بعد أسبوع',
+        endOfMonth: 'نهاية الشهر'
+      }
+    },
     contentSearch: {
       links: 'النتائج',
       theme: 'السمة'

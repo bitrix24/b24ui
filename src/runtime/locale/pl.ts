@@ -49,6 +49,18 @@ export default defineLocale<Messages>({
       noMatch: 'Nie znaleziono pasujących wyników',
       placeholder: 'Wpisz polecenie lub szukaj…'
     },
+    dateTimePicker: {
+      backToDate: 'Wróć do daty',
+      hours: 'Godziny',
+      minutes: 'Minuty',
+      presets: {
+        today: 'Dzisiaj',
+        tomorrow: 'Jutro',
+        endOfWeek: 'Koniec tygodnia',
+        inAWeek: 'Za tydzień',
+        endOfMonth: 'Koniec miesiąca'
+      }
+    },
     contentSearch: {
       links: 'Wyniki',
       theme: 'Motyw'
