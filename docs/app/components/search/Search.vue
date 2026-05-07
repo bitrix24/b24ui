@@ -18,6 +18,10 @@ defineProps<{
 const { links, groups, searchTerm } = useSearch()
 const { track } = useAnalytics()
 
+const fuse = {
+  resultLimit: 30
+}
+
 watchDebounced(searchTerm, (term) => {
   if (term) {
     track('Search Performed', { term })
@@ -33,6 +37,6 @@ watchDebounced(searchTerm, (term) => {
     :groups="groups"
     :navigation="navigation"
     :color-mode="false"
-    :fuse="{ resultLimit: 30 }"
+    :fuse="fuse"
   />
 </template>
