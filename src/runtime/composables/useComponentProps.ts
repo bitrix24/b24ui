@@ -115,6 +115,7 @@ export interface ThemeDefaults {
   pageBody?: Partial<ComponentTypes.PageBodyProps>
   // pageCTA?: Partial<ComponentTypes.PageCTAProps>
   pageCard?: Partial<ComponentTypes.PageCardProps>
+  pageCardGroup?: Partial<ComponentTypes.PageCardGroupProps>
   pageColumns?: Partial<ComponentTypes.PageColumnsProps>
   pageFeature?: Partial<ComponentTypes.PageFeatureProps>
   pageGrid?: Partial<ComponentTypes.PageGridProps>

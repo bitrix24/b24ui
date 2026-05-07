@@ -62,6 +62,7 @@ const components = [
   'navigation-menu',
   // 'page-anchors',
   'page-card',
+  'page-card-group',
   // 'page-cta',
   'page-feature',
   'page-header',

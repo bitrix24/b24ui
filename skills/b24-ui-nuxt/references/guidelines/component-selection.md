@@ -55,6 +55,7 @@ Decision matrices for choosing the right component. A list of all components is 
 | Boolean checkbox | `B24Checkbox` | [checkbox.md](https://bitrix24.github.io/b24ui/raw/docs/components/checkbox.md) | Single option with label |
 | Multiple choices from a list | `B24CheckboxGroup` | [checkbox-group.md](https://bitrix24.github.io/b24ui/raw/docs/components/checkbox-group.md) | Multiple selection, vertical or horizontal |
 | Single choice from a list (visible) | `B24RadioGroup` | [radio-group.md](https://bitrix24.github.io/b24ui/raw/docs/components/radio-group.md) | All options visible, one selected |
+| Pick one or more "named features" from a set, each option needs an icon and a sentence | `B24PageCardGroup` | [page-card-group.md](https://bitrix24.github.io/b24ui/raw/docs/components/page-card-group.md) | Card grid with icon + title + description per option, optional category sections, single or multi-select, hover shadow, sm/md/lg sizes |
 | Range value | `B24Slider` | [range.md](https://bitrix24.github.io/b24ui/raw/docs/components/range.md) | Min/max with visual track |
 | Color value | `B24ColorPicker` | [color-picker.md](https://bitrix24.github.io/b24ui/raw/docs/components/color-picker.md) | Hex/RGB/HSL picker |
 | File upload | `B24FileUpload` | [file-upload.md](https://bitrix24.github.io/b24ui/raw/docs/components/file-upload.md) | Button or drop area variants |
@@ -66,6 +67,7 @@ Decision matrices for choosing the right component. A list of all components is 
 - Use `B24InputMenu` when the user might want to type a value that's not in the list
 - Wrap all form inputs in `B24FormField` for labels, descriptions, hints, and validation errors
 - Group related inline inputs with `B24FieldGroup`
+- Use `B24PageCardGroup` when each option earns its own sentence — settings variants ("which form template?"), capability toggles ("which channels does this scenario use?"), or a wizard's first step. The user reads before they click. Fall back to `B24RadioGroup` / `B24CheckboxGroup` whenever the labels alone are self-explanatory.
 
 ## Feedback
 

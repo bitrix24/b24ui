@@ -42,6 +42,7 @@ Based on the task, load the relevant reference files **before writing any code**
 - [data-tables](references/recipes/data-tables.md) — tables with filters, pagination, sorting, selection
 - [overlays](references/recipes/overlays.md) — modals, slideovers, drawers, command palette
 - [navigation](references/recipes/navigation.md) — headers, sidebars, breadcrumbs, tabs
+- [card-pickers](references/recipes/card-pickers.md) — icon-and-description card grids for picking a setting variant or toggling capabilities (`B24PageCardGroup`)
 
 **Quick reference:**
 - [components](references/components.md) — categorized component index for finding the right component name
@@ -58,6 +59,7 @@ Based on the task, load the relevant reference files **before writing any code**
 | Add a chat interface | conventions, chat |
 | Add a modal, slideover, or drawer | conventions, component-selection, overlays |
 | Build site navigation | conventions, component-selection, navigation |
+| Pick one option (or toggle several) from a small set where each option needs an icon and a sentence — settings variants, capability flags, "what do you want to build?" wizard step | conventions, component-selection, card-pickers |
 | Add a rich text editor | conventions, editor |
 | General UI work | conventions, component-selection |
 
