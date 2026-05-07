@@ -40,23 +40,25 @@ export interface ProseTableSlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../../composables/useComponentUI'
+import { useComponentProps } from '../../composables/useComponentProps'
 import { tv } from '../../utils/tv'
 import B24TableWrapper from './../TableWrapper.vue'
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<ProseTableProps>(), {
+const _props = withDefaults(defineProps<ProseTableProps>(), {
   as: 'div',
   rounded: true,
   zebra: true,
   rowHover: true,
   bordered: true
 })
+
 defineSlots<ProseTableSlots>()
 
+const props = useComponentProps('prose.table', _props)
+
 const appConfig = useAppConfig() as ProseTable['AppConfig']
-const uiProp = useComponentUI('prose.table', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.table || {}) })())
@@ -64,16 +66,16 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
 
 <template>
   <B24TableWrapper
-    :as="as"
+    :as="props.as"
     data-slot="root"
-    :class="b24ui.root({ class: [uiProp?.root, props.class] })"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     :zebra="props.zebra"
     :row-hover="props.rowHover"
     :rounded="props.rounded"
     :bordered="props.bordered"
     size="sm"
   >
-    <table data-slot="base" :class="b24ui.base({ class: uiProp?.base })">
+    <table data-slot="base" :class="b24ui.base({ class: props.b24ui?.base })">
       <slot />
     </table>
   </B24TableWrapper>

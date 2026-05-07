@@ -81,24 +81,26 @@ export interface AlertSlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { useLocale } from '../composables/useLocale'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Avatar from './Avatar.vue'
 import B24Button from './Button.vue'
 
-const props = withDefaults(defineProps<AlertProps>(), {
+const _props = withDefaults(defineProps<AlertProps>(), {
   inverted: false,
   orientation: 'vertical'
 })
 const emits = defineEmits<AlertEmits>()
 const slots = defineSlots<AlertSlots>()
 
+const props = useComponentProps('alert', _props)
+
 const { t } = useLocale()
 const appConfig = useAppConfig() as Alert['AppConfig']
-const uiProp = useComponentUI('alert', props)
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.alert || {}) })({
   color: props.color,
   inverted: Boolean(props.inverted),
@@ -109,53 +111,53 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.alert 
 </script>
 
 <template>
-  <Primitive :as="as" :data-orientation="orientation" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
+  <Primitive :as="props.as" :data-orientation="props.orientation" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <slot name="leading" :b24ui="b24ui">
       <Component
-        :is="icon"
-        v-if="icon"
+        :is="props.icon"
+        v-if="props.icon"
         data-slot="icon"
-        :class="b24ui.icon({ class: uiProp?.icon })"
+        :class="b24ui.icon({ class: props.b24ui?.icon })"
       />
-      <B24Avatar v-else-if="avatar" :size="((uiProp?.avatarSize || b24ui.avatarSize()) as AvatarProps['size'])" v-bind="avatar" data-slot="avatar" :class="b24ui.avatar({ class: uiProp?.avatar })" />
+      <B24Avatar v-else-if="props.avatar" :size="((props.b24ui?.avatarSize || b24ui.avatarSize()) as AvatarProps['size'])" v-bind="props.avatar" data-slot="avatar" :class="b24ui.avatar({ class: props.b24ui?.avatar })" />
     </slot>
 
-    <div data-slot="wrapper" :class="b24ui.wrapper({ class: uiProp?.wrapper })">
-      <div v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
+    <div data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
+      <div v-if="props.title || !!slots.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
         <slot name="title">
-          {{ title }}
+          {{ props.title }}
         </slot>
       </div>
-      <div v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: uiProp?.description })">
+      <div v-if="props.description || !!slots.description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
         <slot name="description">
-          {{ description }}
+          {{ props.description }}
         </slot>
       </div>
 
-      <div v-if="orientation === 'vertical' && (actions?.length || !!slots.actions)" data-slot="actions" :class="b24ui.actions({ class: uiProp?.actions })">
+      <div v-if="props.orientation === 'vertical' && (props.actions?.length || !!slots.actions)" data-slot="actions" :class="b24ui.actions({ class: props.b24ui?.actions })">
         <slot name="actions">
-          <B24Button v-for="(action, index) in actions" :key="index" size="sm" v-bind="action" />
+          <B24Button v-for="(action, index) in props.actions" :key="index" size="sm" v-bind="action" />
         </slot>
       </div>
     </div>
 
-    <div v-if="(orientation === 'horizontal' && (actions?.length || !!slots.actions)) || close" data-slot="actions" :class="b24ui.actions({ class: uiProp?.actions, orientation: 'horizontal' })">
-      <template v-if="orientation === 'horizontal' && (actions?.length || !!slots.actions)">
+    <div v-if="(props.orientation === 'horizontal' && (props.actions?.length || !!slots.actions)) || props.close" data-slot="actions" :class="b24ui.actions({ class: props.b24ui?.actions, orientation: 'horizontal' })">
+      <template v-if="props.orientation === 'horizontal' && (props.actions?.length || !!slots.actions)">
         <slot name="actions">
-          <B24Button v-for="(action, index) in actions" :key="index" size="sm" v-bind="action" />
+          <B24Button v-for="(action, index) in props.actions" :key="index" size="sm" v-bind="action" />
         </slot>
       </template>
 
       <slot name="close" :b24ui="b24ui">
         <B24Button
-          v-if="close"
-          :icon="closeIcon || icons.close"
+          v-if="props.close"
+          :icon="props.closeIcon || icons.close"
           size="md"
           color="air-tertiary-no-accent"
           :aria-label="t('alert.close')"
-          v-bind="(typeof close === 'object' ? close : {})"
+          v-bind="(typeof props.close === 'object' ? props.close : {})"
           data-slot="close"
-          :class="b24ui.close({ class: uiProp?.close })"
+          :class="b24ui.close({ class: props.b24ui?.close })"
           @click="emits('update:open', false)"
         />
       </slot>

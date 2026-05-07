@@ -87,20 +87,22 @@ import { Presence } from 'reka-ui'
 import { defu } from 'defu'
 import { useElementBounding, useEventListener, useMutationObserver, watchThrottled } from '@vueuse/core'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { omit } from '../utils'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24ChatMessage from './ChatMessage.vue'
 import B24Button from './Button.vue'
 
-const props = withDefaults(defineProps<ChatMessagesProps<T>>(), {
+const _props = withDefaults(defineProps<ChatMessagesProps<T>>(), {
   autoScroll: true,
   shouldAutoScroll: false,
   shouldScrollToBottom: true,
   spacingOffset: 0
 })
 const slots = defineSlots<ChatMessagesSlots<T>>()
+
+const props = useComponentProps<ChatMessagesProps<T>>('chatMessages', _props)
 
 const getProxySlots = () => omit(slots, ['default', 'indicator', 'viewport'])
 
@@ -113,11 +115,11 @@ const showIndicator = computed(() => {
 })
 
 const appConfig = useAppConfig() as ChatMessages['AppConfig']
-const uiProp = useComponentUI('chatMessages', props)
 
 const userProps = toRef(() => defu(props.user, { side: 'right' as const, variant: 'message' as const }))
 const assistantProps = toRef(() => defu(props.assistant, { side: 'left' as const, variant: 'message' as const }))
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chatMessages || {}) })({
   compact: props.compact
 }))
@@ -312,18 +314,18 @@ onMounted(() => {
 <template>
   <div
     ref="el"
-    :data-status="status"
+    :data-status="props.status"
     data-slot="root"
-    :class="b24ui.root({ class: [uiProp?.root, props.class] })"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     :style="{ '--last-message-height': `${lastMessageHeight}px` }"
   >
     <slot>
-      <template v-for="message in messages" :key="message.id">
+      <template v-for="message in props.messages" :key="message.id">
         <B24ChatMessage
           v-if="message.parts?.length"
           v-bind="{ ...(message.role === 'user' ? userProps : assistantProps), ...message }"
           :ref="el => registerMessageRef(message.id, el as ComponentPublicInstance)"
-          :compact="compact"
+          :compact="props.compact"
         >
           <template v-for="(_, name) in getProxySlots()" #[name]="slotData">
             <slot :name="name" v-bind="{ ...(slotData as any), message }" />
@@ -337,11 +339,11 @@ onMounted(() => {
       id="indicator"
       role="assistant"
       v-bind="{ ...assistantProps, actions: undefined, parts: [] }"
-      :compact="compact"
+      :compact="props.compact"
     >
       <template #content>
         <slot name="indicator" :b24ui="b24ui">
-          <div data-slot="indicator" :class="b24ui.indicator({ class: uiProp?.indicator })">
+          <div data-slot="indicator" :class="b24ui.indicator({ class: props.b24ui?.indicator })">
             <span />
             <span />
             <span />
@@ -351,15 +353,15 @@ onMounted(() => {
     </B24ChatMessage>
 
     <Presence :present="showAutoScroll">
-      <div :data-state="showAutoScroll ? 'open' : 'closed'" data-slot="viewport" :class="b24ui.viewport({ class: uiProp?.viewport })">
+      <div :data-state="showAutoScroll ? 'open' : 'closed'" data-slot="viewport" :class="b24ui.viewport({ class: props.b24ui?.viewport })">
         <slot name="viewport" :b24ui="b24ui" :on-click="onAutoScrollClick">
           <B24Button
-            v-if="autoScroll"
-            :icon="autoScrollIcon || icons.arrowDown"
+            v-if="props.autoScroll"
+            :icon="props.autoScrollIcon || icons.arrowDown"
             color="air-secondary-no-accent"
-            v-bind="(typeof autoScroll === 'object' ? autoScroll : {})"
+            v-bind="(typeof props.autoScroll === 'object' ? props.autoScroll : {})"
             data-slot="autoScroll"
-            :class="b24ui.autoScroll({ class: uiProp?.autoScroll })"
+            :class="b24ui.autoScroll({ class: props.b24ui?.autoScroll })"
             @click="onAutoScrollClick"
           />
         </slot>

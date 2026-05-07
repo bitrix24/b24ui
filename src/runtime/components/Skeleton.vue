@@ -24,16 +24,18 @@ export interface SkeletonProps {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { tv } from '../utils/tv'
 
-const props = withDefaults(defineProps<SkeletonProps>(), {
+const _props = withDefaults(defineProps<SkeletonProps>(), {
   accent: 'default'
 })
 
-const appConfig = useAppConfig() as Skeleton['AppConfig']
-const uiProp = useComponentUI('skeleton', props)
+const props = useComponentProps('skeleton', _props)
 
+const appConfig = useAppConfig() as Skeleton['AppConfig']
+
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.skeleton || {}) })({
   accent: props.accent
 }))
@@ -41,13 +43,13 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.skelet
 
 <template>
   <Primitive
-    :as="as"
+    :as="props.as"
     aria-busy="true"
     aria-label="loading"
     aria-live="polite"
     role="alert"
     data-slot="base"
-    :class="b24ui.base({ class: [uiProp?.base, props.class] })"
+    :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
   >
     <slot />
   </Primitive>

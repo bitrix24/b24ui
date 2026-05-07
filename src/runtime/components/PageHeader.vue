@@ -38,41 +38,43 @@ export interface PageHeaderSlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { tv } from '../utils/tv'
 import B24Button from './Button.vue'
 
-const props = defineProps<PageHeaderProps>()
+const _props = defineProps<PageHeaderProps>()
 const slots = defineSlots<PageHeaderSlots>()
 
-const appConfig = useAppConfig() as PageHeader['AppConfig']
-const uiProp = useComponentUI('pageHeader', props)
+const props = useComponentProps('pageHeader', _props)
 
+const appConfig = useAppConfig() as PageHeader['AppConfig']
+
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pageHeader || {}) })({
   title: !!props.title || !!slots.title
 }))
 </script>
 
 <template>
-  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
-    <div v-if="headline || !!slots.headline" data-slot="headline" :class="b24ui.headline({ class: uiProp?.headline })">
+  <Primitive :as="props.as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+    <div v-if="props.headline || !!slots.headline" data-slot="headline" :class="b24ui.headline({ class: props.b24ui?.headline })">
       <slot name="headline">
-        {{ headline }}
+        {{ props.headline }}
       </slot>
     </div>
 
-    <div data-slot="container" :class="b24ui.container({ class: uiProp?.container })">
-      <div data-slot="wrapper" :class="b24ui.wrapper({ class: uiProp?.wrapper })">
-        <h1 v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
+    <div data-slot="container" :class="b24ui.container({ class: props.b24ui?.container })">
+      <div data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
+        <h1 v-if="props.title || !!slots.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
           <slot name="title">
-            {{ title }}
+            {{ props.title }}
           </slot>
         </h1>
 
-        <div v-if="links?.length || !!slots.links" data-slot="links" :class="b24ui.links({ class: uiProp?.links })">
+        <div v-if="props.links?.length || !!slots.links" data-slot="links" :class="b24ui.links({ class: props.b24ui?.links })">
           <slot name="links">
             <B24Button
-              v-for="(link, index) in links"
+              v-for="(link, index) in props.links"
               :key="index"
               color="air-secondary-accent"
               size="sm"
@@ -82,9 +84,9 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pageHe
         </div>
       </div>
 
-      <div v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: uiProp?.description })">
+      <div v-if="props.description || !!slots.description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
         <slot name="description">
-          {{ description }}
+          {{ props.description }}
         </slot>
       </div>
 

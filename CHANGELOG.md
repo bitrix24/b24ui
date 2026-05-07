@@ -3,6 +3,7 @@
 ## [2.7.1](https://github.com/bitrix24/b24ui/compare/v2.7.0...v2.7.1) (2026-05-xx)
 
 * fix(Banner): test localStorage
+* feat(Theme): override component prop defaults
 
 ## [2.7.0](https://github.com/bitrix24/b24ui/compare/v2.6.1...v2.7.0) (2026-05-01)
 

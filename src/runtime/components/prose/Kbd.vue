@@ -15,19 +15,20 @@ export interface ProseKbdProps {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../../composables/useComponentUI'
+import { useComponentProps } from '../../composables/useComponentProps'
 import { tv } from '../../utils/tv'
 import B24Kbd from '../Kbd.vue'
 
-const props = defineProps<ProseKbdProps>()
+const _props = defineProps<ProseKbdProps>()
+
+const props = useComponentProps('prose.kbd', _props)
 
 const appConfig = useAppConfig() as ProseKbd['AppConfig']
-const uiProp = useComponentUI('prose.kbd', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.kbd || {}) }))
 </script>
 
 <template>
-  <B24Kbd :value="value" :class="b24ui({ class: [uiProp?.base, props.class] })" />
+  <B24Kbd :value="props.value" :class="b24ui({ class: [props.b24ui?.base, props.class] })" />
 </template>

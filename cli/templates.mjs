@@ -26,7 +26,17 @@ const component = ({ name, primitive, pro, prose, content }) => {
   const upperName = splitByCase(name).map(p => upperFirst(p)).join('')
   const camelName = camelCase(name)
   const kebabName = kebabCase(name)
-  const key = 'b24ui'
+  const nested = prose || content
+  const dirPrefix = prose ? 'prose/' : (content ? 'content/' : '')
+  const importPrefix = nested ? '../..' : '..'
+  const componentKey = prose ? `prose.${camelName}` : camelName
+  const componentConfigArgs = prose
+    ? `typeof theme, AppConfig, '${camelName}', 'ui.prose'`
+    : `typeof theme, AppConfig, '${camelName}'`
+  const appConfigLookup = prose
+    ? `appConfig.ui?.prose?.${camelName}`
+    : `appConfig.ui?.${camelName}`
+  // const key = 'b24ui'
   const path = 'b24ui'
 
   if (pro) {
@@ -34,16 +44,17 @@ const component = ({ name, primitive, pro, prose, content }) => {
   }
 
   return {
-    filename: `src/runtime/components/${prose ? 'prose/' : ''}${content ? 'content/' : ''}${upperName}.vue`,
+    filename: `src/runtime/components/${dirPrefix}${upperName}.vue`,
     contents: primitive
       ? replaceBrackets(`
 [[script lang="ts"]]
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
-import theme from '#build/${path}/${prose ? 'prose/' : ''}${content ? 'content/' : ''}${kebabName}'
-import type { ComponentConfig } from '../types/tv'
+import { useComponentProps } from '${importPrefix}/composables/useComponentProps'
+import theme from '#build/${path}/${dirPrefix}${kebabName}'
+import type { ComponentConfig } from '${importPrefix}/types/tv'
 
-type ${upperName} = ComponentConfig<typeof theme, AppConfig, ${upperName}>
+type ${upperName} = ComponentConfig<${componentConfigArgs}>
 
 export interface ${upperName}Props {
   /**
@@ -64,18 +75,22 @@ export interface ${upperName}Slots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
+import { useComponentProps } from '${importPrefix}/composables/useComponentProps'
 import { tv } from '../utils/tv'
 
-const props = defineProps<${upperName}Props>()
+const _props = defineProps<${upperName}Props>()
 defineSlots<${upperName}Slots>()
+
+const props = useComponentProps('${componentKey}', _props)
 
 const appConfig = useAppConfig() as ${upperName}['AppConfig']
 
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.${camelName} || {}) })())
+// eslint-disable-next-line vue/no-dupe-keys
+const b24ui = computed(() => tv({ extend: tv(theme), ...(${appConfigLookup} || {}) })())
 [[/script]]
 
 [[template]]
-  [[Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"]]
+  [[Primitive :as="props.as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"]]
     [[slot /]]
   [[/Primitive]]
 [[/template]]
@@ -83,45 +98,54 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.${came
       : replaceBrackets(`
 [[script lang="ts"]]
 import type { ${upperName}RootProps, ${upperName}RootEmits } from 'reka-ui'
+import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
-import theme from '#build/${path}/${prose ? 'prose/' : ''}${content ? 'content/' : ''}${kebabName}'
-import type { ComponentConfig } from '../types/tv'
+import theme from '#build/${path}/${dirPrefix}${kebabName}'
+import type { ComponentConfig } from '${importPrefix}/types/tv'
 
-const appConfig${camelName} = _appConfig as AppConfig & { ${key}: { ${prose ? 'prose: { ' : ''}${camelName}: Partial[[typeof theme]] } }${prose ? ' }' : ''}
+type ${upperName} = ComponentConfig<${componentConfigArgs}>
 
-type ${upperName} = ComponentConfig<typeof theme, AppConfig, ${upperName}>
-
-export interface ${upperName}Props extends Pick[[${upperName}RootProps]] {
+// TODO: narrow with \`Pick<${upperName}RootProps, '...' | '...'>\` to expose only the props you need.
+export interface ${upperName}Props extends ${upperName}RootProps {
   class?: any
   b24ui?: ${upperName}['slots']
 }
 
 export interface ${upperName}Emits extends ${upperName}RootEmits {}
 
-export interface ${upperName}Slots {}
+export interface ${upperName}Slots {
+  default?(props?: {}): VNode[]
+}
 [[/script]]
 
 [[script setup lang="ts"]]
-
-
-import { ${upperName}Root, useForwardPropsEmits } from 'reka-ui'
+import { computed } from 'vue'
+import { ${upperName}Root } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
-import { tv } from '../utils/tv'
+import { useComponentProps } from '${importPrefix}/composables/useComponentProps'
+import { useForwardProps } from '${importPrefix}/composables/useForwardProps'
+import { tv } from '${importPrefix}/utils/tv'
 
-const props = defineProps<${upperName}Props>()
+const _props = defineProps<${upperName}Props>()
 const emits = defineEmits<${upperName}Emits>()
-const slots = defineSlots<${upperName}Slots>()
+defineSlots<${upperName}Slots>()
+
+const props = useComponentProps('${componentKey}', _props)
 
 const appConfig = useAppConfig() as ${upperName}['AppConfig']
 
-const rootProps = useForwardPropsEmits(reactivePick(props), emits)
+// TODO: list the same keys as in \`${upperName}Props\` Pick.
+const rootProps = useForwardProps(reactivePick(props, 'as'), emits)
 
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.${camelName} || {}) })())
+// eslint-disable-next-line vue/no-dupe-keys
+const b24ui = computed(() => tv({ extend: tv(theme), ...(${appConfigLookup} || {}) })())
 [[/script]]
 
 [[template]]
-  [[${upperName}Root v-bind="rootProps" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })" /]]
+  [[${upperName}Root v-bind="rootProps" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"]]
+    [[slot /]]
+  [[/${upperName}Root]]
 [[/template]]
 `)
   }

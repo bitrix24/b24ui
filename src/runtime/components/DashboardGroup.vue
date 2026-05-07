@@ -26,11 +26,11 @@ export interface DashboardGroupSlots {
 import { ref, computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useNuxtApp, useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { provideDashboardContext } from '../utils/dashboard'
 import { tv } from '../utils/tv'
 
-const props = withDefaults(defineProps<DashboardGroupProps>(), {
+const _props = withDefaults(defineProps<DashboardGroupProps>(), {
   storage: 'cookie',
   storageKey: 'dashboard',
   persistent: true,
@@ -38,9 +38,10 @@ const props = withDefaults(defineProps<DashboardGroupProps>(), {
 })
 defineSlots<DashboardGroupSlots>()
 
+const props = useComponentProps('dashboardGroup', _props)
+
 const nuxtApp = useNuxtApp()
 const appConfig = useAppConfig() as DashboardGroup['AppConfig']
-const uiProp = useComponentUI('dashboardGroup', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashboardGroup || {}) }))
@@ -68,7 +69,7 @@ provideDashboardContext({
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui({ class: [uiProp?.base, props.class] })">
+  <Primitive :as="props.as" :class="b24ui({ class: [props.b24ui?.base, props.class] })">
     <slot />
   </Primitive>
 </template>

@@ -107,15 +107,16 @@ export type ContextMenuSlots<
 
 <script setup lang="ts" generic="T extends ArrayOrNested<ContextMenuItem>">
 import { computed, toRef } from 'vue'
-import { ContextMenuRoot, ContextMenuTrigger, useForwardPropsEmits } from 'reka-ui'
+import { ContextMenuRoot, ContextMenuTrigger } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
+import { useForwardProps } from '../composables/useForwardProps'
 import { omit } from '../utils'
 import { tv } from '../utils/tv'
 import B24ContextMenuContent from './ContextMenuContent.vue'
 
-const props = withDefaults(defineProps<ContextMenuProps<T>>(), {
+const _props = withDefaults(defineProps<ContextMenuProps<T>>(), {
   portal: true,
   modal: true,
   externalIcon: true,
@@ -125,10 +126,11 @@ const props = withDefaults(defineProps<ContextMenuProps<T>>(), {
 const emits = defineEmits<ContextMenuEmits>()
 const slots = defineSlots<ContextMenuSlots<T>>()
 
-const appConfig = useAppConfig() as ContextMenu['AppConfig']
-const uiProp = useComponentUI('contextMenu', props)
+const props = useComponentProps<ContextMenuProps<T>>('contextMenu', _props)
 
-const rootProps = useForwardPropsEmits(reactivePick(props, 'modal'), emits)
+const appConfig = useAppConfig() as ContextMenu['AppConfig']
+
+const rootProps = useForwardProps(reactivePick(props, 'modal'), emits)
 const contentProps = toRef(() => props.content)
 const getProxySlots = () => omit(slots, ['default'])
 
@@ -138,23 +140,23 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.contex
 
 <template>
   <ContextMenuRoot v-bind="rootProps">
-    <ContextMenuTrigger v-if="!!slots.default" as-child :disabled="disabled" :class="props.class">
+    <ContextMenuTrigger v-if="!!slots.default" as-child :disabled="props.disabled" :class="props.class">
       <slot />
     </ContextMenuTrigger>
 
     <B24ContextMenuContent
       data-slot="content"
-      :class="b24ui.content({ class: [!slots.default && props.class, uiProp?.content] })"
+      :class="b24ui.content({ class: [!slots.default && props.class, props.b24ui?.content] })"
       :b24ui="b24ui"
-      :b24ui-override="uiProp"
+      :b24ui-override="props.b24ui"
       v-bind="contentProps"
-      :items="items"
-      :portal="portal"
-      :label-key="(labelKey as string & keyof NestedItem<T>)"
-      :description-key="(descriptionKey as string & keyof NestedItem<T>)"
-      :checked-icon="checkedIcon"
-      :loading-icon="loadingIcon"
-      :external-icon="externalIcon"
+      :items="props.items"
+      :portal="props.portal"
+      :label-key="(props.labelKey as string & keyof NestedItem<T>)"
+      :description-key="(props.descriptionKey as string & keyof NestedItem<T>)"
+      :checked-icon="props.checkedIcon"
+      :loading-icon="props.loadingIcon"
+      :external-icon="props.externalIcon"
     >
       <template v-for="(_, name) in getProxySlots()" #[name]="slotData">
         <slot :name="(name as keyof ContextMenuSlots<T>)" v-bind="slotData" />

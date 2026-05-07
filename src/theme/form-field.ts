@@ -69,7 +69,6 @@ export default {
     }
   ],
   defaultVariants: {
-    size: 'md',
-    orientation: 'vertical'
+    size: 'md'
   }
 }

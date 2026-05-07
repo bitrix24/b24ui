@@ -81,8 +81,5 @@ export default {
         leadingIcon: 'm-0.5 size-4 animate-spin stroke-2'
       }
     }
-  ],
-  defaultVariants: {
-    variant: 'inline'
-  }
+  ]
 }

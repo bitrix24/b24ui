@@ -20,22 +20,25 @@ export interface ProseTdSlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../../composables/useComponentUI'
+import { useComponentProps } from '../../composables/useComponentProps'
 import { tv } from '../../utils/tv'
 
-const props = defineProps<ProseTdProps>()
+const _props = defineProps<ProseTdProps>()
+
 defineSlots<ProseTdSlots>()
 
-const appConfig = useAppConfig() as ProseTd['AppConfig']
-const uiProp = useComponentUI('prose.td', props)
+const props = useComponentProps('prose.td', _props)
 
+const appConfig = useAppConfig() as ProseTd['AppConfig']
+
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.td || {}) })({
   align: props.align
 }))
 </script>
 
 <template>
-  <td data-slot="base" :class="b24ui.base({ class: [uiProp?.base, props.class] })">
+  <td data-slot="base" :class="b24ui.base({ class: [props.b24ui?.base, props.class] })">
     <slot />
   </td>
 </template>

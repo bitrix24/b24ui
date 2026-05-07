@@ -27,14 +27,15 @@ export interface PageSlots {
 import { computed, onBeforeUpdate, shallowRef } from 'vue'
 import { Primitive, Slot } from 'reka-ui'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { tv } from '../utils/tv'
 
-const props = defineProps<PageProps>()
+const _props = defineProps<PageProps>()
 const slots = defineSlots<PageSlots>()
 
+const props = useComponentProps('page', _props)
+
 const appConfig = useAppConfig() as Page['AppConfig']
-const uiProp = useComponentUI('page', props)
 
 const hasLeft = shallowRef(!!slots.left)
 const hasRight = shallowRef(!!slots.right)
@@ -52,16 +53,16 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.page |
 </script>
 
 <template>
-  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
-    <Slot v-if="!!slots.left" data-slot="left" :class="b24ui.left({ class: uiProp?.left })">
+  <Primitive :as="props.as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+    <Slot v-if="!!slots.left" data-slot="left" :class="b24ui.left({ class: props.b24ui?.left })">
       <slot name="left" />
     </Slot>
 
-    <div data-slot="center" :class="b24ui.center({ class: uiProp?.center })">
+    <div data-slot="center" :class="b24ui.center({ class: props.b24ui?.center })">
       <slot />
     </div>
 
-    <Slot v-if="!!slots.right" data-slot="right" :class="b24ui.right({ class: uiProp?.right })">
+    <Slot v-if="!!slots.right" data-slot="right" :class="b24ui.right({ class: props.b24ui?.right })">
       <slot name="right" />
     </Slot>
   </Primitive>

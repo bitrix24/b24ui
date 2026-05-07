@@ -24,17 +24,20 @@ export interface ProseH5Slots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../../composables/useComponentUI'
+import { useComponentProps } from '../../composables/useComponentProps'
 import { tv } from '../../utils/tv'
 
-const props = withDefaults(defineProps<ProseH5Props>(), {
+const _props = withDefaults(defineProps<ProseH5Props>(), {
   accent: 'default'
 })
+
 defineSlots<ProseH5Slots>()
 
-const appConfig = useAppConfig() as ProseH5['AppConfig']
-const uiProp = useComponentUI('prose.h5', props)
+const props = useComponentProps('prose.h5', _props)
 
+const appConfig = useAppConfig() as ProseH5['AppConfig']
+
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.h5 || {}) })({
   accent: props.accent
 }))
@@ -42,9 +45,9 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
 
 <template>
   <h5
-    :id="id"
+    :id="props.id"
     data-slot="base"
-    :class="b24ui.base({ class: [uiProp?.base, props.class] })"
+    :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
   >
     <slot />
   </h5>

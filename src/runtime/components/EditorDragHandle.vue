@@ -44,11 +44,11 @@ export interface EditorDragHandleEmits {
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import DragHandle from '@tiptap/extension-drag-handle-vue-3'
-import { useForwardProps } from 'reka-ui'
 import { reactiveOmit, reactivePick } from '@vueuse/core'
 import { defu } from 'defu'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
+import { useForwardProps } from '../composables/useForwardProps'
 import { buildFloatingUIMiddleware } from '../utils/editor'
 import { transformUI } from '../utils'
 import { tv } from '../utils/tv'
@@ -57,18 +57,19 @@ import B24Button from './Button.vue'
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<EditorDragHandleProps>(), {
+const _props = withDefaults(defineProps<EditorDragHandleProps>(), {
   color: 'air-tertiary-no-accent',
   size: 'sm'
 })
 defineSlots<EditorDragHandleSlots>()
 const emit = defineEmits<EditorDragHandleEmits>()
 
+const props = useComponentProps('editorDragHandle', _props)
+
 const dragHandleProps = useForwardProps(reactivePick(props, 'pluginKey', 'nested', 'nestedOptions', 'onElementDragEnd', 'onElementDragStart', 'getReferencedVirtualElement'))
 const buttonProps = useForwardProps(reactiveOmit(props, 'icon', 'options', 'editor', 'pluginKey', 'nested', 'nestedOptions', 'onElementDragEnd', 'onElementDragStart', 'getReferencedVirtualElement', 'class', 'b24ui'))
 
 const appConfig = useAppConfig() as EditorDragHandle['AppConfig']
-const uiProp = useComponentUI('editorDragHandle', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.editorDragHandle || {}) })())
@@ -145,10 +146,10 @@ function onClick() {
   <DragHandle
     v-bind="dragHandleProps"
     :compute-position-config="computePositionConfig"
-    :editor="editor"
+    :editor="props.editor"
     :on-node-change="onNodeChange"
     data-slot="root"
-    :class="b24ui.root({ class: [uiProp?.root, props.class] })"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     @click="onClick"
   >
     <slot :b24ui="b24ui" :on-click="onClick">
@@ -159,8 +160,8 @@ function onClick() {
           ...$attrs
         }"
         data-slot="handle"
-        :class="b24ui.handle({ class: [uiProp?.handle, props.class] })"
-        :b24ui="transformUI(b24ui, uiProp)"
+        :class="b24ui.handle({ class: [props.b24ui?.handle, props.class] })"
+        :b24ui="transformUI(b24ui, props.b24ui)"
       />
     </slot>
   </DragHandle>

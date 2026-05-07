@@ -23,40 +23,40 @@ export default {
   variants: {
     size: {
       '3xs': {
-        root: 'size-[10px] text-4xs font-(--ui-font-weight-regular)',
-        icon: 'size-[10px]'
+        root: 'size-2.5 text-4xs font-(--ui-font-weight-regular)',
+        icon: 'size-2.5'
       },
       '2xs': {
-        root: 'size-[20px] text-(length:--ui-font-size-4xs)/(--ui-font-line-height-reset) font-(--ui-font-weight-regular)',
+        root: 'size-5 text-(length:--ui-font-size-4xs)/(--ui-font-line-height-reset) font-(--ui-font-weight-regular)',
         icon: 'size-4.5'
       },
       'xs': {
-        root: 'size-[24px] text-(length:--ui-font-size-3xs)/(--ui-font-line-height-reset) font-(--ui-font-weight-regular)',
-        icon: 'size-[22px]'
+        root: 'size-6 text-(length:--ui-font-size-3xs)/(--ui-font-line-height-reset) font-(--ui-font-weight-regular)',
+        icon: 'size-5.5'
       },
       'sm': {
-        root: 'size-[28px] text-(length:--ui-font-size-xs)/(--ui-font-line-height-reset)',
-        icon: 'size-[26px]'
+        root: 'size-7 text-(length:--ui-font-size-xs)/(--ui-font-line-height-reset)',
+        icon: 'size-6.5'
       },
       'md': {
-        root: 'size-[32px] text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset)',
-        icon: 'size-[28px]'
+        root: 'size-8 text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset)',
+        icon: 'size-7'
       },
       'lg': {
-        root: 'size-[42px] text-(length:--ui-font-size-2xl)/(--ui-font-line-height-reset)',
-        icon: 'size-[38px]'
+        root: 'size-10.5 text-(length:--ui-font-size-2xl)/(--ui-font-line-height-reset)',
+        icon: 'size-9.5'
       },
       'xl': {
-        root: 'ring-2 size-[48px] text-(length:--ui-font-size-2xl)/(--ui-font-line-height-reset)',
-        icon: 'size-[44px]'
+        root: 'ring-2 size-12 text-(length:--ui-font-size-2xl)/(--ui-font-line-height-reset)',
+        icon: 'size-11'
       },
       '2xl': {
-        root: 'ring-2 size-[60px] text-(length:--ui-font-size-5xl)/(--ui-font-line-height-reset)',
-        icon: 'size-[56px]'
+        root: 'ring-2 size-15 text-(length:--ui-font-size-5xl)/(--ui-font-line-height-reset)',
+        icon: 'size-14'
       },
       '3xl': {
-        root: 'ring-2 size-[94px] text-[34px]/(--ui-font-line-height-reset)',
-        icon: 'size-[90px]'
+        root: 'ring-2 size-23.5 text-8.5/(--ui-font-line-height-reset)',
+        icon: 'size-22.5'
       }
     }
   },

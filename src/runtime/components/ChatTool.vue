@@ -86,7 +86,7 @@ export interface ChatToolSlots {
 import { ref, computed } from 'vue'
 import { CollapsibleRoot, CollapsibleTrigger, CollapsibleContent } from 'reka-ui'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24ChatShimmer from './ChatShimmer.vue'
@@ -94,7 +94,7 @@ import LoaderWaitIcon from '@bitrix24/b24icons-vue/animated/LoaderWaitIcon'
 import LoaderClockIcon from '@bitrix24/b24icons-vue/animated/LoaderClockIcon'
 import SpinnerIcon from '@bitrix24/b24icons-vue/specialized/SpinnerIcon'
 
-const props = withDefaults(defineProps<ChatToolProps>(), {
+const _props = withDefaults(defineProps<ChatToolProps>(), {
   open: undefined,
   loading: false,
   streaming: false,
@@ -105,9 +105,11 @@ const props = withDefaults(defineProps<ChatToolProps>(), {
 const emits = defineEmits<ChatToolEmits>()
 const slots = defineSlots<ChatToolSlots>()
 
-const appConfig = useAppConfig() as ChatTool['AppConfig']
-const uiProp = useComponentUI('chatTool', props)
+const props = useComponentProps('chatTool', _props)
 
+const appConfig = useAppConfig() as ChatTool['AppConfig']
+
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chatTool || {}) })({
   variant: props.variant,
   chevron: props.chevron,
@@ -142,50 +144,50 @@ const chevronIconName = computed(() => props.chevronIcon || icons.chevronDown)
   <CollapsibleRoot
     v-slot="{ open: isOpen }"
     :open="resolvedOpen"
-    :disabled="disabled"
-    :unmount-on-hide="unmountOnHide"
+    :disabled="props.disabled"
+    :unmount-on-hide="props.unmountOnHide"
     data-slot="root"
-    :class="b24ui.root({ class: [uiProp?.root, props.class] })"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     @update:open="setOpen"
   >
     <CollapsibleTrigger as-child :disabled="!hasContent">
       <button
         type="button"
         data-slot="trigger"
-        :class="b24ui.trigger({ class: uiProp?.trigger })"
+        :class="b24ui.trigger({ class: props.b24ui?.trigger })"
       >
-        <span v-if="resolvedIcon || (hasContent && chevron === 'leading')" data-slot="leading" :class="b24ui.leading({ class: uiProp?.leading })">
+        <span v-if="resolvedIcon || (hasContent && props.chevron === 'leading')" data-slot="leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
           <Component
             :is="resolvedIcon"
             v-if="resolvedIcon"
             data-slot="leadingIcon"
-            :class="b24ui.leadingIcon({ class: uiProp?.leadingIcon, alone: !(hasContent && chevron === 'leading') })"
+            :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon, alone: !(hasContent && props.chevron === 'leading') })"
           />
           <Component
             :is="chevronIconName"
-            v-if="hasContent && chevron === 'leading'"
+            v-if="hasContent && props.chevron === 'leading'"
             data-slot="chevronIcon"
-            :class="b24ui.chevronIcon({ class: uiProp?.chevronIcon, alone: !resolvedIcon })"
+            :class="b24ui.chevronIcon({ class: props.b24ui?.chevronIcon, alone: !resolvedIcon })"
           />
         </span>
 
-        <span data-slot="label" :class="b24ui.label({ class: uiProp?.label })">
-          <B24ChatShimmer v-if="streaming && text" :text="text" v-bind="props.shimmer" />
-          <template v-else>{{ text }}</template>
-          <span v-if="suffix" data-slot="suffix" :class="b24ui.suffix({ class: uiProp?.suffix })">{{ suffix }}</span>
+        <span data-slot="label" :class="b24ui.label({ class: props.b24ui?.label })">
+          <B24ChatShimmer v-if="props.streaming && props.text" :text="props.text" v-bind="props.shimmer" />
+          <template v-else>{{ props.text }}</template>
+          <span v-if="props.suffix" data-slot="suffix" :class="b24ui.suffix({ class: props.b24ui?.suffix })">{{ props.suffix }}</span>
         </span>
 
         <Component
           :is="chevronIconName"
-          v-if="hasContent && chevron === 'trailing'"
+          v-if="hasContent && props.chevron === 'trailing'"
           data-slot="trailingIcon"
-          :class="b24ui.trailingIcon({ class: uiProp?.trailingIcon })"
+          :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
         />
       </button>
     </CollapsibleTrigger>
 
-    <CollapsibleContent data-slot="content" :class="b24ui.content({ class: uiProp?.content })">
-      <div data-slot="body" :class="b24ui.body({ class: uiProp?.body })">
+    <CollapsibleContent data-slot="content" :class="b24ui.content({ class: props.b24ui?.content })">
+      <div data-slot="body" :class="b24ui.body({ class: props.b24ui?.body })">
         <slot :open="isOpen" />
       </div>
     </CollapsibleContent>

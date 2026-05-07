@@ -31,7 +31,6 @@ import B24OverlayProvider from './OverlayProvider.vue'
 const props = withDefaults(defineProps<AppProps<T>>(), {
   portal: 'body'
 })
-
 defineSlots<AppSlots>()
 
 const configProviderProps = useForwardProps(reactivePick(props, 'scrollBody'))

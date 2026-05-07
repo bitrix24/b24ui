@@ -26,22 +26,23 @@ import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useLocale } from '../composables/useLocale'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { useDashboard } from '../utils/dashboard'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Button from './Button.vue'
 
-const props = withDefaults(defineProps<DashboardSidebarCollapseProps>(), {
+const _props = withDefaults(defineProps<DashboardSidebarCollapseProps>(), {
   color: 'air-tertiary',
   side: 'left'
 })
+
+const props = useComponentProps('dashboardSidebarCollapse', _props)
 
 const buttonProps = useForwardProps(reactiveOmit(props, 'icon', 'side', 'class'))
 
 const { t } = useLocale()
 const appConfig = useAppConfig() as DashboardSidebarCollapse['AppConfig']
-const uiProp = useComponentUI('dashboardSidebarCollapse', props)
 const { sidebarCollapsed, collapseSidebar } = useDashboard({ sidebarCollapsed: ref(false), collapseSidebar: () => {} })
 
 // eslint-disable-next-line vue/no-dupe-keys
@@ -56,7 +57,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashbo
       'aria-label': sidebarCollapsed ? t('dashboardSidebarCollapse.expand') : t('dashboardSidebarCollapse.collapse'),
       ...$attrs
     }"
-    :class="b24ui({ class: [uiProp?.base, props.class], side: props.side })"
+    :class="b24ui({ class: [props.b24ui?.base, props.class], side: props.side })"
     @click="collapseSidebar?.(!sidebarCollapsed)"
   />
 </template>

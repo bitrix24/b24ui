@@ -39,20 +39,22 @@ import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
 import { useKbd } from '../composables/useKbd'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { tv } from '../utils/tv'
 
-const props = withDefaults(defineProps<KbdProps>(), {
+const _props = withDefaults(defineProps<KbdProps>(), {
   as: 'kbd',
   accent: 'default'
 })
 defineSlots<KbdSlots>()
 
+const props = useComponentProps('kbd', _props)
+
 const { getKbdKey } = useKbd()
 
 const appConfig = useAppConfig() as Kbd['AppConfig']
-const uiProp = useComponentUI('kbd', props)
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.kbd || {}) })({
   accent: props.accent,
   size: props.size
@@ -60,9 +62,9 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.kbd ||
 </script>
 
 <template>
-  <Primitive :as="as" data-slot="base" :class="b24ui.base({ class: [uiProp?.base, props.class] })">
+  <Primitive :as="props.as" data-slot="base" :class="b24ui.base({ class: [props.b24ui?.base, props.class] })">
     <slot>
-      {{ getKbdKey(value) }}
+      {{ getKbdKey(props.value) }}
     </slot>
   </Primitive>
 </template>

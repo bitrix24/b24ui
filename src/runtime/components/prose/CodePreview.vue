@@ -20,26 +20,27 @@ export interface ProseCodePreviewSlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../../composables/useComponentUI'
+import { useComponentProps } from '../../composables/useComponentProps'
 import { tv } from '../../utils/tv'
 
-const props = defineProps<ProseCodePreviewProps>()
+const _props = defineProps<ProseCodePreviewProps>()
 const slots = defineSlots<ProseCodePreviewSlots>()
 
+const props = useComponentProps('prose.codePreview', _props)
+
 const appConfig = useAppConfig() as ProseCodePreview['AppConfig']
-const uiProp = useComponentUI('prose.codePreview', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.codePreview || {}) })({ code: !!slots.code }))
 </script>
 
 <template>
-  <div data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
-    <div data-slot="preview" :class="b24ui.preview({ class: [uiProp?.preview] })">
+  <div data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+    <div data-slot="preview" :class="b24ui.preview({ class: [props.b24ui?.preview] })">
       <slot />
     </div>
 
-    <div v-if="!!slots.code" data-slot="code" :class="b24ui.code({ class: [uiProp?.code] })">
+    <div v-if="!!slots.code" data-slot="code" :class="b24ui.code({ class: [props.b24ui?.code] })">
       <slot name="code" />
     </div>
   </div>

@@ -16,7 +16,7 @@ const multipleAttrs = reactive({
 })
 
 const singleAttrs = reactive({
-  orientation: theme.defaultVariants.orientation,
+  orientation: 'vertical' as string,
   required: false,
   disabled: false
 })
@@ -86,9 +86,9 @@ const airColors = computed(() => {
     </template>
 
     <Matrix v-slot="props" :attrs="multipleAttrs" :b24ui="{ root: 'max-w-80' }">
-      <B24RadioGroup v-model="value" :items="items" default-value="2" v-bind="{ ...singleAttrs, ...props }" />
-      <B24RadioGroup v-model="value" legend="Items with description" :items="itemsWithDescription" v-bind="{ ...singleAttrs, ...props }" />
-      <B24RadioGroup v-model="value" :items="items" v-bind="{ ...singleAttrs, ...props }">
+      <B24RadioGroup v-model="value" :items="items" default-value="2" v-bind="{ ...singleAttrs, ...props } as any" />
+      <B24RadioGroup v-model="value" legend="Items with description" :items="itemsWithDescription" v-bind="{ ...singleAttrs, ...props } as any" />
+      <B24RadioGroup v-model="value" :items="items" v-bind="{ ...singleAttrs, ...props } as any">
         <template #legend>
           <span class="italic font-(--ui-font-weight-bold)">
             With legend and label slots

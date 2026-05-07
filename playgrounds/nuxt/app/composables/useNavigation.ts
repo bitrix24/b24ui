@@ -90,6 +90,7 @@ const components = [
   'table',
   'tabs',
   'textarea',
+  'theme',
   'timeline',
   'toast',
   'tooltip',

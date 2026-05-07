@@ -26,23 +26,24 @@ export interface PageListSlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { tv } from '../utils/tv'
 
-const props = withDefaults(defineProps<PageListProps>(), {
+const _props = withDefaults(defineProps<PageListProps>(), {
   divide: false
 })
 defineSlots<PageListSlots>()
 
+const props = useComponentProps('pageList', _props)
+
 const appConfig = useAppConfig() as PageList['AppConfig']
-const uiProp = useComponentUI('pageList', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pageList || {}) }))
 </script>
 
 <template>
-  <Primitive :as="as" role="list" :class="b24ui({ class: [uiProp?.base, props.class], divide: props.divide })">
+  <Primitive :as="props.as" role="list" :class="b24ui({ class: [props.b24ui?.base, props.class], divide: props.divide })">
     <slot />
   </Primitive>
 </template>

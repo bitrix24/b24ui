@@ -34,34 +34,38 @@ export interface ChatShimmerProps {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { tv } from '../utils/tv'
 
-const props = withDefaults(defineProps<ChatShimmerProps>(), {
+const _props = withDefaults(defineProps<ChatShimmerProps>(), {
   as: 'span',
   duration: 2,
   spread: 2
 })
 
+const props = useComponentProps('chatShimmer', _props)
+
 const appConfig = useAppConfig() as ChatShimmer['AppConfig']
-const uiProp = useComponentUI('chatShimmer', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chatShimmer || {}) }))
 
+// eslint-disable-next-line vue/no-dupe-keys
 const spread = computed(() => (props.text || '').length * props.spread)
+
+const b24uiBase = computed(() => (props.b24ui as { base?: any } | undefined)?.base)
 </script>
 
 <template>
   <Primitive
-    :as="as"
+    :as="props.as"
     :style="{
       '--spread': `${spread}px`,
-      '--duration': `${duration}s`
+      '--duration': `${props.duration}s`
     }"
     data-slot="base"
-    :class="b24ui({ class: [uiProp?.base, props.class] })"
+    :class="b24ui({ class: [b24uiBase, props.class] })"
   >
-    {{ text }}
+    {{ props.text }}
   </Primitive>
 </template>

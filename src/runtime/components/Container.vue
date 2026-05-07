@@ -25,21 +25,23 @@ export interface ContainerSlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { tv } from '../utils/tv'
 
-const props = defineProps<ContainerProps>()
+const _props = defineProps<ContainerProps>()
+
 defineSlots<ContainerSlots>()
 
+const props = useComponentProps('container', _props)
+
 const appConfig = useAppConfig() as Container['AppConfig']
-const uiProp = useComponentUI('container', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.container || {}) }))
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui({ class: [uiProp?.base, props.class] })">
+  <Primitive :as="props.as" :class="b24ui({ class: [props.b24ui?.base, props.class] })">
     <slot />
   </Primitive>
 </template>

@@ -58,26 +58,28 @@ export interface ChatMessageSlots<TMetadata = unknown, TDataParts extends UIData
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { omit } from '../utils'
 import { tv } from '../utils/tv'
 import B24Button from './Button.vue'
 import B24Tooltip from './Tooltip.vue'
 import B24Avatar from './Avatar.vue'
 
-const props = withDefaults(defineProps<ChatMessageProps<TMetadata, TDataParts, TTools>>(), {
+const _props = withDefaults(defineProps<ChatMessageProps<TMetadata, TDataParts, TTools>>(), {
   as: 'article'
 })
 const slots = defineSlots<ChatMessageSlots<TMetadata, TDataParts, TTools>>()
 
+const props = useComponentProps<ChatMessageProps<TMetadata, TDataParts, TTools>>('chatMessage', _props)
+
 const appConfig = useAppConfig() as ChatMessage['AppConfig']
-const uiProp = useComponentUI('chatMessage', props)
 
 const fileParts = computed(() => props.parts?.filter((part): part is FileUIPart => part.type === 'file') ?? [])
 const textParts = computed(() => props.parts?.filter((part): part is TextUIPart => part.type === 'text') ?? [])
 
 const messageProps = computed(() => omit(props, ['as', 'icon', 'avatar', 'variant', 'side', 'actions', 'compact', 'class', 'b24ui']))
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chatMessage || {}) })({
   variant: props.variant,
   side: props.side,
@@ -88,30 +90,30 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chatMe
 </script>
 
 <template>
-  <Primitive :as="as" :data-role="role" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
-    <div v-if="!!slots.files && fileParts.length" data-slot="files" :class="b24ui.files({ class: uiProp?.files })">
+  <Primitive :as="props.as" :data-role="props.role" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+    <div v-if="!!slots.files && fileParts.length" data-slot="files" :class="b24ui.files({ class: props.b24ui?.files })">
       <slot name="files" v-bind="{ ...messageProps, parts: fileParts }" />
     </div>
 
-    <div data-slot="container" :class="b24ui.container({ class: uiProp?.container })">
-      <div v-if="icon || avatar || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: uiProp?.leading })">
-        <slot name="leading" v-bind="{ ...messageProps, avatar, b24ui }">
-          <Component :is="icon" v-if="icon" data-slot="leadingIcon" :class="b24ui.leadingIcon({ class: uiProp?.leadingIcon })" />
-          <B24Avatar v-else-if="avatar" :size="((uiProp?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])" v-bind="avatar" data-slot="leadingAvatar" :class="b24ui.leadingAvatar({ class: uiProp?.leadingAvatar })" />
+    <div data-slot="container" :class="b24ui.container({ class: props.b24ui?.container })">
+      <div v-if="props.icon || props.avatar || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
+        <slot name="leading" v-bind="{ ...messageProps, avatar: props.avatar, b24ui }">
+          <Component :is="props.icon" v-if="props.icon" data-slot="leadingIcon" :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })" />
+          <B24Avatar v-else-if="props.avatar" :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])" v-bind="props.avatar" data-slot="leadingAvatar" :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })" />
         </slot>
       </div>
 
-      <div v-if="textParts.length || !!slots.content" data-slot="content" :class="b24ui.content({ class: uiProp?.content })">
+      <div v-if="textParts.length || !!slots.content" data-slot="content" :class="b24ui.content({ class: props.b24ui?.content })">
         <slot name="content" v-bind="{ ...messageProps }">
-          <template v-for="(part, index) in textParts" :key="`${id}-${part.type}-${index}`">
+          <template v-for="(part, index) in textParts" :key="`${props.id}-${part.type}-${index}`">
             {{ part.text }}
           </template>
         </slot>
       </div>
 
-      <div v-if="actions || !!slots.actions" data-slot="actions" :class="b24ui.actions({ class: uiProp?.actions })">
-        <slot name="actions" v-bind="{ ...messageProps, actions }">
-          <B24Tooltip v-for="(action, index) in actions" :key="index" :text="action.label">
+      <div v-if="props.actions || !!slots.actions" data-slot="actions" :class="b24ui.actions({ class: props.b24ui?.actions })">
+        <slot name="actions" v-bind="{ ...messageProps, actions: props.actions }">
+          <B24Tooltip v-for="(action, index) in props.actions" :key="index" :text="action.label">
             <B24Button
               size="sm"
               color="air-secondary-no-accent"

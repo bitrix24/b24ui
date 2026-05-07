@@ -30,7 +30,7 @@ export interface ProsePromptSlots {
 import { computed } from 'vue'
 import { useClipboard } from '@vueuse/core'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../../composables/useComponentUI'
+import { useComponentProps } from '../../composables/useComponentProps'
 import { useLocale } from '../../composables/useLocale'
 import { getSlotChildrenText } from '../../utils'
 import { tv } from '../../utils/tv'
@@ -39,15 +39,16 @@ import B24Button from '../Button.vue'
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<ProsePromptProps>(), {
+const _props = withDefaults(defineProps<ProsePromptProps>(), {
   actions: () => ['copy']
 })
 const slots = defineSlots<ProsePromptSlots>()
 
+const props = useComponentProps('prose.prompt', _props)
+
 const { t } = useLocale()
 const { copy, copied } = useClipboard()
 const appConfig = useAppConfig() as ProsePrompt['AppConfig']
-const uiProp = useComponentUI('prose.prompt', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.prompt || {}) })())
@@ -77,18 +78,18 @@ function openInWindsurf() {
 </script>
 
 <template>
-  <div data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })" v-bind="$attrs">
-    <Component :is="icon" v-if="icon" data-slot="icon" :class="b24ui.icon({ class: uiProp?.icon })" />
+  <div data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })" v-bind="$attrs">
+    <Component :is="props.icon" v-if="props.icon" data-slot="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
 
-    <div data-slot="content" :class="b24ui.content({ class: uiProp?.content })">
-      <p v-if="description" data-slot="description" :class="b24ui.description({ class: uiProp?.description })">
-        {{ description }}
+    <div data-slot="content" :class="b24ui.content({ class: props.b24ui?.content })">
+      <p v-if="props.description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
+        {{ props.description }}
       </p>
     </div>
 
-    <div data-slot="actions" :class="b24ui.actions({ class: uiProp?.actions })">
+    <div data-slot="actions" :class="b24ui.actions({ class: props.b24ui?.actions })">
       <B24Button
-        v-if="actions.includes('copy')"
+        v-if="props.actions.includes('copy')"
         :icon="copied ? icons.copyCheck : icons.copy"
         color="air-primary-copilot"
         size="sm"
@@ -97,7 +98,7 @@ function openInWindsurf() {
       />
 
       <B24Button
-        v-if="actions.includes('cursor')"
+        v-if="props.actions.includes('cursor')"
         data-icon="cursor"
         color="air-secondary-accent-2"
         size="sm"
@@ -106,7 +107,7 @@ function openInWindsurf() {
       />
 
       <B24Button
-        v-if="actions.includes('windsurf')"
+        v-if="props.actions.includes('windsurf')"
         data-icon="windsurf"
         color="air-secondary-accent-2"
         size="sm"

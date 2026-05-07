@@ -87,12 +87,13 @@ export type EditorToolbarSlots<
 
 <script setup lang="ts" generic="T extends ArrayOrNested<EditorToolbarItem>">
 import { computed, inject } from 'vue'
-import { Primitive, Separator, useForwardProps } from 'reka-ui'
+import { Primitive, Separator } from 'reka-ui'
 import { defu } from 'defu'
 import { BubbleMenu, FloatingMenu } from '@tiptap/vue-3/menus'
 import { reactiveOmit } from '@vueuse/core'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
+import { useForwardProps } from '../composables/useForwardProps'
 import { isArrayOfArray, pick, omit } from '../utils'
 import { createHandlers } from '../utils/editor'
 import { tv } from '../utils/tv'
@@ -102,7 +103,7 @@ import B24Tooltip from './Tooltip.vue'
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<EditorToolbarProps<T>>(), {
+const _props = withDefaults(defineProps<EditorToolbarProps<T>>(), {
   layout: 'fixed',
   color: 'air-tertiary-no-accent',
   activeColor: 'air-tertiary-accent',
@@ -110,8 +111,9 @@ const props = withDefaults(defineProps<EditorToolbarProps<T>>(), {
 })
 defineSlots<EditorToolbarSlots<T>>()
 
+const props = useComponentProps<EditorToolbarProps<T>>('editorToolbar', _props)
+
 const appConfig = useAppConfig() as EditorToolbar['AppConfig']
-const uiProp = useComponentUI('editorToolbar', props)
 
 const handlers = inject('editorHandlers', computed(() => createHandlers()))
 
@@ -120,7 +122,7 @@ const Component = computed(() => {
     bubble: BubbleMenu,
     floating: FloatingMenu,
     fixed: 'template'
-  }[props.layout])
+  }[props.layout!])
 })
 
 const rootProps = useForwardProps(reactiveOmit(props, 'as', 'color', 'activeColor', 'size', 'items', 'layout', 'editor', 'class', 'b24ui'))
@@ -130,6 +132,7 @@ const options = computed(() => defu((props as any).options, {
   shift: { padding: 8 }
 }))
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.editorToolbar || {}) })({
   layout: props.layout
 }))
@@ -301,9 +304,9 @@ function getDropdownItems(item: EditorToolbarDropdownItem) {
   <Primitive
     :as="Component"
     v-bind="Component !== 'template' ? {
-      editor,
+      editor: props.editor,
       tabindex: -1,
-      class: b24ui.root({ class: uiProp?.root }),
+      class: b24ui.root({ class: props.b24ui?.root }),
       ...rootProps,
       options,
       ...$attrs
@@ -311,9 +314,9 @@ function getDropdownItems(item: EditorToolbarDropdownItem) {
       ...$attrs
     }"
   >
-    <Primitive :as="as" role="toolbar" data-slot="base" :class="b24ui.base({ class: [uiProp?.base, props.class] })">
+    <Primitive :as="props.as" role="toolbar" data-slot="base" :class="b24ui.base({ class: [props.b24ui?.base, props.class] })">
       <template v-for="(group, groupIndex) in groups" :key="`group-${groupIndex}`">
-        <div role="group" data-slot="group" :class="b24ui.group({ class: uiProp?.group })">
+        <div role="group" data-slot="group" :class="b24ui.group({ class: props.b24ui?.group })">
           <template v-for="(item, index) in group" :key="`group-${groupIndex}-${index}`">
             <slot
               :name="((item.slot || 'item') as keyof EditorToolbarSlots<T>)"
@@ -360,7 +363,7 @@ function getDropdownItems(item: EditorToolbarDropdownItem) {
         <Separator
           v-if="groupIndex < groups.length - 1"
           data-slot="separator"
-          :class="b24ui.separator({ class: uiProp?.separator })"
+          :class="b24ui.separator({ class: props.b24ui?.separator })"
           orientation="vertical"
         />
       </template>

@@ -31,7 +31,7 @@ export interface ProseCardSlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../../composables/useComponentUI'
+import { useComponentProps } from '../../composables/useComponentProps'
 import { tv } from '../../utils/tv'
 import icons from '../../dictionary/icons'
 import B24Link from '../Link.vue'
@@ -43,18 +43,21 @@ import DemonstrationOnIcon from '@bitrix24/b24icons-vue/outline/DemonstrationOnI
 
 defineOptions({ inheritAttrs: false })
 
-const props = defineProps<ProseCardProps>()
+const _props = defineProps<ProseCardProps>()
 const slots = defineSlots<ProseCardSlots>()
 
-const appConfig = useAppConfig() as ProseCard['AppConfig']
-const uiProp = useComponentUI('prose.card', props)
+const props = useComponentProps('prose.card', _props)
 
+const appConfig = useAppConfig() as ProseCard['AppConfig']
+
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.card || {}) })({
   color: props.color,
   to: !!props.to,
   title: !!props.title
 }))
 
+// eslint-disable-next-line vue/no-dupe-keys
 const target = computed(() => props.target || (!!props.to && typeof props.to === 'string' && props.to.startsWith('http') ? '_blank' : undefined))
 
 const ariaLabel = computed(() => (props.title || 'Card link').trim())
@@ -77,11 +80,11 @@ const iconFromIconName = computed(() => {
 </script>
 
 <template>
-  <div data-slot="base" :class="b24ui.base({ class: [uiProp?.base, props.class] })">
+  <div data-slot="base" :class="b24ui.base({ class: [props.b24ui?.base, props.class] })">
     <B24Link
-      v-if="to"
+      v-if="props.to"
       :aria-label="ariaLabel"
-      v-bind="{ to, target, ...$attrs }"
+      v-bind="{ to: props.to, target, ...$attrs }"
       class="focus:outline-none"
       raw
     >
@@ -89,33 +92,33 @@ const iconFromIconName = computed(() => {
     </B24Link>
 
     <Component
-      :is="icon"
-      v-if="icon"
+      :is="props.icon"
+      v-if="props.icon"
       data-slot="icon"
-      :class="b24ui.icon({ class: uiProp?.icon })"
+      :class="b24ui.icon({ class: props.b24ui?.icon })"
     />
     <Component
       :is="iconFromIconName"
       v-else-if="props.iconName"
       data-slot="icon"
-      :class="b24ui.icon({ class: uiProp?.icon })"
+      :class="b24ui.icon({ class: props.b24ui?.icon })"
     />
     <Component
       :is="icons.external"
-      v-if="!!to && target === '_blank'"
+      v-if="!!props.to && target === '_blank'"
       data-slot="externalIcon"
-      :class="b24ui.externalIcon({ class: uiProp?.externalIcon })"
+      :class="b24ui.externalIcon({ class: props.b24ui?.externalIcon })"
     />
 
-    <p v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
+    <p v-if="props.title || !!slots.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
       <slot name="title" mdc-unwrap="p">
-        {{ title }}
+        {{ props.title }}
       </slot>
     </p>
 
-    <div v-if="!!slots.default" data-slot="description" :class="b24ui.description({ class: uiProp?.description })">
+    <div v-if="!!slots.default" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
       <slot>
-        {{ description }}
+        {{ props.description }}
       </slot>
     </div>
   </div>

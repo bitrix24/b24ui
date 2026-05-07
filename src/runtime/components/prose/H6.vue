@@ -24,17 +24,20 @@ export interface ProseH6Slots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../../composables/useComponentUI'
+import { useComponentProps } from '../../composables/useComponentProps'
 import { tv } from '../../utils/tv'
 
-const props = withDefaults(defineProps<ProseH6Props>(), {
+const _props = withDefaults(defineProps<ProseH6Props>(), {
   accent: 'default'
 })
+
 defineSlots<ProseH6Slots>()
 
-const appConfig = useAppConfig() as ProseH6['AppConfig']
-const uiProp = useComponentUI('prose.h6', props)
+const props = useComponentProps('prose.h6', _props)
 
+const appConfig = useAppConfig() as ProseH6['AppConfig']
+
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.h6 || {}) })({
   accent: props.accent
 }))
@@ -42,9 +45,9 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
 
 <template>
   <h6
-    :id="id"
+    :id="props.id"
     data-slot="base"
-    :class="b24ui.base({ class: [uiProp?.base, props.class] })"
+    :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
   >
     <slot />
   </h6>

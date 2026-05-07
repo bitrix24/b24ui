@@ -57,19 +57,21 @@ export interface TableWrapperSlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { tv } from '../utils/tv'
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<TableWrapperProps>(), {
+const _props = withDefaults(defineProps<TableWrapperProps>(), {
   as: 'div',
   scrollbarThin: true
 })
 
-const appConfig = useAppConfig() as TableWrapper['AppConfig']
-const uiProp = useComponentUI('tableWrapper', props)
+const props = useComponentProps('tableWrapper', _props)
 
+const appConfig = useAppConfig() as TableWrapper['AppConfig']
+
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.tableWrapper || {}) })({
   size: props.size,
   rounded: Boolean(props.rounded),
@@ -84,9 +86,9 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.tableW
 
 <template>
   <Primitive
-    :as="as"
+    :as="props.as"
     data-slot="base"
-    :class="b24ui.base({ class: [uiProp?.base, props.class] })"
+    :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
   >
     <slot />
   </Primitive>

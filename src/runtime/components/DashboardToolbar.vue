@@ -27,27 +27,29 @@ export interface DashboardToolbarSlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { tv } from '../utils/tv'
 
-const props = defineProps<DashboardToolbarProps>()
+const _props = defineProps<DashboardToolbarProps>()
+
 defineSlots<DashboardToolbarSlots>()
 
+const props = useComponentProps('dashboardToolbar', _props)
+
 const appConfig = useAppConfig() as DashboardToolbar['AppConfig']
-const uiProp = useComponentUI('dashboardToolbar', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashboardToolbar || {}) })())
 </script>
 
 <template>
-  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
+  <Primitive :as="props.as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <slot>
-      <div data-slot="left" :class="b24ui.left({ class: [uiProp?.left] })">
+      <div data-slot="left" :class="b24ui.left({ class: [props.b24ui?.left] })">
         <slot name="left" />
       </div>
 
-      <div data-slot="right" :class="b24ui.right({ class: [uiProp?.right] })">
+      <div data-slot="right" :class="b24ui.right({ class: [props.b24ui?.right] })">
         <slot name="right" />
       </div>
     </slot>

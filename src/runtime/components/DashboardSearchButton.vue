@@ -50,7 +50,7 @@ import { useForwardProps } from 'reka-ui'
 import { defu } from 'defu'
 import { reactiveOmit, createReusableTemplate } from '@vueuse/core'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { useLocale } from '../composables/useLocale'
 import { useDashboard } from '../utils/dashboard'
 import { omit, transformUI } from '../utils'
@@ -62,13 +62,15 @@ import B24Tooltip from './Tooltip.vue'
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<DashboardSearchButtonProps>(), {
+const _props = withDefaults(defineProps<DashboardSearchButtonProps>(), {
   color: 'air-tertiary-no-accent',
   collapsed: false,
   tooltip: false,
   kbds: () => ['meta', 'k']
 })
 const slots = defineSlots<ButtonSlots>()
+
+const props = useComponentProps('dashboardSearchButton', _props)
 
 const [DefineButtonTemplate, ReuseButtonTemplate] = createReusableTemplate()
 
@@ -79,9 +81,9 @@ const tooltipProps = toRef(() => defu(typeof props.tooltip === 'boolean' ? {} : 
 
 const { t } = useLocale()
 const appConfig = useAppConfig() as DashboardSearchButton['AppConfig']
-const uiProp = useComponentUI('dashboardSearchButton', props)
 const { toggleSearch } = useDashboard({ toggleSearch: () => {} })
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashboardSearchButton || {}) })({
   collapsed: props.collapsed
 }))
@@ -90,21 +92,21 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashbo
 <template>
   <DefineButtonTemplate>
     <B24Button
-      :icon="icon || icons.search"
-      :label="label || t('dashboardSearchButton.label')"
+      :icon="props.icon || icons.search"
+      :label="props.label || t('dashboardSearchButton.label')"
       v-bind="{
         ...buttonProps,
         ...(props.collapsed ? {
           'label': undefined,
-          'aria-label': label || t('dashboardSearchButton.label')
+          'aria-label': props.label || t('dashboardSearchButton.label')
         } : {
           color: buttonProps['color'] === 'air-tertiary-no-accent' ? 'air-secondary-no-accent' : buttonProps['color']
         }),
         ...$attrs
       }"
       data-slot="base"
-      :class="b24ui.base({ class: [uiProp?.base, props.class] })"
-      :b24ui="transformUI(b24ui, uiProp)"
+      :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
+      :b24ui="transformUI(b24ui, props.b24ui)"
       @click="toggleSearch"
     >
       <template v-for="(_, name) in getProxySlots()" #[name]="slotData">
@@ -112,11 +114,11 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashbo
       </template>
 
       <template #trailing="{ b24ui: b24uiProxy }">
-        <span data-slot="trailing" :class="b24ui.trailing({ class: uiProp?.trailing })">
+        <span data-slot="trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
           <slot name="trailing" :b24ui="b24uiProxy">
-            <template v-if="!collapsed && kbds?.length">
+            <template v-if="!props.collapsed && props.kbds?.length">
               <B24Kbd
-                v-for="(kbd, index) in kbds"
+                v-for="(kbd, index) in props.kbds"
                 :key="index"
                 size="sm"
                 v-bind="typeof kbd === 'string' ? { value: kbd } : kbd"
@@ -128,7 +130,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashbo
     </B24Button>
   </DefineButtonTemplate>
 
-  <B24Tooltip v-if="collapsed && tooltip" :text="label || t('dashboardSearchButton.label')" v-bind="tooltipProps">
+  <B24Tooltip v-if="props.collapsed && props.tooltip" :text="props.label || t('dashboardSearchButton.label')" v-bind="tooltipProps">
     <ReuseButtonTemplate />
   </B24Tooltip>
   <ReuseButtonTemplate v-else />

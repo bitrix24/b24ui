@@ -106,7 +106,7 @@ import { useTemplateRef, computed, onMounted } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useVModel } from '@vueuse/core'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { useFieldGroup } from '../composables/useFieldGroup'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { useFormField } from '../composables/useFormField'
@@ -117,7 +117,7 @@ import B24Avatar from './Avatar.vue'
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<InputProps<T, Mod>>(), {
+const _props = withDefaults(defineProps<InputProps<T, Mod>>(), {
   type: 'text',
   autocomplete: 'off',
   autofocusDelay: 0
@@ -125,13 +125,15 @@ const props = withDefaults(defineProps<InputProps<T, Mod>>(), {
 const emits = defineEmits<InputEmits<T, Mod>>()
 const slots = defineSlots<InputSlots>()
 
+const props = useComponentProps<InputProps<T, Mod>>('input', _props)
+
+// eslint-disable-next-line vue/no-dupe-keys
 const modelValue = useVModel<InputProps<T, Mod>, 'modelValue', 'update:modelValue'>(props, 'modelValue', emits, { defaultValue: props.defaultValue })
 
 const appConfig = useAppConfig() as Input['AppConfig']
-const uiProp = useComponentUI('input', props)
 
-const { emitFormBlur, emitFormInput, emitFormChange, size: formFieldSize, color, id, name, highlight, disabled, emitFormFocus, ariaAttrs } = useFormField<InputProps<T>>(props, { deferInputValidation: true })
-const { orientation, size: fieldGroupSize } = useFieldGroup<InputProps<T>>(props)
+const { emitFormBlur, emitFormInput, emitFormChange, size: formFieldSize, color, id, name, highlight, disabled, emitFormFocus, ariaAttrs } = useFormField<InputProps<T>>(_props, { deferInputValidation: true })
+const { orientation, size: fieldGroupSize } = useFieldGroup<InputProps<T>>(_props)
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(props)
 
 const inputSize = computed(() => fieldGroupSize.value || formFieldSize.value)
@@ -140,12 +142,13 @@ const isTag = computed(() => {
   return props.tag
 })
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.input || {}) })({
   type: props.type as Input['variants']['type'],
-  color: color.value,
-  size: inputSize?.value,
+  color: color.value ?? props.color,
+  size: inputSize?.value ?? props.size,
   loading: props.loading,
-  highlight: highlight.value,
+  highlight: highlight.value ?? props.highlight,
   fixed: props.fixed,
   rounded: Boolean(props.rounded),
   noPadding: Boolean(props.noPadding),
@@ -225,11 +228,11 @@ defineExpose({
 </script>
 
 <template>
-  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
+  <Primitive :as="props.as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <B24Badge
       v-if="isTag"
       data-slot="tag"
-      :class="b24ui.tag({ class: uiProp?.tag })"
+      :class="b24ui.tag({ class: props.b24ui?.tag })"
       :color="props.tagColor"
       :label="props.tag"
       size="xs"
@@ -238,15 +241,15 @@ defineExpose({
     <input
       :id="id"
       ref="inputRef"
-      :type="type"
+      :type="props.type"
       :value="modelValue"
       :name="name"
-      :placeholder="placeholder"
+      :placeholder="props.placeholder"
       data-slot="base"
-      :class="b24ui.base({ class: uiProp?.base })"
+      :class="b24ui.base({ class: props.b24ui?.base })"
       :disabled="disabled"
-      :required="required"
-      :autocomplete="autocomplete"
+      :required="props.required"
+      :autocomplete="props.autocomplete"
       v-bind="{ ...$attrs, ...ariaAttrs }"
       @input="onInput"
       @blur="onBlur"
@@ -256,31 +259,31 @@ defineExpose({
 
     <slot :b24ui="b24ui" />
 
-    <span v-if="isLeading || !!avatar || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: uiProp?.leading })">
+    <span v-if="isLeading || !!props.avatar || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
       <slot name="leading" :b24ui="b24ui">
         <Component
           :is="leadingIconName"
           v-if="isLeading && leadingIconName"
           data-slot="leadingIcon"
-          :class="b24ui.leadingIcon({ class: uiProp?.leadingIcon })"
+          :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
         />
         <B24Avatar
-          v-else-if="!!avatar"
-          :size="((uiProp?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
-          v-bind="avatar"
+          v-else-if="!!props.avatar"
+          :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+          v-bind="props.avatar"
           data-slot="leadingAvatar"
-          :class="b24ui.leadingAvatar({ class: uiProp?.leadingAvatar })"
+          :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
         />
       </slot>
     </span>
 
-    <span v-if="isTrailing || !!slots.trailing" data-slot="trailing" :class="b24ui.trailing({ class: uiProp?.trailing })">
+    <span v-if="isTrailing || !!slots.trailing" data-slot="trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
       <slot name="trailing" :b24ui="b24ui">
         <Component
           :is="trailingIconName"
           v-if="trailingIconName"
           data-slot="trailingIcon"
-          :class="b24ui.trailingIcon({ class: uiProp?.trailingIcon })"
+          :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
         />
       </slot>
     </span>

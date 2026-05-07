@@ -238,7 +238,6 @@ export default {
     color: 'air-primary',
     size: 'md',
     variant: 'list',
-    orientation: 'vertical',
     indicator: 'start'
   }
 }

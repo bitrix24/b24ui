@@ -73,10 +73,11 @@ export interface ToastSlots {
 
 <script setup lang="ts">
 import { ref, computed, onMounted, useTemplateRef } from 'vue'
-import { ToastRoot, ToastTitle, ToastDescription, ToastAction, ToastClose, useForwardPropsEmits } from 'reka-ui'
+import { ToastRoot, ToastTitle, ToastDescription, ToastAction, ToastClose } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
+import { useForwardProps } from '../composables/useForwardProps'
 import { useLocale } from '../composables/useLocale'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
@@ -84,7 +85,7 @@ import B24Avatar from './Avatar.vue'
 import B24Button from './Button.vue'
 import B24Progress from './Progress.vue'
 
-const props = withDefaults(defineProps<ToastProps>(), {
+const _props = withDefaults(defineProps<ToastProps>(), {
   orientation: 'vertical',
   close: true,
   progress: true
@@ -92,12 +93,14 @@ const props = withDefaults(defineProps<ToastProps>(), {
 const emits = defineEmits<ToastEmits>()
 const slots = defineSlots<ToastSlots>()
 
+const props = useComponentProps('toast', _props)
+
 const { t } = useLocale()
 const appConfig = useAppConfig() as Toast['AppConfig']
-const uiProp = useComponentUI('toast', props)
 
-const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'defaultOpen', 'open', 'duration', 'type'), emits)
+const rootProps = useForwardProps(reactivePick(props, 'as', 'defaultOpen', 'open', 'duration', 'type'), emits)
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.toast || {}) })({
   color: props.color,
   orientation: props.orientation,
@@ -125,70 +128,70 @@ defineExpose({
     ref="rootRef"
     v-slot="{ remaining, duration, open }"
     v-bind="rootProps"
-    :data-orientation="orientation"
+    :data-orientation="props.orientation"
     data-slot="root"
-    :class="b24ui.root({ class: [uiProp?.root, props.class] })"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     :style="{ '--height': height }"
   >
     <slot name="leading" :b24ui="b24ui">
       <Component
-        :is="icon"
-        v-if="icon"
+        :is="props.icon"
+        v-if="props.icon"
         data-slot="icon"
-        :class="b24ui.icon({ class: uiProp?.icon })"
+        :class="b24ui.icon({ class: props.b24ui?.icon })"
       />
-      <B24Avatar v-else-if="avatar" :size="((uiProp?.avatarSize || b24ui.avatarSize()) as AvatarProps['size'])" v-bind="avatar" data-slot="avatar" :class="b24ui.avatar({ class: uiProp?.avatar })" />
+      <B24Avatar v-else-if="props.avatar" :size="((props.b24ui?.avatarSize || b24ui.avatarSize()) as AvatarProps['size'])" v-bind="props.avatar" data-slot="avatar" :class="b24ui.avatar({ class: props.b24ui?.avatar })" />
     </slot>
 
-    <div data-slot="wrapper" :class="b24ui.wrapper({ class: uiProp?.wrapper })">
-      <ToastTitle v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
+    <div data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
+      <ToastTitle v-if="props.title || !!slots.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
         <slot name="title">
-          <component :is="title()" v-if="typeof title === 'function'" />
-          <component :is="title" v-else-if="typeof title === 'object'" />
+          <component :is="props.title()" v-if="typeof props.title === 'function'" />
+          <component :is="props.title" v-else-if="typeof props.title === 'object'" />
           <template v-else>
-            {{ title }}
+            {{ props.title }}
           </template>
         </slot>
       </ToastTitle>
-      <ToastDescription v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: uiProp?.description })">
+      <ToastDescription v-if="props.description || !!slots.description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
         <slot name="description">
-          <component :is="description()" v-if="typeof description === 'function'" />
-          <component :is="description" v-else-if="typeof description === 'object'" />
+          <component :is="props.description()" v-if="typeof props.description === 'function'" />
+          <component :is="props.description" v-else-if="typeof props.description === 'object'" />
           <template v-else>
-            {{ description }}
+            {{ props.description }}
           </template>
         </slot>
       </ToastDescription>
 
-      <div v-if="orientation === 'vertical' && (actions?.length || !!slots.actions)" data-slot="actions" :class="b24ui.actions({ class: uiProp?.actions })">
+      <div v-if="props.orientation === 'vertical' && (props.actions?.length || !!slots.actions)" data-slot="actions" :class="b24ui.actions({ class: props.b24ui?.actions })">
         <slot name="actions">
-          <ToastAction v-for="(action, index) in actions" :key="index" :alt-text="action.label || 'Action'" as-child @click.stop>
-            <B24Button size="sm" :color="color as ButtonProps['color']" v-bind="action" />
+          <ToastAction v-for="(action, index) in props.actions" :key="index" :alt-text="action.label || 'Action'" as-child @click.stop>
+            <B24Button size="sm" :color="props.color as ButtonProps['color']" v-bind="action" />
           </ToastAction>
         </slot>
       </div>
     </div>
 
-    <div v-if="(orientation === 'horizontal' && (actions?.length || !!slots.actions)) || close !== null" data-slot="actions" :class="b24ui.actions({ class: uiProp?.actions, orientation: 'horizontal' })">
-      <template v-if="orientation === 'horizontal' && (actions?.length || !!slots.actions)">
+    <div v-if="(props.orientation === 'horizontal' && (props.actions?.length || !!slots.actions)) || props.close !== null" data-slot="actions" :class="b24ui.actions({ class: props.b24ui?.actions, orientation: 'horizontal' })">
+      <template v-if="props.orientation === 'horizontal' && (props.actions?.length || !!slots.actions)">
         <slot name="actions">
-          <ToastAction v-for="(action, index) in actions" :key="index" :alt-text="action.label || 'Action'" as-child @click.stop>
-            <B24Button size="sm" :color="color as ButtonProps['color']" v-bind="action" />
+          <ToastAction v-for="(action, index) in props.actions" :key="index" :alt-text="action.label || 'Action'" as-child @click.stop>
+            <B24Button size="sm" :color="props.color as ButtonProps['color']" v-bind="action" />
           </ToastAction>
         </slot>
       </template>
 
-      <ToastClose v-if="close || !!slots.close" as-child>
+      <ToastClose v-if="props.close || !!slots.close" as-child>
         <slot name="close" :b24ui="b24ui">
           <B24Button
-            v-if="close"
-            :icon="closeIcon || icons.close"
+            v-if="props.close"
+            :icon="props.closeIcon || icons.close"
             size="sm"
             color="air-tertiary"
             :aria-label="t('toast.close')"
-            v-bind="(typeof close === 'object' ? close : {})"
+            v-bind="(typeof props.close === 'object' ? props.close : {})"
             data-slot="close"
-            :class="b24ui.close({ class: uiProp?.close })"
+            :class="b24ui.close({ class: props.b24ui?.close })"
             @click.stop
           />
         </slot>
@@ -196,13 +199,13 @@ defineExpose({
     </div>
 
     <B24Progress
-      v-if="progress && open && remaining > 0 && duration"
+      v-if="props.progress && open && remaining > 0 && duration"
       :model-value="remaining / duration * 100"
-      :color="color"
-      v-bind="(typeof progress === 'object' ? progress as Partial<ProgressProps> : {})"
+      :color="props.color"
+      v-bind="(typeof props.progress === 'object' ? props.progress as Partial<ProgressProps> : {})"
       size="sm"
       data-slot="progress"
-      :class="b24ui.progress({ class: uiProp?.progress })"
+      :class="b24ui.progress({ class: props.b24ui?.progress })"
     />
   </ToastRoot>
 </template>

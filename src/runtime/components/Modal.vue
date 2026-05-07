@@ -91,10 +91,11 @@ export interface ModalSlots {
 
 <script setup lang="ts">
 import { computed, toRef } from 'vue'
-import { DialogRoot, DialogTrigger, DialogPortal, DialogOverlay, DialogContent, DialogTitle, DialogDescription, DialogClose, VisuallyHidden, useForwardPropsEmits } from 'reka-ui'
+import { DialogRoot, DialogTrigger, DialogPortal, DialogOverlay, DialogContent, DialogTitle, DialogDescription, DialogClose, VisuallyHidden } from 'reka-ui'
 import { reactivePick, createReusableTemplate } from '@vueuse/core'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
+import { useForwardProps } from '../composables/useForwardProps'
 import { FieldGroupReset } from '../composables/useFieldGroup'
 import { useLocale } from '../composables/useLocale'
 import { usePortal } from '../composables/usePortal'
@@ -103,7 +104,7 @@ import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Button from './Button.vue'
 
-const props = withDefaults(defineProps<ModalProps>(), {
+const _props = withDefaults(defineProps<ModalProps>(), {
   close: true,
   portal: true,
   overlay: true,
@@ -116,11 +117,12 @@ const props = withDefaults(defineProps<ModalProps>(), {
 const emits = defineEmits<ModalEmits>()
 const slots = defineSlots<ModalSlots>()
 
+const props = useComponentProps('modal', _props)
+
 const { t } = useLocale()
 const appConfig = useAppConfig() as Modal['AppConfig']
-const uiProp = useComponentUI('modal', props)
 
-const rootProps = useForwardPropsEmits(reactivePick(props, 'open', 'defaultOpen', 'modal'), emits)
+const rootProps = useForwardProps(reactivePick(props, 'open', 'defaultOpen', 'modal'), emits)
 const portalProps = usePortal(toRef(() => props.portal))
 const contentProps = toRef(() => props.content)
 const contentEvents = computed(() => {
@@ -143,6 +145,7 @@ const contentEvents = computed(() => {
 
 const [DefineContentTemplate, ReuseContentTemplate] = createReusableTemplate()
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.modal || {}) })({
   transition: props.transition,
   fullscreen: props.fullscreen,
@@ -158,52 +161,52 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.modal 
     <DefineContentTemplate>
       <DialogContent
         data-slot="content"
-        :class="b24ui.content({ class: [!slots.default && props.class, uiProp?.content] })"
+        :class="b24ui.content({ class: [!slots.default && props.class, props.b24ui?.content] })"
         v-bind="contentProps"
         @after-enter="emits('after:enter')"
         @after-leave="emits('after:leave')"
         v-on="contentEvents"
       >
-        <VisuallyHidden v-if="(!title && !slots.title) || (!description && !slots.description) || !!slots.content">
-          <DialogTitle v-if="!title && !slots.title" />
+        <VisuallyHidden v-if="(!props.title && !slots.title) || (!props.description && !slots.description) || !!slots.content">
+          <DialogTitle v-if="!props.title && !slots.title" />
           <DialogTitle v-else-if="!!slots.content">
             <slot name="title">
-              {{ title }}
+              {{ props.title }}
             </slot>
           </DialogTitle>
 
-          <DialogDescription v-if="!description && !slots.description" />
+          <DialogDescription v-if="!props.description && !slots.description" />
           <DialogDescription v-else-if="!!slots.content">
             <slot name="description">
-              {{ description }}
+              {{ props.description }}
             </slot>
           </DialogDescription>
         </VisuallyHidden>
 
         <slot name="content" :close="close">
           <div
-            v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description) || (props.close || !!slots.close) || !!slots.body"
+            v-if="!!slots.header || (props.title || !!slots.title) || (props.description || !!slots.description) || (props.close || !!slots.close) || !!slots.body"
             data-slot="contentWrapper"
-            :class="b24ui.contentWrapper({ class: uiProp?.contentWrapper })"
+            :class="b24ui.contentWrapper({ class: props.b24ui?.contentWrapper })"
           >
-            <div v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description) || (props.close || !!slots.close)" data-slot="header" :class="b24ui.header({ class: uiProp?.header })">
+            <div v-if="!!slots.header || (props.title || !!slots.title) || (props.description || !!slots.description) || (props.close || !!slots.close)" data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
               <slot name="header" :close="close">
                 <div
-                  v-if="title || !!slots.title || description || !!slots.description"
+                  v-if="props.title || !!slots.title || props.description || !!slots.description"
                   data-slot="wrapper"
-                  :class="b24ui.wrapper({ class: uiProp?.wrapper })"
+                  :class="b24ui.wrapper({ class: props.b24ui?.wrapper })"
                 >
-                  <DialogTitle v-if="!title && !slots.title" />
-                  <DialogTitle v-else data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
+                  <DialogTitle v-if="!props.title && !slots.title" />
+                  <DialogTitle v-else data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
                     <slot name="title">
-                      {{ title }}
+                      {{ props.title }}
                     </slot>
                   </DialogTitle>
 
-                  <DialogDescription v-if="!description && !slots.description" />
-                  <DialogDescription v-else data-slot="description" :class="b24ui.description({ class: uiProp?.description })">
+                  <DialogDescription v-if="!props.description && !slots.description" />
+                  <DialogDescription v-else data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
                     <slot name="description">
-                      {{ description }}
+                      {{ props.description }}
                     </slot>
                   </DialogDescription>
                 </div>
@@ -214,25 +217,25 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.modal 
                   <slot name="close" :b24ui="b24ui">
                     <B24Button
                       v-if="props.close"
-                      :icon="closeIcon || icons.close"
+                      :icon="props.closeIcon || icons.close"
                       size="md"
                       color="air-tertiary-no-accent"
                       :aria-label="t('modal.close')"
                       v-bind="(typeof props.close === 'object' ? props.close : {})"
                       data-slot="close"
-                      :class="b24ui.close({ class: uiProp?.close })"
+                      :class="b24ui.close({ class: props.b24ui?.close })"
                     />
                   </slot>
                 </DialogClose>
               </slot>
             </div>
 
-            <div v-if="!!slots.body" data-slot="body" :class="b24ui.body({ class: uiProp?.body, scrollbarThin: Boolean(props.scrollbarThin) })">
+            <div v-if="!!slots.body" data-slot="body" :class="b24ui.body({ class: props.b24ui?.body, scrollbarThin: Boolean(props.scrollbarThin) })">
               <slot name="body" :close="close" />
             </div>
           </div>
 
-          <div v-if="!!slots.footer" data-slot="footer" :class="b24ui.footer({ class: uiProp?.footer })">
+          <div v-if="!!slots.footer" data-slot="footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
             <slot name="footer" :close="close" />
           </div>
         </slot>
@@ -245,14 +248,14 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.modal 
 
     <DialogPortal v-bind="portalProps">
       <FieldGroupReset>
-        <template v-if="scrollable">
-          <DialogOverlay data-slot="overlay" :class="b24ui.overlay({ class: uiProp?.overlay })">
+        <template v-if="props.scrollable">
+          <DialogOverlay data-slot="overlay" :class="b24ui.overlay({ class: props.b24ui?.overlay })">
             <ReuseContentTemplate />
           </DialogOverlay>
         </template>
 
         <template v-else>
-          <DialogOverlay v-if="overlay" data-slot="overlay" :class="b24ui.overlay({ class: uiProp?.overlay })" />
+          <DialogOverlay v-if="props.overlay" data-slot="overlay" :class="b24ui.overlay({ class: props.b24ui?.overlay })" />
 
           <ReuseContentTemplate />
         </template>

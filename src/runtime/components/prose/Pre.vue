@@ -29,20 +29,22 @@ export interface ProsePreSlots {
 import { computed, useTemplateRef } from 'vue'
 import { useClipboard } from '@vueuse/core'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../../composables/useComponentUI'
+import { useComponentProps } from '../../composables/useComponentProps'
 import { useLocale } from '../../composables/useLocale'
 import { tv } from '../../utils/tv'
 import icons from '../../dictionary/icons'
 import B24CodeIcon from './CodeIcon.vue'
 import B24Button from '../Button.vue'
 
-const props = defineProps<ProsePreProps>()
+const _props = defineProps<ProsePreProps>()
+
 defineSlots<ProsePreSlots>()
+
+const props = useComponentProps('prose.pre', _props)
 
 const { t } = useLocale()
 const { copy, copied } = useClipboard()
 const appConfig = useAppConfig() as ProsePre['AppConfig']
-const uiProp = useComponentUI('prose.pre', props)
 
 const baseRef = useTemplateRef('baseRef')
 
@@ -57,11 +59,11 @@ function copyCode() {
 </script>
 
 <template>
-  <div data-slot="root" :class="b24ui.root({ class: [uiProp?.root], filename: !!filename })">
-    <div v-if="filename && !hideHeader" data-slot="header" :class="b24ui.header({ class: uiProp?.header })">
-      <B24CodeIcon :icon="icon" :filename="filename" data-slot="icon" :class="b24ui.icon({ class: uiProp?.icon })" />
+  <div data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root], filename: !!props.filename })">
+    <div v-if="props.filename && !props.hideHeader" data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
+      <B24CodeIcon :icon="props.icon" :filename="props.filename" data-slot="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
 
-      <span data-slot="filename" :class="b24ui.filename({ class: uiProp?.filename })">{{ filename }}</span>
+      <span data-slot="filename" :class="b24ui.filename({ class: props.b24ui?.filename })">{{ props.filename }}</span>
     </div>
 
     <B24Button
@@ -69,15 +71,13 @@ function copyCode() {
       size="sm"
       :aria-label="t('prose.pre.copy')"
       data-slot="copy"
-      :class="b24ui.copy({ class: uiProp?.copy })"
+      :class="b24ui.copy({ class: props.b24ui?.copy })"
       tabindex="-1"
       :icon="copied ? icons.copyCheck : icons.copy"
-      :b24ui="{
-        leadingIcon: [copied ? 'text-(--ui-color-accent-main-success)' : 'text-(--ui-btn-color)']
-      }"
+      :b24ui="{ leadingIcon: [copied ? 'text-(--ui-color-accent-main-success)' : 'text-(--ui-btn-color)'] }"
       @click="copyCode"
     />
 
-    <pre ref="baseRef" data-slot="base" :class="b24ui.base({ class: [uiProp?.base, props.class] })" v-bind="$attrs"><slot /></pre>
+    <pre ref="baseRef" data-slot="base" :class="b24ui.base({ class: [props.b24ui?.base, props.class] })" v-bind="$attrs"><slot /></pre>
   </div>
 </template>

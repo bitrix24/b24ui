@@ -135,15 +135,16 @@ export type DropdownMenuSlots<
 <script setup lang="ts" generic="T extends ArrayOrNested<DropdownMenuItem>">
 import { computed, toRef } from 'vue'
 import { defu } from 'defu'
-import { DropdownMenuRoot, DropdownMenuTrigger, DropdownMenuArrow, useForwardPropsEmits } from 'reka-ui'
+import { DropdownMenuRoot, DropdownMenuTrigger, DropdownMenuArrow } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
+import { useForwardProps } from '../composables/useForwardProps'
 import { omit } from '../utils'
 import { tv } from '../utils/tv'
 import B24DropdownMenuContent from './DropdownMenuContent.vue'
 
-const props = withDefaults(defineProps<DropdownMenuProps<T>>(), {
+const _props = withDefaults(defineProps<DropdownMenuProps<T>>(), {
   portal: true,
   modal: true,
   externalIcon: true,
@@ -157,10 +158,11 @@ const slots = defineSlots<DropdownMenuSlots<T>>()
 
 const searchTerm = defineModel<string>('searchTerm', { default: '' })
 
-const appConfig = useAppConfig() as DropdownMenu['AppConfig']
-const uiProp = useComponentUI('dropdownMenu', props)
+const props = useComponentProps<DropdownMenuProps<T>>('dropdownMenu', _props)
 
-const rootProps = useForwardPropsEmits(reactivePick(props, 'defaultOpen', 'open', 'modal'), emits)
+const appConfig = useAppConfig() as DropdownMenu['AppConfig']
+
+const rootProps = useForwardProps(reactivePick(props, 'defaultOpen', 'open', 'modal'), emits)
 const contentProps = toRef(() => defu(props.content, { side: 'bottom', align: 'center', sideOffset: 8, collisionPadding: 8 }) as DropdownMenuContentProps)
 const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10 }) as DropdownMenuArrowProps)
 const getProxySlots = () => omit(slots, ['default'])
@@ -178,7 +180,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dropdo
       v-if="!!slots.default"
       as-child
       :class="props.class"
-      :disabled="disabled"
+      :disabled="props.disabled"
     >
       <slot :open="open" />
     </DropdownMenuTrigger>
@@ -186,26 +188,26 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dropdo
     <B24DropdownMenuContent
       v-model:search-term="searchTerm"
       data-slot="content"
-      :class="b24ui.content({ class: [!slots.default && uiProp?.content, props.class] })"
+      :class="b24ui.content({ class: [!slots.default && props.b24ui?.content, props.class] })"
       :b24ui="b24ui"
-      :b24ui-override="uiProp"
+      :b24ui-override="props.b24ui"
       v-bind="contentProps"
-      :items="items"
-      :arrow="arrow"
-      :portal="portal"
-      :label-key="(labelKey as string & keyof NestedItem<T>)"
-      :description-key="(descriptionKey as string & keyof NestedItem<T>)"
-      :checked-icon="checkedIcon"
-      :external-icon="externalIcon"
-      :filter="filter"
-      :filter-fields="filterFields"
-      :ignore-filter="ignoreFilter"
+      :items="props.items"
+      :arrow="props.arrow"
+      :portal="props.portal"
+      :label-key="(props.labelKey as string & keyof NestedItem<T>)"
+      :description-key="(props.descriptionKey as string & keyof NestedItem<T>)"
+      :checked-icon="props.checkedIcon"
+      :external-icon="props.externalIcon"
+      :filter="props.filter"
+      :filter-fields="props.filterFields"
+      :ignore-filter="props.ignoreFilter"
     >
       <template v-for="(_, name) in getProxySlots()" #[name]="slotData">
         <slot :name="(name as keyof DropdownMenuSlots<T>)" v-bind="slotData" />
       </template>
 
-      <DropdownMenuArrow v-if="!!arrow" v-bind="arrowProps" data-slot="arrow" :class="b24ui.arrow({ class: uiProp?.arrow })" />
+      <DropdownMenuArrow v-if="!!props.arrow" v-bind="arrowProps" data-slot="arrow" :class="b24ui.arrow({ class: props.b24ui?.arrow })" />
     </B24DropdownMenuContent>
   </DropdownMenuRoot>
 </template>

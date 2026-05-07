@@ -68,7 +68,7 @@ export interface BannerEmits {
 import { computed, ref, onMounted, useId } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useHead, useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { useLocale } from '../composables/useLocale'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
@@ -78,20 +78,23 @@ import B24Button from './Button.vue'
 
 defineOptions({ inheritAttrs: false })
 
-const props = defineProps<BannerProps>()
+const _props = defineProps<BannerProps>()
 const slots = defineSlots<BannerSlots>()
 const emits = defineEmits<BannerEmits>()
 
+const props = useComponentProps('banner', _props)
+
 const { t } = useLocale()
 const appConfig = useAppConfig() as Banner['AppConfig']
-const uiProp = useComponentUI('banner', props)
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.banner || {}) })({
   color: props.color,
   to: !!props.to
 }))
 
 const instanceId = useId()
+// eslint-disable-next-line vue/no-dupe-keys
 const id = computed(() => {
   const rawId = props.id || instanceId
   // Sanitize to only allow safe characters for CSS custom properties and selectors
@@ -146,16 +149,16 @@ function onClose() {
 <template>
   <Primitive
     v-show="isVisible"
-    :as="as"
+    :as="props.as"
     class="banner"
     :data-banner-id="id"
     data-slot="root"
-    :class="b24ui.root({ class: [uiProp?.root, props.class] })"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
   >
     <B24Link
-      v-if="to"
-      :aria-label="title"
-      v-bind="{ to, target, ...$attrs }"
+      v-if="props.to"
+      :aria-label="props.title"
+      v-bind="{ to: props.to, target: props.target, ...$attrs }"
       class="focus:outline-none"
       tabindex="-1"
       raw
@@ -163,24 +166,24 @@ function onClose() {
       <span class="absolute inset-0" aria-hidden="true" />
     </B24Link>
 
-    <B24Container data-slot="container" :class="b24ui.container({ class: uiProp?.container })">
-      <div data-slot="left" :class="b24ui.left({ class: uiProp?.left })" />
+    <B24Container data-slot="container" :class="b24ui.container({ class: props.b24ui?.container })">
+      <div data-slot="left" :class="b24ui.left({ class: props.b24ui?.left })" />
 
-      <div data-slot="center" :class="b24ui.center({ class: uiProp?.center })">
+      <div data-slot="center" :class="b24ui.center({ class: props.b24ui?.center })">
         <slot name="leading" :b24ui="b24ui">
-          <Component :is="icon" v-if="icon" data-slot="icon" :class="b24ui.icon({ class: uiProp?.icon })" />
+          <Component :is="props.icon" v-if="props.icon" data-slot="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
         </slot>
 
-        <div v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
+        <div v-if="props.title || !!slots.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
           <slot name="title">
-            {{ title }}
+            {{ props.title }}
           </slot>
         </div>
 
-        <div v-if="actions?.length || !!slots.actions" data-slot="actions" :class="b24ui.actions({ class: uiProp?.actions })">
+        <div v-if="props.actions?.length || !!slots.actions" data-slot="actions" :class="b24ui.actions({ class: props.b24ui?.actions })">
           <slot name="actions">
             <B24Button
-              v-for="(action, index) in actions"
+              v-for="(action, index) in props.actions"
               :key="index"
               color="air-secondary-no-accent"
               size="xs"
@@ -190,17 +193,17 @@ function onClose() {
         </div>
       </div>
 
-      <div data-slot="right" :class="b24ui.right({ class: uiProp?.right })">
+      <div data-slot="right" :class="b24ui.right({ class: props.b24ui?.right })">
         <slot name="close" :b24ui="b24ui">
           <B24Button
-            v-if="close"
-            :icon="closeIcon || icons.close"
+            v-if="props.close"
+            :icon="props.closeIcon || icons.close"
             size="md"
             color="air-tertiary-no-accent"
             :aria-label="t('banner.close')"
-            v-bind="(typeof close === 'object' ? close : {})"
+            v-bind="(typeof props.close === 'object' ? props.close : {})"
             data-slot="close"
-            :class="b24ui.close({ class: uiProp?.close })"
+            :class="b24ui.close({ class: props.b24ui?.close })"
             @click="onClose"
           />
         </slot>

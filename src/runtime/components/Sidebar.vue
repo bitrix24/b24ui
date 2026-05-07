@@ -94,7 +94,7 @@ import { Primitive } from 'reka-ui'
 import { defu } from 'defu'
 import { createReusableTemplate, useMediaQuery } from '@vueuse/core'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { useLocale } from '../composables/useLocale'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
@@ -105,7 +105,7 @@ import B24Drawer from './Drawer.vue'
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<SidebarProps<T>>(), {
+const _props = withDefaults(defineProps<SidebarProps<T>>(), {
   as: 'aside',
   variant: 'sidebar',
   collapsible: 'offcanvas',
@@ -115,6 +115,8 @@ const props = withDefaults(defineProps<SidebarProps<T>>(), {
   mode: 'slideover' as never
 })
 const slots = defineSlots<SidebarSlots>()
+
+const props = useComponentProps<SidebarProps<T>>('sidebar', _props)
 
 const [DefineInnerTemplate, ReuseInnerTemplate] = createReusableTemplate()
 const [DefineContentTemplate, ReuseContentTemplate] = createReusableTemplate()
@@ -172,7 +174,6 @@ watch(openMobile, (value) => {
 
 const { t } = useLocale()
 const appConfig = useAppConfig() as Sidebar['AppConfig']
-const uiProp = useComponentUI('sidebar', props)
 
 const state = computed<SidebarState>(() => open.value ? 'expanded' : 'collapsed')
 
@@ -185,6 +186,7 @@ function closeSidebar() {
 
 const hasHeader = computed(() => !!slots.header || props.title || !!slots.title || props.description || !!slots.description || !!slots.actions || canClose.value || !!slots.close)
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sidebar || {}) })({
   side: props.side,
   variant: props.variant,
@@ -225,9 +227,9 @@ const menuProps = toRef(() => {
 
   // @memo fix componentMeta
   result['b24ui'] = {
-    overlay: b24ui.value.overlay({ class: uiProp.value?.overlay }),
+    overlay: b24ui.value.overlay({ class: props.b24ui?.overlay }),
     content: b24ui.value.content({
-      class: [modeSettings?.b24ui?.content, uiProp.value?.content]
+      class: [modeSettings?.b24ui?.content, props.b24ui?.content]
     })
   }
   return result
@@ -236,35 +238,35 @@ const menuProps = toRef(() => {
 
 <template>
   <DefineContentTemplate>
-    <div v-if="hasHeader" data-slot="header" :class="b24ui.header({ class: uiProp?.header })">
+    <div v-if="hasHeader" data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
       <slot name="header" :state="state" :open="open" :close="closeSidebar">
-        <div v-if="title || !!slots.title || description || !!slots.description" data-slot="wrapper" :class="b24ui.wrapper({ class: uiProp?.wrapper })">
-          <p v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
+        <div v-if="props.title || !!slots.title || props.description || !!slots.description" data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
+          <p v-if="props.title || !!slots.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
             <slot name="title" :state="state">
-              {{ title }}
+              {{ props.title }}
             </slot>
           </p>
 
-          <p v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: uiProp?.description })">
+          <p v-if="props.description || !!slots.description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
             <slot name="description" :state="state">
-              {{ description }}
+              {{ props.description }}
             </slot>
           </p>
         </div>
 
-        <div v-if="!!slots.actions || canClose" data-slot="actions" :class="b24ui.actions({ class: uiProp?.actions })">
+        <div v-if="!!slots.actions || canClose" data-slot="actions" :class="b24ui.actions({ class: props.b24ui?.actions })">
           <slot name="actions" :state="state" />
 
           <slot name="close" :state="state" :b24ui="b24ui">
             <B24Button
               v-if="canClose"
-              :icon="closeIcon || icons.close"
+              :icon="props.closeIcon || icons.close"
               size="md"
               color="air-tertiary-no-accent"
               :aria-label="t('sidebar.close')"
               v-bind="(typeof props.close === 'object' ? props.close : {})"
               data-slot="close"
-              :class="b24ui.close({ class: uiProp?.close })"
+              :class="b24ui.close({ class: props.b24ui?.close })"
               @click="closeSidebar"
             />
           </slot>
@@ -272,29 +274,29 @@ const menuProps = toRef(() => {
       </slot>
     </div>
 
-    <div data-slot="body" :class="b24ui.body({ class: uiProp?.body })">
+    <div data-slot="body" :class="b24ui.body({ class: props.b24ui?.body })">
       <slot :state="state" :open="open" :close="closeSidebar" />
     </div>
 
-    <div v-if="!!slots.footer" data-slot="footer" :class="b24ui.footer({ class: uiProp?.footer })">
+    <div v-if="!!slots.footer" data-slot="footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
       <slot name="footer" :state="state" :open="open" :close="closeSidebar" />
     </div>
   </DefineContentTemplate>
 
   <DefineInnerTemplate>
-    <div data-slot="inner" :class="b24ui.inner({ class: uiProp?.inner })">
+    <div data-slot="inner" :class="b24ui.inner({ class: props.b24ui?.inner })">
       <ReuseContentTemplate />
     </div>
   </DefineInnerTemplate>
 
   <!-- Non-collapsible: simple inline sidebar -->
   <Primitive
-    v-if="collapsible === 'none'"
-    :as="as"
+    v-if="props.collapsible === 'none'"
+    :as="props.as"
     v-bind="$attrs"
     data-slot="root"
-    :data-variant="variant"
-    :class="b24ui.root({ class: [uiProp?.root, props.class] })"
+    :data-variant="props.variant"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
   >
     <ReuseInnerTemplate />
   </Primitive>
@@ -302,37 +304,37 @@ const menuProps = toRef(() => {
   <!-- Collapsible: fixed sidebar with gap spacer + mobile menu -->
   <template v-else>
     <Primitive
-      :as="as"
+      :as="props.as"
       v-bind="$attrs"
       data-slot="root"
       :data-state="state"
-      :data-collapsible="state === 'collapsed' ? collapsible : undefined"
-      :data-variant="variant"
-      :data-side="side"
-      :class="b24ui.root({ class: [uiProp?.root, props.class] })"
+      :data-collapsible="state === 'collapsed' ? props.collapsible : undefined"
+      :data-variant="props.variant"
+      :data-side="props.side"
+      :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     >
       <!-- Gap spacer: reserves layout space for the fixed sidebar -->
       <div
         data-slot="gap"
         :data-state="state"
-        :class="b24ui.gap({ class: uiProp?.gap })"
+        :class="b24ui.gap({ class: props.b24ui?.gap })"
       />
 
       <!-- Fixed container: the actual visible sidebar -->
       <div
         data-slot="container"
         :data-state="state"
-        :class="b24ui.container({ class: uiProp?.container })"
+        :class="b24ui.container({ class: props.b24ui?.container })"
       >
         <ReuseInnerTemplate />
 
-        <slot v-if="rail" name="rail" :state="state" :b24ui="b24ui">
+        <slot v-if="props.rail" name="rail" :state="state" :b24ui="b24ui">
           <button
             data-slot="rail"
             :data-state="state"
             :aria-label="t('sidebar.toggle')"
             :tabindex="-1"
-            :class="b24ui.rail({ class: uiProp?.rail })"
+            :class="b24ui.rail({ class: props.b24ui?.rail })"
             @click="open = !open"
           />
         </slot>

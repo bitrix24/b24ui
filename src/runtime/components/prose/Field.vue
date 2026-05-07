@@ -41,40 +41,41 @@ export interface ProseFieldSlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../../composables/useComponentUI'
+import { useComponentProps } from '../../composables/useComponentProps'
 import { tv } from '../../utils/tv'
 
-const props = defineProps<ProseFieldProps>()
+const _props = defineProps<ProseFieldProps>()
 const slots = defineSlots<ProseFieldSlots>()
 
+const props = useComponentProps('prose.field', _props)
+
 const appConfig = useAppConfig() as ProseField['AppConfig']
-const uiProp = useComponentUI('prose.field', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.field || {}) })())
 </script>
 
 <template>
-  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
-    <div data-slot="container" :class="b24ui.container({ class: uiProp?.container })">
-      <span v-if="name" data-slot="name" :class="b24ui.name({ class: uiProp?.name })">
-        {{ name }}
+  <Primitive :as="props.as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+    <div data-slot="container" :class="b24ui.container({ class: props.b24ui?.container })">
+      <span v-if="props.name" data-slot="name" :class="b24ui.name({ class: props.b24ui?.name })">
+        {{ props.name }}
       </span>
 
-      <div v-if="type || required" data-slot="wrapper" :class="b24ui.wrapper({ class: uiProp?.wrapper })">
-        <span v-if="type" data-slot="type" :class="b24ui.type({ class: uiProp?.type })">
-          {{ type }}
+      <div v-if="props.type || props.required" data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
+        <span v-if="props.type" data-slot="type" :class="b24ui.type({ class: props.b24ui?.type })">
+          {{ props.type }}
         </span>
 
-        <span v-if="required" data-slot="required" :class="b24ui.required({ class: uiProp?.required })">
+        <span v-if="props.required" data-slot="required" :class="b24ui.required({ class: props.b24ui?.required })">
           required
         </span>
       </div>
     </div>
 
-    <div v-if="!!slots.default || description" data-slot="description" :class="b24ui.description({ class: uiProp?.description })">
+    <div v-if="!!slots.default || props.description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
       <slot mdc-unwrap="p">
-        {{ description }}
+        {{ props.description }}
       </slot>
     </div>
   </Primitive>

@@ -56,7 +56,7 @@ import { ref, computed, toRef, useId, watch } from 'vue'
 import { defu } from 'defu'
 import { createReusableTemplate } from '@vueuse/core'
 import { useAppConfig, useRuntimeHook, useRoute } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { useResizable } from '../composables/useResizable'
 import { useLocale } from '../composables/useLocale'
 import { useDashboard } from '../utils/dashboard'
@@ -69,7 +69,7 @@ import B24Drawer from './Drawer.vue'
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<DashboardSidebarProps<T>>(), {
+const _props = withDefaults(defineProps<DashboardSidebarProps<T>>(), {
   side: 'left',
   mode: 'slideover' as never,
   autoClose: true,
@@ -84,13 +84,14 @@ const props = withDefaults(defineProps<DashboardSidebarProps<T>>(), {
 })
 const slots = defineSlots<DashboardSidebarSlots>()
 
+const props = useComponentProps<DashboardSidebarProps<T>>('dashboardSidebar', _props)
+
 const open = defineModel<boolean>('open', { default: false })
 const collapsed = defineModel<boolean>('collapsed', { default: false })
 
 const route = useRoute()
 const { t } = useLocale()
 const appConfig = useAppConfig() as DashboardSidebar['AppConfig']
-const uiProp = useComponentUI('dashboardSidebar', props)
 
 const dashboardContext = useDashboard({
   storageKey: 'dashboard',
@@ -123,6 +124,7 @@ watch(() => route.fullPath, () => {
   open.value = false
 })
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashboardSidebar || {}) })({
   side: props.side
 }))
@@ -154,11 +156,10 @@ const menuProps = toRef(() => {
   ) as DashboardSidebarMenu<T>
 
   // @memo fix componentMeta
-  // @memo fix componentMeta
   result['b24ui'] = {
-    overlay: b24ui.value.overlay({ class: uiProp.value?.overlay }),
+    overlay: b24ui.value.overlay({ class: props.b24ui?.overlay }),
     content: b24ui.value.content({
-      class: [modeSettings?.b24ui?.content, uiProp.value?.content]
+      class: [modeSettings?.b24ui?.content, props.b24ui?.content]
     })
   }
   return result
@@ -173,11 +174,11 @@ function toggleOpen() {
   <DefineToggleTemplate>
     <slot name="toggle" :open="open" :toggle="toggleOpen" :b24ui="b24ui">
       <B24DashboardSidebarToggle
-        v-if="toggle"
-        v-bind="(typeof toggle === 'object' ? toggle : {})"
-        :side="toggleSide"
+        v-if="props.toggle"
+        v-bind="(typeof props.toggle === 'object' ? props.toggle : {})"
+        :side="props.toggleSide"
         data-slot="toggle"
-        :class="b24ui.toggle({ class: uiProp?.toggle, toggleSide })"
+        :class="b24ui.toggle({ class: props.b24ui?.toggle, toggleSide: props.toggleSide })"
       />
     </slot>
   </DefineToggleTemplate>
@@ -185,10 +186,10 @@ function toggleOpen() {
   <DefineResizeHandleTemplate>
     <slot name="resize-handle" :on-mouse-down="onMouseDown" :on-touch-start="onTouchStart" :on-double-click="onDoubleClick" :b24ui="b24ui">
       <B24DashboardResizeHandle
-        v-if="resizable"
+        v-if="props.resizable"
         :aria-controls="id"
         data-slot="handle"
-        :class="b24ui.handle({ class: uiProp?.handle })"
+        :class="b24ui.handle({ class: props.b24ui?.handle })"
         @mousedown="onMouseDown"
         @touchstart="onTouchStart"
         @dblclick="onDoubleClick"
@@ -196,7 +197,7 @@ function toggleOpen() {
     </slot>
   </DefineResizeHandleTemplate>
 
-  <ReuseResizeHandleTemplate v-if="side === 'right'" />
+  <ReuseResizeHandleTemplate v-if="props.side === 'right'" />
 
   <div
     :id="id"
@@ -205,23 +206,23 @@ function toggleOpen() {
     :data-collapsed="isCollapsed"
     :data-dragging="isDragging"
     data-slot="root"
-    :class="b24ui.root({ class: [uiProp?.root, props.class] })"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     :style="{ '--width': `${size || 0}${dashboardContext.unit}` }"
   >
-    <div v-if="!!slots.header" data-slot="header" :class="b24ui.header({ class: uiProp?.header })">
+    <div v-if="!!slots.header" data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
       <slot name="header" :collapsed="isCollapsed" :collapse="collapse" />
     </div>
 
-    <div data-slot="body" :class="b24ui.body({ class: uiProp?.body })">
+    <div data-slot="body" :class="b24ui.body({ class: props.b24ui?.body })">
       <slot :collapsed="isCollapsed" :collapse="collapse" />
     </div>
 
-    <div v-if="!!slots.footer" data-slot="footer" :class="b24ui.footer({ class: uiProp?.footer })">
+    <div v-if="!!slots.footer" data-slot="footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
       <slot name="footer" :collapsed="isCollapsed" :collapse="collapse" />
     </div>
   </div>
 
-  <ReuseResizeHandleTemplate v-if="side === 'left'" />
+  <ReuseResizeHandleTemplate v-if="props.side === 'left'" />
 
   <Menu
     v-model:open="open"
@@ -231,19 +232,19 @@ function toggleOpen() {
   >
     <template #content="contentData">
       <slot name="content" v-bind="contentData">
-        <div v-if="!!slots.header || mode !== 'drawer'" data-slot="header" :class="b24ui.header({ class: uiProp?.header, menu: true })">
-          <ReuseToggleTemplate v-if="mode !== 'drawer' && toggleSide === 'left'" />
+        <div v-if="!!slots.header || props.mode !== 'drawer'" data-slot="header" :class="b24ui.header({ class: props.b24ui?.header, menu: true })">
+          <ReuseToggleTemplate v-if="props.mode !== 'drawer' && props.toggleSide === 'left'" />
 
           <slot name="header" :collapsed="false" :collapse="() => {}" />
 
-          <ReuseToggleTemplate v-if="mode !== 'drawer' && toggleSide === 'right'" />
+          <ReuseToggleTemplate v-if="props.mode !== 'drawer' && props.toggleSide === 'right'" />
         </div>
 
-        <div data-slot="body" :class="b24ui.body({ class: uiProp?.body, menu: true })">
+        <div data-slot="body" :class="b24ui.body({ class: props.b24ui?.body, menu: true })">
           <slot :collapsed="false" :collapse="() => {}" />
         </div>
 
-        <div v-if="!!slots.footer" data-slot="footer" :class="b24ui.footer({ class: uiProp?.footer, menu: true })">
+        <div v-if="!!slots.footer" data-slot="footer" :class="b24ui.footer({ class: props.b24ui?.footer, menu: true })">
           <slot name="footer" :collapsed="false" :collapse="() => {}" />
         </div>
       </slot>

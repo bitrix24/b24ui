@@ -67,21 +67,23 @@ export interface PageSectionSlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { tv } from '../utils/tv'
 import B24PageFeature from './PageFeature.vue'
 import B24Container from './Container.vue'
 import B24Button from './Button.vue'
 
-const props = withDefaults(defineProps<PageSectionProps>(), {
+const _props = withDefaults(defineProps<PageSectionProps>(), {
   as: 'section',
   orientation: 'vertical'
 })
 const slots = defineSlots<PageSectionSlots>()
 
-const appConfig = useAppConfig() as PageSection['AppConfig']
-const uiProp = useComponentUI('pageSection', props)
+const props = useComponentProps('pageSection', _props)
 
+const appConfig = useAppConfig() as PageSection['AppConfig']
+
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pageSection || {}) })({
   orientation: props.orientation,
   reverse: props.reverse,
@@ -92,50 +94,50 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pageSe
 </script>
 
 <template>
-  <Primitive :as="as" :data-orientation="orientation" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
+  <Primitive :as="props.as" :data-orientation="props.orientation" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <slot name="top" />
 
-    <B24Container data-slot="container" :class="b24ui.container({ class: uiProp?.container })">
-      <div v-if="!!slots.header || (icon || !!slots.leading) || (headline || !!slots.headline) || (title || !!slots.title) || (description || !!slots.description) || !!slots.body || (features?.length || !!slots.features) || !!slots.footer || (links?.length || !!slots.links)" data-slot="wrapper" :class="b24ui.wrapper({ class: uiProp?.wrapper })">
-        <div v-if="!!slots.header || (icon || !!slots.leading) || (headline || !!slots.headline) || (title || !!slots.title) || (description || !!slots.description)" data-slot="header" :class="b24ui.header({ class: uiProp?.header })">
+    <B24Container data-slot="container" :class="b24ui.container({ class: props.b24ui?.container })">
+      <div v-if="!!slots.header || (props.icon || !!slots.leading) || (props.headline || !!slots.headline) || (props.title || !!slots.title) || (props.description || !!slots.description) || !!slots.body || (props.features?.length || !!slots.features) || !!slots.footer || (props.links?.length || !!slots.links)" data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
+        <div v-if="!!slots.header || (props.icon || !!slots.leading) || (props.headline || !!slots.headline) || (props.title || !!slots.title) || (props.description || !!slots.description)" data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
           <slot name="header">
-            <div v-if="icon || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: uiProp?.leading })">
+            <div v-if="props.icon || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
               <slot name="leading" :b24ui="b24ui">
                 <Component
-                  :is="icon"
-                  v-if="icon"
+                  :is="props.icon"
+                  v-if="props.icon"
                   data-slot="leadingIcon"
-                  :class="b24ui.leadingIcon({ class: uiProp?.leadingIcon })"
+                  :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
                 />
               </slot>
             </div>
 
-            <div v-if="headline || !!slots.headline" data-slot="headline" :class="b24ui.headline({ class: uiProp?.headline, headline: !slots.headline })">
+            <div v-if="props.headline || !!slots.headline" data-slot="headline" :class="b24ui.headline({ class: props.b24ui?.headline, headline: !slots.headline })">
               <slot name="headline">
-                {{ headline }}
+                {{ props.headline }}
               </slot>
             </div>
 
-            <h2 v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
+            <h2 v-if="props.title || !!slots.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
               <slot name="title">
-                {{ title }}
+                {{ props.title }}
               </slot>
             </h2>
 
-            <div v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: uiProp?.description })">
+            <div v-if="props.description || !!slots.description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
               <slot name="description">
-                {{ description }}
+                {{ props.description }}
               </slot>
             </div>
           </slot>
         </div>
 
-        <div v-if="!!slots.body || (features?.length || !!slots.features)" data-slot="body" :class="b24ui.body({ class: uiProp?.body })">
+        <div v-if="!!slots.body || (props.features?.length || !!slots.features)" data-slot="body" :class="b24ui.body({ class: props.b24ui?.body })">
           <slot name="body">
-            <ul v-if="features?.length || !!slots.features" data-slot="features" :class="b24ui.features({ class: uiProp?.features })">
+            <ul v-if="props.features?.length || !!slots.features" data-slot="features" :class="b24ui.features({ class: props.b24ui?.features })">
               <slot name="features">
                 <B24PageFeature
-                  v-for="(feature, index) in features"
+                  v-for="(feature, index) in props.features"
                   :key="index"
                   as="li"
                   v-bind="feature"
@@ -145,11 +147,11 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pageSe
           </slot>
         </div>
 
-        <div v-if="!!slots.footer || (links?.length || !!slots.links)" data-slot="footer" :class="b24ui.footer({ class: uiProp?.footer })">
+        <div v-if="!!slots.footer || (props.links?.length || !!slots.links)" data-slot="footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
           <slot name="footer">
-            <div v-if="links?.length || !!slots.links" data-slot="links" :class="b24ui.links({ class: uiProp?.links })">
+            <div v-if="props.links?.length || !!slots.links" data-slot="links" :class="b24ui.links({ class: props.b24ui?.links })">
               <slot name="links">
-                <B24Button v-for="(link, index) in links" :key="index" size="lg" v-bind="link" />
+                <B24Button v-for="(link, index) in props.links" :key="index" size="lg" v-bind="link" />
               </slot>
             </div>
           </slot>
@@ -157,7 +159,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pageSe
       </div>
 
       <slot v-if="!!slots.default" />
-      <div v-else-if="orientation === 'horizontal'" class="hidden lg:block" />
+      <div v-else-if="props.orientation === 'horizontal'" class="hidden lg:block" />
     </B24Container>
 
     <slot name="bottom" />

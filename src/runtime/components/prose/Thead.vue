@@ -19,21 +19,23 @@ export interface ProseTheadSlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../../composables/useComponentUI'
+import { useComponentProps } from '../../composables/useComponentProps'
 import { tv } from '../../utils/tv'
 
-const props = defineProps<ProseTheadProps>()
+const _props = defineProps<ProseTheadProps>()
+
 defineSlots<ProseTheadSlots>()
 
+const props = useComponentProps('prose.thead', _props)
+
 const appConfig = useAppConfig() as ProseThead['AppConfig']
-const uiProp = useComponentUI('prose.thead', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.thead || {}) })())
 </script>
 
 <template>
-  <thead data-slot="base" :class="b24ui.base({ class: [uiProp?.base, props.class] })">
+  <thead data-slot="base" :class="b24ui.base({ class: [props.b24ui?.base, props.class] })">
     <slot />
   </thead>
 </template>

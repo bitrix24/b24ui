@@ -2,6 +2,8 @@
  * ProsePrompt
  * ---
  * @todo add open in b24: https://xxxxx.bitrix24.com/online/?IM_COPILOT
+ * @todo add windsurf icons
+ * @todo add cursor icons
  * @memo in b24 use BitrixGPT [USER=xx]BitrixGPT[/USER]
  */
 

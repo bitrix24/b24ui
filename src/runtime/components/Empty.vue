@@ -57,18 +57,20 @@ export interface EmptySlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { tv } from '../utils/tv'
 import B24Button from './Button.vue'
 
-const props = withDefaults(defineProps<EmptyProps>(), {
+const _props = withDefaults(defineProps<EmptyProps>(), {
   inverted: false
 })
 const slots = defineSlots<EmptySlots>()
 
-const appConfig = useAppConfig() as Empty['AppConfig']
-const uiProp = useComponentUI('empty', props)
+const props = useComponentProps('empty', _props)
 
+const appConfig = useAppConfig() as Empty['AppConfig']
+
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.empty || {}) })({
   color: props.color,
   inverted: Boolean(props.inverted),
@@ -77,44 +79,44 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.empty 
 </script>
 
 <template>
-  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
-    <div v-if="!!slots.header || (icon || !!slots.leading) || (title || !!slots.title) || (description || !!slots.description)" data-slot="header" :class="b24ui.header({ class: uiProp?.header })">
+  <Primitive :as="props.as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+    <div v-if="!!slots.header || (props.icon || !!slots.leading) || (props.title || !!slots.title) || (props.description || !!slots.description)" data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
       <slot name="header">
         <slot name="leading" :b24ui="b24ui">
-          <div v-if="icon" data-slot="indicator" :class="b24ui.indicator({ class: uiProp?.indicator })">
+          <div v-if="props.icon" data-slot="indicator" :class="b24ui.indicator({ class: props.b24ui?.indicator })">
             <Component
-              :is="icon"
+              :is="props.icon"
               data-slot="icon"
-              :class="b24ui.icon({ class: uiProp?.icon })"
+              :class="b24ui.icon({ class: props.b24ui?.icon })"
             />
           </div>
         </slot>
 
-        <h2 v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
+        <h2 v-if="props.title || !!slots.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
           <slot name="title">
-            {{ title }}
+            {{ props.title }}
           </slot>
         </h2>
 
-        <div v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: uiProp?.description })">
+        <div v-if="props.description || !!slots.description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
           <slot name="description">
-            {{ description }}
+            {{ props.description }}
           </slot>
         </div>
       </slot>
     </div>
 
-    <div v-if="!!slots.body || (actions?.length || !!slots.actions)" data-slot="body" :class="b24ui.body({ class: uiProp?.body })">
+    <div v-if="!!slots.body || (props.actions?.length || !!slots.actions)" data-slot="body" :class="b24ui.body({ class: props.b24ui?.body })">
       <slot name="body">
-        <div v-if="actions?.length || !!slots.actions" data-slot="actions" :class="b24ui.actions({ class: uiProp?.actions })">
+        <div v-if="props.actions?.length || !!slots.actions" data-slot="actions" :class="b24ui.actions({ class: props.b24ui?.actions })">
           <slot name="actions">
-            <B24Button v-for="(action, index) in actions" :key="index" :size="size" v-bind="action" />
+            <B24Button v-for="(action, index) in props.actions" :key="index" :size="props.size" v-bind="action" />
           </slot>
         </div>
       </slot>
     </div>
 
-    <div v-if="!!slots.footer" data-slot="footer" :class="b24ui.footer({ class: uiProp?.footer })">
+    <div v-if="!!slots.footer" data-slot="footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
       <slot name="footer" />
     </div>
   </Primitive>

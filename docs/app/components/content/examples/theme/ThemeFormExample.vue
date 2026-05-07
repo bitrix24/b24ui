@@ -25,6 +25,10 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 
 <template>
   <B24Theme
+    :props="{
+      input: { size: 'lg' },
+      textarea: { color: 'air-primary-success' }
+    }"
     :b24ui="{
       formField: {
         root: 'flex max-sm:flex-col justify-between gap-4',

@@ -57,22 +57,23 @@ export interface BadgeSlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { useFieldGroup } from '../composables/useFieldGroup'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { tv } from '../utils/tv'
 import Cross20Icon from '@bitrix24/b24icons-vue/actions/Cross20Icon'
 import B24Avatar from './Avatar.vue'
 
-const props = withDefaults(defineProps<BadgeProps>(), {
+const _props = withDefaults(defineProps<BadgeProps>(), {
   as: 'span',
   inverted: false
 })
 
 const slots = defineSlots<BadgeSlots>()
 
+const props = useComponentProps('badge', _props)
+
 const appConfig = useAppConfig() as Badge['AppConfig']
-const uiProp = useComponentUI('badge', props)
 
 async function onCloseClickWrapper(event: MouseEvent) {
   const callbacks = Array.isArray(props.onCloseClick) ? props.onCloseClick : [props.onCloseClick]
@@ -81,13 +82,14 @@ async function onCloseClickWrapper(event: MouseEvent) {
   } finally { /* empty */ }
 }
 
-const { orientation, size: fieldGroupSize } = useFieldGroup<BadgeProps>(props)
+const { orientation, size: fieldGroupSize } = useFieldGroup<BadgeProps>(_props)
 const { isLeading, leadingIconName } = useComponentIcons(props)
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.badge || {}) })({
   color: props.color,
   inverted: Boolean(props.inverted),
-  size: fieldGroupSize.value || props.size,
+  size: fieldGroupSize.value ?? props.size,
   square: props.square || (!slots.default && !props.label),
   fieldGroup: orientation.value,
   useLink: Boolean(props.useLink),
@@ -98,42 +100,42 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.badge 
 
 <template>
   <Primitive
-    :as="as"
+    :as="props.as"
     data-slot="base"
-    :class="b24ui.base({ class: [uiProp?.base, props.class] })"
+    :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
   >
     <Primitive
-      :as="as"
+      :as="props.as"
       data-slot="wrapper"
-      :class="b24ui.wrapper({ class: uiProp?.wrapper })"
+      :class="b24ui.wrapper({ class: props.b24ui?.wrapper })"
     >
       <slot name="leading" :b24ui="b24ui">
         <Component
           :is="leadingIconName"
           v-if="isLeading && leadingIconName"
           data-slot="leadingIcon"
-          :class="b24ui.leadingIcon({ class: uiProp?.leadingIcon })"
+          :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
         />
         <B24Avatar
-          v-else-if="!!avatar"
-          :size="((uiProp?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
-          v-bind="avatar"
+          v-else-if="!!props.avatar"
+          :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+          v-bind="props.avatar"
           data-slot="leadingAvatar"
-          :class="b24ui.leadingAvatar({ class: uiProp?.leadingAvatar })"
+          :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
         />
       </slot>
 
       <slot :b24ui="b24ui">
-        <span v-if="label !== undefined && label !== null" data-slot="label" :class="b24ui.label({ class: uiProp?.label })">
-          {{ label }}
+        <span v-if="props.label !== undefined && props.label !== null" data-slot="label" :class="b24ui.label({ class: props.b24ui?.label })">
+          {{ props.label }}
         </span>
       </slot>
     </Primitive>
     <slot name="trailing" :b24ui="b24ui">
       <Cross20Icon
-        v-if="useClose"
+        v-if="props.useClose"
         data-slot="trailingIcon"
-        :class="b24ui.trailingIcon({ class: uiProp?.trailingIcon })"
+        :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
         aria-hidden="true"
         @click.stop.prevent="onCloseClickWrapper"
       />

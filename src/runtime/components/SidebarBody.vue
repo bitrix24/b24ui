@@ -35,25 +35,28 @@ export interface SidebarBodySlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { tv } from '../utils/tv'
 
-const props = withDefaults(defineProps<SidebarBodyProps>(), {
+const _props = withDefaults(defineProps<SidebarBodyProps>(), {
   as: 'div',
   scrollbarThin: true
 })
+
 defineSlots<SidebarBodySlots>()
 
-const appConfig = useAppConfig() as SidebarBody['AppConfig']
-const uiProp = useComponentUI('sidebarBody', props)
+const props = useComponentProps('sidebarBody', _props)
 
+const appConfig = useAppConfig() as SidebarBody['AppConfig']
+
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sidebarBody || {}) })({
   scrollbarThin: Boolean(props.scrollbarThin)
 }))
 </script>
 
 <template>
-  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
+  <Primitive :as="props.as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <slot />
   </Primitive>
 </template>

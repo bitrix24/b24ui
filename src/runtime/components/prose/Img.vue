@@ -27,24 +27,26 @@ import { AnimatePresence, Motion } from 'motion-v'
 import { useEventListener, createReusableTemplate } from '@vueuse/core'
 import { useAppConfig, useRuntimeConfig } from '#imports'
 import ImageComponent from '#build/b24ui-image-component'
-import { useComponentUI } from '../../composables/useComponentUI'
+import { useComponentProps } from '../../composables/useComponentProps'
 import { resolveBaseURL } from '../../utils'
 import { tv } from '../../utils/tv'
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<ProseImgProps>(), {
+const _props = withDefaults(defineProps<ProseImgProps>(), {
   zoom: true
 })
 
+const props = useComponentProps('prose.img', _props)
+
 const appConfig = useAppConfig() as ProseImg['AppConfig']
-const uiProp = useComponentUI('prose.img', props)
 
 const [DefineImageTemplate, ReuseImageTemplate] = createReusableTemplate()
 const [DefineZoomedImageTemplate, ReuseZoomedImageTemplate] = createReusableTemplate()
 
 const open = ref(false)
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.img || {}) })({
   zoom: props.zoom,
   open: open.value,
@@ -73,12 +75,12 @@ if (props.zoom) {
     <component
       :is="ImageComponent"
       :src="refinedSrc"
-      :alt="alt"
-      :width="width"
-      :height="height"
+      :alt="props.alt"
+      :width="props.width"
+      :height="props.height"
       v-bind="$attrs"
       data-slot="base"
-      :class="b24ui.base({ class: [uiProp?.base, props.class] })"
+      :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
     />
   </DefineImageTemplate>
 
@@ -86,15 +88,15 @@ if (props.zoom) {
     <component
       :is="ImageComponent"
       :src="refinedSrc"
-      :alt="alt"
+      :alt="props.alt"
       v-bind="$attrs"
       data-slot="zoomedImage"
-      :class="b24ui.zoomedImage({ class: [uiProp?.zoomedImage] })"
+      :class="b24ui.zoomedImage({ class: [props.b24ui?.zoomedImage] })"
     />
   </DefineZoomedImageTemplate>
 
   <DialogRoot
-    v-if="zoom"
+    v-if="props.zoom"
     v-slot="{ close }"
     v-model:open="open"
     :modal="false"
@@ -113,13 +115,13 @@ if (props.zoom) {
           :animate="{ opacity: 1 }"
           :exit="{ opacity: 0 }"
           data-slot="overlay"
-          :class="b24ui.overlay({ class: [uiProp?.overlay] })"
+          :class="b24ui.overlay({ class: [props.b24ui?.overlay] })"
         />
 
         <div
           v-if="open"
           data-slot="content"
-          :class="b24ui.content({ class: [uiProp?.content] })"
+          :class="b24ui.content({ class: [props.b24ui?.content] })"
           @click="close"
         >
           <Motion as-child :layout-id="layoutId" :transition="{ type: 'spring', bounce: 0.15, duration: 0.5, ease: 'easeInOut' }">

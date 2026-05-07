@@ -52,17 +52,18 @@ export default {
 
 <script setup lang="ts">
 import { ref, computed, toRef, provide } from 'vue'
-import { ToastProvider, ToastViewport, ToastPortal, useForwardProps } from 'reka-ui'
+import { ToastProvider, ToastViewport, ToastPortal } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
+import { useForwardProps } from '../composables/useForwardProps'
 import { useToast, toastMaxInjectionKey } from '../composables/useToast'
 import { usePortal } from '../composables/usePortal'
 import { omit } from '../utils'
 import { tv } from '../utils/tv'
 import B24Toast from './Toast.vue'
 
-const props = withDefaults(defineProps<ToasterProps>(), {
+const _props = withDefaults(defineProps<ToasterProps>(), {
   position: 'top-right' as const,
   expand: true,
   portal: true,
@@ -72,9 +73,10 @@ const props = withDefaults(defineProps<ToasterProps>(), {
 })
 defineSlots<ToasterSlots>()
 
+const props = useComponentProps('toaster', _props)
+
 const { toasts, remove } = useToast()
 const appConfig = useAppConfig() as Toaster['AppConfig']
-const uiProp = useComponentUI('toaster', props)
 
 provide(toastMaxInjectionKey, toRef(() => props.max))
 
@@ -97,6 +99,7 @@ const swipeDirection = computed(() => {
   return 'right'
 })
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.toaster || {}) })({
   position: props.position,
   swipeDirection: swipeDirection.value
@@ -131,7 +134,7 @@ function getOffset(index: number) {
       v-for="(toast, index) of toasts"
       :key="toast.id"
       ref="refs"
-      :progress="progress"
+      :progress="props.progress"
       v-bind="omit(toast, ['id', 'close', '_duplicate', '_updated'])"
       :close="(toast.close as boolean)"
       :data-expanded="expanded"
@@ -146,7 +149,7 @@ function getOffset(index: number) {
         '--transform': 'translateY(var(--translate)) scale(var(--scale))'
       }"
       data-slot="base"
-      :class="b24ui.base({ class: [uiProp?.base, toast.onClick ? 'cursor-pointer' : undefined] })"
+      :class="b24ui.base({ class: [props.b24ui?.base, toast.onClick ? 'cursor-pointer' : undefined] })"
       @update:open="onUpdateOpen($event, toast.id)"
       @click="toast.onClick && toast.onClick(toast)"
     />
@@ -155,11 +158,11 @@ function getOffset(index: number) {
       <ToastViewport
         :data-expanded="expanded"
         data-slot="viewport"
-        :class="b24ui.viewport({ class: [uiProp?.viewport, props.class] })"
+        :class="b24ui.viewport({ class: [props.b24ui?.viewport, props.class] })"
         :style="{
           '--scale-factor': '0.05',
-          '--translate-factor': position?.startsWith('top') ? '1px' : '-1px',
-          '--gap': position?.startsWith('top') ? '16px' : '-16px',
+          '--translate-factor': props.position?.startsWith('top') ? '1px' : '-1px',
+          '--gap': props.position?.startsWith('top') ? '16px' : '-16px',
           '--front-height': `${frontHeight}px`,
           '--height': `${height}px`
         }"

@@ -24,7 +24,7 @@ export interface DashboardPanelSlots {
 <script setup lang="ts">
 import { computed, useId, toRef } from 'vue'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { useResizable } from '../composables/useResizable'
 import { useDashboard } from '../utils/dashboard'
 import { tv } from '../utils/tv'
@@ -32,14 +32,15 @@ import B24DashboardResizeHandle from './DashboardResizeHandle.vue'
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<DashboardPanelProps>(), {
+const _props = withDefaults(defineProps<DashboardPanelProps>(), {
   minSize: 200,
   resizable: false
 })
 defineSlots<DashboardPanelSlots>()
 
+const props = useComponentProps('dashboardPanel', _props)
+
 const appConfig = useAppConfig() as DashboardPanel['AppConfig']
-const uiProp = useComponentUI('dashboardPanel', props)
 const dashboardContext = useDashboard({ storageKey: 'dashboard', unit: 'px' })
 
 const id = `${dashboardContext.storageKey}-panel-${props.id || useId()}`
@@ -59,13 +60,13 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashbo
     v-bind="$attrs"
     :data-dragging="isDragging"
     data-slot="root"
-    :class="b24ui.root({ class: [uiProp?.root, props.class] })"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     :style="[size ? { '--width': `${size}${dashboardContext.unit}` } : undefined]"
   >
     <slot>
       <slot name="header" />
 
-      <div data-slot="body" :class="b24ui.body({ class: uiProp?.body })">
+      <div data-slot="body" :class="b24ui.body({ class: props.b24ui?.body })">
         <slot name="body" />
       </div>
 
@@ -75,10 +76,10 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashbo
 
   <slot name="resize-handle" :on-mouse-down="onMouseDown" :on-touch-start="onTouchStart" :on-double-click="onDoubleClick">
     <B24DashboardResizeHandle
-      v-if="resizable"
+      v-if="props.resizable"
       :aria-controls="id"
       data-slot="handle"
-      :class="b24ui.handle({ class: uiProp?.handle })"
+      :class="b24ui.handle({ class: props.b24ui?.handle })"
       @mousedown="onMouseDown"
       @touchstart="onTouchStart"
       @dblclick="onDoubleClick"

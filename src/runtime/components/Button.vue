@@ -85,9 +85,9 @@ export interface ButtonSlots {
 <script setup lang="ts">
 import { computed, ref, inject } from 'vue'
 import { defu } from 'defu'
-import { useForwardProps } from 'reka-ui'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
+import { useForwardProps } from '../composables/useForwardProps'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { useFieldGroup } from '../composables/useFieldGroup'
 import { formLoadingInjectionKey } from '../composables/useFormField'
@@ -102,17 +102,16 @@ import LoaderWaitIcon from '@bitrix24/b24icons-vue/animated/LoaderWaitIcon'
 import LoaderClockIcon from '@bitrix24/b24icons-vue/animated/LoaderClockIcon'
 import SpinnerIcon from '@bitrix24/b24icons-vue/specialized/SpinnerIcon'
 
-const props = withDefaults(defineProps<ButtonProps>(), {
+const _props = withDefaults(defineProps<ButtonProps>(), {
   type: 'button',
   normalCase: true
 })
-
 const slots = defineSlots<ButtonSlots>()
 
-const appConfig = useAppConfig() as Button['AppConfig']
-const uiProp = useComponentUI('button', props)
+const props = useComponentProps('button', _props)
 
-const { orientation, size: buttonSize, noSplit } = useFieldGroup<ButtonProps>(props)
+const appConfig = useAppConfig() as Button['AppConfig']
+const { orientation, size: buttonSize, noSplit } = useFieldGroup<ButtonProps>(_props)
 
 const linkProps = useForwardProps(pickLinkProps(props))
 
@@ -153,6 +152,7 @@ const isLabel = computed(() => {
   return (props?.label || '').length > 0 || isUseSlot
 })
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({
   extend: tv(theme),
   ...defu({
@@ -170,7 +170,7 @@ const b24ui = computed(() => tv({
 })({
   color: props.color,
   depth: props.depth,
-  size: buttonSize.value,
+  size: buttonSize.value ?? props.size,
   noSplit: Boolean(noSplit.value),
   loading: Boolean(isLoading.value),
   useLabel: Boolean(isLabel.value),
@@ -189,8 +189,8 @@ const b24ui = computed(() => tv({
 <template>
   <B24Link
     v-slot="{ active, ...slotProps }"
-    :type="type"
-    :disabled="disabled || isLoading"
+    :type="props.type"
+    :disabled="props.disabled || isLoading"
     v-bind="proxyLinkProps"
     custom
   >
@@ -198,55 +198,55 @@ const b24ui = computed(() => tv({
       v-bind="slotProps"
       data-slot="base"
       :class="b24ui.base({
-        class: [uiProp?.base, props.class],
+        class: [props.b24ui?.base, props.class],
         active,
-        ...(active && activeDepth ? { depth: activeDepth } : {}),
-        ...(active && activeColor ? { color: activeColor } : {})
+        ...(active && props.activeDepth ? { depth: props.activeDepth } : {}),
+        ...(active && props.activeColor ? { color: props.activeColor } : {})
       })"
       @click="onClickWrapper"
     >
       <div
         v-if="isLoading"
         data-slot="baseLoading"
-        :class="b24ui.baseLoading({ class: uiProp?.baseLoading, active })"
+        :class="b24ui.baseLoading({ class: props.b24ui?.baseLoading, active })"
       >
-        <LoaderWaitIcon v-if="useWait" data-slot="baseLoadingWaitIcon" :class="b24ui.baseLoadingWaitIcon({ class: uiProp?.baseLoadingWaitIcon })" aria-hidden="true" />
-        <LoaderClockIcon v-else-if="useClock" data-slot="baseLoadingClockIcon" :class="b24ui.baseLoadingClockIcon({ class: uiProp?.baseLoadingClockIcon })" aria-hidden="true" />
-        <SpinnerIcon v-else data-slot="baseLoadingSpinnerIcon" :class="b24ui.baseLoadingSpinnerIcon({ class: uiProp?.baseLoadingSpinnerIcon })" aria-hidden="true" />
+        <LoaderWaitIcon v-if="props.useWait" data-slot="baseLoadingWaitIcon" :class="b24ui.baseLoadingWaitIcon({ class: props.b24ui?.baseLoadingWaitIcon })" aria-hidden="true" />
+        <LoaderClockIcon v-else-if="props.useClock" data-slot="baseLoadingClockIcon" :class="b24ui.baseLoadingClockIcon({ class: props.b24ui?.baseLoadingClockIcon })" aria-hidden="true" />
+        <SpinnerIcon v-else data-slot="baseLoadingSpinnerIcon" :class="b24ui.baseLoadingSpinnerIcon({ class: props.b24ui?.baseLoadingSpinnerIcon })" aria-hidden="true" />
       </div>
       <div
         data-slot="baseLine"
-        :class="[b24ui.baseLine({ class: [uiProp?.baseLine] }), isLoading ? 'invisible' : '']"
+        :class="[b24ui.baseLine({ class: [props.b24ui?.baseLine] }), isLoading ? 'invisible' : '']"
       >
         <slot name="leading" :b24ui="b24ui">
           <Component
             :is="leadingIconName"
             v-if="isLeading && (typeof leadingIconName !== 'undefined')"
             data-slot="leadingIcon"
-            :class="b24ui.leadingIcon({ class: uiProp?.leadingIcon })"
+            :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
           />
           <B24Avatar
-            v-else-if="!!avatar"
-            :size="((uiProp?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
-            v-bind="avatar"
+            v-else-if="!!props.avatar"
+            :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+            v-bind="props.avatar"
             data-slot="leadingAvatar"
-            :class="b24ui.leadingAvatar({ class: uiProp?.leadingAvatar })"
+            :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
           />
         </slot>
 
         <slot :b24ui="b24ui">
-          <span v-if="label !== undefined && label !== null" data-slot="label" :class="b24ui.label({ class: uiProp?.label, active })">
-            <span data-slot="labelInner" :class="b24ui.labelInner({ class: uiProp?.labelInner, active })">
-              {{ label }}
+          <span v-if="props.label !== undefined && props.label !== null" data-slot="label" :class="b24ui.label({ class: props.b24ui?.label, active })">
+            <span data-slot="labelInner" :class="b24ui.labelInner({ class: props.b24ui?.labelInner, active })">
+              {{ props.label }}
             </span>
           </span>
         </slot>
 
         <slot name="trailing" :b24ui="b24ui">
           <ChevronDownSIcon
-            v-if="useDropdown"
+            v-if="props.useDropdown"
             data-slot="trailingIcon"
-            :class="b24ui.trailingIcon({ class: uiProp?.trailingIcon })"
+            :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
             aria-hidden="true"
           />
         </slot>

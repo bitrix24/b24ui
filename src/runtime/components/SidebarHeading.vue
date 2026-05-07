@@ -31,23 +31,25 @@ export interface SidebarHeadingSlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { tv } from '../utils/tv'
 
-const props = withDefaults(defineProps<SidebarHeadingProps>(), {
+const _props = withDefaults(defineProps<SidebarHeadingProps>(), {
   as: 'h6'
 })
+
 defineSlots<SidebarHeadingSlots>()
 
+const props = useComponentProps('sidebarHeading', _props)
+
 const appConfig = useAppConfig() as SidebarHeading['AppConfig']
-const uiProp = useComponentUI('sidebarHeading', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sidebarHeading || {}) })())
 </script>
 
 <template>
-  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
+  <Primitive :as="props.as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <slot />
   </Primitive>
 </template>

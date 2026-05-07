@@ -43,21 +43,22 @@ export interface ErrorSlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { clearError, useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { useLocale } from '../composables/useLocale'
 import { tv } from '../utils/tv'
 import B24Button from './Button.vue'
 
-const props = withDefaults(defineProps<ErrorProps>(), {
+const _props = withDefaults(defineProps<ErrorProps>(), {
   as: 'main',
   redirect: '/',
   clear: true
 })
 const slots = defineSlots<ErrorSlots>()
 
+const props = useComponentProps('error', _props)
+
 const { t } = useLocale()
 const appConfig = useAppConfig() as Error['AppConfig']
-const uiProp = useComponentUI('error', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.error || {}) })())
@@ -68,30 +69,30 @@ function handleError() {
 </script>
 
 <template>
-  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
-    <p v-if="!!props.error?.statusCode || !!props.error?.status || !!slots.statusCode" data-slot="statusCode" :class="b24ui.statusCode({ class: uiProp?.statusCode })">
+  <Primitive :as="props.as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+    <p v-if="!!props.error?.statusCode || !!props.error?.status || !!slots.statusCode" data-slot="statusCode" :class="b24ui.statusCode({ class: props.b24ui?.statusCode })">
       <slot name="statusCode">
         {{ props.error?.statusCode || props.error?.status }}
       </slot>
     </p>
-    <h1 v-if="!!props.error?.statusMessage || !!props.error?.statusText || !!slots.statusMessage" data-slot="statusMessage" :class="b24ui.statusMessage({ class: uiProp?.statusMessage })">
+    <h1 v-if="!!props.error?.statusMessage || !!props.error?.statusText || !!slots.statusMessage" data-slot="statusMessage" :class="b24ui.statusMessage({ class: props.b24ui?.statusMessage })">
       <slot name="statusMessage">
         {{ props.error?.statusMessage || props.error?.statusText }}
       </slot>
     </h1>
-    <p v-if="(props.error?.message && props.error.message !== (props.error.statusMessage || props.error.statusText)) || !!slots.message" data-slot="message" :class="b24ui.message({ class: uiProp?.message })">
+    <p v-if="(props.error?.message && props.error.message !== (props.error.statusMessage || props.error.statusText)) || !!slots.message" data-slot="message" :class="b24ui.message({ class: props.b24ui?.message })">
       <slot name="message">
         {{ props.error?.message }}
       </slot>
     </p>
-    <div v-if="!!clear || !!slots.links" data-slot="links" :class="b24ui.links({ class: uiProp?.links })">
+    <div v-if="!!props.clear || !!slots.links" data-slot="links" :class="b24ui.links({ class: props.b24ui?.links })">
       <slot name="links">
         <B24Button
-          v-if="clear"
+          v-if="props.clear"
           size="lg"
           color="air-primary"
           :label="t('error.clear')"
-          v-bind="(typeof clear === 'object' ? clear : {})"
+          v-bind="(typeof props.clear === 'object' ? props.clear : {})"
           @click="handleError"
         />
       </slot>

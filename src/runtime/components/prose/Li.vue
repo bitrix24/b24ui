@@ -19,21 +19,23 @@ export interface ProseLiSlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../../composables/useComponentUI'
+import { useComponentProps } from '../../composables/useComponentProps'
 import { tv } from '../../utils/tv'
 
-const props = defineProps<ProseLiProps>()
+const _props = defineProps<ProseLiProps>()
+
 defineSlots<ProseLiSlots>()
 
+const props = useComponentProps('prose.li', _props)
+
 const appConfig = useAppConfig() as ProseLi['AppConfig']
-const uiProp = useComponentUI('prose.li', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.li || {}) })())
 </script>
 
 <template>
-  <li data-slot="base" :class="b24ui.base({ class: [uiProp?.base, props.class] })">
+  <li data-slot="base" :class="b24ui.base({ class: [props.b24ui?.base, props.class] })">
     <slot />
   </li>
 </template>

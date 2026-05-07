@@ -21,18 +21,19 @@ export interface ProseAccordionSlots {
 <script setup lang="ts">
 import { computed, ref, onBeforeUpdate } from 'vue'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../../composables/useComponentUI'
+import { useComponentProps } from '../../composables/useComponentProps'
 import { transformUI } from '../../utils'
 import { tv } from '../../utils/tv'
 import B24Accordion from '../Accordion.vue'
 
-const props = withDefaults(defineProps<ProseAccordionProps>(), {
+const _props = withDefaults(defineProps<ProseAccordionProps>(), {
   type: 'multiple'
 })
 const slots = defineSlots<ProseAccordionSlots>()
 
+const props = useComponentProps('prose.accordion', _props)
+
 const appConfig = useAppConfig() as ProseAccordion['AppConfig']
-const uiProp = useComponentUI('prose.accordion', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.accordion || {}) }))
@@ -68,7 +69,7 @@ onBeforeUpdate(() => rerenderCount.value++)
 </script>
 
 <template>
-  <B24Accordion :type="type" :items="items" :unmount-on-hide="false" :class="props.class" :b24ui="transformUI(b24ui(), uiProp)">
+  <B24Accordion :type="props.type" :items="items" :unmount-on-hide="false" :class="props.class" :b24ui="transformUI(b24ui(), props.b24ui)">
     <template #content="{ item }">
       <component :is="item.component" />
     </template>

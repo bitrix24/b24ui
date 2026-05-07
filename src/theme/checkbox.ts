@@ -79,26 +79,26 @@ export default {
     },
     size: {
       xs: {
-        base: 'size-[12px]',
-        container: 'h-[12px]',
+        base: 'size-3',
+        container: 'h-3',
         wrapper: 'text-(length:--ui-font-size-xs) leading-[11px]',
         label: ''
       },
       sm: {
-        base: 'size-[14px]',
-        container: 'h-[14px]',
-        wrapper: 'text-(length:--ui-font-size-sm) leading-[14px]',
+        base: 'size-3.5',
+        container: 'h-3.5',
+        wrapper: 'text-(length:--ui-font-size-sm) leading-3.5',
         label: ''
       },
       md: {
-        base: 'size-[16px]',
-        container: 'h-[16px]',
-        wrapper: 'text-(length:--ui-font-size-lg) leading-[16px]',
+        base: 'size-4',
+        container: 'h-4',
+        wrapper: 'text-(length:--ui-font-size-lg) leading-4',
         label: ''
       },
       lg: {
-        base: 'size-[20px]',
-        container: 'h-[20px]',
+        base: 'size-5',
+        container: 'h-5',
         wrapper: 'text-(length:--ui-font-size-xl) leading-4.5',
         label: ''
       }
@@ -125,7 +125,7 @@ export default {
     { size: 'xs', variant: 'card', class: { root: 'px-[13px] py-[7px] rounded-(--ui-border-radius-xs)' } }, // (28 - (1 + 1) - 12) / 2 = 7
     { size: 'sm', variant: 'card', class: { root: 'px-[13px] py-[9px] rounded-(--ui-border-radius-sm)' } }, // (34 - (1 + 1) - 14) / 2 = 9
     { size: 'md', variant: 'card', class: { root: 'px-[17px] py-[10px] rounded-(--ui-border-radius-md)' } }, // (38 - (1 + 1) - 16) / 2 = 10
-    { size: 'lg', variant: 'card', class: { root: 'px-[23px] py-[12px] rounded-(--ui-border-radius-md)' } }, // (46 - (1 + 1) - 20) / 2 = 12
+    { size: 'lg', variant: 'card', class: { root: 'px-[23px] py-3 rounded-(--ui-border-radius-md)' } }, // (46 - (1 + 1) - 20) / 2 = 12
     // endregion ////
     // region card.border ////
     {

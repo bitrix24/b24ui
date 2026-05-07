@@ -92,16 +92,17 @@ export type TabsSlots<T extends TabsItem = TabsItem> = {
 
 <script setup lang="ts" generic="T extends TabsItem">
 import { ref, computed } from 'vue'
-import { TabsRoot, TabsList, TabsIndicator, TabsTrigger, TabsContent, useForwardPropsEmits } from 'reka-ui'
+import { TabsRoot, TabsList, TabsIndicator, TabsTrigger, TabsContent } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
+import { useForwardProps } from '../composables/useForwardProps'
 import { get } from '../utils'
 import { tv } from '../utils/tv'
 import B24Avatar from './Avatar.vue'
 import B24Badge from './Badge.vue'
 
-const props = withDefaults(defineProps<TabsProps<T>>(), {
+const _props = withDefaults(defineProps<TabsProps<T>>(), {
   content: true,
   defaultValue: '0',
   orientation: 'horizontal',
@@ -112,11 +113,13 @@ const props = withDefaults(defineProps<TabsProps<T>>(), {
 const emits = defineEmits<TabsEmits>()
 const slots = defineSlots<TabsSlots<T>>()
 
+const props = useComponentProps<TabsProps<T>>('tabs', _props)
+
 const appConfig = useAppConfig() as Tabs['AppConfig']
-const uiProp = useComponentUI('tabs', props)
 
-const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'unmountOnHide'), emits)
+const rootProps = useForwardProps(reactivePick(props, 'as', 'unmountOnHide'), emits)
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.tabs || {}) })({
   variant: props.variant,
   size: props.size,
@@ -138,44 +141,44 @@ defineExpose({
 <template>
   <TabsRoot
     v-bind="rootProps"
-    :model-value="modelValue"
-    :default-value="defaultValue"
-    :orientation="orientation"
-    :activation-mode="activationMode"
+    :model-value="props.modelValue"
+    :default-value="props.defaultValue"
+    :orientation="props.orientation"
+    :activation-mode="props.activationMode"
     data-slot="root"
-    :class="b24ui.root({ class: [uiProp?.root, props.class] })"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
   >
-    <TabsList data-slot="list" :class="b24ui.list({ class: uiProp?.list })">
-      <TabsIndicator data-slot="indicator" :class="b24ui.indicator({ class: uiProp?.indicator })" />
+    <TabsList data-slot="list" :class="b24ui.list({ class: props.b24ui?.list })">
+      <TabsIndicator data-slot="indicator" :class="b24ui.indicator({ class: props.b24ui?.indicator })" />
 
       <slot name="list-leading" />
 
       <TabsTrigger
-        v-for="(item, index) of items"
+        v-for="(item, index) of props.items"
         :key="get(item, props.valueKey as string) ?? index"
         :ref="el => setTriggerRef(index, el)"
         :value="get(item, props.valueKey as string) ?? String(index)"
         :disabled="item.disabled"
         data-slot="trigger"
-        :class="b24ui.trigger({ class: [uiProp?.trigger, item.b24ui?.trigger] })"
+        :class="b24ui.trigger({ class: [props.b24ui?.trigger, item.b24ui?.trigger] })"
       >
         <slot name="leading" :item="item" :index="index" :b24ui="b24ui">
           <Component
             :is="item.icon"
             v-if="item.icon"
             data-slot="leadingIcon"
-            :class="b24ui.leadingIcon({ class: [uiProp?.leadingIcon, item.b24ui?.leadingIcon] })"
+            :class="b24ui.leadingIcon({ class: [props.b24ui?.leadingIcon, item.b24ui?.leadingIcon] })"
           />
           <B24Avatar
             v-else-if="item.avatar"
-            :size="((item.b24ui?.leadingAvatarSize || uiProp?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+            :size="((item.b24ui?.leadingAvatarSize || props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
             v-bind="item.avatar"
             data-slot="leadingAvatar"
-            :class="b24ui.leadingAvatar({ class: [uiProp?.leadingAvatar, item.b24ui?.leadingAvatar] })"
+            :class="b24ui.leadingAvatar({ class: [props.b24ui?.leadingAvatar, item.b24ui?.leadingAvatar] })"
           />
         </slot>
 
-        <span v-if="get(item, props.labelKey as string) || !!slots.default" data-slot="label" :class="b24ui.label({ class: [uiProp?.label, item.b24ui?.label] })">
+        <span v-if="get(item, props.labelKey as string) || !!slots.default" data-slot="label" :class="b24ui.label({ class: [props.b24ui?.label, item.b24ui?.label] })">
           <slot :item="item" :index="index">{{ get(item, props.labelKey as string) }}</slot>
         </span>
 
@@ -183,10 +186,10 @@ defineExpose({
           <B24Badge
             v-if="item.badge || item.badge === 0"
             color="air-primary"
-            :size="((item.b24ui?.trailingBadgeSize || uiProp?.trailingBadgeSize || b24ui.trailingBadgeSize()) as BadgeProps['size'])"
+            :size="((item.b24ui?.trailingBadgeSize || props.b24ui?.trailingBadgeSize || b24ui.trailingBadgeSize()) as BadgeProps['size'])"
             v-bind="(typeof item.badge === 'string' || typeof item.badge === 'number') ? { label: item.badge } : item.badge"
             data-slot="trailingBadge"
-            :class="b24ui.trailingBadge({ class: [uiProp?.trailingBadge, item.b24ui?.trailingBadge] })"
+            :class="b24ui.trailingBadge({ class: [props.b24ui?.trailingBadge, item.b24ui?.trailingBadge] })"
           />
         </slot>
       </TabsTrigger>
@@ -194,13 +197,13 @@ defineExpose({
       <slot name="list-trailing" />
     </TabsList>
 
-    <template v-if="!!content">
+    <template v-if="!!props.content">
       <TabsContent
-        v-for="(item, index) of items"
+        v-for="(item, index) of props.items"
         :key="get(item, props.valueKey as string) ?? index"
         :value="get(item, props.valueKey as string) ?? String(index)"
         data-slot="content"
-        :class="b24ui.content({ class: [uiProp?.content, item.b24ui?.content, item.class] })"
+        :class="b24ui.content({ class: [props.b24ui?.content, item.b24ui?.content, item.class] })"
       >
         <slot
           :name="((item.slot || 'content') as keyof TabsSlots<T>)"

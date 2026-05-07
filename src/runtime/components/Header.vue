@@ -65,7 +65,7 @@ import { Primitive } from 'reka-ui'
 import { defu } from 'defu'
 import { createReusableTemplate } from '@vueuse/core'
 import { useAppConfig, useRoute } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { useLocale } from '../composables/useLocale'
 import { getSlotChildrenText } from '../utils'
 import { tv } from '../utils/tv'
@@ -79,7 +79,7 @@ import B24Drawer from './Drawer.vue'
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<HeaderProps<T>>(), {
+const _props = withDefaults(defineProps<HeaderProps<T>>(), {
   as: 'header',
   mode: 'slideover' as never,
   autoClose: true,
@@ -90,12 +90,13 @@ const props = withDefaults(defineProps<HeaderProps<T>>(), {
 })
 const slots = defineSlots<HeaderSlots>()
 
+const props = useComponentProps<HeaderProps<T>>('header', _props)
+
 const open = defineModel<boolean>('open', { default: false })
 
 const route = useRoute()
 const { t } = useLocale()
 const appConfig = useAppConfig() as Header['AppConfig']
-const uiProp = useComponentUI('header', props)
 
 const [DefineLeftTemplate, ReuseLeftTemplate] = createReusableTemplate()
 const [DefineRightTemplate, ReuseRightTemplate] = createReusableTemplate()
@@ -143,9 +144,9 @@ const menuProps = toRef(() => {
 
   // @memo fix componentMeta
   result['b24ui'] = {
-    overlay: b24ui.value.overlay({ class: uiProp.value?.overlay }),
+    overlay: b24ui.value.overlay({ class: props.b24ui?.overlay }),
     content: b24ui.value.content({
-      class: [modeSettings?.b24ui?.content, uiProp.value?.content]
+      class: [modeSettings?.b24ui?.content, props.b24ui?.content]
     })
   }
   return result
@@ -160,27 +161,27 @@ function toggleOpen() {
   <DefineToggleTemplate>
     <slot name="toggle" :open="open" :toggle="toggleOpen" :b24ui="b24ui">
       <B24Button
-        v-if="toggle"
+        v-if="props.toggle"
         color="air-tertiary"
         size="md"
         :aria-label="open ? t('header.close') : t('header.open')"
         :icon="open ? icons.close : icons.menu"
-        v-bind="(typeof toggle === 'object' ? toggle : {})"
+        v-bind="(typeof props.toggle === 'object' ? props.toggle : {})"
         data-slot="toggle"
-        :class="b24ui.toggle({ class: uiProp?.toggle, toggleSide })"
+        :class="b24ui.toggle({ class: props.b24ui?.toggle, toggleSide: props.toggleSide })"
         @click="toggleOpen"
       />
     </slot>
   </DefineToggleTemplate>
 
   <DefineLeftTemplate>
-    <div data-slot="left" :class="b24ui.left({ class: uiProp?.left })">
-      <ReuseToggleTemplate v-if="toggleSide === 'left'" />
+    <div data-slot="left" :class="b24ui.left({ class: props.b24ui?.left })">
+      <ReuseToggleTemplate v-if="props.toggleSide === 'left'" />
 
       <slot name="left">
-        <B24Link :to="to" :aria-label="ariaLabel" data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
+        <B24Link :to="props.to" :aria-label="ariaLabel" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
           <slot name="title">
-            {{ title }}
+            {{ props.title }}
           </slot>
         </B24Link>
       </slot>
@@ -188,20 +189,20 @@ function toggleOpen() {
   </DefineLeftTemplate>
 
   <DefineRightTemplate>
-    <div data-slot="right" :class="b24ui.right({ class: uiProp?.right })">
+    <div data-slot="right" :class="b24ui.right({ class: props.b24ui?.right })">
       <slot name="right" />
 
-      <ReuseToggleTemplate v-if="toggleSide === 'right'" />
+      <ReuseToggleTemplate v-if="props.toggleSide === 'right'" />
     </div>
   </DefineRightTemplate>
 
-  <Primitive :as="as" v-bind="$attrs" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
+  <Primitive :as="props.as" v-bind="$attrs" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <slot name="top" />
 
-    <B24Container data-slot="container" :class="b24ui.container({ class: uiProp?.container })">
+    <B24Container data-slot="container" :class="b24ui.container({ class: props.b24ui?.container })">
       <ReuseLeftTemplate />
 
-      <div data-slot="center" :class="b24ui.center({ class: uiProp?.center })">
+      <div data-slot="center" :class="b24ui.center({ class: props.b24ui?.center })">
         <slot />
       </div>
 
@@ -219,13 +220,13 @@ function toggleOpen() {
   >
     <template #content="contentData">
       <slot name="content" v-bind="contentData">
-        <div v-if="mode !== 'drawer'" data-slot="header" :class="b24ui.header({ class: uiProp?.header })">
+        <div v-if="props.mode !== 'drawer'" data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
           <ReuseLeftTemplate />
 
           <ReuseRightTemplate />
         </div>
 
-        <div data-slot="body" :class="b24ui.body({ class: uiProp?.body })">
+        <div data-slot="body" :class="b24ui.body({ class: props.b24ui?.body })">
           <slot name="body" />
         </div>
       </slot>

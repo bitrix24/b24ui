@@ -19,22 +19,24 @@ export interface ProseBadgeSlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../../composables/useComponentUI'
+import { useComponentProps } from '../../composables/useComponentProps'
 import { tv } from '../../utils/tv'
 import B24Badge from '../Badge.vue'
 
-const props = defineProps<ProseBadgeProps>()
+const _props = defineProps<ProseBadgeProps>()
+
 defineSlots<ProseBadgeSlots>()
 
+const props = useComponentProps('prose.badge', _props)
+
 const appConfig = useAppConfig() as ProseBadge['AppConfig']
-const uiProp = useComponentUI('prose.badge', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.badge || {}) }))
 </script>
 
 <template>
-  <B24Badge color="air-primary" :class="b24ui({ class: [uiProp?.base, props.class] })">
+  <B24Badge color="air-primary" :class="b24ui({ class: [props.b24ui?.base, props.class] })">
     <slot mdc-unwrap="p" />
   </B24Badge>
 </template>

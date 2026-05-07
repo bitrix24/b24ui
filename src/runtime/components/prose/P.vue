@@ -27,19 +27,21 @@ export interface ProsePSlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../../composables/useComponentUI'
+import { useComponentProps } from '../../composables/useComponentProps'
 import { tv } from '../../utils/tv'
 
-const props = withDefaults(defineProps<ProsePProps>(), {
+const _props = withDefaults(defineProps<ProsePProps>(), {
   small: false,
   accent: 'default'
 })
 
 defineSlots<ProsePSlots>()
 
-const appConfig = useAppConfig() as ProseP['AppConfig']
-const uiProp = useComponentUI('prose.p', props)
+const props = useComponentProps('prose.p', _props)
 
+const appConfig = useAppConfig() as ProseP['AppConfig']
+
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.p || {}) })({
   small: Boolean(props.small),
   accent: props.accent
@@ -47,7 +49,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
 </script>
 
 <template>
-  <p data-slot="base" :class="b24ui.base({ class: [uiProp?.base, props.class] })">
+  <p data-slot="base" :class="b24ui.base({ class: [props.b24ui?.base, props.class] })">
     <slot />
   </p>
 </template>

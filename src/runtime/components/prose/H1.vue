@@ -24,18 +24,21 @@ export interface ProseH1Slots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAppConfig, useRuntimeConfig } from '#imports'
-import { useComponentUI } from '../../composables/useComponentUI'
+import { useComponentProps } from '../../composables/useComponentProps'
 import { tv } from '../../utils/tv'
 
-const props = withDefaults(defineProps<ProseH1Props>(), {
+const _props = withDefaults(defineProps<ProseH1Props>(), {
   accent: 'default'
 })
+
 defineSlots<ProseH1Slots>()
 
+const props = useComponentProps('prose.h1', _props)
+
 const appConfig = useAppConfig() as ProseH1['AppConfig']
-const uiProp = useComponentUI('prose.h1', props)
 const { headings } = useRuntimeConfig().public?.mdc || {}
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.h1 || {}) })({
   accent: props.accent
 }))
@@ -45,11 +48,11 @@ const generate = computed(() => props.id && typeof headings?.anchorLinks === 'ob
 
 <template>
   <h1
-    :id="id"
+    :id="props.id"
     data-slot="base"
-    :class="b24ui.base({ class: [uiProp?.base, props.class] })"
+    :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
   >
-    <a v-if="id && generate" :href="`#${id}`" :class="b24ui.link({ class: uiProp?.link })">
+    <a v-if="props.id && generate" :href="`#${props.id}`" :class="b24ui.link({ class: props.b24ui?.link })">
       <slot />
     </a>
     <slot v-else />

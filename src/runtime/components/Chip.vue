@@ -73,12 +73,12 @@ export interface ChipSlots {
 import { computed } from 'vue'
 import { Primitive, Slot } from 'reka-ui'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { tv } from '../utils/tv'
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<ChipProps>(), {
+const _props = withDefaults(defineProps<ChipProps>(), {
   inverted: false,
   inset: false,
   standalone: false,
@@ -86,16 +86,19 @@ const props = withDefaults(defineProps<ChipProps>(), {
 })
 defineSlots<ChipSlots>()
 
+const props = useComponentProps('chip', _props)
+
 const show = defineModel<boolean>('show', { default: true })
 
+// @memo We not support this
 // const { size } = useAvatarGroup(props)
 const appConfig = useAppConfig() as Chip['AppConfig']
-const uiProp = useComponentUI('chip', props)
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chip || {}) })({
   color: props.color,
   inverted: Boolean(props.inverted),
-  size: props.size, // size.value
+  size: props.size, // size.value ?? props.size
   position: props.position,
   inset: Boolean(props.inset),
   standalone: Boolean(props.standalone),
@@ -110,9 +113,9 @@ const value = computed(() => {
 
 <template>
   <Primitive
-    :as="as"
+    :as="props.as"
     data-slot="root"
-    :class="b24ui.root({ class: [uiProp?.root, props.class] })"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
   >
     <Slot v-bind="$attrs">
       <slot />
@@ -121,17 +124,17 @@ const value = computed(() => {
     <span
       v-if="show"
       data-slot="base"
-      :class="b24ui.base({ class: uiProp?.base })"
+      :class="b24ui.base({ class: props.b24ui?.base })"
       :data-value="value"
     >
       <slot name="content">
-        <span>{{ text }}</span>
+        <span>{{ props.text }}</span>
       </slot>
       <slot name="trailing">
         <Component
-          :is="trailingIcon"
+          :is="props.trailingIcon"
           data-slot="trailingIcon"
-          :class="b24ui.trailingIcon({ class: uiProp?.trailingIcon })"
+          :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
         />
       </slot>
     </span>

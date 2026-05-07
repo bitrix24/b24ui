@@ -26,7 +26,7 @@ import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useLocale } from '../composables/useLocale'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { useDashboard } from '../utils/dashboard'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
@@ -34,16 +34,17 @@ import B24Button from './Button.vue'
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<DashboardSidebarToggleProps>(), {
+const _props = withDefaults(defineProps<DashboardSidebarToggleProps>(), {
   color: 'air-tertiary',
   side: 'left'
 })
+
+const props = useComponentProps('dashboardSidebarToggle', _props)
 
 const buttonProps = useForwardProps(reactiveOmit(props, 'icon', 'side', 'class'))
 
 const { t } = useLocale()
 const appConfig = useAppConfig() as DashboardSidebarToggle['AppConfig']
-const uiProp = useComponentUI('dashboardSidebarToggle', props)
 const { sidebarOpen, toggleSidebar } = useDashboard({ sidebarOpen: ref(false), toggleSidebar: () => {} })
 
 // eslint-disable-next-line vue/no-dupe-keys
@@ -58,7 +59,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashbo
       'aria-label': sidebarOpen ? t('dashboardSidebarToggle.close') : t('dashboardSidebarToggle.open'),
       ...$attrs
     }"
-    :class="b24ui({ class: [uiProp?.base, props.class], side: props.side })"
+    :class="b24ui({ class: [props.b24ui?.base, props.class], side: props.side })"
     @click="toggleSidebar"
   />
 </template>

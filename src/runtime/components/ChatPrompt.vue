@@ -32,18 +32,21 @@ export interface ChatPromptEmits {
   close: [event: Event]
 }
 
-export interface ChatPromptSlots extends TextareaSlots {
+export interface ChatPromptSlots extends Omit<TextareaSlots, 'default'> {
   header?(props?: {}): VNode[]
+  // @memo: this is our modification.
+  default?(props: { b24ui: ChatPrompt['slots'] }): VNode[]
   footer?(props?: {}): VNode[]
 }
 </script>
 
 <script setup lang="ts">
 import { computed, toRef, useTemplateRef } from 'vue'
-import { Primitive, useForwardProps } from 'reka-ui'
+import { Primitive } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
+import { useForwardProps } from '../composables/useForwardProps'
 import { useIMEGuard } from '../composables/useIMEGuard'
 import { useLocale } from '../composables/useLocale'
 import { omit, transformUI } from '../utils'
@@ -52,7 +55,7 @@ import B24Textarea from './Textarea.vue'
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<ChatPromptProps>(), {
+const _props = withDefaults(defineProps<ChatPromptProps>(), {
   as: 'form',
   autofocus: true,
   autoresize: true,
@@ -61,16 +64,18 @@ const props = withDefaults(defineProps<ChatPromptProps>(), {
 const emits = defineEmits<ChatPromptEmits>()
 const slots = defineSlots<ChatPromptSlots>()
 
+const props = useComponentProps('chatPrompt', _props)
+
 const model = defineModel<string>({ default: '' })
 
 const { t } = useLocale()
 const appConfig = useAppConfig() as ChatPrompt['AppConfig']
-const uiProp = useComponentUI('chatPrompt', props)
 
 const textareaProps = useForwardProps(reactivePick(props, 'rows', 'autofocus', 'autofocusDelay', 'autoresize', 'autoresizeDelay', 'maxrows', 'icon', 'avatar', 'loading'))
 
 const getProxySlots = () => omit(slots, ['header', 'footer', 'default'])
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chatPrompt || {}) })({
   variant: props.variant
 }))
@@ -101,22 +106,22 @@ defineExpose({
 </script>
 
 <template>
-  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })" @submit.prevent="submit">
-    <div v-if="!!slots.header" data-slot="header" :class="b24ui.header({ class: uiProp?.header })">
+  <Primitive :as="props.as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })" @submit.prevent="submit">
+    <div v-if="!!slots.header" data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
       <slot name="header" />
     </div>
 
     <B24Textarea
       ref="textareaRef"
       v-model="model"
-      :placeholder="placeholder || t('chatPrompt.placeholder')"
-      :disabled="Boolean(error) || disabled"
+      :placeholder="props.placeholder || t('chatPrompt.placeholder')"
+      :disabled="Boolean(props.error) || props.disabled"
       no-border
       fixed
       v-bind="{ ...textareaProps, ...$attrs }"
-      :b24ui="transformUI(omit(b24ui, ['root', 'body', 'header', 'footer']), uiProp)"
+      :b24ui="transformUI(omit(b24ui, ['root', 'body', 'header', 'footer']), props.b24ui)"
       data-slot="body"
-      :class="b24ui.body({ class: uiProp?.body })"
+      :class="b24ui.body({ class: props.b24ui?.body })"
       @keydown.enter.exact="onEnter"
       @compositionend="onCompositionEnd"
       @keydown.esc="blur"
@@ -126,9 +131,9 @@ defineExpose({
       </template>
     </B24Textarea>
 
-    <div data-slot="footer" :class="b24ui.footer({ class: uiProp?.footer })">
+    <div data-slot="footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
       <slot name="footer" />
-      <slot name="default" :b24ui="transformUI(omit(b24ui, ['root', 'body', 'header', 'footer']), uiProp)" />
+      <slot name="default" :b24ui="transformUI(omit(b24ui, ['root', 'body', 'header', 'footer']), props.b24ui)" />
     </div>
   </Primitive>
 </template>

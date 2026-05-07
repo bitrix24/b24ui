@@ -43,15 +43,18 @@ import { Primitive, Slot } from 'reka-ui'
 import { defu } from 'defu'
 import { useAppConfig } from '#imports'
 import ImageComponent from '#build/b24ui-image-component'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { useAvatarGroup } from '../composables/useAvatarGroup'
 import { tv } from '../utils/tv'
 import B24Chip from './Chip.vue'
 
 defineOptions({ inheritAttrs: false })
 
-const props = defineProps<AvatarProps>()
+const _props = defineProps<AvatarProps>()
 
+const props = useComponentProps('avatar', _props)
+
+// eslint-disable-next-line vue/no-dupe-keys
 const as = computed(() => {
   if (typeof props.as === 'string' || typeof props.as?.render === 'function') {
     return { root: props.as }
@@ -69,15 +72,15 @@ const fallback = computed(() => props.text || (props.alt || '')
 )
 
 const appConfig = useAppConfig() as Avatar['AppConfig']
-const uiProp = useComponentUI('avatar', props)
-const { size } = useAvatarGroup(props)
+
+const { size } = useAvatarGroup(_props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.avatar || {}) })({
-  size: size.value
+  size: size.value ?? props.size
 }))
 
-const rootClass = computed(() => b24ui.value.root({ class: [uiProp.value?.root, props.class] }))
+const rootClass = computed(() => b24ui.value.root({ class: [props.b24ui?.root, props.class] }))
 
 const sizePx = computed(() => {
   const sizeClass = rootClass.value.split(' ').find(c => /^size-\d+$/.test(c))
@@ -113,21 +116,21 @@ function onError() {
   >
     <component
       :is="as.img || ImageComponent"
-      v-if="src && !error"
-      :src="src"
-      :alt="alt"
+      v-if="props.src && !error"
+      :src="props.src"
+      :alt="props.alt"
       :width="sizePx"
       :height="sizePx"
       v-bind="$attrs"
       data-slot="image"
-      :class="b24ui.image({ class: uiProp?.image })"
+      :class="b24ui.image({ class: props.b24ui?.image })"
       @error="onError"
     />
 
     <Slot v-else v-bind="$attrs">
       <slot>
-        <Component :is="icon" v-if="icon" data-slot="icon" :class="b24ui.icon({ class: uiProp?.icon })" />
-        <span v-else data-slot="fallback" :class="b24ui.fallback({ class: uiProp?.fallback })">{{ fallback || '&nbsp;' }}</span>
+        <Component :is="props.icon" v-if="props.icon" data-slot="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
+        <span v-else data-slot="fallback" :class="b24ui.fallback({ class: props.b24ui?.fallback })">{{ fallback || '&nbsp;' }}</span>
       </slot>
     </Slot>
   </component>

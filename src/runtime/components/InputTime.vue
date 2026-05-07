@@ -104,11 +104,12 @@ export interface InputTimeSlots {
 
 <script setup lang="ts" generic="R extends boolean">
 import { computed, onMounted, ref } from 'vue'
-import { TimeRangeFieldRoot, TimeRangeFieldInput, useForwardPropsEmits } from 'reka-ui'
+import { TimeRangeFieldRoot, TimeRangeFieldInput } from 'reka-ui'
 import { TimeField as SingleTimeField } from 'reka-ui/namespaced'
 import { reactiveOmit, createReusableTemplate } from '@vueuse/core'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
+import { useForwardProps } from '../composables/useForwardProps'
 import { useFieldGroup } from '../composables/useFieldGroup'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { useFormField } from '../composables/useFormField'
@@ -119,20 +120,21 @@ import B24Avatar from './Avatar.vue'
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<InputTimeProps<R>>(), {
+const _props = withDefaults(defineProps<InputTimeProps<R>>(), {
   autofocusDelay: 0
 })
 const emits = defineEmits<InputTimeEmits<R>>()
 const slots = defineSlots<InputTimeSlots>()
 
+const props = useComponentProps<InputTimeProps<R>>('inputTime', _props)
+
 const appConfig = useAppConfig() as InputTime['AppConfig']
-const uiProp = useComponentUI('inputTime', props)
 
 /** @memo we not use `variant`, `leading`, `leadingIcon`, `trailing` and `loadingIcon` */
-const rootProps = useForwardPropsEmits(reactiveOmit(props, 'id', 'name', 'range', 'modelValue', 'defaultValue', 'color', 'size', 'highlight', 'fixed', 'disabled', 'autofocus', 'autofocusDelay', 'icon', 'avatar', 'trailing', 'trailingIcon', 'loading', 'separatorIcon', 'class', 'b24ui'), emits)
+const rootProps = useForwardProps(reactiveOmit(props, 'id', 'name', 'range', 'modelValue', 'defaultValue', 'color', 'size', 'highlight', 'fixed', 'disabled', 'autofocus', 'autofocusDelay', 'icon', 'avatar', 'trailing', 'trailingIcon', 'loading', 'separatorIcon', 'class', 'b24ui'), emits)
 
-const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, id, color, size: formFieldSize, name, highlight, disabled, ariaAttrs } = useFormField<InputTimeProps<R>>(props)
-const { orientation, size: fieldGroupSize } = useFieldGroup<InputTimeProps<R>>(props)
+const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, id, color, size: formFieldSize, name, highlight, disabled, ariaAttrs } = useFormField<InputTimeProps<R>>(_props)
+const { orientation, size: fieldGroupSize } = useFieldGroup<InputTimeProps<R>>(_props)
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(props)
 
 const inputSize = computed(() => fieldGroupSize.value || formFieldSize.value)
@@ -141,11 +143,12 @@ const isTag = computed(() => {
   return props.tag
 })
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.inputTime || {}) })({
-  color: color.value,
-  size: inputSize.value,
+  color: color.value ?? props.color,
+  size: inputSize.value ?? props.size,
   loading: props.loading,
-  highlight: highlight.value,
+  highlight: highlight.value ?? props.highlight,
   fixed: props.fixed,
   rounded: Boolean(props.rounded),
   noPadding: Boolean(props.noPadding),
@@ -218,7 +221,7 @@ defineExpose({
       :type="type"
       :part="segment.part"
       data-slot="segment"
-      :class="b24ui.segment({ class: uiProp?.segment })"
+      :class="b24ui.segment({ class: props.b24ui?.segment })"
       :data-segment="segment.part"
     >
       {{ segment.value.trim() }}
@@ -231,10 +234,10 @@ defineExpose({
     v-slot="{ segments }"
     :name="name"
     :disabled="disabled"
-    :model-value="(modelValue as TimeValue)"
-    :default-value="(defaultValue as TimeValue)"
+    :model-value="(props.modelValue as TimeValue)"
+    :default-value="(props.defaultValue as TimeValue)"
     data-slot="base"
-    :class="b24ui.base({ class: [uiProp?.base, props.class] })"
+    :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
     @update:model-value="onUpdate"
     @blur="onBlur"
     @focus="onFocus"
@@ -242,7 +245,7 @@ defineExpose({
     <B24Badge
       v-if="isTag"
       data-slot="tag"
-      :class="b24ui.tag({ class: uiProp?.tag })"
+      :class="b24ui.tag({ class: props.b24ui?.tag })"
       :color="props.tagColor"
       :label="props.tag"
       size="xs"
@@ -254,23 +257,23 @@ defineExpose({
     <template v-else>
       <ReuseSegmentsTemplate :segments="segments.start" type="start" />
       <slot name="separator" :b24ui="b24ui">
-        <Component :is="separatorIcon || icons.minus" data-slot="separatorIcon" :class="b24ui.separatorIcon({ class: uiProp?.separatorIcon })" />
+        <Component :is="props.separatorIcon || icons.minus" data-slot="separatorIcon" :class="b24ui.separatorIcon({ class: props.b24ui?.separatorIcon })" />
       </slot>
       <ReuseSegmentsTemplate :segments="segments.end" type="end" />
     </template>
 
     <slot :b24ui="b24ui" />
 
-    <span v-if="isLeading || !!avatar || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: uiProp?.leading })">
+    <span v-if="isLeading || !!props.avatar || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
       <slot name="leading" :b24ui="b24ui">
-        <Component :is="leadingIconName" v-if="isLeading && leadingIconName" data-slot="leadingIcon" :class="b24ui.leadingIcon({ class: uiProp?.leadingIcon })" />
-        <B24Avatar v-else-if="!!avatar" :size="((uiProp?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])" v-bind="avatar" data-slot="leadingAvatar" :class="b24ui.leadingAvatar({ class: uiProp?.leadingAvatar })" />
+        <Component :is="leadingIconName" v-if="isLeading && leadingIconName" data-slot="leadingIcon" :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })" />
+        <B24Avatar v-else-if="!!props.avatar" :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])" v-bind="props.avatar" data-slot="leadingAvatar" :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })" />
       </slot>
     </span>
 
-    <span v-if="isTrailing || !!slots.trailing" data-slot="trailing" :class="b24ui.trailing({ class: uiProp?.trailing })">
+    <span v-if="isTrailing || !!slots.trailing" data-slot="trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
       <slot name="trailing" :b24ui="b24ui">
-        <Component :is="trailingIconName" v-if="trailingIconName" data-slot="trailingIcon" :class="b24ui.trailingIcon({ class: uiProp?.trailingIcon })" />
+        <Component :is="trailingIconName" v-if="trailingIconName" data-slot="trailingIcon" :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })" />
       </slot>
     </span>
   </TimeField.Root>

@@ -78,15 +78,16 @@ export type AccordionSlots<T extends AccordionItem = AccordionItem> = {
 
 <script setup lang="ts" generic="T extends AccordionItem">
 import { computed } from 'vue'
-import { AccordionRoot, AccordionItem, AccordionHeader, AccordionTrigger, AccordionContent, useForwardPropsEmits } from 'reka-ui'
+import { AccordionRoot, AccordionItem, AccordionHeader, AccordionTrigger, AccordionContent } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
+import { useForwardProps } from '../composables/useForwardProps'
 import { get } from '../utils'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 
-const props = withDefaults(defineProps<AccordionProps<T>>(), {
+const _props = withDefaults(defineProps<AccordionProps<T>>(), {
   type: 'single',
   collapsible: true,
   unmountOnHide: true,
@@ -96,18 +97,20 @@ const props = withDefaults(defineProps<AccordionProps<T>>(), {
 const emits = defineEmits<AccordionEmits>()
 const slots = defineSlots<AccordionSlots<T>>()
 
+const props = useComponentProps<AccordionProps<T>>('accordion', _props)
+
 const appConfig = useAppConfig() as Accordion['AppConfig']
-const uiProp = useComponentUI('accordion', props)
 
-const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'collapsible', 'defaultValue', 'disabled', 'modelValue', 'unmountOnHide'), emits)
+const rootProps = useForwardProps(reactivePick(props, 'as', 'collapsible', 'defaultValue', 'disabled', 'modelValue', 'unmountOnHide'), emits)
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.accordion || {}) })({
   disabled: props.disabled
 }))
 </script>
 
 <template>
-  <AccordionRoot v-bind="rootProps" :type="type" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
+  <AccordionRoot v-bind="rootProps" :type="props.type" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <AccordionItem
       v-for="(item, index) in props.items"
       v-slot="{ open }"
@@ -115,32 +118,32 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.accord
       :value="get(item, props.valueKey as string) ?? String(index)"
       :disabled="item.disabled"
       data-slot="item"
-      :class="b24ui.item({ class: [uiProp?.item, item.b24ui?.item, item.class] })"
+      :class="b24ui.item({ class: [props.b24ui?.item, item.b24ui?.item, item.class] })"
     >
-      <AccordionHeader as="div" data-slot="header" :class="b24ui.header({ class: [uiProp?.header, item.b24ui?.header] })">
-        <AccordionTrigger data-slot="trigger" :class="b24ui.trigger({ class: [uiProp?.trigger, item.b24ui?.trigger], disabled: item.disabled })">
+      <AccordionHeader as="div" data-slot="header" :class="b24ui.header({ class: [props.b24ui?.header, item.b24ui?.header] })">
+        <AccordionTrigger data-slot="trigger" :class="b24ui.trigger({ class: [props.b24ui?.trigger, item.b24ui?.trigger], disabled: item.disabled })">
           <slot name="leading" :item="item" :index="index" :open="open" :b24ui="b24ui">
             <Component
               :is="item.icon"
               v-if="item.icon"
               data-slot="leadingIcon"
-              :class="b24ui.leadingIcon({ class: [uiProp?.leadingIcon, item?.b24ui?.leadingIcon] })"
+              :class="b24ui.leadingIcon({ class: [props.b24ui?.leadingIcon, item?.b24ui?.leadingIcon] })"
             />
           </slot>
 
           <span
             v-if="get(item, props.labelKey as string) || !!slots.default"
             data-slot="label"
-            :class="b24ui.label({ class: [uiProp?.label, item.b24ui?.label] })"
+            :class="b24ui.label({ class: [props.b24ui?.label, item.b24ui?.label] })"
           >
             <slot :item="item" :index="index" :open="open">{{ get(item, props.labelKey as string) }}</slot>
           </span>
 
           <slot name="trailing" :item="item" :index="index" :open="open" :b24ui="b24ui">
             <Component
-              :is="item.trailingIcon || trailingIcon || icons.chevronDown"
+              :is="item.trailingIcon || props.trailingIcon || icons.chevronDown"
               data-slot="trailingIcon"
-              :class="b24ui.trailingIcon({ class: [uiProp?.trailingIcon, item.b24ui?.trailingIcon] })"
+              :class="b24ui.trailingIcon({ class: [props.b24ui?.trailingIcon, item.b24ui?.trailingIcon] })"
             />
           </slot>
         </AccordionTrigger>
@@ -149,7 +152,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.accord
       <AccordionContent
         v-if="item.content || !!slots.content || (item.slot && !!slots[item.slot as keyof AccordionSlots<T>]) || !!slots.body || (item.slot && !!slots[`${item.slot}-body` as keyof AccordionSlots<T>])"
         data-slot="content"
-        :class="b24ui.content({ class: [uiProp?.content, item.b24ui?.content] })"
+        :class="b24ui.content({ class: [props.b24ui?.content, item.b24ui?.content] })"
       >
         <slot
           :name="((item.slot || 'content') as keyof AccordionSlots<T>)"
@@ -158,7 +161,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.accord
           :open="open"
           :b24ui="b24ui"
         >
-          <div data-slot="body" :class="b24ui.body({ class: [uiProp?.body, item.b24ui?.body] })">
+          <div data-slot="body" :class="b24ui.body({ class: [props.b24ui?.body, item.b24ui?.body] })">
             <slot
               :name="((item.slot ? `${item.slot}-body`: 'body') as keyof AccordionSlots<T>)"
               :item="(item as Extract<T, { slot: string; }>)"

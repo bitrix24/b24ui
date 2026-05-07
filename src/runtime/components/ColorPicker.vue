@@ -43,6 +43,7 @@ export type ColorPickerProps = {
   as?: any
   /**
    * Throttle time in ms for the color picker
+   * @defaultValue 50
    */
   throttle?: number
   /**
@@ -51,6 +52,7 @@ export type ColorPickerProps = {
   disabled?: boolean
   /**
    * The default value of the color picker
+   * @defaultValue '#FFFFFF'
    */
   defaultValue?: string
   /**
@@ -75,20 +77,22 @@ import { useEventListener, useElementBounding, watchThrottled, watchPausable } f
 import { isClient } from '@vueuse/shared'
 import { ColorTranslator } from 'colortranslator'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { tv } from '../utils/tv'
 
-const props = withDefaults(defineProps<ColorPickerProps>(), {
+const _props = withDefaults(defineProps<ColorPickerProps>(), {
   format: 'hex',
   throttle: 50,
   defaultValue: '#FFFFFF'
 })
 
+const props = useComponentProps('colorPicker', _props)
+
 const modelValue = defineModel<string>(undefined)
 
 const appConfig = useAppConfig() as ColorPicker['AppConfig']
-const uiProp = useComponentUI('colorPicker', props)
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.colorPicker || {}) })({
   size: props.size
 }))
@@ -207,6 +211,7 @@ const selectorThumbRef = ref<HTMLDivElement | null>(null)
 const trackRef = ref<HTMLDivElement | null>(null)
 const trackThumbRef = ref<HTMLDivElement | null>(null)
 
+// eslint-disable-next-line vue/no-dupe-keys
 const disabled = computed(() => props.disabled)
 
 const { position: selectorThumbPosition } = useColorDraggable(selectorThumbRef, selectorRef, 'both', {
@@ -265,19 +270,19 @@ const trackThumbStyle = computed(() => ({
 </script>
 
 <template>
-  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })" :data-disabled="disabled ? true : undefined">
-    <div data-slot="picker" :class="b24ui.picker({ class: uiProp?.picker })">
+  <Primitive :as="props.as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })" :data-disabled="disabled ? true : undefined">
+    <div data-slot="picker" :class="b24ui.picker({ class: props.b24ui?.picker })">
       <div
         ref="selectorRef"
         data-slot="selector"
-        :class="b24ui.selector({ class: uiProp?.selector })"
+        :class="b24ui.selector({ class: props.b24ui?.selector })"
         :style="selectorStyle"
       >
-        <div data-slot="selectorBackground" :class="b24ui.selectorBackground({ class: uiProp?.selectorBackground })" data-color-picker-background>
+        <div data-slot="selectorBackground" :class="b24ui.selectorBackground({ class: props.b24ui?.selectorBackground })" data-color-picker-background>
           <div
             ref="selectorThumbRef"
             data-slot="selectorThumb"
-            :class="b24ui.selectorThumb({ class: uiProp?.selectorThumb })"
+            :class="b24ui.selectorThumb({ class: props.b24ui?.selectorThumb })"
             :style="selectorThumbStyle"
             :data-disabled="disabled ? true : undefined"
           />
@@ -286,13 +291,13 @@ const trackThumbStyle = computed(() => ({
       <div
         ref="trackRef"
         data-slot="track"
-        :class="b24ui.track({ class: uiProp?.track })"
+        :class="b24ui.track({ class: props.b24ui?.track })"
         data-color-picker-track
       >
         <div
           ref="trackThumbRef"
           data-slot="trackThumb"
-          :class="b24ui.trackThumb({ class: uiProp?.trackThumb })"
+          :class="b24ui.trackThumb({ class: props.b24ui?.trackThumb })"
           :style="trackThumbStyle"
           :data-disabled="disabled ? true : undefined"
         />

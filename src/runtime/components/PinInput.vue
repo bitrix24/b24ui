@@ -63,32 +63,35 @@ export type PinInputEmits<T extends PinInputType = 'text'> = PinInputRootEmits<T
 
 <script setup lang="ts" generic="T extends PinInputType">
 import { ref, computed, onMounted } from 'vue'
-import { PinInputInput, PinInputRoot, useForwardPropsEmits } from 'reka-ui'
+import { PinInputInput, PinInputRoot } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
+import { useForwardProps } from '../composables/useForwardProps'
 import { useFormField } from '../composables/useFormField'
 import { looseToNumber } from '../utils'
 import { tv } from '../utils/tv'
 
-const props = withDefaults(defineProps<PinInputProps<T>>(), {
+const _props = withDefaults(defineProps<PinInputProps<T>>(), {
   type: 'text' as never,
   length: 5,
   autofocusDelay: 0
 })
 const emits = defineEmits<PinInputEmits<T>>()
 
+const props = useComponentProps<PinInputProps<T>>('pinInput', _props)
+
 const appConfig = useAppConfig() as PinInput['AppConfig']
-const uiProp = useComponentUI('pinInput', props)
 
-const rootProps = useForwardPropsEmits(reactivePick(props, 'disabled', 'id', 'mask', 'name', 'otp', 'required', 'type'), emits)
+const rootProps = useForwardProps(reactivePick(props, 'disabled', 'id', 'mask', 'name', 'otp', 'required', 'type'), emits)
 
-const { emitFormInput, emitFormFocus, emitFormChange, emitFormBlur, size, color, id, name, highlight, disabled, ariaAttrs } = useFormField<PinInputProps>(props)
+const { emitFormInput, emitFormFocus, emitFormChange, emitFormBlur, size, color, id, name, highlight, disabled, ariaAttrs } = useFormField<PinInputProps>(_props)
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pinInput || {}) })({
-  color: color.value,
-  size: size.value,
-  highlight: highlight.value,
+  color: color.value ?? props.color,
+  size: size.value ?? props.size,
+  highlight: highlight.value ?? props.highlight,
   fixed: props.fixed,
   rounded: Boolean(props.rounded),
   noBorder: Boolean(props.noBorder),
@@ -136,14 +139,14 @@ defineExpose({
 
 <template>
   <PinInputRoot
-    v-bind="{ ...rootProps, ...ariaAttrs }"
+    v-bind="({ ...rootProps, ...ariaAttrs } as any)"
     :id="id"
     :name="name"
-    :placeholder="placeholder"
-    :model-value="(modelValue as PinInputValue<T>)"
-    :default-value="(defaultValue as PinInputValue<T>)"
+    :placeholder="props.placeholder"
+    :model-value="(props.modelValue as PinInputValue<T>)"
+    :default-value="(props.defaultValue as PinInputValue<T>)"
     data-slot="root"
-    :class="b24ui.root({ class: [uiProp?.root, props.class] })"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     @update:model-value="emitFormInput()"
     @complete="onComplete"
   >
@@ -153,7 +156,7 @@ defineExpose({
       :ref="el => setInputRef(index as number, el)"
       :index="(index as number)"
       data-slot="base"
-      :class="b24ui.base({ class: uiProp?.base })"
+      :class="b24ui.base({ class: props.b24ui?.base })"
       :disabled="disabled"
       @blur="onBlur"
       @focus="emitFormFocus"

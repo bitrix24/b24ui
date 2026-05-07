@@ -56,7 +56,7 @@ import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { createReusableTemplate } from '@vueuse/core'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../../composables/useComponentUI'
+import { useComponentProps } from '../../composables/useComponentProps'
 import { useLocale } from '../../composables/useLocale'
 import { tv } from '../../utils/tv'
 import icons from '../../dictionary/icons'
@@ -64,12 +64,14 @@ import B24Link from '../Link.vue'
 
 defineOptions({ inheritAttrs: false })
 
-const props = defineProps<ContentSurroundProps<T>>()
+const _props = defineProps<ContentSurroundProps<T>>()
+
 defineSlots<ContentSurroundSlots<T>>()
+
+const props = useComponentProps<ContentSurroundProps<T>>('contentSurround', _props)
 
 const { dir } = useLocale()
 const appConfig = useAppConfig() as ContentSurround['AppConfig']
-const uiProp = useComponentUI('contentSurround', props)
 
 const [DefineLinkTemplate, ReuseLinkTemplate] = createReusableTemplate<{ link?: ContentSurroundLink, icon: IconComponent, direction: 'left' | 'right' }>({
   props: {
@@ -82,7 +84,9 @@ const [DefineLinkTemplate, ReuseLinkTemplate] = createReusableTemplate<{ link?: 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.contentSurround || {}) })())
 
+// eslint-disable-next-line vue/no-dupe-keys
 const prevIcon = computed(() => props.prevIcon || (dir.value === 'rtl' ? icons.arrowRight : icons.arrowLeft))
+// eslint-disable-next-line vue/no-dupe-keys
 const nextIcon = computed(() => props.nextIcon || (dir.value === 'rtl' ? icons.arrowLeft : icons.arrowRight))
 </script>
 
@@ -93,26 +97,26 @@ const nextIcon = computed(() => props.nextIcon || (dir.value === 'rtl' ? icons.a
       :to="link.path"
       raw
       data-slot="link"
-      :class="b24ui.link({ class: [uiProp?.link, link.b24ui?.link, link.class], direction })"
+      :class="b24ui.link({ class: [props.b24ui?.link, link.b24ui?.link, link.class], direction })"
     >
       <slot name="link" :link="(link as T)" :b24ui="b24ui">
-        <div data-slot="linkLeading" :class="b24ui.linkLeading({ class: [uiProp?.linkLeading, link.b24ui?.linkLeading] })">
+        <div data-slot="linkLeading" :class="b24ui.linkLeading({ class: [props.b24ui?.linkLeading, link.b24ui?.linkLeading] })">
           <slot name="link-leading" :link="(link as T)" :b24ui="b24ui">
             <Component
               :is="link.icon || icon"
               data-slot="linkLeadingIcon"
-              :class="b24ui.linkLeadingIcon({ class: [uiProp?.linkLeadingIcon, link.b24ui?.linkLeadingIcon], direction })"
+              :class="b24ui.linkLeadingIcon({ class: [props.b24ui?.linkLeadingIcon, link.b24ui?.linkLeadingIcon], direction })"
             />
           </slot>
         </div>
 
-        <p data-slot="linkTitle" :class="b24ui.linkTitle({ class: [uiProp?.linkTitle, link.b24ui?.linkTitle] })">
+        <p data-slot="linkTitle" :class="b24ui.linkTitle({ class: [props.b24ui?.linkTitle, link.b24ui?.linkTitle] })">
           <slot name="link-title" :link="(link as T)" :b24ui="b24ui">
             {{ link.title }}
           </slot>
         </p>
 
-        <p data-slot="linkDescription" :class="b24ui.linkDescription({ class: [uiProp?.linkDescription, link.b24ui?.linkDescription] })">
+        <p data-slot="linkDescription" :class="b24ui.linkDescription({ class: [props.b24ui?.linkDescription, link.b24ui?.linkDescription] })">
           <slot name="link-description" :link="(link as T)" :b24ui="b24ui">
             {{ link.description }}
           </slot>
@@ -122,8 +126,8 @@ const nextIcon = computed(() => props.nextIcon || (dir.value === 'rtl' ? icons.a
     <span v-else class="hidden sm:block">&nbsp;</span>
   </DefineLinkTemplate>
 
-  <Primitive v-if="surround" :as="as" v-bind="$attrs" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
-    <ReuseLinkTemplate :link="surround[0]" :icon="prevIcon" direction="left" />
-    <ReuseLinkTemplate :link="surround[1]" :icon="nextIcon" direction="right" />
+  <Primitive v-if="props.surround" :as="props.as" v-bind="$attrs" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+    <ReuseLinkTemplate :link="props.surround[0]" :icon="prevIcon" direction="left" />
+    <ReuseLinkTemplate :link="props.surround[1]" :icon="nextIcon" direction="right" />
   </Primitive>
 </template>

@@ -40,34 +40,36 @@ export interface ProseCollapsibleSlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../../composables/useComponentUI'
+import { useComponentProps } from '../../composables/useComponentProps'
 import { useLocale } from '../../composables/useLocale'
 import { transformUI } from '../../utils'
 import { tv } from '../../utils/tv'
 import icons from '../../dictionary/icons'
 import B24Collapsible from '../Collapsible.vue'
 
-const props = defineProps<ProseCollapsibleProps>()
+const _props = defineProps<ProseCollapsibleProps>()
+
 defineSlots<ProseCollapsibleSlots>()
+
+const props = useComponentProps('prose.collapsible', _props)
 
 const { t } = useLocale()
 const appConfig = useAppConfig() as ProseCollapsible['AppConfig']
-const uiProp = useComponentUI('prose.collapsible', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.collapsible || {}) })())
 </script>
 
 <template>
-  <B24Collapsible :unmount-on-hide="false" :class="props.class" :b24ui="transformUI(b24ui, uiProp)">
+  <B24Collapsible :unmount-on-hide="false" :class="props.class" :b24ui="transformUI(b24ui, props.b24ui)">
     <template #default="{ open }">
-      <button data-slot="trigger" :class="b24ui.trigger({ class: uiProp?.trigger })">
+      <button data-slot="trigger" :class="b24ui.trigger({ class: props.b24ui?.trigger })">
         <Component
-          :is="icon || icons.chevronDown"
+          :is="props.icon || icons.chevronDown"
           data-slot="triggerIcon"
-          :class="b24ui.triggerIcon({ class: uiProp?.triggerIcon })"
+          :class="b24ui.triggerIcon({ class: props.b24ui?.triggerIcon })"
         />
-        <span data-slot="triggerLabel" :class="b24ui.triggerLabel({ class: uiProp?.triggerLabel })">
+        <span data-slot="triggerLabel" :class="b24ui.triggerLabel({ class: props.b24ui?.triggerLabel })">
           {{ open ? (props.closeText || t('prose.collapsible.closeText')) : (props.openText || t('prose.collapsible.openText')) }} {{ props.name || t('prose.collapsible.name') }}
         </span>
       </button>

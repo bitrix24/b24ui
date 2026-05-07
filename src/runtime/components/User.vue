@@ -45,7 +45,7 @@ export interface UserSlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { tv } from '../utils/tv'
 import B24Chip from './Chip.vue'
 import B24Avatar from './Avatar.vue'
@@ -53,14 +53,16 @@ import B24Link from './Link.vue'
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<UserProps>(), {
+const _props = withDefaults(defineProps<UserProps>(), {
   orientation: 'horizontal'
 })
 const slots = defineSlots<UserSlots>()
 
-const appConfig = useAppConfig() as User['AppConfig']
-const uiProp = useComponentUI('user', props)
+const props = useComponentProps('user', _props)
 
+const appConfig = useAppConfig() as User['AppConfig']
+
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.user || {}) })({
   size: props.size,
   orientation: props.orientation,
@@ -84,26 +86,26 @@ const chipSize = computed<ChipProps['size']>(() => {
 </script>
 
 <template>
-  <Primitive :as="as" :data-orientation="orientation" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })" @click="onClick">
+  <Primitive :as="props.as" :data-orientation="props.orientation" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })" @click="props.onClick">
     <slot name="avatar" :b24ui="b24ui">
-      <B24Chip v-if="chip && avatar && !['3xs'].includes(size || '')" inset v-bind="typeof chip === 'object' ? chip : {}" :size="chipSize">
-        <B24Avatar :alt="name" v-bind="avatar" :size="size" data-slot="avatar" :class="b24ui.avatar({ class: uiProp?.avatar })" />
+      <B24Chip v-if="props.chip && props.avatar && !['3xs'].includes(props.size || '')" inset v-bind="typeof props.chip === 'object' ? props.chip : {}" :size="chipSize">
+        <B24Avatar :alt="props.name" v-bind="props.avatar" :size="props.size" data-slot="avatar" :class="b24ui.avatar({ class: props.b24ui?.avatar })" />
       </B24Chip>
       <B24Avatar
-        v-else-if="avatar"
-        :alt="name"
-        v-bind="avatar"
-        :size="size"
+        v-else-if="props.avatar"
+        :alt="props.name"
+        v-bind="props.avatar"
+        :size="props.size"
         data-slot="avatar"
-        :class="b24ui.avatar({ class: uiProp?.avatar })"
+        :class="b24ui.avatar({ class: props.b24ui?.avatar })"
       />
     </slot>
 
-    <div data-slot="wrapper" :class="b24ui.wrapper({ class: uiProp?.wrapper })">
+    <div data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
       <B24Link
-        v-if="to"
-        :aria-label="name"
-        v-bind="{ to, target, ...$attrs }"
+        v-if="props.to"
+        :aria-label="props.name"
+        v-bind="{ to: props.to, target: props.target, ...$attrs }"
         class="focus:outline-none peer"
         raw
       >
@@ -111,14 +113,14 @@ const chipSize = computed<ChipProps['size']>(() => {
       </B24Link>
 
       <slot>
-        <p v-if="name || !!slots.name" data-slot="name" :class="b24ui.name({ class: uiProp?.name })">
+        <p v-if="props.name || !!slots.name" data-slot="name" :class="b24ui.name({ class: props.b24ui?.name })">
           <slot name="name">
-            {{ name }}
+            {{ props.name }}
           </slot>
         </p>
-        <p v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: uiProp?.description })">
+        <p v-if="props.description || !!slots.description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
           <slot name="description">
-            {{ description }}
+            {{ props.description }}
           </slot>
         </p>
       </slot>

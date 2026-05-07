@@ -67,14 +67,14 @@ export interface ChatReasoningSlots {
 import { ref, computed, watch, onUnmounted, nextTick, useTemplateRef } from 'vue'
 import { CollapsibleRoot, CollapsibleTrigger, CollapsibleContent } from 'reka-ui'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { useLocale } from '../composables/useLocale'
 import { useScrollShadow } from '../composables/useScrollShadow'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24ChatShimmer from './ChatShimmer.vue'
 
-const props = withDefaults(defineProps<ChatReasoningProps>(), {
+const _props = withDefaults(defineProps<ChatReasoningProps>(), {
   open: undefined,
   streaming: false,
   chevron: 'trailing',
@@ -82,12 +82,15 @@ const props = withDefaults(defineProps<ChatReasoningProps>(), {
   autoCloseDelay: 500
 })
 const emits = defineEmits<ChatReasoningEmits>()
+
 defineSlots<ChatReasoningSlots>()
+
+const props = useComponentProps('chatReasoning', _props)
 
 const { t, code } = useLocale()
 const appConfig = useAppConfig() as ChatReasoning['AppConfig']
-const uiProp = useComponentUI('chatReasoning', props)
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chatReasoning || {}) })({
   chevron: props.chevron
 }))
@@ -182,49 +185,49 @@ watch(() => props.text, () => {
     v-if="hasContent"
     v-slot="{ open: isOpen }"
     :open="resolvedOpen"
-    :disabled="disabled"
-    :unmount-on-hide="unmountOnHide"
+    :disabled="props.disabled"
+    :unmount-on-hide="props.unmountOnHide"
     data-slot="root"
-    :class="b24ui.root({ class: [uiProp?.root, props.class] })"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     @update:open="setOpen"
   >
     <CollapsibleTrigger as-child :disabled="!hasContent">
       <button
         type="button"
         data-slot="trigger"
-        :class="b24ui.trigger({ class: uiProp?.trigger })"
+        :class="b24ui.trigger({ class: props.b24ui?.trigger })"
       >
-        <span v-if="icon || (hasContent && chevron === 'leading')" data-slot="leading" :class="b24ui.leading({ class: uiProp?.leading })">
+        <span v-if="props.icon || (hasContent && props.chevron === 'leading')" data-slot="leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
           <Component
-            :is="icon"
-            v-if="icon"
+            :is="props.icon"
+            v-if="props.icon"
             data-slot="leadingIcon"
-            :class="b24ui.leadingIcon({ class: uiProp?.leadingIcon, alone: !(hasContent && chevron === 'leading') })"
+            :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon, alone: !(hasContent && props.chevron === 'leading') })"
           />
           <Component
             :is="chevronIconName"
-            v-if="hasContent && chevron === 'leading'"
+            v-if="hasContent && props.chevron === 'leading'"
             data-slot="chevronIcon"
-            :class="b24ui.chevronIcon({ class: uiProp?.chevronIcon, alone: !icon })"
+            :class="b24ui.chevronIcon({ class: props.b24ui?.chevronIcon, alone: !props.icon })"
           />
         </span>
 
-        <B24ChatShimmer v-if="streaming" :text="thinkingText" v-bind="props.shimmer" data-slot="label" :class="b24ui.label({ class: uiProp?.label })" />
-        <span v-else data-slot="label" :class="b24ui.label({ class: uiProp?.label })">{{ thinkingText }}</span>
+        <B24ChatShimmer v-if="props.streaming" :text="thinkingText" v-bind="props.shimmer" data-slot="label" :class="b24ui.label({ class: props.b24ui?.label })" />
+        <span v-else data-slot="label" :class="b24ui.label({ class: props.b24ui?.label })">{{ thinkingText }}</span>
 
         <Component
           :is="chevronIconName"
-          v-if="hasContent && chevron === 'trailing'"
+          v-if="hasContent && props.chevron === 'trailing'"
           data-slot="trailingIcon"
-          :class="b24ui.trailingIcon({ class: uiProp?.trailingIcon })"
+          :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
         />
       </button>
     </CollapsibleTrigger>
 
-    <CollapsibleContent data-slot="content" :class="b24ui.content({ class: uiProp?.content })">
-      <div ref="bodyRef" data-slot="body" :class="b24ui.body({ class: uiProp?.body })" :style="scrollShadowStyle">
+    <CollapsibleContent data-slot="content" :class="b24ui.content({ class: props.b24ui?.content })">
+      <div ref="bodyRef" data-slot="body" :class="b24ui.body({ class: props.b24ui?.body })" :style="scrollShadowStyle">
         <slot :open="isOpen">
-          {{ text }}
+          {{ props.text }}
         </slot>
       </div>
     </CollapsibleContent>

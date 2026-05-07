@@ -59,11 +59,11 @@ export interface ContentTocSlots<T extends ContentTocLink = ContentTocLink> {
 
 <script setup lang="ts" generic="T extends ContentTocLink">
 import { computed, onUnmounted } from 'vue'
-import { CollapsibleRoot, CollapsibleTrigger, CollapsibleContent, useForwardPropsEmits } from 'reka-ui'
+import { CollapsibleRoot, CollapsibleTrigger, CollapsibleContent } from 'reka-ui'
 import { reactivePick, createReusableTemplate } from '@vueuse/core'
 import { useRouter, useAppConfig, useNuxtApp } from '#imports'
-import { useComponentUI } from '../../composables/useComponentUI'
-// import { useResolvedVariants } from '../../composables/useResolvedVariants'
+import { useComponentProps } from '../../composables/useComponentProps'
+import { useForwardProps } from '../../composables/useForwardProps'
 import { useScrollspy } from '../../composables/useScrollspy'
 import { useLocale } from '../../composables/useLocale'
 import { tv } from '../../utils/tv'
@@ -71,20 +71,19 @@ import icons from '../../dictionary/icons'
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<ContentTocProps<T>>(), {
+const _props = withDefaults(defineProps<ContentTocProps<T>>(), {
   as: 'nav'
 })
 const emits = defineEmits<ContentTocEmits>()
 const slots = defineSlots<ContentTocSlots<T>>()
 
-const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'open', 'defaultOpen'), emits)
+const props = useComponentProps<ContentTocProps<T>>('contentToc', _props)
+
+const rootProps = useForwardProps(reactivePick(props, 'as', 'open', 'defaultOpen'), emits)
 
 const { t } = useLocale()
 const router = useRouter()
 const appConfig = useAppConfig() as ContentToc['AppConfig']
-const uiProp = useComponentUI('contentToc', props)
-// @memo We not support: highlightVariant
-// const { highlightVariant } = useResolvedVariants('contentToc', props, theme, ['highlightVariant'])
 const { activeHeadings, updateHeadings } = useScrollspy()
 
 const [DefineListTemplate, ReuseListTemplate] = createReusableTemplate<{ links: T[], level: number }>({
@@ -95,6 +94,7 @@ const [DefineListTemplate, ReuseListTemplate] = createReusableTemplate<{ links: 
 })
 const [DefineTriggerTemplate, ReuseTriggerTemplate] = createReusableTemplate<{ open: boolean }>()
 
+// @memo We not support: color, highlight, highlightVariant, highlightColor
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.contentToc || {}) })({}))
 
@@ -142,16 +142,16 @@ onUnmounted(() => {
 <template>
   <!-- eslint-disable-next-line vue/no-template-shadow -->
   <DefineListTemplate v-slot="{ links, level }">
-    <ul :class="level > 0 ? b24ui.listWithChildren({ class: uiProp?.listWithChildren }) : b24ui.list({ class: uiProp?.list })">
-      <li v-for="(link, index) in links" :key="index" :class="link.children && link.children.length > 0 ? b24ui.itemWithChildren({ class: [uiProp?.itemWithChildren, link.b24ui?.itemWithChildren] }) : b24ui.item({ class: [uiProp?.item, link.b24ui?.item] })">
+    <ul :class="level > 0 ? b24ui.listWithChildren({ class: props.b24ui?.listWithChildren }) : b24ui.list({ class: props.b24ui?.list })">
+      <li v-for="(link, index) in links" :key="index" :class="link.children && link.children.length > 0 ? b24ui.itemWithChildren({ class: [props.b24ui?.itemWithChildren, link.b24ui?.itemWithChildren] }) : b24ui.item({ class: [props.b24ui?.item, link.b24ui?.item] })">
         <a
           :href="`#${link.id}`"
           data-slot="link"
-          :class="b24ui.link({ class: [uiProp?.link, link.b24ui?.link, link.class], active: activeHeadings.includes(link.id) })"
+          :class="b24ui.link({ class: [props.b24ui?.link, link.b24ui?.link, link.class], active: activeHeadings.includes(link.id) })"
           @click.prevent="scrollToHeading(link.id)"
         >
           <slot name="link" :link="link">
-            <span data-slot="linkText" :class="b24ui.linkText({ class: [uiProp?.linkText, link.b24ui?.linkText] })">
+            <span data-slot="linkText" :class="b24ui.linkText({ class: [props.b24ui?.linkText, link.b24ui?.linkText] })">
               {{ link.text }}
             </span>
           </slot>
@@ -165,16 +165,16 @@ onUnmounted(() => {
   <DefineTriggerTemplate v-slot="{ open }">
     <slot name="leading" :open="open" :b24ui="b24ui" />
 
-    <span data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
-      <slot :open="open">{{ title || t('contentToc.title') }}</slot>
+    <span data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
+      <slot :open="open">{{ props.title || t('contentToc.title') }}</slot>
     </span>
 
-    <span data-slot="trailing" :class="b24ui.trailing({ class: uiProp?.trailing })">
+    <span data-slot="trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
       <slot name="trailing" :open="open" :b24ui="b24ui">
         <Component
-          :is="trailingIcon || icons.chevronDown"
+          :is="props.trailingIcon || icons.chevronDown"
           data-slot="trailingIcon"
-          :class="b24ui.trailingIcon({ class: uiProp?.trailingIcon })"
+          :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
         />
       </slot>
     </span>
@@ -183,23 +183,23 @@ onUnmounted(() => {
   <CollapsibleRoot
     v-slot="{ open }"
     v-bind="{ ...rootProps, ...$attrs }"
-    :default-open="defaultOpen"
+    :default-open="props.defaultOpen"
     data-slot="root"
-    :class="b24ui.root({ class: [uiProp?.root, props.class] })"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
   >
-    <div data-slot="container" :class="b24ui.container({ class: uiProp?.container })">
-      <div v-if="!!slots.top" data-slot="top" :class="b24ui.top({ class: uiProp?.top })">
-        <slot name="top" :links="links" />
+    <div data-slot="container" :class="b24ui.container({ class: props.b24ui?.container })">
+      <div v-if="!!slots.top" data-slot="top" :class="b24ui.top({ class: props.b24ui?.top })">
+        <slot name="top" :links="props.links" />
       </div>
 
-      <template v-if="links?.length">
+      <template v-if="props.links?.length">
         <CollapsibleTrigger data-slot="trigger" :class="b24ui.trigger({ class: 'lg:hidden' })">
           <ReuseTriggerTemplate :open="open" />
         </CollapsibleTrigger>
 
-        <CollapsibleContent data-slot="content" :class="b24ui.content({ class: [uiProp?.content, 'lg:hidden'] })">
-          <slot name="content" :links="links">
-            <ReuseListTemplate :links="links" :level="0" />
+        <CollapsibleContent data-slot="content" :class="b24ui.content({ class: [props.b24ui?.content, 'lg:hidden'] })">
+          <slot name="content" :links="props.links">
+            <ReuseListTemplate :links="props.links" :level="0" />
           </slot>
         </CollapsibleContent>
 
@@ -207,15 +207,15 @@ onUnmounted(() => {
           <ReuseTriggerTemplate :open="open" />
         </p>
 
-        <div data-slot="content" :class="b24ui.content({ class: [uiProp?.content, 'hidden lg:flex'] })">
-          <slot name="content" :links="links">
-            <ReuseListTemplate :links="links" :level="0" />
+        <div data-slot="content" :class="b24ui.content({ class: [props.b24ui?.content, 'hidden lg:flex'] })">
+          <slot name="content" :links="props.links">
+            <ReuseListTemplate :links="props.links" :level="0" />
           </slot>
         </div>
       </template>
 
-      <div v-if="!!slots.bottom" data-slot="bottom" :class="b24ui.bottom({ class: uiProp?.bottom, body: !!slots.top || !!links?.length })">
-        <slot name="bottom" :links="links" />
+      <div v-if="!!slots.bottom" data-slot="bottom" :class="b24ui.bottom({ class: props.b24ui?.bottom, body: !!slots.top || !!props.links?.length })">
+        <slot name="bottom" :links="props.links" />
       </div>
     </div>
   </CollapsibleRoot>

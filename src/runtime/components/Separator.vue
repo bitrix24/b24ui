@@ -53,14 +53,15 @@ export interface SeparatorSlots {
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { Separator, useForwardProps } from 'reka-ui'
+import { Separator } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
+import { useForwardProps } from '../composables/useForwardProps'
 import { tv } from '../utils/tv'
 import B24Avatar from './Avatar.vue'
 
-const props = withDefaults(defineProps<SeparatorProps>(), {
+const _props = withDefaults(defineProps<SeparatorProps>(), {
   accent: 'default',
   orientation: 'horizontal',
   size: 'thin',
@@ -68,11 +69,13 @@ const props = withDefaults(defineProps<SeparatorProps>(), {
 })
 const slots = defineSlots<SeparatorSlots>()
 
+const props = useComponentProps('separator', _props)
+
 const appConfig = useAppConfig() as Separator['AppConfig']
-const uiProp = useComponentUI('separator', props)
 
 const rootProps = useForwardProps(reactivePick(props, 'as', 'decorative', 'orientation'))
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.separator || {}) })({
   accent: props.accent,
   orientation: props.orientation,
@@ -82,19 +85,19 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.separa
 </script>
 
 <template>
-  <Separator v-bind="rootProps" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
-    <div data-slot="border" :class="b24ui.border({ class: uiProp?.border })" />
+  <Separator v-bind="rootProps" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+    <div data-slot="border" :class="b24ui.border({ class: props.b24ui?.border })" />
 
-    <template v-if="(label !== undefined && label !== null) || icon || avatar || !!slots.default">
-      <div data-slot="container" :class="b24ui.container({ class: uiProp?.container })">
+    <template v-if="(props.label !== undefined && props.label !== null) || props.icon || props.avatar || !!slots.default">
+      <div data-slot="container" :class="b24ui.container({ class: props.b24ui?.container })">
         <slot :b24ui="b24ui">
-          <span v-if="label !== undefined && label !== null" data-slot="label" :class="b24ui.label({ class: uiProp?.label })">{{ label }}</span>
-          <Component :is="icon" v-else-if="icon" data-slot="icon" :class="b24ui.icon({ class: uiProp?.icon })" />
-          <B24Avatar v-else-if="avatar" :size="((uiProp?.avatarSize || b24ui.avatarSize()) as AvatarProps['size'])" v-bind="avatar" data-slot="avatar" :class="b24ui.avatar({ class: uiProp?.avatar })" />
+          <span v-if="props.label !== undefined && props.label !== null" data-slot="label" :class="b24ui.label({ class: props.b24ui?.label })">{{ props.label }}</span>
+          <Component :is="props.icon" v-else-if="props.icon" data-slot="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
+          <B24Avatar v-else-if="props.avatar" :size="((props.b24ui?.avatarSize || b24ui.avatarSize()) as AvatarProps['size'])" v-bind="props.avatar" data-slot="avatar" :class="b24ui.avatar({ class: props.b24ui?.avatar })" />
         </slot>
       </div>
 
-      <div data-slot="border" :class="b24ui.border({ class: uiProp?.border })" />
+      <div data-slot="border" :class="b24ui.border({ class: props.b24ui?.border })" />
     </template>
   </Separator>
 </template>

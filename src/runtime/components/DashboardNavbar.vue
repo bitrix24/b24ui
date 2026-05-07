@@ -53,21 +53,22 @@ import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { createReusableTemplate } from '@vueuse/core'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
 import { useDashboard } from '../utils/dashboard'
 import { tv } from '../utils/tv'
 import B24DashboardSidebarToggle from './DashboardSidebarToggle.vue'
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<DashboardNavbarProps>(), {
+const _props = withDefaults(defineProps<DashboardNavbarProps>(), {
   toggle: true,
   toggleSide: 'left'
 })
 const slots = defineSlots<DashboardNavbarSlots>()
 
+const props = useComponentProps('dashboardNavbar', _props)
+
 const appConfig = useAppConfig() as DashboardNavbar['AppConfig']
-const uiProp = useComponentUI('dashboardNavbar', props)
 const dashboardContext = useDashboard({})
 
 const [DefineToggleTemplate, ReuseToggleTemplate] = createReusableTemplate()
@@ -80,32 +81,32 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashbo
   <DefineToggleTemplate>
     <slot name="toggle" v-bind="{ ...dashboardContext, b24ui }">
       <B24DashboardSidebarToggle
-        v-if="toggle"
-        v-bind="(typeof toggle === 'object' ? toggle : {})"
-        :side="toggleSide"
+        v-if="props.toggle"
+        v-bind="(typeof props.toggle === 'object' ? props.toggle : {})"
+        :side="props.toggleSide"
         data-slot="toggle"
-        :class="b24ui.toggle({ class: uiProp?.toggle, toggleSide })"
+        :class="b24ui.toggle({ class: props.b24ui?.toggle, toggleSide: props.toggleSide })"
       />
     </slot>
   </DefineToggleTemplate>
 
-  <Primitive :as="as" v-bind="$attrs" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
-    <div data-slot="left" :class="b24ui.left({ class: uiProp?.left })">
-      <ReuseToggleTemplate v-if="toggleSide === 'left'" />
+  <Primitive :as="props.as" v-bind="$attrs" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+    <div data-slot="left" :class="b24ui.left({ class: props.b24ui?.left })">
+      <ReuseToggleTemplate v-if="props.toggleSide === 'left'" />
 
       <slot name="left" v-bind="dashboardContext">
         <slot name="leading" v-bind="{ ...dashboardContext, b24ui }">
           <Component
-            :is="icon"
-            v-if="icon"
+            :is="props.icon"
+            v-if="props.icon"
             data-slot="icon"
-            :class="b24ui.icon({ class: uiProp?.icon })"
+            :class="b24ui.icon({ class: props.b24ui?.icon })"
           />
         </slot>
 
-        <h1 data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
+        <h1 data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
           <slot name="title">
-            {{ title }}
+            {{ props.title }}
           </slot>
         </h1>
 
@@ -113,14 +114,14 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashbo
       </slot>
     </div>
 
-    <div v-if="!!slots.default" data-slot="center" :class="b24ui.center({ class: uiProp?.center })">
+    <div v-if="!!slots.default" data-slot="center" :class="b24ui.center({ class: props.b24ui?.center })">
       <slot v-bind="dashboardContext" />
     </div>
 
-    <div data-slot="right" :class="b24ui.right({ class: uiProp?.right })">
+    <div data-slot="right" :class="b24ui.right({ class: props.b24ui?.right })">
       <slot name="right" v-bind="dashboardContext" />
 
-      <ReuseToggleTemplate v-if="toggleSide === 'right'" />
+      <ReuseToggleTemplate v-if="props.toggleSide === 'right'" />
     </div>
   </Primitive>
 </template>

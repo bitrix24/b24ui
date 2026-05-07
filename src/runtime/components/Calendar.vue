@@ -115,36 +115,43 @@ export interface CalendarSlots {
 
 <script setup lang="ts" generic="R extends boolean, M extends boolean">
 import { computed } from 'vue'
-import { useForwardPropsEmits } from 'reka-ui'
 import { Calendar as SingleCalendar, RangeCalendar } from 'reka-ui/namespaced'
 import { reactiveOmit } from '@vueuse/core'
 import { useAppConfig } from '#imports'
-import { useComponentUI } from '../composables/useComponentUI'
+import { useComponentProps } from '../composables/useComponentProps'
+import { useForwardProps } from '../composables/useForwardProps'
 import { useLocale } from '../composables/useLocale'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Button from './Button.vue'
 
-const props = withDefaults(defineProps<CalendarProps<R, M>>(), {
+const _props = withDefaults(defineProps<CalendarProps<R, M>>(), {
   fixedWeeks: true,
   monthControls: true,
   yearControls: false
 })
 const emits = defineEmits<CalendarEmits<R, M>>()
+
 defineSlots<CalendarSlots>()
+
+const props = useComponentProps<CalendarProps<R, M>>('calendar', _props)
 
 const { dir, t, locale } = useLocale()
 const appConfig = useAppConfig() as Calendar['AppConfig']
-const uiProp = useComponentUI('calendar', props)
 
 /** @memo we not use `variant` */
-const rootProps = useForwardPropsEmits(reactiveOmit(props, 'range', 'modelValue', 'defaultValue', 'color', 'size', 'monthControls', 'yearControls', 'class', 'b24ui'), emits)
+const rootProps = useForwardProps(reactiveOmit(props, 'range', 'modelValue', 'defaultValue', 'color', 'size', 'monthControls', 'yearControls', 'class', 'b24ui'), emits)
 
+// eslint-disable-next-line vue/no-dupe-keys
 const nextYearIcon = computed(() => props.nextYearIcon || (dir.value === 'rtl' ? icons.chevronDoubleLeft : icons.chevronDoubleRight))
+// eslint-disable-next-line vue/no-dupe-keys
 const nextMonthIcon = computed(() => props.nextMonthIcon || (dir.value === 'rtl' ? icons.chevronLeft : icons.chevronRight))
+// eslint-disable-next-line vue/no-dupe-keys
 const prevYearIcon = computed(() => props.prevYearIcon || (dir.value === 'rtl' ? icons.chevronDoubleRight : icons.chevronDoubleLeft))
+// eslint-disable-next-line vue/no-dupe-keys
 const prevMonthIcon = computed(() => props.prevMonthIcon || (dir.value === 'rtl' ? icons.chevronRight : icons.chevronLeft))
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.calendar || {}) })({
   color: props.color,
   size: props.size,
@@ -173,19 +180,19 @@ const btnSize = computed(() => {
   <Calendar.Root
     v-slot="{ weekDays, grid }"
     v-bind="rootProps"
-    :model-value="(modelValue as DateValue | DateValue[])"
-    :default-value="(defaultValue as DateValue)"
+    :model-value="(props.modelValue as DateValue | DateValue[])"
+    :default-value="(props.defaultValue as DateValue)"
     data-slot="root"
-    :class="b24ui.root({ class: [uiProp?.root, props.class] })"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
   >
-    <Calendar.Header data-slot="header" :class="b24ui.header({ class: uiProp?.header })">
+    <Calendar.Header data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
       <Calendar.Prev v-if="props.yearControls" :prev-page="(date: DateValue) => paginateYear(date, -1)" :aria-label="t('calendar.prevYear')" as-child>
         <B24Button :icon="prevYearIcon" :size="btnSize" color="air-tertiary" v-bind="props.prevYear" />
       </Calendar.Prev>
       <Calendar.Prev v-if="props.monthControls" :aria-label="t('calendar.prevMonth')" as-child>
         <B24Button :icon="prevMonthIcon" :size="btnSize" color="air-tertiary" v-bind="props.prevMonth" />
       </Calendar.Prev>
-      <Calendar.Heading v-slot="{ headingValue }" data-slot="heading" :class="b24ui.heading({ class: uiProp?.heading })">
+      <Calendar.Heading v-slot="{ headingValue }" data-slot="heading" :class="b24ui.heading({ class: props.b24ui?.heading })">
         <slot name="heading" :value="headingValue">
           {{ headingValue }}
         </slot>
@@ -197,20 +204,20 @@ const btnSize = computed(() => {
         <B24Button :icon="nextYearIcon" :size="btnSize" color="air-tertiary" v-bind="props.nextYear" />
       </Calendar.Next>
     </Calendar.Header>
-    <div data-slot="body" :class="b24ui.body({ class: uiProp?.body })">
+    <div data-slot="body" :class="b24ui.body({ class: props.b24ui?.body })">
       <Calendar.Grid
         v-for="month in grid"
         :key="month.value.toString()"
         data-slot="grid"
-        :class="b24ui.grid({ class: uiProp?.grid })"
+        :class="b24ui.grid({ class: props.b24ui?.grid })"
       >
         <Calendar.GridHead>
-          <Calendar.GridRow data-slot="gridWeekDaysRow" :class="b24ui.gridWeekDaysRow({ class: uiProp?.gridWeekDaysRow })">
+          <Calendar.GridRow data-slot="gridWeekDaysRow" :class="b24ui.gridWeekDaysRow({ class: props.b24ui?.gridWeekDaysRow })">
             <Calendar.HeadCell
               v-for="day in weekDays"
               :key="day"
               data-slot="headCell"
-              :class="b24ui.headCell({ class: uiProp?.headCell })"
+              :class="b24ui.headCell({ class: props.b24ui?.headCell })"
             >
               <slot name="week-day" :day="day">
                 {{ day }}
@@ -218,18 +225,18 @@ const btnSize = computed(() => {
             </Calendar.HeadCell>
           </Calendar.GridRow>
         </Calendar.GridHead>
-        <Calendar.GridBody data-slot="gridBody" :class="b24ui.gridBody({ class: uiProp?.gridBody })">
+        <Calendar.GridBody data-slot="gridBody" :class="b24ui.gridBody({ class: props.b24ui?.gridBody })">
           <Calendar.GridRow
             v-for="(weekDates, index) in month.rows"
             :key="`weekDate-${index}`"
             data-slot="gridRow"
-            :class="b24ui.gridRow({ class: uiProp?.gridRow })"
+            :class="b24ui.gridRow({ class: props.b24ui?.gridRow })"
           >
             <td
-              v-if="weekNumbers && weekDates[0]"
+              v-if="props.weekNumbers && weekDates[0]"
               role="gridcell"
               data-slot="cellWeek"
-              :class="b24ui.cellWeek({ class: uiProp?.cellWeek })"
+              :class="b24ui.cellWeek({ class: props.b24ui?.cellWeek })"
             >
               {{ getWeekNumber(weekDates[0], locale.code) }}
             </td>
@@ -238,13 +245,13 @@ const btnSize = computed(() => {
               :key="weekDate.toString()"
               :date="weekDate"
               data-slot="cell"
-              :class="b24ui.cell({ class: uiProp?.cell })"
+              :class="b24ui.cell({ class: props.b24ui?.cell })"
             >
               <Calendar.CellTrigger
                 :day="weekDate"
                 :month="month.value"
                 data-slot="cellTrigger"
-                :class="b24ui.cellTrigger({ class: uiProp?.cellTrigger })"
+                :class="b24ui.cellTrigger({ class: props.b24ui?.cellTrigger })"
               >
                 <slot name="day" :day="weekDate">
                   {{ weekDate.day }}

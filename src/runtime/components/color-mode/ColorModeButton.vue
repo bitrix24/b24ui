@@ -11,24 +11,25 @@ export interface ColorModeButtonProps extends Omit<ButtonProps, LinkPropsKeys | 
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 import { useColorMode } from '#imports'
-import { useComponentUI } from '../../composables/useComponentUI'
+import { useComponentProps } from '../../composables/useComponentProps'
+import { useForwardProps } from '../../composables/useForwardProps'
 import { useLocale } from '../../composables/useLocale'
 import icons from '../../dictionary/icons'
 import B24Button from '../Button.vue'
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<ColorModeButtonProps>(), {
+const _props = withDefaults(defineProps<ColorModeButtonProps>(), {
   color: 'air-tertiary-no-accent'
 })
+
+const props = useComponentProps('button', _props)
 
 const { t } = useLocale()
 const colorMode = useColorMode()
 // const appConfig = useAppConfig()
-const uiProp = useComponentUI('button', props)
 
 const buttonProps = useForwardProps(reactiveOmit(props, 'icon'))
 
@@ -52,8 +53,8 @@ const isDark = computed({
     @click="isDark = !isDark"
   >
     <template #leading="{ b24ui }">
-      <Component :is="icons.dark" data-slot="leadingIcon" :class="b24ui.leadingIcon({ class: [uiProp?.leadingIcon, 'hidden dark:inline-block'] })" />
-      <Component :is="icons.light" data-slot="leadingIcon" :class="b24ui.leadingIcon({ class: [uiProp?.leadingIcon, 'dark:hidden'] })" />
+      <Component :is="icons.dark" data-slot="leadingIcon" :class="b24ui.leadingIcon({ class: [props.b24ui?.leadingIcon, 'hidden dark:inline-block'] })" />
+      <Component :is="icons.light" data-slot="leadingIcon" :class="b24ui.leadingIcon({ class: [props.b24ui?.leadingIcon, 'dark:hidden'] })" />
     </template>
   </B24Button>
 </template>
