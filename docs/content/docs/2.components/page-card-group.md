@@ -74,6 +74,27 @@ Override the badge size derived from `size` with `badge-size`.
 
 When items contain a `category` field (or another field set via `category-key`), the group renders one section per category with a heading above each grid. Pass `category-key=""` to disable grouping.
 
+## Prompt
+
+::prompt
+---
+description: Render a payment-methods picker on the settings page.
+actions:
+  - copy
+  - cursor
+  - windsurf
+class: 'w-full my-0'
+---
+On a settings page, render the list of payment methods as a grid of cards. Each card carries an icon and a short description. The user can enable several methods at once.
+
+Requirements:
+- Use `B24PageCardGroup` with `multiple` and bind `v-model` to a `ref<string[]>`
+- Each item exposes `value`, `label`, `description` and `icon` (an icon component imported from `@bitrix24/b24icons-vue`)
+- Keep the umbrella accent in sync — set `color` on the group instead of `highlight-color` / `badge-color` separately
+- Wrap the group in `B24FormField` with a label so it integrates with the surrounding settings form
+- Pick a sensible `size` (`md` by default) and `columns` (`2` or `3`) for the layout
+::
+
 ## Examples
 
 ### Click / change handler
