@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@ai-sdk/deepseek": "^2.0.29",
-    "@ai-sdk/vue": "^3.0.168",
+    "@ai-sdk/vue": "^3.0.174",
     "@comark/vue": "^0.3.1",
     "@internationalized/date": "^3.12.1",
     "@nuxt/content": "^3.13.0",
@@ -21,10 +21,10 @@
     "@bitrix24/b24icons-vue": "^2.0.7",
     "@tiptap/extension-emoji": "^3.22.4",
     "@tiptap/extension-text-align": "^3.22.4",
-    "ai": "^6.0.168",
+    "ai": "^6.0.174",
     "nuxt": "^4.4.2",
     "tailwindcss": "^4.2.4",
-    "zod": "^4.3.6",
+    "zod": "^4.4.2",
     "maska": "^3.2.0"
   },
   "devDependencies": {
