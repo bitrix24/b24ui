@@ -45,21 +45,26 @@ describe('CheckboxGroup', () => {
     ['with description slot', { props, slots: { description: () => 'Description slot' } }]
   ])
 
-  // @todo fix this
-  // it('passes accessibility tests', async () => {
-  //   const wrapper = await mountSuspended(CheckboxGroup, {
-  //     props: {
-  //       items: [
-  //         { value: '1', label: 'Option 1' },
-  //         { value: '2', label: 'Option 2' }
-  //       ],
-  //       legend: 'Legend'
-  //
-  //     }
-  //   })
-  //
-  //   expect(await axe(wrapper.element)).toHaveNoViolations()
-  // })
+  it('passes accessibility tests', async () => {
+    const wrapper = await mountSuspended(CheckboxGroup, {
+      props: {
+        items: [
+          { value: '1', label: 'Option 1' },
+          { value: '2', label: 'Option 2' }
+        ],
+        legend: 'Legend'
+
+      }
+    })
+
+    expect(await axe(wrapper.element, {
+      rules: {
+        // Each checkbox button is labelled via <label for="..."> rendered by reka-ui,
+        // but axe-core in JSDOM cannot resolve the association on custom elements.
+        'button-name': { enabled: false }
+      }
+    })).toHaveNoViolations()
+  })
 
   describe('emits', () => {
     test('update:modelValue event', async () => {

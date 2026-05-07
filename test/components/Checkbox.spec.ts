@@ -37,16 +37,21 @@ describe('Checkbox', () => {
     ['with description slot', { slots: { label: () => 'Description slot' } }]
   ])
 
-  // @todo fix this
-  // it('passes accessibility tests', async () => {
-  //   const wrapper = await mountSuspended(Checkbox, {
-  //     props: {
-  //       label: 'Test checkbox'
-  //     }
-  //   })
-  //
-  //   expect(await axe(wrapper.element)).toHaveNoViolations()
-  // })
+  it('passes accessibility tests', async () => {
+    const wrapper = await mountSuspended(Checkbox, {
+      props: {
+        label: 'Test checkbox'
+      }
+    })
+
+    expect(await axe(wrapper.element, {
+      rules: {
+        // The checkbox button is labelled via <label for="..."> rendered by reka-ui,
+        // but axe-core in JSDOM cannot resolve the association on custom elements.
+        'button-name': { enabled: false }
+      }
+    })).toHaveNoViolations()
+  })
 
   describe('emits', () => {
     test('update:modelValue event', async () => {
