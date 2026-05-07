@@ -1,5 +1,7 @@
 import { queryCollection } from '@nuxt/content/server'
 
+// const DOMAIN = 'https://bitrix24.github.io/b24ui'
+
 export default defineEventHandler(async (event) => {
   const pages = await queryCollection(event, 'docs')
     .select('path', 'title')
@@ -26,7 +28,8 @@ export default defineEventHandler(async (event) => {
     'typography': 'Typography'
   }
 
-  let md = '# Sitemap\n\n'
+  let md = '# Bitrix24 UI Sitemap\n\n'
+  md += '> Markdown index of every page on https://bitrix24.github.io/b24ui/. Each link points to the raw `.md` source (e.g. `https://bitrix24.github.io/b24ui/raw/docs/components.md`).\n\n'
 
   const config = useRuntimeConfig()
   const baseUrl = `${config.public.canonicalUrl}${config.public.baseUrl}/raw`

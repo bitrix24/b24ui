@@ -1,10 +1,10 @@
 import { queryCollection } from '@nuxt/content/server'
 
-// const DOMAIN = 'https://bitrix24.github.io/b24ui'
-
 function xmlEscape(str: string): string {
   return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;')
 }
+
+// const DOMAIN = 'https://bitrix24.github.io/b24ui'
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()

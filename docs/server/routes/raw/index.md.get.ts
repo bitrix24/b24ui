@@ -19,7 +19,7 @@ export default defineCachedEventHandler(async (event) => {
     `canonical_url: ${JSON.stringify(DOMAIN)}`,
     `last_updated: ${JSON.stringify(new Date().toISOString().split('T')[0])}`,
     '---',
-    ''
+    '\n'
   ].join('\n')
 
   // - MCP Server Card: <${DOMAIN}/.well-known/mcp/server-card.json>
@@ -28,7 +28,7 @@ export default defineCachedEventHandler(async (event) => {
 
   const body = `# ${title}
 
-> ${description}
+${description}
 
 ## About
 
@@ -48,11 +48,12 @@ Bitrix24 UI is a free and open source Vue UI library powered by [Reka UI](https:
 
 ## Explore
 
-- Getting started: <${DOMAIN}/raw/docs/getting-started.md>
+- Documentation: <${DOMAIN}/raw/docs/getting-started.md>
 - Components: <${DOMAIN}/raw/docs/components.md>
 - Composables: <${DOMAIN}/raw/docs/composables/define-shortcuts.md>
 - Typography: <${DOMAIN}/raw/docs/typography.md>
-- Sitemap: <${DOMAIN}/sitemap.md>
+- Sitemap: (XML): <${DOMAIN}/sitemap.xml>
+- Sitemap (Markdown): <${DOMAIN}/sitemap.md>
 - LLMs index: <${DOMAIN}/llms.txt>
 - Full LLMs documentation: <${DOMAIN}/llms-full.txt>
 
@@ -64,7 +65,10 @@ Bitrix24 UI is a free and open source Vue UI library powered by [Reka UI](https:
 `
 
   setResponseHeader(event, 'Content-Type', 'text/markdown; charset=utf-8')
-  setResponseHeader(event, 'Link', `<${DOMAIN}>; rel="canonical", <${DOMAIN}>; rel="alternate"; type="text/html"`)
+  setResponseHeader(event, 'Link', [
+    `<${DOMAIN}>; rel="canonical"`,
+    `<${DOMAIN}>; rel="alternate"; type="text/html"`
+  ].join(', '))
   return frontmatter + body
 }, {
   swr: true,

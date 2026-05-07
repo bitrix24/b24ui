@@ -1,4 +1,4 @@
-import { withoutTrailingSlash, withTrailingSlash } from 'ufo'
+import { withoutTrailingSlash, withTrailingSlash, joinURL } from 'ufo'
 import type { MaybeRefOrGetter } from 'vue'
 import { toValue } from 'vue'
 
@@ -9,17 +9,19 @@ export function useCanonical(markdownAlternate?: MaybeRefOrGetter<string | undef
 
   useHead({
     link: computed(() => {
-      const url = withoutTrailingSlash(`${config.public.canonicalUrl}${config.public.baseUrl}`)
-      const path = route.path === '/' ? '' : route.path.replace(/\/$/, '')
+      const siteUrl = withoutTrailingSlash(`${config.public.canonicalUrl}${config.public.baseUrl}`)
+      const pathNormal = withTrailingSlash(route.path)
+
+      // const url = withoutTrailingSlash(`${config.public.canonicalUrl}${config.public.baseUrl}`)
+      // const path = route.path === '/' ? '' : route.path.replace(/\/$/, '')
 
       const links: Array<{ rel: string, href: string, type?: string }> = [
-        { rel: 'canonical', href: `${url}${withTrailingSlash(path)}` }
+        { rel: 'canonical', href: joinURL(siteUrl, pathNormal) }
       ]
 
       const md = toValue(markdownAlternate)
       if (md) {
-        const href = md.startsWith('http') ? md : `${url}${md.startsWith('/') ? md : `/${md}`}`
-        links.push({ rel: 'alternate', type: 'text/markdown', href })
+        links.push({ rel: 'alternate', type: 'text/markdown', href: joinURL(siteUrl, md) })
       }
 
       return links
