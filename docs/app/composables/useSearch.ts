@@ -12,6 +12,8 @@ export function useSearch() {
   const route = useRoute()
   const { frameworks } = useFrameworks()
   const { track } = useAnalytics()
+
+  const config = useRuntimeConfig()
   // @memo this for NUXT.UI.docs
   const { open, messages } = useChat()
   const { isEnabled: isAssistantEnabled } = useAssistant()
@@ -96,6 +98,31 @@ export function useSearch() {
   ].filter(link => !!link) as ContentSearchLink[]) // @memo: use filter: `isAssistantEnabled`
 
   const groups = computed(() => [
+    ...(
+      config.public.useAI
+        ? [
+            {
+              id: 'ai',
+              label: 'AI',
+              ignoreFilter: true,
+              postFilter: (searchTerm: string, items: any[]) => {
+                if (!searchTerm) {
+                  return []
+                }
+
+                return items
+              },
+              items: [{
+                label: 'Ask AI',
+                icon: RobotIcon,
+                b24ui: {
+                  itemLeadingIcon: 'text-(--ui-color-accent-main-primary) group-data-highlighted:not-group-data-disabled:text-(--ui-color-copilot-accent-primary)'
+                },
+                onSelect
+              }]
+            }]
+        : []
+    ),
     {
       id: 'framework',
       label: 'Framework',
