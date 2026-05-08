@@ -48,6 +48,7 @@ const components = [
   'footer',
   'form-field',
   'form',
+  'form-edit-section',
   'header',
   'input-date',
   'input-menu',
