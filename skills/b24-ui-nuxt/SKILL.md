@@ -59,6 +59,7 @@ Based on the task, load the relevant reference files **before writing any code**
 | Add a chat interface | conventions, chat |
 | Add a modal, slideover, or drawer | conventions, component-selection, overlays |
 | Build site navigation | conventions, component-selection, navigation |
+| Render markdown | component-selection, components, docs |
 | Pick one option (or toggle several) from a small set where each option needs an icon and a sentence — settings variants, capability flags, "what do you want to build?" wizard step | conventions, component-selection, card-pickers |
 | Add a rich text editor | conventions, editor |
 | General UI work | conventions, component-selection |
