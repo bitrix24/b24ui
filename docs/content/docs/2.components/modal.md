@@ -472,6 +472,17 @@ name: 'modal-footer-slot-example'
 ---
 ::
 
+### Marketing / promo composition :badge{label="Soon" class="align-text-top"}
+
+Compose a promo/upgrade modal from existing components — no new component needed. The body uses a responsive 2-column flex (heading + description on the left, a feature card on the right), the footer pairs a primary CTA with a tertiary "remind me later" action. The decorative background is a Tailwind gradient utility passed through `b24ui.body`.
+
+::component-example
+---
+collapse: true
+name: 'modal-marketing-example'
+---
+::
+
 ### With command palette
 
 You can use a [CommandPalette](/docs/components/command-palette/) component inside the Modal's content.
