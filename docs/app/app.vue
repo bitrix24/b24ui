@@ -8,7 +8,7 @@ const { isEnabled: isAssistantEnabled } = useAssistant()
 // @memo this for docus
 // const { isEnabled: isAssistantEnabled, panelWidth: assistantPanelWidth, shouldPushContent } = useAssistant()
 
-const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs', ['framework', 'category', 'description', 'badge']))
+const { data: navigation } = await useFetch('/api/navigation.json')
 const { data: files } = useLazyAsyncData(
   'search',
   async () => {
@@ -32,11 +32,8 @@ useHead({
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' }
   ],
-  link: computed(() => [
-    ...link.value
-  ]),
-  style,
-  htmlAttrs: { lang: 'en', class: '' }
+  link,
+  style
 })
 
 if (import.meta.server) {

@@ -12,6 +12,7 @@
 * fix(module): pass computed ref directly to useHead innerHTML
 * feat(Separator): add `position` prop
 * fix(Form): improve errors type
+* docs: prerender navigation and move theme-color to composable
 
 ## [2.7.0](https://github.com/bitrix24/b24ui/compare/v2.6.1...v2.7.0) (2026-05-01)
 
