@@ -79,44 +79,44 @@ useSeoMeta({
   ogDescription: description
 })
 
-// if (route.path.startsWith('/docs/components/')) {
-//   defineOgImage('Component.takumi', {
-//     title: page.value.title,
-//     description: page.value.description,
-//     slug: (route.params.slug as string[]).pop() as string
-//   })
-// } else {
-//   defineOgImage('Docs.takumi', {
-//     title: page.value.title,
-//     description: page.value.description,
-//     headline: breadcrumb.value?.[breadcrumb.value.length - 1]?.label || 'Bitrix24 UI',
-//     framework: page.value?.framework
-//   })
-// }
-
 const path = computed(() => pageUrl.replace(/\/$/, ''))
 
 if (import.meta.server) {
   prerenderRoutes([joinURL(`${config.public.baseUrl}/raw`, `${path.value}.md`)])
+
+  // if (route.path.startsWith('/docs/components/')) {
+  //   defineOgImage('Component.takumi', {
+  //     title: page.value.title,
+  //     description: page.value.description,
+  //     slug: (route.params.slug as string[]).pop() as string
+  //   })
+  // } else {
+  //   defineOgImage('Docs.takumi', {
+  //     title: page.value.title,
+  //     description: page.value.description,
+  //     headline: breadcrumb.value?.[breadcrumb.value.length - 1]?.label || 'Nuxt UI',
+  //     framework: page.value?.framework
+  //   })
+  // }
+
+  useSchemaOrg([
+    defineArticle({
+      '@type': 'TechArticle',
+      'headline': `${prefix}${title} ${suffix}`.trim(),
+      'description': description
+    }),
+    defineBreadcrumb({
+      itemListElement: breadcrumb.value?.map(item => ({
+        name: item.label,
+        item: item.to ? String(item.to) : undefined
+      })) || []
+    })
+  ])
 }
 
 // @memo we use redirect in `docs/modules/md-rewrite.ts`
 // @memo But at GitHub Pages we use /raw
 useCanonical(computed(() => `/raw${path.value}.md`))
-
-useSchemaOrg([
-  defineArticle({
-    '@type': 'TechArticle',
-    'headline': `${prefix}${title} ${suffix}`.trim(),
-    'description': description
-  }),
-  defineBreadcrumb({
-    itemListElement: breadcrumb.value?.map(item => ({
-      name: item.label,
-      item: item.to ? String(item.to) : undefined
-    })) || []
-  })
-])
 
 const communityLinks = computed(() => [
   {
