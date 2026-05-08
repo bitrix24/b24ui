@@ -1,18 +1,37 @@
 # Changelog
 
-## [2.7.1](https://github.com/bitrix24/b24ui/compare/v2.7.0...v2.7.1) (2026-05-xx)
+## [2.7.1](https://github.com/bitrix24/b24ui/compare/v2.7.0...v2.7.1) (2026-05-08)
 
-* fix(Banner): test localStorage
-* feat(Theme): override component prop defaults
-* docs(Search): stabilize Fuse config reference to prevent re-indexing on every keystroke
-* docs(app): move Search inside ClientOnly alongside Chat
-* docs: improve agent readability surfaces
-* docs(Search): restore Ask AI item in search results via ignoreFilter group
-* feat(PageCardGroup): new component
-* fix(module): pass computed ref directly to useHead innerHTML
-* feat(Separator): add `position` prop
-* fix(Form): improve errors type
-* docs: prerender navigation and move theme-color to composable
+### Features
+
+* **PageCardGroup:** new component
+* **Theme:** override component prop defaults
+* **Separator:** add `position` prop
+
+### Bug Fixes
+
+* **Banner:** test localStorage
+* **Form:** improve errors type
+* **module:** pass computed ref directly to useHead innerHTML
+
+### Docs
+
+* **Search:** stabilize Fuse config reference to prevent re-indexing on every keystroke
+* **Search:** restore Ask AI item in search results via ignoreFilter group
+* **app:** move Search inside ClientOnly alongside Chat
+* prerender navigation and move theme-color to composable
+* improve agent readability surfaces
+* gate `defineOgImage` / `useSchemaOrg` in `import.meta.server` and pass missing props
+* improve og images compatibility with nuxt-og-image takumi
+
+### Tests
+
+* improve test snapshots and stabilize Checkbox/CheckboxGroup/Table/Theme suites
+
+### Chore
+
+* **deps:** update all non-major dependencies
+* **skills:** add prose components definition
 
 ## [2.7.0](https://github.com/bitrix24/b24ui/compare/v2.6.1...v2.7.0) (2026-05-01)
 
