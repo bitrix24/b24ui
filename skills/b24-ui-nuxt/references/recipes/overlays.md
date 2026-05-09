@@ -286,3 +286,74 @@ const isOpen = ref(false)
 </template>
 ```
 
+## Info popover (entity summary)
+
+Show an at-a-glance summary of a CRM entity (account, deal, contact, lead) when the user hovers or clicks its name — without navigating away. Assembled entirely from stock components: `B24Popover` + `B24Avatar` + `B24Button` + `B24Separator` + `B24DescriptionList` + `B24Link`. No custom CSS beyond the avatar accent color.
+
+Use `mode="hover"` for read-only summaries (most common in lists/feeds), `mode="click"` when the popover contains links the user is expected to interact with.
+
+```vue
+<script setup lang="ts">
+import UserGroupIcon from '@bitrix24/b24icons-vue/common-b24/UserGroupIcon'
+import type { DescriptionListItem } from '@bitrix24/b24ui-nuxt'
+
+const items = [
+  { label: 'Account manager', description: 'Sample owner', slot: 'owner' as const },
+  { label: 'Created', description: 'Oct 6, 2024 08:37' },
+  { label: 'Segment', description: 'Enterprise' }
+] satisfies DescriptionListItem[]
+</script>
+
+<template>
+  <B24Popover mode="hover" :content="{ side: 'bottom', sideOffset: 8 }" :b24ui="{ content: 'p-0' }">
+    <B24Link is-action>ACME Corp.</B24Link>
+
+    <template #content>
+      <div class="w-65 p-6 flex flex-col gap-4.5">
+        <div class="flex items-center gap-3">
+          <B24Avatar
+            size="lg"
+            :icon="UserGroupIcon"
+            :b24ui="{
+              root: 'bg-(--ui-color-design-filled-alert-bg)',
+              icon: 'text-(--ui-color-design-filled-alert-content)'
+            }"
+          />
+          <div class="min-w-0">
+            <div class="text-label font-(--ui-font-weight-semi-bold) truncate">ACME Corp.</div>
+            <div class="text-sm text-description truncate">12 contacts</div>
+          </div>
+        </div>
+
+        <B24Button block size="sm" color="air-secondary-accent-2" label="Open account" />
+
+        <B24Separator />
+
+        <B24DescriptionList
+          size="sm"
+          :items="items"
+          :b24ui="{
+            container: 'mt-0 sm:grid-cols-1',
+            labelWrapper: 'border-t-0 sm:border-t-0 py-0 sm:py-0',
+            descriptionWrapper: 'sm:border-t-0 py-0 pb-2.5 sm:py-0 sm:pb-2.5 last:pb-0 sm:last:pb-0'
+          }"
+        >
+          <template #description="{ item }">
+            <B24Link v-if="item.slot === 'owner'">{{ item.description }}</B24Link>
+            <template v-else>{{ item.description }}</template>
+          </template>
+        </B24DescriptionList>
+      </div>
+    </template>
+  </B24Popover>
+</template>
+```
+
+Notes on the layout:
+
+- The popover's content padding is reset with `:b24ui="{ content: 'p-0' }"` so the inner `flex flex-col gap-4.5` (with `p-6`) controls spacing — keeps the example free of header-border overrides.
+- The avatar is recolored through its `:b24ui` slot using design tokens (`--ui-color-design-filled-alert-*`) — swap to `success`, `warning`, or `copilot` tokens to match the entity type.
+- The fixed `w-65` keeps the card compact at every breakpoint. Title and caption use `truncate` + `min-w-0` so long entity names don't break the layout.
+- `B24DescriptionList` switches to a two-column grid at `sm:` by default and draws a top border before each item. Inside a narrow popover both behaviours hurt readability, so the layout is pinned to a single column and all `border-t` rules are zeroed out via the `b24ui` prop. The container's default `mt` is dropped (`mt-0`) since the parent `gap-4.5` already supplies the gap below the separator. Label wrappers (`<dt>`) lose all vertical padding (`py-0`), description wrappers (`<dd>`) get only `pb-2.5` — so a label sits flush against its value and each row contributes a single 2.5 unit of breathing room between items. The very last `<dd>` zeroes that padding back out (`last:pb-0 sm:last:pb-0`) so the popover doesn't carry a stray gap below the final value.
+- The `#owner` slot would replace the whole `<dt>/<dd>` pair (and lose the "Account manager" label). Tagging the owner item with `slot: 'owner' as const` and overriding the global `#description` slot with a `v-if="item.slot === 'owner'"` keeps the default label rendering and only swaps the value for a `B24Link`. The `as const` + `satisfies DescriptionListItem[]` pattern is what lets `item.slot` narrow to the literal `'owner'` inside the template.
+
