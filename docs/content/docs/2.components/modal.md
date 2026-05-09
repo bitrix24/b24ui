@@ -472,6 +472,43 @@ name: 'modal-footer-slot-example'
 ---
 ::
 
+### Marketing / promo composition :badge{label="Soon" class="align-text-top"}
+
+Compose a promo/upgrade modal from existing components — no new component needed. The body uses a responsive 2-column flex (heading + description on the left, a feature card on the right), the footer pairs a primary CTA with a tertiary "remind me later" action. The decorative background is a Tailwind gradient utility passed through `b24ui.body`.
+
+::component-example
+---
+collapse: true
+name: 'modal-marketing-example'
+---
+::
+
+::prompt
+---
+description: Build a marketing / promo modal for any business or app.
+actions:
+  - copy
+  - cursor
+  - windsurf
+class: 'w-full my-0'
+---
+You are helping me build a marketing / promo modal in an app that uses `@bitrix24/b24ui-nuxt`. Load the `b24-ui-nuxt` skill and follow the **Marketing / promo modal** recipe in `skills/b24-ui-nuxt/references/recipes/overlays.md`.
+
+Goal: a focused, single-purpose modal for any marketing activity — trial ending, plan upsell, seasonal offer, feature launch, re-engagement campaign — with one primary CTA and one dismiss action, that nudges the user without blocking the main workflow.
+
+Before writing any code, ask me clarifying questions about:
+- the activity itself — what is being promoted (offer, plan, feature, event), the value proposition in one sentence, and any quantified benefit worth highlighting;
+- the audience — which user segment, role, or lifecycle stage the modal targets;
+- the trigger and re-show cadence — page load, route guard, dismiss-aware banner, scheduled campaign window;
+- the primary action — where the CTA leads (in-app flow, deep link, external page) and any permissions or feature flags required;
+- the dismiss action — its copy, whether it just closes or snoozes for N days, and whether ESC / overlay click also dismiss;
+- copy and locale — tone, language, and whether i18n keys are required from day one;
+- analytics — which events to fire (`promo_shown`, `promo_dismissed`, `promo_clicked`) and which user roles count;
+- constraints — accessibility, dark-mode preview, mobile viewport priority.
+
+Once we agree on those, compose the modal from existing b24ui components only (do not introduce a new component), paint the brand boost gradient on `b24ui.content`, pin the CTA row to the bottom of the body, and keep any side card as a short teaser of headline benefits — not a feature matrix.
+::
+
 ### With command palette
 
 You can use a [CommandPalette](/docs/components/command-palette/) component inside the Modal's content.
