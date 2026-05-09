@@ -78,7 +78,6 @@ Promo or upgrade modals (trial expiring, plan upsell) compose from existing comp
 import type { NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
 import ArrowRightLIcon from '@bitrix24/b24icons-vue/outline/ArrowRightLIcon'
 import CircleCheckIcon from '@bitrix24/b24icons-vue/main/CircleCheckIcon'
-import CrossMIcon from '@bitrix24/b24icons-vue/outline/CrossMIcon'
 
 const open = ref(false)
 
@@ -103,16 +102,6 @@ const benefits: NavigationMenuItem[] = [
     <B24Button label="Open marketing modal" color="air-secondary-accent" />
 
     <template #body>
-      <B24ModalDialogClose>
-        <B24Button
-          color="air-secondary-no-accent"
-          size="md"
-          :icon="CrossMIcon"
-          aria-label="Close"
-          class="absolute top-3 end-3 [--ui-btn-height:24px]"
-        />
-      </B24ModalDialogClose>
-
       <div class="flex flex-col md:flex-row gap-6 min-h-full">
         <div class="flex-1 flex flex-col gap-3 text-white">
           <h2 class="text-2xl font-semibold leading-snug">
@@ -134,7 +123,7 @@ const benefits: NavigationMenuItem[] = [
               :trailing-icon="ArrowRightLIcon"
             />
             <B24ModalDialogClose>
-              <B24Button label="Remind me later" color="air-tertiary" />
+              <B24Button label="Remind me later" color="air-tertiary-accent" />
             </B24ModalDialogClose>
           </div>
         </div>
@@ -173,10 +162,10 @@ const benefits: NavigationMenuItem[] = [
 ```
 
 Rules:
-- **CTA is `air-primary`** (Bitrix24 is moving away from green CTAs); pair it with `air-tertiary` for the dismiss action — on the saturated boost gradient `air-tertiary` reads better than `air-tertiary-no-accent`.
+- **CTA is `air-primary`** (Bitrix24 is moving away from green CTAs); pair it with `air-tertiary-accent` for the dismiss action — on the saturated boost gradient the accent border keeps "Remind me later" legible.
 - **Put the gradient on `b24ui.content`, not `b24ui.body`** — when `scrollable: true` the contentWrapper drops `overflow-hidden`, so a body-level bg overflows the rounded corners. The `content` slot owns the rounded radius (`rounded-[calc(var(--ui-border-radius-2xl)+2px)]`), so its own background-image gets clipped naturally — corners stay rounded.
 - **Reuse the brand boost gradient tokens** for the bg — `--ui-color-design-filled-boost-bg-gradient-{1,2,3}` (the same radial gradient the `air-boost` Button paints). The CSS variables are defined identically in light and dark themes, so a single `bg-[radial-gradient(...)]` covers both modes — no `dark:` variant needed. Don't fall back to generic Tailwind palette colors here; promo surfaces should look intentionally branded.
-- **Disable the default close icon** with `:close="false"` and place a custom `CrossMIcon` button absolutely inside the body. Use `air-secondary-no-accent` (it shows a faint chip on the saturated gradient) at `size="md"` + `[--ui-btn-height:24px]` (the same CSS variable Modal's theme sets on its built-in close).
+- **No close icon at all** — set `:close="false"` and rely on the dismiss button (`Remind me later`) for closing. Removing the X keeps the promo focused on the upgrade decision.
 - **Width**: extend the modal slightly (`sm:max-w-[788px]`) so the 2-column layout breathes; the right card sits at `md:w-80` so the heading row never wraps.
 - **Pin the action row to the bottom**: make the left column a `flex flex-col` and give the buttons row `mt-auto`. Combined with `md:flex-row` on the parent (which stretches both columns to equal height), this aligns the CTA with the bottom edge of the right card.
 - **Action buttons live in `#body`, not `#footer`** — keeps the CTA next to the pitch text, with `Upgrade to Pro` first and the close-bound `Remind me later` to its right.
