@@ -27,7 +27,7 @@ const items = [
             }"
           />
           <div class="min-w-0">
-            <div class="font-(--ui-font-weight-semi-bold) truncate">
+            <div class="text-label font-(--ui-font-weight-semi-bold) truncate">
               ACME Corp.
             </div>
             <div class="text-sm text-muted truncate">
