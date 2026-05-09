@@ -32,7 +32,7 @@ import { useClipboard } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useComponentProps } from '../../composables/useComponentProps'
 import { useLocale } from '../../composables/useLocale'
-import { getSlotChildrenText } from '../../utils'
+import { getSlotPromptText } from '../../utils'
 import { tv } from '../../utils/tv'
 import icons from '../../dictionary/icons'
 import B24Button from '../Button.vue'
@@ -55,7 +55,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
 
 function getPromptText() {
   const children = slots.default?.()
-  return children ? getSlotChildrenText(children).trim() : ''
+  return children ? getSlotPromptText(children).trim() : ''
 }
 
 function copyPrompt() {
