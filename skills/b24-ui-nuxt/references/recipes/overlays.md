@@ -96,8 +96,8 @@ const benefits: NavigationMenuItem[] = [
     :close="false"
     scrollable
     :b24ui="{
-      content: 'sm:max-w-[788px]',
-      body: 'relative bg-gradient-to-br from-blue-50 to-violet-50 dark:from-blue-950 dark:to-violet-950 p-6 md:p-8'
+      content: 'sm:max-w-[788px] bg-gradient-to-br from-blue-50 to-violet-50 dark:from-blue-950 dark:to-violet-950',
+      body: 'relative p-6 md:p-8'
     }"
   >
     <B24Button label="Open marketing modal" color="air-secondary-accent" />
@@ -106,15 +106,15 @@ const benefits: NavigationMenuItem[] = [
       <B24ModalDialogClose>
         <B24Button
           color="air-tertiary-no-accent"
-          size="xs"
+          size="md"
           :icon="CrossMIcon"
           aria-label="Close"
-          class="absolute top-3 end-3"
+          class="absolute top-3 end-3 [--ui-btn-height:24px]"
         />
       </B24ModalDialogClose>
 
-      <div class="flex flex-col md:flex-row gap-6">
-        <div class="flex-1 space-y-3">
+      <div class="flex flex-col md:flex-row gap-6 min-h-full">
+        <div class="flex-1 flex flex-col gap-3">
           <h2 class="text-2xl font-semibold leading-snug">
             Keep your factory floor moving — your Pro trial ends in 6 days
           </h2>
@@ -126,7 +126,7 @@ const benefits: NavigationMenuItem[] = [
           </p>
           <B24Link to="#" class="inline-flex">Compare plans</B24Link>
 
-          <div class="flex flex-wrap items-center gap-2 pt-2">
+          <div class="flex flex-wrap items-center gap-2 mt-auto pt-4">
             <B24Button
               label="Upgrade to Pro"
               color="air-primary"
@@ -139,14 +139,14 @@ const benefits: NavigationMenuItem[] = [
           </div>
         </div>
 
-        <div class="md:w-72 shrink-0">
+        <div class="md:w-80 shrink-0">
           <B24Card
             variant="tinted-no-accent"
             :b24ui="{ header: 'flex items-center justify-between gap-2', body: 'space-y-4' }"
           >
             <template #header>
-              <span class="font-semibold">Production Insights · Pro</span>
-              <B24Badge label="Recommended" color="air-primary" size="xs" />
+              <span class="font-semibold whitespace-nowrap">Production Insights · Pro</span>
+              <B24Badge label="Recommended" color="air-primary" size="xs" class="shrink-0" />
             </template>
 
             <div>
@@ -174,13 +174,15 @@ const benefits: NavigationMenuItem[] = [
 
 Rules:
 - **CTA is `air-primary`** (Bitrix24 is moving away from green CTAs); pair it with `air-tertiary-no-accent` for the dismiss action.
-- **Disable the default close icon** with `:close="false"` and place a custom `CrossMIcon` button absolutely inside the body so the gradient stays clean — the body needs `relative` for the absolute child.
+- **Put the gradient on `b24ui.content`, not `b24ui.body`** — when `scrollable: true` the contentWrapper drops `overflow-hidden`, so a body-level bg overflows the rounded corners. The `content` slot owns the rounded radius (`rounded-[calc(var(--ui-border-radius-2xl)+2px)]`), so its own background-image gets clipped naturally — corners stay rounded.
 - **Use explicit gradient colors** (`from-blue-50 to-violet-50` + `dark:` variant). Don't rely on `from-base to-elevated` here — promo surfaces should look intentionally branded.
-- **Width**: extend the modal slightly (`sm:max-w-[788px]`) so the 2-column layout breathes.
+- **Disable the default close icon** with `:close="false"` and place a custom `CrossMIcon` button absolutely inside the body. Match the standard close size with `size="md"` + `[--ui-btn-height:24px]` (the same CSS variable Modal's theme sets on its built-in close).
+- **Width**: extend the modal slightly (`sm:max-w-[788px]`) so the 2-column layout breathes; the right card sits at `md:w-80` so the heading row never wraps.
+- **Pin the action row to the bottom**: make the left column a `flex flex-col` and give the buttons row `mt-auto`. Combined with `md:flex-row` on the parent (which stretches both columns to equal height), this aligns the CTA with the bottom edge of the right card.
 - **Action buttons live in `#body`, not `#footer`** — keeps the CTA next to the pitch text, with `Upgrade to Pro` first and the close-bound `Remind me later` to its right.
 - **Add `scrollable`** so long pitches/feature lists don't overflow the viewport on small screens. Note: `scrollable` is incompatible with `modal: false` (it relies on the overlay scroll container).
 - **Reuse `B24NavigationMenu` (vertical) for benefit lists** — keep the list short (≈ 2 items); the right card is a teaser, not a feature matrix.
-- **Don't put the heading in `title`** — promo headings are large and free-form; keeping them inside `#body` lets you control typography.
+- **Don't put the heading in `title`** — promo headings are large and free-form; keeping them inside `#body` lets you control typography. Add `whitespace-nowrap` on the right card's header title (and `shrink-0` on the badge) so "Pro" never wraps.
 
 ## Form in a slideover
 

@@ -187,8 +187,8 @@ function openModal() {
       description=""
       scrollable
       :b24ui="{
-        content: 'sm:max-w-[788px]',
-        body: 'relative bg-gradient-to-br from-blue-50 to-violet-50 dark:from-blue-950 dark:to-violet-950 p-6 md:p-8'
+        content: 'sm:max-w-[788px] bg-gradient-to-br from-blue-50 to-violet-50 dark:from-blue-950 dark:to-violet-950',
+        body: 'relative p-6 md:p-8'
       }"
       v-bind="{ ...attrs, close: false }"
     >
@@ -198,15 +198,15 @@ function openModal() {
         <B24ModalDialogClose>
           <B24Button
             color="air-tertiary-no-accent"
-            size="xs"
+            size="md"
             :icon="CrossMIcon"
             aria-label="Close"
-            class="absolute top-3 end-3"
+            class="absolute top-3 end-3 [--ui-btn-height:24px]"
           />
         </B24ModalDialogClose>
 
-        <div class="flex flex-col md:flex-row gap-6">
-          <div class="flex-1 space-y-3">
+        <div class="flex flex-col md:flex-row gap-6 min-h-full">
+          <div class="flex-1 flex flex-col gap-3">
             <h2 class="text-2xl font-semibold leading-snug">
               Keep your factory floor moving — your Pro trial ends in 6 days
             </h2>
@@ -220,7 +220,7 @@ function openModal() {
               Compare plans
             </B24Link>
 
-            <div class="flex flex-wrap items-center gap-2 pt-2">
+            <div class="flex flex-wrap items-center gap-2 mt-auto pt-4">
               <B24Button
                 label="Upgrade to Pro"
                 color="air-primary"
@@ -233,7 +233,7 @@ function openModal() {
             </div>
           </div>
 
-          <div class="md:w-72 shrink-0">
+          <div class="md:w-80 shrink-0">
             <B24Card
               variant="tinted-no-accent"
               :b24ui="{
@@ -242,8 +242,8 @@ function openModal() {
               }"
             >
               <template #header>
-                <span class="font-semibold">Production Insights · Pro</span>
-                <B24Badge label="Recommended" color="air-primary" size="xs" />
+                <span class="font-semibold whitespace-nowrap">Production Insights · Pro</span>
+                <B24Badge label="Recommended" color="air-primary" size="xs" class="shrink-0" />
               </template>
 
               <div>
