@@ -59,7 +59,15 @@ const items = computed(() => [
 
         <B24Separator />
 
-        <B24DescriptionList size="sm" :items="items">
+        <B24DescriptionList
+          size="sm"
+          :items="items"
+          :b24ui="{
+            container: 'sm:grid-cols-1',
+            labelWrapper: 'sm:py-0 sm:pt-3',
+            descriptionWrapper: 'sm:border-t-0 sm:py-0 sm:pt-1 sm:pb-3'
+          }"
+        >
           <template #owner>
             <B24Link :to="ownerTo">
               {{ ownerName }}
