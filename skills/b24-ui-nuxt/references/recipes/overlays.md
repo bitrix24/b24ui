@@ -114,17 +114,17 @@ const benefits: NavigationMenuItem[] = [
       </B24ModalDialogClose>
 
       <div class="flex flex-col md:flex-row gap-6 min-h-full">
-        <div class="flex-1 flex flex-col gap-3">
+        <div class="flex-1 flex flex-col gap-3 text-white">
           <h2 class="text-2xl font-semibold leading-snug">
             Keep your factory floor moving — your Pro trial ends in 6 days
           </h2>
-          <p class="text-description">
+          <p class="text-white/85">
             Pro unlocks real-time OEE across every line, 90 days of historical
             analytics, AI defect detection on camera streams and predictive
             maintenance alerts. Teams on Pro ship 12% more units per shift on
             average.
           </p>
-          <B24Link to="#" class="inline-flex">Compare plans</B24Link>
+          <B24Link to="#" class="inline-flex text-white underline">Compare plans</B24Link>
 
           <div class="flex flex-wrap items-center gap-2 mt-auto pt-4">
             <B24Button
@@ -134,7 +134,7 @@ const benefits: NavigationMenuItem[] = [
               :trailing-icon="ArrowRightLIcon"
             />
             <B24ModalDialogClose>
-              <B24Button label="Remind me later" color="air-tertiary-no-accent" />
+              <B24Button label="Remind me later" color="air-tertiary" />
             </B24ModalDialogClose>
           </div>
         </div>
@@ -173,7 +173,7 @@ const benefits: NavigationMenuItem[] = [
 ```
 
 Rules:
-- **CTA is `air-primary`** (Bitrix24 is moving away from green CTAs); pair it with `air-tertiary-no-accent` for the dismiss action.
+- **CTA is `air-primary`** (Bitrix24 is moving away from green CTAs); pair it with `air-tertiary` for the dismiss action — on the saturated boost gradient `air-tertiary` reads better than `air-tertiary-no-accent`.
 - **Put the gradient on `b24ui.content`, not `b24ui.body`** — when `scrollable: true` the contentWrapper drops `overflow-hidden`, so a body-level bg overflows the rounded corners. The `content` slot owns the rounded radius (`rounded-[calc(var(--ui-border-radius-2xl)+2px)]`), so its own background-image gets clipped naturally — corners stay rounded.
 - **Reuse the brand boost gradient tokens** for the bg — `--ui-color-design-filled-boost-bg-gradient-{1,2,3}` (the same radial gradient the `air-boost` Button paints). The CSS variables are defined identically in light and dark themes, so a single `bg-[radial-gradient(...)]` covers both modes — no `dark:` variant needed. Don't fall back to generic Tailwind palette colors here; promo surfaces should look intentionally branded.
 - **Disable the default close icon** with `:close="false"` and place a custom `CrossMIcon` button absolutely inside the body. Match the standard close size with `size="md"` + `[--ui-btn-height:24px]` (the same CSS variable Modal's theme sets on its built-in close).
@@ -183,6 +183,7 @@ Rules:
 - **Add `scrollable`** so long pitches/feature lists don't overflow the viewport on small screens. Note: `scrollable` is incompatible with `modal: false` (it relies on the overlay scroll container).
 - **Reuse `B24NavigationMenu` (vertical) for benefit lists** — keep the list short (≈ 2 items); the right card is a teaser, not a feature matrix.
 - **Don't put the heading in `title`** — promo headings are large and free-form; keeping them inside `#body` lets you control typography. Add `whitespace-nowrap` on the right card's header title (and `shrink-0` on the badge) so "Pro" never wraps.
+- **Force white text** on the left column (`text-white` on the wrapper, `text-white/85` for the description, plus `text-white underline` on the link) — the boost gradient is bright enough that the default semantic text tokens become invisible.
 
 ## Form in a slideover
 

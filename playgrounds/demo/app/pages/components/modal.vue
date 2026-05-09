@@ -206,17 +206,17 @@ function openModal() {
         </B24ModalDialogClose>
 
         <div class="flex flex-col md:flex-row gap-6 min-h-full">
-          <div class="flex-1 flex flex-col gap-3">
+          <div class="flex-1 flex flex-col gap-3 text-white">
             <h2 class="text-2xl font-semibold leading-snug">
               Keep your factory floor moving — your Pro trial ends in 6 days
             </h2>
-            <p class="text-description">
+            <p class="text-white/85">
               Pro unlocks real-time OEE across every line, 90 days of historical
               analytics, AI defect detection on camera streams and predictive
               maintenance alerts. Teams on Pro ship 12% more units per shift on
               average.
             </p>
-            <B24Link to="#" class="inline-flex">
+            <B24Link to="#" class="inline-flex text-white underline">
               Compare plans
             </B24Link>
 
@@ -228,7 +228,7 @@ function openModal() {
                 :trailing-icon="ArrowRightLIcon"
               />
               <B24ModalDialogClose>
-                <B24Button label="Remind me later" color="air-tertiary-no-accent" />
+                <B24Button label="Remind me later" color="air-tertiary" />
               </B24ModalDialogClose>
             </div>
           </div>
