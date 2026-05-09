@@ -60,9 +60,9 @@ const items = computed(() => [
         <B24Separator />
 
         <B24DescriptionList size="sm" :items="items">
-          <template #owner="{ item }">
+          <template #owner>
             <B24Link :to="ownerTo">
-              {{ item.description }}
+              {{ ownerName }}
             </B24Link>
           </template>
         </B24DescriptionList>
