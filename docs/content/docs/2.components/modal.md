@@ -483,6 +483,33 @@ name: 'modal-marketing-example'
 ---
 ::
 
+::prompt
+---
+description: Build a Pro-tier upgrade reminder modal for our manufacturing analytics SaaS.
+actions:
+  - copy
+  - cursor
+  - windsurf
+class: 'w-full my-0'
+---
+You are helping me build a feature in our manufacturing analytics SaaS. The app is built on `@bitrix24/b24ui-nuxt` — load the `b24-ui-nuxt` skill and follow the **Marketing / promo modal** recipe in `skills/b24-ui-nuxt/references/recipes/overlays.md`.
+
+Business context:
+- Our customer is a factory operations team. They are 24 days into a 30-day trial of our **Pro** tier and have 6 days left.
+- Pro unlocks unlimited monitored lines, 90-day historical analytics, AI defect detection on camera streams, predictive maintenance alerts, and SCADA / MES webhooks. Internal benchmarks show ~12% more units per shift after upgrading.
+- Goal: surface a promo modal during the last week of the trial that nudges the team to upgrade without blocking their daily workflow on the production dashboard.
+
+Before writing any code, ask me clarifying questions about:
+- the trigger (dashboard load, route guard, dismiss-aware banner) and how often the modal re-appears after dismissal;
+- which Pro benefits to feature inline vs. hide behind the "Compare plans" link;
+- the upgrade target — in-app checkout, redirect to a billing portal, or an admin-only request flow;
+- analytics events to fire (`promo_shown`, `promo_dismissed`, `promo_upgraded`) and which user roles are allowed to see the modal;
+- copy tone, and whether i18n keys are required from the start or English-only is fine;
+- dismiss behaviour — ESC / overlay click, or only the explicit "Remind me later" button.
+
+Once we agree on those, compose the modal from existing b24ui components only (do not introduce a new component), paint the brand boost gradient on `b24ui.content`, pin the CTA row to the bottom of the body, and keep the right card to roughly two benefit bullets so it stays a teaser, not a feature matrix.
+::
+
 ### With command palette
 
 You can use a [CommandPalette](/docs/components/command-palette/) component inside the Modal's content.
