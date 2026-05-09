@@ -71,22 +71,20 @@ async function deleteItem(item) {
 
 ## Marketing / promo modal
 
-Promo or upgrade modals (trial expiring, plan upsell) compose from existing components — **do not create a custom modal**. The pattern: hide the default header (`title=""`, `description=""`), put the heading inside a custom `#body`, lay it out as a responsive 2-column flex (pitch left, feature card right), and put a primary CTA + a tertiary "remind me later" in `#footer`. Decorative background is a Tailwind gradient passed through `b24ui.body`.
+Promo or upgrade modals (trial expiring, plan upsell) compose from existing components — **do not create a custom modal**. The pattern: hide the default header (`title=""`, `description=""`), disable the built-in close (`:close="false"`) and place a custom close icon inside the body, lay the body out as a responsive 2-column flex (pitch + actions on the left, feature card on the right). Skip `#footer` and put both action buttons inline in the left column. Decorative background is an explicit Tailwind gradient on `b24ui.body`.
 
 ```vue
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
 import ArrowRightLIcon from '@bitrix24/b24icons-vue/outline/ArrowRightLIcon'
 import CircleCheckIcon from '@bitrix24/b24icons-vue/main/CircleCheckIcon'
+import CrossMIcon from '@bitrix24/b24icons-vue/outline/CrossMIcon'
 
 const open = ref(false)
 
 const benefits: NavigationMenuItem[] = [
   { label: 'Unlimited monitored lines', icon: CircleCheckIcon },
-  { label: '90-day historical analytics', icon: CircleCheckIcon },
-  { label: 'AI defect detection on camera streams', icon: CircleCheckIcon },
-  { label: 'Predictive maintenance alerts', icon: CircleCheckIcon },
-  { label: 'SCADA / MES webhooks', icon: CircleCheckIcon }
+  { label: 'AI defect detection on camera streams', icon: CircleCheckIcon }
 ]
 </script>
 
@@ -95,14 +93,25 @@ const benefits: NavigationMenuItem[] = [
     v-model:open="open"
     title=""
     description=""
+    :close="false"
     :b24ui="{
-      content: 'sm:max-w-3xl',
-      body: 'bg-gradient-to-br from-base to-elevated p-6 md:p-8'
+      content: 'sm:max-w-[788px]',
+      body: 'relative bg-gradient-to-br from-blue-50 to-violet-50 dark:from-blue-950 dark:to-violet-950 p-6 md:p-8'
     }"
   >
     <B24Button label="Open marketing modal" color="air-secondary-accent" />
 
     <template #body>
+      <B24ModalDialogClose>
+        <B24Button
+          color="air-tertiary-no-accent"
+          size="xs"
+          :icon="CrossMIcon"
+          aria-label="Close"
+          class="absolute top-3 end-3"
+        />
+      </B24ModalDialogClose>
+
       <div class="flex flex-col md:flex-row gap-6">
         <div class="flex-1 space-y-3">
           <h2 class="text-2xl font-semibold leading-snug">
@@ -115,6 +124,18 @@ const benefits: NavigationMenuItem[] = [
             average.
           </p>
           <B24Link to="#" class="inline-flex">Compare plans</B24Link>
+
+          <div class="flex flex-wrap items-center gap-2 pt-2">
+            <B24Button
+              label="Upgrade to Pro"
+              color="air-primary"
+              size="lg"
+              :trailing-icon="ArrowRightLIcon"
+            />
+            <B24ModalDialogClose>
+              <B24Button label="Remind me later" color="air-tertiary-no-accent" />
+            </B24ModalDialogClose>
+          </div>
         </div>
 
         <div class="md:w-72 shrink-0">
@@ -146,29 +167,17 @@ const benefits: NavigationMenuItem[] = [
         </div>
       </div>
     </template>
-
-    <template #footer>
-      <div class="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between w-full gap-2">
-        <B24ModalDialogClose>
-          <B24Button label="Remind me later" color="air-tertiary-no-accent" />
-        </B24ModalDialogClose>
-        <B24Button
-          label="Upgrade to Pro"
-          color="air-primary"
-          size="lg"
-          :trailing-icon="ArrowRightLIcon"
-        />
-      </div>
-    </template>
   </B24Modal>
 </template>
 ```
 
 Rules:
-- **CTA is `air-primary`** (Bitrix24 is moving away from green CTAs).
-- **No raster background** — Tailwind gradient on `b24ui.body` is enough; semantic colors only (`from-base to-elevated`).
-- **Responsive 2-column body** — collapses to a single column under `md` so the right card sits below the pitch on mobile.
-- **Reuse `B24NavigationMenu` (vertical) for benefit lists** — it already gives icon + label + hover for free, no manual `<ul>` markup.
+- **CTA is `air-primary`** (Bitrix24 is moving away from green CTAs); pair it with `air-tertiary-no-accent` for the dismiss action.
+- **Disable the default close icon** with `:close="false"` and place a custom `CrossMIcon` button absolutely inside the body so the gradient stays clean — the body needs `relative` for the absolute child.
+- **Use explicit gradient colors** (`from-blue-50 to-violet-50` + `dark:` variant). Don't rely on `from-base to-elevated` here — promo surfaces should look intentionally branded.
+- **Width**: extend the modal slightly (`sm:max-w-[788px]`) so the 2-column layout breathes.
+- **Action buttons live in `#body`, not `#footer`** — keeps the CTA next to the pitch text, with `Upgrade to Pro` first and the close-bound `Remind me later` to its right.
+- **Reuse `B24NavigationMenu` (vertical) for benefit lists** — keep the list short (≈ 2 items); the right card is a teaser, not a feature matrix.
 - **Don't put the heading in `title`** — promo headings are large and free-form; keeping them inside `#body` lets you control typography.
 
 ## Form in a slideover

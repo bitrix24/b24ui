@@ -58,7 +58,6 @@ const components = [
   'link',
   'locale',
   // 'marquee',
-  'marketing-modal',
   'modal',
   'navigation-menu',
   // 'page-anchors',
