@@ -65,7 +65,7 @@ const items = computed(() => [
           :b24ui="{
             container: 'mt-0 sm:grid-cols-1',
             labelWrapper: 'border-t-0 sm:border-t-0 py-0 sm:py-0',
-            descriptionWrapper: 'sm:border-t-0 py-0 pb-2.5 sm:py-0 sm:pb-2.5'
+            descriptionWrapper: 'sm:border-t-0 py-0 pb-2.5 sm:py-0 sm:pb-2.5 last:pb-0 sm:last:pb-0'
           }"
         >
           <template #description="{ item }">
