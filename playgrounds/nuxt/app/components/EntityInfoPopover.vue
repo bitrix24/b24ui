@@ -18,11 +18,11 @@ const props = withDefaults(defineProps<Props>(), {
   mode: 'hover'
 })
 
-const items = computed<DescriptionListItem[]>(() => [
-  { label: 'Account manager', description: props.ownerName, slot: 'owner' },
+const items = computed(() => [
+  { label: 'Account manager', description: props.ownerName, slot: 'owner' as const },
   { label: 'Created', description: props.createdAt },
   { label: 'Segment', description: props.category }
-])
+] satisfies DescriptionListItem[])
 </script>
 
 <template>

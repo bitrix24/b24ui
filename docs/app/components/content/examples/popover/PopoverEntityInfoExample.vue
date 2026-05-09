@@ -2,11 +2,11 @@
 import UserGroupIcon from '@bitrix24/b24icons-vue/common-b24/UserGroupIcon'
 import type { DescriptionListItem } from '@bitrix24/b24ui-nuxt'
 
-const items: DescriptionListItem[] = [
-  { label: 'Account manager', description: 'Sample owner', slot: 'owner' },
+const items = [
+  { label: 'Account manager', description: 'Sample owner', slot: 'owner' as const },
   { label: 'Created', description: 'Oct 6, 2024 08:37' },
   { label: 'Segment', description: 'Enterprise' }
-]
+] satisfies DescriptionListItem[]
 </script>
 
 <template>
