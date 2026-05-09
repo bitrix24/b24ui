@@ -44,7 +44,7 @@ const items = computed(() => [
             <div class="text-label font-(--ui-font-weight-semi-bold) truncate">
               {{ title }}
             </div>
-            <div class="text-sm text-muted truncate">
+            <div class="text-sm text-description truncate">
               {{ caption }}
             </div>
           </div>
