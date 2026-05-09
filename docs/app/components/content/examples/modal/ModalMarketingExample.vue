@@ -18,6 +18,7 @@ const benefits: NavigationMenuItem[] = [
     title=""
     description=""
     :close="false"
+    scrollable
     :b24ui="{
       content: 'sm:max-w-[788px]',
       body: 'relative bg-gradient-to-br from-blue-50 to-violet-50 dark:from-blue-950 dark:to-violet-950 p-6 md:p-8'

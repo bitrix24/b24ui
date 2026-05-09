@@ -94,6 +94,7 @@ const benefits: NavigationMenuItem[] = [
     title=""
     description=""
     :close="false"
+    scrollable
     :b24ui="{
       content: 'sm:max-w-[788px]',
       body: 'relative bg-gradient-to-br from-blue-50 to-violet-50 dark:from-blue-950 dark:to-violet-950 p-6 md:p-8'
@@ -177,6 +178,7 @@ Rules:
 - **Use explicit gradient colors** (`from-blue-50 to-violet-50` + `dark:` variant). Don't rely on `from-base to-elevated` here — promo surfaces should look intentionally branded.
 - **Width**: extend the modal slightly (`sm:max-w-[788px]`) so the 2-column layout breathes.
 - **Action buttons live in `#body`, not `#footer`** — keeps the CTA next to the pitch text, with `Upgrade to Pro` first and the close-bound `Remind me later` to its right.
+- **Add `scrollable`** so long pitches/feature lists don't overflow the viewport on small screens. Note: `scrollable` is incompatible with `modal: false` (it relies on the overlay scroll container).
 - **Reuse `B24NavigationMenu` (vertical) for benefit lists** — keep the list short (≈ 2 items); the right card is a teaser, not a feature matrix.
 - **Don't put the heading in `title`** — promo headings are large and free-form; keeping them inside `#body` lets you control typography.
 

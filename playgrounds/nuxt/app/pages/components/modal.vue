@@ -185,6 +185,7 @@ function openModal() {
     <B24Modal
       title=""
       description=""
+      scrollable
       :b24ui="{
         content: 'sm:max-w-[788px]',
         body: 'relative bg-gradient-to-br from-blue-50 to-violet-50 dark:from-blue-950 dark:to-violet-950 p-6 md:p-8'
