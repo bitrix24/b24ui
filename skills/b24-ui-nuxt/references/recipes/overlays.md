@@ -204,7 +204,7 @@ const items = [
     <B24Link is-action>ACME Corp.</B24Link>
 
     <template #content>
-      <div class="w-[280px] sm:w-xs p-md flex flex-col gap-md">
+      <div class="w-65 p-6 flex flex-col gap-4.5">
         <div class="flex items-center gap-3">
           <B24Avatar
             size="lg"
@@ -220,7 +220,7 @@ const items = [
           </div>
         </div>
 
-        <B24Button block color="air-secondary-no-accent" label="Open account" />
+        <B24Button block color="air-secondary-accent-2" label="Open account" />
 
         <B24Separator />
 
@@ -229,8 +229,8 @@ const items = [
           :items="items"
           :b24ui="{
             container: 'mt-0 sm:grid-cols-1',
-            labelWrapper: 'border-t-0 sm:border-t-0 sm:py-0 sm:pt-3 first:pt-0 sm:first:pt-0',
-            descriptionWrapper: 'sm:border-t-0 sm:py-0 sm:pt-1 sm:pb-3'
+            labelWrapper: 'border-t-0 sm:border-t-0 py-0 pb-2.5 sm:py-0 sm:pb-2.5',
+            descriptionWrapper: 'sm:border-t-0 py-0 pb-2.5 sm:py-0 sm:pb-2.5'
           }"
         >
           <template #description="{ item }">
@@ -246,9 +246,9 @@ const items = [
 
 Notes on the layout:
 
-- The popover's content padding is reset with `:b24ui="{ content: 'p-0' }"` so the inner `flex flex-col gap-md` controls spacing — keeps the example free of header-border overrides.
+- The popover's content padding is reset with `:b24ui="{ content: 'p-0' }"` so the inner `flex flex-col gap-4.5` (with `p-6`) controls spacing — keeps the example free of header-border overrides.
 - The avatar is recolored through its `:b24ui` slot using design tokens (`--ui-color-design-filled-alert-*`) — swap to `success`, `warning`, or `copilot` tokens to match the entity type.
-- The fixed `w-[280px] sm:w-xs` keeps the card readable on mobile and a bit wider on `sm+`. Title and caption use `truncate` + `min-w-0` so long entity names don't break the layout.
-- `B24DescriptionList` switches to a two-column grid at `sm:` by default and draws a top border before each item. Inside a narrow popover both behaviours hurt readability, so the layout is pinned to a single column and all `border-t` rules are zeroed out via the `b24ui` prop. The label/description paddings are also rolled back to mirror the mobile rhythm so a label and its value stay close together. The container's default `mt` and the first row's `pt` are zeroed (`mt-0`, `first:pt-0 sm:first:pt-0`) because the surrounding `flex flex-col gap-md` already supplies the spacing — without that the first label sits noticeably lower than the separator above it.
+- The fixed `w-65` keeps the card compact at every breakpoint. Title and caption use `truncate` + `min-w-0` so long entity names don't break the layout.
+- `B24DescriptionList` switches to a two-column grid at `sm:` by default and draws a top border before each item. Inside a narrow popover both behaviours hurt readability, so the layout is pinned to a single column and all `border-t` rules are zeroed out via the `b24ui` prop. The container's default `mt` is dropped (`mt-0`) since the parent `gap-4.5` already supplies the gap below the separator, and every wrapper is shrunk to `py-0 pb-2.5` so each label/value pair sits flush and rows breathe by 2.5 between items — the compact rhythm the design calls for.
 - The `#owner` slot would replace the whole `<dt>/<dd>` pair (and lose the "Account manager" label). Tagging the owner item with `slot: 'owner' as const` and overriding the global `#description` slot with a `v-if="item.slot === 'owner'"` keeps the default label rendering and only swaps the value for a `B24Link`. The `as const` + `satisfies DescriptionListItem[]` pattern is what lets `item.slot` narrow to the literal `'owner'` inside the template.
 

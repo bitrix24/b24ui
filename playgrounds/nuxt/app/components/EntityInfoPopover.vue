@@ -30,7 +30,7 @@ const items = computed(() => [
     <slot />
 
     <template #content>
-      <div class="w-70 sm:w-xs p-md flex flex-col gap-md">
+      <div class="w-65 p-6 flex flex-col gap-4.5">
         <div class="flex items-center gap-3">
           <B24Avatar
             size="lg"
@@ -52,7 +52,7 @@ const items = computed(() => [
 
         <B24Button
           block
-          color="air-secondary-no-accent"
+          color="air-secondary-accent-2"
           :label="primaryActionLabel"
           :to="primaryActionTo"
         />
@@ -64,8 +64,8 @@ const items = computed(() => [
           :items="items"
           :b24ui="{
             container: 'mt-0 sm:grid-cols-1',
-            labelWrapper: 'border-t-0 sm:border-t-0 sm:py-0 sm:pt-3 first:pt-0 sm:first:pt-0',
-            descriptionWrapper: 'sm:border-t-0 sm:py-0 sm:pt-1 sm:pb-3'
+            labelWrapper: 'border-t-0 sm:border-t-0 py-0 pb-2.5 sm:py-0 sm:pb-2.5',
+            descriptionWrapper: 'sm:border-t-0 py-0 pb-2.5 sm:py-0 sm:pb-2.5'
           }"
         >
           <template #description="{ item }">
