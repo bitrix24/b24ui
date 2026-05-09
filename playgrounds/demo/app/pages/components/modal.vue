@@ -197,7 +197,7 @@ function openModal() {
       <template #body>
         <B24ModalDialogClose>
           <B24Button
-            color="air-tertiary-no-accent"
+            color="air-secondary-no-accent"
             size="md"
             :icon="CrossMIcon"
             aria-label="Close"
