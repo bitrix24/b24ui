@@ -30,7 +30,7 @@ const items = [
             <div class="font-(--ui-font-weight-semi-bold) truncate">
               ACME Corp.
             </div>
-            <div class="text-sm text-(--ui-color-design-plain-a-content) truncate">
+            <div class="text-sm text-muted truncate">
               12 contacts
             </div>
           </div>

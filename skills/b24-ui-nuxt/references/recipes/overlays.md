@@ -216,7 +216,7 @@ const items = [
           />
           <div class="min-w-0">
             <div class="font-(--ui-font-weight-semi-bold) truncate">ACME Corp.</div>
-            <div class="text-sm text-(--ui-color-design-plain-a-content) truncate">12 contacts</div>
+            <div class="text-sm text-muted truncate">12 contacts</div>
           </div>
         </div>
 
