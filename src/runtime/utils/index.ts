@@ -191,43 +191,47 @@ export function getSlotChildrenText(children: any) {
 
 const PROMPT_BLOCK_TAGS = new Set(['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote'])
 
-function walkPromptNodes(children: any[]): string {
-  return children.map((node: any) => {
-    if (typeof node === 'string') return node
-    if (typeof node === 'number') return String(node)
-    if (!node || typeof node !== 'object') return ''
+function walkPromptElement(node: Node): string {
+  if (node.nodeType === 3) {
+    const text = node.textContent || ''
+    // Pure-whitespace text nodes that span newlines are HTML-formatting
+    // artifacts between block elements and should be ignored.
+    if (text.includes('\n') && !text.trim()) return ''
+    return text
+  }
+  if (node.nodeType !== 1) return ''
 
-    let inner: string
-    if (typeof node.children === 'string') {
-      inner = node.children
-    } else if (Array.isArray(node.children)) {
-      inner = walkPromptNodes(node.children)
-    } else if (node.children?.default) {
-      inner = walkPromptNodes(node.children.default())
-    } else {
-      inner = ''
-    }
+  const element = node as Element
+  const tag = element.tagName.toLowerCase()
 
-    const tag = typeof node.type === 'string' ? node.type.toLowerCase() : ''
+  let inner = ''
+  node.childNodes.forEach((child) => {
+    inner += walkPromptElement(child)
+  })
 
-    if (PROMPT_BLOCK_TAGS.has(tag)) return `${inner}\n\n`
-    if (tag === 'pre') return `\n\`\`\`\n${inner.replace(/^`+|`+$/g, '')}\n\`\`\`\n\n`
-    if (tag === 'ul' || tag === 'ol') return `${inner}\n`
-    if (tag === 'li') return `- ${inner}\n`
-    if (tag === 'br') return '\n'
-    if (tag === 'hr') return '\n---\n\n'
-    if (tag === 'code') return `\`${inner}\``
-    if (tag === 'strong' || tag === 'b') return `**${inner}**`
-    if (tag === 'em' || tag === 'i') return `*${inner}*`
-    if (tag === 'a' && node.props?.href) return `[${inner}](${node.props.href})`
+  if (PROMPT_BLOCK_TAGS.has(tag)) return `${inner}\n\n`
+  if (tag === 'pre') return `\n\`\`\`\n${inner.replace(/^`+|`+$/g, '')}\n\`\`\`\n\n`
+  if (tag === 'ul' || tag === 'ol') return `${inner}\n`
+  if (tag === 'li') return `- ${inner}\n`
+  if (tag === 'br') return '\n'
+  if (tag === 'hr') return '\n---\n\n'
+  if (tag === 'code') return `\`${inner}\``
+  if (tag === 'strong' || tag === 'b') return `**${inner}**`
+  if (tag === 'em' || tag === 'i') return `*${inner}*`
+  if (tag === 'a') {
+    const href = element.getAttribute('href')
+    return href ? `[${inner}](${href})` : inner
+  }
 
-    return inner
-  }).join('')
+  return inner
 }
 
-export function getSlotPromptText(children: any): string {
-  if (!Array.isArray(children)) return ''
-  return walkPromptNodes(children).replace(/\n{3,}/g, '\n\n')
+export function extractPromptText(el: Element | null | undefined): string {
+  if (!el) return ''
+  return walkPromptElement(el)
+    .replace(/[ \t]+\n/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim()
 }
 
 export function transformUI(ui: any, uiProp?: any) {

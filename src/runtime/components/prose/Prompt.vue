@@ -27,12 +27,12 @@ export interface ProsePromptSlots {
 </script>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, useTemplateRef } from 'vue'
 import { useClipboard } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useComponentProps } from '../../composables/useComponentProps'
 import { useLocale } from '../../composables/useLocale'
-import { getSlotPromptText } from '../../utils'
+import { extractPromptText } from '../../utils'
 import { tv } from '../../utils/tv'
 import icons from '../../dictionary/icons'
 import B24Button from '../Button.vue'
@@ -42,7 +42,7 @@ defineOptions({ inheritAttrs: false })
 const _props = withDefaults(defineProps<ProsePromptProps>(), {
   actions: () => ['copy']
 })
-const slots = defineSlots<ProsePromptSlots>()
+defineSlots<ProsePromptSlots>()
 
 const props = useComponentProps('prose.prompt', _props)
 
@@ -50,12 +50,13 @@ const { t } = useLocale()
 const { copy, copied } = useClipboard()
 const appConfig = useAppConfig() as ProsePrompt['AppConfig']
 
+const bodyRef = useTemplateRef<HTMLElement>('bodyRef')
+
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.prompt || {}) })())
 
 function getPromptText() {
-  const children = slots.default?.()
-  return children ? getSlotPromptText(children).trim() : ''
+  return extractPromptText(bodyRef.value)
 }
 
 function copyPrompt() {
@@ -85,6 +86,9 @@ function openInWindsurf() {
       <p v-if="props.description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
         {{ props.description }}
       </p>
+      <div ref="bodyRef" data-slot="body" hidden>
+        <slot />
+      </div>
     </div>
 
     <div data-slot="actions" :class="b24ui.actions({ class: props.b24ui?.actions })">
