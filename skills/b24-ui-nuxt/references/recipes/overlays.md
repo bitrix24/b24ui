@@ -220,7 +220,7 @@ const items = [
           </div>
         </div>
 
-        <B24Button block color="air-secondary-accent-2" label="Open account" />
+        <B24Button block size="sm" color="air-secondary-accent-2" label="Open account" />
 
         <B24Separator />
 

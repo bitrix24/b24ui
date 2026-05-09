@@ -52,6 +52,7 @@ const items = computed(() => [
 
         <B24Button
           block
+          size="sm"
           color="air-secondary-accent-2"
           :label="primaryActionLabel"
           :to="primaryActionTo"
