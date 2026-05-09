@@ -109,7 +109,7 @@ const benefits: NavigationMenuItem[] = [
           size="md"
           :icon="CrossMIcon"
           aria-label="Close"
-          class="absolute inset-e-3 [--ui-btn-height:24px]"
+          class="absolute top-3 end-3 [--ui-btn-height:24px]"
         />
       </B24ModalDialogClose>
 
