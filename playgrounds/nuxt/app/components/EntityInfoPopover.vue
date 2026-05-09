@@ -30,7 +30,7 @@ const items = computed<DescriptionListItem[]>(() => [
     <slot />
 
     <template #content>
-      <div class="w-[280px] sm:w-xs p-md flex flex-col gap-md">
+      <div class="w-70 sm:w-xs p-md flex flex-col gap-md">
         <div class="flex items-center gap-3">
           <B24Avatar
             size="lg"
