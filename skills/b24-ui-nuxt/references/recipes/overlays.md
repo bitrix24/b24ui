@@ -229,12 +229,13 @@ const items = [
           :items="items"
           :b24ui="{
             container: 'sm:grid-cols-1',
-            labelWrapper: 'sm:py-0 sm:pt-3',
+            labelWrapper: 'border-t-0 sm:border-t-0 sm:py-0 sm:pt-3',
             descriptionWrapper: 'sm:border-t-0 sm:py-0 sm:pt-1 sm:pb-3'
           }"
         >
-          <template #owner="{ item }">
-            <B24Link>{{ item.description }}</B24Link>
+          <template #description="{ item }">
+            <B24Link v-if="item.slot === 'owner'">{{ item.description }}</B24Link>
+            <template v-else>{{ item.description }}</template>
           </template>
         </B24DescriptionList>
       </div>
@@ -248,6 +249,6 @@ Notes on the layout:
 - The popover's content padding is reset with `:b24ui="{ content: 'p-0' }"` so the inner `flex flex-col gap-md` controls spacing — keeps the example free of header-border overrides.
 - The avatar is recolored through its `:b24ui` slot using design tokens (`--ui-color-design-filled-alert-*`) — swap to `success`, `warning`, or `copilot` tokens to match the entity type.
 - The fixed `w-[280px] sm:w-xs` keeps the card readable on mobile and a bit wider on `sm+`. Title and caption use `truncate` + `min-w-0` so long entity names don't break the layout.
-- `B24DescriptionList` switches to a two-column grid at `sm:` by default. Inside a narrow popover that's too wide, so the layout is pinned to a single column via `:b24ui="{ container: 'sm:grid-cols-1', labelWrapper: 'sm:py-0 sm:pt-3', descriptionWrapper: 'sm:border-t-0 sm:py-0 sm:pt-1 sm:pb-3' }"` — keeps mobile spacing and drops the divider that would otherwise appear between a label and its value.
-- Use the per-item `slot` field to inject a `B24Link` (or any other component) into a single value without overriding the whole `#description` slot.
+- `B24DescriptionList` switches to a two-column grid at `sm:` by default and draws a top border before each item. Inside a narrow popover both behaviours hurt readability, so the layout is pinned to a single column and all `border-t` rules are zeroed out via the `b24ui` prop. The label/description paddings are also rolled back to mirror the mobile rhythm so a label and its value stay close together.
+- The `#owner` slot would replace the whole `<dt>/<dd>` pair (and lose the "Account manager" label). Tagging the owner item with `slot: 'owner' as const` and overriding the global `#description` slot with a `v-if="item.slot === 'owner'"` keeps the default label rendering and only swaps the value for a `B24Link`. The `as const` + `satisfies DescriptionListItem[]` pattern is what lets `item.slot` narrow to the literal `'owner'` inside the template.
 

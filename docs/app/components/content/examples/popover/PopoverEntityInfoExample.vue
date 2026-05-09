@@ -45,12 +45,13 @@ const items = [
           :items="items"
           :b24ui="{
             container: 'sm:grid-cols-1',
-            labelWrapper: 'sm:py-0 sm:pt-3',
+            labelWrapper: 'border-t-0 sm:border-t-0 sm:py-0 sm:pt-3',
             descriptionWrapper: 'sm:border-t-0 sm:py-0 sm:pt-1 sm:pb-3'
           }"
         >
-          <template #owner="{ item }">
-            <B24Link>{{ item.description }}</B24Link>
+          <template #description="{ item }">
+            <B24Link v-if="item.slot === 'owner'">{{ item.description }}</B24Link>
+            <template v-else>{{ item.description }}</template>
           </template>
         </B24DescriptionList>
       </div>
