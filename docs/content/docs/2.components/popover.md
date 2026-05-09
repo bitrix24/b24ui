@@ -274,6 +274,31 @@ name: 'popover-entity-info-example'
 ---
 ::
 
+::prompt
+---
+description: Build an entity-info popover for a CRM record.
+actions:
+  - copy
+  - cursor
+  - windsurf
+class: 'w-full my-0'
+---
+Lean on the `b24-ui-nuxt` skill (see `references/recipes/overlays.md` → "Info popover (entity summary)") to build a compact entity-info popover that sits on top of an entity name in running text. The popover should mimic the way a CRM teases a record: a colored avatar, the entity title, a one-line caption, a primary CTA, a separator, and a label/value list with the owner rendered as a link.
+
+Before writing any code, gather the missing context:
+- Which CRM entity does the popover describe (account, deal, contact, lead, project)? That decides the avatar icon and the design-token accent (`alert`, `success`, `warning`, `copilot`).
+- What's the trigger — a `B24Link` mid-paragraph (hover) or a discrete control (click)?
+- Which fields belong on the card: title, caption (e.g. "12 contacts" / "Stage: Negotiation"), CTA label + target, owner name + profile link, created-at, segment/category?
+- Do any values need their own component (link, badge, time)? If yes, plan to use the global `#description` slot with `v-if="item.slot === '<key>'"` instead of replacing the whole `<dt>/<dd>` pair via a per-item slot.
+
+Once those answers are in, assemble the popover from stock components only (`B24Popover`, `B24Avatar`, `B24Button`, `B24Separator`, `B24DescriptionList`, `B24Link`) and reach for the `:b24ui` prop to:
+- pin the layout to a single column inside the narrow card and zero the row dividers,
+- match the screenshot's compact rhythm (`p-6`, `gap-4.5`, `w-65`, `size="sm"` button),
+- recolor the avatar through design tokens — never inline hex values.
+
+Use semantic typography utilities (`text-label`, `text-description`) for the title and caption, and keep all copy in the requested locale.
+::
+
 ## API
 
 ### Props
