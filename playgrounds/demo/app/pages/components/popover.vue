@@ -152,7 +152,7 @@ const entityMode = ref<typeof entityModes[number]>('hover')
       </template>
     </B24Popover>
 
-    <p class="leading-7">
+    <ProseP>
       Latest activity on the
       <EntityInfoPopover
         title="ACME Corp."
@@ -168,9 +168,9 @@ const entityMode = ref<typeof entityModes[number]>('hover')
         </B24Link>
       </EntityInfoPopover>
       account — pipeline value grew by 12% this quarter.
-    </p>
+    </ProseP>
 
-    <p class="leading-7">
+    <ProseP>
       Click the deal name to inspect
       <EntityInfoPopover
         title="Q3 Enterprise Renewal"
@@ -186,6 +186,6 @@ const entityMode = ref<typeof entityModes[number]>('hover')
         </B24Link>
       </EntityInfoPopover>
       before assigning it to the next sales rep.
-    </p>
+    </ProseP>
   </PlaygroundPage>
 </template>
