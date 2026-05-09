@@ -44,8 +44,8 @@ const items = [
           size="sm"
           :items="items"
           :b24ui="{
-            container: 'sm:grid-cols-1',
-            labelWrapper: 'border-t-0 sm:border-t-0 sm:py-0 sm:pt-3',
+            container: 'mt-0 sm:grid-cols-1',
+            labelWrapper: 'border-t-0 sm:border-t-0 sm:py-0 sm:pt-3 first:pt-0 sm:first:pt-0',
             descriptionWrapper: 'sm:border-t-0 sm:py-0 sm:pt-1 sm:pb-3'
           }"
         >
