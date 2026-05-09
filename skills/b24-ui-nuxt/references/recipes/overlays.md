@@ -96,7 +96,7 @@ const benefits: NavigationMenuItem[] = [
     :close="false"
     scrollable
     :b24ui="{
-      content: 'sm:max-w-[788px] bg-gradient-to-br from-blue-50 to-violet-50 dark:from-blue-950 dark:to-violet-950',
+      content: 'sm:max-w-[788px] bg-[radial-gradient(110.42%_110.42%_at_-10.42%_31.25%,var(--ui-color-design-filled-boost-bg-gradient-1)_0%,var(--ui-color-design-filled-boost-bg-gradient-2)_58.65%,var(--ui-color-design-filled-boost-bg-gradient-3)_100%)]',
       body: 'relative p-6 md:p-8'
     }"
   >
@@ -109,7 +109,7 @@ const benefits: NavigationMenuItem[] = [
           size="md"
           :icon="CrossMIcon"
           aria-label="Close"
-          class="absolute top-3 end-3 [--ui-btn-height:24px]"
+          class="absolute inset-e-3 [--ui-btn-height:24px]"
         />
       </B24ModalDialogClose>
 
@@ -175,7 +175,7 @@ const benefits: NavigationMenuItem[] = [
 Rules:
 - **CTA is `air-primary`** (Bitrix24 is moving away from green CTAs); pair it with `air-tertiary-no-accent` for the dismiss action.
 - **Put the gradient on `b24ui.content`, not `b24ui.body`** — when `scrollable: true` the contentWrapper drops `overflow-hidden`, so a body-level bg overflows the rounded corners. The `content` slot owns the rounded radius (`rounded-[calc(var(--ui-border-radius-2xl)+2px)]`), so its own background-image gets clipped naturally — corners stay rounded.
-- **Use explicit gradient colors** (`from-blue-50 to-violet-50` + `dark:` variant). Don't rely on `from-base to-elevated` here — promo surfaces should look intentionally branded.
+- **Reuse the brand boost gradient tokens** for the bg — `--ui-color-design-filled-boost-bg-gradient-{1,2,3}` (the same radial gradient the `air-boost` Button paints). The CSS variables are defined identically in light and dark themes, so a single `bg-[radial-gradient(...)]` covers both modes — no `dark:` variant needed. Don't fall back to generic Tailwind palette colors here; promo surfaces should look intentionally branded.
 - **Disable the default close icon** with `:close="false"` and place a custom `CrossMIcon` button absolutely inside the body. Match the standard close size with `size="md"` + `[--ui-btn-height:24px]` (the same CSS variable Modal's theme sets on its built-in close).
 - **Width**: extend the modal slightly (`sm:max-w-[788px]`) so the 2-column layout breathes; the right card sits at `md:w-80` so the heading row never wraps.
 - **Pin the action row to the bottom**: make the left column a `flex flex-col` and give the buttons row `mt-auto`. Combined with `md:flex-row` on the parent (which stretches both columns to equal height), this aligns the CTA with the bottom edge of the right card.

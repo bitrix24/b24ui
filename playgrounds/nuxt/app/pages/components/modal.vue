@@ -187,7 +187,7 @@ function openModal() {
       description=""
       scrollable
       :b24ui="{
-        content: 'sm:max-w-[788px] bg-gradient-to-br from-blue-50 to-violet-50 dark:from-blue-950 dark:to-violet-950',
+        content: 'sm:max-w-[788px] bg-[radial-gradient(110.42%_110.42%_at_-10.42%_31.25%,var(--ui-color-design-filled-boost-bg-gradient-1)_0%,var(--ui-color-design-filled-boost-bg-gradient-2)_58.65%,var(--ui-color-design-filled-boost-bg-gradient-3)_100%)]',
         body: 'relative p-6 md:p-8'
       }"
       v-bind="{ ...attrs, close: false }"
@@ -201,7 +201,7 @@ function openModal() {
             size="md"
             :icon="CrossMIcon"
             aria-label="Close"
-            class="absolute top-3 end-3 [--ui-btn-height:24px]"
+            class="absolute inset-e-3 [--ui-btn-height:24px]"
           />
         </B24ModalDialogClose>
 
