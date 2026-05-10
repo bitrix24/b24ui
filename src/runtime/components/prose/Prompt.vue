@@ -14,6 +14,12 @@ export interface ProsePromptProps {
    */
   icon?: IconComponent['name']
   /**
+   * Resolved through the icon registry (`dictionary/iconRegistry.ts`)
+   * with a fallback to short aliases (`dictionary/icons.ts`).
+   * Ignored when `icon` is set.
+   */
+  iconName?: string
+  /**
    * @defaultValue ['copy']
    */
   actions?: ('copy' | 'cursor' | 'windsurf')[]
@@ -27,12 +33,12 @@ export interface ProsePromptSlots {
 </script>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, useTemplateRef } from 'vue'
 import { useClipboard } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useComponentProps } from '../../composables/useComponentProps'
 import { useLocale } from '../../composables/useLocale'
-import { getSlotPromptText } from '../../utils'
+import { extractPromptText, resolveIcon } from '../../utils'
 import { tv } from '../../utils/tv'
 import icons from '../../dictionary/icons'
 import B24Button from '../Button.vue'
@@ -42,7 +48,7 @@ defineOptions({ inheritAttrs: false })
 const _props = withDefaults(defineProps<ProsePromptProps>(), {
   actions: () => ['copy']
 })
-const slots = defineSlots<ProsePromptSlots>()
+defineSlots<ProsePromptSlots>()
 
 const props = useComponentProps('prose.prompt', _props)
 
@@ -50,12 +56,15 @@ const { t } = useLocale()
 const { copy, copied } = useClipboard()
 const appConfig = useAppConfig() as ProsePrompt['AppConfig']
 
+const bodyRef = useTemplateRef<HTMLElement>('bodyRef')
+
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.prompt || {}) })())
 
+const iconFromIconName = computed(() => resolveIcon(props.iconName))
+
 function getPromptText() {
-  const children = slots.default?.()
-  return children ? getSlotPromptText(children).trim() : ''
+  return extractPromptText(bodyRef.value)
 }
 
 function copyPrompt() {
@@ -79,12 +88,26 @@ function openInWindsurf() {
 
 <template>
   <div data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })" v-bind="$attrs">
-    <Component :is="props.icon" v-if="props.icon" data-slot="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
+    <Component
+      :is="props.icon"
+      v-if="props.icon"
+      data-slot="icon"
+      :class="b24ui.icon({ class: props.b24ui?.icon })"
+    />
+    <Component
+      :is="iconFromIconName"
+      v-else-if="iconFromIconName"
+      data-slot="icon"
+      :class="b24ui.icon({ class: props.b24ui?.icon })"
+    />
 
     <div data-slot="content" :class="b24ui.content({ class: props.b24ui?.content })">
       <p v-if="props.description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
         {{ props.description }}
       </p>
+      <div ref="bodyRef" data-slot="body" hidden>
+        <slot />
+      </div>
     </div>
 
     <div data-slot="actions" :class="b24ui.actions({ class: props.b24ui?.actions })">
@@ -99,7 +122,7 @@ function openInWindsurf() {
 
       <B24Button
         v-if="props.actions.includes('cursor')"
-        data-icon="cursor"
+        :icon="icons.CursorIcon"
         color="air-secondary-accent-2"
         size="sm"
         :label="t('prose.prompt.openIn', { name: 'Cursor' })"
@@ -108,7 +131,7 @@ function openInWindsurf() {
 
       <B24Button
         v-if="props.actions.includes('windsurf')"
-        data-icon="windsurf"
+        :icon="icons.WindsurfIcon"
         color="air-secondary-accent-2"
         size="sm"
         :label="t('prose.prompt.openIn', { name: 'Windsurf' })"

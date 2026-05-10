@@ -1,10 +1,7 @@
 <script setup lang="ts">
 // import { joinURL } from 'ufo'
 import { navigateTo } from '#imports'
-import EncloseTextInCodeTagIcon from '@bitrix24/b24icons-vue/editor/EncloseTextInCodeTagIcon'
-import InfoCircleIcon from '@bitrix24/b24icons-vue/outline/InfoCircleIcon'
-import PlayLIcon from '@bitrix24/b24icons-vue/outline/PlayLIcon'
-import DemonstrationOnIcon from '@bitrix24/b24icons-vue/outline/DemonstrationOnIcon'
+import { resolveIcon } from '@bitrix24/b24ui-nuxt/utils'
 
 const { data: page } = await useAsyncData('index', () => queryCollection('index').first())
 if (!page.value) {
@@ -35,21 +32,6 @@ useSeoMeta({
   ogTitle: `${page.value.title} - Bitrix24 UI`,
   ogDescription: page.value.description
 })
-
-const iconFromIconName = (iconName?: string) => {
-  if (!iconName) {
-    return undefined
-  }
-
-  switch (iconName) {
-    case 'EncloseTextInCodeTagIcon': return EncloseTextInCodeTagIcon
-    case 'InfoCircleIcon': return InfoCircleIcon
-    case 'PlayLIcon': return PlayLIcon
-    case 'DemonstrationOnIcon': return DemonstrationOnIcon
-  }
-
-  return undefined
-}
 </script>
 
 <template>
@@ -70,7 +52,7 @@ const iconFromIconName = (iconName?: string) => {
           :key="link.label"
           v-bind="link"
           size="md"
-          :icon="iconFromIconName(link?.iconName)"
+          :icon="resolveIcon(link?.iconName)"
         />
       </div>
     </B24Container>

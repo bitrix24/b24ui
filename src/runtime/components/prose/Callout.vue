@@ -30,13 +30,9 @@ import { computed } from 'vue'
 import { useAppConfig } from '#imports'
 import { useComponentProps } from '../../composables/useComponentProps'
 import { tv } from '../../utils/tv'
+import { resolveIcon } from '../../utils'
 import icons from '../../dictionary/icons'
 import B24Link from '../Link.vue'
-import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
-import InfoCircleIcon from '@bitrix24/b24icons-vue/outline/InfoCircleIcon'
-import MdnwebdocsIcon from '@bitrix24/b24icons-vue/social/MdnwebdocsIcon'
-import Bitrix24Icon from '@bitrix24/b24icons-vue/common-service/Bitrix24Icon'
-import DemonstrationOnIcon from '@bitrix24/b24icons-vue/outline/DemonstrationOnIcon'
 
 defineOptions({ inheritAttrs: false })
 
@@ -57,21 +53,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
 // eslint-disable-next-line vue/no-dupe-keys
 const target = computed(() => props.target || (!!props.to && typeof props.to === 'string' && props.to.startsWith('http') ? '_blank' : undefined))
 
-const iconFromIconName = computed(() => {
-  if (!props.iconName) {
-    return undefined
-  }
-
-  switch (props.iconName) {
-    case 'InfoCircleIcon': return InfoCircleIcon
-    case 'GitHubIcon': return GitHubIcon
-    case 'MdnWebDocIcon': return MdnwebdocsIcon
-    case 'Bitrix24Icon': return Bitrix24Icon
-    case 'DemonstrationOnIcon': return DemonstrationOnIcon
-  }
-
-  return undefined
-})
+const iconFromIconName = computed(() => resolveIcon(props.iconName))
 </script>
 
 <template>
