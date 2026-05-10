@@ -14,6 +14,12 @@ export interface ProsePromptProps {
    */
   icon?: IconComponent['name']
   /**
+   * Resolved through the icon registry (`dictionary/iconRegistry.ts`)
+   * with a fallback to short aliases (`dictionary/icons.ts`).
+   * Ignored when `icon` is set.
+   */
+  iconName?: string
+  /**
    * @defaultValue ['copy']
    */
   actions?: ('copy' | 'cursor' | 'windsurf')[]
@@ -32,7 +38,7 @@ import { useClipboard } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useComponentProps } from '../../composables/useComponentProps'
 import { useLocale } from '../../composables/useLocale'
-import { extractPromptText } from '../../utils'
+import { extractPromptText, resolveIcon } from '../../utils'
 import { tv } from '../../utils/tv'
 import icons from '../../dictionary/icons'
 import B24Button from '../Button.vue'
@@ -54,6 +60,8 @@ const bodyRef = useTemplateRef<HTMLElement>('bodyRef')
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.prompt || {}) })())
+
+const iconFromIconName = computed(() => resolveIcon(props.iconName))
 
 function getPromptText() {
   return extractPromptText(bodyRef.value)
@@ -80,7 +88,18 @@ function openInWindsurf() {
 
 <template>
   <div data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })" v-bind="$attrs">
-    <Component :is="props.icon" v-if="props.icon" data-slot="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
+    <Component
+      :is="props.icon"
+      v-if="props.icon"
+      data-slot="icon"
+      :class="b24ui.icon({ class: props.b24ui?.icon })"
+    />
+    <Component
+      :is="iconFromIconName"
+      v-else-if="iconFromIconName"
+      data-slot="icon"
+      :class="b24ui.icon({ class: props.b24ui?.icon })"
+    />
 
     <div data-slot="content" :class="b24ui.content({ class: props.b24ui?.content })">
       <p v-if="props.description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">

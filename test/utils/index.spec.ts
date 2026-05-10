@@ -1,5 +1,7 @@
 import { describe, it, expect } from 'vitest'
-import { extractPromptText } from '../../src/runtime/utils'
+import { extractPromptText, resolveIcon } from '../../src/runtime/utils'
+import iconAliases from '../../src/runtime/dictionary/icons'
+import iconRegistry from '../../src/runtime/dictionary/iconRegistry'
 
 function el(html: string): HTMLElement {
   const div = document.createElement('div')
@@ -75,5 +77,35 @@ describe('extractPromptText', () => {
     const host = el('<p>One.</p><p>Two.</p>')
     host.hidden = true
     expect(extractPromptText(host)).toBe('One.\n\nTwo.')
+  })
+})
+
+describe('resolveIcon', () => {
+  it('returns undefined for empty input', () => {
+    expect(resolveIcon()).toBeUndefined()
+    expect(resolveIcon(null)).toBeUndefined()
+    expect(resolveIcon('')).toBeUndefined()
+  })
+
+  it('resolves PascalCase names from the registry', () => {
+    expect(resolveIcon('InfoCircleIcon')).toBe(iconRegistry.InfoCircleIcon)
+    expect(resolveIcon('GitHubIcon')).toBe(iconRegistry.GitHubIcon)
+    expect(resolveIcon('Bitrix24Icon')).toBe(iconRegistry.Bitrix24Icon)
+  })
+
+  it('falls back to the short-alias dictionary', () => {
+    expect(resolveIcon('tip')).toBe(iconAliases.tip)
+    expect(resolveIcon('warning')).toBe(iconAliases.warning)
+  })
+
+  it('prefers the registry over the alias dictionary on collisions', () => {
+    // `iconRegistry.InfoCircleIcon` and `iconAliases.info` happen to import
+    // the same component, but the lookup must hit the registry first either way.
+    const fromRegistry = resolveIcon('InfoCircleIcon')
+    expect(fromRegistry).toBe(iconRegistry.InfoCircleIcon)
+  })
+
+  it('returns undefined for unknown names', () => {
+    expect(resolveIcon('NoSuchIcon')).toBeUndefined()
   })
 })
