@@ -43,6 +43,7 @@ Based on the task, load the relevant reference files **before writing any code**
 - [overlays](references/recipes/overlays.md) — modals, slideovers, drawers, command palette, info popovers
 - [navigation](references/recipes/navigation.md) — headers, sidebars, breadcrumbs, tabs
 - [card-pickers](references/recipes/card-pickers.md) — icon-and-description card grids for picking a setting variant or toggling capabilities (`B24PageCardGroup`)
+- [analytics-widgets](references/recipes/analytics-widgets.md) — KPI / metrics cards on dashboards (boost-gradient `B24Card` with a small data-row teaser)
 
 **Quick reference:**
 - [components](references/components.md) — categorized component index for finding the right component name
@@ -61,6 +62,7 @@ Based on the task, load the relevant reference files **before writing any code**
 | Build site navigation | conventions, component-selection, navigation |
 | Render markdown | component-selection, components, docs |
 | Pick one option (or toggle several) from a small set where each option needs an icon and a sentence — settings variants, capability flags, "what do you want to build?" wizard step | conventions, component-selection, card-pickers |
+| Build a KPI / analytics widget — a card with 2-4 metric rows, a date-range action, and configure / feedback footer links (sales dynamics, support workload, conversion funnel) | conventions, component-selection, analytics-widgets |
 | Add a rich text editor | conventions, editor |
 | General UI work | conventions, component-selection |
 
