@@ -2,8 +2,7 @@ import { isEqual } from 'ohash/utils'
 import { withTrailingSlash, withLeadingSlash, joinURL } from 'ufo'
 import type { GetItemKeys } from '../types/utils'
 import type { IconComponent } from '../types'
-import iconAliases from '../dictionary/icons'
-import iconRegistry from '../dictionary/iconRegistry'
+import icons from '../dictionary/icons'
 
 export function pick<Data extends object, Keys extends keyof Data>(data: Data, keys: Keys[]): Pick<Data, Keys> {
   const result = {} as Pick<Data, Keys>
@@ -238,21 +237,16 @@ export function extractPromptText(el: Element | null | undefined): string {
 }
 
 /**
- * Resolve an icon component by string name.
+ * Resolve an icon component by name from `dictionary/icons.ts`.
  *
- * Lookup order:
- *   1. The PascalCase named-icon registry (`dictionary/iconRegistry.ts`),
- *      e.g. `"InfoCircleIcon"`, `"GitHubIcon"`.
- *   2. The short-alias dictionary (`dictionary/icons.ts`), e.g. `"tip"`,
- *      `"warning"`, `"info"`.
- *
- * Returns `undefined` when the name matches neither registry. Used by prose
- * components that accept an `iconName` string (typically from markdown
- * frontmatter), so authors don't have to import an icon component.
+ * Accepts both short camelCase aliases used internally (`"tip"`, `"warning"`,
+ * `"info"`) and PascalCase named icons exposed to markdown authors via
+ * `iconName` (`"InfoCircleIcon"`, `"GitHubIcon"`, ...). Returns `undefined`
+ * when the name is not in the dictionary.
  */
 export function resolveIcon(name?: string | null): IconComponent | undefined {
   if (!name) return undefined
-  return iconRegistry[name] ?? (iconAliases as Record<string, IconComponent>)[name]
+  return (icons as Record<string, IconComponent>)[name]
 }
 
 export function transformUI(ui: any, uiProp?: any) {

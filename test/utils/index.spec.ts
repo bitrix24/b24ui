@@ -1,7 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { extractPromptText, resolveIcon } from '../../src/runtime/utils'
-import iconAliases from '../../src/runtime/dictionary/icons'
-import iconRegistry from '../../src/runtime/dictionary/iconRegistry'
+import icons from '../../src/runtime/dictionary/icons'
 
 function el(html: string): HTMLElement {
   const div = document.createElement('div')
@@ -87,22 +86,15 @@ describe('resolveIcon', () => {
     expect(resolveIcon('')).toBeUndefined()
   })
 
-  it('resolves PascalCase names from the registry', () => {
-    expect(resolveIcon('InfoCircleIcon')).toBe(iconRegistry.InfoCircleIcon)
-    expect(resolveIcon('GitHubIcon')).toBe(iconRegistry.GitHubIcon)
-    expect(resolveIcon('Bitrix24Icon')).toBe(iconRegistry.Bitrix24Icon)
+  it('resolves PascalCase names exposed to markdown authors', () => {
+    expect(resolveIcon('InfoCircleIcon')).toBe(icons.InfoCircleIcon)
+    expect(resolveIcon('GitHubIcon')).toBe(icons.GitHubIcon)
+    expect(resolveIcon('Bitrix24Icon')).toBe(icons.Bitrix24Icon)
   })
 
-  it('falls back to the short-alias dictionary', () => {
-    expect(resolveIcon('tip')).toBe(iconAliases.tip)
-    expect(resolveIcon('warning')).toBe(iconAliases.warning)
-  })
-
-  it('prefers the registry over the alias dictionary on collisions', () => {
-    // `iconRegistry.InfoCircleIcon` and `iconAliases.info` happen to import
-    // the same component, but the lookup must hit the registry first either way.
-    const fromRegistry = resolveIcon('InfoCircleIcon')
-    expect(fromRegistry).toBe(iconRegistry.InfoCircleIcon)
+  it('resolves short camelCase aliases', () => {
+    expect(resolveIcon('tip')).toBe(icons.tip)
+    expect(resolveIcon('warning')).toBe(icons.warning)
   })
 
   it('returns undefined for unknown names', () => {

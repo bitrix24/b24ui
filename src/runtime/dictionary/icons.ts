@@ -44,6 +44,10 @@ import GoToLIcon from '@bitrix24/b24icons-vue/outline/GoToLIcon'
 import HamburgerMenuIcon from '@bitrix24/b24icons-vue/outline/HamburgerMenuIcon'
 import CloseChatIcon from '@bitrix24/b24icons-vue/outline/CloseChatIcon'
 import OpenChatIcon from '@bitrix24/b24icons-vue/outline/OpenChatIcon'
+import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
+import MdnwebdocsIcon from '@bitrix24/b24icons-vue/social/MdnwebdocsIcon'
+import Bitrix24Icon from '@bitrix24/b24icons-vue/common-service/Bitrix24Icon'
+import DemonstrationOnIcon from '@bitrix24/b24icons-vue/outline/DemonstrationOnIcon'
 
 export default {
   arrowLeft: ArrowToTheLeftIcon,
@@ -84,5 +88,12 @@ export default {
   drag: DragLIcon,
   menu: HamburgerMenuIcon,
   panelClose: CloseChatIcon,
-  panelOpen: OpenChatIcon
+  panelOpen: OpenChatIcon,
+  // Named icons exposed to markdown authors via `iconName`
+  // (ProseCallout, ProsePrompt, ...)
+  GitHubIcon,
+  InfoCircleIcon,
+  MdnWebDocIcon: MdnwebdocsIcon,
+  Bitrix24Icon,
+  DemonstrationOnIcon
 }
