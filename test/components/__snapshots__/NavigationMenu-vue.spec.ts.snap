@@ -621,6 +621,33 @@ exports[`NavigationMenu > renders with externalIcon correctly 1`] = `
 </nav>"
 `;
 
+exports[`NavigationMenu > renders with item color correctly 1`] = `
+"<nav data-component="section" data-slot="root" class="relative flex [&amp;>div]:min-w-0 font-[family-name:var(--ui-font-family-secondary)] flex-col w-full ps-0 pe-0 rtl:pe-0 rtl:ps-0" data-orientation="vertical" dir="ltr" data-reka-navigation-menu="">
+  <ul data-slot="list" class="isolate min-w-0 flex flex-col">
+    <li data-state="closed" data-orientation="vertical" data-slot="item" class="min-w-0 mt-(--menu-item-block-stack-space) data-[state=open]:rounded-(--menu-item-border-radius) data-[state=open]:border-(length:--leftmenu-group-stroke-weight) data-[state=open]:border-(--leftmenu-group-stroke) data-[state=open]:bg-(--leftmenu-group-bg)"><button type="button" data-reka-collection-item="" data-slot="link" class="min-w-9.5 w-full max-w-full m-0 group relative cursor-pointer flex items-center gap-0.5 font-(--ui-font-weight-normal) text-(length:--ui-font-size-lg) focus:outline-none focus-visible:rounded-(--menu-item-border-radius) focus-visible:outline-none focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-(--ui-color-base-4) rounded-(--menu-item-border-radius) text-(--menu-item-color) bg-(--menu-item-background) hover:bg-(--menu-item-background-hover) data-[state=open]:bg-(--menu-item-background-hover) border-0 menu-item-vertical h-9.5 min-h-9.5 p-1.5 flex-row rtl:flex-row-reverse justify-between data-[state=open]:text-(length:--ui-font-size-sm) data-[state=open]:opacity-70 collapsed data-[state=open]:-mt-(--leftmenu-group-stroke-weight) data-[state=open]:-mx-(--leftmenu-group-stroke-weight) transition-colors"><span data-slot="linkLabelWrapper" class="flex items-center rtl:flex-row-reverse relative h-5.5 w-full"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--b24ui-background) ring ring-(--b24ui-border-color) style-filled text-(length:--ui-font-size-4xs)/(--ui-font-line-height-reset) font-(--ui-font-weight-regular) shrink-0 size-5 me-1"><img src="https://github.com/bitrix24.png" width="20" height="20" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span>
+        <!--v-if-->
+        <!--v-if--><span data-slot="linkLabel" class="truncate ms-[9px]">Engineer</span>
+        <!--v-if--></span>
+        <!--v-if-->
+      </button>
+      <!--v-if-->
+      <!--v-if-->
+    </li>
+    <li data-state="closed" data-orientation="vertical" data-slot="item" class="min-w-0 mt-(--menu-item-block-stack-space) data-[state=open]:rounded-(--menu-item-border-radius) data-[state=open]:border-(length:--leftmenu-group-stroke-weight) data-[state=open]:border-(--leftmenu-group-stroke) data-[state=open]:bg-(--leftmenu-group-bg)"><button type="button" data-reka-collection-item="" data-slot="link" class="min-w-9.5 w-full max-w-full m-0 group relative cursor-pointer flex items-center gap-0.5 font-(--ui-font-weight-normal) text-(length:--ui-font-size-lg) focus:outline-none focus-visible:rounded-(--menu-item-border-radius) focus-visible:outline-none focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-(--ui-color-base-4) rounded-(--menu-item-border-radius) text-(--menu-item-color) bg-(--menu-item-background) hover:bg-(--menu-item-background-hover) data-[state=open]:bg-(--menu-item-background-hover) border-0 menu-item-vertical h-9.5 min-h-9.5 p-1.5 flex-row rtl:flex-row-reverse justify-between data-[state=open]:text-(length:--ui-font-size-sm) data-[state=open]:opacity-70 collapsed data-[state=open]:-mt-(--leftmenu-group-stroke-weight) data-[state=open]:-mx-(--leftmenu-group-stroke-weight) transition-colors"><span data-slot="linkLabelWrapper" class="flex items-center rtl:flex-row-reverse relative h-5.5 w-full"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--b24ui-background) ring ring-(--b24ui-border-color) style-filled-success text-(length:--ui-font-size-4xs)/(--ui-font-line-height-reset) font-(--ui-font-weight-regular) shrink-0 size-5 me-1"><img src="https://github.com/bitrix24.png" width="20" height="20" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span>
+        <!--v-if-->
+        <!--v-if--><span data-slot="linkLabel" class="truncate ms-[9px]">Designer</span>
+        <!--v-if--></span>
+        <!--v-if-->
+      </button>
+      <!--v-if-->
+      <!--v-if-->
+    </li>
+  </ul>
+  <!--v-if-->
+  <!--v-if-->
+</nav>"
+`;
+
 exports[`NavigationMenu > renders with item slot correctly 1`] = `
 "<nav data-component="section" data-slot="root" class="flex [&amp;>div]:min-w-0 font-[family-name:var(--ui-font-family-secondary)] relative h-full items-center justify-between" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="">
   <div style="position: relative;">
