@@ -260,6 +260,138 @@ const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponen
 </template>
 ```
 
+## Components with Embedded Avatar
+
+Components that render a leading visual which can be either a plain icon **or** a `B24Avatar` (`Button`, `ChatMessage`, `Badge`, `Input`, `Select`, `Tabs`, `Countdown`, `PageCard`, `PageCardGroup`) follow a single canonical template. The icon path takes precedence — `avatar` is the fallback when no icon is set:
+
+```vue
+<script lang="ts">
+import type { AvatarProps } from '../types'
+
+export interface ComponentNameProps {
+  /** @IconComponent */
+  icon?: IconComponent
+  /** Rendered as `B24Avatar` when `icon` is not set. */
+  avatar?: AvatarProps
+  // ...
+}
+</script>
+
+<script setup lang="ts">
+import B24Avatar from './Avatar.vue'
+</script>
+
+<template>
+  <Component
+    :is="props.icon"
+    v-if="props.icon"
+    data-slot="leadingIcon"
+    :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
+  />
+  <B24Avatar
+    v-else-if="!!props.avatar"
+    :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+    v-bind="props.avatar"
+    data-slot="leadingAvatar"
+    :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
+  />
+</template>
+```
+
+**Attribute order matters.** Vue applies later bindings on top of earlier ones:
+
+| Position | Why |
+|---|---|
+| `:size="…"` **before** `v-bind="props.avatar"` | `props.avatar.size` (user-supplied) can override the theme-derived size |
+| `:class="…"` **after** `v-bind="props.avatar"` | The wrapper class slot always wins over any `class` key inside `props.avatar` |
+
+The `leadingAvatarSize` slot is a **value slot**, not a CSS class — see [theme-structure.md](./theme-structure.md#value-slots-avatar-size-badge-size-) for the "base must be empty when size variant supplies the value" rule. Forgetting it collapses the avatar to 0×0.
+
+### Item-Based Components (PageCardGroup-style)
+
+For components driven by an `items` array where each item can carry either an `icon` field or an `avatar` field (`PageCardGroup`):
+
+```ts
+export interface PageCardGroupItem {
+  /** Plain icon — wins over `avatar` when both are set. */
+  icon?: IconComponent
+  /** Full `B24Avatar` config. Used only when `icon` is not set. */
+  avatar?: Partial<AvatarProps>
+  // ...
+}
+
+export interface PageCardGroupProps {
+  /** Group-level Avatar defaults. Per-item `avatar` field merges on top. */
+  avatar?: Partial<AvatarProps>
+  // ...
+}
+```
+
+```ts
+function getItemIcon(item: PageCardGroupItem): IconComponent | undefined {
+  return get(item, props.iconKey!) as IconComponent | undefined
+}
+
+function getItemAvatar(item: PageCardGroupItem): AvatarProps | undefined {
+  // Top-level icon wins — Avatar mode disabled when both are set on the item.
+  if (getItemIcon(item)) return undefined
+
+  const itemAvatar = item.avatar
+  if (!itemAvatar && !props.avatar) return undefined
+
+  return {
+    ...props.avatar,   // group defaults
+    ...itemAvatar,     // per-item overrides win
+    alt: itemAvatar?.alt ?? (get(item, props.labelKey!) as string | undefined)
+  } as AvatarProps
+}
+```
+
+Hand the resolved values to the inner `PageCard` (which owns the icon/avatar rendering branch):
+
+```vue
+<B24PageCard
+  :icon="getItemIcon(item)"
+  :avatar="getItemAvatar(item)"
+  :b24ui="innerCardUI"
+/>
+```
+
+**Merge order is `{ ...group, ...item }` — per-item values win.** This is hidden state: if every item already carries `avatar.color`, the group `:avatar.color` is invisible. Document the order on the prop and, in the playground, split controls so the per-item palette and the group umbrella color don't silently override each other (e.g. disable the group color picker while a per-item palette is on).
+
+### Size Sync (Plain Icon and Avatar)
+
+When the same component renders both branches (plain icon AND avatar), both must scale from the same `size` variant. Otherwise the plain-icon path looks tiny next to the avatar circle. Define a `leadingIcon` size override alongside `leadingAvatarSize`:
+
+```ts
+// src/theme/page-card-group.ts
+size: {
+  sm: { leadingIcon: 'size-7 shrink-0',  leadingAvatarSize: 'sm' }, // ~28 px
+  md: { leadingIcon: 'size-8 shrink-0',  leadingAvatarSize: 'md' }, // ~32 px
+  lg: { leadingIcon: 'size-10 shrink-0', leadingAvatarSize: 'lg' }  // ~40 px
+}
+```
+
+Forward both to the child through `innerCardUI`:
+
+```ts
+const innerCardUI = computed(() => ({
+  // ...
+  leadingIcon: b24ui.value.leadingIcon({ class: props.b24ui?.leadingIcon }),
+  leadingAvatar: b24ui.value.leadingAvatar({ class: props.b24ui?.leadingAvatar }),
+  leadingAvatarSize: (props.b24ui?.leadingAvatarSize as string) || b24ui.value.leadingAvatarSize()
+}))
+```
+
+### Verification Checklist
+
+The 0×0 bug is invisible until you read the rendered DOM. Verify, don't eyeball:
+
+- [ ] Inline-snapshot test for each `size` variant — assert the Avatar root has `class="… size-N …"` and the plain-icon SVG has `class="… size-N …"`
+- [ ] Snapshot test that toggling `item.icon` ↔ `item.avatar` actually switches the leading visual
+- [ ] `nuxt prepare` after editing `src/theme/*.ts` — otherwise `.nuxt/b24ui/*` is stale and runtime reads the old slot values
+- [ ] `nuxt typecheck` against every consumer that imports the theme (`docs/`, `playgrounds/demo`, `playgrounds/nuxt`) — root `vue-tsc` cannot resolve `#build` and silently passes
+
 ## Exposing Refs
 
 ```vue
