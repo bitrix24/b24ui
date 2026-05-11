@@ -539,6 +539,9 @@ export default defineNuxtConfig({
         '@bitrix24/b24icons-vue/file-type/EditorconfigIcon',
         '@bitrix24/b24icons-vue/file-type/TsconfigIcon',
         '@bitrix24/b24icons-vue/file-type/NodeIcon',
+        '@bitrix24/b24icons-vue/outline/MoreLIcon',
+        '@bitrix24/b24icons-vue/outline/HomeIcon',
+        '@bitrix24/b24icons-vue/outline/ProductIcon',
         '@bitrix24/b24icons-vue/file-type/MarkdownIcon'
       ]
     }
