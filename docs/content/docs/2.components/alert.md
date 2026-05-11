@@ -85,7 +85,7 @@ props:
 
 ### Color
 
-Use the `color` prop to change the color of the Alert.
+Use the `color` prop to change the color of the Alert. The same `color` also tints the inner [Avatar](/docs/components/avatar/) when one is rendered — set `avatar.color` to override that cascade per-instance.
 
 ::component-code
 ---
@@ -103,6 +103,25 @@ props:
   description: We will immediately notify the manager that the deal is not progressing.
   icon: 'RocketIcon'
   close: true
+---
+::
+
+::component-code
+---
+prettier: true
+ignore:
+  - title
+  - description
+  - avatar.src
+  - avatar.size
+  - avatar.loading
+props:
+  color: 'air-primary-copilot'
+  avatar.src: '/b24ui/avatar/employee.png'
+  avatar.size: 'xs'
+  avatar.loading: 'lazy'
+  title: Heads up!
+  description: We will immediately notify the manager that the deal is not progressing.
 ---
 ::
 
