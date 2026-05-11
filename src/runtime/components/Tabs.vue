@@ -18,6 +18,10 @@ export interface TabsItem {
   icon?: IconComponent
   avatar?: AvatarProps
   /**
+   * Default `color` for the item's leading `B24Avatar`. Overridden by `avatar.color` when set.
+   */
+  color?: AvatarProps['color']
+  /**
    * Display a badge on the item.
    * `{ size: 'sm', color: 'air-primary' }`{lang="ts-type"}
    */
@@ -172,6 +176,7 @@ defineExpose({
           <B24Avatar
             v-else-if="item.avatar"
             :size="((item.b24ui?.leadingAvatarSize || props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+            :color="item.color"
             v-bind="item.avatar"
             data-slot="leadingAvatar"
             :class="b24ui.leadingAvatar({ class: [props.b24ui?.leadingAvatar, item.b24ui?.leadingAvatar] })"
