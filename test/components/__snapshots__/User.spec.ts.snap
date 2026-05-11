@@ -62,6 +62,16 @@ exports[`User > renders with class correctly 1`] = `
 </div>"
 `;
 
+exports[`User > renders with color correctly 1`] = `
+"<div data-orientation="horizontal" data-slot="root" class="relative group/user flex items-center gap-2"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--b24ui-background) ring ring-(--b24ui-border-color) style-filled size-8 text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) shrink-0"><img src="https://github.com/bitrix24.png" alt="User alt" width="32" height="32" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span>
+  <div data-slot="wrapper" class="">
+    <!--v-if-->
+    <p data-slot="name" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-label-color) text-(length:--ui-font-size-sm)">User name</p>
+    <p data-slot="description" class="text-(--b24ui-typography-description-color) text-(length:--ui-font-size-xs)">User description</p>
+  </div>
+</div>"
+`;
+
 exports[`User > renders with default slot correctly 1`] = `
 "<div data-orientation="horizontal" data-slot="root" class="relative group/user flex items-center gap-2"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--b24ui-background) ring ring-(--b24ui-border-color) style-outline-no-accent size-8 text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) shrink-0"><img src="https://github.com/bitrix24.png" alt="User alt" width="32" height="32" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span>
   <div data-slot="wrapper" class="">

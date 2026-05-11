@@ -124,6 +124,25 @@ ignore:
 
 ::
 
+### Color :badge{label="Soon" class="align-text-top"}
+
+Use the `color` prop to tint the inner [Avatar](/docs/components/avatar/). An explicit `avatar.color` overrides this default.
+
+::component-code
+---
+prettier: true
+ignore:
+  - name
+  - description
+  - avatar.src
+props:
+  name: 'John Doe'
+  description: 'Software Engineer'
+  avatar.src: '/b24ui/avatar/employee.png'
+  color: 'air-primary-alert'
+---
+::
+
 ### Size
 
 Use the `size` prop to change the size of the user avatar and text.
