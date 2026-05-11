@@ -43,6 +43,7 @@ describe('Toast', () => {
     ['with closeIcon', { props: { ...props, closeIcon: Cross30Icon } }],
     ['with type', { props: { ...props, type: 'background' } }],
     ['with color success', { props: { ...props, color: 'air-primary-success' } }],
+    ['with color and avatar', { props: { ...props, color: 'air-primary-success', avatar: { src: 'https://github.com/bitrix24.png' } } }],
     ['with as', { props: { ...props, as: 'section' } }],
     ['with class', { props: { ...props, class: 'bg-red-500/50' } }],
     ['with b24ui', { props: { ...props, b24ui: { title: 'font-(--ui-font-weight-bold)' } } }],
