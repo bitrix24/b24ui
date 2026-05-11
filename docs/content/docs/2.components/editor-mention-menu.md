@@ -45,6 +45,7 @@ Use the `items` prop as an array of objects with the following properties:
 
 - `label: string`{lang="ts-type"}
 - `avatar?: AvatarProps`{lang="ts-type"}
+- `color?: AvatarProps['color']`{lang="ts-type"}
 - `icon?: IconComponent`{lang="ts-type"}
 - `description?: string`{lang="ts-type"}
 - `disabled?: boolean`{lang="ts-type"}
