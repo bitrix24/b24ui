@@ -2,7 +2,7 @@
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/page-card'
-import type { IconComponent, LinkProps } from '../types'
+import type { IconComponent, LinkProps, AvatarProps } from '../types'
 import type { ComponentConfig } from '../types/tv'
 
 type PageCard = ComponentConfig<typeof theme, AppConfig, 'pageCard'>
@@ -18,10 +18,16 @@ export interface PageCardProps {
    */
   as?: any
   /**
-   * The icon displayed above the title.
+   * The icon displayed above the title. Takes precedence over `avatar` — when both
+   * are set, only the plain icon is rendered.
    * @IconComponent
    */
   icon?: IconComponent
+  /**
+   * Render a `B24Avatar` in the leading position. Ignored when `icon` is set.
+   * Avatar size falls back to the theme's `leadingAvatarSize` slot.
+   */
+  avatar?: AvatarProps
   title?: string
   description?: string
   /**
@@ -71,6 +77,7 @@ import { useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
 import { getSlotChildrenText } from '../utils'
 import { tv } from '../utils/tv'
+import B24Avatar from './Avatar.vue'
 import B24Link from './Link.vue'
 
 defineOptions({ inheritAttrs: false })
@@ -114,14 +121,26 @@ const ariaLabel = computed(() => {
     @click="props.onClick"
   >
     <div data-slot="container" :class="b24ui.container({ class: props.b24ui?.container })">
-      <div v-if="!!slots.header || (props.icon || !!slots.leading) || !!slots.body || (props.title || !!slots.title) || (props.description || !!slots.description) || !!slots.footer" data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
+      <div v-if="!!slots.header || (props.icon || props.avatar || !!slots.leading) || !!slots.body || (props.title || !!slots.title) || (props.description || !!slots.description) || !!slots.footer" data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
         <div v-if="!!slots.header" data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
           <slot name="header" />
         </div>
 
-        <div v-if="props.icon || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
+        <div v-if="props.icon || props.avatar || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
           <slot name="leading" :b24ui="b24ui">
-            <Component :is="props.icon" v-if="props.icon" data-slot="leadingIcon" :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })" />
+            <Component
+              :is="props.icon"
+              v-if="props.icon"
+              data-slot="leadingIcon"
+              :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
+            />
+            <B24Avatar
+              v-else-if="!!props.avatar"
+              :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+              v-bind="props.avatar"
+              data-slot="leadingAvatar"
+              :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
+            />
           </slot>
         </div>
 
