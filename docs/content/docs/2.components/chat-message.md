@@ -185,6 +185,37 @@ collapse: true
 ---
 ::
 
+### Color :badge{label="Soon" class="align-text-top"}
+
+Use the `color` prop to tint the inner [Avatar](/docs/components/avatar/). An explicit `avatar.color` overrides this default.
+
+::component-code
+---
+prettier: true
+ignore:
+  - parts
+  - side
+  - variant
+  - role
+  - id
+  - avatar.src
+  - avatar.loading
+props:
+  color: 'air-primary-copilot'
+  avatar:
+    src: 'https://github.com/bitrix24.png'
+    loading: lazy
+  variant: 'message'
+  side: 'left'
+  parts:
+    - type: 'text'
+      id: '1'
+      text: 'Hello! Tell me more about building AI chatbots with Bitrix24 UI.'
+  role: 'assistant'
+  id: '1'
+---
+::
+
 ### Actions
 
 Use the `actions` prop to display actions below the message that will be displayed when hovering over the message.

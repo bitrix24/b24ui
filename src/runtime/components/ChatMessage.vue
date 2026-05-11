@@ -23,6 +23,10 @@ export interface ChatMessageProps<TMetadata = unknown, TDataParts extends UIData
   icon?: IconComponent
   avatar?: AvatarProps & { [key: string]: any }
   /**
+   * Default `color` for the inner `B24Avatar`. Overridden by `avatar.color` when set.
+   */
+  color?: AvatarProps['color']
+  /**
    * @defaultValue 'message'
    */
   variant?: ChatMessage['variants']['variant']
@@ -77,7 +81,7 @@ const appConfig = useAppConfig() as ChatMessage['AppConfig']
 const fileParts = computed(() => props.parts?.filter((part): part is FileUIPart => part.type === 'file') ?? [])
 const textParts = computed(() => props.parts?.filter((part): part is TextUIPart => part.type === 'text') ?? [])
 
-const messageProps = computed(() => omit(props, ['as', 'icon', 'avatar', 'variant', 'side', 'actions', 'compact', 'class', 'b24ui']))
+const messageProps = computed(() => omit(props, ['as', 'icon', 'avatar', 'color', 'variant', 'side', 'actions', 'compact', 'class', 'b24ui']))
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chatMessage || {}) })({
@@ -99,7 +103,14 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chatMe
       <div v-if="props.icon || props.avatar || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
         <slot name="leading" v-bind="{ ...messageProps, avatar: props.avatar, b24ui }">
           <Component :is="props.icon" v-if="props.icon" data-slot="leadingIcon" :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })" />
-          <B24Avatar v-else-if="props.avatar" :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])" v-bind="props.avatar" data-slot="leadingAvatar" :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })" />
+          <B24Avatar
+            v-else-if="props.avatar"
+            :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+            :color="props.color"
+            v-bind="props.avatar"
+            data-slot="leadingAvatar"
+            :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
+          />
         </slot>
       </div>
 

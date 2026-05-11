@@ -22,6 +22,7 @@ describe('ChatMessage', () => {
     ['with content', { props: { ...props, content: 'Hello, how are you?' } }],
     ['with icon', { props: { ...props, icon: Search2Icon } }],
     ['with avatar', { props: { ...props, avatar: { src: 'https://github.com/bitrix24.png' } } }],
+    ['with color', { props: { ...props, avatar: { src: 'https://github.com/bitrix24.png' }, color: 'air-primary' as const } }],
     ['with role assistant', { props: { ...props, role: 'assistant' as const } }],
     ['with side right', { props: { ...props, side: 'right' } }],
     ['with compact', { props: { ...props, compact: true } }],
@@ -87,7 +88,7 @@ describe('ChatMessage', () => {
       }
     })
 
-    for (const key of ['as', 'icon', 'avatar', 'variant', 'side', 'actions', 'compact', 'class', 'b24ui']) {
+    for (const key of ['as', 'icon', 'avatar', 'color', 'variant', 'side', 'actions', 'compact', 'class', 'b24ui']) {
       expect(captured[0]).not.toHaveProperty(key)
     }
   })
