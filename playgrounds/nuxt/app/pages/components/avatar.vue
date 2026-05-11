@@ -3,8 +3,11 @@ import theme from '#build/b24ui/avatar'
 import IncertImageIcon from '@bitrix24/b24icons-vue/editor/IncertImageIcon'
 
 const sizes = Object.keys(theme.variants.size)
+const colors = Object.keys(theme.variants.color)
+
 const attrs = reactive({
-  size: [theme.defaultVariants.size]
+  size: [theme.defaultVariants.size],
+  color: [theme.defaultVariants.color]
 })
 
 const showGroup = ref(false)
@@ -18,6 +21,14 @@ const showGroup = ref(false)
         class="w-32"
         :items="sizes"
         placeholder="Size"
+        multiple
+        size="xs"
+      />
+      <B24Select
+        v-model="attrs.color"
+        class="w-32"
+        :items="colors"
+        placeholder="Color"
         multiple
         size="xs"
       />
