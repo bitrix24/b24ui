@@ -19,9 +19,29 @@ export default {
       'xl': { base: '-me-2' },
       '2xl': { base: '-me-2' },
       '3xl': { base: '-me-2' }
+    },
+    color: {
+      'air-primary': '',
+      'air-primary-success': '',
+      'air-primary-alert': '',
+      'air-primary-copilot': '',
+      'air-primary-warning': '',
+      'air-primary-no-accent': '',
+      'air-secondary': '',
+      'air-secondary-alert': '',
+      'air-secondary-accent': '',
+      'air-secondary-accent-1': '',
+      'air-secondary-accent-2': '',
+      'air-secondary-no-accent': '',
+      'air-tertiary': '',
+      'air-tertiary-accent': '',
+      'air-tertiary-no-accent': '',
+      'air-selection': '',
+      'air-boost': ''
     }
   },
   defaultVariants: {
-    size: 'md'
+    size: 'md',
+    color: 'air-secondary-no-accent'
   }
 }

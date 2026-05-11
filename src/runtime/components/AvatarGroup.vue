@@ -17,6 +17,10 @@ export interface AvatarGroupProps {
    */
   size?: AvatarGroup['variants']['size']
   /**
+   * @defaultValue 'air-secondary-no-accent'
+   */
+  color?: AvatarGroup['variants']['color']
+  /**
    * The maximum number of avatars to display.
    */
   max?: number | string
@@ -47,7 +51,8 @@ const appConfig = useAppConfig() as AvatarGroup['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.avatarGroup || {}) })({
-  size: props.size
+  size: props.size,
+  color: props.color
 }))
 
 // eslint-disable-next-line vue/no-dupe-keys
@@ -94,7 +99,8 @@ const hiddenCount = computed(() => {
 })
 
 provide(avatarGroupInjectionKey, computed(() => ({
-  size: props.size
+  size: props.size,
+  color: props.color
 })))
 </script>
 

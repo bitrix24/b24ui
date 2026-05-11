@@ -12,15 +12,34 @@ export default {
       'select-none',
       'rounded-full',
       'align-middle',
-      'bg-(--ui-color-base-8)',
-      'ring ring-(--ui-color-base-7)'
+      'bg-(--b24ui-background)', // bg-(--ui-color-base-8)
+      'ring ring-(--b24ui-border-color)' // ring-(--ui-color-base-7)
       // 'overflow-hidden'
     ].join(' '),
     image: 'h-full w-full rounded-[inherit] object-cover',
-    fallback: 'font-(--ui-font-weight-medium) text-(--ui-color-design-plain-content-icon-secondary) truncate',
-    icon: 'text-(--ui-color-design-plain-content-icon-secondary) shrink-0'
+    fallback: 'font-(--ui-font-weight-medium) text-(--b24ui-color) truncate', //  text-(--ui-color-design-plain-content-icon-secondary)
+    icon: 'text-(--b24ui-icon) shrink-0' // text-(--ui-color-design-plain-content-icon-secondary)
   },
   variants: {
+    color: {
+      'air-primary': { root: 'style-filled' },
+      'air-primary-success': { root: 'style-filled-success' },
+      'air-primary-alert': { root: 'style-filled-alert' },
+      'air-primary-copilot': { root: 'style-filled-copilot' },
+      'air-primary-warning': { root: 'style-filled-warning' },
+      'air-primary-no-accent': { root: 'style-filled-no-accent' },
+      'air-secondary': { root: 'style-tinted' },
+      'air-secondary-alert': { root: 'style-tinted-alert' },
+      'air-secondary-accent': { root: 'style-outline' },
+      'air-secondary-accent-1': { root: 'style-outline-accent-1' },
+      'air-secondary-accent-2': { root: 'style-outline-accent-2' },
+      'air-secondary-no-accent': { root: 'style-outline-no-accent' },
+      'air-tertiary': { root: 'style-plain' },
+      'air-tertiary-accent': { root: 'style-plain-accent' },
+      'air-tertiary-no-accent': { root: 'style-plain-no-accent' },
+      'air-selection': { root: 'style-selection' },
+      'air-boost': { root: 'style-filled-boost' }
+    },
     size: {
       '3xs': {
         root: 'size-2.5 text-4xs font-(--ui-font-weight-regular)',
@@ -61,6 +80,7 @@ export default {
     }
   },
   defaultVariants: {
-    size: 'md'
+    size: 'md',
+    color: 'air-secondary-no-accent'
   }
 }
