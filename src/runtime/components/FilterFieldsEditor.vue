@@ -22,14 +22,14 @@ export interface FilterFieldsEditorProps {
   isMobile?: boolean
 }
 
-export interface FilterFieldsEditorEmits {
-  (e: 'apply'): void
-  (e: 'reset'): void
-  (e: 'fields-reset'): void
-  (e: 'add-field', id: string): void
-  (e: 'remove-field', id: string): void
-  (e: 'reorder-fields', ids: string[]): void
-  (e: 'update-condition', id: string, condition: FilterFieldCondition | null): void
+export type FilterFieldsEditorEmits = {
+  'apply': []
+  'reset': []
+  'fields-reset': []
+  'add-field': [id: string]
+  'remove-field': [id: string]
+  'reorder-fields': [ids: string[]]
+  'update-condition': [id: string, condition: FilterFieldCondition | null]
 }
 
 type FieldSlotProps = {
@@ -117,13 +117,6 @@ const sortableValue = computed({
     emits('reorder-fields', value.map(f => f.id))
   }
 })
-
-function isFirst(id: string) {
-  return props.activeFields[0] === id
-}
-function isLast(id: string) {
-  return props.activeFields[props.activeFields.length - 1] === id
-}
 </script>
 
 <template>

@@ -5,34 +5,34 @@ import type { AvatarProps } from '../components/Avatar.vue'
  * Field types supported in the core.
  * Extension — via type 'custom' + slot `field-{type}` (or `field-{customMeta.kind}`).
  */
-export type FilterFieldType =
-  | 'string'
-  | 'number'
-  | 'money'
-  | 'date'
-  | 'time'
-  | 'select'
-  | 'multiselect'
-  | 'boolean'
-  | 'custom'
+export type FilterFieldType
+  = | 'string'
+    | 'number'
+    | 'money'
+    | 'date'
+    | 'time'
+    | 'select'
+    | 'multiselect'
+    | 'boolean'
+    | 'custom'
 
 /**
  * Filter operators.
  * `filled` / `empty` describe data state in the record (value present / absent), not a UI mode.
  */
-export type FilterOperator =
-  | 'eq'
-  | 'neq'
-  | 'gt'
-  | 'gte'
-  | 'lt'
-  | 'lte'
-  | 'between'
-  | 'in'
-  | 'contains'
-  | 'startsWith'
-  | 'filled'
-  | 'empty'
+export type FilterOperator
+  = | 'eq'
+    | 'neq'
+    | 'gt'
+    | 'gte'
+    | 'lt'
+    | 'lte'
+    | 'between'
+    | 'in'
+    | 'contains'
+    | 'startsWith'
+    | 'filled'
+    | 'empty'
 
 export interface FilterFieldOption {
   value: string | number
@@ -87,23 +87,23 @@ export interface FilterFieldConfig {
  * Condition for a single field = operator + (optional) value.
  * Discriminated union by `operator` for strict value typing.
  */
-export type FilterFieldCondition =
-  | { operator: 'filled' }
-  | { operator: 'empty' }
-  | { operator: 'between', value: [unknown, unknown] }
-  | { operator: 'in', value: unknown[] }
-  | {
-    operator:
-      | 'eq'
-      | 'neq'
-      | 'gt'
-      | 'gte'
-      | 'lt'
-      | 'lte'
-      | 'contains'
-      | 'startsWith'
-    value: unknown
-  }
+export type FilterFieldCondition
+  = | { operator: 'filled' }
+    | { operator: 'empty' }
+    | { operator: 'between', value: [unknown, unknown] }
+    | { operator: 'in', value: unknown[] }
+    | {
+      operator:
+        | 'eq'
+        | 'neq'
+        | 'gt'
+        | 'gte'
+        | 'lt'
+        | 'lte'
+        | 'contains'
+        | 'startsWith'
+      value: unknown
+    }
 
 /**
  * Value map: field id → its condition.
@@ -113,27 +113,27 @@ export type FilterFieldCondition =
 export type FilterValue = Record<string, FilterFieldCondition>
 
 /** Bitrix-style date range presets */
-export type FilterDatePreset =
-  | 'today'
-  | 'yesterday'
-  | 'tomorrow'
-  | 'this-week'
-  | 'last-week'
-  | 'this-month'
-  | 'last-month'
-  | 'this-quarter'
-  | 'last-quarter'
-  | 'this-year'
+export type FilterDatePreset
+  = | 'today'
+    | 'yesterday'
+    | 'tomorrow'
+    | 'this-week'
+    | 'last-week'
+    | 'this-month'
+    | 'last-month'
+    | 'this-quarter'
+    | 'last-quarter'
+    | 'this-year'
 
 /**
  * Value for FilterFieldCondition.value when the field type is `date`.
  */
-export type FilterDateValue =
-  | { kind: 'any' }
-  | { kind: 'preset', preset: FilterDatePreset }
-  | { kind: 'exact', date: string }
-  | { kind: 'range', from: string, to: string }
-  | { kind: 'relative', days: number, direction: 'past' | 'future' }
+export type FilterDateValue
+  = | { kind: 'any' }
+    | { kind: 'preset', preset: FilterDatePreset }
+    | { kind: 'exact', date: string }
+    | { kind: 'range', from: string, to: string }
+    | { kind: 'relative', days: number, direction: 'past' | 'future' }
 
 export interface FilterPreset {
   /** Unique id */
@@ -164,8 +164,8 @@ export interface FilterPreset {
  * One item in the v-model array of InputTags inside FilterBar.
  * Slot `item-text` renders each tag based on `kind`.
  */
-export type FilterBarTag =
-  | {
+export type FilterBarTag
+  = | {
     kind: 'preset'
     presetId: string
     label: string

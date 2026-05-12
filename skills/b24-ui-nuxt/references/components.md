@@ -62,6 +62,7 @@ Quick-reference index of 125+ components. For detailed API specifications (props
 | `B24Slider` | Range slider | [range.md](https://bitrix24.github.io/b24ui/raw/docs/components/range.md) |
 | `B24ColorPicker` | Color picker (hex/rgb/hsl) | [color-picker.md](https://bitrix24.github.io/b24ui/raw/docs/components/color-picker.md) |
 | `B24FileUpload` | File upload (button or drop area) | [file-upload.md](https://bitrix24.github.io/b24ui/raw/docs/components/file-upload.md) |
+| `B24Filter` | Composite filter (search + presets + draggable field editor) modelled after the native Bitrix24 filter. View-only: state flows through props/events, REST is the consumer's responsibility. | [filter.md](https://bitrix24.github.io/b24ui/raw/docs/components/filter.md) |
 | `B24Form` | Validation wrapper with Standard Schema | [form.md](https://bitrix24.github.io/b24ui/raw/docs/components/form.md) |
 | `B24FormField` | Field wrapper with label, hint, errors | [form-field.md](https://bitrix24.github.io/b24ui/raw/docs/components/form-field.md) |
 
