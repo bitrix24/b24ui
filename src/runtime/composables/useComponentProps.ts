@@ -89,6 +89,7 @@ export interface ThemeDefaults {
   error?: Partial<ComponentTypes.ErrorProps>
   fieldGroup?: Partial<ComponentTypes.FieldGroupProps>
   fileUpload?: Partial<ComponentTypes.FileUploadProps>
+  filter?: Partial<ComponentTypes.FilterProps>
   footer?: Partial<ComponentTypes.FooterProps>
   footerColumns?: Partial<ComponentTypes.FooterColumnsProps>
   // TODO: `FormProps` carries three generics for state, schema, and fields —
