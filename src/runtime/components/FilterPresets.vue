@@ -16,11 +16,11 @@ export interface FilterPresetsProps {
   isMobile?: boolean
 }
 
-export interface FilterPresetsEmits {
-  (e: 'apply-preset', id: string): void
-  (e: 'save-preset', name: string): void
-  (e: 'update-preset', id: string, patch: Partial<FilterPreset>): void
-  (e: 'delete-preset', id: string): void
+export type FilterPresetsEmits = {
+  'apply-preset': [id: string]
+  'save-preset': [name: string]
+  'update-preset': [id: string, patch: Partial<FilterPreset>]
+  'delete-preset': [id: string]
 }
 
 export interface FilterPresetsSlots {

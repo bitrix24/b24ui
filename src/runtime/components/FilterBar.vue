@@ -24,13 +24,13 @@ export interface FilterBarProps {
   uiClasses?: any
 }
 
-export interface FilterBarEmits {
-  (e: 'open'): void
-  (e: 'apply'): void
-  (e: 'reset'): void
-  (e: 'update:searchQuery', value: string): void
-  (e: 'update:activePresetId', value: string | null): void
-  (e: 'remove-condition', fieldId: string): void
+export type FilterBarEmits = {
+  'open': []
+  'apply': []
+  'reset': []
+  'update:searchQuery': [value: string]
+  'update:activePresetId': [value: string | null]
+  'remove-condition': [fieldId: string]
 }
 
 export interface FilterBarSlots {

@@ -21,11 +21,11 @@ export interface FilterFieldProps {
   uiClasses?: any
 }
 
-export interface FilterFieldEmits {
-  (e: 'update', condition: FilterFieldCondition | null): void
-  (e: 'remove'): void
-  (e: 'move-up'): void
-  (e: 'move-down'): void
+export type FilterFieldEmits = {
+  'update': [condition: FilterFieldCondition | null]
+  'remove': []
+  'move-up': []
+  'move-down': []
 }
 
 type FieldSlotProps = {
@@ -210,6 +210,12 @@ const menuItems = computed(() => {
 })
 
 const hideValueControl = computed(() => stateOp.value)
+
+const numberValue = computed(() => currentValue.value as number | undefined)
+const rangeFrom = computed(() => (currentValue.value as unknown[] | undefined)?.[0] as number | undefined)
+const rangeTo = computed(() => (currentValue.value as unknown[] | undefined)?.[1] as number | undefined)
+const stringValue = computed(() => (currentValue.value as string | undefined) ?? '')
+const multiselectValue = computed(() => (currentValue.value as unknown[] | undefined) ?? [])
 </script>
 
 <template>
@@ -246,7 +252,7 @@ const hideValueControl = computed(() => stateOp.value)
       >
         <template v-if="props.field.type === 'string'">
           <B24Input
-            :model-value="hideValueControl ? '' : (currentValue as string | undefined) ?? ''"
+            :model-value="hideValueControl ? '' : stringValue"
             :placeholder="props.field.placeholder ?? props.locale.placeholders.value"
             :disabled="props.disabled || hideValueControl"
             class="w-full"
@@ -266,13 +272,13 @@ const hideValueControl = computed(() => stateOp.value)
             />
             <template v-if="currentOperator === 'between'">
               <B24InputNumber
-                :model-value="((currentValue as any[])?.[0]) as number | undefined"
+                :model-value="rangeFrom"
                 :disabled="props.disabled || hideValueControl"
                 class="flex-1"
                 @update:model-value="(v: number) => setRangePart(0, v)"
               />
               <B24InputNumber
-                :model-value="((currentValue as any[])?.[1]) as number | undefined"
+                :model-value="rangeTo"
                 :disabled="props.disabled || hideValueControl"
                 class="flex-1"
                 @update:model-value="(v: number) => setRangePart(1, v)"
@@ -280,7 +286,7 @@ const hideValueControl = computed(() => stateOp.value)
             </template>
             <template v-else>
               <B24InputNumber
-                :model-value="(currentValue as number | undefined)"
+                :model-value="numberValue"
                 :disabled="props.disabled || hideValueControl"
                 class="flex-1"
                 @update:model-value="(v: number) => setValue(v)"
@@ -302,7 +308,7 @@ const hideValueControl = computed(() => stateOp.value)
         <template v-else-if="props.field.type === 'time'">
           <B24Input
             type="time"
-            :model-value="(currentValue as string | undefined) ?? ''"
+            :model-value="stringValue"
             :disabled="props.disabled || hideValueControl"
             class="w-full"
             @update:model-value="(v: string) => setValue(v)"
@@ -321,7 +327,7 @@ const hideValueControl = computed(() => stateOp.value)
 
         <template v-else-if="props.field.type === 'multiselect'">
           <B24SelectMenu
-            :model-value="(currentValue as unknown[]) ?? []"
+            :model-value="multiselectValue"
             :items="(props.field.options ?? []) as any"
             multiple
             :disabled="props.disabled || hideValueControl"

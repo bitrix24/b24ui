@@ -28,18 +28,18 @@ export interface FilterPanelProps {
   isMobile?: boolean
 }
 
-export interface FilterPanelEmits {
-  (e: 'apply'): void
-  (e: 'reset'): void
-  (e: 'fields-reset'): void
-  (e: 'add-field', id: string): void
-  (e: 'remove-field', id: string): void
-  (e: 'reorder-fields', ids: string[]): void
-  (e: 'update-condition', id: string, condition: FilterFieldCondition | null): void
-  (e: 'apply-preset', id: string): void
-  (e: 'save-preset', name: string): void
-  (e: 'update-preset', id: string, patch: Partial<FilterPreset>): void
-  (e: 'delete-preset', id: string): void
+export type FilterPanelEmits = {
+  'apply': []
+  'reset': []
+  'fields-reset': []
+  'add-field': [id: string]
+  'remove-field': [id: string]
+  'reorder-fields': [ids: string[]]
+  'update-condition': [id: string, condition: FilterFieldCondition | null]
+  'apply-preset': [id: string]
+  'save-preset': [name: string]
+  'update-preset': [id: string, patch: Partial<FilterPreset>]
+  'delete-preset': [id: string]
 }
 
 type FieldSlotProps = {

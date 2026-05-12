@@ -62,23 +62,23 @@ export interface FilterProps {
   b24ui?: Filter['slots']
 }
 
-export interface FilterEmits {
-  (e: 'update:modelValue', value: FilterValue): void
-  (e: 'update:activeFields', fields: string[]): void
-  (e: 'update:activePresetId', id: string | null): void
-  (e: 'update:searchQuery', query: string): void
+export type FilterEmits = {
+  'update:modelValue': [value: FilterValue]
+  'update:activeFields': [fields: string[]]
+  'update:activePresetId': [id: string | null]
+  'update:searchQuery': [query: string]
   /** "Find" pressed or Enter in search. AND between values and query. */
-  (e: 'apply', payload: { values: FilterValue, query: string, presetId: string | null }): void
+  'apply': [payload: { values: FilterValue, query: string, presetId: string | null }]
   /** "Reset" — clears values, keeps the active field set. */
-  (e: 'reset'): void
+  'reset': []
   /** "Reset to default fields" — restores the default field set. */
-  (e: 'fieldsReset'): void
+  'fieldsReset': []
   /** Save the current state as a new preset. */
-  (e: 'presetSave', payload: { name: string, preset: Omit<FilterPreset, 'id'> }): void
+  'presetSave': [payload: { name: string, preset: Omit<FilterPreset, 'id'> }]
   /** Update a preset (rename, pin, order). */
-  (e: 'presetUpdate', payload: { id: string, patch: Partial<FilterPreset> }): void
+  'presetUpdate': [payload: { id: string, patch: Partial<FilterPreset> }]
   /** Delete a preset. */
-  (e: 'presetDelete', id: string): void
+  'presetDelete': [id: string]
 }
 
 type FieldSlotProps = {
@@ -95,7 +95,7 @@ export interface FilterSlots {
   /** Placeholder when there are no active fields */
   'empty-fields'?(): VNode[]
   /** Custom FilterBar (override of the built-in InputTags bar) */
-  bar?(props: {
+  'bar'?(props: {
     tags: FilterBarTag[]
     searchQuery: string
     open: () => void
@@ -156,10 +156,10 @@ const localeStrings = computed<FilterLocale>(() => {
   }
 })
 
-const fields = computed(() => props.fields ?? [])
+const allFields = computed(() => props.fields ?? [])
 const fieldMap = computed(() => {
   const map = new Map<string, FilterFieldConfig>()
-  for (const f of fields.value) map.set(f.id, f)
+  for (const f of allFields.value) map.set(f.id, f)
   return map
 })
 
@@ -217,13 +217,15 @@ function setActivePresetId(id: string | null) {
 }
 
 function updateCondition(fieldId: string, condition: FilterFieldCondition | null) {
-  const next = { ...safeValues.value }
   if (condition === null) {
-    delete next[fieldId]
+    const next: FilterValue = {}
+    for (const [k, v] of Object.entries(safeValues.value)) {
+      if (k !== fieldId) next[k] = v
+    }
+    setValues(next)
   } else {
-    next[fieldId] = condition
+    setValues({ ...safeValues.value, [fieldId]: condition })
   }
-  setValues(next)
 }
 
 function addField(fieldId: string) {
@@ -236,8 +238,10 @@ function removeField(fieldId: string) {
   if (field?.pinned) return
   setActiveFields(safeActiveFields.value.filter(id => id !== fieldId))
   if (safeValues.value[fieldId]) {
-    const next = { ...safeValues.value }
-    delete next[fieldId]
+    const next: FilterValue = {}
+    for (const [k, v] of Object.entries(safeValues.value)) {
+      if (k !== fieldId) next[k] = v
+    }
     setValues(next)
   }
 }
@@ -333,8 +337,8 @@ defineExpose({
   applyPreset,
   apply,
   reset,
-  open: openPanel,
-  close: closePanel
+  openPanel,
+  closePanel
 })
 </script>
 
@@ -352,7 +356,7 @@ defineExpose({
       :reset="reset"
     >
       <FilterBar
-        :fields="fields"
+        :fields="allFields"
         :field-map="fieldMap"
         :active-fields="safeActiveFields"
         :values="safeValues"
@@ -385,7 +389,7 @@ defineExpose({
       </template>
       <template #content>
         <FilterPanel
-          :fields="fields"
+          :fields="allFields"
           :field-map="fieldMap"
           :active-fields="safeActiveFields"
           :values="safeValues"
@@ -430,7 +434,7 @@ defineExpose({
     >
       <template #body>
         <FilterPanel
-          :fields="fields"
+          :fields="allFields"
           :field-map="fieldMap"
           :active-fields="safeActiveFields"
           :values="safeValues"
