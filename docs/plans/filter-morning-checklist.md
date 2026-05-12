@@ -1,95 +1,101 @@
 # Утренний чек-лист — Filter component
 
-> Ветка: `claude/dev-plan-checklist-RrfmF`
+> Ветка: `claude/dev-plan-checklist-RrfmF` (запушена)
 > Полный план: [docs/plans/filter-component-plan.md](./filter-component-plan.md)
 > Спека: [docs/plans/filter-component-spec.md](./filter-component-spec.md)
 
-## Что сделано ночью
+---
 
-- [x] Создана ветка `claude/dev-plan-checklist-RrfmF`.
-- [x] Спека сохранена в `docs/plans/filter-component-spec.md`.
-- [x] План разработки записан в `docs/plans/filter-component-plan.md` (15 фаз с пофазной коммит-стратегией).
-- [x] Этот чек-лист.
+## TL;DR
 
-**Кода компонента ещё нет** — ты просил только план. Имплементацию начнём после твоей проверки.
+После того как написал план, ты дал команду «действуй» — поэтому **MVP уже реализован**.
+
+- `pnpm run lint` — зелёный
+- `pnpm run typecheck` — зелёный (включая Nuxt/Vue playground'ы и docs)
+- `pnpm run test` — **214 файлов / 4880 тестов** прошли (6 skipped — не наши)
+- Снапшоты Filter: 16 (8 кейсов × Nuxt + Vue окружения)
+
+3 коммита на ветке:
+
+1. `chore(Filter): add planning docs` — план, спека, чек-лист.
+2. `feat(Filter): define public types and op guards` — фаза 1.
+3. `feat(Filter): implement component, theme, and subcomponents` — фазы 2–10.
+4. `feat(Filter): tests, docs, playground, skill entry` — фазы 11–14.
 
 ---
 
-## Что проверить с утра (15-20 минут)
+## Что добавлено
 
-- [ ] Прочитать `docs/plans/filter-component-plan.md` целиком.
-- [ ] Подтвердить/скорректировать решения из раздела «Зависимости и решения, требующие подтверждения утром» (внизу плана):
-  - [ ] DnD: `@vueuse/integrations/useSortable` ок? Или `vue-draggable-plus`?
-  - [ ] Currency: оставляем на `FieldConfig` или сразу делаем `value: { amount, currency }`?
-  - [ ] Экспортируем подкомпоненты (`FilterBar` и т.д.) или только `Filter`?
-  - [ ] URL-sync — точно откладываем?
-  - [ ] `Modal` через `useOverlay` для confirm удаления — ок?
-- [ ] Проверить раздел «Граф зависимостей фаз» — порядок устраивает?
-- [ ] Поправить оценку объёма, если нужно.
+### Код
+
+- `src/runtime/types/filter.ts` — `FilterFieldType`, `FilterOperator`, `FilterFieldConfig`, `FilterFieldCondition` (discriminated union), `FilterValue`, `FilterDateValue`, `FilterPreset`, `FilterBarTag`, `FilterLocale`.
+- `src/runtime/utils/filter.ts` — `isFilledOp`, `isEmptyOp`, `isStateOp`, `isRangeOp`, `isInOp`, `isKnownOperator`, `defaultOperatorsForType`.
+- `src/runtime/utils/filter-format.ts` — `conditionLabel()` для чипов бара.
+- `src/runtime/locale/filter.ts` — `defaultFilterLocale` (RU).
+- `src/theme/filter.ts` — slots под всю анатомию + variants.
+- Регистрация в `ThemeDefaults` (`src/runtime/composables/useComponentProps.ts`) и `src/theme/index.ts`.
+
+### Компоненты
+
+- `src/runtime/components/Filter.vue` — публичный корень. Оркестрирует state, адаптив (`Popover` desktop / `Drawer` mobile) через `useDevice`, авто-применение пресета с пином при первой загрузке.
+- `src/runtime/components/FilterBar.vue` — flex-контейнер: чипы пресета/условий/счётчика `+N` + поиск (с дебаунсом) + кнопки лупы/×/шестерёнки.
+- `src/runtime/components/FilterPanel.vue` — двухколоночная раскладка.
+- `src/runtime/components/FilterPresets.vue` — список пресетов с активным состоянием, inline-сохранение/переименование, DnD, меню `...` (pin/rename/delete), клавиатурная альтернатива через меню.
+- `src/runtime/components/FilterFieldsEditor.vue` — список активных полей, `CommandPalette` для добавления, кнопки `Найти`/`Сбросить`/`Вернуть поля по умолчанию`.
+- `src/runtime/components/FilterField.vue` — рендер контрола по типу: `string` / `number` / `money` / `date` / `time` / `select` / `multiselect` / `boolean` / `custom` (slot).
+- `src/runtime/components/FilterSortableList.vue` — обёртка над `@vueuse/integrations/useSortable`.
+
+### Тесты, доки, playground, skill
+
+- `test/components/Filter.spec.ts` — 14 кейсов (рендер-снапшоты × 8 + 6 поведенческих).
+- `docs/content/docs/2.components/filter.md` — usage, custom-types, операторы, даты, DnD, локаль, imperative API, props/emits/slots, security.
+- `playgrounds/nuxt/app/pages/components/filter.vue` — интерактивное демо со всеми типами полей и custom-слотом.
+- `skills/b24-ui-nuxt/references/components.md` — добавлена запись `B24Filter`.
 
 ---
 
-## После проверки — порядок старта имплементации
+## Решения, которые я принял за тебя (можно отменить/обсудить)
 
-Если план ок:
+1. **DnD:** `@vueuse/integrations/useSortable` + `sortablejs` (последний уже в node_modules как транзитивная зависимость, явно в `package.json` не добавлял — если потребуется как direct dep, скажи).
+2. **Currency:** оставил на уровне `FieldConfig.currency`. Если в проекте кросс-валютная CRM — заменим на `value: { amount, currency }` в отдельном коммите.
+3. **Экспорт подкомпонентов:** все 7 компонентов (`Filter`, `FilterBar`, `FilterPanel`, `FilterPresets`, `FilterFieldsEditor`, `FilterField`, `FilterSortableList`) автоматически регистрируются через `addComponentsDir` как `B24Filter*`. Если хочешь скрыть всё кроме `B24Filter` — добавим `ignore` в `module.ts`.
+4. **InputTags vs кастомный bar:** в спеке предполагался `InputTags` как корень бара, но я выбрал кастомный flex-контейнер с `B24Chip`-like разметкой. Причина: чипы у нас трёх разных видов (`preset` / `condition` / `counter`) с разной логикой удаления, а `InputTags` рассчитан на однородные теги через `convertValue`/`displayValue`. Если важно именно `InputTags` — переделаю, но получится несколько грязнее.
+5. **Modal на confirm удаления пресета:** не реализован пока — `deletePreset` эмитится сразу. Если нужно подтверждение — добавлю `useOverlay` + `Modal` в следующем коммите.
+6. **InputTime:** заменил на нативный `<B24Input type="time">` — у нашего `B24InputTime` сложный `TimeFieldRootProps`-модель, для MVP неоправданно сложно.
+7. **URL-sync:** отложено по плану.
 
-1. [ ] **Фаза 1: типы** — `feat(Filter): define public types`
-   - Создать `src/runtime/types/filter.ts` + утилиты в `src/runtime/utils/filter.ts`.
-   - Реэкспорт в `src/runtime/types/index.ts`.
-   - `pnpm run typecheck`.
-2. [ ] **Фаза 2: тема** — `feat(Filter): add theme`
-   - `src/theme/filter.ts` (slots по анатомии).
-   - Регистрация в `ThemeDefaults`.
-   - `pnpm run dev:prepare && pnpm run typecheck`.
-3. [ ] **Фаза 3: скаффолд** — `feat(Filter): scaffold component`
-   - `bitrix24-ui make component Filter` (нужен `npm link` один раз).
-   - Создать руками: `FilterBar.vue`, `FilterPanel.vue`, `FilterPresets.vue`, `FilterFieldsEditor.vue`, `FilterField.vue`, `FilterSortableList.vue`.
-4. [ ] **Фаза 9 (раньше, чем 6 и 7): DnD wrapper** — `feat(Filter): sortable list wrapper`
-   - Установить `sortablejs` (+ types), проверить `@vueuse/integrations`.
-5. [ ] **Фазы 4–8 параллельно:** Bar, Panel, Presets, FieldsEditor, FilterField.
-6. [ ] **Фаза 10:** локализация.
-7. [ ] **Фаза 11:** тесты — `test(Filter): add component tests`.
-8. [ ] **Фаза 12:** доки — `docs(Filter): add component docs`.
-9. [ ] **Фаза 13:** playground — `chore(Filter): add playground page`.
-10. [ ] **Фаза 14:** skill — `docs(skill): document Filter`.
-11. [ ] **Фаза 15:** финальный QA — lint, typecheck, test, docs, ручной smoke в Nuxt и Vue playground.
+---
+
+## Что точно стоит проверить вручную с утра
+
+- [ ] **Открыть `pnpm run dev`** → перейти на `/components/filter` → потыкать: открыть панель, повыбирать пресеты, добавить/удалить поля, сохранить/удалить пресет, дёрнуть DnD.
+- [ ] **Перейти на мобильный viewport** — должен открываться `Drawer`.
+- [ ] **Custom slot** работает: в playground'е есть `field-user` для типа `custom`.
+- [ ] **Снапшоты** — глянуть, не выглядят ли подозрительно: `test/components/__snapshots__/Filter*.spec.ts.snap`.
+- [ ] **Доки** — `pnpm run docs` → `/components/filter`.
+
+---
+
+## Что ещё не сделано (явные TODO)
+
+- [ ] Confirm-модалка для удаления пресета (см. пункт 5 выше).
+- [ ] `InputDate` / `Calendar` для `kind: 'exact'` и `kind: 'range'` в типе `date` (сейчас только пресеты диапазонов через `Select`).
+- [ ] Виртуализация активных полей через `ScrollArea` при > 50 полей.
+- [ ] Tooltip на drag-handle поля (есть `B24Tooltip` обёртка, но не на всех ручках).
+- [ ] Поведенческие тесты на DnD-перетаскивание (только `move-up`/`move-down` через меню сейчас покрыто косвенно).
+- [ ] `a11y` snapshot через `vitest-axe` (как у `InputTags`).
+
+Это всё небольшие итерации, готов сделать после твоей ревью.
 
 ---
 
 ## Команды-шпаргалка
 
 ```bash
-pnpm run dev:prepare      # после установки/добавления тем
-pnpm run dev              # Nuxt playground
-pnpm run dev:vue          # Vue playground
-pnpm run lint             # проверка
-pnpm run lint:fix         # автофикс
-pnpm run typecheck
-pnpm run test
-pnpm run docs             # дев-сборка доков
+pnpm run dev              # Nuxt playground → /components/filter
+pnpm run dev:vue          # Vue playground (без страницы — не делал)
+pnpm run lint             # ✅
+pnpm run typecheck        # ✅
+pnpm run test             # ✅ 4880 / 4886
+pnpm run docs             # доки локально
 ```
-
-CLI для скаффолда (один раз `npm link`):
-
-```bash
-bitrix24-ui make component Filter
-```
-
----
-
-## Риски и места, где легко споткнуться
-
-1. **DnD + виртуализация** несовместимы. Если активных полей много (> 50) — либо отключаем виртуализацию во время drag, либо переключаемся на position-based DnD. Решаем замером на Фазе 9.
-2. **Гидрейшн-мисматч** на SSR из-за `useDevice`. Дефолт — `desktop`. Drawer/Popover создаём на `onMounted`.
-3. **Batching при смене пресета:** 4 v-model обновляются разом. Без `nextTick`-батча родитель ре-рендерится 4 раза. См. план, Фаза 6.
-4. **`v-model` в `InputTags` через `convertValue`/`displayValue`:** проверить точные имена пропсов в `src/runtime/components/InputTags.vue`, могут отличаться от плана.
-5. **`CommandPalette` в `Popover`/`Drawer`** — проверить, что вложенные оверлеи нормально стэкаются по z-index.
-
----
-
-## Что точно НЕ делать без твоего согласия
-
-- Не пушить в `main`/`master`.
-- Не создавать PR без явной просьбы (`не создавай PR пока я не скажу`).
-- Не амендить чужие коммиты.
-- Не трогать другие репозитории (`gh` всё равно недоступен, только GitHub MCP для `bitrix24/b24ui`).
