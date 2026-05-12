@@ -8,7 +8,7 @@ links:
     to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Header.vue
   - label: Demo
     iconName: DemonstrationOnIcon
-    to: https://bitrix24.github.io/b24ui/demo/components/header
+    to: https://bitrix24.github.io/b24ui/demo/components/header/
   - label: Nuxt UI
     iconName: NuxtIcon
     to: https://ui.nuxt.com/docs/components/header

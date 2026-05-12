@@ -27,6 +27,10 @@ export interface ChatMessageProps<TMetadata = unknown, TDataParts extends UIData
    */
   variant?: ChatMessage['variants']['variant']
   /**
+   * @defaultValue 'auto'
+   */
+  color?: ChatMessage['variants']['color']
+  /**
    * @defaultValue 'left'
    */
   side?: ChatMessage['variants']['side']
@@ -47,6 +51,7 @@ export interface ChatMessageProps<TMetadata = unknown, TDataParts extends UIData
 }
 
 export interface ChatMessageSlots<TMetadata = unknown, TDataParts extends UIDataTypes = UIDataTypes, TTools extends UITools = UITools> {
+  header?(props: UIMessage<TMetadata, TDataParts, TTools>): VNode[]
   leading?(props: UIMessage<TMetadata, TDataParts, TTools> & { avatar: ChatMessageProps<TMetadata, TDataParts, TTools>['avatar'], b24ui: ChatMessage['b24ui'] }): VNode[]
   files?(props: Omit<UIMessage<TMetadata, TDataParts, TTools>, 'parts'> & { parts: FileUIPart[] }): VNode[]
   content?(props: UIMessage<TMetadata, TDataParts, TTools> & { content?: string }): VNode[]
@@ -77,11 +82,12 @@ const appConfig = useAppConfig() as ChatMessage['AppConfig']
 const fileParts = computed(() => props.parts?.filter((part): part is FileUIPart => part.type === 'file') ?? [])
 const textParts = computed(() => props.parts?.filter((part): part is TextUIPart => part.type === 'text') ?? [])
 
-const messageProps = computed(() => omit(props, ['as', 'icon', 'avatar', 'variant', 'side', 'actions', 'compact', 'class', 'b24ui']))
+const messageProps = computed(() => omit(props, ['as', 'icon', 'avatar', 'variant', 'color', 'side', 'actions', 'compact', 'class', 'b24ui']))
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chatMessage || {}) })({
   variant: props.variant,
+  color: props.color,
   side: props.side,
   leading: !!props.icon || !!props.avatar || !!slots.leading,
   actions: !!props.actions || !!slots.actions,
@@ -91,15 +97,26 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chatMe
 
 <template>
   <Primitive :as="props.as" :data-role="props.role" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <div v-if="!!slots.files && fileParts.length" data-slot="files" :class="b24ui.files({ class: props.b24ui?.files })">
-      <slot name="files" v-bind="{ ...messageProps, parts: fileParts }" />
+    <div v-if="(!!slots.files && fileParts.length) || !!slots.header" data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
+      <slot name="header" v-bind="{ ...messageProps }">
+        <div v-if="!!slots.files && fileParts.length" data-slot="files" :class="b24ui.files({ class: props.b24ui?.files })">
+          <slot name="files" v-bind="{ ...messageProps, parts: fileParts }" />
+        </div>
+      </slot>
     </div>
 
     <div data-slot="container" :class="b24ui.container({ class: props.b24ui?.container })">
       <div v-if="props.icon || props.avatar || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
         <slot name="leading" v-bind="{ ...messageProps, avatar: props.avatar, b24ui }">
           <Component :is="props.icon" v-if="props.icon" data-slot="leadingIcon" :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })" />
-          <B24Avatar v-else-if="props.avatar" :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])" v-bind="props.avatar" data-slot="leadingAvatar" :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })" />
+          <B24Avatar
+            v-else-if="props.avatar"
+            :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+            :color="props.color"
+            v-bind="props.avatar"
+            data-slot="leadingAvatar"
+            :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
+          />
         </slot>
       </div>
 
