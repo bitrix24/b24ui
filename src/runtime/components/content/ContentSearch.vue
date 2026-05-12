@@ -66,6 +66,7 @@ export interface ContentSearchProps<T extends ContentSearchLink = ContentSearchL
       fuseOptions: {
         ignoreLocation: true,
         includeMatches: true,
+        useTokenSearch: true,
         threshold: 0.1,
         keys: ['label', 'suffix']
       },
@@ -139,7 +140,8 @@ const getProxySlots = () => omit(slots, ['content'])
 // eslint-disable-next-line vue/no-dupe-keys
 const fuse = computed(() => defu({}, props.fuse, {
   fuseOptions: {
-    includeMatches: true
+    includeMatches: true,
+    useTokenSearch: true
   }
 } as UseFuseOptions<T>))
 
