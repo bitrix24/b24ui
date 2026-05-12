@@ -18,7 +18,7 @@
     "tailwindcss": "^4.3.0",
     "vue": "^3.5.30",
     "vue-router": "^5.0.4",
-    "zod": "^4.4.2",
+    "zod": "^4.4.3",
     "maska": "^3.2.0"
   },
   "devDependencies": {

@@ -11,8 +11,8 @@
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
-    "@ai-sdk/deepseek": "^2.0.29",
-    "@ai-sdk/vue": "^3.0.174",
+    "@ai-sdk/deepseek": "^2.0.34",
+    "@ai-sdk/vue": "^3.0.177",
     "@comark/vue": "^0.3.1",
     "@internationalized/date": "^3.12.1",
     "@nuxt/content": "^3.13.0",
@@ -21,10 +21,10 @@
     "@bitrix24/b24icons-vue": "^2.0.7",
     "@tiptap/extension-emoji": "^3.22.4",
     "@tiptap/extension-text-align": "^3.22.4",
-    "ai": "^6.0.174",
+    "ai": "^6.0.177",
     "nuxt": "^4.4.2",
     "tailwindcss": "^4.3.0",
-    "zod": "^4.4.2",
+    "zod": "^4.4.3",
     "maska": "^3.2.0"
   },
   "devDependencies": {
