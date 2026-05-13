@@ -263,6 +263,17 @@ name: 'popover-anchor-slot-example'
 ---
 ::
 
+### Sales dynamics widget
+
+A real-world example of pairing a Popover with a stats card. The same composition is documented on the [Card](/docs/components/card/#sales-dynamics-widget) page — built from `Card` (with the `filled-copilot` variant), `Button`, `Tooltip` and a small CSS grid, without any custom CSS beyond a couple of translucent overlays for row contrast.
+
+::component-example
+---
+collapse: true
+name: 'card-sales-dynamics-example'
+---
+::
+
 ## API
 
 ### Props
