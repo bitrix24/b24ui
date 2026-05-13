@@ -302,12 +302,12 @@ Use semantic typography utilities (`text-label`, `text-description`) for the tit
 
 ### Sales dynamics widget
 
-A real-world example of pairing a Popover with a stats card. The same composition is documented on the [Card](/docs/components/card/#sales-dynamics-widget) page — built from `Card` over an edge-dark purple radial gradient, plus `Button` (`air-secondary-accent`), `Tooltip` and a small CSS grid, without any custom CSS beyond a couple of translucent overlays for row contrast.
+A real-world example of pairing a Popover with a stats card. The widget itself is documented on the [Card](/docs/components/card/#sales-dynamics-widget) page; here it sits inside `B24Popover` so a trigger button reveals it on demand.
 
 ::component-example
 ---
 collapse: true
-name: 'card-sales-dynamics-example'
+name: 'popover-sales-dynamics-example'
 ---
 ::
 
@@ -320,7 +320,7 @@ actions:
   - windsurf
 class: 'w-full my-0'
 ---
-Reuse the Sales dynamics widget recipe (see `references/recipes/overlays.md` → "Stats widget (KPI summary)") and surface it through a `B24Popover` so a button or in-line link reveals the metrics on demand — useful in dashboard rows, list cells or running text where the full card would be too heavy.
+Take the Sales dynamics widget recipe (see `references/recipes/overlays.md` → "Stats widget (KPI summary)") and surface it through `B24Popover` so a button or in-line link reveals the metrics on demand — useful in dashboard rows, list cells or running text where the full card would be too heavy.
 
 Before writing any code, gather the missing context:
 - What's the trigger — a `B24Button` (discrete control, typically `mode="click"`) or a `B24Link is-action` mid-paragraph (typically `mode="hover"`)?
@@ -335,7 +335,7 @@ Once those answers are in, assemble the popover from stock components only:
 - Render the widget itself inside `#content` exactly as documented in the recipe — the `edge-dark` root, the purple radial gradient (`--ui-color-copilot-bg-content-3 → -2 → -1`), the `style-filled-boost` highlight row and the three `air-secondary-accent` action buttons.
 - For an inline link trigger, anchor the popover with `:content="{ side: 'bottom', sideOffset: 8 }"` so the widget hovers below the link without clipping the surrounding paragraph.
 
-Keep all copy in the requested locale and surface the data through the same props (`title`, `totalLine`, `todayLine`, `rangeLabel`, `rows`, `highlight`) used by the standalone recipe.
+Keep all copy in the requested locale and surface the data through the same shape (`title`, `totalLine`, `todayLine`, `rangeLabel`, `rows`, `highlight`) used by the standalone recipe.
 ::
 
 ## API
