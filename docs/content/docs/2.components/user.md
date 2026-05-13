@@ -135,6 +135,25 @@ ignore:
   - name
   - description
   - avatar.src
+items:
+  color:
+    - air-primary
+    - air-primary-success
+    - air-primary-alert
+    - air-primary-copilot
+    - air-primary-warning
+    - air-primary-no-accent
+    - air-secondary
+    - air-secondary-alert
+    - air-secondary-accent
+    - air-secondary-accent-1
+    - air-secondary-accent-2
+    - air-secondary-no-accent
+    - air-tertiary
+    - air-tertiary-accent
+    - air-tertiary-no-accent
+    - air-selection
+    - air-boost
 props:
   name: 'John Doe'
   description: 'Software Engineer'
