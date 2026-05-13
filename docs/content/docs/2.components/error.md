@@ -67,6 +67,57 @@ props:
 ---
 ::
 
+### Avatar :badge{label="Soon" class="align-text-top"}
+
+Use the `avatar` prop to display an [Avatar](/docs/components/avatar/) above the status code (used only when `icon` is not set).
+
+::component-code
+---
+prettier: true
+hide:
+  - class
+ignore:
+  - avatar.src
+  - error.statusCode
+  - error.statusMessage
+  - error.message
+props:
+  avatar:
+    src: 'https://github.com/bitrix24.png'
+  error:
+    statusCode: 404
+    statusMessage: 'Page not found'
+    message: 'The page you are looking for does not exist.'
+  class: '!min-h-96'
+---
+::
+
+### Color :badge{label="Soon" class="align-text-top"}
+
+Use the `color` prop to tint the inner [Avatar](/docs/components/avatar/). An explicit `avatar.color` overrides this default.
+
+::component-code
+---
+prettier: true
+hide:
+  - class
+ignore:
+  - avatar.src
+  - error.statusCode
+  - error.statusMessage
+  - error.message
+props:
+  color: 'air-primary-alert'
+  avatar:
+    src: 'https://github.com/bitrix24.png'
+  error:
+    statusCode: 404
+    statusMessage: 'Page not found'
+    message: 'The page you are looking for does not exist.'
+  class: '!min-h-96'
+---
+::
+
 Use the `#leading` slot to display a custom element, such as a logo.
 
 ::component-code
