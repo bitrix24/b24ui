@@ -212,9 +212,7 @@ const entityMode = ref<typeof entityModes[number]>('hover')
     </B24Popover>
 
     <B24Popover mode="hover" :b24ui="{ content: 'p-0 bg-transparent border-0 shadow-none' }">
-      <B24Link is-action>
-        Hover for sales summary
-      </B24Link>
+      <B24Button label="Hover for sales summary" />
 
       <template #content>
         <SalesDynamicsWidget
