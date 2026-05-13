@@ -361,7 +361,7 @@ Notes on the layout:
 
 A compact dashboard widget summarising a few metrics with one highlighted KPI row at the bottom. Built from stock components only — `B24Card` (forced into the `edge-dark` context with a purple radial gradient on the root slot), `B24Button` (`air-secondary-accent`), `B24Tooltip` and a small CSS grid for the rows. The highlighted row reuses the global `.style-filled-boost` utility so the boost token set (bg gradient, stroke, content color) drives that row's surface.
 
-Drop it inside any popover (`B24Popover` content) or render it inline on a dashboard panel — the widget is self-contained.
+Drop it inside any popover (`B24Popover` content), a modal (`B24Modal` body — strip the modal chrome with `:b24ui="{ content: 'sm:max-w-md bg-transparent shadow-none border-0', body: 'p-0' }"` and `:close="false"`), or render it inline on a dashboard panel — the widget is self-contained.
 
 ```vue
 <script setup lang="ts">
