@@ -357,3 +357,97 @@ Notes on the layout:
 - `B24DescriptionList` switches to a two-column grid at `sm:` by default and draws a top border before each item. Inside a narrow popover both behaviours hurt readability, so the layout is pinned to a single column and all `border-t` rules are zeroed out via the `b24ui` prop. The container's default `mt` is dropped (`mt-0`) since the parent `gap-4.5` already supplies the gap below the separator. Label wrappers (`<dt>`) lose all vertical padding (`py-0`), description wrappers (`<dd>`) get only `pb-2.5` — so a label sits flush against its value and each row contributes a single 2.5 unit of breathing room between items. The very last `<dd>` zeroes that padding back out (`last:pb-0 sm:last:pb-0`) so the popover doesn't carry a stray gap below the final value.
 - The `#owner` slot would replace the whole `<dt>/<dd>` pair (and lose the "Account manager" label). Tagging the owner item with `slot: 'owner' as const` and overriding the global `#description` slot with a `v-if="item.slot === 'owner'"` keeps the default label rendering and only swaps the value for a `B24Link`. The `as const` + `satisfies DescriptionListItem[]` pattern is what lets `item.slot` narrow to the literal `'owner'` inside the template.
 
+## Stats widget (KPI summary)
+
+A compact dashboard widget summarising a few metrics with one highlighted KPI row at the bottom. Built from stock components only — `B24Card` (forced into the `edge-dark` context with a purple radial gradient on the root slot), `B24Button` (`air-secondary-accent`), `B24Tooltip` and a small CSS grid for the rows. The highlighted row reuses the global `.style-filled-boost` utility so the boost token set (bg gradient, stroke, content color) drives that row's surface.
+
+Drop it inside any popover (`B24Popover` content) or render it inline on a dashboard panel — the widget is self-contained.
+
+```vue
+<script setup lang="ts">
+import RepeatIcon from '@bitrix24/b24icons-vue/outline/RepeatIcon'
+import SettingsIcon from '@bitrix24/b24icons-vue/outline/SettingsIcon'
+import FeedbackIcon from '@bitrix24/b24icons-vue/outline/FeedbackIcon'
+import Info1Icon from '@bitrix24/b24icons-vue/main/Info1Icon'
+
+const rows = [
+  { label: 'Active deals', count: 10, amount: '$46,500' },
+  { label: 'Won deals', count: 1, amount: '$10,000' }
+]
+
+const highlight = {
+  label: 'Conversion',
+  count: '10%',
+  amount: '17.7%',
+  info: 'Today vs. last 30 days'
+}
+</script>
+
+<template>
+  <B24Card
+    variant="filled-copilot"
+    class="max-w-md"
+    :b24ui="{
+      root: 'edge-dark rounded-2xl bg-[radial-gradient(110.42%_110.42%_at_-10.42%_31.25%,var(--ui-color-copilot-bg-content-3)_0%,var(--ui-color-copilot-bg-content-2)_58.65%,var(--ui-color-copilot-bg-content-1)_100%)]'
+    }"
+  >
+    <template #header>
+      <div class="flex items-start justify-between gap-4">
+        <div class="min-w-0">
+          <div class="text-(length:--ui-font-size-2xl)/[normal] font-(--ui-font-weight-semi-bold)">Repeat sales dynamics</div>
+          <div class="text-(length:--ui-font-size-md) opacity-90">Total deals created: 10</div>
+          <div class="text-(length:--ui-font-size-md) opacity-90">Today: 10 deals</div>
+        </div>
+
+        <B24Button rounded color="air-secondary-accent" label="Last 30 days" :trailing-icon="RepeatIcon" />
+      </div>
+    </template>
+
+    <div class="flex flex-col gap-2">
+      <div class="grid grid-cols-[1fr_auto_auto] gap-x-6 px-3 py-1 text-(length:--ui-font-size-sm) opacity-80">
+        <span />
+        <span class="text-right min-w-20">Count</span>
+        <span class="text-right min-w-24">Amount</span>
+      </div>
+
+      <div
+        v-for="row in rows"
+        :key="row.label"
+        class="grid grid-cols-[1fr_auto_auto] gap-x-6 items-center px-3 py-3 rounded-xl bg-white/5"
+      >
+        <span class="font-(--ui-font-weight-medium)">{{ row.label }}</span>
+        <span class="text-right min-w-20">{{ row.count }}</span>
+        <span class="text-right min-w-24">{{ row.amount }}</span>
+      </div>
+
+      <div class="style-filled-boost grid grid-cols-[1fr_auto_auto] gap-x-6 items-center px-3 py-3 rounded-xl text-(--ui-color-design-filled-boost-content)">
+        <span class="font-(--ui-font-weight-medium) inline-flex items-center gap-1">
+          {{ highlight.label }}
+          <B24Tooltip :text="highlight.info">
+            <Info1Icon class="size-4 opacity-80" />
+          </B24Tooltip>
+        </span>
+        <span class="text-right min-w-20">{{ highlight.count }}</span>
+        <span class="text-right min-w-24 font-(--ui-font-weight-semi-bold)">{{ highlight.amount }}</span>
+      </div>
+    </div>
+
+    <template #footer>
+      <div class="flex items-center justify-between gap-4">
+        <B24Button color="air-secondary-accent" :icon="SettingsIcon" label="Configure" />
+        <B24Button color="air-secondary-accent" :icon="FeedbackIcon" label="Feedback" />
+      </div>
+    </template>
+  </B24Card>
+</template>
+```
+
+Notes on the layout:
+
+- The card is pinned to `edge-dark` on the root slot so the `--ui-color-copilot-bg-content-*` tokens always resolve to the dark-theme purples, even when the surrounding page renders in light mode. Without `edge-dark`, those tokens are not defined and the gradient falls back to `unset`.
+- The radial gradient on `b24ui.root` uses the same `110.42% 110.42% at -10.42% 31.25%` geometry as the boost gradient elsewhere in the design system, only with the purple `copilot-bg-content-{3,2,1}` stops (light → dark from top-left outward). Swap the stops for `--ui-color-design-filled-warning-bg-gradient-*` or another sibling trio to recolor the surface without changing the geometry.
+- The highlighted KPI row uses the global `.style-filled-boost` utility from `008_ui_global.css`. The class wires up the boost background gradient (orange → pink → purple), the boost stroke and the boost content (text/icon) CSS vars. Apply `text-(--ui-color-design-filled-boost-content)` explicitly so the row's text picks up the boost content colour (the `.style-filled-boost` class only declares the var, it doesn't apply `color`).
+- The non-highlighted rows sit on `bg-white/5` — a translucent overlay over the gradient. It keeps the rows readable without inventing new tokens.
+- The grid template `1fr_auto_auto` keeps the metric label flexible while the two numeric columns stay right-aligned and proportional. For more than ~4 rows, consider `B24Table` instead — this pattern is for compact summaries, not data lists.
+- The pill button in the header and the two footer buttons all use `color="air-secondary-accent"` for a consistent translucent action surface on the purple background. The pill picks up its rounded silhouette from `rounded`; pair `:trailing-icon` with a domain-appropriate icon (`RepeatIcon`, `Calendar1Icon`, `BarChartIcon`).
+
