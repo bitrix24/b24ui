@@ -46,7 +46,7 @@ export default {
       'text-(length:--ui-font-size-4xs)',
       'leading-2',
       'font-semibold',
-      'text-(--b24ui-typography-description-color)',
+      'text-description',
       'uppercase',
       'ml-px'
     ].join(' '),
@@ -77,7 +77,7 @@ export default {
       'text-(length:--ui-font-size-4xs)',
       'leading-2',
       'font-semibold',
-      'text-(--b24ui-typography-description-color)',
+      'text-description',
       'uppercase',
       'ml-px'
     ].join(' '),
@@ -189,7 +189,7 @@ export default {
           'select-none outline-none whitespace-nowrap',
           'text-start',
           'text-(length:--ui-size-sm)',
-          'text-(--b24ui-typography-legend-color)',
+          'text-legend',
           'font-(--ui-font-weight-normal)',
           'after:ms-2.5 after:block after:flex-1 after:min-w-[15px] after:h-px after:bg-(--ui-color-divider-vibrant-default)'
         ].join(' ')

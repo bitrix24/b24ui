@@ -34,11 +34,8 @@ const items = computed(() => [
         <div class="flex items-center gap-3">
           <B24Avatar
             size="lg"
+            color="air-secondary-alert"
             :icon="UserGroupIcon"
-            :b24ui="{
-              root: 'bg-(--ui-color-design-filled-alert-bg)',
-              icon: 'text-(--ui-color-design-filled-alert-content)'
-            }"
           />
           <div class="min-w-0">
             <div class="text-label font-(--ui-font-weight-semi-bold) truncate">

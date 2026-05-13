@@ -33,7 +33,7 @@ export default {
       'flex flex-row rtl:flex-row-reverse items-center',
       'select-none outline-none whitespace-nowrap',
       'text-start',
-      'text-(--b24ui-typography-legend-color)',
+      'text-legend',
       'font-(--ui-font-weight-normal)',
       'after:ms-[10px] after:block after:flex-1 after:min-w-[15px] after:h-px after:bg-(--ui-color-divider-vibrant-default)'
     ].join(' '),
@@ -47,9 +47,9 @@ export default {
       'cursor-pointer',
       'data-disabled:cursor-not-allowed data-disabled:opacity-30',
       'text-start',
-      'text-(--b24ui-typography-legend-color) hover:text-(--b24ui-typography-label-color)',
-      'data-highlighted:text-(--b24ui-typography-label-color)',
-      'data-[state=open]:text-(--b24ui-typography-label-color)',
+      'text-legend hover:text-label',
+      'data-highlighted:text-label',
+      'data-[state=open]:text-label',
       'hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed)',
       'active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed)',
       'data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed)',
@@ -61,7 +61,7 @@ export default {
     itemLeadingAvatarSize: '',
     itemWrapper: 'ms-[4px] flex-1 flex flex-col text-start min-w-0',
     itemLabel: 'max-w-60 truncate -mt-px',
-    itemDescription: 'max-w-60 truncate -mt-[6px] text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)',
+    itemDescription: 'max-w-60 truncate -mt-[6px] text-description text-(length:--ui-font-size-sm)',
     itemLabelExternalIcon: 'inline-block size-[25px] text-(--ui-color-base-5)'
   },
   variants: {

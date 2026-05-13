@@ -310,7 +310,7 @@ exports[`PageLinks > renders with links correctly 1`] = `
 
 exports[`PageLinks > renders with title correctly 1`] = `
 "<nav data-slot="root" class="flex flex-col gap-[12px]">
-  <p data-slot="title" class="text-(--b24ui-typography-legend-color) text-(length:--ui-font-size-md) leading-(--ui-font-line-height-md) font-(--ui-font-weight-semi-bold) flex items-center gap-[6px]">Resources</p>
+  <p data-slot="title" class="text-legend text-(length:--ui-font-size-md) leading-(--ui-font-line-height-md) font-(--ui-font-weight-semi-bold) flex items-center gap-[6px]">Resources</p>
   <ul data-slot="list" class="flex flex-col gap-2">
     <li data-slot="item" class="relative"><a href="/docs" isaction="false" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
         <div data-slot="linkWrapper" class="flex items-center gap-[6px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
@@ -354,7 +354,7 @@ exports[`PageLinks > renders with title correctly 1`] = `
 
 exports[`PageLinks > renders with title slot correctly 1`] = `
 "<nav data-slot="root" class="flex flex-col gap-[12px]">
-  <p data-slot="title" class="text-(--b24ui-typography-legend-color) text-(length:--ui-font-size-md) leading-(--ui-font-line-height-md) font-(--ui-font-weight-semi-bold) flex items-center gap-[6px]">Title slot</p>
+  <p data-slot="title" class="text-legend text-(length:--ui-font-size-md) leading-(--ui-font-line-height-md) font-(--ui-font-weight-semi-bold) flex items-center gap-[6px]">Title slot</p>
   <ul data-slot="list" class="flex flex-col gap-2">
     <li data-slot="item" class="relative"><a href="/docs" isaction="false" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
         <div data-slot="linkWrapper" class="flex items-center gap-[6px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">

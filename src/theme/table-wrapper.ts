@@ -10,7 +10,7 @@ export default {
   slots: {
     base: [
       'font-[family-name:var(--ui-font-family-primary)] [&>table]:text-(length:--ui-font-size-md)/(--ui-font-line-height-md) [&>table]:relative [&>table]:w-full [&>table]:text-left [&>table]:rtl:text-right',
-      '[&>table]:text-(--b24ui-typography-label-color)',
+      '[&>table]:text-label',
       //
       '[&>table>thead>tr>td]:align-middle',
       '[&>table>thead>tr>th]:align-middle',

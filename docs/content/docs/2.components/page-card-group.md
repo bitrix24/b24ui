@@ -70,6 +70,35 @@ Override the umbrella `color` for the corner [Badge](/docs/components/badge/) on
 
 Override the badge size derived from `size` with `badge-size`.
 
+### Icon vs Avatar
+
+Each item picks one of two leading visuals:
+
+- `icon` field — plain icon, no circle. Theme controls size via `leadingIcon`. Use this for compact, non-decorated lists.
+- `avatar` field — [B24Avatar](/docs/components/avatar/) with full color control (`color`, `src`, `chip`, `icon`). Avatar size is derived from the group `size` (`sm` → `lg`, `md` → `xl`, `lg` → `2xl`) and the avatar's `alt` falls back to the item's `label`.
+
+`icon` wins when both are set on the same item — the plain icon renders and `avatar` is ignored. Pick one per item:
+
+```ts
+// shows the icon via B24Avatar (color circle around the icon)
+{ avatar: { color: 'air-primary-warning', icon: FeedbackIcon }, label: 'Feedback' }
+
+// shows the plain icon only — `icon` at the top level takes precedence
+{ icon: FeedbackIcon, avatar: { color: 'air-primary-warning' }, label: 'Feedback' }
+```
+
+Set a group-level Avatar default that every avatar-mode item inherits:
+
+```vue
+<B24PageCardGroup v-model="value" :items="items" :avatar="{ color: 'air-secondary' }" />
+```
+
+Per-item `avatar` config merges on top of the group default:
+
+:component-example{name="page-card-group-avatar-example"}
+
+The `avatar` field accepts the full [B24Avatar](/docs/components/avatar/) API — same hook drives `src` (photo), `chip`, or a different `icon` per item.
+
 ### Category grouping
 
 When items contain a `category` field (or another field set via `category-key`), the group renders one section per category with a heading above each grid. Pass `category-key=""` to disable grouping.
@@ -139,12 +168,16 @@ Override the corner badge through the `badge` slot. Receives `{ item, selected }
 
 ### Custom leading icon
 
-Override the icon-in-circle through the `leading` slot. Receives `{ item, selected }`.
+The leading slot is an escape hatch for cases where the built-in [B24Avatar](/docs/components/avatar/) (driven by the `avatar` prop / item `avatar` field) isn't flexible enough. Override the icon circle through the `leading` slot — receives `{ item, selected }`.
 
 ```vue
 <B24PageCardGroup v-model="value" :items="items">
-  <template #leading="{ item }">
-    <B24Avatar :alt="item.label" :icon="item.icon" />
+  <template #leading="{ item, selected }">
+    <B24Avatar
+      :alt="item.label"
+      :icon="item.icon"
+      :color="selected ? 'air-primary' : 'air-secondary-no-accent'"
+    />
   </template>
 </B24PageCardGroup>
 ```

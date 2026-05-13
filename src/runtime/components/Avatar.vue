@@ -26,6 +26,10 @@ export interface AvatarProps extends /** @vue-ignore */ Omit<ImgHTMLAttributes, 
    * @defaultValue 'md'
    */
   size?: Avatar['variants']['size']
+  /**
+   * @defaultValue 'air-secondary-no-accent'
+   */
+  color?: Avatar['variants']['color']
   chip?: boolean | ChipProps
   class?: any
   style?: any
@@ -73,11 +77,12 @@ const fallback = computed(() => props.text || (props.alt || '')
 
 const appConfig = useAppConfig() as Avatar['AppConfig']
 
-const { size } = useAvatarGroup(_props)
+const { size, color } = useAvatarGroup(_props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.avatar || {}) })({
-  size: size.value ?? props.size
+  size: size.value ?? props.size,
+  color: color.value ?? props.color
 }))
 
 const rootClass = computed(() => b24ui.value.root({ class: [props.b24ui?.root, props.class] }))

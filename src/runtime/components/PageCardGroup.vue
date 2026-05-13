@@ -2,7 +2,7 @@
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/page-card-group'
-import type { IconComponent, BadgeProps, PageCardProps } from '../types'
+import type { IconComponent, AvatarProps, BadgeProps, PageCardProps } from '../types'
 import type { AcceptableValue } from '../types/utils'
 import type { ComponentConfig } from '../types/tv'
 
@@ -13,7 +13,17 @@ export type PageCardGroupValue = AcceptableValue
 export interface PageCardGroupItem {
   label?: string
   description?: string
+  /**
+   * Plain icon shown in the leading position. Takes precedence over `avatar` —
+   * when both are set, the plain icon wins and Avatar is not rendered.
+   * @IconComponent
+   */
   icon?: IconComponent
+  /**
+   * Avatar config for the leading position. Used only when `icon` is not set.
+   * Merged on top of the group-level `avatar` prop.
+   */
+  avatar?: Partial<AvatarProps>
   value?: PageCardGroupValue
   disabled?: boolean
   category?: string
@@ -63,7 +73,7 @@ export interface PageCardGroupProps {
   required?: boolean
   name?: string
   /**
-   * Card size — drives the icon-circle, icon, gap and inner title/description text size.
+   * Card size — drives the inner avatar size, inner gap and title/description text size.
    * @defaultValue 'md'
    */
   size?: PageCardGroup['variants']['size']
@@ -91,6 +101,11 @@ export interface PageCardGroupProps {
    * from the group `size` when not set.
    */
   badgeSize?: BadgeProps['size']
+  /**
+   * Group-level Avatar defaults forwarded to every card whose item opts into avatar mode
+   * (`item.avatar` set or this prop set). Per-item `avatar` field merges on top.
+   */
+  avatar?: Partial<AvatarProps>
   /**
    * Max columns on desktop.
    * @defaultValue 3
@@ -180,14 +195,18 @@ const effectiveBadgeSize = computed<BadgeProps['size']>(() =>
 )
 
 // Slot-class overrides forwarded to the inner `B24PageCard` via its `b24ui` prop.
-// Layered over user-provided overrides (`props.b24ui?.cardX`).
+// Layered over user-provided overrides (`props.b24ui?.cardX`). `leadingAvatarSize`
+// is forwarded as a raw string (an `AvatarProps['size']` value, not a class).
 const innerCardUI = computed(() => ({
   container: b24ui.value.cardContainer({ class: props.b24ui?.cardContainer }),
   wrapper: b24ui.value.cardWrapper({ class: props.b24ui?.cardWrapper }),
   leading: b24ui.value.cardLeading({ class: props.b24ui?.cardLeading }),
   body: b24ui.value.cardBody({ class: props.b24ui?.cardBody }),
   title: b24ui.value.cardTitle({ class: props.b24ui?.cardTitle }),
-  description: b24ui.value.cardDescription({ class: props.b24ui?.cardDescription })
+  description: b24ui.value.cardDescription({ class: props.b24ui?.cardDescription }),
+  leadingIcon: b24ui.value.leadingIcon({ class: props.b24ui?.leadingIcon }),
+  leadingAvatar: b24ui.value.leadingAvatar({ class: props.b24ui?.leadingAvatar }),
+  leadingAvatarSize: (props.b24ui?.leadingAvatarSize as string) || b24ui.value.leadingAvatarSize()
 }))
 
 function getItemValue(item: PageCardGroupItem): PageCardGroupValue {
@@ -203,6 +222,24 @@ function isSelected(item: PageCardGroupItem): boolean {
     return Array.isArray(cur) && cur.includes(v)
   }
   return cur === v
+}
+
+function getItemIcon(item: PageCardGroupItem): IconComponent | undefined {
+  return get(item, props.iconKey!) as IconComponent | undefined
+}
+
+function getItemAvatar(item: PageCardGroupItem): AvatarProps | undefined {
+  // Plain `item.icon` wins — Avatar mode disabled when both are set.
+  if (getItemIcon(item)) return undefined
+
+  const itemAvatar = item.avatar
+  if (!itemAvatar && !props.avatar) return undefined
+
+  return {
+    ...props.avatar,
+    ...itemAvatar,
+    alt: (itemAvatar?.alt ?? (get(item, props.labelKey!) as string | undefined))
+  } as AvatarProps
 }
 
 function setValue(next: PageCardGroupValue | PageCardGroupValue[] | undefined, event: Event) {
@@ -299,6 +336,8 @@ const groupedItems = computed<{ category?: string, items: PageCardGroupItem[] }[
             <B24PageCard
               :title="get(item, props.labelKey!)"
               :description="get(item, props.descriptionKey!)"
+              :icon="getItemIcon(item)"
+              :avatar="getItemAvatar(item)"
               :variant="props.variant"
               orientation="vertical"
               :highlight="isSelected(item)"
@@ -306,12 +345,8 @@ const groupedItems = computed<{ category?: string, items: PageCardGroupItem[] }[
               :class="b24ui.card({ class: props.b24ui?.card })"
               :b24ui="innerCardUI"
             >
-              <template v-if="get(item, props.iconKey!) || !!slots.leading" #leading>
-                <slot name="leading" :item="item" :selected="isSelected(item)" :b24ui="b24ui">
-                  <span data-slot="iconWrap" :class="b24ui.iconWrap({ class: props.b24ui?.iconWrap })">
-                    <component :is="get(item, props.iconKey!)" data-slot="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
-                  </span>
-                </slot>
+              <template v-if="!!slots.leading" #leading>
+                <slot name="leading" :item="item" :selected="isSelected(item)" :b24ui="b24ui" />
               </template>
 
               <template v-if="isSelected(item)">

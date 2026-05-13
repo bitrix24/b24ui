@@ -24,7 +24,7 @@ export default {
       },
       false: {
         link: [
-          'text-(--b24ui-typography-description-color) hover:text-(--b24ui-typography-label-color)',
+          'text-description hover:text-label',
           'transition-colors'
         ].join(' ')
       }

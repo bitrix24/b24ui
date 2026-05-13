@@ -34,7 +34,7 @@ export default {
     th: [
       'px-4 py-2',
       'text-(length:--ui-font-size-md)/(--ui-font-line-height-md)',
-      'text-(--b24ui-typography-label-color)',
+      'text-label',
       'whitespace-nowrap',
       'text-left rtl:text-right',
       'font-(--ui-font-weight-normal)',
@@ -45,7 +45,7 @@ export default {
     td: [
       'p-4',
       'text-(length:--ui-font-size-md)/(--ui-font-line-height-md)',
-      'text-(--b24ui-typography-label-color)',
+      'text-label',
       'whitespace-nowrap',
       'font-(--ui-font-weight-normal)',
       '[&:has([role=checkbox])]:pe-0',
@@ -61,7 +61,7 @@ export default {
       'py-6',
       'text-center',
       'text-(length:--ui-font-size-sm)',
-      'text-(--b24ui-typography-description-color)'
+      'text-description'
     ].join(' '),
     loading: 'py-6 text-center'
   },

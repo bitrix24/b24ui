@@ -228,7 +228,7 @@ links:${primitive
     to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/${upperName}.vue
   - label: Demo
     iconName: DemonstrationOnIcon
-    to: https://bitrix24.github.io/b24ui/demo/components/${kebabName}
+    to: https://bitrix24.github.io/b24ui/demo/components/${kebabName}/
   - label: Nuxt UI
     iconName: NuxtIcon
     to: https://ui.nuxt.com/docs/components/${kebabName}

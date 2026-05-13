@@ -11,7 +11,7 @@ exports[`Header > renders with as correctly 1`] = `
           <!--v-if-->
           <!--v-if-->
         </div>
-      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-(--b24ui-typography-label-color) flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
+      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-label flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
     <div data-slot="center" class="hidden lg:flex"></div>
     <div data-slot="right" class="flex items-center justify-end lg:flex-1 gap-1.5">
       <!--v-if-->
@@ -34,7 +34,7 @@ exports[`Header > renders with b24ui correctly 1`] = `
           <!--v-if-->
           <!--v-if-->
         </div>
-      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-(--b24ui-typography-label-color) flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
+      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-label flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
     <div data-slot="center" class="hidden lg:flex"></div>
     <div data-slot="right" class="flex items-center justify-end lg:flex-1 gap-1.5">
       <!--v-if-->
@@ -57,7 +57,7 @@ exports[`Header > renders with body slot correctly 1`] = `
           <!--v-if-->
           <!--v-if-->
         </div>
-      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-(--b24ui-typography-label-color) flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
+      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-label flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
     <div data-slot="center" class="hidden lg:flex"></div>
     <div data-slot="right" class="flex items-center justify-end lg:flex-1 gap-1.5">
       <!--v-if-->
@@ -80,7 +80,7 @@ exports[`Header > renders with bottom slot correctly 1`] = `
           <!--v-if-->
           <!--v-if-->
         </div>
-      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-(--b24ui-typography-label-color) flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
+      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-label flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
     <div data-slot="center" class="hidden lg:flex"></div>
     <div data-slot="right" class="flex items-center justify-end lg:flex-1 gap-1.5">
       <!--v-if-->
@@ -103,7 +103,7 @@ exports[`Header > renders with class correctly 1`] = `
           <!--v-if-->
           <!--v-if-->
         </div>
-      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-(--b24ui-typography-label-color) flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
+      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-label flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
     <div data-slot="center" class="hidden lg:flex"></div>
     <div data-slot="right" class="flex items-center justify-end lg:flex-1 gap-1.5">
       <!--v-if-->
@@ -126,7 +126,7 @@ exports[`Header > renders with content slot correctly 1`] = `
           <!--v-if-->
           <!--v-if-->
         </div>
-      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-(--b24ui-typography-label-color) flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
+      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-label flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
     <div data-slot="center" class="hidden lg:flex"></div>
     <div data-slot="right" class="flex items-center justify-end lg:flex-1 gap-1.5">
       <!--v-if-->
@@ -149,7 +149,7 @@ exports[`Header > renders with default slot correctly 1`] = `
           <!--v-if-->
           <!--v-if-->
         </div>
-      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-(--b24ui-typography-label-color) flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
+      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-label flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
     <div data-slot="center" class="hidden lg:flex">Default slot</div>
     <div data-slot="right" class="flex items-center justify-end lg:flex-1 gap-1.5">
       <!--v-if-->
@@ -195,7 +195,7 @@ exports[`Header > renders with mode drawer correctly 1`] = `
           <!--v-if-->
           <!--v-if-->
         </div>
-      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-(--b24ui-typography-label-color) flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
+      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-label flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
     <div data-slot="center" class="hidden lg:flex"></div>
     <div data-slot="right" class="flex items-center justify-end lg:flex-1 gap-1.5">
       <!--v-if-->
@@ -230,7 +230,7 @@ exports[`Header > renders with mode modal correctly 1`] = `
           <!--v-if-->
           <!--v-if-->
         </div>
-      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-(--b24ui-typography-label-color) flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
+      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-label flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
     <div data-slot="center" class="hidden lg:flex"></div>
     <div data-slot="right" class="flex items-center justify-end lg:flex-1 gap-1.5">
       <!--v-if-->
@@ -254,7 +254,7 @@ exports[`Header > renders with mode modal correctly 1`] = `
           <!--v-if-->
           <!--v-if-->
         </div>
-      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-(--b24ui-typography-label-color) flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
+      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-label flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
     <div data-slot="right" class="flex items-center justify-end lg:flex-1 gap-1.5">
       <!--v-if-->
     </div>
@@ -279,7 +279,7 @@ exports[`Header > renders with mode slideover correctly 1`] = `
           <!--v-if-->
           <!--v-if-->
         </div>
-      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-(--b24ui-typography-label-color) flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
+      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-label flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
     <div data-slot="center" class="hidden lg:flex"></div>
     <div data-slot="right" class="flex items-center justify-end lg:flex-1 gap-1.5">
       <!--v-if-->
@@ -303,7 +303,7 @@ exports[`Header > renders with mode slideover correctly 1`] = `
           <!--v-if-->
           <!--v-if-->
         </div>
-      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-(--b24ui-typography-label-color) flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
+      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-label flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
     <div data-slot="right" class="flex items-center justify-end lg:flex-1 gap-1.5">
       <!--v-if-->
     </div>
@@ -327,7 +327,7 @@ exports[`Header > renders with right slot correctly 1`] = `
           <!--v-if-->
           <!--v-if-->
         </div>
-      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-(--b24ui-typography-label-color) flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
+      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-label flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
     <div data-slot="center" class="hidden lg:flex"></div>
     <div data-slot="right" class="flex items-center justify-end lg:flex-1 gap-1.5">Right slot
       <!--v-if-->
@@ -350,7 +350,7 @@ exports[`Header > renders with title correctly 1`] = `
           <!--v-if-->
           <!--v-if-->
         </div>
-      </button><a href="/" aria-label="Documentation" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt-2) hover:underline shrink-0 font-bold text-xl text-(--b24ui-typography-label-color) flex items-end gap-1.5" isaction="false">Documentation</a></div>
+      </button><a href="/" aria-label="Documentation" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt-2) hover:underline shrink-0 font-bold text-xl text-label flex items-end gap-1.5" isaction="false">Documentation</a></div>
     <div data-slot="center" class="hidden lg:flex"></div>
     <div data-slot="right" class="flex items-center justify-end lg:flex-1 gap-1.5">
       <!--v-if-->
@@ -373,7 +373,7 @@ exports[`Header > renders with title slot correctly 1`] = `
           <!--v-if-->
           <!--v-if-->
         </div>
-      </button><a href="/" aria-label="Title slot" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-(--b24ui-typography-label-color) flex items-end gap-1.5" isaction="false">Title slot</a></div>
+      </button><a href="/" aria-label="Title slot" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-label flex items-end gap-1.5" isaction="false">Title slot</a></div>
     <div data-slot="center" class="hidden lg:flex"></div>
     <div data-slot="right" class="flex items-center justify-end lg:flex-1 gap-1.5">
       <!--v-if-->
@@ -396,7 +396,7 @@ exports[`Header > renders with to correctly 1`] = `
           <!--v-if-->
           <!--v-if-->
         </div>
-      </button><a href="/docs" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt-2) hover:underline shrink-0 font-bold text-xl text-(--b24ui-typography-label-color) flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
+      </button><a href="/docs" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt-2) hover:underline shrink-0 font-bold text-xl text-label flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
     <div data-slot="center" class="hidden lg:flex"></div>
     <div data-slot="right" class="flex items-center justify-end lg:flex-1 gap-1.5">
       <!--v-if-->
@@ -419,7 +419,7 @@ exports[`Header > renders with toggle correctly 1`] = `
           <!--v-if-->
           <!--v-if-->
         </div>
-      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-(--b24ui-typography-label-color) flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
+      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-label flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
     <div data-slot="center" class="hidden lg:flex"></div>
     <div data-slot="right" class="flex items-center justify-end lg:flex-1 gap-1.5">
       <!--v-if-->
@@ -434,7 +434,7 @@ exports[`Header > renders with toggle correctly 1`] = `
 exports[`Header > renders with toggle slot correctly 1`] = `
 "<header data-slot="root" class="bg-(--ui-color-bg-content-primary)/75 backdrop-blur border-b border-(--ui-color-divider-default) h-(--b24ui-header-height) sticky top-0 z-50">
   <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3 h-full" data-slot="container">
-    <div data-slot="left" class="lg:flex-1 flex items-center gap-1.5">Toggle slot<a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-(--b24ui-typography-label-color) flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
+    <div data-slot="left" class="lg:flex-1 flex items-center gap-1.5">Toggle slot<a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-label flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
     <div data-slot="center" class="hidden lg:flex"></div>
     <div data-slot="right" class="flex items-center justify-end lg:flex-1 gap-1.5">
       <!--v-if-->
@@ -457,7 +457,7 @@ exports[`Header > renders with toggleSide correctly 1`] = `
           <!--v-if-->
           <!--v-if-->
         </div>
-      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-(--b24ui-typography-label-color) flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
+      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-label flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
     <div data-slot="center" class="hidden lg:flex"></div>
     <div data-slot="right" class="flex items-center justify-end lg:flex-1 gap-1.5">
       <!--v-if-->
@@ -479,7 +479,7 @@ exports[`Header > renders with top slot correctly 1`] = `
           <!--v-if-->
           <!--v-if-->
         </div>
-      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-(--b24ui-typography-label-color) flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
+      </button><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-label flex items-end gap-1.5" isaction="false">Bitrix24 UI</a></div>
     <div data-slot="center" class="hidden lg:flex"></div>
     <div data-slot="right" class="flex items-center justify-end lg:flex-1 gap-1.5">
       <!--v-if-->
@@ -495,7 +495,7 @@ exports[`Header > renders without toggle correctly 1`] = `
 "<header data-slot="root" class="bg-(--ui-color-bg-content-primary)/75 backdrop-blur border-b border-(--ui-color-divider-default) h-(--b24ui-header-height) sticky top-0 z-50">
   <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3 h-full" data-slot="container">
     <div data-slot="left" class="lg:flex-1 flex items-center gap-1.5">
-      <!--v-if--><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-(--b24ui-typography-label-color) flex items-end gap-1.5" isaction="false">Bitrix24 UI</a>
+      <!--v-if--><a href="/" aria-label="Bitrix24 UI" data-slot="title" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 shrink-0 font-bold text-xl text-label flex items-end gap-1.5" isaction="false">Bitrix24 UI</a>
     </div>
     <div data-slot="center" class="hidden lg:flex"></div>
     <div data-slot="right" class="flex items-center justify-end lg:flex-1 gap-1.5">

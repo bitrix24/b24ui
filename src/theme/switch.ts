@@ -50,9 +50,9 @@ export default {
     label: [
       'cursor-pointer',
       'block',
-      'text-(--b24ui-typography-label-color)'
+      'text-label'
     ].join(' '),
-    description: 'text-(--b24ui-typography-description-color)'
+    description: 'text-description'
   },
   variants: {
     color: {

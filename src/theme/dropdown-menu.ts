@@ -28,7 +28,7 @@ export default {
       'select-none outline-none whitespace-nowrap',
       'text-center',
       'text-(length:--popup-window-delimiter-font-size)/(--ui-font-line-height-lg)',
-      'text-(--b24ui-typography-legend-color)',
+      'text-legend',
       'font-(--ui-font-weight-normal)'
     ].join(' '),
     viewport: [
@@ -93,7 +93,7 @@ export default {
     itemWrapper: 'flex-1 flex flex-col text-start min-w-0',
     itemTrailingKbdsSize: 'md',
     itemLabel: 'max-w-60 truncate -mt-px',
-    itemDescription: 'max-w-60 truncate -mt-[6px] text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)',
+    itemDescription: 'max-w-60 truncate -mt-[6px] text-description text-(length:--ui-font-size-sm)',
     itemLabelExternalIcon: 'inline-block size-[25px] text-(--ui-color-base-5)'
   },
   variants: {

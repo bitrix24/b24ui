@@ -202,7 +202,7 @@ export function getTemplates(options: ModuleOptions, uiConfig: Record<string, an
       const prefix = options.theme?.prefix ? `${options.theme.prefix}:` : ''
 
       /**
-       * @memo we remove `${prefix}text-(--b24ui-typography-legend-color)`
+       * @memo we remove `${prefix}text-legend`
        */
       return `${sources}
 

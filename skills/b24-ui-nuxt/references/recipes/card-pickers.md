@@ -85,8 +85,9 @@ The wrapping `<B24FormField>` keeps precedence over `<B24Theme :props>` defaults
 
 ## Sizing, color, and hover shadow
 
-- `size` (`sm` | `md` | `lg`) scales the icon circle, inner gap, and title/description font size. Default `md`.
+- `size` (`sm` | `md` | `lg`) scales the inner avatar, inner gap, and title/description font size. Default `md`.
 - `color` is the umbrella accent that drives both the highlighted card border and the corner badge — keep them in sync by setting `color` instead of `highlight-color` / `badge-color` separately.
+- Each item picks one leading visual: top-level `icon` field (plain icon, no circle) or `avatar` field (full `B24Avatar` — color, src, chip). `icon` wins when both are set, so move the icon into `avatar.icon` when you want the colored circle. Brand defaults group-wide with the `avatar` prop or per option via the item's `avatar` field — both accept the full Avatar API.
 - The card lifts with a subtle shadow on hover, unless the item or the whole group is `disabled`.
 
 ```vue
@@ -95,17 +96,32 @@ The wrapping `<B24FormField>` keeps precedence over `<B24Theme :props>` defaults
   :items="items"
   size="lg"
   color="air-primary-copilot"
+  :avatar="{ color: 'air-secondary' }"
   :columns="2"
 />
+```
+
+```ts
+// Avatar mode (colored circle around the icon) — keep the icon inside `avatar.icon`
+const items = [
+  { value: 'grid', avatar: { color: 'air-primary-success', icon: GridIcon }, label: 'Grid', description: '...' },
+  { value: 'list', avatar: { color: 'air-primary-warning', icon: ListIcon }, label: 'List', description: '...' }
+]
+
+// Plain-icon mode (no circle) — top-level `icon` wins, `avatar` (if any) is ignored
+const compact = [
+  { value: 'grid', icon: GridIcon, label: 'Grid', description: '...' },
+  { value: 'list', icon: ListIcon, label: 'List', description: '...' }
+]
 ```
 
 ## Custom slots
 
 `B24PageCardGroup` exposes overrides for the cases where the defaults are too rigid:
 
-- `#leading="{ item, selected }"` — replace the icon-in-circle (e.g. swap to `B24Avatar`).
+- `#leading="{ item, selected }"` — escape hatch for the leading visual. The default already renders a `B24Avatar`; reach for the slot only when the built-in avatar config (`avatar` prop / item `avatar` field) isn't enough.
 - `#badge="{ item, selected }"` — replace the corner check badge (e.g. show the price tag of the selected plan).
 - `#categoryLabel="{ category, items }"` — custom heading per section (counters, secondary text).
 - `#legend` — heading above the entire group.
 
-Theme slot overrides (`:b24ui="{ card: '...', cardWrapper: '...', iconWrap: '...' }"`) apply on top of the size/columns variants and are deep-merged automatically — see the proxy notes in [conventions](../guidelines/conventions.md).
+Theme slot overrides (`:b24ui="{ card: '...', cardWrapper: '...', avatar: '...' }"`) apply on top of the size/columns variants and are deep-merged automatically — see the proxy notes in [conventions](../guidelines/conventions.md).

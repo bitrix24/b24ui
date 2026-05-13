@@ -8,8 +8,8 @@ export default {
     base: [
       'list-disc',
       'ps-2 mb-2 ms-3',
-      'marker:text-(--b24ui-typography-label-color)',
-      'text-(--b24ui-typography-label-color)'
+      'marker:text-label',
+      'text-label'
     ].join(' ')
   }
 }
