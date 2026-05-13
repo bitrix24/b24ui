@@ -4,8 +4,8 @@ exports[`User > renders with as correctly 1`] = `
 "<section data-orientation="horizontal" data-slot="root" class="relative group/user flex items-center gap-2"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--b24ui-background) ring ring-(--b24ui-border-color) style-outline-no-accent size-8 text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) shrink-0"><img src="https://github.com/bitrix24.png" alt="User alt" width="32" height="32" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span>
   <div data-slot="wrapper" class="">
     <!--v-if-->
-    <p data-slot="name" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-label-color) text-(length:--ui-font-size-sm)">User name</p>
-    <p data-slot="description" class="text-(--b24ui-typography-description-color) text-(length:--ui-font-size-xs)">User description</p>
+    <p data-slot="name" class="font-(--ui-font-weight-medium) text-label text-(length:--ui-font-size-sm)">User name</p>
+    <p data-slot="description" class="text-description text-(length:--ui-font-size-xs)">User description</p>
   </div>
 </section>"
 `;
@@ -14,8 +14,8 @@ exports[`User > renders with avatar correctly 1`] = `
 "<div data-orientation="horizontal" data-slot="root" class="relative group/user flex items-center gap-2"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--b24ui-background) ring ring-(--b24ui-border-color) style-outline-no-accent size-8 text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) shrink-0"><img src="https://github.com/bitrix24.png" alt="User alt" width="32" height="32" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span>
   <div data-slot="wrapper" class="">
     <!--v-if-->
-    <p data-slot="name" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-label-color) text-(length:--ui-font-size-sm)">User name</p>
-    <p data-slot="description" class="text-(--b24ui-typography-description-color) text-(length:--ui-font-size-xs)">User description</p>
+    <p data-slot="name" class="font-(--ui-font-weight-medium) text-label text-(length:--ui-font-size-sm)">User name</p>
+    <p data-slot="description" class="text-description text-(length:--ui-font-size-xs)">User description</p>
   </div>
 </div>"
 `;
@@ -23,8 +23,8 @@ exports[`User > renders with avatar correctly 1`] = `
 exports[`User > renders with avatar slot correctly 1`] = `
 "<div data-orientation="horizontal" data-slot="root" class="relative group/user flex items-center gap-2">Avatar slot<div data-slot="wrapper" class="">
     <!--v-if-->
-    <p data-slot="name" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-label-color) text-(length:--ui-font-size-sm)">User name</p>
-    <p data-slot="description" class="text-(--b24ui-typography-description-color) text-(length:--ui-font-size-xs)">User description</p>
+    <p data-slot="name" class="font-(--ui-font-weight-medium) text-label text-(length:--ui-font-size-sm)">User name</p>
+    <p data-slot="description" class="text-description text-(length:--ui-font-size-xs)">User description</p>
   </div>
 </div>"
 `;
@@ -33,8 +33,8 @@ exports[`User > renders with b24ui correctly 1`] = `
 "<div data-orientation="horizontal" data-slot="root" class="relative group/user flex items-center gap-2"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--b24ui-background) ring ring-(--b24ui-border-color) style-outline-no-accent size-8 text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) shrink-0"><img src="https://github.com/bitrix24.png" alt="User alt" width="32" height="32" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span>
   <div data-slot="wrapper" class="">
     <!--v-if-->
-    <p data-slot="name" class="text-(--b24ui-typography-label-color) text-(length:--ui-font-size-sm) font-bold">User name</p>
-    <p data-slot="description" class="text-(--b24ui-typography-description-color) text-(length:--ui-font-size-xs)">User description</p>
+    <p data-slot="name" class="text-label text-(length:--ui-font-size-sm) font-bold">User name</p>
+    <p data-slot="description" class="text-description text-(length:--ui-font-size-xs)">User description</p>
   </div>
 </div>"
 `;
@@ -46,8 +46,8 @@ exports[`User > renders with chip correctly 1`] = `
   </div>
   <div data-slot="wrapper" class="">
     <!--v-if-->
-    <p data-slot="name" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-label-color) text-(length:--ui-font-size-sm)">User name</p>
-    <p data-slot="description" class="text-(--b24ui-typography-description-color) text-(length:--ui-font-size-xs)">User description</p>
+    <p data-slot="name" class="font-(--ui-font-weight-medium) text-label text-(length:--ui-font-size-sm)">User name</p>
+    <p data-slot="description" class="text-description text-(length:--ui-font-size-xs)">User description</p>
   </div>
 </div>"
 `;
@@ -56,8 +56,8 @@ exports[`User > renders with class correctly 1`] = `
 "<div data-orientation="horizontal" data-slot="root" class="group/user flex items-center gap-2 absolute"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--b24ui-background) ring ring-(--b24ui-border-color) style-outline-no-accent size-8 text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) shrink-0"><img src="https://github.com/bitrix24.png" alt="User alt" width="32" height="32" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span>
   <div data-slot="wrapper" class="">
     <!--v-if-->
-    <p data-slot="name" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-label-color) text-(length:--ui-font-size-sm)">User name</p>
-    <p data-slot="description" class="text-(--b24ui-typography-description-color) text-(length:--ui-font-size-xs)">User description</p>
+    <p data-slot="name" class="font-(--ui-font-weight-medium) text-label text-(length:--ui-font-size-sm)">User name</p>
+    <p data-slot="description" class="text-description text-(length:--ui-font-size-xs)">User description</p>
   </div>
 </div>"
 `;
@@ -75,8 +75,8 @@ exports[`User > renders with description correctly 1`] = `
   <!--v-if-->
   <div data-slot="wrapper" class="">
     <!--v-if-->
-    <p data-slot="name" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-label-color) text-(length:--ui-font-size-sm)">User name</p>
-    <p data-slot="description" class="text-(--b24ui-typography-description-color) text-(length:--ui-font-size-xs)">User description</p>
+    <p data-slot="name" class="font-(--ui-font-weight-medium) text-label text-(length:--ui-font-size-sm)">User name</p>
+    <p data-slot="description" class="text-description text-(length:--ui-font-size-xs)">User description</p>
   </div>
 </div>"
 `;
@@ -85,8 +85,8 @@ exports[`User > renders with description slot correctly 1`] = `
 "<div data-orientation="horizontal" data-slot="root" class="relative group/user flex items-center gap-2"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--b24ui-background) ring ring-(--b24ui-border-color) style-outline-no-accent size-8 text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) shrink-0"><img src="https://github.com/bitrix24.png" alt="User alt" width="32" height="32" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span>
   <div data-slot="wrapper" class="">
     <!--v-if-->
-    <p data-slot="name" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-label-color) text-(length:--ui-font-size-sm)">User name</p>
-    <p data-slot="description" class="text-(--b24ui-typography-description-color) text-(length:--ui-font-size-xs)">Description slot</p>
+    <p data-slot="name" class="font-(--ui-font-weight-medium) text-label text-(length:--ui-font-size-sm)">User name</p>
+    <p data-slot="description" class="text-description text-(length:--ui-font-size-xs)">Description slot</p>
   </div>
 </div>"
 `;
@@ -96,7 +96,7 @@ exports[`User > renders with name correctly 1`] = `
   <!--v-if-->
   <div data-slot="wrapper" class="">
     <!--v-if-->
-    <p data-slot="name" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-label-color) text-(length:--ui-font-size-sm)">User name</p>
+    <p data-slot="name" class="font-(--ui-font-weight-medium) text-label text-(length:--ui-font-size-sm)">User name</p>
     <!--v-if-->
   </div>
 </div>"
@@ -106,8 +106,8 @@ exports[`User > renders with name slot correctly 1`] = `
 "<div data-orientation="horizontal" data-slot="root" class="relative group/user flex items-center gap-2"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--b24ui-background) ring ring-(--b24ui-border-color) style-outline-no-accent size-8 text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) shrink-0"><img src="https://github.com/bitrix24.png" alt="User alt" width="32" height="32" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span>
   <div data-slot="wrapper" class="">
     <!--v-if-->
-    <p data-slot="name" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-label-color) text-(length:--ui-font-size-sm)">Name slot</p>
-    <p data-slot="description" class="text-(--b24ui-typography-description-color) text-(length:--ui-font-size-xs)">User description</p>
+    <p data-slot="name" class="font-(--ui-font-weight-medium) text-label text-(length:--ui-font-size-sm)">Name slot</p>
+    <p data-slot="description" class="text-description text-(length:--ui-font-size-xs)">User description</p>
   </div>
 </div>"
 `;
@@ -116,8 +116,8 @@ exports[`User > renders with orientation horizontal correctly 1`] = `
 "<div data-orientation="horizontal" data-slot="root" class="relative group/user flex items-center gap-2"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--b24ui-background) ring ring-(--b24ui-border-color) style-outline-no-accent size-8 text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) shrink-0"><img src="https://github.com/bitrix24.png" alt="User alt" width="32" height="32" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span>
   <div data-slot="wrapper" class="">
     <!--v-if-->
-    <p data-slot="name" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-label-color) text-(length:--ui-font-size-sm)">User name</p>
-    <p data-slot="description" class="text-(--b24ui-typography-description-color) text-(length:--ui-font-size-xs)">User description</p>
+    <p data-slot="name" class="font-(--ui-font-weight-medium) text-label text-(length:--ui-font-size-sm)">User name</p>
+    <p data-slot="description" class="text-description text-(length:--ui-font-size-xs)">User description</p>
   </div>
 </div>"
 `;
@@ -126,8 +126,8 @@ exports[`User > renders with orientation vertical correctly 1`] = `
 "<div data-orientation="vertical" data-slot="root" class="relative group/user flex flex-col gap-2"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--b24ui-background) ring ring-(--b24ui-border-color) style-outline-no-accent size-8 text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) shrink-0"><img src="https://github.com/bitrix24.png" alt="User alt" width="32" height="32" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span>
   <div data-slot="wrapper" class="">
     <!--v-if-->
-    <p data-slot="name" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-label-color) text-(length:--ui-font-size-sm)">User name</p>
-    <p data-slot="description" class="text-(--b24ui-typography-description-color) text-(length:--ui-font-size-xs)">User description</p>
+    <p data-slot="name" class="font-(--ui-font-weight-medium) text-label text-(length:--ui-font-size-sm)">User name</p>
+    <p data-slot="description" class="text-description text-(length:--ui-font-size-xs)">User description</p>
   </div>
 </div>"
 `;
@@ -136,8 +136,8 @@ exports[`User > renders with size 2xl correctly 1`] = `
 "<div data-orientation="horizontal" data-slot="root" class="relative group/user flex items-center gap-3"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--b24ui-background) ring-(--b24ui-border-color) style-outline-no-accent ring-2 size-15 text-(length:--ui-font-size-5xl)/(--ui-font-line-height-reset) shrink-0"><img src="https://github.com/bitrix24.png" alt="User alt" width="60" height="60" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span>
   <div data-slot="wrapper" class="">
     <!--v-if-->
-    <p data-slot="name" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-label-color) text-(length:--ui-font-size-md)">User name</p>
-    <p data-slot="description" class="text-(--b24ui-typography-description-color) text-(length:--ui-font-size-md)">User description</p>
+    <p data-slot="name" class="font-(--ui-font-weight-medium) text-label text-(length:--ui-font-size-md)">User name</p>
+    <p data-slot="description" class="text-description text-(length:--ui-font-size-md)">User description</p>
   </div>
 </div>"
 `;
@@ -146,8 +146,8 @@ exports[`User > renders with size 2xs correctly 1`] = `
 "<div data-orientation="horizontal" data-slot="root" class="relative group/user flex items-center gap-1.5"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--b24ui-background) ring ring-(--b24ui-border-color) style-outline-no-accent size-5 text-(length:--ui-font-size-4xs)/(--ui-font-line-height-reset) font-(--ui-font-weight-regular) shrink-0"><img src="https://github.com/bitrix24.png" alt="User alt" width="20" height="20" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span>
   <div data-slot="wrapper" class="flex items-center gap-1.5">
     <!--v-if-->
-    <p data-slot="name" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-label-color) text-(length:--ui-font-size-xs)">User name</p>
-    <p data-slot="description" class="text-(--b24ui-typography-description-color) text-(length:--ui-font-size-xs)">User description</p>
+    <p data-slot="name" class="font-(--ui-font-weight-medium) text-label text-(length:--ui-font-size-xs)">User name</p>
+    <p data-slot="description" class="text-description text-(length:--ui-font-size-xs)">User description</p>
   </div>
 </div>"
 `;
@@ -156,8 +156,8 @@ exports[`User > renders with size 3xl correctly 1`] = `
 "<div data-orientation="horizontal" data-slot="root" class="relative group/user flex items-center gap-3"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--b24ui-background) ring-(--b24ui-border-color) style-outline-no-accent ring-2 size-23.5 text-8.5/(--ui-font-line-height-reset) shrink-0"><img src="https://github.com/bitrix24.png" alt="User alt" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span>
   <div data-slot="wrapper" class="">
     <!--v-if-->
-    <p data-slot="name" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-label-color) text-(length:--ui-font-size-lg)">User name</p>
-    <p data-slot="description" class="text-(--b24ui-typography-description-color) text-(length:--ui-font-size-md)">User description</p>
+    <p data-slot="name" class="font-(--ui-font-weight-medium) text-label text-(length:--ui-font-size-lg)">User name</p>
+    <p data-slot="description" class="text-description text-(length:--ui-font-size-md)">User description</p>
   </div>
 </div>"
 `;
@@ -166,8 +166,8 @@ exports[`User > renders with size 3xs correctly 1`] = `
 "<div data-orientation="horizontal" data-slot="root" class="relative group/user flex items-center gap-1"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--b24ui-background) ring ring-(--b24ui-border-color) style-outline-no-accent size-2.5 text-4xs font-(--ui-font-weight-regular) shrink-0"><img src="https://github.com/bitrix24.png" alt="User alt" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span>
   <div data-slot="wrapper" class="flex items-center gap-1">
     <!--v-if-->
-    <p data-slot="name" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-label-color) text-(length:--ui-font-size-xs)">User name</p>
-    <p data-slot="description" class="text-(--b24ui-typography-description-color) text-(length:--ui-font-size-xs)">User description</p>
+    <p data-slot="name" class="font-(--ui-font-weight-medium) text-label text-(length:--ui-font-size-xs)">User name</p>
+    <p data-slot="description" class="text-description text-(length:--ui-font-size-xs)">User description</p>
   </div>
 </div>"
 `;
@@ -176,8 +176,8 @@ exports[`User > renders with size lg correctly 1`] = `
 "<div data-orientation="horizontal" data-slot="root" class="relative group/user flex items-center gap-2.5"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--b24ui-background) ring ring-(--b24ui-border-color) style-outline-no-accent size-10.5 text-(length:--ui-font-size-2xl)/(--ui-font-line-height-reset) shrink-0"><img src="https://github.com/bitrix24.png" alt="User alt" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span>
   <div data-slot="wrapper" class="">
     <!--v-if-->
-    <p data-slot="name" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-label-color) text-(length:--ui-font-size-sm)">User name</p>
-    <p data-slot="description" class="text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">User description</p>
+    <p data-slot="name" class="font-(--ui-font-weight-medium) text-label text-(length:--ui-font-size-sm)">User name</p>
+    <p data-slot="description" class="text-description text-(length:--ui-font-size-sm)">User description</p>
   </div>
 </div>"
 `;
@@ -186,8 +186,8 @@ exports[`User > renders with size md correctly 1`] = `
 "<div data-orientation="horizontal" data-slot="root" class="relative group/user flex items-center gap-2"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--b24ui-background) ring ring-(--b24ui-border-color) style-outline-no-accent size-8 text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) shrink-0"><img src="https://github.com/bitrix24.png" alt="User alt" width="32" height="32" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span>
   <div data-slot="wrapper" class="">
     <!--v-if-->
-    <p data-slot="name" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-label-color) text-(length:--ui-font-size-sm)">User name</p>
-    <p data-slot="description" class="text-(--b24ui-typography-description-color) text-(length:--ui-font-size-xs)">User description</p>
+    <p data-slot="name" class="font-(--ui-font-weight-medium) text-label text-(length:--ui-font-size-sm)">User name</p>
+    <p data-slot="description" class="text-description text-(length:--ui-font-size-xs)">User description</p>
   </div>
 </div>"
 `;
@@ -196,8 +196,8 @@ exports[`User > renders with size sm correctly 1`] = `
 "<div data-orientation="horizontal" data-slot="root" class="relative group/user flex items-center gap-2"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--b24ui-background) ring ring-(--b24ui-border-color) style-outline-no-accent size-7 text-(length:--ui-font-size-xs)/(--ui-font-line-height-reset) shrink-0"><img src="https://github.com/bitrix24.png" alt="User alt" width="28" height="28" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span>
   <div data-slot="wrapper" class="">
     <!--v-if-->
-    <p data-slot="name" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-label-color) text-(length:--ui-font-size-xs)">User name</p>
-    <p data-slot="description" class="text-(--b24ui-typography-description-color) text-(length:--ui-font-size-xs)">User description</p>
+    <p data-slot="name" class="font-(--ui-font-weight-medium) text-label text-(length:--ui-font-size-xs)">User name</p>
+    <p data-slot="description" class="text-description text-(length:--ui-font-size-xs)">User description</p>
   </div>
 </div>"
 `;
@@ -206,8 +206,8 @@ exports[`User > renders with size xl correctly 1`] = `
 "<div data-orientation="horizontal" data-slot="root" class="relative group/user flex items-center gap-2.5"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--b24ui-background) ring-(--b24ui-border-color) style-outline-no-accent ring-2 size-12 text-(length:--ui-font-size-2xl)/(--ui-font-line-height-reset) shrink-0"><img src="https://github.com/bitrix24.png" alt="User alt" width="48" height="48" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span>
   <div data-slot="wrapper" class="">
     <!--v-if-->
-    <p data-slot="name" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-label-color) text-(length:--ui-font-size-md)">User name</p>
-    <p data-slot="description" class="text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">User description</p>
+    <p data-slot="name" class="font-(--ui-font-weight-medium) text-label text-(length:--ui-font-size-md)">User name</p>
+    <p data-slot="description" class="text-description text-(length:--ui-font-size-sm)">User description</p>
   </div>
 </div>"
 `;
@@ -216,8 +216,8 @@ exports[`User > renders with size xs correctly 1`] = `
 "<div data-orientation="horizontal" data-slot="root" class="relative group/user flex items-center gap-1.5"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--b24ui-background) ring ring-(--b24ui-border-color) style-outline-no-accent size-6 text-(length:--ui-font-size-3xs)/(--ui-font-line-height-reset) font-(--ui-font-weight-regular) shrink-0"><img src="https://github.com/bitrix24.png" alt="User alt" width="24" height="24" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span>
   <div data-slot="wrapper" class="flex items-center gap-1.5">
     <!--v-if-->
-    <p data-slot="name" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-label-color) text-(length:--ui-font-size-xs)">User name</p>
-    <p data-slot="description" class="text-(--b24ui-typography-description-color) text-(length:--ui-font-size-xs)">User description</p>
+    <p data-slot="name" class="font-(--ui-font-weight-medium) text-label text-(length:--ui-font-size-xs)">User name</p>
+    <p data-slot="description" class="text-description text-(length:--ui-font-size-xs)">User description</p>
   </div>
 </div>"
 `;
@@ -225,8 +225,8 @@ exports[`User > renders with size xs correctly 1`] = `
 exports[`User > renders with to correctly 1`] = `
 "<div data-orientation="horizontal" data-slot="root" class="relative group/user flex items-center gap-2"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--b24ui-background) ring ring-(--b24ui-border-color) style-outline-no-accent size-8 text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) shrink-0 transform transition-transform duration-200 group-hover/user:scale-115 group-has-focus-visible/user:scale-115"><img src="https://github.com/bitrix24.png" alt="User alt" width="32" height="32" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span>
   <div data-slot="wrapper" class=""><a href="https://github.com/bitrix24" rel="noopener noreferrer" aria-label="User name" class="focus:outline-none peer"><span class="absolute inset-0" aria-hidden="true"></span></a>
-    <p data-slot="name" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-label-color) peer-hover:text-(--ui-color-design-selection-content) peer-focus-visible:text-(--ui-color-design-selection-content) transition-colors text-(length:--ui-font-size-sm)">User name</p>
-    <p data-slot="description" class="text-(--b24ui-typography-description-color) peer-hover:text-(--ui-color-design-selection-content) peer-focus-visible:text-(--ui-color-design-selection-content) transition-colors text-(length:--ui-font-size-xs)">User description</p>
+    <p data-slot="name" class="font-(--ui-font-weight-medium) text-label peer-hover:text-(--ui-color-design-selection-content) peer-focus-visible:text-(--ui-color-design-selection-content) transition-colors text-(length:--ui-font-size-sm)">User name</p>
+    <p data-slot="description" class="text-description peer-hover:text-(--ui-color-design-selection-content) peer-focus-visible:text-(--ui-color-design-selection-content) transition-colors text-(length:--ui-font-size-xs)">User description</p>
   </div>
 </div>"
 `;
