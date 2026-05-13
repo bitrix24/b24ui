@@ -36,7 +36,7 @@ export interface DashboardSearchProps<T extends CommandPaletteItem = CommandPale
         ignoreLocation: true,
         useTokenSearch: true,
         threshold: 0.1,
-        keys: ['label', 'suffix']
+        keys: ['label', 'description', 'suffix']
       },
       resultLimit: 12,
       matchAllWhenSearchEmpty: true
