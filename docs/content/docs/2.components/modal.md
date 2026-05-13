@@ -509,6 +509,45 @@ Before writing any code, ask me clarifying questions about:
 Once we agree on those, compose the modal from existing b24ui components only (do not introduce a new component), paint the brand boost gradient on `b24ui.content`, pin the CTA row to the bottom of the body, and keep any side card as a short teaser of headline benefits — not a feature matrix.
 ::
 
+### Sales dynamics widget
+
+A real-world example of surfacing a stats card behind a Modal. The widget itself is documented on the [Card](/docs/components/card/#sales-dynamics-widget) page; here it sits inside `B24Modal` so a trigger button opens it as a focused overlay — handy when the page chrome is busy and the dashboard needs a peek surface without a navigation jump.
+
+::component-example
+---
+collapse: true
+name: 'modal-sales-dynamics-example'
+---
+::
+
+::prompt
+---
+description: Wrap the Sales dynamics widget in a Modal so a trigger button opens it as a focused overlay.
+actions:
+  - copy
+  - cursor
+  - windsurf
+class: 'w-full my-0'
+---
+Take the Sales dynamics widget recipe (see `references/recipes/overlays.md` → "Stats widget (KPI summary)") and surface it through `B24Modal` so a button or in-page link opens the metrics as a focused overlay — useful when the surrounding dashboard is too busy to host the full card inline.
+
+Before writing any code, gather the missing context:
+- What's the trigger — a `B24Button` (discrete control), a `B24Link is-action` mid-paragraph, or a programmatic open via `useOverlay`?
+- Should the modal be dismissible by ESC / overlay click, or only via the widget's own actions (in which case `:dismissible="false"`)?
+- Does the modal need to block the page (default `modal: true`) or float as a non-modal overlay (`modal: false`) so the user can still scroll the dashboard behind it?
+- Should the widget's own `Configure` / `Feedback` buttons close the modal, navigate away, or stay open while triggering side-effects?
+- What's the data shape behind the rows (and the optional highlight row), and where does it come from — props on the page, a store, or an async fetch fired only when the modal opens?
+- Locale and analytics: track modal opens and CTA clicks separately, since this is a "peek" surface, not the canonical metrics page.
+
+Once those answers are in, assemble the modal from stock components only:
+- Strip the modal's content chrome with `:b24ui="{ content: 'sm:max-w-md bg-transparent shadow-none border-0', body: 'p-0' }"` so the widget paints its own surface (it carries the gradient, rounded corners and shadow internally).
+- Disable the built-in close (`:close="false"`) so the X doesn't clash with the widget's header — the modal is dismissed by ESC, overlay click, or one of the widget's footer buttons.
+- Place the trigger in the default slot (`B24Button` or `B24Link is-action` — never both in the same modal) and put the widget itself inside `#body`.
+- Render the widget exactly as documented in the recipe — the `edge-dark` root, the purple radial gradient (`--ui-color-copilot-bg-content-3 → -2 → -1`), the `style-filled-boost` highlight row and the three `air-secondary-accent` action buttons.
+
+Keep all copy in the requested locale and surface the data through the same shape (`title`, `totalLine`, `todayLine`, `rangeLabel`, `rows`, `highlight`) used by the standalone recipe.
+::
+
 ### With command palette
 
 You can use a [CommandPalette](/docs/components/command-palette/) component inside the Modal's content.
