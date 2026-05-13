@@ -300,6 +300,18 @@ Once those answers are in, assemble the popover from stock components only (`B24
 Use semantic typography utilities (`text-label`, `text-description`) for the title and caption, and keep all copy in the requested locale.
 ::
 
+### Sales dynamics widget
+
+A real-world example of pairing a Popover with a stats card. The same composition is documented on the [Card](/docs/components/card/#sales-dynamics-widget) page — built from `Card` over an edge-dark purple radial gradient, plus `Button` (`air-secondary-accent`), `Tooltip` and a small CSS grid, without any custom CSS beyond a couple of translucent overlays for row contrast.
+
+::component-example
+---
+collapse: true
+name: 'card-sales-dynamics-example'
+---
+::
+
+
 ## API
 
 ### Props
