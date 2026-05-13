@@ -60,6 +60,21 @@ props:
 ---
 ::
 
+### Position :badge{label="Soon" class="align-text-top"}
+
+Use the `position` prop to change the position of the content of the Separator. Defaults to `center`.
+
+::component-code
+---
+ignore:
+  - class
+class: 'p-8'
+props:
+  position: start
+  label: 'Hello World'
+---
+::
+
 ### Icon
 
 Use the `icon` prop to display an [Icon](https://bitrix24.github.io/b24icons/icons/) in the middle of the Separator.

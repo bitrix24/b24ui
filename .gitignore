@@ -54,3 +54,6 @@ CLAUDE.md
 /.claude/skills/b24-ui-nuxt/
 /.agents/
 /skills-lock.json
+
+# VSC
+.history

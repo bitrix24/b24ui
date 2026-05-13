@@ -18,7 +18,7 @@ export default {
       'text-center',
       'align-middle',
       'flex items-center justify-center',
-      'group-data-[state=completed]:text-(--b24ui-color) group-data-[state=active]:text-(--b24ui-color) text-(--b24ui-typography-description-color)',
+      'group-data-[state=completed]:text-(--b24ui-color) group-data-[state=active]:text-(--b24ui-color) text-description',
       'group-data-[state=completed]:bg-(--b24ui-background) group-data-[state=active]:bg-(--b24ui-background-active) focus-visible:outline-(--b24ui-background-active) bg-(--ui-color-base-8) ring ring-(--ui-color-base-7)',
       'focus-visible:outline-2',
       'focus-visible:outline-offset-2'
@@ -33,8 +33,8 @@ export default {
       'group-data-[state=completed]:bg-(--b24ui-background-active) bg-(--ui-color-base-6)'
     ].join(' '),
     wrapper: '',
-    title: 'font-(--ui-font-weight-medium) text-(--b24ui-typography-legend-color)',
-    description: 'text-(--b24ui-typography-description-color) text-wrap',
+    title: 'font-(--ui-font-weight-medium) text-legend',
+    description: 'text-description text-wrap',
     content: 'size-full'
   },
   variants: {

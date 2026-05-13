@@ -6,6 +6,9 @@ links:
   - label: GitHub
     iconName: GitHubIcon
     to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/ChatMessage.vue
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/chat-message/
   - label: Nuxt UI
     iconName: NuxtIcon
     to: https://ui.nuxt.com/docs/components/chat-message
@@ -114,6 +117,34 @@ props:
 
 ::note
 When using the [`ChatMessages`](/docs/components/chat-messages/) component, the `variant` prop is set to `message` for `assistant` messages and `message` for `user` messages.
+::
+
+### Color :badge{label="Soon" class="align-text-top"}
+
+Use the `color` prop to change the color of the message.
+
+::component-code
+---
+prettier: true
+ignore:
+  - parts
+  - role
+  - id
+  - avatar.src
+  - avatar.loading
+props:
+  variant: 'message'
+  color: 'air-primary-success'
+  avatar:
+    src: 'https://github.com/bitrix24.png'
+    loading: lazy
+  parts:
+    - type: 'text'
+      id: '1'
+      text: 'Hello! Tell me more about building AI chatbots with Bitrix24 UI.'
+  role: 'user'
+  id: '1'
+---
 ::
 
 ### Icon

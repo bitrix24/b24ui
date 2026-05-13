@@ -18,8 +18,8 @@ exports[`PageFeature > renders with b24ui correctly 1`] = `
     </svg></div>
   <div data-slot="wrapper" class="">
     <!--v-if-->
-    <div data-slot="title" class="text-(length:--ui-font-size-md) text-pretty text-(--b24ui-typography-legend-color) font-bold">Title</div>
-    <div data-slot="description" class="text-(length:--ui-font-size-sm) text-pretty text-(--b24ui-typography-description-color) mt-1">Description</div>
+    <div data-slot="title" class="text-(length:--ui-font-size-md) text-pretty text-legend font-bold">Title</div>
+    <div data-slot="description" class="text-(length:--ui-font-size-sm) text-pretty text-description mt-1">Description</div>
   </div>
 </div>"
 `;
@@ -31,8 +31,8 @@ exports[`PageFeature > renders with class correctly 1`] = `
     </svg></div>
   <div data-slot="wrapper" class="">
     <!--v-if-->
-    <div data-slot="title" class="text-(length:--ui-font-size-md) text-pretty font-(--ui-font-weight-semi-bold) text-(--b24ui-typography-legend-color)">Title</div>
-    <div data-slot="description" class="text-(length:--ui-font-size-sm) text-pretty text-(--b24ui-typography-description-color) mt-1">Description</div>
+    <div data-slot="title" class="text-(length:--ui-font-size-md) text-pretty font-(--ui-font-weight-semi-bold) text-legend">Title</div>
+    <div data-slot="description" class="text-(length:--ui-font-size-sm) text-pretty text-description mt-1">Description</div>
   </div>
 </div>"
 `;
@@ -54,7 +54,7 @@ exports[`PageFeature > renders with description correctly 1`] = `
   <div data-slot="wrapper" class="">
     <!--v-if-->
     <!--v-if-->
-    <div data-slot="description" class="text-(length:--ui-font-size-sm) text-pretty text-(--b24ui-typography-description-color)">Description</div>
+    <div data-slot="description" class="text-(length:--ui-font-size-sm) text-pretty text-description">Description</div>
   </div>
 </div>"
 `;
@@ -66,8 +66,8 @@ exports[`PageFeature > renders with description slot correctly 1`] = `
     </svg></div>
   <div data-slot="wrapper" class="">
     <!--v-if-->
-    <div data-slot="title" class="text-(length:--ui-font-size-md) text-pretty font-(--ui-font-weight-semi-bold) text-(--b24ui-typography-legend-color)">Title</div>
-    <div data-slot="description" class="text-(length:--ui-font-size-sm) text-pretty text-(--b24ui-typography-description-color) mt-1">Description slot</div>
+    <div data-slot="title" class="text-(length:--ui-font-size-md) text-pretty font-(--ui-font-weight-semi-bold) text-legend">Title</div>
+    <div data-slot="description" class="text-(length:--ui-font-size-sm) text-pretty text-description mt-1">Description slot</div>
   </div>
 </div>"
 `;
@@ -90,8 +90,8 @@ exports[`PageFeature > renders with leading slot correctly 1`] = `
   <div data-slot="leading" class="inline-flex items-center justify-center p-0.5">Leading slot</div>
   <div data-slot="wrapper" class="">
     <!--v-if-->
-    <div data-slot="title" class="text-(length:--ui-font-size-md) text-pretty font-(--ui-font-weight-semi-bold) text-(--b24ui-typography-legend-color)">Title</div>
-    <div data-slot="description" class="text-(length:--ui-font-size-sm) text-pretty text-(--b24ui-typography-description-color) mt-1">Description</div>
+    <div data-slot="title" class="text-(length:--ui-font-size-md) text-pretty font-(--ui-font-weight-semi-bold) text-legend">Title</div>
+    <div data-slot="description" class="text-(length:--ui-font-size-sm) text-pretty text-description mt-1">Description</div>
   </div>
 </div>"
 `;
@@ -103,8 +103,8 @@ exports[`PageFeature > renders with orientation horizontal correctly 1`] = `
     </svg></div>
   <div data-slot="wrapper" class="">
     <!--v-if-->
-    <div data-slot="title" class="text-(length:--ui-font-size-md) text-pretty font-(--ui-font-weight-semi-bold) text-(--b24ui-typography-legend-color)">Title</div>
-    <div data-slot="description" class="text-(length:--ui-font-size-sm) text-pretty text-(--b24ui-typography-description-color) mt-1">Description</div>
+    <div data-slot="title" class="text-(length:--ui-font-size-md) text-pretty font-(--ui-font-weight-semi-bold) text-legend">Title</div>
+    <div data-slot="description" class="text-(length:--ui-font-size-sm) text-pretty text-description mt-1">Description</div>
   </div>
 </div>"
 `;
@@ -116,8 +116,8 @@ exports[`PageFeature > renders with orientation vertical correctly 1`] = `
     </svg></div>
   <div data-slot="wrapper" class="">
     <!--v-if-->
-    <div data-slot="title" class="text-(length:--ui-font-size-md) text-pretty font-(--ui-font-weight-semi-bold) text-(--b24ui-typography-legend-color)">Title</div>
-    <div data-slot="description" class="text-(length:--ui-font-size-sm) text-pretty text-(--b24ui-typography-description-color) mt-1">Description</div>
+    <div data-slot="title" class="text-(length:--ui-font-size-md) text-pretty font-(--ui-font-weight-semi-bold) text-legend">Title</div>
+    <div data-slot="description" class="text-(length:--ui-font-size-sm) text-pretty text-description mt-1">Description</div>
   </div>
 </div>"
 `;
@@ -127,7 +127,7 @@ exports[`PageFeature > renders with title correctly 1`] = `
   <!--v-if-->
   <div data-slot="wrapper" class="">
     <!--v-if-->
-    <div data-slot="title" class="text-(length:--ui-font-size-md) text-pretty font-(--ui-font-weight-semi-bold) text-(--b24ui-typography-legend-color)">Title</div>
+    <div data-slot="title" class="text-(length:--ui-font-size-md) text-pretty font-(--ui-font-weight-semi-bold) text-legend">Title</div>
     <!--v-if-->
   </div>
 </div>"
@@ -140,8 +140,8 @@ exports[`PageFeature > renders with title slot correctly 1`] = `
     </svg></div>
   <div data-slot="wrapper" class="">
     <!--v-if-->
-    <div data-slot="title" class="text-(length:--ui-font-size-md) text-pretty font-(--ui-font-weight-semi-bold) text-(--b24ui-typography-legend-color)">Title slot</div>
-    <div data-slot="description" class="text-(length:--ui-font-size-sm) text-pretty text-(--b24ui-typography-description-color) mt-1">Description</div>
+    <div data-slot="title" class="text-(length:--ui-font-size-md) text-pretty font-(--ui-font-weight-semi-bold) text-legend">Title slot</div>
+    <div data-slot="description" class="text-(length:--ui-font-size-sm) text-pretty text-description mt-1">Description</div>
   </div>
 </div>"
 `;

@@ -61,7 +61,7 @@ export default () => {
         'select-none outline-none whitespace-nowrap',
         'text-center',
         'text-(length:--ui-size-sm)/(--ui-font-line-height-lg)',
-        'text-(--b24ui-typography-legend-color)',
+        'text-legend',
         'font-(--ui-font-weight-normal)'
       ].join(' '),
       label: [
@@ -71,7 +71,7 @@ export default () => {
         'select-none outline-none whitespace-nowrap',
         'text-start',
         'text-(length:--ui-size-sm)',
-        'text-(--b24ui-typography-legend-color)',
+        'text-legend',
         'font-(--ui-font-weight-normal)',
         'after:ms-[10px] after:block after:flex-1 after:min-w-[15px] after:h-px after:bg-(--ui-color-divider-vibrant-default)'
       ].join(' '),
@@ -88,10 +88,10 @@ export default () => {
         'data-disabled:select-none',
         'text-start',
         'text-(length:--ui-font-size-md)',
-        'text-(--b24ui-typography-legend-color) hover:text-(--b24ui-typography-label-color)',
-        'data-highlighted:not-data-disabled:text-(--b24ui-typography-label-color)',
-        'data-[state=open]:text-(--b24ui-typography-label-color)',
-        'data-[state=checked]:text-(--b24ui-typography-label-color)',
+        'text-legend hover:text-label',
+        'data-highlighted:not-data-disabled:text-label',
+        'data-[state=open]:text-label',
+        'data-[state=checked]:text-label',
         'hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed)',
         'active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed)',
         'data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed)',
@@ -112,7 +112,7 @@ export default () => {
       itemTrailingIcon: 'shrink-0 size-[24px] text-(--ui-color-accent-main-primary)',
       itemWrapper: 'flex-1 flex flex-col min-w-0',
       itemLabel: 'truncate ms-[2px] -mt-px',
-      itemDescription: 'truncate -mt-[6px] text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)',
+      itemDescription: 'truncate -mt-[6px] text-description text-(length:--ui-font-size-sm)',
       tagsItem: [
         'ps-[13px] pe-[6px]',
         'rounded-(--ui-border-radius-xs)',
@@ -151,9 +151,9 @@ export default () => {
         true: {
           group: '',
           item: [
-            'text-(--b24ui-typography-legend-color)',
-            'data-highlighted:not-data-disabled:text-(--b24ui-typography-label-color)',
-            'data-[state=checked]:text-(--b24ui-typography-label-color)'
+            'text-legend',
+            'data-highlighted:not-data-disabled:text-label',
+            'data-[state=checked]:text-label'
           ].join(' '),
           itemLabel: 'flex flex-row flex-nowrap items-center justify-start gap-2',
           itemLeadingIcon: [

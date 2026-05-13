@@ -225,6 +225,7 @@ const pagesFrameExamples = [
 ]
 
 const pagesService = [
+  '/api/navigation.json',
   '/api/countries.json',
   '/api/phone-codes.json',
   '/api/locales.json',
@@ -270,7 +271,10 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/x-icon', href: `${baseUrl}/favicon.ico?v=2` }
       ],
-      htmlAttrs: { class: 'edge-dark' }
+      htmlAttrs: {
+        class: 'edge-dark',
+        lang: 'en'
+      }
     },
     rootAttrs: { 'data-vaul-drawer-wrapper': '' }
   },
@@ -314,6 +318,7 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
+    '/api/navigation.json': { prerender: true },
     // Agent discovery Link headers on the homepage (RFC 8288, RFC 9727)
     '/': {
       headers: {
@@ -534,6 +539,11 @@ export default defineNuxtConfig({
         '@bitrix24/b24icons-vue/file-type/EditorconfigIcon',
         '@bitrix24/b24icons-vue/file-type/TsconfigIcon',
         '@bitrix24/b24icons-vue/file-type/NodeIcon',
+        '@bitrix24/b24icons-vue/outline/MoreLIcon',
+        '@bitrix24/b24icons-vue/outline/HomeIcon',
+        '@bitrix24/b24icons-vue/outline/ProductIcon',
+        '@bitrix24/b24icons-vue/main/RocketIcon',
+        '@bitrix24/b24icons-vue/outline/BoardIcon',
         '@bitrix24/b24icons-vue/file-type/MarkdownIcon'
       ]
     }

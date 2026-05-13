@@ -40,6 +40,129 @@ props:
 ---
 ::
 
+### Icon :badge{label="Soon" class="align-text-top"}
+
+Use the `icon` prop to display an icon above the status code.
+
+::component-code
+---
+prettier: true
+hide:
+- class
+ignore:
+  - icon
+cast:
+  icon: 'RocketIcon'
+ignore:
+  - error.statusCode
+  - error.statusMessage
+  - error.message
+props:
+  icon: 'RocketIcon'
+  error:
+    statusCode: 404
+    statusMessage: 'Page not found'
+    message: 'The page you are looking for does not exist.'
+  class: '!min-h-96'
+---
+::
+
+### Avatar :badge{label="Soon" class="align-text-top"}
+
+Use the `avatar` prop to display an [Avatar](/docs/components/avatar/) above the status code (used only when `icon` is not set).
+
+::component-code
+---
+prettier: true
+hide:
+  - class
+ignore:
+  - avatar.src
+  - error.statusCode
+  - error.statusMessage
+  - error.message
+props:
+  avatar:
+    src: 'https://github.com/bitrix24.png'
+  error:
+    statusCode: 404
+    statusMessage: 'Page not found'
+    message: 'The page you are looking for does not exist.'
+  class: '!min-h-96'
+---
+::
+
+### Color :badge{label="Soon" class="align-text-top"}
+
+Use the `color` prop to tint the inner [Avatar](/docs/components/avatar/). An explicit `avatar.color` overrides this default.
+
+::component-code
+---
+prettier: true
+hide:
+  - class
+ignore:
+  - avatar.src
+  - error.statusCode
+  - error.statusMessage
+  - error.message
+items:
+  color:
+    - air-primary
+    - air-primary-success
+    - air-primary-alert
+    - air-primary-copilot
+    - air-primary-warning
+    - air-primary-no-accent
+    - air-secondary
+    - air-secondary-alert
+    - air-secondary-accent
+    - air-secondary-accent-1
+    - air-secondary-accent-2
+    - air-secondary-no-accent
+    - air-tertiary
+    - air-tertiary-accent
+    - air-tertiary-no-accent
+    - air-selection
+    - air-boost
+props:
+  color: 'air-primary-alert'
+  avatar:
+    src: 'https://github.com/bitrix24.png'
+  error:
+    statusCode: 404
+    statusMessage: 'Page not found'
+    message: 'The page you are looking for does not exist.'
+  class: '!min-h-96'
+---
+::
+
+Use the `#leading` slot to display a custom element, such as a logo.
+
+::component-code
+---
+hide:
+  - class
+prettier: true
+ignore:
+  - error.statusCode
+  - error.statusMessage
+  - error.message
+props:
+  error:
+    statusCode: 404
+    statusMessage: 'Page not found'
+    message: 'The page you are looking for does not exist.'
+  class: '!min-h-96'
+slots:
+  leading: |
+
+    <img src="https://github.com/bitrix24.png" alt="Bitrix24" class="size-10 rounded-full">
+---
+#leading
+:img{src="https://github.com/bitrix24.png" alt="Bitrix24" class="size-10 rounded-full"}
+::
+
 ### Clear
 
 Use the `clear` prop to customize or hide the clear button (with `false` value).

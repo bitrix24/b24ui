@@ -9,7 +9,7 @@ export default {
     legend: [
       'mb-1.5',
       'block',
-      'text-(--b24ui-typography-label-color)'
+      'text-label'
     ].join(' '),
     item: ''
   },

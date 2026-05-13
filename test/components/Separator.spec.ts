@@ -14,6 +14,8 @@ describe('Separator', () => {
     // Props
     ['with label', { props: { label: '+1' } }],
     ['with icon', { props: { icon: Search2Icon } }],
+    ['with position start', { props: { position: 'start', icon: Search2Icon } }],
+    ['with position end', { props: { position: 'end', icon: Search2Icon } }],
     ['with avatar', { props: { avatar: { src: 'https://github.com/bitrix24.png' } } }],
     ['with orientation vertical', { props: { orientation: 'vertical' } }],
     ['with decorative', { props: { decorative: true } }],

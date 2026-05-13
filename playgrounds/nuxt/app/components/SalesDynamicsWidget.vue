@@ -45,7 +45,12 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <B24Card variant="filled-copilot" :b24ui="{ root: 'rounded-2xl' }">
+  <B24Card
+    variant="filled-copilot"
+    :b24ui="{
+      root: 'edge-dark rounded-2xl bg-[radial-gradient(110.42%_110.42%_at_-10.42%_31.25%,var(--ui-color-copilot-bg-content-3)_0%,var(--ui-color-copilot-bg-content-2)_58.65%,var(--ui-color-copilot-bg-content-1)_100%)]'
+    }"
+  >
     <template #header>
       <div class="flex items-start justify-between gap-4">
         <div class="min-w-0">
@@ -62,7 +67,7 @@ const emit = defineEmits<{
 
         <B24Button
           rounded
-          color="air-tertiary-no-accent"
+          color="air-secondary-accent"
           :label="rangeLabel"
           :trailing-icon="RepeatIcon"
           @click="emit('range')"
@@ -89,7 +94,7 @@ const emit = defineEmits<{
 
       <div
         v-if="highlight"
-        class="grid grid-cols-[1fr_auto_auto] gap-x-6 items-center px-3 py-3 rounded-xl bg-white/15 ring-1 ring-white/20"
+        class="style-filled-boost grid grid-cols-[1fr_auto_auto] gap-x-6 items-center px-3 py-3 rounded-xl text-(--ui-color-design-filled-boost-content)"
       >
         <span class="font-(--ui-font-weight-medium) inline-flex items-center gap-1">
           {{ highlight.label }}
@@ -105,13 +110,13 @@ const emit = defineEmits<{
     <template #footer>
       <div class="flex items-center justify-between gap-4">
         <B24Button
-          color="air-tertiary-no-accent"
+          color="air-secondary-accent"
           :icon="SettingsIcon"
           :label="configureLabel"
           @click="emit('configure')"
         />
         <B24Button
-          color="air-tertiary-no-accent"
+          color="air-secondary-accent"
           :icon="FeedbackIcon"
           :label="feedbackLabel"
           @click="emit('feedback')"

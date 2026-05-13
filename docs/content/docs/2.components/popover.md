@@ -263,9 +263,46 @@ name: 'popover-anchor-slot-example'
 ---
 ::
 
+### Entity info card
+
+Real-world example: an account or deal summary shown in a hover popover, assembled from [`Card`](/docs/components/card/), [`Avatar`](/docs/components/avatar/), [`Separator`](/docs/components/separator/), [`Button`](/docs/components/button/), [`Link`](/docs/components/link/) and [`DescriptionList`](/docs/components/description-list/) — no custom styling beyond the avatar accent.
+
+::component-example
+---
+collapse: true
+name: 'popover-entity-info-example'
+---
+::
+
+::prompt
+---
+description: Build an entity-info popover for any record or object.
+actions:
+  - copy
+  - cursor
+  - windsurf
+class: 'w-full my-0'
+---
+Lean on the `b24-ui-nuxt` skill (see `references/recipes/overlays.md` → "Info popover (entity summary)") to build a compact entity-info popover that sits on top of an entity name in running text. The popover should tease the underlying record: a colored avatar, the entity title, a one-line caption, a primary CTA, a separator, and a label/value list with one or two values rendered as their own component (link, badge, time).
+
+Before writing any code, gather the missing context:
+- Which entity does the popover describe (e.g. user, account, order, ticket, project, product, event)? That decides the avatar icon and the design-token accent (`alert`, `success`, `warning`, `copilot`).
+- What's the trigger — a `B24Link` mid-paragraph (hover) or a discrete control (click)?
+- Which fields belong on the card: title, caption (a short status line such as count, stage, or role), CTA label + target, plus 2-4 label/value pairs (owner, created-at, status, category, location, etc.)?
+- Do any values need their own component (link, badge, time)? If yes, plan to use the global `#description` slot with `v-if="item.slot === '<key>'"` instead of replacing the whole `<dt>/<dd>` pair via a per-item slot.
+- Locale, dark-mode preview, and any analytics events to fire when the popover opens or the CTA is clicked.
+
+Once those answers are in, assemble the popover from stock components only (`B24Popover`, `B24Avatar`, `B24Button`, `B24Separator`, `B24DescriptionList`, `B24Link`) and reach for the `:b24ui` prop to:
+- pin the layout to a single column inside the narrow card and zero the row dividers,
+- match the recipe's compact rhythm (`p-6`, `gap-4.5`, `w-65`, `size="sm"` button),
+- recolor the avatar through design tokens — never inline hex values.
+
+Use semantic typography utilities (`text-label`, `text-description`) for the title and caption, and keep all copy in the requested locale.
+::
+
 ### Sales dynamics widget
 
-A real-world example of pairing a Popover with a stats card. The same composition is documented on the [Card](/docs/components/card/#sales-dynamics-widget) page — built from `Card` (with the `filled-copilot` variant), `Button`, `Tooltip` and a small CSS grid, without any custom CSS beyond a couple of translucent overlays for row contrast.
+A real-world example of pairing a Popover with a stats card. The same composition is documented on the [Card](/docs/components/card/#sales-dynamics-widget) page — built from `Card` over an edge-dark purple radial gradient, plus `Button` (`air-secondary-accent`), `Tooltip` and a small CSS grid, without any custom CSS beyond a couple of translucent overlays for row contrast.
 
 ::component-example
 ---
@@ -273,6 +310,7 @@ collapse: true
 name: 'card-sales-dynamics-example'
 ---
 ::
+
 
 ## API
 

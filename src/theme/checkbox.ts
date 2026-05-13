@@ -11,7 +11,7 @@ export default {
       'flex items-center justify-center',
       'shrink-0',
       'rounded-(--ui-border-radius-2xs)',
-      'text-(--b24ui-typography-label-color)',
+      'text-label',
       'ring ring-inset ring-(--ui-color-base-5)',
       'focus-visible:outline-(--b24ui-border-color)',
       'outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2'
@@ -33,9 +33,9 @@ export default {
     label: [
       'cursor-pointer',
       'block',
-      'text-(--b24ui-typography-label-color)'
+      'text-label'
     ].join(' '),
-    description: 'mt-[4px] text-(--b24ui-typography-description-color)'
+    description: 'mt-[4px] text-description'
   },
   variants: {
     color: {

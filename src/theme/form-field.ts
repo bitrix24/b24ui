@@ -11,15 +11,15 @@ export default {
     labelWrapper: 'flex content-center items-center justify-between gap-1',
     label: [
       'block',
-      'text-(--b24ui-typography-label-color)'
+      'text-label'
     ].join(' '),
-    hint: 'text-(--b24ui-typography-description-color)',
+    hint: 'text-description',
     container: 'relative',
-    description: 'leading-(--ui-font-line-height-2xs) text-(--b24ui-typography-description-color)',
+    description: 'leading-(--ui-font-line-height-2xs) text-description',
     error: 'text-(--ui-color-accent-main-alert)',
     errorWrapper: 'flex flex-row flex-nowrap items-center gap-0.5',
     errorIcon: 'size-4.5',
-    help: 'leading-(--ui-font-line-height-2xs) italic text-(--b24ui-typography-description-color)'
+    help: 'leading-(--ui-font-line-height-2xs) italic text-description'
   },
   variants: {
     useDescription: {

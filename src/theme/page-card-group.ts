@@ -3,11 +3,18 @@
  * A selectable group of PageCard items. Supports single (radio) and multi (checkbox) selection,
  * optional grouping by category, responsive grid layout, and a corner badge for the selected state.
  *
+ * The leading visual of every card is rendered by the inner `B24PageCard`:
+ *  - If the item has a plain `icon` field — it wins, rendered as-is (legacy path).
+ *  - Otherwise the inner card renders a `B24Avatar` (group `avatar` prop merged with the item's
+ *    `avatar` field). Avatar size is driven by `leadingAvatarSize` (a value, not a CSS class)
+ *    which the size variant forwards into `PageCard`'s `b24ui` slot.
+ *
  * The `card*` slots are forwarded to the inner `B24PageCard` via its `b24ui` prop and override
  * PageCard's own slot classes — this is what produces the icon-on-the-left layout (PageCard
  * defaults to a vertical wrapper).
  * ---
  * @see src/theme/page-card.ts
+ * @see src/theme/avatar.ts
  */
 export default {
   slots: {
@@ -26,33 +33,37 @@ export default {
     cardBody: 'flex-1 min-w-0',
     cardTitle: '',
     cardDescription: '',
-    iconWrap: 'inline-flex items-center justify-center rounded-full bg-(--ui-color-design-tinted-a1-bg) shrink-0',
-    icon: 'text-(--ui-color-design-tinted-a1-content-icon)',
+    leadingIcon: '',
+    leadingAvatar: '',
+    // Avatar size **value** (not a class). Size variant supplies it — keep base empty
+    // so `b24ui.leadingAvatarSize()` returns the variant value verbatim (e.g. `lg`),
+    // not the concatenated `'lg lg'` which would miss the Avatar size variant lookup.
+    leadingAvatarSize: '',
     badge: 'absolute -top-2 -end-2 z-10',
     badgeIcon: 'rounded-full'
   },
   variants: {
     size: {
       sm: {
-        iconWrap: 'size-10',
-        icon: 'size-5',
         cardWrapper: 'gap-2.5',
         cardTitle: 'text-(length:--ui-font-size-base)/[normal]',
-        cardDescription: 'text-(length:--ui-font-size-sm)/[normal]'
+        cardDescription: 'text-(length:--ui-font-size-sm)/[normal]',
+        leadingIcon: 'size-7 shrink-0',
+        leadingAvatarSize: 'sm'
       },
       md: {
-        iconWrap: 'size-12',
-        icon: 'size-6',
         cardWrapper: 'gap-3',
         cardTitle: 'text-(length:--ui-font-size-lg)/[normal]',
-        cardDescription: 'text-(length:--ui-font-size-base)/[normal]'
+        cardDescription: 'text-(length:--ui-font-size-base)/[normal]',
+        leadingIcon: 'size-8 shrink-0',
+        leadingAvatarSize: 'md'
       },
       lg: {
-        iconWrap: 'size-14',
-        icon: 'size-7',
         cardWrapper: 'gap-4',
         cardTitle: 'text-(length:--ui-font-size-xl)/[normal]',
-        cardDescription: 'text-(length:--ui-font-size-base)/[normal]'
+        cardDescription: 'text-(length:--ui-font-size-base)/[normal]',
+        leadingIcon: 'size-10 shrink-0',
+        leadingAvatarSize: 'lg'
       }
     },
     columns: {

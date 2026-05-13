@@ -75,6 +75,27 @@ slots:
 :b24-avatar{src="/b24ui/avatar/assistant.png" alt="Assistant Name" loading="lazy"}
 ::
 
+### Color :badge{label="Soon" class="align-text-top"}
+
+Use the `color` prop to change the color of all the avatars.
+
+::component-code
+---
+prettier: true
+props:
+  color: air-boost
+slots:
+  default: |
+
+    <B24Avatar src="/b24ui/avatar/employee.png" alt="Employee Name" loading="lazy" />
+    <B24Avatar src="https://github.com/bitrix24.png" alt="Bitrix24" loading="lazy" />
+    <B24Avatar src="/b24ui/avatar/assistant.png" alt="Assistant Name" loading="lazy" />
+---
+:b24-avatar{src="/b24ui/avatar/employee.png" alt="Employee Name" loading="lazy"}
+:b24-avatar{src="https://github.com/bitrix24.png" alt="Bitrix24" loading="lazy"}
+:b24-avatar{src="/b24ui/avatar/assistant.png" alt="Assistant Name" loading="lazy"}
+::
+
 ## Examples
 
 ### With tooltip

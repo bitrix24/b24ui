@@ -19,14 +19,14 @@ export default {
     header: '',
     title: [
       'font-[family-name:var(--ui-font-family-primary)]',
-      'text-(--b24ui-typography-label-color)',
+      'text-label',
       'font-(--ui-font-weight-medium)',
       'mb-0',
       'text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)'
     ].join(' '),
     description: [
       'mt-1',
-      'text-(--b24ui-typography-description-color)',
+      'text-description',
       'text-(length:--ui-font-size-sm)'
     ].join(' '),
     body: 'flex-1',

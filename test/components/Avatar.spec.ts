@@ -8,6 +8,7 @@ import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
 
 describe('Avatar', () => {
   const sizes = Object.keys(theme.variants.size) as any
+  const colors = Object.keys(theme.variants.color) as any
 
   renderEach(Avatar, [
     // Props
@@ -17,6 +18,7 @@ describe('Avatar', () => {
     ['with icon', { props: { icon: Search2Icon } }],
     ['with chip', { props: { chip: { text: '1' } } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { src: 'https://github.com/bitrix24.png', size } }]),
+    ...colors.map((color: string) => [`with color ${color}`, { props: { alt: 'bitrix24', color } }]),
     ['with as', { props: { as: 'section' } }],
     ['with as (object)', { props: { src: 'https://github.com/bitrix24.png', as: { root: 'section', img: 'p' } } }],
     ['with as (partial object)', { props: { src: 'https://github.com/bitrix24.png', as: { img: 'p' } } }],

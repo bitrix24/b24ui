@@ -125,6 +125,19 @@ props:
 The `alt` prop is passed to the `img` element as the `alt` attribute.
 ::
 
+### Color :badge{label="Soon" class="align-text-top"}
+
+Use the `color` prop to change the color of the Avatar.
+
+::component-code
+---
+props:
+  color: air-boost
+  alt: 'Employee Name'
+---
+::
+
+
 ### Chip
 
 Use the `chip` prop to display a chip around the Avatar.
