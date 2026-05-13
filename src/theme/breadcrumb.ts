@@ -36,7 +36,7 @@ export default {
       },
       false: {
         link: [
-          'text-(--b24ui-typography-legend-color)',
+          'text-legend',
           'font-(--ui-font-weight-medium)'
         ].join(' ')
       }

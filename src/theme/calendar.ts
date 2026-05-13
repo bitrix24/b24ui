@@ -17,7 +17,7 @@ export default {
       'mx-auto',
       'text-center',
       'font-(--ui-font-weight-semi-bold)',
-      'text-(--b24ui-typography-legend-color)',
+      'text-legend',
       'truncate'
     ].join(' '),
     grid: 'w-full border-collapse select-none space-y-1 focus:outline-none',
@@ -35,7 +35,7 @@ export default {
       'flex items-center justify-center',
       'rounded-full whitespace-nowrap',
       'focus-visible:ring-2 focus:outline-none',
-      'text-(--b24ui-typography-label-color)',
+      'text-label',
       'data-disabled:text-(--ui-color-design-plain-na-content-secondary)',
       'data-unavailable:text-(--ui-color-design-plain-na-content-secondary)',
       'data-outside-view:text-(--ui-color-design-plain-na-content-secondary)',

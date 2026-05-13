@@ -40,7 +40,7 @@ export default {
       'wrap-break-word'
     ].join(' '),
     description: [
-      'text-(--b24ui-typography-description-color)',
+      'text-description',
       'text-(length:--ui-font-size-sm)',
       'wrap-break-word'
     ].join(' '),

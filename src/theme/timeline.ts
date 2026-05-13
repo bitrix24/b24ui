@@ -11,14 +11,14 @@ export default {
     item: 'group relative flex flex-1 gap-3',
     container: 'relative flex items-center gap-1.5',
     indicator: [
-      'group-data-[state=completed]:text-(--b24ui-color) group-data-[state=active]:text-(--b24ui-color) text-(--b24ui-typography-description-color)',
+      'group-data-[state=completed]:text-(--b24ui-color) group-data-[state=active]:text-(--b24ui-color) text-description',
       'group-data-[state=completed]:bg-(--b24ui-background) group-data-[state=active]:bg-(--b24ui-background-active)'
     ].join(' '),
     separator: 'flex-1 rounded-(--ui-border-radius-circle) bg-(--ui-color-base-6)',
     wrapper: 'w-full',
-    date: 'text-(--b24ui-typography-label-color) text-(length:--ui-font-size-xs)/(--ui-font-line-height-md)',
-    title: 'font-(--ui-font-weight-medium) text-(--b24ui-typography-legend-color) text-(length:--ui-font-size-sm)',
-    description: 'text-(--b24ui-typography-description-color) text-wrap text-(length:--ui-font-size-sm)'
+    date: 'text-label text-(length:--ui-font-size-xs)/(--ui-font-line-height-md)',
+    title: 'font-(--ui-font-weight-medium) text-legend text-(length:--ui-font-size-sm)',
+    description: 'text-description text-wrap text-(length:--ui-font-size-sm)'
   },
   variants: {
     orientation: {

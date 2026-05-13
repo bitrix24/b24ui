@@ -15,7 +15,7 @@ export default {
   slots: {
     base: [
       'relative flex flex-row flex-nowrap items-center justify-between',
-      'text-(--b24ui-typography-legend-color)'
+      'text-legend'
     ].join(' '),
     label: '',
     leadingIcon: 'shrink-0',

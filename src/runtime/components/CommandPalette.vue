@@ -144,7 +144,7 @@ export interface CommandPaletteProps<G extends CommandPaletteGroup<T> = CommandP
       fuseOptions: {
         ignoreLocation: true,
         threshold: 0.1,
-        keys: ['label', 'suffix']
+        keys: ['label', 'description', 'suffix']
       },
       resultLimit: 12,
       matchAllWhenSearchEmpty: true
@@ -309,7 +309,7 @@ const fuse = computed(() => defu({}, props.fuse, {
   fuseOptions: {
     ignoreLocation: true,
     threshold: 0.1,
-    keys: [props.labelKey, 'suffix']
+    keys: [props.labelKey, props.descriptionKey, 'suffix']
   },
   resultLimit: 12,
   matchAllWhenSearchEmpty: true
@@ -355,8 +355,9 @@ function processGroupItems(group: G, items: (T & { matches?: FuseResult<T>['matc
     items: processedItems.slice(0, fuse.value.resultLimit).map((item) => {
       return {
         ...item,
-        labelHtml: highlight<T>(item, fuseSearchTerm.value, props.labelKey!, undefined, fuse.value.fuseOptions?.useTokenSearch),
-        suffixHtml: highlight<T>(item, fuseSearchTerm.value, 'suffix' as GetItemKeys<T>, [props.labelKey!], fuse.value.fuseOptions?.useTokenSearch)
+        labelHtml: item.labelHtml ?? highlight<T>(item, fuseSearchTerm.value, props.labelKey!, undefined, fuse.value.fuseOptions?.useTokenSearch),
+        suffixHtml: item.suffixHtml ?? highlight<T>(item, fuseSearchTerm.value, 'suffix' as GetItemKeys<T>, [props.labelKey!], fuse.value.fuseOptions?.useTokenSearch),
+        descriptionHtml: item.descriptionHtml ?? highlight<T>(item, fuseSearchTerm.value, props.descriptionKey as GetItemKeys<T>, [props.labelKey!, 'suffix' as GetItemKeys<T>], fuse.value.fuseOptions?.useTokenSearch)
       }
     })
   }
@@ -484,7 +485,7 @@ function onSelect(e: Event, item: T) {
   <DefineItemTemplate v-slot="{ item, index, group }">
     <B24Link v-slot="{ active, ...slotProps }" v-bind="pickLinkProps(item)" custom>
       <ListboxItem
-        :value="props.valueKey ? get(item, props.valueKey as string) : omit(item, ['matches' as any, 'group' as any, 'onSelect', 'labelHtml', 'suffixHtml', 'children'])"
+        :value="props.valueKey ? get(item, props.valueKey as string) : omit(item, ['matches' as any, 'group' as any, 'onSelect', 'labelHtml', 'suffixHtml', 'descriptionHtml', 'children'])"
         :disabled="item.disabled"
         as-child
         @select="onSelect($event, item as T)"
@@ -581,7 +582,13 @@ function onSelect(e: Event, item: T) {
               </span>
 
               <span
-                v-if="get(item, props.descriptionKey as string)"
+                v-if="item.descriptionHtml"
+                data-slot="itemDescription"
+                :class="b24ui.itemDescription({ class: [props.b24ui?.itemDescription, item.b24ui?.itemDescription] })"
+                v-html="item.descriptionHtml"
+              />
+              <span
+                v-else-if="get(item, props.descriptionKey as string)"
                 data-slot="itemDescription"
                 :class="b24ui.itemDescription({ class: [props.b24ui?.itemDescription, item.b24ui?.itemDescription] })"
               >
