@@ -300,6 +300,44 @@ Once those answers are in, assemble the popover from stock components only (`B24
 Use semantic typography utilities (`text-label`, `text-description`) for the title and caption, and keep all copy in the requested locale.
 ::
 
+### Sales dynamics widget
+
+A real-world example of pairing a Popover with a stats card. The widget itself is documented on the [Card](/docs/components/card/#sales-dynamics-widget) page; here it sits inside `B24Popover` so a trigger button reveals it on demand.
+
+::component-example
+---
+collapse: true
+name: 'popover-sales-dynamics-example'
+---
+::
+
+::prompt
+---
+description: Wrap the Sales dynamics widget in a Popover so a trigger button or link reveals it on demand.
+actions:
+  - copy
+  - cursor
+  - windsurf
+class: 'w-full my-0'
+---
+Take the Sales dynamics widget recipe (see `references/recipes/overlays.md` → "Stats widget (KPI summary)") and surface it through `B24Popover` so a button or in-line link reveals the metrics on demand — useful in dashboard rows, list cells or running text where the full card would be too heavy.
+
+Before writing any code, gather the missing context:
+- What's the trigger — a `B24Button` (discrete control, typically `mode="click"`) or a `B24Link is-action` mid-paragraph (typically `mode="hover"`)?
+- Does the popover need to follow the cursor, attach to a custom `#anchor`, or stay anchored to the trigger?
+- Should the popover stay open while the user interacts with the widget? If the widget's own `Configure` / `Feedback` buttons must work without closing, keep `dismissible` on its default (true) but ensure click handlers don't bubble to the popover root.
+- What's the data shape behind the rows (and the optional highlight row), and where does it come from — props on the page, a store, or an async fetch?
+- Locale and analytics: track popover opens and CTA clicks separately, since this is a "peek" surface, not the canonical metrics page.
+
+Once those answers are in, assemble the popover from stock components only:
+- Strip the popover's content chrome with `:b24ui="{ content: 'p-0 bg-transparent border-0 shadow-none' }"` so the widget paints its own surface (it carries the gradient, rounded corners and shadow internally).
+- Place the trigger in the default slot (`B24Button` or `B24Link is-action` — never both in the same popover); set `mode` to match the trigger affordance.
+- Render the widget itself inside `#content` exactly as documented in the recipe — the `edge-dark` root, the purple radial gradient (`--ui-color-copilot-bg-content-3 → -2 → -1`), the `style-filled-boost` highlight row and the three `air-secondary-accent` action buttons.
+- For an inline link trigger, anchor the popover with `:content="{ side: 'bottom', sideOffset: 8 }"` so the widget hovers below the link without clipping the surrounding paragraph.
+
+Keep all copy in the requested locale and surface the data through the same shape (`title`, `totalLine`, `todayLine`, `rangeLabel`, `rows`, `highlight`) used by the standalone recipe.
+::
+
 ## API
 
 ### Props

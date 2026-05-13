@@ -133,41 +133,36 @@ slots:
 
 ## Examples
 
-### Analytics widget composition :badge{label="Soon" class="align-text-top"}
+### Sales dynamics widget
 
-Compose a KPI / metrics widget from a single `B24Card` plus stock components — no new component needed. The header carries a title with two-line subtitle and a date-range action; the body lays out a small data table (column headers + 2-3 rows) with the highlighted "headline metric" row at the bottom; the footer pairs neutral "configure" and "feedback" actions. The decorative background is the brand boost radial gradient passed through `b24ui.root`, with white text everywhere on top of it.
+Real-world example: a CRM dashboard widget assembled from `Card` (with the `filled-copilot` variant for the purple accent), `Button`, `Tooltip` and a small CSS grid for the metrics rows. The highlighted "Conversion" row is just a translucent overlay with `bg-white/15` over the same card.
 
 ::component-example
 ---
 collapse: true
-name: 'card-sales-analytics-example'
+name: 'card-sales-dynamics-example'
 ---
 ::
 
+## Prompt
+
 ::prompt
 ---
-description: Build an analytics / KPI widget card for any business or app.
+description: Render a CRM dashboard widget with a few metrics and a highlighted KPI row.
 actions:
   - copy
   - cursor
   - windsurf
 class: 'w-full my-0'
 ---
-You are helping me build an analytics / KPI widget in an app that uses `@bitrix24/b24ui-nuxt`. Load the `b24-ui-nuxt` skill and follow the **Analytics widget** recipe in `skills/b24-ui-nuxt/references/recipes/analytics-widgets.md`.
+On a CRM dashboard, render a "Repeat sales dynamics" widget summarising deal volume and value. The card carries a copilot accent and a highlighted row at the bottom for the conversion KPI.
 
-Goal: a focused card that surfaces 2-4 metrics for a given time range — repeat sales dynamics, support workload, conversion funnel, marketing campaign performance, etc. — with a date-range selector in the header and "configure" / "feedback" actions in the footer, while keeping the headline metric visually prominent.
-
-Before writing any code, ask me clarifying questions about:
-- the activity itself — what is being measured (deals, tickets, sessions, signups, revenue), the time grain, and the headline metric to highlight;
-- which 2-3 supporting rows belong in the body and what columns describe them (count, amount, share, change, target);
-- the date-range control — preset list, custom range picker, or a simple "Last 30 days" chip; and whether changing it refetches data live;
-- the source of the numbers — whether the widget receives them as props, fetches them itself (`useAsyncData`, `$fetch`), or subscribes to a store;
-- where the "Configure" and "Feedback" actions lead — modal, slideover, drawer, or external URL — and which user roles see them;
-- copy and locale — tone, language, and currency / number formatting (`Intl.NumberFormat`);
-- visual variants — should the widget have a muted variant for less-critical dashboards, and does it need a loading / empty / error state from day one;
-- accessibility — keyboard reachability of all actions, tooltip targets, and contrast on the saturated gradient.
-
-Once we agree on those, compose the widget from existing b24ui components only (do not introduce a new component): paint the brand boost gradient on `b24ui.root`, render the data rows as a `grid` (do not reach for `B24Table` for a 3-row teaser), and use semi-transparent white surfaces (`bg-white/10`, `bg-white/20`) plus white text (`text-white`, `text-white/80`) so the content stays legible on the gradient.
+Requirements:
+- Use `B24Card` with `variant="filled-copilot"`. The `#header` slot holds the title, two-line description and a top-right pill `B24Button` (`rounded`, `color="air-tertiary-no-accent"`, `:trailing-icon="RepeatIcon"`) that switches the date range
+- The body is a small CSS grid with three columns (`1fr_auto_auto`) — first row carries the column headers ("Count" / "Amount"), then one row per metric. Each row sits on `bg-white/5 rounded-xl` so it reads as a row over the copilot fill
+- Render the highlighted KPI row with `bg-white/15 ring-1 ring-white/20` for contrast. Pair the label with a small `Info1Icon` inside a `B24Tooltip` for the description
+- The `#footer` slot holds two `air-tertiary-no-accent` buttons aligned to opposite sides (`Configure` left, `Feedback` right) with leading icons (`SettingsIcon`, `FeedbackIcon`)
+- Drive the values from `rows: { label, count, amount }[]` and an optional `highlight: { label, count, amount, info }`. Keep amounts pre-formatted strings to avoid coupling with a money formatter
 ::
 
 ## API
