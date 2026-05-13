@@ -3,7 +3,7 @@ import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import type { NuxtError } from '#app'
 import theme from '#build/b24ui/error'
-import type { ButtonProps, IconComponent } from '../types'
+import type { AvatarProps, ButtonProps, IconComponent } from '../types'
 import type { ComponentConfig } from '../types/tv'
 
 type Error = ComponentConfig<typeof theme, AppConfig, 'error'>
@@ -19,6 +19,15 @@ export interface ErrorProps {
    * @IconComponent
    */
   icon?: IconComponent
+  /**
+   * The avatar displayed above the status code.
+   * Used only when `icon` is not set.
+   */
+  avatar?: AvatarProps
+  /**
+   * Default `color` for the inner `B24Avatar`. Overridden by `avatar.color` when set.
+   */
+  color?: AvatarProps['color']
   error?: Partial<NuxtError & { message: string }>
   /**
    * The URL to redirect to when the error is cleared.
@@ -52,6 +61,7 @@ import { clearError, useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
 import { useLocale } from '../composables/useLocale'
 import { tv } from '../utils/tv'
+import B24Avatar from './Avatar.vue'
 import B24Button from './Button.vue'
 
 const _props = withDefaults(defineProps<ErrorProps>(), {
@@ -76,9 +86,17 @@ function handleError() {
 
 <template>
   <Primitive :as="props.as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <div v-if="props.icon || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
+    <div v-if="props.icon || props.avatar || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
       <slot name="leading" :b24ui="b24ui">
         <Component :is="props.icon" v-if="props.icon" data-slot="leadingIcon" :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })" />
+        <B24Avatar
+          v-else-if="!!props.avatar"
+          :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+          :color="props.color"
+          v-bind="props.avatar"
+          data-slot="leadingAvatar"
+          :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
+        />
       </slot>
     </div>
     <p v-if="!!props.error?.statusCode || !!props.error?.status || !!slots.statusCode" data-slot="statusCode" :class="b24ui.statusCode({ class: props.b24ui?.statusCode })">

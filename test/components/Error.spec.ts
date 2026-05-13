@@ -25,6 +25,8 @@ describe('Error', () => {
     ['with error', { props }],
     ['with error using status/statusText', { props: { error: errorWithStatus } }],
     ['with icon', { props: { ...props, icon: Search2Icon } }],
+    ['with avatar', { props: { ...props, avatar: { src: 'https://github.com/bitrix24.png' } } }],
+    ['with color and avatar', { props: { ...props, color: 'air-primary-alert' as const, avatar: { src: 'https://github.com/bitrix24.png' } } }],
     ['with redirect', { props: { ...props, redirect: '/blog' } }],
     ['with clear', { props: { ...props, clear: { label: 'Home' } } }],
     ['with as', { props: { ...props, as: 'section' } }],
