@@ -3,6 +3,7 @@ import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { renderEach } from '../component-render'
 import Error from '../../src/runtime/components/Error.vue'
+import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
 
 describe('Error', () => {
   const error = {
@@ -23,6 +24,7 @@ describe('Error', () => {
     // Props
     ['with error', { props }],
     ['with error using status/statusText', { props: { error: errorWithStatus } }],
+    ['with icon', { props: { ...props, icon: Search2Icon } }],
     ['with redirect', { props: { ...props, redirect: '/blog' } }],
     ['with clear', { props: { ...props, clear: { label: 'Home' } } }],
     ['with as', { props: { ...props, as: 'section' } }],
@@ -30,6 +32,7 @@ describe('Error', () => {
     ['with b24ui', { props: { ...props, b24ui: { links: 'mt-16' } } }],
     // Slots
     ['with default slot', { props, slots: { default: () => 'Default slot' } }],
+    ['with leading slot', { props, slots: { leading: () => 'Leading slot' } }],
     ['with statusCode slot', { props, slots: { statusCode: () => 'Status code slot' } }],
     ['with statusMessage slot', { props, slots: { statusMessage: () => 'Status message slot' } }],
     ['with message slot', { props, slots: { message: () => 'Message slot' } }],

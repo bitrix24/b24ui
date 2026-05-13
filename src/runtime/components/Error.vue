@@ -3,7 +3,7 @@ import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import type { NuxtError } from '#app'
 import theme from '#build/b24ui/error'
-import type { ButtonProps } from '../types'
+import type { ButtonProps, IconComponent } from '../types'
 import type { ComponentConfig } from '../types/tv'
 
 type Error = ComponentConfig<typeof theme, AppConfig, 'error'>
@@ -14,6 +14,11 @@ export interface ErrorProps {
    * @defaultValue 'main'
    */
   as?: any
+  /**
+   * The icon displayed above the status code.
+   * @IconComponent
+   */
+  icon?: IconComponent
   error?: Partial<NuxtError & { message: string }>
   /**
    * The URL to redirect to when the error is cleared.
@@ -32,6 +37,7 @@ export interface ErrorProps {
 
 export interface ErrorSlots {
   default?(props?: {}): VNode[]
+  leading?(props: { b24ui: Error['b24ui'] }): VNode[]
   statusCode?(props?: {}): VNode[]
   statusMessage?(props?: {}): VNode[]
   message?(props?: {}): VNode[]
@@ -70,6 +76,11 @@ function handleError() {
 
 <template>
   <Primitive :as="props.as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+    <div v-if="props.icon || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
+      <slot name="leading" :b24ui="b24ui">
+        <Component :is="props.icon" v-if="props.icon" data-slot="leadingIcon" :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })" />
+      </slot>
+    </div>
     <p v-if="!!props.error?.statusCode || !!props.error?.status || !!slots.statusCode" data-slot="statusCode" :class="b24ui.statusCode({ class: props.b24ui?.statusCode })">
       <slot name="statusCode">
         {{ props.error?.statusCode || props.error?.status }}
