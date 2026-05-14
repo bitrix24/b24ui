@@ -68,8 +68,8 @@ exports[`Switch > renders with description correctly 1`] = `
   <div data-slot="container" class="flex items-center h-[20px]"><button data-slot="base" class="cursor-pointer inline-flex items-center shrink-0 rounded-(--ui-border-radius-pill) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 transition-[background] duration-200 border-2 border-(--ui-color-background-transparent) data-[state=unchecked]:bg-(--ui-color-base-5) data-[state=checked]:bg-(--b24ui-background) focus-visible:outline-(--b24ui-border-color) style-filled w-[36px]" id="v-0-0" role="switch" type="button" aria-checked="false" aria-required="false" data-state="unchecked" value="on"><span data-state="unchecked" data-slot="thumb" class="group pointer-events-none flex items-center justify-center rounded-(--ui-border-radius-pill) bg-(--ui-color-base-white-fixed) shadow-lg ring-0 transition-transform duration-200 data-[state=unchecked]:translate-x-0 data-[state=unchecked]:rtl:-translate-x-0 size-[16px] data-[state=checked]:translate-x-4 data-[state=checked]:rtl:-translate-x-4"></span>
       <!--v-if-->
     </button></div>
-  <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-md)"><label for="v-0-0" data-slot="label" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[20px]">Label</label>
-    <p data-slot="description" class="text-(--b24ui-typography-description-color)">Description</p>
+  <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-md)"><label for="v-0-0" data-slot="label" class="cursor-pointer block text-label leading-[20px]">Label</label>
+    <p data-slot="description" class="text-description">Description</p>
   </div>
 </div>"
 `;
@@ -79,7 +79,7 @@ exports[`Switch > renders with description slot correctly 1`] = `
   <div data-slot="container" class="flex items-center h-[20px]"><button data-slot="base" class="cursor-pointer inline-flex items-center shrink-0 rounded-(--ui-border-radius-pill) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 transition-[background] duration-200 border-2 border-(--ui-color-background-transparent) data-[state=unchecked]:bg-(--ui-color-base-5) data-[state=checked]:bg-(--b24ui-background) focus-visible:outline-(--b24ui-border-color) style-filled w-[36px]" id="v-0-0" role="switch" type="button" aria-checked="false" aria-required="false" data-state="unchecked" value="on"><span data-state="unchecked" data-slot="thumb" class="group pointer-events-none flex items-center justify-center rounded-(--ui-border-radius-pill) bg-(--ui-color-base-white-fixed) shadow-lg ring-0 transition-transform duration-200 data-[state=unchecked]:translate-x-0 data-[state=unchecked]:rtl:-translate-x-0 size-[16px] data-[state=checked]:translate-x-4 data-[state=checked]:rtl:-translate-x-4"></span>
       <!--v-if-->
     </button></div>
-  <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-md)"><label for="v-0-0" data-slot="label" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[20px]">Description slot</label>
+  <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-md)"><label for="v-0-0" data-slot="label" class="cursor-pointer block text-label leading-[20px]">Description slot</label>
     <!--v-if-->
   </div>
 </div>"
@@ -108,7 +108,7 @@ exports[`Switch > renders with label correctly 1`] = `
   <div data-slot="container" class="flex items-center h-[20px]"><button data-slot="base" class="cursor-pointer inline-flex items-center shrink-0 rounded-(--ui-border-radius-pill) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 transition-[background] duration-200 border-2 border-(--ui-color-background-transparent) data-[state=unchecked]:bg-(--ui-color-base-5) data-[state=checked]:bg-(--b24ui-background) focus-visible:outline-(--b24ui-border-color) style-filled w-[36px]" id="v-0-0" role="switch" type="button" aria-checked="false" aria-required="false" data-state="unchecked" value="on"><span data-state="unchecked" data-slot="thumb" class="group pointer-events-none flex items-center justify-center rounded-(--ui-border-radius-pill) bg-(--ui-color-base-white-fixed) shadow-lg ring-0 transition-transform duration-200 data-[state=unchecked]:translate-x-0 data-[state=unchecked]:rtl:-translate-x-0 size-[16px] data-[state=checked]:translate-x-4 data-[state=checked]:rtl:-translate-x-4"></span>
       <!--v-if-->
     </button></div>
-  <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-md)"><label for="v-0-0" data-slot="label" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[20px]">Label</label>
+  <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-md)"><label for="v-0-0" data-slot="label" class="cursor-pointer block text-label leading-[20px]">Label</label>
     <!--v-if-->
   </div>
 </div>"
@@ -119,7 +119,7 @@ exports[`Switch > renders with label slot correctly 1`] = `
   <div data-slot="container" class="flex items-center h-[20px]"><button data-slot="base" class="cursor-pointer inline-flex items-center shrink-0 rounded-(--ui-border-radius-pill) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 transition-[background] duration-200 border-2 border-(--ui-color-background-transparent) data-[state=unchecked]:bg-(--ui-color-base-5) data-[state=checked]:bg-(--b24ui-background) focus-visible:outline-(--b24ui-border-color) style-filled w-[36px]" id="v-0-0" role="switch" type="button" aria-checked="false" aria-required="false" data-state="unchecked" value="on"><span data-state="unchecked" data-slot="thumb" class="group pointer-events-none flex items-center justify-center rounded-(--ui-border-radius-pill) bg-(--ui-color-base-white-fixed) shadow-lg ring-0 transition-transform duration-200 data-[state=unchecked]:translate-x-0 data-[state=unchecked]:rtl:-translate-x-0 size-[16px] data-[state=checked]:translate-x-4 data-[state=checked]:rtl:-translate-x-4"></span>
       <!--v-if-->
     </button></div>
-  <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-md)"><label for="v-0-0" data-slot="label" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[20px]">Label slot</label>
+  <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-md)"><label for="v-0-0" data-slot="label" class="cursor-pointer block text-label leading-[20px]">Label slot</label>
     <!--v-if-->
   </div>
 </div>"
@@ -166,7 +166,7 @@ exports[`Switch > renders with required correctly 1`] = `
   <div data-slot="container" class="flex items-center h-[20px]"><button data-slot="base" class="cursor-pointer inline-flex items-center shrink-0 rounded-(--ui-border-radius-pill) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 transition-[background] duration-200 border-2 border-(--ui-color-background-transparent) data-[state=unchecked]:bg-(--ui-color-base-5) data-[state=checked]:bg-(--b24ui-background) focus-visible:outline-(--b24ui-border-color) style-filled w-[36px]" id="v-0-0" role="switch" type="button" aria-checked="false" aria-required="true" data-state="unchecked" value="on"><span data-state="unchecked" data-slot="thumb" class="group pointer-events-none flex items-center justify-center rounded-(--ui-border-radius-pill) bg-(--ui-color-base-white-fixed) shadow-lg ring-0 transition-transform duration-200 data-[state=unchecked]:translate-x-0 data-[state=unchecked]:rtl:-translate-x-0 size-[16px] data-[state=checked]:translate-x-4 data-[state=checked]:rtl:-translate-x-4"></span>
       <!--v-if-->
     </button></div>
-  <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-md)"><label for="v-0-0" data-slot="label" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[20px] after:content-['*'] after:ms-0.5 after:text-(--ui-color-accent-main-alert)">Label</label>
+  <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-md)"><label for="v-0-0" data-slot="label" class="cursor-pointer block text-label leading-[20px] after:content-['*'] after:ms-0.5 after:text-(--ui-color-accent-main-alert)">Label</label>
     <!--v-if-->
   </div>
 </div>"

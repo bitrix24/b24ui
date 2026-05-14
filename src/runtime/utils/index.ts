@@ -1,6 +1,8 @@
 import { isEqual } from 'ohash/utils'
 import { withTrailingSlash, withLeadingSlash, joinURL } from 'ufo'
 import type { GetItemKeys } from '../types/utils'
+import type { IconComponent } from '../types'
+import icons from '../dictionary/icons'
 
 export function pick<Data extends object, Keys extends keyof Data>(data: Data, keys: Keys[]): Pick<Data, Keys> {
   const result = {} as Pick<Data, Keys>
@@ -187,6 +189,64 @@ export function getSlotChildrenText(children: any) {
     else if (Array.isArray(node.children)) return getSlotChildrenText(node.children)
     else if (node.children.default) return getSlotChildrenText(node.children.default())
   }).join('')
+}
+
+const PROMPT_BLOCK_TAGS = new Set(['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote'])
+
+function walkPromptElement(node: Node): string {
+  if (node.nodeType === 3) {
+    const text = node.textContent || ''
+    // Pure-whitespace text nodes that span newlines are HTML-formatting
+    // artifacts between block elements and should be ignored.
+    if (text.includes('\n') && !text.trim()) return ''
+    return text
+  }
+  if (node.nodeType !== 1) return ''
+
+  const element = node as Element
+  const tag = element.tagName.toLowerCase()
+
+  let inner = ''
+  node.childNodes.forEach((child) => {
+    inner += walkPromptElement(child)
+  })
+
+  if (PROMPT_BLOCK_TAGS.has(tag)) return `${inner}\n\n`
+  if (tag === 'pre') return `\n\`\`\`\n${inner.replace(/^`+|`+$/g, '')}\n\`\`\`\n\n`
+  if (tag === 'ul' || tag === 'ol') return `${inner}\n`
+  if (tag === 'li') return `- ${inner}\n`
+  if (tag === 'br') return '\n'
+  if (tag === 'hr') return '\n---\n\n'
+  if (tag === 'code') return `\`${inner}\``
+  if (tag === 'strong' || tag === 'b') return `**${inner}**`
+  if (tag === 'em' || tag === 'i') return `*${inner}*`
+  if (tag === 'a') {
+    const href = element.getAttribute('href')
+    return href ? `[${inner}](${href})` : inner
+  }
+
+  return inner
+}
+
+export function extractPromptText(el: Element | null | undefined): string {
+  if (!el) return ''
+  return walkPromptElement(el)
+    .replace(/[ \t]+\n/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim()
+}
+
+/**
+ * Resolve an icon component by name from `dictionary/icons.ts`.
+ *
+ * Accepts both short camelCase aliases used internally (`"tip"`, `"warning"`,
+ * `"info"`) and PascalCase named icons exposed to markdown authors via
+ * `iconName` (`"InfoCircleIcon"`, `"GitHubIcon"`, ...). Returns `undefined`
+ * when the name is not in the dictionary.
+ */
+export function resolveIcon(name?: string | null): IconComponent | undefined {
+  if (!name) return undefined
+  return (icons as Record<string, IconComponent>)[name]
 }
 
 export function transformUI(ui: any, uiProp?: any) {

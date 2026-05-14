@@ -101,6 +101,30 @@ props:
 ---
 ::
 
+### Color :badge{label="Soon" class="align-text-top"}
+
+Use the `color` prop to change the color of the active Breadcrumb.
+
+::component-code
+---
+ignore:
+  - items
+external:
+  - items
+externalTypes:
+  - BreadcrumbItem[]
+props:
+  color: 'air-primary-alert'
+  items:
+    - label: 'Docs'
+      to: '/docs'
+    - label: 'Components'
+      to: '/docs/components'
+    - label: 'Breadcrumb'
+      to: '/docs/components/breadcrumb'
+---
+::
+
 ## Examples
 
 ### With separator slot

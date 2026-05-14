@@ -83,6 +83,31 @@ const singleAttrs = reactive({
         :icon="singleAttrs.useIcon ? Bitrix24Icon : undefined"
         :label="singleAttrs.useLabel ? singleAttrs.label : undefined"
       />
+
+      <B24Separator label="Start" position="start" />
+
+      <B24Separator label="End" position="end" />
+
+      <div class="h-24 flex gap-4 items-center">
+        <div class="flex-1 text-center">
+          Start
+        </div>
+
+        <B24Separator
+          :avatar="{ src: '/avatar/assistant.png' }"
+          decorative
+          orientation="vertical"
+          position="start"
+        />
+
+        <B24Separator decorative orientation="vertical" position="end">
+          <B24Avatar size="2xs" src="/avatar/employee.png" />
+        </B24Separator>
+
+        <div class="flex-1 text-center">
+          End
+        </div>
+      </div>
     </Matrix>
   </PlaygroundPage>
 </template>

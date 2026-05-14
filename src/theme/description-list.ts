@@ -8,20 +8,20 @@ export default {
     root: 'w-full shrink-0',
     legend: [
       'font-(--ui-font-weight-semi-bold)',
-      'text-(--b24ui-typography-label-color)'
+      'text-label'
     ].join(' '),
-    text: 'text-(--b24ui-typography-description-color)',
+    text: 'text-description',
     container: 'grid grid-cols-1 sm:grid-cols-[min(50%,theme(spacing.80))_auto]',
     labelWrapper: [
       'col-start-1 border-t first:border-none sm:border-t',
       'flex flex-nowrap flex-row items-center justify-start gap-1.5',
       'border-(--ui-color-divider-vibrant-default) sm:border-(--ui-color-divider-vibrant-default)',
-      'text-(--b24ui-typography-description-color)'
+      'text-description'
     ].join(' '),
     icon: [
       'shrink-0',
       'size-6',
-      'text-(--b24ui-typography-description-color)'
+      'text-description'
     ].join(' '),
     avatar: 'shrink-0',
     avatarSize: '',
@@ -29,7 +29,7 @@ export default {
     descriptionWrapper: [
       'sm:border-t sm:[&:nth-child(2)]:border-none',
       'sm:border-(--ui-color-divider-vibrant-default)',
-      'text-(--b24ui-typography-label-color)'
+      'text-label'
     ].join(' '),
     description: '',
     actions: 'flex flex-wrap gap-1.5 shrink-0',

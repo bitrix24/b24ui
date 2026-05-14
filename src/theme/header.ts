@@ -10,7 +10,7 @@ export default {
     left: 'lg:flex-1 flex items-center gap-1.5',
     center: 'hidden lg:flex',
     right: 'flex items-center justify-end lg:flex-1 gap-1.5',
-    title: 'shrink-0 font-bold text-xl text-(--b24ui-typography-label-color) flex items-end gap-1.5',
+    title: 'shrink-0 font-bold text-xl text-label flex items-end gap-1.5',
     toggle: 'lg:hidden',
     content: 'lg:hidden',
     overlay: 'lg:hidden',

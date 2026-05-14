@@ -9,7 +9,7 @@ export default {
     root: 'relative group/user',
     wrapper: '',
     name: 'font-(--ui-font-weight-medium)',
-    description: 'text-(--b24ui-typography-description-color)',
+    description: 'text-description',
     avatar: 'shrink-0'
   },
   variants: {
@@ -24,7 +24,7 @@ export default {
     to: {
       true: {
         name: [
-          'text-(--b24ui-typography-label-color) peer-hover:text-(--ui-color-design-selection-content)',
+          'text-label peer-hover:text-(--ui-color-design-selection-content)',
           'peer-focus-visible:text-(--ui-color-design-selection-content)',
           'transition-colors'
         ].join(' '),
@@ -36,7 +36,7 @@ export default {
         avatar: 'transform transition-transform duration-200 group-hover/user:scale-115 group-has-focus-visible/user:scale-115'
       },
       false: {
-        name: 'text-(--b24ui-typography-label-color)',
+        name: 'text-label',
         description: ''
       }
     },

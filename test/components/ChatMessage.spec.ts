@@ -25,11 +25,13 @@ describe('ChatMessage', () => {
     ['with role assistant', { props: { ...props, role: 'assistant' as const } }],
     ['with side right', { props: { ...props, side: 'right' } }],
     ['with compact', { props: { ...props, compact: true } }],
-    ...variants.map((variant: string) => [`with variant ${variant}`, { props: { ...props, variant } }]),
+    ...variants.map((variant: string) => [`with default variant ${variant}`, { props: { ...props, variant } }]),
+    ...variants.map((variant: string) => [`with air-primary variant ${variant}`, { props: { ...props, variant, color: 'air-primary' } }]),
     ['with as', { props: { ...props, as: 'section' } }],
     ['with class', { props: { ...props, class: '' } }],
     ['with b24ui', { props: { ...props, b24ui: {} } }],
     // Slots
+    ['with header slot', { props, slots: { header: () => 'Header slot' } }],
     ['with leading slot', { props, slots: { leading: () => 'Leading slot' } }],
     ['with files slot', { props: { ...props, parts: [...props.parts, { type: 'file' as const, mediaType: 'text/plain', url: 'https://example.com/test.txt', filename: 'test.txt' }] }, slots: { files: () => 'Files slot' } }],
     ['with content slot', { props, slots: { content: () => 'Content slot' } }],
@@ -87,7 +89,7 @@ describe('ChatMessage', () => {
       }
     })
 
-    for (const key of ['as', 'icon', 'avatar', 'variant', 'side', 'actions', 'compact', 'class', 'b24ui']) {
+    for (const key of ['as', 'icon', 'avatar', 'variant', 'color', 'side', 'actions', 'compact', 'class', 'b24ui']) {
       expect(captured[0]).not.toHaveProperty(key)
     }
   })

@@ -26,14 +26,14 @@ export default {
     icon: 'shrink-0',
     avatar: 'shrink-0',
     label: 'mt-2 text-(--b24ui-color) font-(--ui-font-weight-medium)',
-    description: 'mt-1 text-(--b24ui-typography-description-color)',
+    description: 'mt-1 text-description',
     actions: 'mt-4 flex flex-wrap gap-1.5 shrink-0',
     files: '',
     file: 'relative',
     fileLeadingAvatar: 'shrink-0',
     fileWrapper: 'flex flex-col min-w-0',
     fileName: 'text-(--b24ui-color) truncate',
-    fileSize: 'text-(--b24ui-typography-description-color) truncate',
+    fileSize: 'text-description truncate',
     fileTrailingButton: ''
   },
   variants: {

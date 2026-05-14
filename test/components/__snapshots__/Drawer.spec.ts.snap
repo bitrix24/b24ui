@@ -112,8 +112,8 @@ exports[`Drawer > renders with description correctly 1`] = `
   <!--v-if-->
   <div data-slot="container" class="w-full flex flex-col gap-4 p-4 overflow-y-auto">
     <div data-slot="header" class="">
-      <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-medium) mb-0 text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)">Title</h2>
-      <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+      <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-label font-(--ui-font-weight-medium) mb-0 text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)">Title</h2>
+      <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-description text-(length:--ui-font-size-sm)">Description</p>
     </div>
     <!--v-if-->
     <!--v-if-->
@@ -137,7 +137,7 @@ exports[`Drawer > renders with description slot correctly 1`] = `
   <div data-slot="container" class="w-full flex flex-col gap-4 p-4 overflow-y-auto">
     <div data-slot="header" class="">
       <h2 id="reka-dialog-title-v-0-0-0"></h2>
-      <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description slot</p>
+      <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-description text-(length:--ui-font-size-sm)">Description slot</p>
     </div>
     <!--v-if-->
     <!--v-if-->
@@ -161,8 +161,8 @@ exports[`Drawer > renders with direction bottom correctly 1`] = `
   <!--v-if-->
   <div data-slot="container" class="w-full flex flex-col gap-4 p-4 overflow-y-auto">
     <div data-slot="header" class="">
-      <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-medium) mb-0 text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)">Title</h2>
-      <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+      <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-label font-(--ui-font-weight-medium) mb-0 text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)">Title</h2>
+      <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-description text-(length:--ui-font-size-sm)">Description</p>
     </div>
     <!--v-if-->
     <!--v-if-->
@@ -186,8 +186,8 @@ exports[`Drawer > renders with direction bottom inset correctly 1`] = `
   <!--v-if-->
   <div data-slot="container" class="w-full flex flex-col gap-4 p-4 overflow-y-auto">
     <div data-slot="header" class="">
-      <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-medium) mb-0 text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)">Title</h2>
-      <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+      <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-label font-(--ui-font-weight-medium) mb-0 text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)">Title</h2>
+      <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-description text-(length:--ui-font-size-sm)">Description</p>
     </div>
     <!--v-if-->
     <!--v-if-->
@@ -211,8 +211,8 @@ exports[`Drawer > renders with direction left correctly 1`] = `
   <!--v-if-->
   <div data-slot="container" class="w-full flex flex-col gap-4 p-4 overflow-y-auto">
     <div data-slot="header" class="">
-      <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-medium) mb-0 text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)">Title</h2>
-      <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+      <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-label font-(--ui-font-weight-medium) mb-0 text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)">Title</h2>
+      <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-description text-(length:--ui-font-size-sm)">Description</p>
     </div>
     <!--v-if-->
     <!--v-if-->
@@ -236,8 +236,8 @@ exports[`Drawer > renders with direction left inset correctly 1`] = `
   <!--v-if-->
   <div data-slot="container" class="w-full flex flex-col gap-4 p-4 overflow-y-auto">
     <div data-slot="header" class="">
-      <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-medium) mb-0 text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)">Title</h2>
-      <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+      <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-label font-(--ui-font-weight-medium) mb-0 text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)">Title</h2>
+      <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-description text-(length:--ui-font-size-sm)">Description</p>
     </div>
     <!--v-if-->
     <!--v-if-->
@@ -261,8 +261,8 @@ exports[`Drawer > renders with direction right correctly 1`] = `
   <!--v-if-->
   <div data-slot="container" class="w-full flex flex-col gap-4 p-4 overflow-y-auto">
     <div data-slot="header" class="">
-      <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-medium) mb-0 text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)">Title</h2>
-      <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+      <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-label font-(--ui-font-weight-medium) mb-0 text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)">Title</h2>
+      <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-description text-(length:--ui-font-size-sm)">Description</p>
     </div>
     <!--v-if-->
     <!--v-if-->
@@ -286,8 +286,8 @@ exports[`Drawer > renders with direction right inset correctly 1`] = `
   <!--v-if-->
   <div data-slot="container" class="w-full flex flex-col gap-4 p-4 overflow-y-auto">
     <div data-slot="header" class="">
-      <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-medium) mb-0 text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)">Title</h2>
-      <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+      <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-label font-(--ui-font-weight-medium) mb-0 text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)">Title</h2>
+      <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-description text-(length:--ui-font-size-sm)">Description</p>
     </div>
     <!--v-if-->
     <!--v-if-->
@@ -311,8 +311,8 @@ exports[`Drawer > renders with direction top correctly 1`] = `
   <!--v-if-->
   <div data-slot="container" class="w-full flex flex-col gap-4 p-4 overflow-y-auto">
     <div data-slot="header" class="">
-      <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-medium) mb-0 text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)">Title</h2>
-      <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+      <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-label font-(--ui-font-weight-medium) mb-0 text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)">Title</h2>
+      <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-description text-(length:--ui-font-size-sm)">Description</p>
     </div>
     <!--v-if-->
     <!--v-if-->
@@ -336,8 +336,8 @@ exports[`Drawer > renders with direction top inset correctly 1`] = `
   <!--v-if-->
   <div data-slot="container" class="w-full flex flex-col gap-4 p-4 overflow-y-auto">
     <div data-slot="header" class="">
-      <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-medium) mb-0 text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)">Title</h2>
-      <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+      <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-label font-(--ui-font-weight-medium) mb-0 text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)">Title</h2>
+      <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-description text-(length:--ui-font-size-sm)">Description</p>
     </div>
     <!--v-if-->
     <!--v-if-->
@@ -402,7 +402,7 @@ exports[`Drawer > renders with title correctly 1`] = `
   <div data-vaul-drawer-visible="true" data-vaul-handle="" aria-hidden="true" data-slot="handle" class="shrink-0 !bg-(--ui-color-divider-default) transition-opacity mt-4 !w-12 !h-1.5 mx-auto"><span data-vaul-handle-hitarea="" aria-hidden="true"></span></div><span aria-hidden="true" style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); white-space: nowrap; word-wrap: normal; top: -1px; left: -1px;"><!--v-if--><p id="reka-dialog-description-v-0-0-1"></p></span>
   <div data-slot="container" class="w-full flex flex-col gap-4 p-4 overflow-y-auto">
     <div data-slot="header" class="">
-      <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-medium) mb-0 text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)">Title</h2>
+      <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-label font-(--ui-font-weight-medium) mb-0 text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)">Title</h2>
       <p id="reka-dialog-description-v-0-0-1"></p>
     </div>
     <!--v-if-->
@@ -426,7 +426,7 @@ exports[`Drawer > renders with title slot correctly 1`] = `
   <div data-vaul-drawer-visible="true" data-vaul-handle="" aria-hidden="true" data-slot="handle" class="shrink-0 !bg-(--ui-color-divider-default) transition-opacity mt-4 !w-12 !h-1.5 mx-auto"><span data-vaul-handle-hitarea="" aria-hidden="true"></span></div><span aria-hidden="true" style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); white-space: nowrap; word-wrap: normal; top: -1px; left: -1px;"><!--v-if--><p id="reka-dialog-description-v-0-0-1"></p></span>
   <div data-slot="container" class="w-full flex flex-col gap-4 p-4 overflow-y-auto">
     <div data-slot="header" class="">
-      <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-medium) mb-0 text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)">Title slot</h2>
+      <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-label font-(--ui-font-weight-medium) mb-0 text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)">Title slot</h2>
       <p id="reka-dialog-description-v-0-0-1"></p>
     </div>
     <!--v-if-->
@@ -451,8 +451,8 @@ exports[`Drawer > renders without handle correctly 1`] = `
   <!--v-if-->
   <div data-slot="container" class="w-full flex flex-col gap-4 p-4 overflow-y-auto">
     <div data-slot="header" class="">
-      <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-medium) mb-0 text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)">Title</h2>
-      <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+      <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-label font-(--ui-font-weight-medium) mb-0 text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)">Title</h2>
+      <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-description text-(length:--ui-font-size-sm)">Description</p>
     </div>
     <!--v-if-->
     <!--v-if-->
@@ -476,8 +476,8 @@ exports[`Drawer > renders without overlay correctly 1`] = `
   <!--v-if-->
   <div data-slot="container" class="w-full flex flex-col gap-4 p-4 overflow-y-auto">
     <div data-slot="header" class="">
-      <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-medium) mb-0 text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)">Title</h2>
-      <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+      <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-label font-(--ui-font-weight-medium) mb-0 text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)">Title</h2>
+      <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-description text-(length:--ui-font-size-sm)">Description</p>
     </div>
     <!--v-if-->
     <!--v-if-->

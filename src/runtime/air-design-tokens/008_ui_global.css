@@ -137,7 +137,7 @@
     --b24ui-background: var(--ui-color-design-filled-copilot-bg);
     --b24ui-border-color: var(--ui-color-design-filled-copilot-stroke);
     --b24ui-border-width: var(--ui-design-filled-copilot-stroke-weight);
-    --b24ui-icon: var(--ui-color-design-filled-copilot-stroke);
+    --b24ui-icon: var(--ui-color-design-filled-copilot-content-icon);
     --b24ui-color: var(--ui-color-design-filled-copilot-content);
     --b24ui-split-divider-color: var(--ui-color-design-filled-copilot-content-divider);
 
@@ -556,6 +556,7 @@
     --b24ui-background: var(--ui-color-design-selection-bg);
     --b24ui-border-color: var(--ui-color-design-selection-stroke);
     --b24ui-border-width: var(--ui-design-selection-stroke-weight);
+    --b24ui-icon: var(--ui-color-design-selection-content-icon-secondary);
     --b24ui-color: var(--ui-color-design-selection-content);
     --b24ui-split-divider-color: var(--ui-color-design-selection-content-divider);
 
@@ -575,6 +576,7 @@
     --b24ui-background: var(--ui-color-background-transparent);
     --b24ui-border-color: var(--ui-color-design-filled-boost-stroke);
     --b24ui-border-width: var(--ui-design-filled-boost-stroke-weight);
+    --b24ui-icon: var(--ui-color-design-filled-boost-content);
     --b24ui-color: var(--ui-color-design-filled-boost-content);
     --b24ui-split-divider-color: var(--ui-color-design-filled-boost-content-divider);
 

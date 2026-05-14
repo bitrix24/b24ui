@@ -27,9 +27,9 @@ export default {
     group: 'p-1 isolate',
     empty: [
       'text-center',
-      'text-(--b24ui-typography-description-color)'
+      'text-description'
     ].join(' '),
-    label: 'text-(--b24ui-typography-label-color)',
+    label: 'text-label',
     item: [
       'group',
       'relative',
@@ -53,18 +53,18 @@ export default {
     itemTrailingIcon: 'shrink-0 text-(--ui-color-accent-main-primary)',
     itemTrailingHighlightedIcon: [
       'shrink-0',
-      'text-(--b24ui-typography-label-color)',
+      'text-label',
       'hidden',
       'group-data-highlighted:inline-flex'
     ].join(' '),
     itemTrailingKbds: 'hidden lg:inline-flex items-center shrink-0',
     itemTrailingKbdsSize: '',
     itemWrapper: 'flex-1 flex flex-col text-start min-w-0 overflow-hidden',
-    itemLabel: 'truncate space-x-1 text-(--b24ui-typography-label-color)',
-    itemDescription: 'truncate -mt-[6px] text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)',
-    itemLabelBase: 'text-(--b24ui-typography-label-color) [&>mark]:text-(--ui-color-black-base) [&>mark]:bg-(--ui-color-collab-accent-less-1)',
-    itemLabelPrefix: 'text-(--b24ui-typography-legend-color)',
-    itemLabelSuffix: 'truncate text-(--b24ui-typography-description-color) [&>mark]:text-(--ui-color-black-base) [&>mark]:bg-(--ui-color-collab-accent-less-1)'
+    itemLabel: 'truncate space-x-1 text-label',
+    itemLabelBase: 'text-label [&>mark]:text-(--ui-color-black-base) [&>mark]:bg-(--ui-color-collab-accent-less-1)',
+    itemLabelPrefix: 'text-legend',
+    itemLabelSuffix: 'truncate text-description [&>mark]:text-(--ui-color-black-base) [&>mark]:bg-(--ui-color-collab-accent-less-1)',
+    itemDescription: 'truncate -mt-[6px] text-description text-(length:--ui-font-size-sm) [&>mark]:text-(--ui-color-black-base) [&>mark]:bg-(--ui-color-collab-accent-less-1)'
   },
   variants: {
     virtualize: {
@@ -169,19 +169,19 @@ export default {
     },
     active: {
       true: {
-        item: 'text-(--b24ui-typography-label-color) before:bg-(--ui-color-base-8)',
-        itemLeadingIcon: 'text-(--b24ui-typography-legend-color)'
+        item: 'text-label before:bg-(--ui-color-base-8)',
+        itemLeadingIcon: 'text-legend'
       },
       false: {
         item: [
-          'text-(--b24ui-typography-legend-color)',
-          'data-highlighted:not-data-disabled:text-(--b24ui-typography-legend-color)',
+          'text-legend',
+          'data-highlighted:not-data-disabled:text-legend',
           'data-highlighted:not-data-disabled:before:bg-(--ui-color-bg-content-secondary)',
           'transition-colors before:transition-colors'
         ].join(' '),
         itemLeadingIcon: [
-          'text-(--b24ui-typography-legend-color)',
-          'group-data-highlighted:not-group-data-disabled:text-(--b24ui-typography-legend-color)',
+          'text-legend',
+          'group-data-highlighted:not-group-data-disabled:text-legend',
           'transition-colors'
         ].join(' ')
       }

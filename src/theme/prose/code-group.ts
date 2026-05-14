@@ -31,8 +31,8 @@ export default {
     trigger: [
       'relative',
       'inline-flex items-center gap-1.5',
-      'text-(--b24ui-typography-legend-color)',
-      'data-[state=active]:text-(--b24ui-typography-legend-color)',
+      'text-legend',
+      'data-[state=active]:text-legend',
       'hover:bg-(--ui-color-design-selection-bg)',
       'px-2 py-1.5',
       'text-sm',

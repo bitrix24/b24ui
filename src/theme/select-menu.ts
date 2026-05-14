@@ -36,9 +36,9 @@ export default () => {
         true: {
           group: '',
           item: [
-            'text-(--b24ui-typography-legend-color)',
-            'data-highlighted:not-data-disabled:text-(--b24ui-typography-label-color)',
-            'data-[state=checked]:text-(--b24ui-typography-label-color)'
+            'text-legend',
+            'data-highlighted:not-data-disabled:text-label',
+            'data-[state=checked]:text-label'
           ].join(' '),
           itemLabel: 'flex flex-row flex-nowrap items-center justify-start gap-2',
           itemLeadingIcon: [

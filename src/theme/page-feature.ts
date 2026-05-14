@@ -9,8 +9,8 @@ export default {
     wrapper: '',
     leading: 'inline-flex items-center justify-center',
     leadingIcon: 'size-5 shrink-0 text-(--ui-color-accent-main-primary)',
-    title: 'text-(length:--ui-font-size-md) text-pretty font-(--ui-font-weight-semi-bold) text-(--b24ui-typography-legend-color)',
-    description: 'text-(length:--ui-font-size-sm) text-pretty text-(--b24ui-typography-description-color)'
+    title: 'text-(length:--ui-font-size-md) text-pretty font-(--ui-font-weight-semi-bold) text-legend',
+    description: 'text-(length:--ui-font-size-sm) text-pretty text-description'
   },
   variants: {
     orientation: {

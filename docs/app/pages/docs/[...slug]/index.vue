@@ -3,13 +3,10 @@ import type { ContentNavigationItem } from '@nuxt/content'
 import { withTrailingSlash, joinURL } from 'ufo' // withoutTrailingSlash
 import { kebabCase } from 'scule'
 import { useColorMode } from '#b24ui/composables/color-mode/useColorMode'
+import { resolveIcon } from '@bitrix24/b24ui-nuxt/utils'
 import DesignIcon from '@bitrix24/b24icons-vue/outline/DesignIcon'
 import FavoriteIcon from '@bitrix24/b24icons-vue/outline/FavoriteIcon'
-import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
 import MoreMIcon from '@bitrix24/b24icons-vue/outline/MoreMIcon'
-import NuxtIcon from '@bitrix24/b24icons-vue/file-type/NuxtIcon'
-import DemonstrationOnIcon from '@bitrix24/b24icons-vue/outline/DemonstrationOnIcon'
-import Bitrix24Icon from '@bitrix24/b24icons-vue/common-service/Bitrix24Icon'
 import AiStarsIcon from '@bitrix24/b24icons-vue/outline/AiStarsIcon'
 
 // const isDev = import.meta.dev
@@ -79,44 +76,44 @@ useSeoMeta({
   ogDescription: description
 })
 
-// if (route.path.startsWith('/docs/components/')) {
-//   defineOgImage('Component.takumi', {
-//     title: page.value.title,
-//     description: page.value.description,
-//     slug: (route.params.slug as string[]).pop() as string
-//   })
-// } else {
-//   defineOgImage('Docs.takumi', {
-//     title: page.value.title,
-//     description: page.value.description,
-//     headline: breadcrumb.value?.[breadcrumb.value.length - 1]?.label || 'Bitrix24 UI',
-//     framework: page.value?.framework
-//   })
-// }
-
 const path = computed(() => pageUrl.replace(/\/$/, ''))
 
 if (import.meta.server) {
   prerenderRoutes([joinURL(`${config.public.baseUrl}/raw`, `${path.value}.md`)])
+
+  // if (route.path.startsWith('/docs/components/')) {
+  //   defineOgImage('Component.takumi', {
+  //     title: page.value.title,
+  //     description: page.value.description,
+  //     slug: (route.params.slug as string[]).pop() as string
+  //   })
+  // } else {
+  //   defineOgImage('Docs.takumi', {
+  //     title: page.value.title,
+  //     description: page.value.description,
+  //     headline: breadcrumb.value?.[breadcrumb.value.length - 1]?.label || 'Nuxt UI',
+  //     framework: page.value?.framework
+  //   })
+  // }
+
+  useSchemaOrg([
+    defineArticle({
+      '@type': 'TechArticle',
+      'headline': `${prefix}${title} ${suffix}`.trim(),
+      'description': description
+    }),
+    defineBreadcrumb({
+      itemListElement: breadcrumb.value?.map(item => ({
+        name: item.label,
+        item: item.to ? String(item.to) : undefined
+      })) || []
+    })
+  ])
 }
 
 // @memo we use redirect in `docs/modules/md-rewrite.ts`
 // @memo But at GitHub Pages we use /raw
 useCanonical(computed(() => `/raw${path.value}.md`))
-
-useSchemaOrg([
-  defineArticle({
-    '@type': 'TechArticle',
-    'headline': `${prefix}${title} ${suffix}`.trim(),
-    'description': description
-  }),
-  defineBreadcrumb({
-    itemListElement: breadcrumb.value?.map(item => ({
-      name: item.label,
-      item: item.to ? String(item.to) : undefined
-    })) || []
-  })
-])
 
 const communityLinks = computed(() => [
   {
@@ -132,21 +129,6 @@ const communityLinks = computed(() => [
     target: '_blank'
   }
 ])
-
-const iconFromIconName = (iconName?: string) => {
-  if (!iconName) {
-    return undefined
-  }
-
-  switch (iconName) {
-    case 'Bitrix24Icon': return Bitrix24Icon
-    case 'GitHubIcon': return GitHubIcon
-    case 'NuxtIcon': return NuxtIcon
-    case 'DemonstrationOnIcon': return DemonstrationOnIcon
-  }
-
-  return undefined
-}
 
 const explainIcon = computed(() => appConfig.bxAssistant?.icons?.explain || AiStarsIcon)
 
@@ -247,7 +229,7 @@ function makeExplain() {
           :key="link.label"
           :target="link.to?.startsWith('http') ? '_blank' : undefined"
           v-bind="link"
-          :icon="iconFromIconName(link?.iconName)"
+          :icon="resolveIcon(link?.iconName)"
           size="md"
           :b24ui="{ baseLine: 'gap-1.5' }"
         >
