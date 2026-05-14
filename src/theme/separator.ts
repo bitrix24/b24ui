@@ -22,7 +22,7 @@ export default {
         border: 'border-(--ui-color-divider-vibrant-default)'
       },
       accent: {
-        container: 'text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset)',
+        container: 'text-description text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset)',
         border: 'border-(--ui-color-divider-vibrant-accent-more)'
       },
       less: {
@@ -46,6 +46,11 @@ export default {
       thin: '',
       thick: ''
     },
+    position: {
+      start: '',
+      center: '',
+      end: ''
+    },
     type: {
       solid: {
         border: 'border-solid'
@@ -62,6 +67,38 @@ export default {
     }
   },
   compoundVariants: [
+    // region position ////
+    {
+      orientation: 'horizontal',
+      position: 'start',
+      class: { container: 'me-3' }
+    },
+    {
+      orientation: 'horizontal',
+      position: 'center',
+      class: { container: 'mx-3' }
+    },
+    {
+      orientation: 'horizontal',
+      position: 'end',
+      class: { container: 'ms-3' }
+    },
+    {
+      orientation: 'vertical',
+      position: 'start',
+      class: { container: 'mb-2' }
+    },
+    {
+      orientation: 'vertical',
+      position: 'center',
+      class: { container: 'my-2' }
+    },
+    {
+      orientation: 'vertical',
+      position: 'end',
+      class: { container: 'mt-2' }
+    },
+    // endregion ////
     // region horizontal ////
     {
       orientation: 'horizontal',

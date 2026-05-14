@@ -97,8 +97,8 @@ exports[`Slideover > renders with bottom side correctly 1`] = `
   </button>
   <div data-slot="header" class="py-5 px-5 flex items-center gap-x-3 gap-y-1.5">
     <div data-slot="wrapper" class="">
-      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
-      <p id="reka-dialog-description-v-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-label font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
+      <p id="reka-dialog-description-v-1" data-slot="description" class="mt-1 text-description text-(length:--ui-font-size-sm)">Description</p>
     </div>
     <!--v-if-->
   </div>
@@ -123,8 +123,8 @@ exports[`Slideover > renders with bottom side inset correctly 1`] = `
   <!--v-if-->
   <div data-slot="header" class="py-5 px-5 flex items-center gap-x-3 gap-y-1.5">
     <div data-slot="wrapper" class="">
-      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
-      <p id="reka-dialog-description-v-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-label font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
+      <p id="reka-dialog-description-v-1" data-slot="description" class="mt-1 text-description text-(length:--ui-font-size-sm)">Description</p>
     </div><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain-no-accent ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute top-4 end-4">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -281,8 +281,8 @@ exports[`Slideover > renders with description correctly 1`] = `
   </button>
   <div data-slot="header" class="py-5 px-5 flex items-center gap-x-3 gap-y-1.5">
     <div data-slot="wrapper" class="">
-      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
-      <p id="reka-dialog-description-v-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-label font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
+      <p id="reka-dialog-description-v-1" data-slot="description" class="mt-1 text-description text-(length:--ui-font-size-sm)">Description</p>
     </div>
     <!--v-if-->
   </div>
@@ -314,7 +314,7 @@ exports[`Slideover > renders with description slot correctly 1`] = `
   <div data-slot="header" class="py-5 px-5 flex items-center gap-x-3 gap-y-1.5">
     <div data-slot="wrapper" class="">
       <h2 id="reka-dialog-title-v-0"></h2>
-      <p id="reka-dialog-description-v-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description slot</p>
+      <p id="reka-dialog-description-v-1" data-slot="description" class="mt-1 text-description text-(length:--ui-font-size-sm)">Description slot</p>
     </div>
     <!--v-if-->
   </div>
@@ -398,8 +398,8 @@ exports[`Slideover > renders with left side correctly 1`] = `
   </button>
   <div data-slot="header" class="px-5 flex items-center gap-x-3 gap-y-1.5 py-1 min-h-(--b24ui-header-height)">
     <div data-slot="wrapper" class="">
-      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
-      <p id="reka-dialog-description-v-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-label font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
+      <p id="reka-dialog-description-v-1" data-slot="description" class="mt-1 text-description text-(length:--ui-font-size-sm)">Description</p>
     </div>
     <!--v-if-->
   </div>
@@ -424,8 +424,8 @@ exports[`Slideover > renders with left side inset correctly 1`] = `
   <!--v-if-->
   <div data-slot="header" class="px-5 flex items-center gap-x-3 gap-y-1.5 py-1 min-h-(--b24ui-header-height)">
     <div data-slot="wrapper" class="">
-      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
-      <p id="reka-dialog-description-v-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-label font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
+      <p id="reka-dialog-description-v-1" data-slot="description" class="mt-1 text-description text-(length:--ui-font-size-sm)">Description</p>
     </div><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain-no-accent ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute top-4 end-4">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -490,8 +490,8 @@ exports[`Slideover > renders with right side correctly 1`] = `
   </button>
   <div data-slot="header" class="px-5 flex items-center gap-x-3 gap-y-1.5 py-1 min-h-(--b24ui-header-height)">
     <div data-slot="wrapper" class="">
-      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
-      <p id="reka-dialog-description-v-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-label font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
+      <p id="reka-dialog-description-v-1" data-slot="description" class="mt-1 text-description text-(length:--ui-font-size-sm)">Description</p>
     </div>
     <!--v-if-->
   </div>
@@ -516,8 +516,8 @@ exports[`Slideover > renders with right side inset correctly 1`] = `
   <!--v-if-->
   <div data-slot="header" class="px-5 flex items-center gap-x-3 gap-y-1.5 py-1 min-h-(--b24ui-header-height)">
     <div data-slot="wrapper" class="">
-      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
-      <p id="reka-dialog-description-v-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-label font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
+      <p id="reka-dialog-description-v-1" data-slot="description" class="mt-1 text-description text-(length:--ui-font-size-sm)">Description</p>
     </div><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain-no-accent ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute top-4 end-4">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -555,7 +555,7 @@ exports[`Slideover > renders with title correctly 1`] = `
   </button>
   <div data-slot="header" class="py-5 px-5 flex items-center gap-x-3 gap-y-1.5">
     <div data-slot="wrapper" class="">
-      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
+      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-label font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
       <p id="reka-dialog-description-v-1"></p>
     </div>
     <!--v-if-->
@@ -587,7 +587,7 @@ exports[`Slideover > renders with title slot correctly 1`] = `
   </button>
   <div data-slot="header" class="py-5 px-5 flex items-center gap-x-3 gap-y-1.5">
     <div data-slot="wrapper" class="">
-      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title slot</h2>
+      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-label font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title slot</h2>
       <p id="reka-dialog-description-v-1"></p>
     </div>
     <!--v-if-->
@@ -613,8 +613,8 @@ exports[`Slideover > renders with top side correctly 1`] = `
   <!--v-if-->
   <div data-slot="header" class="py-5 px-5 flex items-center gap-x-3 gap-y-1.5">
     <div data-slot="wrapper" class="">
-      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
-      <p id="reka-dialog-description-v-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-label font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
+      <p id="reka-dialog-description-v-1" data-slot="description" class="mt-1 text-description text-(length:--ui-font-size-sm)">Description</p>
     </div><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain-no-accent ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute top-4 end-4">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -646,8 +646,8 @@ exports[`Slideover > renders with top side inset correctly 1`] = `
   <!--v-if-->
   <div data-slot="header" class="py-5 px-5 flex items-center gap-x-3 gap-y-1.5">
     <div data-slot="wrapper" class="">
-      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
-      <p id="reka-dialog-description-v-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-label font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
+      <p id="reka-dialog-description-v-1" data-slot="description" class="mt-1 text-description text-(length:--ui-font-size-sm)">Description</p>
     </div><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain-no-accent ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute top-4 end-4">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -679,8 +679,8 @@ exports[`Slideover > renders without close correctly 1`] = `
   <!--v-if-->
   <div data-slot="header" class="py-5 px-5 flex items-center gap-x-3 gap-y-1.5">
     <div data-slot="wrapper" class="">
-      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
-      <p id="reka-dialog-description-v-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-label font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
+      <p id="reka-dialog-description-v-1" data-slot="description" class="mt-1 text-description text-(length:--ui-font-size-sm)">Description</p>
     </div>
     <!--v-if-->
   </div>
@@ -712,8 +712,8 @@ exports[`Slideover > renders without overlay correctly 1`] = `
   </button>
   <div data-slot="header" class="py-5 px-5 flex items-center gap-x-3 gap-y-1.5">
     <div data-slot="wrapper" class="">
-      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
-      <p id="reka-dialog-description-v-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-label font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
+      <p id="reka-dialog-description-v-1" data-slot="description" class="mt-1 text-description text-(length:--ui-font-size-sm)">Description</p>
     </div>
     <!--v-if-->
   </div>
@@ -745,8 +745,8 @@ exports[`Slideover > renders without transition correctly 1`] = `
   </button>
   <div data-slot="header" class="py-5 px-5 flex items-center gap-x-3 gap-y-1.5">
     <div data-slot="wrapper" class="">
-      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
-      <p id="reka-dialog-description-v-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+      <h2 id="reka-dialog-title-v-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-label font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
+      <p id="reka-dialog-description-v-1" data-slot="description" class="mt-1 text-description text-(length:--ui-font-size-sm)">Description</p>
     </div>
     <!--v-if-->
   </div>

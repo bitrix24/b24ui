@@ -23,12 +23,12 @@ export default {
     ].join(' '),
     status: [
       'flex justify-end',
-      'text-(--b24ui-typography-legend-color)', // text-base-500
+      'text-legend', // text-base-500
       'transition-[width] duration-200'
     ].join(' '),
     steps: [
       'grid items-end',
-      'text-(--b24ui-typography-legend-color)'
+      'text-legend'
     ].join(' '),
     step: 'truncate text-end row-start-1 col-start-1 transition-opacity'
   },
@@ -80,7 +80,7 @@ export default {
         step: 'opacity-100'
       },
       first: {
-        step: 'opacity-100 text-(--b24ui-typography-legend-color)'
+        step: 'opacity-100 text-legend'
       },
       other: {
         step: 'opacity-0'

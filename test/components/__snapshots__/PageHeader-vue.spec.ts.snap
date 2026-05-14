@@ -60,7 +60,7 @@ exports[`PageHeader > renders with description correctly 1`] = `
       <!--v-if-->
       <!--v-if-->
     </div>
-    <div data-slot="description" class="text-(length:--ui-font-size-lg) text-pretty text-(--b24ui-typography-description-color)">Description</div>
+    <div data-slot="description" class="text-(length:--ui-font-size-lg) text-pretty text-description">Description</div>
   </div>
 </div>"
 `;
@@ -73,7 +73,7 @@ exports[`PageHeader > renders with description slot correctly 1`] = `
       <!--v-if-->
       <!--v-if-->
     </div>
-    <div data-slot="description" class="text-(length:--ui-font-size-lg) text-pretty text-(--b24ui-typography-description-color)">Description slot</div>
+    <div data-slot="description" class="text-(length:--ui-font-size-lg) text-pretty text-description">Description slot</div>
   </div>
 </div>"
 `;
@@ -142,7 +142,7 @@ exports[`PageHeader > renders with title correctly 1`] = `
   <!--v-if-->
   <div data-slot="container" class="">
     <div data-slot="wrapper" class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-      <h1 data-slot="title" class="text-(length:--ui-font-size-3xl) sm:text-(length:--ui-font-size-4xl) text-pretty font-(--ui-font-weight-bold) text-(--b24ui-typography-label-color)">Title</h1>
+      <h1 data-slot="title" class="text-(length:--ui-font-size-3xl) sm:text-(length:--ui-font-size-4xl) text-pretty font-(--ui-font-weight-bold) text-label">Title</h1>
       <!--v-if-->
     </div>
     <!--v-if-->
@@ -155,7 +155,7 @@ exports[`PageHeader > renders with title slot correctly 1`] = `
   <!--v-if-->
   <div data-slot="container" class="">
     <div data-slot="wrapper" class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-      <h1 data-slot="title" class="text-(length:--ui-font-size-3xl) sm:text-(length:--ui-font-size-4xl) text-pretty font-(--ui-font-weight-bold) text-(--b24ui-typography-label-color)">Title slot</h1>
+      <h1 data-slot="title" class="text-(length:--ui-font-size-3xl) sm:text-(length:--ui-font-size-4xl) text-pretty font-(--ui-font-weight-bold) text-label">Title slot</h1>
       <!--v-if-->
     </div>
     <!--v-if-->

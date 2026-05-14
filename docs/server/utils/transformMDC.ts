@@ -888,6 +888,27 @@ export async function transformMDC(event: H3Event, doc: Document): Promise<Docum
     })
   }
 
+  // Transform prompt to a blockquote with a "Prompt: <description>" lead-in
+  // so LLM consumers receive readable markdown instead of a raw <prompt> tag.
+  visitAndReplace(doc, 'prompt', (node) => {
+    const attrs = node[1] || {}
+    const content = node.slice(2)
+    const description = typeof attrs.description === 'string' ? attrs.description.trim() : ''
+
+    const blockquoteChildren: any[] = []
+    if (description) {
+      blockquoteChildren.push(['p', {}, `Prompt: ${description}`])
+    }
+    blockquoteChildren.push(...collectBlockChildren(content))
+
+    node[0] = 'blockquote'
+    node[1] = {}
+    node.length = 2
+    for (const child of blockquoteChildren) {
+      node.push(child)
+    }
+  })
+
   // Transform framework-only - extract content from both slots and label them
   visitAndReplace(doc, 'framework-only', (node) => {
     const children = node.slice(2)

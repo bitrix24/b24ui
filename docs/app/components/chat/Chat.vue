@@ -262,7 +262,8 @@ defineShortcuts({
         :status="chat.status"
         compact
         class="px-0 gap-2"
-        :user="{ b24ui: { container: 'max-w-full' } }"
+        :user="{ variant: 'message', b24ui: { container: 'max-w-full' } }"
+        :assistant="{ variant: 'system', b24ui: { container: 'max-w-full' } }"
       >
         <template #indicator>
           <B24ChatTool :icon="CopilotAi2Icon" text="Thinking..." streaming />

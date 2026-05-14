@@ -263,6 +263,81 @@ name: 'popover-anchor-slot-example'
 ---
 ::
 
+### Entity info card
+
+Real-world example: an account or deal summary shown in a hover popover, assembled from [`Card`](/docs/components/card/), [`Avatar`](/docs/components/avatar/), [`Separator`](/docs/components/separator/), [`Button`](/docs/components/button/), [`Link`](/docs/components/link/) and [`DescriptionList`](/docs/components/description-list/) — no custom styling beyond the avatar accent.
+
+::component-example
+---
+collapse: true
+name: 'popover-entity-info-example'
+---
+::
+
+::prompt
+---
+description: Build an entity-info popover for any record or object.
+actions:
+  - copy
+  - cursor
+  - windsurf
+class: 'w-full my-0'
+---
+Lean on the `b24-ui-nuxt` skill (see `references/recipes/overlays.md` → "Info popover (entity summary)") to build a compact entity-info popover that sits on top of an entity name in running text. The popover should tease the underlying record: a colored avatar, the entity title, a one-line caption, a primary CTA, a separator, and a label/value list with one or two values rendered as their own component (link, badge, time).
+
+Before writing any code, gather the missing context:
+- Which entity does the popover describe (e.g. user, account, order, ticket, project, product, event)? That decides the avatar icon and the design-token accent (`alert`, `success`, `warning`, `copilot`).
+- What's the trigger — a `B24Link` mid-paragraph (hover) or a discrete control (click)?
+- Which fields belong on the card: title, caption (a short status line such as count, stage, or role), CTA label + target, plus 2-4 label/value pairs (owner, created-at, status, category, location, etc.)?
+- Do any values need their own component (link, badge, time)? If yes, plan to use the global `#description` slot with `v-if="item.slot === '<key>'"` instead of replacing the whole `<dt>/<dd>` pair via a per-item slot.
+- Locale, dark-mode preview, and any analytics events to fire when the popover opens or the CTA is clicked.
+
+Once those answers are in, assemble the popover from stock components only (`B24Popover`, `B24Avatar`, `B24Button`, `B24Separator`, `B24DescriptionList`, `B24Link`) and reach for the `:b24ui` prop to:
+- pin the layout to a single column inside the narrow card and zero the row dividers,
+- match the recipe's compact rhythm (`p-6`, `gap-4.5`, `w-65`, `size="sm"` button),
+- recolor the avatar through design tokens — never inline hex values.
+
+Use semantic typography utilities (`text-label`, `text-description`) for the title and caption, and keep all copy in the requested locale.
+::
+
+### Sales dynamics widget
+
+A real-world example of pairing a Popover with a stats card. The widget itself is documented on the [Card](/docs/components/card/#sales-dynamics-widget) page; here it sits inside `B24Popover` so a trigger button reveals it on demand.
+
+::component-example
+---
+collapse: true
+name: 'popover-sales-dynamics-example'
+---
+::
+
+::prompt
+---
+description: Wrap the Sales dynamics widget in a Popover so a trigger button or link reveals it on demand.
+actions:
+  - copy
+  - cursor
+  - windsurf
+class: 'w-full my-0'
+---
+Take the Sales dynamics widget recipe (see `references/recipes/overlays.md` → "Stats widget (KPI summary)") and surface it through `B24Popover` so a button or in-line link reveals the metrics on demand — useful in dashboard rows, list cells or running text where the full card would be too heavy.
+
+Before writing any code, gather the missing context:
+- What's the trigger — a `B24Button` (discrete control, typically `mode="click"`) or a `B24Link is-action` mid-paragraph (typically `mode="hover"`)?
+- Does the popover need to follow the cursor, attach to a custom `#anchor`, or stay anchored to the trigger?
+- Should the popover stay open while the user interacts with the widget? If the widget's own `Configure` / `Feedback` buttons must work without closing, keep `dismissible` on its default (true) but ensure click handlers don't bubble to the popover root.
+- What's the data shape behind the rows (and the optional highlight row), and where does it come from — props on the page, a store, or an async fetch?
+- Locale and analytics: track popover opens and CTA clicks separately, since this is a "peek" surface, not the canonical metrics page.
+
+Once those answers are in, assemble the popover from stock components only:
+- Strip the popover's content chrome with `:b24ui="{ content: 'p-0 bg-transparent border-0 shadow-none' }"` so the widget paints its own surface (it carries the gradient, rounded corners and shadow internally).
+- Place the trigger in the default slot (`B24Button` or `B24Link is-action` — never both in the same popover); set `mode` to match the trigger affordance.
+- Render the widget itself inside `#content` exactly as documented in the recipe — the `edge-dark` root, the purple radial gradient (`--ui-color-copilot-bg-content-3 → -2 → -1`), the `style-filled-boost` highlight row and the three `air-secondary-accent` action buttons.
+- For an inline link trigger, anchor the popover with `:content="{ side: 'bottom', sideOffset: 8 }"` so the widget hovers below the link without clipping the surrounding paragraph.
+
+Keep all copy in the requested locale and surface the data through the same shape (`title`, `totalLine`, `todayLine`, `rangeLabel`, `rows`, `highlight`) used by the standalone recipe.
+::
+
 ## API
 
 ### Props

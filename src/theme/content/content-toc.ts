@@ -21,7 +21,7 @@ export default {
       'focus-visible:outline-(--ui-color-accent-main-primary)',
       'focus-visible:outline-2',
       'focus-visible:rounded-[4px]',
-      'text-(--b24ui-typography-legend-color)',
+      'text-legend',
       'text-(length:--ui-font-size-lg)/(--ui-font-line-height-3xs)',
       'font-(--ui-font-weight-semi-bold)',
       'flex-1',
@@ -54,9 +54,9 @@ export default {
       'focus-visible:outline-(--ui-color-accent-main-primary)',
       'focus-visible:outline-1',
       'focus-visible:rounded-[4px]',
-      'text-(--b24ui-typography-description-color)',
+      'text-description',
       'underline-offset-2',
-      'hover:text-(--b24ui-typography-label-color)',
+      'hover:text-label',
       'hover:underline',
       'pb-[12px]'
     ].join(' '),
@@ -66,8 +66,8 @@ export default {
     active: {
       false: {
         link: [
-          'text-(--b24ui-typography-description-color)',
-          'hover:text-(--b24ui-typography-label-color)',
+          'text-description',
+          'hover:text-label',
           'transition-colors'
         ].join(' ')
       }
@@ -82,8 +82,8 @@ export default {
     {
       active: true,
       class: {
-        link: 'text-(--b24ui-typography-label-color)',
-        linkLeadingIcon: 'text-(--b24ui-typography-label-color)'
+        link: 'text-label',
+        linkLeadingIcon: 'text-label'
       }
     }
   ],

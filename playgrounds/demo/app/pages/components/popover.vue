@@ -8,6 +8,7 @@ const openCustomAnchor = ref(false)
 
 const contentAligns = ['start', 'center', 'end']
 const contentSides = ['right', 'left', 'top', 'bottom']
+const entityModes = ['hover', 'click'] as const
 
 const align = ref<'start' | 'center' | 'end'>('center')
 const side = ref<'right' | 'left' | 'top' | 'bottom'>('bottom')
@@ -16,10 +17,11 @@ const openDelay = ref(500)
 const closeDelay = ref(300)
 const arrow = ref(false)
 const modal = ref(false)
+const entityMode = ref<typeof entityModes[number]>('hover')
 </script>
 
 <template>
-  <PlaygroundPage :b24ui="{ body: 'flex-col max-w-60 mx-auto' }">
+  <PlaygroundPage :b24ui="{ body: 'flex-col max-w-md mx-auto' }">
     <template #controls>
       <B24Tooltip text="content.align" size="xs">
         <B24Select v-model="align" placeholder="content.align" size="xs" :items="contentAligns" />
@@ -39,6 +41,10 @@ const modal = ref(false)
       </B24Tooltip>
       <B24Switch v-model="arrow" size="xs" label="Arrow" />
       <B24Switch v-model="modal" size="xs" label="Modal" />
+
+      <B24Tooltip text="Entity popover mode" size="xs">
+        <B24Select v-model="entityMode" placeholder="entity mode" size="xs" :items="[...entityModes]" />
+      </B24Tooltip>
     </template>
 
     <B24Popover
@@ -143,6 +149,88 @@ const modal = ref(false)
           />
         </div>
         <Placeholder class="w-60 h-48" />
+      </template>
+    </B24Popover>
+
+    <ProseP>
+      Latest activity on the
+      <EntityInfoPopover
+        title="ACME Corp."
+        caption="12 contacts"
+        primary-action-label="Open account"
+        owner-name="Sample owner"
+        created-at="Oct 6, 2024 08:37"
+        category="Enterprise"
+        :mode="entityMode"
+      >
+        <B24Link is-action>
+          ACME Corp.
+        </B24Link>
+      </EntityInfoPopover>
+      account — pipeline value grew by 12% this quarter.
+    </ProseP>
+
+    <ProseP>
+      Click the deal name to inspect
+      <EntityInfoPopover
+        title="Q3 Enterprise Renewal"
+        caption="Stage: Negotiation"
+        primary-action-label="Open deal"
+        owner-name="Sample owner"
+        created-at="Sep 18, 2024 14:02"
+        category="Inbound lead"
+        mode="click"
+      >
+        <B24Link is-action>
+          Q3 Enterprise Renewal
+        </B24Link>
+      </EntityInfoPopover>
+      before assigning it to the next sales rep.
+    </ProseP>
+
+    <B24Popover :b24ui="{ content: 'p-0 bg-transparent border-0 shadow-none' }">
+      <B24Button label="Open sales widget" />
+
+      <template #content>
+        <SalesDynamicsWidget
+          title="Repeat sales dynamics"
+          total-line="Total deals created: 10"
+          today-line="Today: 10 deals"
+          range-label="Last 30 days"
+          :rows="[
+            { label: 'Active deals', count: 10, amount: '$46,500' },
+            { label: 'Won deals', count: 1, amount: '$10,000' }
+          ]"
+          :highlight="{
+            label: 'Conversion',
+            count: '10%',
+            amount: '17.7%',
+            info: 'Today vs. last 30 days'
+          }"
+        />
+      </template>
+    </B24Popover>
+
+    <B24Popover mode="hover" :b24ui="{ content: 'p-0 bg-transparent border-0 shadow-none' }">
+      <B24Button label="Hover for sales summary" />
+
+      <template #content>
+        <SalesDynamicsWidget
+          title="Repeat sales dynamics"
+          total-line="Total deals created: 10"
+          today-line="Today: 10 deals"
+          range-label="Last 30 days"
+          :rows="[
+            { label: 'Active deals', count: 10, amount: '$46,500' },
+            { label: 'Won deals', count: 1, amount: '$10,000' }
+          ]"
+          :highlight="{
+            label: 'Conversion',
+            count: '10%',
+            amount: '17.7%',
+            info: 'Today vs. last 30 days'
+          }"
+        />
       </template>
     </B24Popover>
   </PlaygroundPage>

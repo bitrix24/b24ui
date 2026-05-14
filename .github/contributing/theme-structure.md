@@ -159,7 +159,56 @@ compoundVariants: [
 | `base` | Main interactive element |
 | `leading` / `trailing` | Icon/content containers |
 | `leadingIcon` / `trailingIcon` | Icon elements |
+| `leadingAvatar` / `trailingAvatar` | Embedded `B24Avatar` wrapper (CSS classes) |
+| `leadingAvatarSize` / `trailingAvatarSize` | **Value** slot — Avatar `size` token (`xs`, `md`, `xl`…), not CSS classes |
 | `label` | Text label |
 | `content` | Main content area |
 | `overlay` | Background overlay |
 | `header` / `body` / `footer` | Structural sections |
+
+## Value Slots (Avatar Size, Badge Size, …)
+
+Most slots resolve to CSS classes that get merged by `tv()` + `twMerge`. A handful of slots carry a **value** instead — the slot string is passed verbatim to a child component's prop (e.g. `B24Avatar size="md"`). The canonical example is `leadingAvatarSize`, used by `Button`, `ChatMessage`, `Badge`, `Input`, `Select`, `Tabs`, `Countdown`, `PageCard`, `PageCardGroup`.
+
+**Critical rule:** when a `size` variant supplies the value, the slot's **base must be empty**. Otherwise `tv()` concatenates base + variant — `'md' + 'md' → 'md md'` — which is not a valid Avatar size key, the size variant lookup misses, and the Avatar collapses to 0×0 (no `size-N` class on the root).
+
+```ts
+// ✅ Correct — base empty, size variant supplies the value
+slots: {
+  leadingAvatar: 'shrink-0',
+  leadingAvatarSize: ''
+},
+variants: {
+  size: {
+    sm: { leadingAvatarSize: 'sm' },
+    md: { leadingAvatarSize: 'md' },
+    lg: { leadingAvatarSize: 'lg' }
+  }
+}
+
+// ❌ Wrong — base + variant concatenate into `'md md'`, Avatar renders 0×0
+slots: {
+  leadingAvatarSize: 'md'
+},
+variants: {
+  size: {
+    md: { leadingAvatarSize: 'md' }
+  }
+}
+```
+
+The opposite case — a component without a `size` prop — is also legal: keep the value in the slot base and define no variant for it (see `theme/advice.ts`).
+
+When a parent forwards a value slot to a nested component through the `b24ui` prop, **skip the class-merge call**:
+
+```ts
+const innerCardUI = computed(() => ({
+  // Class slots — normal forwarding (twMerge handles the union)
+  leadingIcon: b24ui.value.leadingIcon({ class: props.b24ui?.leadingIcon }),
+  leadingAvatar: b24ui.value.leadingAvatar({ class: props.b24ui?.leadingAvatar }),
+  // Value slot — bare call, prefer user override or the resolved variant value
+  leadingAvatarSize: (props.b24ui?.leadingAvatarSize as string) || b24ui.value.leadingAvatarSize()
+}))
+```
+
+Passing `{ class: ... }` to a value slot would append CSS classes to the size token (`'md user-class'`), break the child's prop lookup, and reintroduce the 0×0 bug at the consumer level.

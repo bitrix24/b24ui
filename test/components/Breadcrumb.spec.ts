@@ -31,6 +31,7 @@ describe('Breadcrumb', () => {
     ['with items', { props }],
     ['with labelKey', { props: { ...props, labelKey: 'icon' } }],
     ['with separatorIcon', { props: { ...props, separatorIcon: Search2Icon } }],
+    ['with color', { props: { ...props, color: 'air-primary' } }],
     ['with as', { props: { ...props, as: 'div' } }],
     ['with class', { props: { ...props, class: 'w-48' } }],
     ['with b24ui', { props: { ...props, b24ui: { link: 'font-bold' } } }],

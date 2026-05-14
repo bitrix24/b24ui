@@ -8,13 +8,12 @@ const props = defineProps<{
 const route = useRoute()
 const { style, link } = useTheme()
 
-const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs', ['framework']))
+const { data: navigation } = await useFetch('/api/navigation.json')
 
 useHead({
   meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
   link,
-  style,
-  htmlAttrs: { lang: 'en' }
+  style
 })
 
 useSeoMeta({
@@ -28,7 +27,7 @@ if (import.meta.server) {
     twitterCard: 'summary_large_image'
   })
 }
-const { rootNavigation } = useNavigation(navigation)
+const { rootNavigation } = useNavigation(navigation!)
 
 provide('navigation', rootNavigation)
 </script>

@@ -276,6 +276,18 @@ slots:
 ::
 ```
 
+::note
+**Required when the prop type is referenced from another component**
+(e.g. `color?: AvatarProps['color']`). The docs generator resolves the
+palette from the host theme's own `variants.color`, so a prop typed via
+another component cannot auto-fill the dropdown. Spell the items out
+under `items.color` to render the selector.
+
+See [`docs/content/docs/2.components/user.md`](../../docs/content/docs/2.components/user.md) and
+[`docs/content/docs/2.components/error.md`](../../docs/content/docs/2.components/error.md) for
+canonical usage in their `### Color` sections.
+::
+
 ## Component Examples
 
 For complex examples with setup code:
