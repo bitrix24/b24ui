@@ -8,9 +8,43 @@ on:
 permissions:
   contents: read
   id-token: write
+  actions: read
 
 jobs:
+  await-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for ci.yml to succeed on ${{ github.sha }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          SHA: ${{ github.sha }}
+        run: |
+          for i in $(seq 1 60); do
+            run=$(gh api "repos/$REPO/actions/workflows/ci.yml/runs?head_sha=$SHA&per_page=1" --jq '.workflow_runs[0] // empty')
+            if [ -z "$run" ]; then
+              echo "Attempt $i/60: no ci.yml run found yet for $SHA, retrying in 30s"
+              sleep 30
+              continue
+            fi
+            status=$(echo "$run" | jq -r '.status')
+            conclusion=$(echo "$run" | jq -r '.conclusion')
+            echo "Attempt $i/60: status=$status conclusion=$conclusion"
+            if [ "$status" = "completed" ]; then
+              if [ "$conclusion" = "success" ]; then
+                echo "ci.yml succeeded on $SHA"
+                exit 0
+              fi
+              echo "ci.yml did not succeed on $SHA (conclusion=$conclusion)"
+              exit 1
+            fi
+            sleep 30
+          done
+          echo "Timed out after 30 minutes waiting for ci.yml on $SHA"
+          exit 1
+
   process:
+    needs: await-ci
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
