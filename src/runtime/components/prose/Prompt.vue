@@ -12,7 +12,7 @@ export interface ProsePromptProps {
   /**
    * @IconComponent
    */
-  icon?: IconComponent['name']
+  icon?: IconComponent
   /**
    * Resolved through the icon registry (`dictionary/iconRegistry.ts`)
    * with a fallback to short aliases (`dictionary/icons.ts`).
