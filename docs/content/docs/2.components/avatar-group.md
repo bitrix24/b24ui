@@ -75,7 +75,7 @@ slots:
 :b24-avatar{src="/b24ui/avatar/assistant.png" alt="Assistant Name" loading="lazy"}
 ::
 
-### Color :badge{label="Soon" class="align-text-top"}
+### Color
 
 Use the `color` prop to change the color of all the avatars.
 
