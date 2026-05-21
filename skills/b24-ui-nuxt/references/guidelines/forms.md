@@ -217,8 +217,10 @@ Key structural rules:
 
 - One outer `B24Form` with `:schema` for the whole record.
 - Header bar = `<div class="flex flex-wrap items-center justify-between gap-2">` + heading + leading edit-pencil `B24Button variant="link"` + trailing "Cancel" link button.
-- Inner sub-section (e.g. "Client") = label `<span>` above + `<div class="rounded-md border border-(--ui-color-design-outline-stroke) p-3 sm:p-4 space-y-4">` containing nested `B24FormField`s.
+- Inner sub-section (e.g. "Client") = label `<span>` above + a `<div role="group" aria-labelledby="...">` bordered container (`rounded-md border border-(--ui-color-design-outline-stroke) p-3 sm:p-4 space-y-4`) containing nested `B24FormField`s. `role`/`aria-labelledby` associate the label with the group (there is no dedicated fieldset primitive).
 - Two-column rows (e.g. amount + currency) = `<div class="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-2">` so the secondary input drops below on narrow viewports.
+- `B24InputDate` binds an `@internationalized/date` value, **not** a native `Date` — type that schema field loosely (`z.any().optional()`), never `z.date()`.
+- On `B24Select`, `class` targets the trigger and `b24ui.root` the wrapper, so a full-width select needs both; on `B24Input`/`B24InputNumber`, `class` already targets the root, so `class="w-full"` alone is enough.
 - Footer actions (Cancel / Save) stick to the bottom with `<div class="flex flex-wrap justify-end gap-2 pt-2">`.
 
 Skeleton:
@@ -228,7 +230,7 @@ Skeleton:
   <div class="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-(--ui-color-divider-vibrant-default)">
     <div class="flex items-center gap-1">
       <h3 class="text-(length:--ui-font-size-lg) font-(--ui-font-weight-semi-bold) uppercase tracking-wide">Order details</h3>
-      <B24Button variant="link" size="sm" :icon="EditPencilIcon" aria-label="Rename section" />
+      <B24Button variant="link" size="sm" :icon="EditPencilIcon" aria-label="Edit section" />
     </div>
     <B24Button variant="link" size="sm" label="Cancel" @click="onCancel" />
   </div>
@@ -239,24 +241,42 @@ Skeleton:
 
   <B24FormField label="Amount and currency" name="amount">
     <div class="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-2">
-      <B24InputNumber v-model="state.amount" :min="0" class="w-full" :b24ui="{ root: 'w-full' }" />
+      <B24InputNumber v-model="state.amount" :min="0" class="w-full" />
       <B24Select v-model="state.currency" :items="currencies" class="w-full sm:w-32" :b24ui="{ root: 'w-full sm:w-32' }" />
     </div>
   </B24FormField>
 
   <!-- Nested sub-section: label outside + bordered container -->
   <div class="space-y-1.5">
-    <span class="block text-(length:--ui-font-size-sm) text-(--ui-color-typography-secondary)">Client</span>
-    <div class="rounded-md border border-(--ui-color-design-outline-stroke) p-3 sm:p-4 space-y-4">
+    <span id="client-label" class="block text-(length:--ui-font-size-sm) text-(--ui-color-typography-secondary)">Client</span>
+    <div role="group" aria-labelledby="client-label" class="rounded-md border border-(--ui-color-design-outline-stroke) p-3 sm:p-4 space-y-4">
       <B24FormField label="Company" name="company">
-        <B24Input v-model="state.company" :icon="UserCompanyIcon" class="w-full" :b24ui="{ root: 'w-full' }" />
+        <B24Input v-model="state.company" :icon="UserCompanyIcon" class="w-full" />
       </B24FormField>
       <B24FormField label="Contact" name="contact">
-        <B24Input v-model="state.contact" :icon="PersonIcon" class="w-full" :b24ui="{ root: 'w-full' }" />
+        <B24Input v-model="state.contact" :icon="PersonIcon" class="w-full" />
       </B24FormField>
       <B24Button variant="link" size="sm" :icon="CirclePlusIcon" label="Add participant" />
     </div>
   </div>
+
+  <!-- Remaining fields below the Client group -->
+  <B24FormField label="Salutation" name="salutation">
+    <B24Select v-model="state.salutation" :items="salutations" class="w-full" :b24ui="{ root: 'w-full' }" />
+  </B24FormField>
+  <B24FormField label="Last name" name="lastName">
+    <B24Input v-model="state.lastName" class="w-full" />
+  </B24FormField>
+  <B24FormField label="First name" name="firstName">
+    <B24Input v-model="state.firstName" class="w-full" />
+  </B24FormField>
+  <B24FormField label="Service type" name="serviceType">
+    <B24Select v-model="state.serviceType" :items="serviceTypes" placeholder="Choose a service" class="w-full" :b24ui="{ root: 'w-full' }" />
+  </B24FormField>
+  <B24FormField label="Scheduled date" name="scheduledAt">
+    <!-- v-model is an @internationalized/date value, not a native Date -->
+    <B24InputDate v-model="state.scheduledAt" class="w-full" />
+  </B24FormField>
 
   <div class="flex flex-wrap justify-end gap-2 pt-2">
     <B24Button color="air-tertiary" label="Cancel" @click="onCancel" />

@@ -219,9 +219,11 @@ name: 'form-example-nested-list'
 
 ### Record edit section
 
-A common record-edit pattern (UF placement, slider context): a titled section with vertical-label fields, a two-column row for amount + currency, and a nested "Client" sub-section grouping related fields with its own border. Built entirely from `B24Form`, `B24FormField`, `B24Input`, `B24Select`, `B24InputNumber` and `B24InputDate` — no custom components.
+A common record-edit pattern (UF placement, slider context): a titled section with vertical-label fields, a two-column row for amount + currency, a nested "Client" sub-section, and a series of additional fields. Built entirely from `B24Form`, `B24FormField`, `B24Input`, `B24Select`, `B24InputNumber` and `B24InputDate` — no custom components.
 
-The "Client" sub-section is just a `<div>` with a label above and a bordered container (`rounded-md border ... p-3 sm:p-4 space-y-4`) wrapping nested `B24FormField`s. The two-column "Amount and currency" row uses `grid-cols-1 sm:grid-cols-[1fr_auto]` so the currency drops below the amount on narrow viewports.
+The full field set: Stage (`B24Select`), Amount and currency (`B24InputNumber` + `B24Select` in a two-column row), a "Client" group (Company + Contact `B24Input`s and an "Add participant" link), then Salutation (`B24Select`), Last name and First name (`B24Input`), Service type (`B24Select`) and Scheduled date (`B24InputDate`).
+
+The "Client" sub-section is just a `<div>` with a label above and a bordered container (`rounded-md border ... p-3 sm:p-4 space-y-4`) wrapping nested `B24FormField`s — `role="group"` + `aria-labelledby` associate the label with the group. The two-column "Amount and currency" row uses `grid-cols-1 sm:grid-cols-[1fr_auto]` so the currency drops below the amount on narrow viewports. `B24InputDate` binds an `@internationalized/date` value (not a native `Date`), so the schema types that field loosely.
 
 ::component-example
 ---
