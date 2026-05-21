@@ -59,10 +59,12 @@ function defaultState(): Partial<Schema> {
 
 const state = reactive<Partial<Schema>>(defaultState())
 
+const clientGroupId = useId()
+
 const toast = useToast()
 async function onSubmit(event: FormSubmitEvent<Schema>) {
   toast.add({ title: 'Order saved', description: 'The order details have been submitted.', color: 'air-primary-success' })
-  console.log(event.data) // demo only — remove before production use
+  console.log(event.data)
 }
 
 function onCancel() {
@@ -99,6 +101,7 @@ function onCancel() {
           <B24FormField label="Amount and currency" name="amount">
             <div class="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-2">
               <B24InputNumber v-model="state.amount" :min="0" class="w-full" />
+              <!-- The row is validated under the `amount` field; currency is a fixed enum with a default, so it needs no separate error slot. -->
               <B24Select v-model="state.currency" :items="currencies" class="w-full sm:w-32" :b24ui="{ root: 'w-full sm:w-32' }" />
             </div>
           </B24FormField>
@@ -107,12 +110,12 @@ function onCancel() {
                (b24ui has no dedicated fieldset primitive). role/aria-labelledby tie the
                heading to the group for screen readers. -->
           <div class="space-y-1.5">
-            <span id="edit-client-label" class="block text-(length:--ui-font-size-sm) text-(--ui-color-typography-secondary)">
+            <span :id="clientGroupId" class="block text-(length:--ui-font-size-sm) text-(--ui-color-typography-secondary)">
               Client
             </span>
             <div
               role="group"
-              aria-labelledby="edit-client-label"
+              :aria-labelledby="clientGroupId"
               class="rounded-md border border-(--ui-color-design-outline-stroke) p-3 sm:p-4 space-y-4"
             >
               <B24FormField label="Company" name="company">
