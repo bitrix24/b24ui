@@ -292,7 +292,7 @@ You are a Bitrix24 UI expert. Help me build a Bitrix24-style task form layout us
 
 Before writing any code, ask me clarifying questions about the ambiguous decisions, and wait for my answers. At minimum, clarify:
 - **Description area** — a full `B24Editor` (rich text with a toolbar) or a lighter `B24Textarea` with a row of icon buttons?
-- **Responsible-persons block** — which fields to include (Постановщик / Исполнитель / Крайний срок) and whether the watchers list is a separate card
+- **Responsible-persons block** — which fields to include (Creator / Assignee / Deadline) and whether the watchers list is a separate card
 - **Data binding** — local `ref` state vs. props / `v-model` from a parent, and whether to validate with `B24Form` + a Standard Schema
 - **Responsiveness** — at which breakpoint the two columns should collapse to one (e.g. `lg`)
 - **Secondary actions** — which buttons belong in the wrap row and their labels / icons
@@ -316,11 +316,11 @@ Build a Bitrix24-style task form layout using only standard `b24ui` components.
 Requirements:
 - **Title row**: `B24Input` with `size="xl"` and `no-border` spanning full width — the task name field rendered as a clean heading
 - **Two-column layout** on `lg+` (`flex-row`), single column on mobile (`flex-col`):
-  - **Left column** (`flex-1`): a `B24Card` with `b24ui.body = 'p-0'` containing a `B24Editor` (markdown mode, `min-h-48`). Inside the editor's default slot render a toolbar row (`flex items-center gap-1 px-2 py-1.5 border-b`) with: a `B24Button` attachment icon on the left, `B24EditorToolbar` with `mention`, `bulletList`, `orderedList` items in the middle, and an expand `B24Button` pushed to `ml-auto` on the right. Below the card, add a `flex flex-wrap gap-2` row of 17 `B24Button` components (`color="air-tertiary"`, `size="sm"`, each with an icon and a Russian label): Результаты, Файлы, Чеклисты, Проект, Соисполнители, Наблюдатели, Поток, Теги, Напоминания, CRM-объекты, Родительская задача, Подзадачи, Связанные задачи, Гантт, Планирование, Учёт времени, Свои поля
+  - **Left column** (`flex-1`): a `B24Card` with `b24ui.body = 'p-0'` containing a `B24Editor` (markdown mode, `min-h-48`). Inside the editor's default slot render a toolbar row (`flex items-center gap-1 px-2 py-1.5 border-b`) with: a `B24Button` attachment icon on the left, `B24EditorToolbar` with `mention`, `bulletList`, `orderedList` items in the middle, and an expand `B24Button` pushed to `ml-auto` on the right. Below the card, add a `flex flex-wrap gap-2` row of 17 `B24Button` components (`color="air-tertiary"`, `size="sm"`, each with an icon and a label): Results, Files, Checklists, Project, Co-executors, Observers, Flow, Tags, Reminders, CRM elements, Parent task, Subtasks, Linked tasks, Gantt, Timeline planning, Time tracking, Custom fields
   - **Right column** (`lg:w-72 shrink-0`): two `B24Card` stacked vertically:
-    1. Responsible persons card — `b24ui.body = 'p-0'`, body is a `divide-y` div with three rows (`px-5 py-3`): Постановщик (Avatar + name), Исполнитель (Avatar + name), Крайний срок (`B24InputDate` with `size="sm"` and `no-border` so it embeds cleanly into the `p-0` card)
+    1. Responsible persons card — `b24ui.body = 'p-0'`, body is a `divide-y` div with three rows (`px-5 py-3`): Creator (Avatar + name), Assignee (Avatar + name), Deadline (`B24InputDate` with `size="sm"` and `no-border` so it embeds cleanly into the `p-0` card)
     2. Watchers card — `#header` slot contains a flex row with label and a `+` `B24Button`; body shows three `B24Avatar` icons with distinct `air-secondary-*` colors
-- **Footer**: `flex gap-2 justify-end` row with `B24Button label="Сохранить" color="air-primary"` and `B24Button label="Отмена" color="air-tertiary"`
+- **Footer**: `flex gap-2 justify-end` row with `B24Button label="Save" color="air-primary"` and `B24Button label="Cancel" color="air-tertiary"`
 - Drive all mutable fields with `ref`: `title`, `description` (editor v-model), `deadline` (`Date | null`). Type the action list with `IconComponent`, keep `toolbarItems` a plain `const` (no reactive deps), and emit `save` with the `{ title, description, deadline }` payload so the parent knows what to persist
 ::
 
