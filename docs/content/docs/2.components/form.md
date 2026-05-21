@@ -275,6 +275,33 @@ class: '!p-0'
 
 ## Prompt
 
+Two ways to recreate this layout with an AI assistant. Start with the **guided** prompt for a collaborative build where the assistant clarifies the open questions first, or use the **full spec** prompt when you already know exactly what you want.
+
+### Guided prompt
+
+::prompt
+---
+description: Build the task form step by step — let the assistant clarify the details first.
+actions:
+  - copy
+  - cursor
+  - windsurf
+class: 'w-full my-0'
+---
+You are a Bitrix24 UI expert. Help me build a Bitrix24-style task form layout using only standard `b24ui` components — responsive, with minimal custom styling.
+
+Before writing any code, ask me clarifying questions about the ambiguous decisions, and wait for my answers. At minimum, clarify:
+- **Description area** — a full `B24Editor` (rich text with a toolbar) or a lighter `B24Textarea` with a row of icon buttons?
+- **Responsible-persons block** — which fields to include (Постановщик / Исполнитель / Крайний срок) and whether the watchers list is a separate card
+- **Data binding** — local `ref` state vs. props / `v-model` from a parent, and whether to validate with `B24Form` + a Standard Schema
+- **Responsiveness** — at which breakpoint the two columns should collapse to one (e.g. `lg`)
+- **Secondary actions** — which buttons belong in the wrap row and their labels / icons
+
+Once I answer, implement the form incrementally and confirm any non-obvious styling choices as you go (borderless inputs via `no-border`, zero-padding cards via `b24ui.body='p-0'`, `min-w-0` on the growing column). Prefer component props over custom CSS.
+::
+
+### Full spec prompt
+
 ::prompt
 ---
 description: Build a responsive Bitrix24-style task form using standard b24ui components.
