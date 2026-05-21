@@ -29,8 +29,12 @@ const autoDeleteEnabled = ref(false)
           :b24ui="{ root: 'rounded-xl' }"
         />
         <div>
-          <p class="font-semibold text-label">Sales Department</p>
-          <p class="text-description text-sm">Channel</p>
+          <p class="font-semibold text-label">
+            Sales Department
+          </p>
+          <p class="text-description text-sm">
+            Channel
+          </p>
         </div>
 
         <!-- :max="4" with 5 children intentionally shows the +1 overflow counter -->
