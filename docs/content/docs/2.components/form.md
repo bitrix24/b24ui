@@ -321,7 +321,7 @@ Requirements:
     1. Responsible persons card — `b24ui.body = 'p-0'`, body is a `divide-y` div with three rows (`px-5 py-3`): Creator (Avatar + name), Assignee (Avatar + name), Deadline (`B24InputDate` with `size="sm"` and `no-border` so it embeds cleanly into the `p-0` card)
     2. Watchers card — `#header` slot contains a flex row with label and a `+` `B24Button`; body shows three `B24Avatar` icons with distinct `air-secondary-*` colors
 - **Footer**: `flex gap-2 justify-end` row with `B24Button label="Save" color="air-primary"` and `B24Button label="Cancel" color="air-tertiary"`
-- Drive all mutable fields with `ref`: `title`, `description` (editor v-model), `deadline` (`Date | null`). Type the action list with `IconComponent`, keep `toolbarItems` a plain `const` (no reactive deps), and emit `save` with the `{ title, description, deadline }` payload so the parent knows what to persist
+- Drive `title` and `description` (editor v-model) with `ref`; the deadline must be an `@internationalized/date` value, so use `shallowRef<CalendarDate | undefined>` (`B24InputDate` does not accept a native `Date` and has no text placeholder). Type the action list with `IconComponent`, keep `toolbarItems` a plain `const` (no reactive deps), and emit `save` with the `{ title, description, deadline }` payload so the parent knows what to persist
 ::
 
 ## API

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { EditorToolbarItem, IconComponent } from '@bitrix24/b24ui-nuxt'
+import { CalendarDate } from '@internationalized/date'
 import FileUploadIcon from '@bitrix24/b24icons-vue/main/FileUploadIcon'
 import Expand1Icon from '@bitrix24/b24icons-vue/actions/Expand1Icon'
 import PersonIcon from '@bitrix24/b24icons-vue/main/PersonIcon'
@@ -26,7 +27,7 @@ import SettingsIcon from '@bitrix24/b24icons-vue/outline/SettingsIcon'
 
 const title = ref('Design the new task form interface')
 const description = ref('')
-const deadline = ref<Date | null>(null)
+const deadline = shallowRef<CalendarDate | undefined>(new CalendarDate(2026, 6, 30))
 
 const toolbarItems: EditorToolbarItem[][] = [[
   { kind: 'mention', icon: MentionIcon, tooltip: { text: 'Mention' } },
@@ -118,7 +119,6 @@ const actionButtons: { label: string, icon: IconComponent }[] = [
               <span class="text-description text-sm w-28 shrink-0">Deadline</span>
               <B24InputDate
                 v-model="deadline"
-                placeholder="Set deadline"
                 size="sm"
                 no-border
                 class="flex-1"
