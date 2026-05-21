@@ -93,6 +93,7 @@ const emit = defineEmits<{
                 color="air-tertiary"
                 variant="ghost"
                 size="sm"
+                aria-label="Attach file"
               />
               <B24EditorToolbar
                 :editor="editor"
@@ -104,6 +105,7 @@ const emit = defineEmits<{
                   color="air-tertiary"
                   variant="ghost"
                   size="sm"
+                  aria-label="Expand editor"
                 />
               </div>
             </div>
@@ -164,6 +166,7 @@ const emit = defineEmits<{
                 color="air-tertiary"
                 variant="ghost"
                 size="xs"
+                aria-label="Add watcher"
               />
             </div>
           </template>

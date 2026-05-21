@@ -124,10 +124,10 @@ const emit = defineEmits<{
             :b24ui="{ base: 'min-h-48 px-4 py-3' }"
           >
             <div class="flex items-center gap-1 px-2 py-1.5 border-b border-(--ui-color-divider-default)">
-              <B24Button :icon="FileUploadIcon" color="air-tertiary" variant="ghost" size="sm" />
+              <B24Button :icon="FileUploadIcon" color="air-tertiary" variant="ghost" size="sm" aria-label="Attach file" />
               <B24EditorToolbar :editor="editor" :items="toolbarItems" />
               <div class="ml-auto">
-                <B24Button :icon="Expand1Icon" color="air-tertiary" variant="ghost" size="sm" />
+                <B24Button :icon="Expand1Icon" color="air-tertiary" variant="ghost" size="sm" aria-label="Expand editor" />
               </div>
             </div>
           </B24Editor>
@@ -179,7 +179,7 @@ const emit = defineEmits<{
           <template #header>
             <div class="flex items-center justify-between">
               <span class="text-sm font-(--ui-font-weight-medium)">Watchers</span>
-              <B24Button :icon="PlusLIcon" color="air-tertiary" variant="ghost" size="xs" />
+              <B24Button :icon="PlusLIcon" color="air-tertiary" variant="ghost" size="xs" aria-label="Add watcher" />
             </div>
           </template>
           <div class="flex flex-wrap gap-2">
@@ -208,10 +208,10 @@ Place a `div` as the first child of `B24Editor`'s default slot to render a persi
 ```vue
 <B24Editor v-slot="{ editor }" v-model="content">
   <div class="flex items-center gap-1 px-2 py-1.5 border-b border-(--ui-color-divider-default)">
-    <B24Button :icon="FileUploadIcon" color="air-tertiary" variant="ghost" size="sm" />
+    <B24Button :icon="FileUploadIcon" color="air-tertiary" variant="ghost" size="sm" aria-label="Attach file" />
     <B24EditorToolbar :editor="editor" :items="toolbarItems" />
     <div class="ml-auto">
-      <B24Button :icon="Expand1Icon" color="air-tertiary" variant="ghost" size="sm" />
+      <B24Button :icon="Expand1Icon" color="air-tertiary" variant="ghost" size="sm" aria-label="Expand editor" />
     </div>
   </div>
 </B24Editor>
