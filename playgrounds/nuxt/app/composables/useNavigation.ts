@@ -21,6 +21,7 @@ const components = [
   'button',
   'calendar',
   'card',
+  'channel-panel',
   // 'carousel',
   'chat-message',
   'chat-reasoning',
