@@ -54,7 +54,7 @@ const autoDeleteEnabled = ref(false)
       <!-- Toggle rows: icon outside, B24Switch label prop links toggle to text for a11y -->
       <div class="py-1">
         <div class="flex items-center gap-3 px-4 py-2.5">
-          <BellIcon class="size-5 shrink-0 text-description" />
+          <BellIcon class="size-5 shrink-0 text-description" aria-hidden="true" />
           <B24Switch
             v-model="soundEnabled"
             label="Sound"
@@ -66,7 +66,7 @@ const autoDeleteEnabled = ref(false)
         </div>
         <div class="px-4 py-2.5">
           <div class="flex items-center gap-3">
-            <ClockIcon class="size-5 shrink-0 text-description" />
+            <ClockIcon class="size-5 shrink-0 text-description" aria-hidden="true" />
             <B24Switch
               v-model="autoDeleteEnabled"
               label="Auto-delete messages"
@@ -89,18 +89,18 @@ const autoDeleteEnabled = ref(false)
       <!-- Info rows -->
       <div class="py-1">
         <div class="flex items-center gap-3 px-4 py-2.5">
-          <UserGroupIcon class="size-5 shrink-0 text-description" />
+          <UserGroupIcon class="size-5 shrink-0 text-description" aria-hidden="true" />
           <span class="flex-1 text-sm text-label">Group chat</span>
         </div>
         <div class="flex items-center gap-3 px-4 py-2.5">
-          <AiStarsIcon class="size-5 shrink-0 text-description" />
+          <AiStarsIcon class="size-5 shrink-0 text-description" aria-hidden="true" />
           <span class="flex-1 text-sm text-label">Favorites</span>
-          <B24Badge label="0" color="air-secondary-accent" size="xs" square />
+          <B24Badge :label="0" color="air-secondary-accent" size="xs" square />
         </div>
         <div class="flex items-center gap-3 px-4 py-2.5">
-          <LinkIcon class="size-5 shrink-0 text-description" />
+          <LinkIcon class="size-5 shrink-0 text-description" aria-hidden="true" />
           <span class="flex-1 text-sm text-label">Links from messages</span>
-          <B24Badge label="18" color="air-secondary-accent" size="xs" square />
+          <B24Badge :label="18" color="air-secondary-accent" size="xs" square />
         </div>
       </div>
 
