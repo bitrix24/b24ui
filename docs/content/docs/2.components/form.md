@@ -217,6 +217,8 @@ name: 'form-example-nested-list'
 ---
 ::
 
+## Examples
+
 ### Record edit section
 
 A common record-edit pattern (UF placement, slider context): a titled section with vertical-label fields, a two-column row for amount + currency, a nested "Client" sub-section, and a series of additional fields. Built entirely from `B24Form`, `B24FormField`, `B24Input`, `B24Select`, `B24InputNumber`, `B24InputDate`, `B24Popover` and `B24Calendar` — no custom components.
@@ -257,6 +259,42 @@ Once those answers are in:
 - Use `color="air-tertiary-no-accent"` for icon/link-style buttons (the header action and "Add participant") — there is no `variant` prop on `B24Button`.
 
 Keep all copy in the requested locale.
+::
+
+### Task form layout
+
+Real-world example: a Bitrix24-style task form assembled from standard components only — `Input` for the title, `Editor` (with a minimal toolbar row) for the description, `Card`, `Avatar`, and `InputDate` for the responsible-persons block, and a wrap row of `Button` actions. The layout is two-column on desktop and stacks to a single column on mobile — no custom CSS beyond component props.
+
+::component-example
+---
+collapse: true
+name: 'form-task-form-example'
+class: '!p-0'
+---
+::
+
+## Prompt
+
+::prompt
+---
+description: Build a responsive Bitrix24-style task form using standard b24ui components.
+actions:
+  - copy
+  - cursor
+  - windsurf
+class: 'w-full my-0'
+---
+Build a Bitrix24-style task form layout using only standard `b24ui` components.
+
+Requirements:
+- **Title row**: `B24Input` with `size="xl"` spanning full width — the task name field
+- **Two-column layout** on `lg+` (`flex-row`), single column on mobile (`flex-col`):
+  - **Left column** (`flex-1`): a `B24Card` with `b24ui.body = 'p-0'` containing a `B24Editor` (markdown mode, `min-h-48`). Inside the editor's default slot render a toolbar row (`flex items-center gap-1 px-2 py-1.5 border-b`) with: a `B24Button` attachment icon on the left, `B24EditorToolbar` with `mention`, `bulletList`, `orderedList` items in the middle, and an expand `B24Button` pushed to `ml-auto` on the right. Below the card, add a `flex flex-wrap gap-2` row of 17 `B24Button` components (`color="air-tertiary"`, `size="sm"`, each with an icon and a Russian label): Результаты, Файлы, Чеклисты, Проект, Соисполнители, Наблюдатели, Поток, Теги, Напоминания, CRM-объекты, Родительская задача, Подзадачи, Связанные задачи, Гантт, Планирование, Учёт времени, Свои поля
+  - **Right column** (`lg:w-72 shrink-0`): two `B24Card` stacked vertically:
+    1. Responsible persons card — `b24ui.body = 'p-0'`, body is a `divide-y` div with three rows (`px-5 py-3`): Постановщик (Avatar + name), Исполнитель (Avatar + name), Крайний срок (`B24InputDate` with `size="sm"`)
+    2. Watchers card — `#header` slot contains a flex row with label and a `+` `B24Button`; body shows three `B24Avatar` icons with distinct `air-secondary-*` colors
+- **Footer**: `flex gap-2 justify-end` row with `B24Button label="Сохранить" color="air-primary"` and `B24Button label="Отмена" color="air-tertiary"`
+- Drive all mutable fields with `ref`: `title`, `description` (editor v-model), `deadline` (`Date | null`)
 ::
 
 ## API
