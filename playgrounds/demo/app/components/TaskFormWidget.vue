@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { EditorToolbarItem } from '@bitrix24/b24ui-nuxt'
+import type { EditorToolbarItem, IconComponent } from '@bitrix24/b24ui-nuxt'
 import FileUploadIcon from '@bitrix24/b24icons-vue/main/FileUploadIcon'
 import Expand1Icon from '@bitrix24/b24icons-vue/actions/Expand1Icon'
 import PersonIcon from '@bitrix24/b24icons-vue/main/PersonIcon'
@@ -28,13 +28,13 @@ const title = ref('Разработать новый интерфейс форм
 const description = ref('')
 const deadline = ref<Date | null>(null)
 
-const toolbarItems = computed<EditorToolbarItem[][]>(() => [[
-  { kind: 'mention' as const, icon: MentionIcon, tooltip: { text: 'Упомянуть' } },
-  { kind: 'bulletList' as const, icon: BulletedListIcon, tooltip: { text: 'Маркированный список' } },
-  { kind: 'orderedList' as const, icon: NumberedListIcon, tooltip: { text: 'Нумерованный список' } }
-]])
+const toolbarItems: EditorToolbarItem[][] = [[
+  { kind: 'mention', icon: MentionIcon, tooltip: { text: 'Упомянуть' } },
+  { kind: 'bulletList', icon: BulletedListIcon, tooltip: { text: 'Маркированный список' } },
+  { kind: 'orderedList', icon: NumberedListIcon, tooltip: { text: 'Нумерованный список' } }
+]]
 
-const actionButtons = [
+const actionButtons: { label: string, icon: IconComponent }[] = [
   { label: 'Результаты', icon: CircleCheckIcon },
   { label: 'Файлы', icon: FileUploadIcon },
   { label: 'Чеклисты', icon: TaskListIcon },
@@ -55,7 +55,7 @@ const actionButtons = [
 ]
 
 const emit = defineEmits<{
-  save: []
+  save: [value: { title: string, description: string, deadline: Date | null }]
   cancel: []
 }>()
 </script>
@@ -67,6 +67,8 @@ const emit = defineEmits<{
       v-model="title"
       placeholder="Название задачи"
       size="xl"
+      no-border
+      :b24ui="{ base: 'font-(--ui-font-weight-semi-bold)' }"
     />
 
     <!-- Two-column layout: editor on left, sidebar on right -->
@@ -128,7 +130,7 @@ const emit = defineEmits<{
               <span class="text-description text-sm w-28 shrink-0">Постановщик</span>
               <div class="flex items-center gap-2 min-w-0">
                 <B24Avatar :icon="PersonIcon" color="air-secondary-accent-2" size="xs" />
-                <span class="text-sm truncate">Игорь Шевчик</span>
+                <span class="text-sm truncate">Анна Петрова</span>
               </div>
             </div>
             <div class="flex items-center gap-3 px-5 py-3">
@@ -144,6 +146,7 @@ const emit = defineEmits<{
                 v-model="deadline"
                 placeholder="Установить срок"
                 size="sm"
+                no-border
                 class="flex-1"
               />
             </div>
@@ -174,7 +177,7 @@ const emit = defineEmits<{
 
     <!-- Form actions -->
     <div class="flex gap-2 justify-end">
-      <B24Button label="Сохранить" color="air-primary" @click="emit('save')" />
+      <B24Button label="Сохранить" color="air-primary" @click="emit('save', { title, description, deadline })" />
       <B24Button label="Отмена" color="air-tertiary" @click="emit('cancel')" />
     </div>
   </div>

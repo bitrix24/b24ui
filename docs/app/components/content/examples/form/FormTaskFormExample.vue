@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { EditorToolbarItem } from '@bitrix24/b24ui-nuxt'
+import type { EditorToolbarItem, IconComponent } from '@bitrix24/b24ui-nuxt'
 import FileUploadIcon from '@bitrix24/b24icons-vue/main/FileUploadIcon'
 import Expand1Icon from '@bitrix24/b24icons-vue/actions/Expand1Icon'
 import PersonIcon from '@bitrix24/b24icons-vue/main/PersonIcon'
@@ -28,13 +28,13 @@ const title = ref('Разработать новый интерфейс форм
 const description = ref('')
 const deadline = ref<Date | null>(null)
 
-const toolbarItems = computed<EditorToolbarItem[][]>(() => [[
-  { kind: 'mention' as const, icon: MentionIcon, tooltip: { text: 'Упомянуть' } },
-  { kind: 'bulletList' as const, icon: BulletedListIcon, tooltip: { text: 'Список' } },
-  { kind: 'orderedList' as const, icon: NumberedListIcon, tooltip: { text: 'Нумерованный список' } }
-]])
+const toolbarItems: EditorToolbarItem[][] = [[
+  { kind: 'mention', icon: MentionIcon, tooltip: { text: 'Упомянуть' } },
+  { kind: 'bulletList', icon: BulletedListIcon, tooltip: { text: 'Маркированный список' } },
+  { kind: 'orderedList', icon: NumberedListIcon, tooltip: { text: 'Нумерованный список' } }
+]]
 
-const actionButtons = [
+const actionButtons: { label: string, icon: IconComponent }[] = [
   { label: 'Результаты', icon: CircleCheckIcon },
   { label: 'Файлы', icon: FileUploadIcon },
   { label: 'Чеклисты', icon: TaskListIcon },
@@ -61,6 +61,8 @@ const actionButtons = [
       v-model="title"
       placeholder="Название задачи"
       size="xl"
+      no-border
+      :b24ui="{ base: 'font-(--ui-font-weight-semi-bold)' }"
     />
 
     <div class="flex flex-col lg:flex-row gap-4 items-start">
@@ -71,7 +73,7 @@ const actionButtons = [
             v-model="description"
             content-type="markdown"
             placeholder="Добавьте описание задачи..."
-            :b24ui="{ base: 'min-h-40 px-4 py-3' }"
+            :b24ui="{ base: 'min-h-48 px-4 py-3' }"
           >
             <div class="flex items-center gap-1 px-2 py-1.5 border-b border-(--ui-color-divider-default)">
               <B24Button :icon="FileUploadIcon" color="air-tertiary" variant="ghost" size="sm" />
@@ -102,7 +104,7 @@ const actionButtons = [
               <span class="text-description text-sm w-28 shrink-0">Постановщик</span>
               <div class="flex items-center gap-2 min-w-0">
                 <B24Avatar :icon="PersonIcon" color="air-secondary-accent-2" size="xs" />
-                <span class="text-sm truncate">Игорь Шевчик</span>
+                <span class="text-sm truncate">Анна Петрова</span>
               </div>
             </div>
             <div class="flex items-center gap-3 px-5 py-3">
@@ -118,6 +120,7 @@ const actionButtons = [
                 v-model="deadline"
                 placeholder="Установить срок"
                 size="sm"
+                no-border
                 class="flex-1"
               />
             </div>
