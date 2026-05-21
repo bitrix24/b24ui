@@ -15,7 +15,7 @@ const autoDeleteEnabled = ref(false)
 </script>
 
 <template>
-  <PlaygroundPage :b24ui="{ body: 'items-start justify-center md:justify-center' }">
+  <PlaygroundPage :b24ui="{ body: 'items-start justify-center' }">
     <B24Card
       class="w-full max-w-xs overflow-hidden"
       :b24ui="{ body: 'p-0 flex flex-col gap-0 divide-y divide-default' }"
@@ -33,6 +33,7 @@ const autoDeleteEnabled = ref(false)
           <p class="text-description text-sm">Channel</p>
         </div>
 
+        <!-- :max="4" with 5 children intentionally shows the +1 overflow counter -->
         <div class="flex items-center gap-2">
           <B24AvatarGroup :max="4" size="xs">
             <B24Avatar src="/avatar/employee.png" alt="John Doe" />
@@ -50,38 +51,54 @@ const autoDeleteEnabled = ref(false)
         </div>
       </div>
 
-      <!-- Toggle rows -->
+      <!-- Toggle rows: icon outside, B24Switch label prop links toggle to text for a11y -->
       <div class="py-1">
         <div class="flex items-center gap-3 px-4 py-2.5">
-          <Component :is="BellIcon" class="size-5 shrink-0 text-description" />
-          <span class="flex-1 text-sm text-label">Sound</span>
-          <B24Switch v-model="soundEnabled" />
+          <BellIcon class="size-5 shrink-0 text-description" />
+          <B24Switch
+            v-model="soundEnabled"
+            label="Sound"
+            :b24ui="{
+              root: 'flex-1 flex-row-reverse justify-between items-center',
+              wrapper: 'ms-0'
+            }"
+          />
         </div>
         <div class="px-4 py-2.5">
           <div class="flex items-center gap-3">
-            <Component :is="ClockIcon" class="size-5 shrink-0 text-description" />
-            <span class="flex-1 text-sm text-label">Auto-delete messages</span>
-            <B24Switch v-model="autoDeleteEnabled" />
+            <ClockIcon class="size-5 shrink-0 text-description" />
+            <B24Switch
+              v-model="autoDeleteEnabled"
+              label="Auto-delete messages"
+              :b24ui="{
+                root: 'flex-1 flex-row-reverse justify-between items-center',
+                wrapper: 'ms-0'
+              }"
+            />
           </div>
-          <p class="text-xs text-dimmed mt-1 ms-8">
-            {{ autoDeleteEnabled ? 'Messages deleted after 7 days' : 'Disabled' }}
-          </p>
+          <!-- spacer (size-5 + gap-3) aligns description under the label -->
+          <div class="flex gap-3">
+            <span class="size-5 shrink-0" />
+            <p class="text-xs text-dimmed mt-1">
+              {{ autoDeleteEnabled ? 'Messages deleted after 7 days' : 'Disabled' }}
+            </p>
+          </div>
         </div>
       </div>
 
       <!-- Info rows -->
       <div class="py-1">
         <div class="flex items-center gap-3 px-4 py-2.5">
-          <Component :is="UserGroupIcon" class="size-5 shrink-0 text-description" />
+          <UserGroupIcon class="size-5 shrink-0 text-description" />
           <span class="flex-1 text-sm text-label">Group chat</span>
         </div>
         <div class="flex items-center gap-3 px-4 py-2.5">
-          <Component :is="AiStarsIcon" class="size-5 shrink-0 text-description" />
+          <AiStarsIcon class="size-5 shrink-0 text-description" />
           <span class="flex-1 text-sm text-label">Favorites</span>
           <B24Badge label="0" color="air-secondary-accent" size="xs" square />
         </div>
         <div class="flex items-center gap-3 px-4 py-2.5">
-          <Component :is="LinkIcon" class="size-5 shrink-0 text-description" />
+          <LinkIcon class="size-5 shrink-0 text-description" />
           <span class="flex-1 text-sm text-label">Links from messages</span>
           <B24Badge label="18" color="air-secondary-accent" size="xs" square />
         </div>
@@ -89,9 +106,9 @@ const autoDeleteEnabled = ref(false)
 
       <!-- Media & Files section -->
       <div class="py-2">
-        <p class="px-4 py-1 text-xs text-description font-semibold">
+        <h3 class="px-4 py-1 text-xs text-description font-semibold">
           Media & Files
-        </p>
+        </h3>
         <B24Empty
           :icon="ImageIcon"
           title="No media or files"
@@ -104,9 +121,9 @@ const autoDeleteEnabled = ref(false)
       <!-- Tasks section -->
       <div class="py-2">
         <div class="flex items-center justify-between px-4 py-1">
-          <p class="text-xs text-description font-semibold">
+          <h3 class="text-xs text-description font-semibold">
             Tasks
-          </p>
+          </h3>
           <B24Button :icon="PlusLIcon" label="Add" color="air-secondary-accent-2" size="xs" />
         </div>
         <B24Empty
@@ -121,9 +138,9 @@ const autoDeleteEnabled = ref(false)
       <!-- Meetings section -->
       <div class="py-2">
         <div class="flex items-center justify-between px-4 py-1">
-          <p class="text-xs text-description font-semibold">
+          <h3 class="text-xs text-description font-semibold">
             Meetings
-          </p>
+          </h3>
           <B24Button :icon="PlusLIcon" label="Add" color="air-secondary-accent-2" size="xs" />
         </div>
         <B24Empty
