@@ -4,7 +4,6 @@ import { normalizePath, upperName } from '../utils'
 import ItemIcon from '@bitrix24/b24icons-vue/crm/ItemIcon'
 import TextIcon from '@bitrix24/b24icons-vue/outline/TextIcon'
 import HomeIcon from '@bitrix24/b24icons-vue/outline/HomeIcon'
-import LayersIcon from '@bitrix24/b24icons-vue/outline/LayersIcon'
 // import CopilotIcon from '@bitrix24/b24icons-vue/outline/CopilotIcon'
 // import ArrowRightLIcon from '@bitrix24/b24icons-vue/outline/ArrowRightLIcon'
 // import ArrowLeftLIcon from '@bitrix24/b24icons-vue/outline/ArrowLeftLIcon'
@@ -107,10 +106,6 @@ const componentsProse = ['show'].map(component => ({
   to: `/components/prose/${component}`
 }))
 
-const examples = [
-  'channel-panel'
-].map(example => ({ label: upperName(example), icon: LayersIcon, to: `/components/${example}` }))
-
 const externalLinks: NavigationMenuItem[] = [
   {
     label: 'B24 UI',
@@ -140,8 +135,7 @@ export const useNavigation = () => {
   const groups = computed(() => [
     { id: 'links', items },
     { id: 'components', label: 'Components', items: components },
-    { id: 'components/prose', label: 'Prose', items: componentsProse },
-    { id: 'examples', label: 'Examples', items: examples }
+    { id: 'components/prose', label: 'Prose', items: componentsProse }
     // {
     //   id: 'dir',
     //   label: 'Direction',
