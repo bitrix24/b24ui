@@ -16,7 +16,8 @@
         "references/recipes/data-tables.md",
         "references/recipes/detail-panel.md",
         "references/recipes/navigation.md",
-        "references/recipes/overlays.md"
+        "references/recipes/overlays.md",
+        "references/recipes/task-form.md"
       ]
     }
   ]
