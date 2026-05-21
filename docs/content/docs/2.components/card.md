@@ -144,6 +144,46 @@ name: 'card-sales-dynamics-example'
 ---
 ::
 
+### Channel detail panel
+
+Composed entity sidebar built entirely from standard components: `Card` (with `divide-y` body for automatic section dividers), a square `Avatar`, an `AvatarGroup` with overflow counter, `Switch` toggle rows, `Badge` counters and `Empty` section placeholders. Use it as a starting point for chat channel info panels or CRM record details.
+
+::component-example
+---
+collapse: true
+name: 'card-channel-panel-example'
+---
+::
+
+Generate this layout with your AI assistant. The prompt asks the assistant to confirm the entity type and which sections you need before writing any code:
+
+::prompt
+---
+description: Build a Bitrix24-style entity detail sidebar from standard components.
+actions:
+  - copy
+  - cursor
+  - windsurf
+class: 'w-full my-0'
+---
+You are a Bitrix24 UI expert. Help me build an entity detail sidebar (info panel) using only standard `@bitrix24/b24ui-nuxt` components, with minimal custom styling.
+
+Before writing any code, ask me clarifying questions and wait for my answers:
+- What entity is this panel for (chat channel, CRM contact/deal, project, something else)?
+- Which header info should it show (avatar shape, title, subtitle, member group)?
+- Which toggle settings do I need (e.g. notifications, auto-delete) and their default state?
+- Which info rows and counters should appear (and which need a badge)?
+- Which content sections do I need (e.g. Media & Files, Tasks, Meetings) and what is their empty state?
+
+Once I confirm, build it with these conventions:
+- Wrap everything in a `B24Card` with `class="w-full max-w-xs overflow-hidden"` and `:b24ui="{ body: 'p-0 flex flex-col gap-0 divide-y divide-default' }"` so each child section is auto-divided
+- Square the channel avatar with `B24Avatar :b24ui="{ root: 'rounded-xl' }"`; show members with `B24AvatarGroup :max="N"` plus one extra child to render the `+1` counter
+- For toggle rows, put the icon outside and use `B24Switch` with the `label` prop for accessibility, reversing layout via `:b24ui="{ root: 'flex-1 flex-row-reverse justify-between items-center', wrapper: 'ms-0' }"`
+- Use `B24Badge ... square` for numeric counters on info rows
+- Use `B24Empty` for section empty states, flattened with `:b24ui="{ root: 'ring-0 rounded-none py-3' }"`
+- Use semantic text tokens (`text-label`, `text-description`, `text-dimmed`) and `<h3>` for section headings
+::
+
 ## Prompt
 
 ::prompt
