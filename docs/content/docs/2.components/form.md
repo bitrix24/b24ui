@@ -217,6 +217,8 @@ name: 'form-example-nested-list'
 ---
 ::
 
+## Examples
+
 ### Record edit section
 
 A common record-edit pattern (UF placement, slider context): a titled section with vertical-label fields, a two-column row for amount + currency, a nested "Client" sub-section, and a series of additional fields. Built entirely from `B24Form`, `B24FormField`, `B24Input`, `B24Select`, `B24InputNumber`, `B24InputDate`, `B24Popover` and `B24Calendar` — no custom components.
@@ -257,6 +259,38 @@ Once those answers are in:
 - Use `color="air-tertiary-no-accent"` for icon/link-style buttons (the header action and "Add participant") — there is no `variant` prop on `B24Button`.
 
 Keep all copy in the requested locale.
+::
+
+### Task form layout
+
+Real-world example: a Bitrix24-style task form assembled from standard components only — `Input` for the title, `Editor` (with a minimal toolbar row) for the description, `Card`, `Avatar`, and `InputDate` for the responsible-persons block, and a wrap row of `Button` actions. Single-column layout throughout — no custom CSS beyond component props.
+
+::component-example
+---
+collapse: true
+name: 'form-task-form-example'
+class: '!p-0'
+---
+::
+
+::prompt
+---
+description: Build a Bitrix24-style task form using standard b24ui components.
+actions:
+  - copy
+  - cursor
+  - windsurf
+class: 'w-full my-0'
+---
+Build a Bitrix24-style task form layout using only standard `b24ui` components (single column, no custom CSS beyond component props).
+
+- **Title**: `B24Input` `size="xl"` `no-border`, bold via `:b24ui="{ base: 'font-(--ui-font-weight-semi-bold)' }"`
+- **Editor card**: `B24Card` with `b24ui.body='p-0'` containing `B24Editor` (`content-type="markdown"`, `min-h-48 px-4 py-3`). Inside the editor's default slot, render a toolbar row (`flex items-center gap-1 px-2 py-1.5 border-b`): attachment `B24Button` on the left, `B24EditorToolbar` with `mention`/`bulletList`/`orderedList` in the middle, expand `B24Button` (`GoToLIcon`) pushed to `ml-auto`
+- **Responsible persons card**: `B24Card` `b24ui.body='p-0'`, body is a `divide-y` div with three `px-5 py-3` rows — Creator (`B24Avatar` + name), Assignee (`B24Avatar` + name), Deadline (`B24InputDate` `size="sm"` `no-border` with `B24Popover`+`B24Calendar` in the `#trailing` slot, both sharing the same `shallowRef<CalendarDate | undefined>`)
+- **Watchers card**: `#header` with label and `+` `B24Button`; body shows `B24Avatar` icons
+- **Action buttons**: `flex flex-wrap gap-2` row of 17 `B24Button` `size="sm"` — each item has an `active` flag; active → `color="air-secondary-accent-2"`, inactive → `color="air-secondary-no-accent"`. Buttons: Results, Files, Checklists, Project, Co-executors, Observers, Flow, Tags, Reminders, CRM elements, Parent task, Subtasks, Linked tasks, Gantt, Timeline planning, Time tracking, Custom fields
+- **Footer**: `flex gap-2 justify-end` with Save (`air-primary`) and Cancel (`air-tertiary`)
+- State: `title` and `description` as `ref`; `deadline` as `shallowRef<CalendarDate | undefined>` (from `@internationalized/date` — `B24InputDate` does not accept native `Date`); `toolbarItems` as a plain `const` (no reactive deps); action list typed as `{ label: string, icon: IconComponent, active?: boolean }[]`
 ::
 
 ## API
