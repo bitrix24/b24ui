@@ -144,6 +144,7 @@ const actionButtons: { label: string, icon: IconComponent, active?: boolean }[] 
         :icon="btn.icon"
         :label="btn.label"
         :color="btn.active ? 'air-secondary-accent-2' : 'air-secondary-no-accent'"
+        :aria-pressed="btn.active ? 'true' : 'false'"
         size="sm"
       />
     </div>

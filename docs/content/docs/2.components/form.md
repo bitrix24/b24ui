@@ -263,7 +263,7 @@ Keep all copy in the requested locale.
 
 ### Task form layout
 
-Real-world example: a Bitrix24-style task form assembled from standard components only — `Input` for the title, `Editor` (with a minimal toolbar row) for the description, `Card`, `Avatar`, and `InputDate` for the responsible-persons block, and a wrap row of `Button` actions. The layout is two-column on desktop and stacks to a single column on mobile — no custom CSS beyond component props.
+Real-world example: a Bitrix24-style task form assembled from standard components only — `Input` for the title, `Editor` (with a minimal toolbar row) for the description, `Card`, `Avatar`, and `InputDate` for the responsible-persons block, and a wrap row of `Button` actions. Single-column layout throughout — no custom CSS beyond component props.
 
 ::component-example
 ---
