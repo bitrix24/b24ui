@@ -71,7 +71,7 @@ const disabled = ref(false)
         <FormExampleElements :validate-on="validateOn" :disabled="disabled" />
       </B24Card>
 
-      <B24Card :variant="cardVariant" :class="[cardBorderClass, 'grow']">
+      <B24Card :variant="cardVariant" :class="[cardBorderClass, 'w-full']">
         <template #header>
           <ProseH5 class="mb-0">
             Task form layout
