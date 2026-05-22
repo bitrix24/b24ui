@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import * as z from 'zod'
 import type { FormSubmitEvent } from '@bitrix24/b24ui-nuxt'
-import EditPencilIcon from '@bitrix24/b24icons-vue/main/EditPencilIcon'
+import SettingsIcon from '@bitrix24/b24icons-vue/outline/SettingsIcon'
+import CalendarIcon from '@bitrix24/b24icons-vue/outline/CalendarIcon'
 import CirclePlusIcon from '@bitrix24/b24icons-vue/main/CirclePlusIcon'
 import UserCompanyIcon from '@bitrix24/b24icons-vue/common-b24/UserCompanyIcon'
 import PersonIcon from '@bitrix24/b24icons-vue/main/PersonIcon'
@@ -60,6 +61,7 @@ function defaultState(): Partial<Schema> {
 const state = reactive<Partial<Schema>>(defaultState())
 
 const clientGroupId = useId()
+const scheduledAtInput = useTemplateRef('scheduledAtInput')
 
 const toast = useToast()
 async function onSubmit(event: FormSubmitEvent<Schema>) {
@@ -74,11 +76,11 @@ function onCancel() {
 
 <template>
   <B24Form :schema="schema" :state="state" class="space-y-4 w-full max-w-lg" @submit="onSubmit">
-    <div class="flex items-center gap-1 pb-2 border-b border-(--ui-color-divider-vibrant-default)">
-      <h3 class="text-(length:--ui-font-size-lg) font-(--ui-font-weight-semi-bold) uppercase tracking-wide">
+    <div class="flex items-center justify-between gap-2 pb-2 border-b border-(--ui-color-divider-vibrant-default)">
+      <h3 class="min-w-0 truncate text-(length:--ui-font-size-lg) font-(--ui-font-weight-semi-bold) uppercase tracking-wide">
         Order details
       </h3>
-      <B24Button variant="link" size="sm" :icon="EditPencilIcon" aria-label="Edit section" />
+      <B24Button color="air-tertiary-no-accent" size="sm" :icon="SettingsIcon" aria-label="Edit section" class="shrink-0" />
     </div>
 
     <B24FormField label="Stage" name="stage">
@@ -124,7 +126,7 @@ function onCancel() {
           />
         </B24FormField>
 
-        <B24Button variant="link" size="sm" :icon="CirclePlusIcon" label="Add participant" />
+        <B24Button color="air-tertiary-no-accent" size="sm" :icon="CirclePlusIcon" label="Add participant" />
       </div>
     </div>
 
@@ -145,7 +147,24 @@ function onCancel() {
     </B24FormField>
 
     <B24FormField label="Scheduled date" name="scheduledAt">
-      <B24InputDate v-model="state.scheduledAt" class="w-full" />
+      <!-- Free-text date input with a dropdown B24Calendar in the trailing slot; both share the same v-model. -->
+      <B24InputDate ref="scheduledAtInput" v-model="state.scheduledAt" class="w-full">
+        <template #trailing>
+          <B24Popover :reference="scheduledAtInput?.inputsRef[3]?.$el">
+            <B24Button
+              color="air-tertiary-no-accent"
+              size="sm"
+              :icon="CalendarIcon"
+              aria-label="Select a date"
+              class="px-0"
+            />
+
+            <template #content>
+              <B24Calendar v-model="state.scheduledAt" class="p-2" />
+            </template>
+          </B24Popover>
+        </template>
+      </B24InputDate>
     </B24FormField>
 
     <div class="flex flex-wrap justify-end gap-2 pt-2">

@@ -219,9 +219,9 @@ name: 'form-example-nested-list'
 
 ### Record edit section
 
-A common record-edit pattern (UF placement, slider context): a titled section with vertical-label fields, a two-column row for amount + currency, a nested "Client" sub-section, and a series of additional fields. Built entirely from `B24Form`, `B24FormField`, `B24Input`, `B24Select`, `B24InputNumber` and `B24InputDate` — no custom components.
+A common record-edit pattern (UF placement, slider context): a titled section with vertical-label fields, a two-column row for amount + currency, a nested "Client" sub-section, and a series of additional fields. Built entirely from `B24Form`, `B24FormField`, `B24Input`, `B24Select`, `B24InputNumber`, `B24InputDate`, `B24Popover` and `B24Calendar` — no custom components.
 
-The full field set: Stage (`B24Select`), Amount and currency (`B24InputNumber` + `B24Select` in a two-column row), a "Client" group (Company + Contact `B24Input`s and an "Add participant" link), then Salutation (`B24Select`), Last name and First name (`B24Input`), Service type (`B24Select`) and Scheduled date (`B24InputDate`).
+The full field set: Stage (`B24Select`), Amount and currency (`B24InputNumber` + `B24Select` in a two-column row), a "Client" group (Company + Contact `B24Input`s and an "Add participant" link), then Salutation (`B24Select`), Last name and First name (`B24Input`), Service type (`B24Select`) and Scheduled date (`B24InputDate` with a dropdown `B24Calendar` in a `B24Popover`).
 
 The "Client" sub-section is just a `<div>` with a label above and a bordered container (`rounded-md border ... p-3 sm:p-4 space-y-4`) wrapping nested `B24FormField`s — `role="group"` + `aria-labelledby` associate the label with the group. The two-column "Amount and currency" row uses `grid-cols-1 sm:grid-cols-[1fr_auto]` so the currency drops below the amount on narrow viewports. `B24InputDate` binds an `@internationalized/date` value (not a native `Date`), so the schema types that field loosely.
 
@@ -230,6 +230,33 @@ The "Client" sub-section is just a `<div>` with a label above and a bordered con
 collapse: true
 name: 'form-example-edit-section'
 ---
+::
+
+::prompt
+---
+description: Build a record-edit form section (slider / UF placement edit panel).
+actions:
+  - copy
+  - cursor
+  - windsurf
+class: 'w-full my-0'
+---
+Lean on the `b24-ui-nuxt` skill (see `references/guidelines/forms.md` → "Record-edit form pattern") to build a record-edit form section — the titled edit panel used in Bitrix24 sliders and UF placements. Assemble it only from stock primitives (`B24Form`, `B24FormField`, `B24Input`, `B24Select`, `B24InputNumber`, `B24InputDate`, `B24Popover`, `B24Calendar`) under a single `:schema`; no custom components.
+
+Before writing any code, ask me for the missing context — don't assume:
+- Which record is being edited (deal, lead, order, ticket, contact…)? That decides the section title, the field set and the validation rules.
+- Which fields belong in the section, in what order, and which are required? Group related ones (e.g. a "Client" sub-section) and flag any two-column rows (such as amount + currency).
+- For each field, which control fits: enum → `B24Select` (list the options), free text → `B24Input`, number → `B24InputNumber`, date → `B24InputDate` with a dropdown `B24Calendar`.
+- The header affordance: a title plus a single icon-only action on the right — confirm the icon and its `aria-label`.
+- Locale, the default values used by the reset action, and what submit should do (toast, API call, close the slider).
+
+Once those answers are in:
+- Build the labelled sub-section as a `<div role="group" :aria-labelledby="...">` whose id comes from `useId()` (b24ui has no fieldset primitive).
+- For a full-width `B24Select`, set both `class` (the trigger) and `:b24ui="{ root: 'w-full' }"` (the wrapper); `B24Input` / `B24InputNumber` need only `class="w-full"`.
+- Type the date field loosely in the schema (`z.any().optional()`) — `B24InputDate` binds an `@internationalized/date` value, not a native `Date` — and pair the input with a `B24Calendar` in its `#trailing` `B24Popover`, both sharing the same `v-model`.
+- Use `color="air-tertiary-no-accent"` for icon/link-style buttons (the header action and "Add participant") — there is no `variant` prop on `B24Button`.
+
+Keep all copy in the requested locale.
 ::
 
 ## API

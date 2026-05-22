@@ -4,6 +4,7 @@ import FormExampleOnError from '../../../../../docs/app/components/content/examp
 import FormExampleNested from '../../../../../docs/app/components/content/examples/form/FormExampleNested.vue'
 import FormExampleNestedList from '../../../../../docs/app/components/content/examples/form/FormExampleNestedList.vue'
 import FormExampleElements from '../../../../../docs/app/components/content/examples/form/FormExampleElements.vue'
+import FormExampleEditSection from '../../../../../docs/app/components/content/examples/form/FormExampleEditSection.vue'
 
 const validateOn = ref(['input', 'change', 'blur'])
 const disabled = ref(false)
@@ -19,6 +20,15 @@ const disabled = ref(false)
           </ProseH5>
         </template>
         <FormExample />
+      </B24Card>
+
+      <B24Card :variant="cardVariant" :class="[cardBorderClass, 'grow']">
+        <template #header>
+          <ProseH5 class="mb-0">
+            Record edit section
+          </ProseH5>
+        </template>
+        <FormExampleEditSection />
       </B24Card>
 
       <B24Card :variant="cardVariant" :class="[cardBorderClass, 'grow']">
