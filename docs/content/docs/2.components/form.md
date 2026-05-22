@@ -273,12 +273,6 @@ class: '!p-0'
 ---
 ::
 
-## Prompt
-
-Two ways to recreate this layout with an AI assistant. Start with the **guided** prompt for a collaborative build where the assistant clarifies the open questions first, or use the **full spec** prompt when you already know exactly what you want.
-
-### Guided prompt
-
 ::prompt
 ---
 description: Build the task form step by step — let the assistant clarify the details first.
@@ -299,8 +293,6 @@ Before writing any code, ask me clarifying questions about the ambiguous decisio
 
 Once I answer, implement the form incrementally and confirm any non-obvious styling choices as you go (borderless inputs via `no-border`, zero-padding cards via `b24ui.body='p-0'`, `min-w-0` on the growing column). Prefer component props over custom CSS.
 ::
-
-### Full spec prompt
 
 ::prompt
 ---
