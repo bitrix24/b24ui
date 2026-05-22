@@ -144,6 +144,25 @@ name: 'card-sales-dynamics-example'
 ---
 ::
 
+::prompt
+---
+description: Render a CRM dashboard widget with a few metrics and a highlighted KPI row.
+actions:
+  - copy
+  - cursor
+  - windsurf
+class: 'w-full my-0'
+---
+On a CRM dashboard, render a "Repeat sales dynamics" widget summarising deal volume and value. The card carries a copilot accent and a highlighted row at the bottom for the conversion KPI.
+
+Requirements:
+- Use `B24Card` with `variant="filled-copilot"`. The `#header` slot holds the title, two-line description and a top-right pill `B24Button` (`rounded`, `color="air-tertiary-no-accent"`, `:trailing-icon="RepeatIcon"`) that switches the date range
+- The body is a small CSS grid with three columns (`1fr_auto_auto`) — first row carries the column headers ("Count" / "Amount"), then one row per metric. Each row sits on `bg-white/5 rounded-xl` so it reads as a row over the copilot fill
+- Render the highlighted KPI row with `bg-white/15 ring-1 ring-white/20` for contrast. Pair the label with a small `Info1Icon` inside a `B24Tooltip` for the description
+- The `#footer` slot holds two `air-tertiary-no-accent` buttons aligned to opposite sides (`Configure` left, `Feedback` right) with leading icons (`SettingsIcon`, `FeedbackIcon`)
+- Drive the values from `rows: { label, count, amount }[]` and an optional `highlight: { label, count, amount, info }`. Keep amounts pre-formatted strings to avoid coupling with a money formatter
+::
+
 ### Channel detail panel
 
 Composed entity sidebar built entirely from standard components: `Card` (with `divide-y` body for automatic section dividers), a square `Avatar`, an `AvatarGroup` with overflow counter, `Switch` toggle rows, `Badge` counters and `Empty` section placeholders. Use it as a starting point for chat channel info panels or CRM record details.
@@ -182,27 +201,6 @@ Once I confirm, build it with these conventions:
 - Use `B24Badge ... square` for numeric counters on info rows
 - Use `B24Empty` for section empty states, flattened with `:b24ui="{ root: 'ring-0 rounded-none py-3' }"`
 - Use semantic text tokens (`text-label`, `text-description`, `text-dimmed`) and `<h3>` for section headings
-::
-
-## Prompt
-
-::prompt
----
-description: Render a CRM dashboard widget with a few metrics and a highlighted KPI row.
-actions:
-  - copy
-  - cursor
-  - windsurf
-class: 'w-full my-0'
----
-On a CRM dashboard, render a "Repeat sales dynamics" widget summarising deal volume and value. The card carries a copilot accent and a highlighted row at the bottom for the conversion KPI.
-
-Requirements:
-- Use `B24Card` with `variant="filled-copilot"`. The `#header` slot holds the title, two-line description and a top-right pill `B24Button` (`rounded`, `color="air-tertiary-no-accent"`, `:trailing-icon="RepeatIcon"`) that switches the date range
-- The body is a small CSS grid with three columns (`1fr_auto_auto`) — first row carries the column headers ("Count" / "Amount"), then one row per metric. Each row sits on `bg-white/5 rounded-xl` so it reads as a row over the copilot fill
-- Render the highlighted KPI row with `bg-white/15 ring-1 ring-white/20` for contrast. Pair the label with a small `Info1Icon` inside a `B24Tooltip` for the description
-- The `#footer` slot holds two `air-tertiary-no-accent` buttons aligned to opposite sides (`Configure` left, `Feedback` right) with leading icons (`SettingsIcon`, `FeedbackIcon`)
-- Drive the values from `rows: { label, count, amount }[]` and an optional `highlight: { label, count, amount, info }`. Keep amounts pre-formatted strings to avoid coupling with a money formatter
 ::
 
 ## API
