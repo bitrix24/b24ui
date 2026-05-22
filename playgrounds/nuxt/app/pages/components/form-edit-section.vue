@@ -102,7 +102,7 @@ function onCancel() {
             <div class="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-2">
               <B24InputNumber v-model="state.amount" :min="0" class="w-full" />
               <!-- The row is validated under the `amount` field; currency is a fixed enum with a default, so it needs no separate error slot. -->
-              <B24Select v-model="state.currency" :items="currencies" class="w-full sm:w-32" :b24ui="{ root: 'w-full sm:w-32' }" />
+              <B24Select v-model="state.currency" :items="[...currencies]" class="w-full sm:w-32" :b24ui="{ root: 'w-full sm:w-32' }" />
             </div>
           </B24FormField>
 
