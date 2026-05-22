@@ -216,7 +216,7 @@ For record-editing UIs (UF placements, slider edit panels, CRM-like detail panes
 Key structural rules:
 
 - One outer `B24Form` with `:schema` for the whole record.
-- Header bar = `<div class="flex flex-wrap items-center justify-between gap-2">` + heading + leading edit-pencil `B24Button variant="link"` + trailing "Cancel" link button.
+- Header bar = `<div class="flex flex-wrap items-center justify-between gap-2">` + heading + an icon-only edit-pencil `B24Button variant="link"` with an `aria-label`. Keep the single Cancel/Save pair in the footer — don't add a second "Cancel" in the header (duplicate accessible name).
 - Inner sub-section (e.g. "Client") = label `<span>` above + a `<div role="group" aria-labelledby="...">` bordered container (`rounded-md border border-(--ui-color-design-outline-stroke) p-3 sm:p-4 space-y-4`) containing nested `B24FormField`s. `role`/`aria-labelledby` associate the label with the group (there is no dedicated fieldset primitive).
 - Two-column rows (e.g. amount + currency) = `<div class="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-2">` so the secondary input drops below on narrow viewports.
 - `B24InputDate` binds an `@internationalized/date` value, **not** a native `Date` — type that schema field loosely (`z.any().optional()`), never `z.date()`.
@@ -226,13 +226,16 @@ Key structural rules:
 Skeleton:
 
 ```vue
+<script setup lang="ts">
+// ...schema, reactive `state`, `onSubmit` and `onCancel` as in the full example
+const clientGroupId = useId() // unique id linking the "Client" group label to its container
+</script>
+
+<template>
 <B24Form :schema="schema" :state="state" class="space-y-4 w-full max-w-lg" @submit="onSubmit">
-  <div class="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-(--ui-color-divider-vibrant-default)">
-    <div class="flex items-center gap-1">
-      <h3 class="text-(length:--ui-font-size-lg) font-(--ui-font-weight-semi-bold) uppercase tracking-wide">Order details</h3>
-      <B24Button variant="link" size="sm" :icon="EditPencilIcon" aria-label="Edit section" />
-    </div>
-    <B24Button variant="link" size="sm" label="Cancel" @click="onCancel" />
+  <div class="flex items-center gap-1 pb-2 border-b border-(--ui-color-divider-vibrant-default)">
+    <h3 class="text-(length:--ui-font-size-lg) font-(--ui-font-weight-semi-bold) uppercase tracking-wide">Order details</h3>
+    <B24Button variant="link" size="sm" :icon="EditPencilIcon" aria-label="Edit section" />
   </div>
 
   <B24FormField label="Stage" name="stage">
@@ -242,7 +245,8 @@ Skeleton:
   <B24FormField label="Amount and currency" name="amount">
     <div class="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-2">
       <B24InputNumber v-model="state.amount" :min="0" class="w-full" />
-      <B24Select v-model="state.currency" :items="currencies" class="w-full sm:w-32" :b24ui="{ root: 'w-full sm:w-32' }" />
+      <!-- currencies is `as const` for z.enum, so spread into a mutable array for the items prop -->
+      <B24Select v-model="state.currency" :items="[...currencies]" class="w-full sm:w-32" :b24ui="{ root: 'w-full sm:w-32' }" />
     </div>
   </B24FormField>
 
@@ -283,6 +287,7 @@ Skeleton:
     <B24Button color="air-primary" type="submit" label="Save" />
   </div>
 </B24Form>
+</template>
 ```
 
 Full working example: [docs/components/form#record-edit-section](https://bitrix24.github.io/b24ui/docs/components/form#record-edit-section).

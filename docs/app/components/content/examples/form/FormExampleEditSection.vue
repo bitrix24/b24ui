@@ -74,14 +74,11 @@ function onCancel() {
 
 <template>
   <B24Form :schema="schema" :state="state" class="space-y-4 w-full max-w-lg" @submit="onSubmit">
-    <div class="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-(--ui-color-divider-vibrant-default)">
-      <div class="flex items-center gap-1">
-        <h3 class="text-(length:--ui-font-size-lg) font-(--ui-font-weight-semi-bold) uppercase tracking-wide">
-          Order details
-        </h3>
-        <B24Button variant="link" size="sm" :icon="EditPencilIcon" aria-label="Edit section" />
-      </div>
-      <B24Button variant="link" size="sm" label="Cancel" @click="onCancel" />
+    <div class="flex items-center gap-1 pb-2 border-b border-(--ui-color-divider-vibrant-default)">
+      <h3 class="text-(length:--ui-font-size-lg) font-(--ui-font-weight-semi-bold) uppercase tracking-wide">
+        Order details
+      </h3>
+      <B24Button variant="link" size="sm" :icon="EditPencilIcon" aria-label="Edit section" />
     </div>
 
     <B24FormField label="Stage" name="stage">
