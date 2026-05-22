@@ -55,5 +55,7 @@ const attrs = reactive({
         info: 'Today vs. last 30 days'
       }"
     />
+
+    <DetailPanelWidget avatar-base="/b24ui/demo/avatar" class="mx-auto" />
   </PlaygroundPage>
 </template>
