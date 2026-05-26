@@ -10,9 +10,11 @@ type ProsePrompt = ComponentConfig<typeof theme, AppConfig, 'prompt', 'b24ui.pro
 export interface ProsePromptProps {
   description?: string
   /**
+   * Icon component to render. Pass an imported component, not a string;
+   * for string names use `iconName` instead.
    * @IconComponent
    */
-  icon?: IconComponent['name']
+  icon?: IconComponent
   /**
    * Resolved through the icon registry (`dictionary/iconRegistry.ts`)
    * with a fallback to short aliases (`dictionary/icons.ts`).

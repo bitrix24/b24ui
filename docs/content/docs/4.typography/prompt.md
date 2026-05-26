@@ -9,7 +9,6 @@ links:
   - label: Nuxt UI
     iconName: NuxtIcon
     to: https://ui.nuxt.com/docs/typography/prompt
-navigation.badge: Soon
 ---
 
 ## Usage

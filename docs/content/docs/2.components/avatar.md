@@ -125,7 +125,7 @@ props:
 The `alt` prop is passed to the `img` element as the `alt` attribute.
 ::
 
-### Color :badge{label="Soon" class="align-text-top"}
+### Color
 
 Use the `color` prop to change the color of the Avatar.
 

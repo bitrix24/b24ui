@@ -1,0 +1,169 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ProsePrompt > renders with actions correctly 1`] = `
+"<div data-slot="root" class="relative flex flex-wrap items-center gap-2 border border-muted bg-muted rounded-md px-4 py-3 my-5 last:mb-0">
+  <!--v-if-->
+  <div data-slot="content" class="min-w-0">
+    <!--v-if-->
+    <div data-slot="body" hidden=""></div>
+  </div>
+  <div data-slot="actions" class="flex flex-wrap items-center gap-1.5 ms-auto"><button type="button" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled-copilot ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
+      <!--v-if-->
+      <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) pe-(--ui-btn-padding-right) h-(--ui-btn-height) ps-[calc(var(--ui-btn-padding-left)_-_var(--ui-btn-icon-compensation))]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
+          <path fill="currentColor" d="M8.174 6.1c-.486 0-.855-.453-.608-.872A2.7 2.7 0 0 1 9.893 3.9h7.318a2.7 2.7 0 0 1 2.7 2.7v7.319c0 .988-.531 1.852-1.323 2.323-.42.249-.873-.12-.873-.608 0-.313.205-.581.424-.805.23-.234.372-.556.372-.91V6.599a1.3 1.3 0 0 0-1.3-1.3H9.893c-.356 0-.678.143-.913.374-.223.22-.492.427-.806.427"></path>
+          <path fill="currentColor" fill-rule="evenodd" d="M6.641 7.26a2.7 2.7 0 0 0-2.7 2.7v7.32a2.7 2.7 0 0 0 2.7 2.7h7.319a2.7 2.7 0 0 0 2.7-2.7V9.96a2.7 2.7 0 0 0-2.7-2.7zm-1.3 2.7a1.3 1.3 0 0 1 1.3-1.3h7.319a1.3 1.3 0 0 1 1.3 1.3v7.32a1.3 1.3 0 0 1-1.3 1.3H6.64a1.3 1.3 0 0 1-1.3-1.3z" clip-rule="evenodd"></path>
+        </svg><span data-slot="label" class="h-(--ui-btn-height) max-w-full inline-flex flex-row items-center tracking-(--ui-btn-letter-spacing) overflow-visible text-clip"><span data-slot="labelInner" class="truncate inline-block max-w-full mt-(--ui-btn-title-compensation)">Copy prompt</span></span>
+        <!--v-if-->
+      </div>
+    </button><button type="button" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-outline-accent-2 ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
+      <!--v-if-->
+      <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) pe-(--ui-btn-padding-right) h-(--ui-btn-height) ps-[calc(var(--ui-btn-padding-left)_-_var(--ui-btn-icon-compensation))]"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
+          <path fill="currentColor" d="M11.503.131L1.891 5.678a.84.84 0 0 0-.42.726v11.188c0 .3.162.575.42.724l9.609 5.55a1 1 0 0 0 .998 0l9.61-5.55a.84.84 0 0 0 .42-.724V6.404a.84.84 0 0 0-.42-.726L12.497.131a1.01 1.01 0 0 0-.996 0M2.657 6.338h18.55c.263 0 .43.287.297.515L12.23 22.918c-.062.107-.229.064-.229-.06V12.335a.59.59 0 0 0-.295-.51l-9.11-5.257c-.109-.063-.064-.23.061-.23"></path>
+        </svg><span data-slot="label" class="h-(--ui-btn-height) max-w-full inline-flex flex-row items-center tracking-(--ui-btn-letter-spacing) overflow-visible text-clip"><span data-slot="labelInner" class="truncate inline-block max-w-full mt-(--ui-btn-title-compensation)">Open in Cursor</span></span>
+        <!--v-if-->
+      </div>
+    </button><button type="button" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-outline-accent-2 ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
+      <!--v-if-->
+      <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) pe-(--ui-btn-padding-right) h-(--ui-btn-height) ps-[calc(var(--ui-btn-padding-left)_-_var(--ui-btn-icon-compensation))]"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
+          <path fill="currentColor" d="M23.55 5.067a2.177 2.177 0 0 0-2.18 2.177v4.867a1.77 1.77 0 0 1-1.76 1.76a1.82 1.82 0 0 1-1.472-.766l-4.971-7.1a2.2 2.2 0 0 0-1.81-.942c-1.134 0-2.154.964-2.154 2.153v4.896c0 .972-.797 1.76-1.76 1.76c-.57 0-1.136-.287-1.472-.766L.408 5.16A.224.224 0 0 0 0 5.288v4.245c0 .215.066.423.188.6l5.475 7.818c.324.462.8.805 1.351.93a2.164 2.164 0 0 0 2.645-2.098V11.89c0-.972.787-1.76 1.76-1.76h.002a1.8 1.8 0 0 1 1.472.766l4.972 7.1a2.172 2.172 0 0 0 3.96-1.212v-4.895a1.76 1.76 0 0 1 1.76-1.76h.195a.22.22 0 0 0 .22-.22V5.287a.22.22 0 0 0-.22-.22Z"></path>
+        </svg><span data-slot="label" class="h-(--ui-btn-height) max-w-full inline-flex flex-row items-center tracking-(--ui-btn-letter-spacing) overflow-visible text-clip"><span data-slot="labelInner" class="truncate inline-block max-w-full mt-(--ui-btn-title-compensation)">Open in Windsurf</span></span>
+        <!--v-if-->
+      </div>
+    </button></div>
+</div>"
+`;
+
+exports[`ProsePrompt > renders with b24ui correctly 1`] = `
+"<div data-slot="root" class="relative flex flex-wrap items-center gap-2 border border-muted bg-muted rounded-md px-4 py-3 my-5 last:mb-0">
+  <!--v-if-->
+  <div data-slot="content" class="min-w-0">
+    <!--v-if-->
+    <div data-slot="body" hidden=""></div>
+  </div>
+  <div data-slot="actions" class="flex flex-wrap items-center gap-1.5 ms-auto"><button type="button" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled-copilot ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
+      <!--v-if-->
+      <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) pe-(--ui-btn-padding-right) h-(--ui-btn-height) ps-[calc(var(--ui-btn-padding-left)_-_var(--ui-btn-icon-compensation))]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
+          <path fill="currentColor" d="M8.174 6.1c-.486 0-.855-.453-.608-.872A2.7 2.7 0 0 1 9.893 3.9h7.318a2.7 2.7 0 0 1 2.7 2.7v7.319c0 .988-.531 1.852-1.323 2.323-.42.249-.873-.12-.873-.608 0-.313.205-.581.424-.805.23-.234.372-.556.372-.91V6.599a1.3 1.3 0 0 0-1.3-1.3H9.893c-.356 0-.678.143-.913.374-.223.22-.492.427-.806.427"></path>
+          <path fill="currentColor" fill-rule="evenodd" d="M6.641 7.26a2.7 2.7 0 0 0-2.7 2.7v7.32a2.7 2.7 0 0 0 2.7 2.7h7.319a2.7 2.7 0 0 0 2.7-2.7V9.96a2.7 2.7 0 0 0-2.7-2.7zm-1.3 2.7a1.3 1.3 0 0 1 1.3-1.3h7.319a1.3 1.3 0 0 1 1.3 1.3v7.32a1.3 1.3 0 0 1-1.3 1.3H6.64a1.3 1.3 0 0 1-1.3-1.3z" clip-rule="evenodd"></path>
+        </svg><span data-slot="label" class="h-(--ui-btn-height) max-w-full inline-flex flex-row items-center tracking-(--ui-btn-letter-spacing) overflow-visible text-clip"><span data-slot="labelInner" class="truncate inline-block max-w-full mt-(--ui-btn-title-compensation)">Copy prompt</span></span>
+        <!--v-if-->
+      </div>
+    </button>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`ProsePrompt > renders with class correctly 1`] = `
+"<div data-slot="root" class="relative flex flex-wrap items-center gap-2 border border-muted bg-muted rounded-md my-5 last:mb-0 p-5">
+  <!--v-if-->
+  <div data-slot="content" class="min-w-0">
+    <!--v-if-->
+    <div data-slot="body" hidden=""></div>
+  </div>
+  <div data-slot="actions" class="flex flex-wrap items-center gap-1.5 ms-auto"><button type="button" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled-copilot ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
+      <!--v-if-->
+      <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) pe-(--ui-btn-padding-right) h-(--ui-btn-height) ps-[calc(var(--ui-btn-padding-left)_-_var(--ui-btn-icon-compensation))]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
+          <path fill="currentColor" d="M8.174 6.1c-.486 0-.855-.453-.608-.872A2.7 2.7 0 0 1 9.893 3.9h7.318a2.7 2.7 0 0 1 2.7 2.7v7.319c0 .988-.531 1.852-1.323 2.323-.42.249-.873-.12-.873-.608 0-.313.205-.581.424-.805.23-.234.372-.556.372-.91V6.599a1.3 1.3 0 0 0-1.3-1.3H9.893c-.356 0-.678.143-.913.374-.223.22-.492.427-.806.427"></path>
+          <path fill="currentColor" fill-rule="evenodd" d="M6.641 7.26a2.7 2.7 0 0 0-2.7 2.7v7.32a2.7 2.7 0 0 0 2.7 2.7h7.319a2.7 2.7 0 0 0 2.7-2.7V9.96a2.7 2.7 0 0 0-2.7-2.7zm-1.3 2.7a1.3 1.3 0 0 1 1.3-1.3h7.319a1.3 1.3 0 0 1 1.3 1.3v7.32a1.3 1.3 0 0 1-1.3 1.3H6.64a1.3 1.3 0 0 1-1.3-1.3z" clip-rule="evenodd"></path>
+        </svg><span data-slot="label" class="h-(--ui-btn-height) max-w-full inline-flex flex-row items-center tracking-(--ui-btn-letter-spacing) overflow-visible text-clip"><span data-slot="labelInner" class="truncate inline-block max-w-full mt-(--ui-btn-title-compensation)">Copy prompt</span></span>
+        <!--v-if-->
+      </div>
+    </button>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`ProsePrompt > renders with default slot correctly 1`] = `
+"<div data-slot="root" class="relative flex flex-wrap items-center gap-2 border border-muted bg-muted rounded-md px-4 py-3 my-5 last:mb-0">
+  <!--v-if-->
+  <div data-slot="content" class="min-w-0">
+    <!--v-if-->
+    <div data-slot="body" hidden="">Prompt body</div>
+  </div>
+  <div data-slot="actions" class="flex flex-wrap items-center gap-1.5 ms-auto"><button type="button" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled-copilot ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
+      <!--v-if-->
+      <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) pe-(--ui-btn-padding-right) h-(--ui-btn-height) ps-[calc(var(--ui-btn-padding-left)_-_var(--ui-btn-icon-compensation))]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
+          <path fill="currentColor" d="M8.174 6.1c-.486 0-.855-.453-.608-.872A2.7 2.7 0 0 1 9.893 3.9h7.318a2.7 2.7 0 0 1 2.7 2.7v7.319c0 .988-.531 1.852-1.323 2.323-.42.249-.873-.12-.873-.608 0-.313.205-.581.424-.805.23-.234.372-.556.372-.91V6.599a1.3 1.3 0 0 0-1.3-1.3H9.893c-.356 0-.678.143-.913.374-.223.22-.492.427-.806.427"></path>
+          <path fill="currentColor" fill-rule="evenodd" d="M6.641 7.26a2.7 2.7 0 0 0-2.7 2.7v7.32a2.7 2.7 0 0 0 2.7 2.7h7.319a2.7 2.7 0 0 0 2.7-2.7V9.96a2.7 2.7 0 0 0-2.7-2.7zm-1.3 2.7a1.3 1.3 0 0 1 1.3-1.3h7.319a1.3 1.3 0 0 1 1.3 1.3v7.32a1.3 1.3 0 0 1-1.3 1.3H6.64a1.3 1.3 0 0 1-1.3-1.3z" clip-rule="evenodd"></path>
+        </svg><span data-slot="label" class="h-(--ui-btn-height) max-w-full inline-flex flex-row items-center tracking-(--ui-btn-letter-spacing) overflow-visible text-clip"><span data-slot="labelInner" class="truncate inline-block max-w-full mt-(--ui-btn-title-compensation)">Copy prompt</span></span>
+        <!--v-if-->
+      </div>
+    </button>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`ProsePrompt > renders with description correctly 1`] = `
+"<div data-slot="root" class="relative flex flex-wrap items-center gap-2 border border-muted bg-muted rounded-md px-4 py-3 my-5 last:mb-0">
+  <!--v-if-->
+  <div data-slot="content" class="min-w-0">
+    <p data-slot="description" class="text-sm/6 text-description font-medium">Description</p>
+    <div data-slot="body" hidden=""></div>
+  </div>
+  <div data-slot="actions" class="flex flex-wrap items-center gap-1.5 ms-auto"><button type="button" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled-copilot ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
+      <!--v-if-->
+      <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) pe-(--ui-btn-padding-right) h-(--ui-btn-height) ps-[calc(var(--ui-btn-padding-left)_-_var(--ui-btn-icon-compensation))]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
+          <path fill="currentColor" d="M8.174 6.1c-.486 0-.855-.453-.608-.872A2.7 2.7 0 0 1 9.893 3.9h7.318a2.7 2.7 0 0 1 2.7 2.7v7.319c0 .988-.531 1.852-1.323 2.323-.42.249-.873-.12-.873-.608 0-.313.205-.581.424-.805.23-.234.372-.556.372-.91V6.599a1.3 1.3 0 0 0-1.3-1.3H9.893c-.356 0-.678.143-.913.374-.223.22-.492.427-.806.427"></path>
+          <path fill="currentColor" fill-rule="evenodd" d="M6.641 7.26a2.7 2.7 0 0 0-2.7 2.7v7.32a2.7 2.7 0 0 0 2.7 2.7h7.319a2.7 2.7 0 0 0 2.7-2.7V9.96a2.7 2.7 0 0 0-2.7-2.7zm-1.3 2.7a1.3 1.3 0 0 1 1.3-1.3h7.319a1.3 1.3 0 0 1 1.3 1.3v7.32a1.3 1.3 0 0 1-1.3 1.3H6.64a1.3 1.3 0 0 1-1.3-1.3z" clip-rule="evenodd"></path>
+        </svg><span data-slot="label" class="h-(--ui-btn-height) max-w-full inline-flex flex-row items-center tracking-(--ui-btn-letter-spacing) overflow-visible text-clip"><span data-slot="labelInner" class="truncate inline-block max-w-full mt-(--ui-btn-title-compensation)">Copy prompt</span></span>
+        <!--v-if-->
+      </div>
+    </button>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`ProsePrompt > renders with icon correctly 1`] = `
+"<div data-slot="root" class="relative flex flex-wrap items-center gap-2 border border-muted bg-muted rounded-md px-4 py-3 my-5 last:mb-0"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4 shrink-0 text-highlighted">
+    <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+  </svg>
+  <div data-slot="content" class="min-w-0">
+    <!--v-if-->
+    <div data-slot="body" hidden=""></div>
+  </div>
+  <div data-slot="actions" class="flex flex-wrap items-center gap-1.5 ms-auto"><button type="button" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled-copilot ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
+      <!--v-if-->
+      <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) pe-(--ui-btn-padding-right) h-(--ui-btn-height) ps-[calc(var(--ui-btn-padding-left)_-_var(--ui-btn-icon-compensation))]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
+          <path fill="currentColor" d="M8.174 6.1c-.486 0-.855-.453-.608-.872A2.7 2.7 0 0 1 9.893 3.9h7.318a2.7 2.7 0 0 1 2.7 2.7v7.319c0 .988-.531 1.852-1.323 2.323-.42.249-.873-.12-.873-.608 0-.313.205-.581.424-.805.23-.234.372-.556.372-.91V6.599a1.3 1.3 0 0 0-1.3-1.3H9.893c-.356 0-.678.143-.913.374-.223.22-.492.427-.806.427"></path>
+          <path fill="currentColor" fill-rule="evenodd" d="M6.641 7.26a2.7 2.7 0 0 0-2.7 2.7v7.32a2.7 2.7 0 0 0 2.7 2.7h7.319a2.7 2.7 0 0 0 2.7-2.7V9.96a2.7 2.7 0 0 0-2.7-2.7zm-1.3 2.7a1.3 1.3 0 0 1 1.3-1.3h7.319a1.3 1.3 0 0 1 1.3 1.3v7.32a1.3 1.3 0 0 1-1.3 1.3H6.64a1.3 1.3 0 0 1-1.3-1.3z" clip-rule="evenodd"></path>
+        </svg><span data-slot="label" class="h-(--ui-btn-height) max-w-full inline-flex flex-row items-center tracking-(--ui-btn-letter-spacing) overflow-visible text-clip"><span data-slot="labelInner" class="truncate inline-block max-w-full mt-(--ui-btn-title-compensation)">Copy prompt</span></span>
+        <!--v-if-->
+      </div>
+    </button>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`ProsePrompt > renders with iconName correctly 1`] = `
+"<div data-slot="root" class="relative flex flex-wrap items-center gap-2 border border-muted bg-muted rounded-md px-4 py-3 my-5 last:mb-0"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4 shrink-0 text-highlighted">
+    <path fill="currentColor" d="M12.004 10.3a.7.7 0 0 1 .7.7v5a.7.7 0 1 1-1.4 0v-5a.7.7 0 0 1 .7-.7M12.805 8.5a.8.8 0 1 0-1.6 0v.073a.8.8 0 1 0 1.6 0z"></path>
+    <path fill="currentColor" fill-rule="evenodd" d="M3.874 12a8.126 8.126 0 1 1 16.252 0 8.126 8.126 0 0 1-16.252 0M12 5.274a6.726 6.726 0 1 0 0 13.452 6.726 6.726 0 0 0 0-13.452" clip-rule="evenodd"></path>
+  </svg>
+  <div data-slot="content" class="min-w-0">
+    <!--v-if-->
+    <div data-slot="body" hidden=""></div>
+  </div>
+  <div data-slot="actions" class="flex flex-wrap items-center gap-1.5 ms-auto"><button type="button" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled-copilot ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
+      <!--v-if-->
+      <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) pe-(--ui-btn-padding-right) h-(--ui-btn-height) ps-[calc(var(--ui-btn-padding-left)_-_var(--ui-btn-icon-compensation))]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
+          <path fill="currentColor" d="M8.174 6.1c-.486 0-.855-.453-.608-.872A2.7 2.7 0 0 1 9.893 3.9h7.318a2.7 2.7 0 0 1 2.7 2.7v7.319c0 .988-.531 1.852-1.323 2.323-.42.249-.873-.12-.873-.608 0-.313.205-.581.424-.805.23-.234.372-.556.372-.91V6.599a1.3 1.3 0 0 0-1.3-1.3H9.893c-.356 0-.678.143-.913.374-.223.22-.492.427-.806.427"></path>
+          <path fill="currentColor" fill-rule="evenodd" d="M6.641 7.26a2.7 2.7 0 0 0-2.7 2.7v7.32a2.7 2.7 0 0 0 2.7 2.7h7.319a2.7 2.7 0 0 0 2.7-2.7V9.96a2.7 2.7 0 0 0-2.7-2.7zm-1.3 2.7a1.3 1.3 0 0 1 1.3-1.3h7.319a1.3 1.3 0 0 1 1.3 1.3v7.32a1.3 1.3 0 0 1-1.3 1.3H6.64a1.3 1.3 0 0 1-1.3-1.3z" clip-rule="evenodd"></path>
+        </svg><span data-slot="label" class="h-(--ui-btn-height) max-w-full inline-flex flex-row items-center tracking-(--ui-btn-letter-spacing) overflow-visible text-clip"><span data-slot="labelInner" class="truncate inline-block max-w-full mt-(--ui-btn-title-compensation)">Copy prompt</span></span>
+        <!--v-if-->
+      </div>
+    </button>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
