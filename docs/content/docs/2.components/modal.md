@@ -472,7 +472,7 @@ name: 'modal-footer-slot-example'
 ---
 ::
 
-### Marketing / promo composition :badge{label="Soon" class="align-text-top"}
+### Marketing / promo composition
 
 Compose a promo/upgrade modal from existing components — no new component needed. The body uses a responsive 2-column flex (heading + description on the left, a feature card on the right), the footer pairs a primary CTA with a tertiary "remind me later" action. The decorative background is a Tailwind gradient utility passed through `b24ui.body`.
 

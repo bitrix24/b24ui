@@ -1,5 +1,44 @@
 # Changelog
 
+## [2.8.0](https://github.com/bitrix24/b24ui/compare/v2.7.1...v2.8.0) (2026-05-20)
+
+### Features
+
+* **Avatar/AvatarGroup:** add `color` prop
+* **Breadcrumb:** add `color` prop
+* **ChatMessage:** add `color` prop and `header` slot
+* **Error:** add `icon` prop and `leading` slot
+* **Error:** add `avatar` and `color` props alongside icon
+* **CommandPalette:** search and highlight `description` field
+* **ContentSearch/DashboardSearch:** enable Fuse.js token search by default
+* **DashboardGroup:** add `storageOptions` prop
+* **PageCard/PageCardGroup:** add `avatar` prop with Button.vue pattern
+
+### Bug Fixes
+
+* **ProsePrompt:** type `icon` prop as `IconComponent`
+* **ProsePrompt:** preserve copy formatting and centralize icon registry
+* **ProsePrompt:** preserve line breaks and lists when copying prompt
+* **CommandPalette:** preserve relative order of `ignoreFilter` groups
+* **CommandPalette:** only split tokens in highlight when `useTokenSearch` is enabled
+* **CommandPalette:** update default fuse keys in docs and search components
+* **defineShortcuts:** use `e.code` for alt shortcuts to handle macOS key remapping
+* **useComponentProps:** treat array-typed theme values as `ClassValue` leaves
+* **module:** don't require `@nuxtjs/mdc` when using `content` option
+
+### Docs
+
+* **Modal:** host the Sales dynamics widget in a Modal; add marketing/promo composition example
+* **Card/Popover:** add Sales dynamics widget recipe and entity-info popover example
+* **contributing:** note when `items.color` is required; document embedded-Avatar pattern and value slots
+* remove stale "Soon" badges and coming-soon notes
+
+### Chore
+
+* **ci:** add CI workflow and gate npm publish on it
+* **deps:** update all non-major dependencies (tailwindcss `^4.3.0`, reka-ui `2.9.7`, vue-tsc `^3.2.8`)
+* **tests:** update snapshots
+
 ## [2.7.1](https://github.com/bitrix24/b24ui/compare/v2.7.0...v2.7.1) (2026-05-08)
 
 ### Features

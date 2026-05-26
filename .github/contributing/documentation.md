@@ -347,6 +347,55 @@ Configure icons in your Vite config.
 ::
 ```
 
+## AI Prompt Blocks (`::prompt`)
+
+Use `::prompt` to surface an AI-assistant prompt alongside an example. Always place it **directly below the `::component-example` it belongs to**, inside the same `###` subsection. Never create a separate top-level `## Prompt` section.
+
+**Correct:**
+
+```md
+### Sales dynamics widget
+
+Real-world example: …
+
+::component-example
+---
+collapse: true
+name: 'card-sales-dynamics-example'
+---
+::
+
+::prompt
+---
+description: Render a CRM dashboard widget with a few metrics and a highlighted KPI row.
+actions:
+  - copy
+  - cursor
+  - windsurf
+class: 'w-full my-0'
+---
+…prompt text…
+::
+```
+
+**Wrong — standalone section:**
+
+```md
+### Sales dynamics widget
+
+::component-example
+---
+name: 'card-sales-dynamics-example'
+---
+::
+
+## Prompt   ← never do this
+
+::prompt
+…
+::
+```
+
 ## Writing Guidelines
 
 1. **Use sentence case** for headings (not Title Case)

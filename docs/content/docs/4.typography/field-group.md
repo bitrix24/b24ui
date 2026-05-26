@@ -20,7 +20,7 @@ Group fields together in a list.
 ::field-group{class="my-0"}
 
   ::field{name="analytics" type="boolean"}
-  Default to `false` - Enables analytics for your project (coming soon).
+  Default to `false` - Enables analytics for your project.
   ::
 
   ::field{name="blob" type="boolean"}
@@ -42,7 +42,7 @@ Group fields together in a list.
 ```mdc
 ::field-group
   ::field{name="analytics" type="boolean"}
-    Default to `false` - Enables analytics for your project (coming soon).
+    Default to `false` - Enables analytics for your project.
   ::
 
   ::field{name="blob" type="boolean"}

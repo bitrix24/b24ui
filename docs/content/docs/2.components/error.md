@@ -40,7 +40,7 @@ props:
 ---
 ::
 
-### Icon :badge{label="Soon" class="align-text-top"}
+### Icon
 
 Use the `icon` prop to display an icon above the status code.
 
@@ -67,7 +67,7 @@ props:
 ---
 ::
 
-### Avatar :badge{label="Soon" class="align-text-top"}
+### Avatar
 
 Use the `avatar` prop to display an [Avatar](/docs/components/avatar/) above the status code (used only when `icon` is not set).
 
@@ -92,7 +92,7 @@ props:
 ---
 ::
 
-### Color :badge{label="Soon" class="align-text-top"}
+### Color
 
 Use the `color` prop to tint the inner [Avatar](/docs/components/avatar/). An explicit `avatar.color` overrides this default.
 
