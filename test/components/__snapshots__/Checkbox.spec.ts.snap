@@ -64,7 +64,7 @@ exports[`Checkbox > renders with description correctly 1`] = `
       <!---->
       <!--v-if-->
     </button></div>
-  <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span for="v-0-0" data-slot="label" class="cursor-pointer block text-label">Label</span>
+  <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Label</span>
     <p data-slot="description" class="mt-[4px] text-description">Description</p>
   </div>
 </div>"
@@ -76,7 +76,7 @@ exports[`Checkbox > renders with description slot correctly 1`] = `
       <!---->
       <!--v-if-->
     </button></div>
-  <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span for="v-0-0" data-slot="label" class="cursor-pointer block text-label">Description slot</span>
+  <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Description slot</span>
     <!--v-if-->
   </div>
 </div>"
@@ -117,7 +117,7 @@ exports[`Checkbox > renders with label correctly 1`] = `
       <!---->
       <!--v-if-->
     </button></div>
-  <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span for="v-0-0" data-slot="label" class="cursor-pointer block text-label">Label</span>
+  <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Label</span>
     <!--v-if-->
   </div>
 </div>"
@@ -129,7 +129,7 @@ exports[`Checkbox > renders with label slot correctly 1`] = `
       <!---->
       <!--v-if-->
     </button></div>
-  <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span for="v-0-0" data-slot="label" class="cursor-pointer block text-label">Label slot</span>
+  <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Label slot</span>
     <!--v-if-->
   </div>
 </div>"
@@ -160,7 +160,7 @@ exports[`Checkbox > renders with required correctly 1`] = `
       <!---->
       <!--v-if-->
     </button></div>
-  <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span for="v-0-0" data-slot="label" class="cursor-pointer block text-label after:content-['*'] after:ms-0.5 after:text-(--ui-color-accent-main-alert)">Label</span>
+  <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label after:content-['*'] after:ms-0.5 after:text-(--ui-color-accent-main-alert)">Label</span>
     <!--v-if-->
   </div>
 </div>"

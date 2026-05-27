@@ -1,22 +1,28 @@
 <script setup lang="ts">
-import type { RadioGroupItem } from '@bitrix24/b24ui-nuxt'
+type LayoutItem = {
+  value: string
+  title: string
+  text: string
+  preview: string
+  href: string
+}
 
 const value = ref<string>('columns')
 
-const items: RadioGroupItem[] = [
+const items: LayoutItem[] = [
   {
     value: 'columns',
-    title: 'В колонках',
-    text: 'Выберите этот вариант для ресурсов, которые всегда должны быть видны менеджеру. Это основные ресурсы, от занятости которых строится расписание',
+    title: 'In columns',
+    text: 'Pick this for resources that must always be visible to the manager. These are the primary resources the schedule is built around.',
     preview: '/b24ui/radio-card-columns.png',
-    href: 'https://helpdesk.bitrix24.ru/'
+    href: 'https://helpdesk.bitrix24.com/'
   },
   {
     value: 'list',
-    title: 'В дополнительном списке',
-    text: 'Выберите этот вариант для ресурсов, которые бронируют только в дополнение к основным. Например, если основной ресурс — специалисты, оборудование будет в дополнительном списке',
+    title: 'In a secondary list',
+    text: 'Pick this for resources that are booked only in addition to a primary one. For instance, when specialists are the primary resource, equipment goes into the secondary list.',
     preview: '/b24ui/radio-card-list.png',
-    href: 'https://helpdesk.bitrix24.ru/'
+    href: 'https://helpdesk.bitrix24.com/'
   }
 ]
 </script>
@@ -44,12 +50,12 @@ const items: RadioGroupItem[] = [
             class="self-start mt-1 text-(length:--ui-font-size-sm)"
             @click.stop
           >
-            Подробнее
+            Learn more
           </B24Link>
         </span>
         <img
           :src="item.preview"
-          alt=""
+          :alt="item.title"
           class="hidden sm:block shrink-0 w-[120px] h-[72px] rounded-(--ui-border-radius-sm) ring-1 ring-(--ui-color-base-5) object-cover"
         >
       </span>

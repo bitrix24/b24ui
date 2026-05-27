@@ -222,7 +222,7 @@ function onUpdate(value: any) {
           <component
             :is="props.variant === 'list' ? Label : 'span'"
             v-if="item.label || !!slots.label"
-            :for="item.id"
+            :for="props.variant === 'list' ? item.id : undefined"
             data-slot="label"
             :class="b24ui.label({ class: [props.b24ui?.label, item.b24ui?.label], disabled: item.disabled || disabled })"
           >

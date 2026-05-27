@@ -55,7 +55,7 @@ Based on the task, load the relevant reference files **before writing any code**
 | Build application for Bitrix24 / a dashboard / admin UI | conventions, component-selection, dashboard |
 | Build a landing page | design-system, conventions, landing |
 | Add a settings page | conventions, forms, settings |
-| Pick one option / toggle several with rich preview (image + description + "Learn more" link) — feature plan picker, layout chooser, capability flags with screenshots | conventions, settings |
+| Pick one option / toggle several where each option deserves a preview image, multi-line description and an inline "Learn more" link — layout chooser, plan picker with screenshots | conventions, settings |
 | Create a login / signup form | conventions, forms, auth |
 | Display data in a table | conventions, component-selection, data-tables |
 | Add a chat interface | conventions, chat |

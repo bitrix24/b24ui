@@ -332,7 +332,7 @@ props:
 
 ## Examples
 
-### Settings layout (rich checkbox cards)
+### Settings layout :badge{label="Soon" class="align-text-top"}
 
 Use the `card` variant together with the `#label` slot to render a settings-style picker where each option has a title, description, a "Learn more" link and a preview image. The label slot renders inside a `<span>`, so any phrasing-content layout (flex, link, image) works.
 
@@ -345,6 +345,10 @@ name: 'checkbox-group-settings-example'
 
 ::tip
 Stop the click from toggling the checkbox when the user follows the inline link by adding `@click.stop` to it.
+::
+
+::note
+Same recipe works for single-select — see [RadioGroup → Settings layout](/docs/components/radio-group#settings-layout). For icon-and-description grids (no preview image), reach for [`B24PageCardGroup`](/docs/components/page-card-group) instead.
 ::
 
 ## API

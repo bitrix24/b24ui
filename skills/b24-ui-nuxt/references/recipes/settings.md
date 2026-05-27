@@ -20,26 +20,34 @@ If your options each need an icon-in-a-circle + description and you want a tidy 
 
 Use `variant="card"` and override the `#label` slot. The slot renders inside a `<span>`, so you can put any phrasing-content layout there — flex columns, links, images, etc. — without HTML parsing surprises.
 
+For strict typing of `item.*` in the slot, declare a local interface and use it as the array type — passing the broad `RadioGroupItem[]` widens user-defined fields to `any` (loses autocomplete).
+
 ```vue
 <script setup lang="ts">
-import type { RadioGroupItem } from '@bitrix24/b24ui-nuxt'
+type LayoutItem = {
+  value: string
+  title: string
+  text: string
+  preview: string
+  href: string
+}
 
 const layout = ref<string>('columns')
 
-const items: RadioGroupItem[] = [
+const items: LayoutItem[] = [
   {
     value: 'columns',
-    title: 'В колонках',
-    text: 'Выберите этот вариант для ресурсов, которые всегда должны быть видны менеджеру. Это основные ресурсы, от занятости которых строится расписание',
+    title: 'In columns',
+    text: 'Pick this for resources that must always be visible to the manager. These are the primary resources the schedule is built around.',
     preview: '/radio-card-columns.png',
-    href: 'https://helpdesk.bitrix24.ru/'
+    href: 'https://helpdesk.bitrix24.com/'
   },
   {
     value: 'list',
-    title: 'В дополнительном списке',
-    text: 'Выберите этот вариант для ресурсов, которые бронируют только в дополнение к основным. Например, если основной ресурс — специалисты, оборудование будет в дополнительном списке',
+    title: 'In a secondary list',
+    text: 'Pick this for resources that are booked only in addition to a primary one. For instance, when specialists are the primary resource, equipment goes into the secondary list.',
     preview: '/radio-card-list.png',
-    href: 'https://helpdesk.bitrix24.ru/'
+    href: 'https://helpdesk.bitrix24.com/'
   }
 ]
 </script>
@@ -67,12 +75,12 @@ const items: RadioGroupItem[] = [
             class="self-start mt-1 text-(length:--ui-font-size-sm)"
             @click.stop
           >
-            Подробнее
+            Learn more
           </B24Link>
         </span>
         <img
           :src="item.preview"
-          alt=""
+          :alt="item.title"
           class="hidden sm:block shrink-0 w-[120px] h-[72px] rounded-(--ui-border-radius-sm) ring-1 ring-(--ui-color-base-5) object-cover"
         >
       </span>
@@ -83,17 +91,23 @@ const items: RadioGroupItem[] = [
 
 ## Same recipe for multi-select
 
-Swap the component for `B24CheckboxGroup` and bind `v-model` to an array. Everything else — the slot markup, item shape, image, link — is identical.
+Swap the component for `B24CheckboxGroup` and bind `v-model` to an array. The slot markup, item shape, image, link — all stay identical.
 
 ```vue
 <script setup lang="ts">
-import type { CheckboxGroupItem } from '@bitrix24/b24ui-nuxt'
+type CapabilityItem = {
+  value: string
+  title: string
+  text: string
+  preview: string
+  href: string
+}
 
 const enabled = ref<string[]>(['columns'])
 
-const items: CheckboxGroupItem[] = [
-  { value: 'columns', title: '...', text: '...', preview: '/preview-a.png', href: '/help/a' },
-  { value: 'list',    title: '...', text: '...', preview: '/preview-b.png', href: '/help/b' }
+const items: CapabilityItem[] = [
+  { value: 'columns', title: 'In columns',           text: '…', preview: '/preview-a.png', href: '/help/a' },
+  { value: 'list',    title: 'In a secondary list',  text: '…', preview: '/preview-b.png', href: '/help/b' }
 ]
 </script>
 
@@ -106,7 +120,29 @@ const items: CheckboxGroupItem[] = [
     class="w-full max-w-2xl"
   >
     <template #label="{ item }">
-      <!-- same span/flex/img layout as above -->
+      <span class="flex gap-3 items-start w-full">
+        <span class="flex-1 min-w-0 flex flex-col gap-1">
+          <span class="text-(length:--ui-font-size-md) font-(--ui-font-weight-medium)">
+            {{ item.title }}
+          </span>
+          <span class="text-(length:--ui-font-size-sm) text-(--ui-color-base-70) font-(--ui-font-weight-regular)">
+            {{ item.text }}
+          </span>
+          <B24Link
+            :to="item.href"
+            target="_blank"
+            class="self-start mt-1 text-(length:--ui-font-size-sm)"
+            @click.stop
+          >
+            Learn more
+          </B24Link>
+        </span>
+        <img
+          :src="item.preview"
+          :alt="item.title"
+          class="hidden sm:block shrink-0 w-[120px] h-[72px] rounded-(--ui-border-radius-sm) ring-1 ring-(--ui-color-base-5) object-cover"
+        >
+      </span>
     </template>
   </B24CheckboxGroup>
 </template>
@@ -115,8 +151,11 @@ const items: CheckboxGroupItem[] = [
 ## Implementation notes
 
 - **Why `<span>` everywhere inside the slot.** The library renders the label slot as `<span>` for `card` and `table` variants (and as `<label>` for `list`). Nest spans with `class="block"` or `flex` inside it — that stays in HTML5 phrasing content. Block elements like `<div>` are tolerated by browsers but technically violate phrasing-content; prefer span if you have a choice.
+- **Strict typing for slot props.** Declaring `const items: RadioGroupItem[] = [...]` widens user-defined fields (`title`, `preview`, `href`, …) to `any` via the `[key: string]: any` index in the public item type. Declare a local interface as in the examples to keep autocomplete and type-checking on the slot's `item`.
 - **Don't pass a `description` field.** `B24RadioGroup` / `B24CheckboxGroup` auto-render `item.description` as a separate paragraph. If you also override `#label` you'll get duplicate text. Name your field anything else (`text`, `summary`, `body`).
 - **`@click.stop` on the inline link.** The whole card is wrapped in `<label>` for the `card` variant — clicking inside selects the option. Without `@click.stop`, opening the "Learn more" link will also toggle the radio/checkbox.
+- **Validate `item.href` if it comes from an untrusted source** (CMS, API, user input). Allow only `http(s):` or relative paths; reject `javascript:` / `data:` URIs and open redirects before binding to `B24Link :to`. The library does not sanitize URLs — that's the caller's responsibility. Same applies to `item.preview` when it points at external images (consider a CSP `img-src` policy).
+- **`target="_blank"` is safe.** `B24Link` adds `rel="noopener noreferrer"` automatically for external targets, so no tabnabbing.
 - **Responsiveness.** Hide the preview on small screens with `hidden sm:block` so the text gets the full width on mobile. The radio/checkbox itself stays at the start because `card` variant uses `items-start`.
 - **Stay on semantic colors.** Use `text-(--ui-color-base-70)`, `ring-(--ui-color-base-5)`, etc. — never raw Tailwind palette colors.
 - **Form integration.** Both groups honour `useFormField`, so wrap them in `B24FormField` for label + error display when used inside `B24Form`. See [forms](../guidelines/forms.md).
