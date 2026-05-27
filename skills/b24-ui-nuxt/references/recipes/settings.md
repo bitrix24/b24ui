@@ -157,6 +157,7 @@ const items: CapabilityItem[] = [
 - **Validate `item.href` if it comes from an untrusted source** (CMS, API, user input). Allow only `http(s):` or relative paths; reject `javascript:` / `data:` URIs and open redirects before binding to `B24Link :to`. The library does not sanitize URLs — that's the caller's responsibility. Same applies to `item.preview` when it points at external images (consider a CSP `img-src` policy).
 - **`target="_blank"` is safe.** `B24Link` adds `rel="noopener noreferrer"` automatically for external targets, so no tabnabbing.
 - **Responsiveness.** Hide the preview on small screens with `hidden sm:block` so the text gets the full width on mobile. The radio/checkbox itself stays at the start because `card` variant uses `items-start`.
+- **No artwork yet?** Drop a `<Placeholder>` (the in-house diagonal-hatch SVG component, available in `docs/` and both playgrounds) in place of `<img>` while the design is in flight — same `w-[120px] h-[72px]` box, zero binary assets to ship.
 - **Stay on semantic colors.** Use `text-(--ui-color-base-70)`, `ring-(--ui-color-base-5)`, etc. — never raw Tailwind palette colors.
 - **Form integration.** Both groups honour `useFormField`, so wrap them in `B24FormField` for label + error display when used inside `B24Form`. See [forms](../guidelines/forms.md).
 

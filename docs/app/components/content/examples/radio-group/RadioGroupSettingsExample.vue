@@ -3,7 +3,6 @@ type LayoutItem = {
   value: string
   title: string
   text: string
-  preview: string
   href: string
 }
 
@@ -14,14 +13,12 @@ const items: LayoutItem[] = [
     value: 'columns',
     title: 'In columns',
     text: 'Pick this for resources that must always be visible to the manager. These are the primary resources the schedule is built around.',
-    preview: '/b24ui/radio-card-columns.png',
     href: 'https://helpdesk.bitrix24.com/'
   },
   {
     value: 'list',
     title: 'In a secondary list',
     text: 'Pick this for resources that are booked only in addition to a primary one. For instance, when specialists are the primary resource, equipment goes into the secondary list.',
-    preview: '/b24ui/radio-card-list.png',
     href: 'https://helpdesk.bitrix24.com/'
   }
 ]
@@ -53,11 +50,9 @@ const items: LayoutItem[] = [
             Learn more
           </B24Link>
         </span>
-        <img
-          :src="item.preview"
-          :alt="item.title"
-          class="hidden sm:block shrink-0 w-[120px] h-[72px] rounded-(--ui-border-radius-sm) ring-1 ring-(--ui-color-base-5) object-cover"
-        >
+        <Placeholder class="hidden sm:flex shrink-0 w-[120px] h-[72px] text-(length:--ui-font-size-xs) text-(--ui-color-base-50)">
+          Preview
+        </Placeholder>
       </span>
     </template>
   </B24RadioGroup>
