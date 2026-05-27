@@ -182,6 +182,12 @@ function onSubmit(event: FormSubmitEvent<Schema>) {
 <B24FormField name="dueDate" label="Due date">
   <B24DateTimePicker v-model="state.dueDate" date-only />
 </B24FormField>
+
+<!-- Custom presets — import the type and pass a list of { label, hint?, value } -->
+<!-- import type { DateTimePickerPreset } from '@bitrix24/b24ui-nuxt' -->
+<B24FormField name="callAt" label="Call at">
+  <B24DateTimePicker v-model="state.callAt" :presets="customPresets" />
+</B24FormField>
 ```
 
 ## Programmatic validation

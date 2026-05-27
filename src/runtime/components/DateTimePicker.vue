@@ -112,7 +112,7 @@ export interface DateTimePickerSlots {
 </script>
 
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { computed, ref, useId, watch } from 'vue'
 import { CalendarDate, CalendarDateTime, ZonedDateTime, today, getLocalTimeZone, startOfWeek, endOfWeek, endOfMonth } from '@internationalized/date'
 import Calendar1Icon from '@bitrix24/b24icons-vue/main/Calendar1Icon'
 import ClockIcon from '@bitrix24/b24icons-vue/outline/ClockIcon'
@@ -162,6 +162,7 @@ function emitUpdate(value: DateValue | undefined) {
 
 const open = ref(false)
 const step = ref<'date' | 'time'>('date')
+const id = useId()
 
 watch(open, (v) => {
   emits('update:open', v)
@@ -210,9 +211,10 @@ const dateValue = computed<DateValue | undefined>(() => {
 // region Time grid ////
 const hours = computed(() => Array.from({ length: 24 }, (_, i) => i))
 const minutes = computed(() => {
-  const step = Math.max(1, Math.min(30, props.minuteStep ?? 5))
+  const raw = props.minuteStep ?? 5
+  const safe = Number.isFinite(raw) ? Math.max(1, Math.min(30, raw as number)) : 5
   const result: number[] = []
-  for (let m = 0; m < 60; m += step) result.push(m)
+  for (let m = 0; m < 60; m += safe) result.push(m)
   return result
 })
 const currentHour = computed(() => (internalValue.value as CalendarDateTime | undefined)?.hour ?? 0)
@@ -306,6 +308,18 @@ function resolvePreset(preset: DateTimePickerPreset): DateValue {
   return (typeof preset.value === 'function' ? preset.value() : preset.value) as DateValue
 }
 
+/**
+ * Pre-resolved `DateValue` for each preset so factories run **once per render**.
+ * Without this, `isPresetActive` (called twice in the template for `:active`
+ * and `:data-active`) would invoke `resolvePreset` repeatedly — observable
+ * side effects and stale comparisons when the factory returns "now"-like
+ * values.
+ */
+const resolvedPresets = computed(() => presetsResolved.value.map(preset => ({
+  preset,
+  value: resolvePreset(preset)
+})))
+
 function applyPreset(preset: DateTimePickerPreset) {
   const next = resolvePreset(preset)
   if (props.dateOnly) {
@@ -319,10 +333,18 @@ function applyPreset(preset: DateTimePickerPreset) {
   step.value = 'time'
 }
 
-function isPresetActive(preset: DateTimePickerPreset): boolean {
+function isPresetActiveByValue(resolved: DateValue): boolean {
   if (!internalValue.value) return false
-  const next = resolvePreset(preset)
-  return (toCalendarDate(next) as any).compare(toCalendarDate(internalValue.value)) === 0
+  return (toCalendarDate(resolved) as any).compare(toCalendarDate(internalValue.value)) === 0
+}
+
+/**
+ * Public helper exposed via `presets` slot props. Resolves the preset
+ * internally; not used by the default template (which uses the pre-resolved
+ * cache from {@link resolvedPresets}).
+ */
+function isPresetActive(preset: DateTimePickerPreset): boolean {
+  return isPresetActiveByValue(resolvePreset(preset))
 }
 // endregion ////
 
@@ -390,14 +412,19 @@ defineExpose({
 
             <div :class="b24ui.timeBody()">
               <div :class="b24ui.timeColumn()">
-                <div :class="b24ui.timeColumnTitle()">
+                <div :id="`${id}-hours-label`" :class="b24ui.timeColumnTitle()">
                   {{ t('dateTimePicker.hours') }}
                 </div>
-                <div :class="b24ui.timeGrid()">
+                <div
+                  role="group"
+                  :aria-labelledby="`${id}-hours-label`"
+                  :class="b24ui.timeGrid()"
+                >
                   <button
                     v-for="h in hours"
                     :key="`h-${h}`"
                     type="button"
+                    :aria-pressed="h === currentHour"
                     :data-selected="h === currentHour"
                     :class="b24ui.timeCell()"
                     @click="onHourSelect(h)"
@@ -407,14 +434,19 @@ defineExpose({
                 </div>
               </div>
               <div :class="b24ui.timeColumn()">
-                <div :class="b24ui.timeColumnTitle()">
+                <div :id="`${id}-minutes-label`" :class="b24ui.timeColumnTitle()">
                   {{ t('dateTimePicker.minutes') }}
                 </div>
-                <div :class="b24ui.timeMinutesGrid()">
+                <div
+                  role="group"
+                  :aria-labelledby="`${id}-minutes-label`"
+                  :class="b24ui.timeMinutesGrid()"
+                >
                   <button
                     v-for="m in minutes"
                     :key="`m-${m}`"
                     type="button"
+                    :aria-pressed="m === currentMinute"
                     :data-selected="m === currentMinute"
                     :class="b24ui.timeCell()"
                     @click="onMinuteSelect(m, close)"
@@ -428,28 +460,28 @@ defineExpose({
         </div>
 
         <slot
-          v-if="!props.hidePresets && presetsResolved.length"
+          v-if="!props.hidePresets && resolvedPresets.length"
           name="presets"
           :presets="presetsResolved"
           :select="applyPreset"
           :is-active="isPresetActive"
         >
           <div :class="b24ui.presets()">
-            <template v-for="(preset, index) in presetsResolved" :key="`preset-${index}`">
+            <template v-for="(item, index) in resolvedPresets" :key="`preset-${index}`">
               <slot
                 name="preset"
-                :preset="preset"
-                :select="() => applyPreset(preset)"
-                :active="isPresetActive(preset)"
+                :preset="item.preset"
+                :select="() => applyPreset(item.preset)"
+                :active="isPresetActiveByValue(item.value)"
               >
                 <button
                   type="button"
-                  :data-active="isPresetActive(preset)"
+                  :data-active="isPresetActiveByValue(item.value)"
                   :class="b24ui.preset()"
-                  @click="applyPreset(preset)"
+                  @click="applyPreset(item.preset)"
                 >
-                  <span :class="b24ui.presetLabel()">{{ preset.label }}</span>
-                  <span v-if="preset.hint" :class="b24ui.presetHint()">{{ preset.hint }}</span>
+                  <span :class="b24ui.presetLabel()">{{ item.preset.label }}</span>
+                  <span v-if="item.preset.hint" :class="b24ui.presetHint()">{{ item.preset.hint }}</span>
                 </button>
               </slot>
             </template>

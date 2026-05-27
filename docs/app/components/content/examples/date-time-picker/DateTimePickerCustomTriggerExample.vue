@@ -8,8 +8,8 @@ const value = shallowRef<CalendarDateTime | undefined>(new CalendarDateTime(2026
 
 <template>
   <B24DateTimePicker v-model="value">
-    <template #default="{ formatted }">
-      <B24Button :icon="Calendar1Icon" color="air-tertiary">
+    <template #default="{ open, formatted }">
+      <B24Button :icon="Calendar1Icon" :color="open ? 'air-primary' : 'air-tertiary'">
         {{ formatted || 'Schedule a call' }}
       </B24Button>
     </template>

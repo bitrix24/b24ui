@@ -6,7 +6,13 @@ const meetingAt = shallowRef<DateValue | undefined>(new CalendarDateTime(2026, 4
 </script>
 
 <template>
-  <B24FormField label="Meeting at" hint="Pick a date and time" class="w-72">
+  <B24FormField
+    name="meetingAt"
+    label="Meeting at"
+    hint="Pick a date and time"
+    required
+    class="w-72"
+  >
     <B24DateTimePicker v-model="meetingAt" class="w-full" />
   </B24FormField>
 </template>

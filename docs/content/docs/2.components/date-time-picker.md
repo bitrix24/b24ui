@@ -11,7 +11,7 @@ links:
     to: https://bitrix24.github.io/b24ui/demo/components/date-time-picker
 ---
 
-`B24DateTimePicker` composes [`B24Popover`](/docs/components/popover/), [`B24Calendar`](/docs/components/calendar/), [`B24Input`](/docs/components/input/) and [`B24Button`](/docs/components/button/) into a single Bitrix24-style picker. The popover opens from a read-only input, lets the user pick a date in the first step, then offers a clickable hour/minute grid in the second step. A configurable preset list is rendered on the side.
+`B24DateTimePicker` composes [`B24Popover`](/docs/components/popover/), [`B24Calendar`](/docs/components/calendar/) and a read-only [`B24Input`](/docs/components/input/) trigger into a single Bitrix24-style picker. The popover lets the user pick a date in the first step, then offers a clickable hour/minute grid in the second step. A configurable preset list is rendered on the side. The default trigger can be fully replaced through the `#default` slot — for example with a [`B24Button`](/docs/components/button/).
 
 ## Usage
 
@@ -54,7 +54,7 @@ Use the `minute-step` prop to change the granularity of the minutes column. Defa
 prettier: true
 props:
   minuteStep: 15
-  placeholder: 'Pick a time'
+  placeholder: 'Pick a date and time'
 ---
 ::
 
@@ -96,6 +96,16 @@ prettier: true
 props:
   hidePresets: true
   placeholder: 'Pick a date and time'
+---
+::
+
+### With min/max dates
+
+Use the `calendar` prop to pass `min-value` / `max-value` and other props down to the underlying [`B24Calendar`](/docs/components/calendar/). The same channel can be used for `is-date-disabled` / `is-date-unavailable`.
+
+::component-example
+---
+name: 'date-time-picker-min-max-dates-example'
 ---
 ::
 

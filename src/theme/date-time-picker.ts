@@ -2,7 +2,8 @@
  * DateTimePicker
  * Two-step popover (date → time) date/time selector with optional preset list.
  * ---
- * @memo composes B24Popover, B24InputDate, B24Calendar and B24Button
+ * @memo Composes B24Popover, B24Calendar and B24Input (default trigger).
+ *       B24Button is used only for the in-popover back-to-date arrow.
  */
 
 export default {
