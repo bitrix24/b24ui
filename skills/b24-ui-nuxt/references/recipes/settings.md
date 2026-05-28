@@ -66,7 +66,7 @@ const items: LayoutItem[] = [
           <span class="text-(length:--ui-font-size-md) font-(--ui-font-weight-medium)">
             {{ item.title }}
           </span>
-          <span class="text-(length:--ui-font-size-sm) text-(--ui-color-base-70) font-(--ui-font-weight-regular)">
+          <span class="text-(length:--ui-font-size-sm) text-description font-(--ui-font-weight-regular)">
             {{ item.text }}
           </span>
           <B24Link
@@ -125,7 +125,7 @@ const items: CapabilityItem[] = [
           <span class="text-(length:--ui-font-size-md) font-(--ui-font-weight-medium)">
             {{ item.title }}
           </span>
-          <span class="text-(length:--ui-font-size-sm) text-(--ui-color-base-70) font-(--ui-font-weight-regular)">
+          <span class="text-(length:--ui-font-size-sm) text-description font-(--ui-font-weight-regular)">
             {{ item.text }}
           </span>
           <B24Link
@@ -158,7 +158,7 @@ const items: CapabilityItem[] = [
 - **`target="_blank"` is safe.** `B24Link` adds `rel="noopener noreferrer"` automatically for external targets, so no tabnabbing.
 - **Responsiveness.** Hide the preview on small screens with `hidden sm:block` so the text gets the full width on mobile. The radio/checkbox itself stays at the start because `card` variant uses `items-start`.
 - **No artwork yet?** Drop a `<Placeholder>` (the in-house diagonal-hatch SVG component, available in `docs/` and both playgrounds) in place of `<img>` while the design is in flight — same `w-[120px] h-[72px]` box, zero binary assets to ship.
-- **Stay on semantic colors.** Use `text-(--ui-color-base-70)`, `ring-(--ui-color-base-5)`, etc. — never raw Tailwind palette colors.
+- **Stay on semantic colors.** Use semantic utilities like `text-description` for secondary text and `ring-(--ui-color-base-5)` for hairlines — never raw Tailwind palette colors. If a numeric `--ui-color-base-N` token is the only thing that fits, double-check there isn't a named semantic class (`text-description`, `text-title`, …) that maps to the same intent.
 - **Form integration.** Both groups honour `useFormField`, so wrap them in `B24FormField` for label + error display when used inside `B24Form`. See [forms](../guidelines/forms.md).
 
 ## When NOT to use this pattern

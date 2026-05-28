@@ -142,7 +142,7 @@ const settingsLayoutItems: LayoutItem[] = [
               <span class="block text-(length:--ui-font-size-md) font-(--ui-font-weight-medium)">
                 {{ item.title }}
               </span>
-              <span class="block text-(length:--ui-font-size-sm) text-(--ui-color-base-70) font-(--ui-font-weight-regular)">
+              <span class="block text-(length:--ui-font-size-sm) text-description font-(--ui-font-weight-regular)">
                 {{ item.text }}
               </span>
               <B24Link
@@ -154,7 +154,7 @@ const settingsLayoutItems: LayoutItem[] = [
                 Learn more
               </B24Link>
             </span>
-            <Placeholder class="hidden sm:flex shrink-0 w-[120px] h-[72px] text-(length:--ui-font-size-xs) text-(--ui-color-base-50)">
+            <Placeholder class="hidden sm:flex shrink-0 w-[120px] h-[72px] text-(length:--ui-font-size-xs) text-description">
               Preview
             </Placeholder>
           </span>
