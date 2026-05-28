@@ -16,6 +16,10 @@ export interface UserProps {
   name?: string
   description?: string
   avatar?: Omit<AvatarProps, 'size'> & { [key: string]: any }
+  /**
+   * Default `color` for the inner `B24Avatar`. Overridden by `avatar.color` when set.
+   */
+  color?: AvatarProps['color']
   chip?: boolean | Omit<ChipProps, 'size' | 'inset'>
   /**
    * @defaultValue 'md'
@@ -89,11 +93,19 @@ const chipSize = computed<ChipProps['size']>(() => {
   <Primitive :as="props.as" :data-orientation="props.orientation" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })" @click="props.onClick">
     <slot name="avatar" :b24ui="b24ui">
       <B24Chip v-if="props.chip && props.avatar && !['3xs'].includes(props.size || '')" inset v-bind="typeof props.chip === 'object' ? props.chip : {}" :size="chipSize">
-        <B24Avatar :alt="props.name" v-bind="props.avatar" :size="props.size" data-slot="avatar" :class="b24ui.avatar({ class: props.b24ui?.avatar })" />
+        <B24Avatar
+          :alt="props.name"
+          :color="props.color"
+          v-bind="props.avatar"
+          :size="props.size"
+          data-slot="avatar"
+          :class="b24ui.avatar({ class: props.b24ui?.avatar })"
+        />
       </B24Chip>
       <B24Avatar
         v-else-if="props.avatar"
         :alt="props.name"
+        :color="props.color"
         v-bind="props.avatar"
         :size="props.size"
         data-slot="avatar"
