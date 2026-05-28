@@ -124,9 +124,9 @@ function onUpdate(value: any) {
 
     <div v-if="(props.label || !!slots.label) || (props.description || !!slots.description)" data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
       <component
-        :is="props.variant === 'list' ? Label : 'p'"
+        :is="props.variant === 'list' ? Label : 'span'"
         v-if="props.label || !!slots.label"
-        :for="id"
+        :for="props.variant === 'list' ? id : undefined"
         data-slot="label"
         :class="b24ui.label({ class: props.b24ui?.label })"
       >

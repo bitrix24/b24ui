@@ -451,8 +451,7 @@ exports[`Table > renders with columns correctly 1`] = `
                 <!---->
                 <!--v-if-->
               </button></div>
-            <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
-              <p for="v-0-0-0" data-slot="label" class="cursor-pointer block text-label">Select all</p>
+            <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Select all</span>
               <!--v-if-->
             </div>
           </div>
@@ -750,8 +749,7 @@ exports[`Table > renders with empty slot correctly 1`] = `
                 <!---->
                 <!--v-if-->
               </button></div>
-            <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
-              <p for="v-0-0-0" data-slot="label" class="cursor-pointer block text-label">Select all</p>
+            <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Select all</span>
               <!--v-if-->
             </div>
           </div>
@@ -1534,8 +1532,7 @@ exports[`Table > renders with loading slot correctly 1`] = `
                 <!---->
                 <!--v-if-->
               </button></div>
-            <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
-              <p for="v-0-0-0" data-slot="label" class="cursor-pointer block text-label">Select all</p>
+            <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Select all</span>
               <!--v-if-->
             </div>
           </div>
@@ -1603,8 +1600,7 @@ exports[`Table > renders with meta field on columns correctly 1`] = `
                 <!---->
                 <!--v-if-->
               </button></div>
-            <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
-              <p for="v-0-0-0" data-slot="label" class="cursor-pointer block text-label">Select all</p>
+            <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Select all</span>
               <!--v-if-->
             </div>
           </div>
@@ -2016,8 +2012,7 @@ exports[`Table > renders with virtualize and sticky correctly 1`] = `
                 <!---->
                 <!--v-if-->
               </button></div>
-            <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
-              <p for="v-0-0-0" data-slot="label" class="cursor-pointer block text-label">Select all</p>
+            <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Select all</span>
               <!--v-if-->
             </div>
           </div>
