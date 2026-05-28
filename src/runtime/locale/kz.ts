@@ -49,6 +49,19 @@ export default defineLocale<Messages>({
       noMatch: 'Сәйкестіктер табылмады',
       placeholder: 'Команда енгізіңіз немесе іздеңіз…'
     },
+    dateTimePicker: {
+      backToDate: 'Күнге қайту',
+      openPicker: 'Таңдағышты ашу',
+      hours: 'Сағат',
+      minutes: 'Минут',
+      presets: {
+        today: 'Бүгін',
+        tomorrow: 'Ертең',
+        endOfWeek: 'Апта соңы',
+        inAWeek: 'Бір аптадан кейін',
+        endOfMonth: 'Ай соңы'
+      }
+    },
     contentSearch: {
       links: 'Нәтижелер',
       theme: 'Тақырып'

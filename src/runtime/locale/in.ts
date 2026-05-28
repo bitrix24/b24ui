@@ -49,6 +49,19 @@ export default defineLocale<Messages>({
       noMatch: 'कोई मिलान नहीं मिला',
       placeholder: 'कमांड दर्ज करें या खोजें…'
     },
+    dateTimePicker: {
+      backToDate: 'तारीख पर वापस',
+      openPicker: 'पिकर खोलें',
+      hours: 'घंटे',
+      minutes: 'मिनट',
+      presets: {
+        today: 'आज',
+        tomorrow: 'कल',
+        endOfWeek: 'सप्ताह का अंत',
+        inAWeek: 'एक सप्ताह में',
+        endOfMonth: 'महीने का अंत'
+      }
+    },
     contentSearch: {
       links: 'परिणाम',
       theme: 'थीम'

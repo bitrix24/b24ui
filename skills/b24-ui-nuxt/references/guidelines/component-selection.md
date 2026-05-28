@@ -49,6 +49,7 @@ Decision matrices for choosing the right component. A list of all components is 
 | Numeric value with +/- controls | `B24InputNumber` | [input-number.md](https://bitrix24.github.io/b24ui/raw/docs/components/input-number.md) | Min/max/step constraints |
 | Date selection | `B24InputDate` | [input-date.md](https://bitrix24.github.io/b24ui/raw/docs/components/input-date.md) | Calendar dropdown, supports ranges |
 | Time selection | `B24InputTime` | [input-time.md](https://bitrix24.github.io/b24ui/raw/docs/components/input-time.md) | Hour/minute picker, 12/24 hour |
+| Date + time selection | `B24DateTimePicker` | [date-time-picker.md](https://bitrix24.github.io/b24ui/raw/docs/components/date-time-picker.md) | Two-step popover (calendar → hour/minute grid) with side presets, `date-only` mode |
 | Tags / multi-value free text | `B24InputTags` | [input-tags.md](https://bitrix24.github.io/b24ui/raw/docs/components/input-tags.md) | Chip-style input with max limit |
 | Verification code | `B24PinInput` | [pin-input.md](https://bitrix24.github.io/b24ui/raw/docs/components/pin-input.md) | Fixed-length code entry |
 | Boolean toggle | `B24Switch` | [switch.md](https://bitrix24.github.io/b24ui/raw/docs/components/switch.md) | On/off, enable/disable |

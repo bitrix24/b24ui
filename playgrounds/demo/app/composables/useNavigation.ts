@@ -38,6 +38,7 @@ const components = [
   'content/content-surround',
   'content/content-toc',
   'context-menu',
+  'date-time-picker',
   'drawer',
   'dropdown-menu',
   'editor',

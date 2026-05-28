@@ -49,6 +49,19 @@ export default defineLocale<Messages>({
       noMatch: 'Tiada padanan ditemui',
       placeholder: 'Masukkan arahan atau cari…'
     },
+    dateTimePicker: {
+      backToDate: 'Kembali ke tarikh',
+      openPicker: 'Buka pemilih',
+      hours: 'Jam',
+      minutes: 'Minit',
+      presets: {
+        today: 'Hari ini',
+        tomorrow: 'Esok',
+        endOfWeek: 'Hujung minggu',
+        inAWeek: 'Seminggu lagi',
+        endOfMonth: 'Akhir bulan'
+      }
+    },
     contentSearch: {
       links: 'Keputusan',
       theme: 'Tema'
