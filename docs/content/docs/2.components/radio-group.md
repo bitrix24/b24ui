@@ -317,6 +317,34 @@ name: 'radio-group-settings-example'
 ---
 ::
 
+::prompt
+---
+description: Build a rich radio-card settings picker (preview + description + link).
+actions:
+  - copy
+  - cursor
+  - windsurf
+class: 'w-full my-0'
+---
+Build a settings picker as `B24RadioGroup` with `variant="card"`. Each option renders a title, a multi-line description, an inline "Learn more" link and a preview image on the right side, laid out via the `#label` slot.
+
+Before generating the code, ask me for the missing details — do not guess:
+- How many options there are and what their `value` / `title` / description text should be
+- The URL behind each "Learn more" link (and whether all options share one or each has its own)
+- Where the preview asset comes from: real image, `<Placeholder>` while artwork is in flight, or omit entirely
+- Whether selection must be persisted (`v-model` target — local `ref`, Pinia store, query param, server)
+- Which size (`sm` / `md` / `lg`) and `color` token fit the surrounding page
+- Whether the picker is inside a `B24Form` (then it should be wrapped in `B24FormField` with a label)
+
+Requirements once details are confirmed:
+- Declare a local `interface` for the item shape (`value`, `title`, `text`, `href`, optional `preview`) and type the array with it — do NOT use `RadioGroupItem[]` (that widens user fields to `any`)
+- Inside the `#label` slot use `<span>` wrappers only (no `<div>` / `<p>` — the slot is rendered as `<span>` for the `card` variant)
+- Apply semantic utilities (`text-description`, `text-(length:--ui-font-size-md)`, …) — never raw Tailwind palette colors
+- Hide the preview below the `sm` breakpoint (`hidden sm:flex`)
+- Add `@click.stop` to the inline `B24Link` so the link doesn't toggle the radio
+- If `item.href` may come from an untrusted source, validate it (reject `javascript:` / `data:` / open-redirect URLs) before binding
+::
+
 ::tip
 Stop the click from toggling the radio when the user follows the inline link by adding `@click.stop` to it.
 ::
