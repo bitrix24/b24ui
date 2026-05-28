@@ -7,6 +7,7 @@ import type { ComponentConfig } from '../types/tv'
 import type { CalendarProps } from './Calendar.vue'
 import type { InputProps } from './Input.vue'
 import type { PopoverProps } from './Popover.vue'
+import type { DrawerProps } from './Drawer.vue'
 import type { IconComponent } from '../types'
 
 type DateTimePicker = ComponentConfig<typeof theme, AppConfig, 'dateTimePicker'>
@@ -72,8 +73,10 @@ export interface DateTimePickerProps {
    * @IconComponent
    */
   timeIcon?: IconComponent
-  /** Forward additional props to the underlying `B24Popover`. */
+  /** Forward additional props to the underlying `B24Popover` (desktop). */
   popover?: Omit<PopoverProps, 'open' | 'defaultOpen' | 'modelValue'>
+  /** Forward additional props to the underlying `B24Drawer` (mobile). */
+  drawer?: Omit<DrawerProps, 'open' | 'defaultOpen'>
   /** Forward additional props to the underlying `B24Calendar`. */
   calendar?: Omit<CalendarProps, 'modelValue' | 'defaultValue' | 'range' | 'multiple'>
   /** Forward additional props to the trigger `B24Input`. */
@@ -119,9 +122,11 @@ import ClockIcon from '@bitrix24/b24icons-vue/outline/ClockIcon'
 import { useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
 import { useLocale } from '../composables/useLocale'
+import { useDevice } from '../composables/useDevice'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Popover from './Popover.vue'
+import B24Drawer from './Drawer.vue'
 import B24Input from './Input.vue'
 import B24Calendar from './Calendar.vue'
 import B24Button from './Button.vue'
@@ -141,6 +146,7 @@ const props = useComponentProps<DateTimePickerProps>('dateTimePicker', _props)
 
 const appConfig = useAppConfig() as DateTimePicker['AppConfig']
 const { t, code } = useLocale()
+const { screen } = useDevice()
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dateTimePicker || {}) })({
@@ -177,6 +183,9 @@ const formatter = computed(() => new Intl.DateTimeFormat(activeLocale.value, pro
   ? { dateStyle: 'medium' }
   : { dateStyle: 'medium', timeStyle: 'short' })))
 
+/** Date-only formatter for the time-step header. */
+const dateOnlyFormatter = computed(() => new Intl.DateTimeFormat(activeLocale.value, { dateStyle: 'medium' }))
+
 const tz = getLocalTimeZone()
 
 function toJsDate(value: any): Date {
@@ -192,6 +201,11 @@ function toJsDate(value: any): Date {
 const formattedValue = computed(() => {
   if (!internalValue.value) return ''
   return formatter.value.format(toJsDate(internalValue.value))
+})
+
+const dateOnlyFormatted = computed(() => {
+  if (!internalValue.value) return ''
+  return dateOnlyFormatter.value.format(toJsDate(internalValue.value))
 })
 
 const timeLabel = computed(() => {
@@ -219,6 +233,15 @@ const minutes = computed(() => {
 })
 const currentHour = computed(() => (internalValue.value as CalendarDateTime | undefined)?.hour ?? 0)
 const currentMinute = computed(() => (internalValue.value as CalendarDateTime | undefined)?.minute ?? 0)
+
+/** Real-world "now" hour, used to render the lighter "now" indicator on the time grid. */
+const nowHour = computed(() => new Date().getHours())
+/** Nearest grid minute to the real-world "now" minute. */
+const nowMinute = computed(() => {
+  const now = new Date().getMinutes()
+  const safe = Number.isFinite(props.minuteStep) ? Math.max(1, Math.min(30, props.minuteStep!)) : 5
+  return Math.floor(now / safe) * safe
+})
 // endregion ////
 
 function withTime(date: any, hour: number, minute: number): DateValue {
@@ -264,6 +287,26 @@ function onMinuteSelect(m: number, close?: () => void) {
 
 function goBackToDate() {
   step.value = 'date'
+}
+
+/**
+ * Switch to the time-selection step from the calendar footer.
+ * If the user hasn't picked a date yet, falls back to today so the
+ * step transition keeps a valid base value.
+ */
+function goToTime() {
+  if (props.dateOnly) return
+  if (!internalValue.value) {
+    const t0 = today(tz)
+    emitUpdate(new CalendarDateTime(t0.year, t0.month, t0.day, currentHour.value, currentMinute.value, 0) as unknown as DateValue)
+  }
+  step.value = 'time'
+}
+
+/** Saturday / Sunday → red in the calendar grid (matches Bitrix24 reference). */
+function isWeekend(day: DateValue): boolean {
+  const wd = toJsDate(day).getDay()
+  return wd === 0 || wd === 6
 }
 
 // region Presets ////
@@ -348,6 +391,12 @@ function isPresetActive(preset: DateTimePickerPreset): boolean {
 }
 // endregion ////
 
+/** Mobile → `B24Drawer` (bottom sheet), desktop → `B24Popover`. */
+const WrapperComponent = computed(() => screen.value.isMobile ? B24Drawer : B24Popover)
+const wrapperProps = computed(() => screen.value.isMobile
+  ? { ...(props.drawer ?? {}) }
+  : { b24ui: { content: b24ui.value.content() }, ...(props.popover ?? {}) })
+
 defineExpose({
   open,
   step
@@ -355,26 +404,37 @@ defineExpose({
 </script>
 
 <template>
-  <B24Popover
+  <component
+    :is="WrapperComponent"
     v-model:open="open"
-    :b24ui="{ content: b24ui.content() }"
-    v-bind="props.popover"
+    v-bind="wrapperProps"
   >
     <slot :open="open" :value="(internalValue as DateValue | undefined)" :formatted="formattedValue">
-      <B24Input
-        :model-value="formattedValue"
-        readonly
-        :placeholder="props.placeholder"
-        :disabled="props.disabled"
-        :color="(props.color as InputProps['color'])"
-        :size="(props.size as InputProps['size'])"
-        :icon="props.icon || Calendar1Icon"
-        :class="props.class"
-        v-bind="{ ...$attrs, ...props.input }"
-      />
+      <div
+        role="button"
+        :tabindex="props.disabled ? -1 : 0"
+        :aria-disabled="props.disabled || undefined"
+        :aria-label="formattedValue || props.placeholder || t('dateTimePicker.openPicker')"
+        :class="b24ui.trigger({ class: props.class })"
+        v-bind="$attrs"
+      >
+        <B24Input
+          :model-value="formattedValue"
+          readonly
+          tabindex="-1"
+          aria-hidden="true"
+          :placeholder="props.placeholder"
+          :disabled="props.disabled"
+          :color="(props.color as InputProps['color'])"
+          :size="(props.size as InputProps['size'])"
+          :icon="props.icon || Calendar1Icon"
+          :class="b24ui.triggerInput()"
+          v-bind="props.input"
+        />
+      </div>
     </slot>
 
-    <template #content="{ close }">
+    <template #content="contentScope">
       <div :class="b24ui.body()">
         <div :class="b24ui.main()">
           <template v-if="step === 'date'">
@@ -385,17 +445,27 @@ defineExpose({
               :size="(props.size as CalendarProps['size'])"
               v-bind="props.calendar"
               @update:model-value="(v: any) => onCalendarSelect(v)"
-            />
-            <div v-if="!props.dateOnly && internalValue" :class="b24ui.footer()">
+            >
+              <template #day="{ day }">
+                <span :class="isWeekend(day) ? b24ui.weekend() : ''">{{ day.day }}</span>
+              </template>
+            </B24Calendar>
+            <button
+              v-if="!props.dateOnly"
+              type="button"
+              :class="b24ui.footer()"
+              :aria-label="t('dateTimePicker.hours')"
+              @click="goToTime"
+            >
               <Component :is="props.timeIcon || ClockIcon" :class="b24ui.footerIcon()" />
-              <span :class="b24ui.footerValue()">{{ timeLabel }}</span>
-            </div>
+              <span :class="b24ui.footerValue()">{{ timeLabel || '00:00' }}</span>
+            </button>
           </template>
           <template v-else>
             <slot
               name="time-header"
               :value="(internalValue as DateValue | undefined)"
-              :formatted="formattedValue"
+              :formatted="dateOnlyFormatted"
               :back="goBackToDate"
             >
               <div :class="b24ui.timeHeader()">
@@ -406,7 +476,7 @@ defineExpose({
                   :aria-label="t('dateTimePicker.backToDate')"
                   @click="goBackToDate"
                 />
-                <span :class="b24ui.timeHeaderLabel()">{{ formattedValue }}</span>
+                <span :class="b24ui.timeHeaderLabel()">{{ dateOnlyFormatted }}</span>
               </div>
             </slot>
 
@@ -426,6 +496,7 @@ defineExpose({
                     type="button"
                     :aria-pressed="h === currentHour"
                     :data-selected="h === currentHour"
+                    :data-now="h !== currentHour && h === nowHour"
                     :class="b24ui.timeCell()"
                     @click="onHourSelect(h)"
                   >
@@ -448,8 +519,9 @@ defineExpose({
                     type="button"
                     :aria-pressed="m === currentMinute"
                     :data-selected="m === currentMinute"
+                    :data-now="m !== currentMinute && m === nowMinute"
                     :class="b24ui.timeCell()"
-                    @click="onMinuteSelect(m, close)"
+                    @click="onMinuteSelect(m, contentScope?.close)"
                   >
                     {{ String(m).padStart(2, '0') }}
                   </button>
@@ -489,5 +561,5 @@ defineExpose({
         </slot>
       </div>
     </template>
-  </B24Popover>
+  </component>
 </template>

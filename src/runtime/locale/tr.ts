@@ -51,6 +51,7 @@ export default defineLocale<Messages>({
     },
     dateTimePicker: {
       backToDate: 'Tarihe dön',
+      openPicker: 'Seçiciyi aç',
       hours: 'Saat',
       minutes: 'Dakika',
       presets: {

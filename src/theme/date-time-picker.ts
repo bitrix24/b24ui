@@ -2,8 +2,9 @@
  * DateTimePicker
  * Two-step popover (date → time) date/time selector with optional preset list.
  * ---
- * @memo Composes B24Popover, B24Calendar and B24Input (default trigger).
- *       B24Button is used only for the in-popover back-to-date arrow.
+ * @memo Composes B24Popover (desktop) / B24Drawer (mobile), B24Calendar
+ *       and B24Input (default trigger). B24Button is used for the in-popover
+ *       back-to-date arrow.
  */
 
 export default {
@@ -11,6 +12,10 @@ export default {
     root: '',
     content: 'p-0 overflow-hidden',
     body: 'flex flex-col-reverse sm:flex-row',
+    /** Click target wrapping the read-only B24Input so the full visual area opens the picker. */
+    trigger: 'cursor-pointer',
+    /** Input rendered inside `trigger` — clicks pass through to the trigger wrapper. */
+    triggerInput: 'pointer-events-none w-full',
     main: 'flex flex-col p-2 min-w-[16rem]',
     presets: [
       'flex flex-row sm:flex-col gap-2',
@@ -30,7 +35,11 @@ export default {
       'data-[active=true]:border-(--b24ui-background)',
       'data-[active=true]:text-(--b24ui-background)'
     ].join(' '),
-    presetLabel: 'text-(length:--ui-font-size-md) font-(--ui-font-weight-medium)',
+    presetLabel: [
+      'text-(length:--ui-font-size-md)',
+      'font-(--ui-font-weight-medium)',
+      'text-(--b24ui-typography-label-color)'
+    ].join(' '),
     presetHint: [
       'text-(length:--ui-font-size-xs)',
       'text-(--ui-color-design-plain-na-content-secondary)'
@@ -40,7 +49,11 @@ export default {
       'pb-2 mb-2',
       'border-b border-(--ui-color-divider-default)'
     ].join(' '),
-    timeHeaderLabel: 'flex-1 text-center font-(--ui-font-weight-semi-bold)',
+    timeHeaderLabel: [
+      'flex-1 text-center',
+      'font-(--ui-font-weight-semi-bold)',
+      'text-(--b24ui-typography-legend-color)'
+    ].join(' '),
     timeBody: 'flex gap-4 px-1',
     timeColumn: 'flex flex-col gap-1 min-w-[6.5rem]',
     timeColumnTitle: [
@@ -57,13 +70,26 @@ export default {
       'cursor-pointer select-none',
       'hover:bg-(--b24ui-background-hover)',
       'hover:text-(--b24ui-color)',
+      // "now" hint — lighter background, no foreground change
+      'data-[now=true]:bg-(--ui-color-bg-content-secondary)',
+      // selected — solid accent
       'data-[selected=true]:bg-(--b24ui-background)',
       'data-[selected=true]:text-(--b24ui-color)',
       'transition'
     ].join(' '),
-    footer: 'flex items-center gap-2 px-2 pt-2 pb-1 text-(--ui-color-design-plain-na-content-secondary)',
+    /** Footer of the calendar step that doubles as a button switching to the time step. */
+    footer: [
+      'mt-2 flex items-center gap-2 px-2 py-1',
+      'rounded-(--ui-border-radius-md)',
+      'text-(--b24ui-background)',
+      'cursor-pointer select-none',
+      'hover:bg-(--ui-color-bg-content-secondary)',
+      'transition-colors'
+    ].join(' '),
     footerIcon: 'size-4 shrink-0',
-    footerValue: 'text-(length:--ui-font-size-sm)'
+    footerValue: 'text-(length:--ui-font-size-sm) font-(--ui-font-weight-medium)',
+    /** Weekend day cells inside the calendar. */
+    weekend: 'text-(--ui-color-accent-main-alert)'
   },
   variants: {
     color: {

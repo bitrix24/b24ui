@@ -44,6 +44,7 @@ export type Messages = {
   }
   dateTimePicker: {
     backToDate: string
+    openPicker: string
     hours: string
     minutes: string
     presets: {

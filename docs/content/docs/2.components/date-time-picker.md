@@ -80,9 +80,10 @@ items:
     - zh-CN
     - zh-TW
     - ja
+    - hi
 props:
-  locale: ru
-  placeholder: 'Выберите дату и время'
+  locale: hi
+  placeholder: 'तारीख और समय चुनें'
 ---
 ::
 

@@ -51,6 +51,7 @@ export default defineLocale<Messages>({
     },
     dateTimePicker: {
       backToDate: 'Quay lại ngày',
+      openPicker: 'Mở bộ chọn',
       hours: 'Giờ',
       minutes: 'Phút',
       presets: {

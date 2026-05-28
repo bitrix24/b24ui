@@ -51,6 +51,7 @@ export default defineLocale<Messages>({
     },
     dateTimePicker: {
       backToDate: 'К дате',
+      openPicker: 'Открыть выбор',
       hours: 'Часы',
       minutes: 'Минуты',
       presets: {

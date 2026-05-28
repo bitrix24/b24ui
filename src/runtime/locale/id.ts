@@ -51,6 +51,7 @@ export default defineLocale<Messages>({
     },
     dateTimePicker: {
       backToDate: 'Kembali ke tanggal',
+      openPicker: 'Buka pemilih',
       hours: 'Jam',
       minutes: 'Menit',
       presets: {

@@ -52,6 +52,7 @@ export default defineLocale<Messages>({
     },
     dateTimePicker: {
       backToDate: 'العودة إلى التاريخ',
+      openPicker: 'افتح المنتقي',
       hours: 'ساعات',
       minutes: 'دقائق',
       presets: {
