@@ -69,7 +69,9 @@ export type CheckboxGroupEmits<T extends CheckboxGroupItem[] = CheckboxGroupItem
   change: [event: Event]
 } & GetModelValueEmits<T, VK, true>
 
-type SlotProps<T extends CheckboxGroupItem> = (props: { item: T & { id: string } }) => VNode[]
+type NormalizeItem<T extends CheckboxGroupItem> = Exclude<T & { id: string }, CheckboxGroupValue>
+
+type SlotProps<T extends CheckboxGroupItem> = (props: { item: NormalizeItem<T> }) => VNode[]
 
 export interface CheckboxGroupSlots<T extends CheckboxGroupItem[] = CheckboxGroupItem[]> {
   legend?(props?: {}): VNode[]

@@ -13,6 +13,8 @@ The component for these patterns is **`B24PageCardGroup`**.
 
 If the choice is binary, or the labels alone make the option self-explanatory, use `B24RadioGroup` / `B24CheckboxGroup` / `B24Switch` instead. `B24PageCardGroup` shines when each option deserves a sentence.
 
+For richer cards with a preview image and an inline "Learn more" link (one option per row, not a grid), use `B24RadioGroup` / `B24CheckboxGroup` with `variant="card"` and a custom `#label` slot — see [settings](./settings.md).
+
 ## Single-select settings picker
 
 ```vue

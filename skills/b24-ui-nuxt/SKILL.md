@@ -43,6 +43,7 @@ Based on the task, load the relevant reference files **before writing any code**
 - [overlays](references/recipes/overlays.md) — modals, slideovers, drawers, command palette, info popovers
 - [navigation](references/recipes/navigation.md) — headers, sidebars, breadcrumbs, tabs
 - [card-pickers](references/recipes/card-pickers.md) — icon-and-description card grids for picking a setting variant or toggling capabilities (`B24PageCardGroup`)
+- [settings](references/recipes/settings.md) — settings layouts: when to use Switch vs Radio vs Checkbox vs PageCardGroup, plus the rich `card` variant recipe with preview image, description and "Learn more" link
 
 **Quick reference:**
 - [components](references/components.md) — categorized component index for finding the right component name
@@ -53,7 +54,8 @@ Based on the task, load the relevant reference files **before writing any code**
 |---|---|
 | Build application for Bitrix24 / a dashboard / admin UI | conventions, component-selection, dashboard |
 | Build a landing page | design-system, conventions, landing |
-| Add a settings page | conventions, forms |
+| Add a settings page | conventions, forms, settings |
+| Pick one option / toggle several where each option deserves a preview image, multi-line description and an inline "Learn more" link — layout chooser, plan picker with screenshots | conventions, settings |
 | Create a login / signup form | conventions, forms, auth |
 | Display data in a table | conventions, component-selection, data-tables |
 | Add a chat interface | conventions, chat |
