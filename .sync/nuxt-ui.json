@@ -1,0 +1,13 @@
+{
+  "upstream": "nuxt/ui",
+  "branch": "v4",
+  "sync_enabled": false,
+  "cursor": null,
+  "_cursor_note": "Bootstrap: set to the nuxt/ui v4 SHA matching current b24ui state (~tag v4.8.0) before enabling. sync_enabled stays false until Phase 2 is wired.",
+  "stats": {
+    "queue_depth": 0,
+    "noop_ratio": 0,
+    "avg_pr_age_hours": 0
+  },
+  "processed": {}
+}

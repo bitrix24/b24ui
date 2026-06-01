@@ -1,0 +1,10 @@
+{
+  "$schema-note": "Map upstream iconify names (nuxt/ui defaults) to b24-icons components. Flat, alphabetical. Seed values verified against current src/runtime/components usage; extend during porting (see PORTING.md §4).",
+  "i-lucide-check": "@bitrix24/b24icons-vue/main/CheckIcon",
+  "i-lucide-chevron-down": "@bitrix24/b24icons-vue/outline/ChevronDownSIcon",
+  "i-lucide-loader-circle": "@bitrix24/b24icons-vue/animated/LoaderWaitIcon",
+  "i-lucide-menu": "@bitrix24/b24icons-vue/outline/HamburgerMenuIcon",
+  "i-lucide-minus": "@bitrix24/b24icons-vue/actions/Minus20Icon",
+  "i-lucide-triangle-alert": "@bitrix24/b24icons-vue/main/WarningIcon",
+  "i-lucide-x": "@bitrix24/b24icons-vue/actions/Cross20Icon"
+}
