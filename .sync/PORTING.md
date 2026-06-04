@@ -102,4 +102,4 @@ History of the maps lives in git; no separate version field.
 
 ## Changelog of rules
 
-- _(seed)_ — initial rules extracted from `.sync/PLAN.md` review.
+- 2026-06-04 — _(seed)_ initial rules extracted from `.sync/PLAN.md` review. Last reviewed: 2026-06-04.

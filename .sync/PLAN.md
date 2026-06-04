@@ -1,6 +1,7 @@
 # Plan: per-commit synchronization nuxt/ui → b24ui
 
 > Status: **proposed** (hardened after multi-angle review). Target branch: `claude/optimistic-maxwell-LRBSh`.
+> Last reviewed: 2026-06-04.
 > Companion docs: [`PORTING.md`](./PORTING.md) (port rules), [`RUNBOOK.md`](./RUNBOOK.md) (incident playbook), [`nuxt-ui.json`](./nuxt-ui.json) (ledger).
 
 ## Core principle
