@@ -119,7 +119,7 @@ For docs/deps/nuxt-infra commits with nothing to port, the pipeline opens a **le
 - Every workflow declares **minimal `permissions:`** (above); existing `ci.yml`/`deploy.yml`/`npm-publish.yml` lack them — see ISSUE B.
 - Pin all third-party actions by commit SHA (review item: security 5а) — tracked in ISSUE B.
 - Branch protection on `main` (require PR + review) — repo setting, see ISSUE B / repo action.
-- Reuse the shared "Claude runner" from issue **#62** — see dependency note in Phases.
+- The porter runs Claude inline (its own self-contained step). An earlier idea to reuse a shared "Claude runner" (issue #62) is dropped: that tooling (`bx-translate-locales`, `b24-self-task`) was removed from the repo, so there is no shared runner to depend on.
 
 ## Quality requirements for every ported PR (review items: engineering, QA)
 
@@ -131,7 +131,7 @@ For docs/deps/nuxt-infra commits with nothing to port, the pipeline opens a **le
 ## Phases
 
 - **Phase 0** — `PORTING.md` + icon-map + color-map + `nuxt-ui.json` + `RUNBOOK.md`, baseline cursor. *(this PR)*
-- **Phase 1** — `sync-porter.yml` on manual `workflow_dispatch` for one SHA; validate on 2–3 recent commits. **Blocked on**: security mitigations baked in + issue **#62** (shared runner). If #62 is open > 2 weeks, Phase 1 starts with a temporary inline runner and #62 becomes a migration task.
+- **Phase 1** — `sync-porter.yml` on manual `workflow_dispatch` for one SHA; validate on 2–3 recent commits. **Blocked on**: security mitigations baked in. The porter uses an inline Claude runner (no shared-runner dependency — see Component 5).
 - **Phase 2** — `sync-dispatcher.yml` + concurrency gate + pre-filter + no-op batching.
 - **Phase 3** — `sync-on-merge.yml` (cursor advance) + branch protection.
 - **Phase 4** — metrics/observability (queue depth, noop ratio, avg PR age), CODEOWNERS, TTL policy for stale PRs; grow `PORTING.md` from review feedback.
