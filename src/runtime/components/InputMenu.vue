@@ -41,7 +41,7 @@ type IsClearUsed<M extends boolean, C extends boolean | object> = M extends fals
   ? (C extends true ? null : C extends object ? null : never)
   : never
 
-export interface InputMenuProps<T extends ArrayOrNested<InputMenuItem> = ArrayOrNested<InputMenuItem>, VK extends GetItemKeys<T> | undefined = undefined, M extends boolean = false, Mod extends Omit<ModelModifiers, 'lazy'> = Omit<ModelModifiers, 'lazy'>, C extends boolean | object = false> extends Pick<ComboboxRootProps<T>, 'open' | 'defaultOpen' | 'disabled' | 'name' | 'resetSearchTermOnBlur' | 'resetSearchTermOnSelect' | 'resetModelValueOnClear' | 'highlightOnHover' | 'openOnClick' | 'openOnFocus' | 'by'>, UseComponentIconsProps, /** @vue-ignore */ Omit<InputHTMLAttributes, 'autocomplete' | 'disabled' | 'name' | 'type' | 'placeholder' | 'autofocus' | 'maxlength' | 'minlength' | 'pattern' | 'size' | 'min' | 'max' | 'step'> {
+export interface InputMenuProps<T extends ArrayOrNested<InputMenuItem> = ArrayOrNested<InputMenuItem>, VK extends GetItemKeys<T> | undefined = undefined, M extends boolean = false, Mod extends Omit<ModelModifiers, 'lazy'> = Omit<ModelModifiers, 'lazy'>, C extends boolean | object = false> extends Pick<ComboboxRootProps<T>, 'open' | 'defaultOpen' | 'disabled' | 'name' | 'resetSearchTermOnBlur' | 'resetSearchTermOnSelect' | 'resetModelValueOnClear' | 'highlightOnHover' | 'openOnClick' | 'openOnFocus' | 'by'>, UseComponentIconsProps, /** @vue-ignore */ Omit<InputHTMLAttributes, 'disabled' | 'name' | 'type' | 'placeholder' | 'autofocus' | 'maxlength' | 'minlength' | 'pattern' | 'size' | 'min' | 'max' | 'step'> {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'
@@ -173,11 +173,13 @@ export interface InputMenuProps<T extends ArrayOrNested<InputMenuItem> = ArrayOr
   /** Keep the mobile text size on all breakpoints. (Left for backward compatibility.) */
   fixed?: boolean
   /**
-   * When `true`, the input accepts free-form text with optional suggestions.
-   * The `modelValue` becomes the input text (string) instead of a selected item.
-   * @defaultValue false
+   * The behavior of the InputMenu.
+   * - `combobox`: select one (or many) items from a list of suggestions.
+   * - `autocomplete`: free-form text input with optional suggestions. The `modelValue`
+   *   becomes the input text (`string`) instead of a selected item.
+   * @defaultValue 'combobox'
    */
-  autocomplete?: boolean
+  mode?: 'combobox' | 'autocomplete'
   /**
    * Determines if custom user input that does not exist in options can be added.
    * @defaultValue false
@@ -294,9 +296,10 @@ const { t } = useLocale()
 const appConfig = useAppConfig() as InputMenu['AppConfig']
 const { filterGroups } = useFilter()
 
+const isAutocomplete = computed(() => props.mode === 'autocomplete')
 const rootPropsPick = reactivePick(props, 'as', 'modelValue', 'defaultValue', 'open', 'defaultOpen', 'required', 'multiple', 'resetSearchTermOnBlur', 'resetSearchTermOnSelect', 'resetModelValueOnClear', 'highlightOnHover', 'openOnClick', 'openOnFocus', 'by')
-const rootProps = useForwardProps(props.autocomplete ? reactiveOmit(rootPropsPick, 'multiple', 'resetSearchTermOnSelect', 'resetModelValueOnClear', 'by') : rootPropsPick, emits)
-const Component = computed(() => props.autocomplete ? Autocomplete : Combobox)
+const rootProps = useForwardProps(isAutocomplete.value ? reactiveOmit(rootPropsPick, 'multiple', 'resetSearchTermOnSelect', 'resetModelValueOnClear', 'by') : rootPropsPick, emits)
+const Component = computed(() => isAutocomplete.value ? Autocomplete : Combobox)
 const portalProps = usePortal(toRef(() => props.portal))
 const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffset: 8, collisionPadding: 8, position: 'popper' }) as ComboboxContentProps)
 const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10 }) as ComboboxArrowProps)
@@ -409,7 +412,7 @@ function autoFocus() {
 
 onMounted(() => {
   nextTick(() => {
-    if (props.autocomplete) {
+    if (isAutocomplete.value) {
       searchTerm.value = String(props.modelValue ?? props.defaultValue ?? '')
     } else {
       searchTerm.value = ''
@@ -422,7 +425,7 @@ onMounted(() => {
 })
 
 watch(() => props.modelValue, (newValue) => {
-  if (props.autocomplete) {
+  if (isAutocomplete.value) {
     searchTerm.value = String(newValue ?? '')
   }
 })
@@ -454,7 +457,7 @@ function onUpdate(value: any) {
   emitFormChange()
   emitFormInput()
 
-  if (props.autocomplete) {
+  if (isAutocomplete.value) {
     searchTerm.value = String(value ?? '')
   } else if (props.resetSearchTermOnSelect) {
     searchTerm.value = ''
@@ -462,7 +465,7 @@ function onUpdate(value: any) {
 }
 
 function onInputUpdate(value: string) {
-  if (!props.autocomplete) {
+  if (!isAutocomplete.value) {
     searchTerm.value = value
   }
 }
@@ -488,7 +491,7 @@ function onUpdateOpen(value: boolean) {
 
     // Since we use `displayValue` prop inside ComboboxInput we should reset searchTerm manually
     // https://reka-ui.com/docs/components/combobox#api-reference
-    if (!props.autocomplete && props.resetSearchTermOnBlur) {
+    if (!isAutocomplete.value && props.resetSearchTermOnBlur) {
       const STATE_ANIMATION_DELAY_MS = 100
 
       timeoutId = setTimeout(() => {
@@ -620,7 +623,7 @@ defineExpose({
         </span>
 
         <span data-slot="itemTrailing" :class="b24ui.itemTrailing({ class: [props.b24ui?.itemTrailing, isInputItem(item) && item.b24ui?.itemTrailing], colorItem: isInputItem(item) ? item?.color : undefined })">
-          <Component.ItemIndicator v-if="!props.autocomplete" as-child>
+          <Component.ItemIndicator v-if="!isAutocomplete" as-child>
             <Component
               :is="props.selectedIcon || icons.check"
               data-slot="itemTrailingIcon"
@@ -657,7 +660,7 @@ defineExpose({
     :disabled="disabled"
     data-slot="root"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
-    :as-child="!!props.multiple && !props.autocomplete"
+    :as-child="!!props.multiple && !isAutocomplete"
     ignore-filter
     @update:model-value="onUpdate"
     @update:open="onUpdateOpen"
@@ -672,7 +675,7 @@ defineExpose({
     />
     <Component.Anchor :as-child="!props.multiple" data-slot="base" :class="b24ui.base({ class: props.b24ui?.base })">
       <TagsInputRoot
-        v-if="props.multiple && !props.autocomplete"
+        v-if="props.multiple && !isAutocomplete"
         v-slot="{ modelValue: tags }"
         :model-value="(modelValue as string[])"
         :disabled="disabled"
@@ -726,7 +729,7 @@ defineExpose({
         v-else
         :id="id"
         ref="inputRef"
-        v-bind="{ ...(!props.autocomplete ? { displayValue } : {}), ...$attrs, ...ariaAttrs }"
+        v-bind="{ ...(!isAutocomplete ? { displayValue } : {}), ...$attrs, ...ariaAttrs }"
         :type="props.type"
         :placeholder="props.placeholder"
         :required="props.required"
