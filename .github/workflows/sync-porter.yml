@@ -17,6 +17,10 @@ on:
         description: "nuxt/ui branch the SHA lives on"
         required: false
         default: "v4"
+      max_turns:
+        description: "Max Claude turns (lower = cheaper/faster for trials)"
+        required: false
+        default: "40"
 
 permissions:
   contents: write
@@ -82,7 +86,10 @@ jobs:
       - name: Port the commit with Claude
         uses: anthropics/claude-code-action@v1
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Subscription auth (Pro/Max). Generate with `claude setup-token` and
+          # store as the CLAUDE_CODE_OAUTH_TOKEN repo secret. (Swap for
+          # anthropic_api_key to bill per-token instead.)
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           prompt: |
             You are porting ONE upstream nuxt/ui commit into this b24ui repository.
 
@@ -100,7 +107,7 @@ jobs:
             `test/`, or `.sync/log/`.
           # No Bash tool: Claude only edits files; this workflow handles all git/PR ops.
           claude_args: >-
-            --max-turns 40
+            --max-turns ${{ inputs.max_turns }}
             --allowed-tools Read,Edit,Write,Grep,Glob
 
       - name: Scope guard
