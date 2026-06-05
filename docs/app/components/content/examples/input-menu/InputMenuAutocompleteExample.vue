@@ -6,7 +6,7 @@ const value = ref('')
 <template>
   <B24InputMenu
     v-model="value"
-    autocomplete
+    mode="autocomplete"
     :items="items"
     :content="{ hideWhenEmpty: true }"
     placeholder="Type a status..."
