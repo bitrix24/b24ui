@@ -184,6 +184,11 @@ describe('InputMenu', () => {
       expect(emissions).toBeTruthy()
       expect(emissions![emissions!.length - 1]).toEqual(['Option 2'])
     })
+
+    test('forwards the native autocomplete attribute to the input', () => {
+      const wrapper = mount(InputMenu, { props: { items: ['Option 1', 'Option 2'] }, attrs: { autocomplete: 'email' } })
+      expect(wrapper.find('input').attributes('autocomplete')).toBe('email')
+    })
   })
 
   describe('it should display correct label', () => {
