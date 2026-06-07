@@ -37,6 +37,7 @@ export default () => {
         placeholder: 'truncate text-(--ui-color-design-plain-na-content-secondary)',
         content: [
           'base-mode',
+          'max-h-[min(15rem,var(--reka-select-content-available-height))]',
           'bg-(--ui-color-bg-content-primary)',
           'shadow-(--popup-window-box-shadow)',
           'rounded-(--ui-border-radius-xl) will-change-[opacity]',

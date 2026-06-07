@@ -36,6 +36,7 @@ export default () => {
       trailingClear: 'p-0',
       content: [
         'base-mode',
+        'max-h-[min(15rem,var(--reka-combobox-content-available-height))]',
         'bg-(--ui-color-bg-content-primary)',
         'shadow-(--popup-window-box-shadow)',
         'rounded-(--ui-border-radius-xl) will-change-[opacity]',

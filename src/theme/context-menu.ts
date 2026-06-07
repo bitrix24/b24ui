@@ -9,6 +9,7 @@ export default {
   slots: {
     content: [
       'base-mode',
+      'max-h-(--reka-context-menu-content-available-height)',
       'bg-(--ui-color-bg-content-primary)',
       'shadow-(--popup-window-box-shadow)',
       'rounded-(--ui-border-radius-xl) will-change-[opacity]',
