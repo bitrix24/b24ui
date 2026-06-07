@@ -15,7 +15,7 @@ exports[`SelectMenu > renders with ariaLabel correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -65,7 +65,7 @@ exports[`SelectMenu > renders with arrow correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -159,7 +159,7 @@ exports[`SelectMenu > renders with b24ui correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid p-2">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -209,7 +209,7 @@ exports[`SelectMenu > renders with by correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="true" data-state="checked" data-highlighted="">
@@ -259,7 +259,7 @@ exports[`SelectMenu > renders with class correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -309,7 +309,7 @@ exports[`SelectMenu > renders with clear and clearIcon correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="true" data-state="checked" data-highlighted="">
@@ -359,7 +359,7 @@ exports[`SelectMenu > renders with clear correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="true" data-state="checked" data-highlighted="">
@@ -409,7 +409,7 @@ exports[`SelectMenu > renders with create-item-label slot correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-[state=open]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors text-legend data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted=""><span data-slot="itemLabel" class="truncate flex flex-row flex-nowrap items-center justify-start gap-2">Create item slot</span></div>
@@ -439,7 +439,7 @@ exports[`SelectMenu > renders with default slot correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -489,7 +489,7 @@ exports[`SelectMenu > renders with defaultValue correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="true" data-state="checked" data-highlighted="">
@@ -539,7 +539,7 @@ exports[`SelectMenu > renders with descriptionKey correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -589,7 +589,7 @@ exports[`SelectMenu > renders with disabled correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" disabled="" data-disabled="" data-state="unchecked">
@@ -649,7 +649,7 @@ exports[`SelectMenu > renders with id correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -699,7 +699,7 @@ exports[`SelectMenu > renders with item slot correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">Item slot</div>
@@ -734,7 +734,7 @@ exports[`SelectMenu > renders with item-description slot correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -779,7 +779,7 @@ exports[`SelectMenu > renders with item-label slot correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -829,7 +829,7 @@ exports[`SelectMenu > renders with item-leading slot correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">Item leading slot<span data-slot="itemWrapper" class="flex-1 flex flex-col min-w-0"><span data-slot="itemLabel" class="truncate">Backlog</span>
@@ -874,7 +874,7 @@ exports[`SelectMenu > renders with item-trailing slot correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -924,7 +924,7 @@ exports[`SelectMenu > renders with items correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -974,7 +974,7 @@ exports[`SelectMenu > renders with items with description correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -1019,7 +1019,7 @@ exports[`SelectMenu > renders with labelKey correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -1078,7 +1078,7 @@ exports[`SelectMenu > renders with leading slot correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -1199,7 +1199,7 @@ exports[`SelectMenu > renders with modelValue correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="true" data-state="checked" data-highlighted="">
@@ -1249,7 +1249,7 @@ exports[`SelectMenu > renders with multiple and modelValue correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="true" data-state="checked" data-highlighted="">
@@ -1299,7 +1299,7 @@ exports[`SelectMenu > renders with multiple correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -1349,7 +1349,7 @@ exports[`SelectMenu > renders with name correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -1399,7 +1399,7 @@ exports[`SelectMenu > renders with placeholder correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -1449,7 +1449,7 @@ exports[`SelectMenu > renders with required correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -1498,7 +1498,7 @@ exports[`SelectMenu > renders with searchInput icon correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -1548,7 +1548,7 @@ exports[`SelectMenu > renders with searchInput placeholder correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -1598,7 +1598,7 @@ exports[`SelectMenu > renders with selectedIcon correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -1648,7 +1648,7 @@ exports[`SelectMenu > renders with size lg correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -1698,7 +1698,7 @@ exports[`SelectMenu > renders with size md correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -1748,7 +1748,7 @@ exports[`SelectMenu > renders with size sm correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -1798,7 +1798,7 @@ exports[`SelectMenu > renders with size xl correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -1848,7 +1848,7 @@ exports[`SelectMenu > renders with size xs correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -1898,7 +1898,7 @@ exports[`SelectMenu > renders with size xss correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -1948,7 +1948,7 @@ exports[`SelectMenu > renders with trailing slot correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -2009,7 +2009,7 @@ exports[`SelectMenu > renders with trailingIcon correctly 2`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" data-highlighted="">
@@ -2059,7 +2059,7 @@ exports[`SelectMenu > renders with valueKey correctly 1`] = `
           <!--v-if-->
         </div>
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="-1" aria-selected="true" data-state="checked" data-highlighted="">
@@ -2109,7 +2109,7 @@ exports[`SelectMenu > renders with virtualize correctly 1`] = `
           <!--v-if-->
         </div>
         <div data-slot="empty" class="h-(--popup-window-delimiter-section-height) mt-(--menu-item-block-stack-space) py-2 select-none outline-none whitespace-nowrap text-center text-(length:--popup-window-delimiter-font-size)/(--ui-font-line-height-lg) text-legend font-(--ui-font-weight-normal)">No data</div>
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin p-1 isolate">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin p-1 isolate">
           <!--v-if-->
           <div data-reka-virtualizer="" style="position: relative; width: 100%; height: 160px;"></div>
           <!--v-if-->
@@ -2134,7 +2134,7 @@ exports[`SelectMenu > renders without searchInput correctly 1`] = `
       <div tabindex="-1" data-slot="focusScope" class="flex flex-col min-h-0">
         <!--v-if-->
         <!--v-if-->
-        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 max-h-[40vh] overflow-x-hidden overflow-y-auto scrollbar-thin">
+        <div role="presentation" data-slot="viewport" class="relative scroll-py-1 w-60 overflow-x-hidden overflow-y-auto scrollbar-thin">
           <!--v-if-->
           <div role="group" aria-labelledby="" id="reka-combobox-group-v-0-0-1" data-slot="group" class="grid">
             <div id="reka-combobox-item-v-0-0-3" data-slot="item" class="group w-full min-w-[195px] h-[36px] px-4.5 mt-(--menu-item-block-stack-space) relative flex flex-row rtl:flex-row-reverse items-center select-none outline-none whitespace-nowrap cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-30 text-start text-(length:--ui-font-size-md) hover:text-label data-highlighted:not-data-disabled:text-label data-[state=checked]:text-label hover:bg-(--ui-color-base-black-fixed)/3 dark:hover:bg-(--ui-color-base-black-fixed) active:bg-(--ui-color-base-black-fixed)/6 dark:active:bg-(--ui-color-base-black-fixed) data-highlighted:not-active:bg-(--ui-color-base-black-fixed)/3 dark:data-highlighted:not-active:bg-(--ui-color-base-black-fixed) data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed) transition-colors style-filled-copilot text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)" data-reka-collection-item="" role="option" tabindex="0" aria-selected="false" data-state="unchecked" data-highlighted="">

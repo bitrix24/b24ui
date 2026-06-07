@@ -51,7 +51,7 @@ export default () => {
       viewport: [
         'relative',
         'scroll-py-1',
-        'w-60 max-h-[40vh]',
+        'w-60',
         'overflow-x-hidden overflow-y-auto scrollbar-thin'
       ].join(' '),
       arrow: 'fill-(--ui-color-bg-content-primary)',
