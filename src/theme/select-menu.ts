@@ -19,7 +19,8 @@ export default () => {
       ].join(' '),
       content: (content: string) => [
         content,
-        'max-h-[min(40rem,var(--reka-combobox-content-available-height))]',
+        // single height cap on content (viewport just scrolls); 100vh fallback keeps it valid if reka doesn't set the var
+        'max-h-[min(40rem,var(--reka-combobox-content-available-height,100vh))]',
         'origin-(--reka-combobox-content-transform-origin)'
       ],
       trailingClear: 'p-0'

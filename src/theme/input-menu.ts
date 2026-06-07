@@ -36,7 +36,8 @@ export default () => {
       trailingClear: 'p-0',
       content: [
         'base-mode',
-        'max-h-[min(40rem,var(--reka-combobox-content-available-height))]',
+        // single height cap on content (viewport just scrolls); 100vh fallback keeps it valid if reka doesn't set the var
+        'max-h-[min(40rem,var(--reka-combobox-content-available-height,100vh))]',
         'bg-(--ui-color-bg-content-primary)',
         'shadow-(--popup-window-box-shadow)',
         'rounded-(--ui-border-radius-xl) will-change-[opacity]',

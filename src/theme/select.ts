@@ -37,7 +37,8 @@ export default () => {
         placeholder: 'truncate text-(--ui-color-design-plain-na-content-secondary)',
         content: [
           'base-mode',
-          'max-h-[min(40rem,var(--reka-select-content-available-height))]',
+          // single height cap on content (viewport just scrolls); 100vh fallback keeps the cap valid for position="item-aligned" where reka does not set the var
+          'max-h-[min(40rem,var(--reka-select-content-available-height,100vh))]',
           'bg-(--ui-color-bg-content-primary)',
           'shadow-(--popup-window-box-shadow)',
           'rounded-(--ui-border-radius-xl) will-change-[opacity]',

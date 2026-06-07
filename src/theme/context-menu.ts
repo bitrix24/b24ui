@@ -9,6 +9,7 @@ export default {
   slots: {
     content: [
       'base-mode',
+      // menus cap height by popper available-height here; the absolute design cap (40vh) lives on the viewport slot
       'max-h-(--reka-context-menu-content-available-height)',
       'bg-(--ui-color-bg-content-primary)',
       'shadow-(--popup-window-box-shadow)',
