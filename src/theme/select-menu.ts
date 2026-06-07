@@ -19,7 +19,7 @@ export default () => {
       ].join(' '),
       content: (content: string) => [
         content,
-        'max-h-[min(15rem,var(--reka-combobox-content-available-height))]',
+        'max-h-[min(40rem,var(--reka-combobox-content-available-height))]',
         'origin-(--reka-combobox-content-transform-origin)'
       ],
       trailingClear: 'p-0'
