@@ -28,7 +28,7 @@ prettier: true
 collapse: true
 ignore:
   - items
-  - b24b24ui.content
+  - b24ui.content
 external:
   - items
 externalTypes:
@@ -321,7 +321,7 @@ prettier: true
 collapse: true
 ignore:
   - items
-  - b24b24ui.content
+  - b24ui.content
 external:
   - items
 externalTypes:
@@ -490,7 +490,7 @@ name: 'dropdown-menu-filter-fields-example'
 
 ### With trigger content width
 
-You can expand the content to the full width of its button by adding the `w-(--reka-dropdown-menu-trigger-width)` class on the `b24b24ui.content` and adding the `min-w-(--reka-dropdown-menu-trigger-width) w-(--reka-dropdown-menu-trigger-width)` class `b24ui.viewport` slot.
+You can expand the content to the full width of its button by adding the `w-(--reka-dropdown-menu-trigger-width)` class on the `b24ui.content` and adding the `min-w-(--reka-dropdown-menu-trigger-width) w-(--reka-dropdown-menu-trigger-width)` class `b24ui.viewport` slot.
 
 ::component-example
 ---
