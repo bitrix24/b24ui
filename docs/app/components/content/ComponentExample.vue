@@ -3,9 +3,6 @@ import { camelCase, upperFirst } from 'scule'
 import { hash } from 'ohash'
 import { useElementSize } from '@vueuse/core'
 import { get, set } from '#b24ui/utils'
-import PlayLIcon from '@bitrix24/b24icons-vue/outline/PlayLIcon'
-
-const { track } = useAnalytics()
 
 const props = withDefaults(defineProps<{
   name: string
@@ -259,17 +256,7 @@ const urlSearchParams = computed(() => {
         </div>
 
         <ClientOnly>
-          <B24Tooltip v-if="playgroundUrl" text="Open in playground" :content="{ side: 'right' }">
-            <B24Button
-              :to="playgroundUrl"
-              target="_blank"
-              :icon="PlayLIcon"
-              size="sm"
-              class="absolute -bottom-[13px] -right-[13px] z-1 rounded-full lg:opacity-0 lg:group-hover/component:opacity-100 ring-muted transition-opacity duration-200"
-              aria-label="Open in playground"
-              @click="track('Playground Opened', { component: camelName, source: 'example' })"
-            />
-          </B24Tooltip>
+          <ComponentPlaygroundButton v-if="playgroundUrl" :to="playgroundUrl" :component="camelName" source="example" />
 
           <LazyComponentThemeVisualizer
             :container="componentContainer"
