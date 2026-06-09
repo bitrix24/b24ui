@@ -22,6 +22,12 @@ export interface ChatPromptProps extends Pick<TextareaProps, 'rows' | 'autofocus
    * @defaultValue 'outline'
    */
   variant?: ChatPrompt['variants']['variant']
+  /**
+   * When `true`, pressing `Enter` submits and `Shift+Enter` inserts a newline.
+   * When `false`, pressing `Enter` inserts a newline and `Ctrl+Enter` / `Cmd+Enter` submits.
+   * @defaultValue true
+   */
+  submitOnEnter?: boolean
   error?: Error
   class?: any
   b24ui?: ChatPrompt['slots'] & TextareaProps['b24ui']
@@ -59,7 +65,8 @@ const _props = withDefaults(defineProps<ChatPromptProps>(), {
   as: 'form',
   autofocus: true,
   autoresize: true,
-  rows: 1
+  rows: 1,
+  submitOnEnter: true
 })
 const emits = defineEmits<ChatPromptEmits>()
 const slots = defineSlots<ChatPromptSlots>()
@@ -100,6 +107,16 @@ const { onKeydown: onEnter, onCompositionEnd } = useIMEGuard((event) => {
   submit(event)
 })
 
+function handleEnter(event: KeyboardEvent) {
+  if (props.submitOnEnter) {
+    if (event.shiftKey || event.ctrlKey || event.metaKey || event.altKey) return
+  } else {
+    if (!event.ctrlKey && !event.metaKey) return
+  }
+
+  onEnter(event)
+}
+
 defineExpose({
   textareaRef: toRef(() => textareaRef.value?.textareaRef)
 })
@@ -122,7 +139,7 @@ defineExpose({
       :b24ui="transformUI(omit(b24ui, ['root', 'body', 'header', 'footer']), props.b24ui)"
       data-slot="body"
       :class="b24ui.body({ class: props.b24ui?.body })"
-      @keydown.enter.exact="onEnter"
+      @keydown.enter="handleEnter"
       @compositionend="onCompositionEnd"
       @keydown.esc="blur"
     >
