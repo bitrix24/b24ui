@@ -103,3 +103,4 @@ History of the maps lives in git; no separate version field.
 ## Changelog of rules
 
 - 2026-06-04 — _(seed)_ initial rules extracted from `.sync/PLAN.md` review. Last reviewed: 2026-06-04.
+- 2026-06-09 — port of `007b136a` (PR #72): added rule — match the reka **transform-origin / available-height CSS var namespace to the underlying primitive** (`--reka-combobox-*` for InputMenu/SelectMenu, `--reka-select-*` for Select, `--reka-dropdown-menu-*` / `--reka-context-menu-*` for menus); a `max-h` cap on `content` only takes effect when `content` is also `flex flex-col` (viewport scrolls via `flex-1`); do **not** add `overflow-hidden` to b24ui menu `content` — the arrow is rendered inside it and would be clipped. Last reviewed: 2026-06-09.
