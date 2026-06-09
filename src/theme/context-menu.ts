@@ -9,6 +9,9 @@ export default {
   slots: {
     content: [
       'base-mode',
+      // single height cap on content: min(40vh ceiling, popper available-height); viewport scrolls via flex-1
+      'flex flex-col',
+      'max-h-[min(40vh,var(--reka-context-menu-content-available-height,40vh))]',
       'bg-(--ui-color-bg-content-primary)',
       'shadow-(--popup-window-box-shadow)',
       'rounded-(--ui-border-radius-xl) will-change-[opacity]',
@@ -22,7 +25,7 @@ export default {
     ].join(' '),
     viewport: [
       'relative',
-      'w-full max-h-[40vh] min-w-48',
+      'w-full min-w-48 flex-1',
       'scroll-py-1',
       'overflow-x-hidden overflow-y-auto scrollbar-thin'
     ].join(' '),

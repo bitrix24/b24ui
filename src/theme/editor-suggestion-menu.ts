@@ -14,7 +14,8 @@ export default {
       'shadow-(--popup-window-box-shadow)',
       'rounded-(--ui-border-radius-xl) will-change-[opacity]',
       'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]',
-      'origin-(--reka-dropdown-menu-content-transform-origin)',
+      // positioned by tiptap/floating-ui (not reka) — reka transform-origin var is never set here, so use a static, RTL-safe origin for the scale animation
+      'origin-top',
       'font-[family-name:var(--ui-font-family-primary)]',
       'relative',
       'isolate',

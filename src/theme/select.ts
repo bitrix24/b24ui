@@ -37,11 +37,14 @@ export default () => {
         placeholder: 'truncate text-(--ui-color-design-plain-na-content-secondary)',
         content: [
           'base-mode',
+          'flex flex-col',
+          // single height cap on content (viewport scrolls via flex-1); 100vh fallback keeps the cap valid for position="item-aligned" where reka does not set the var
+          'max-h-[min(40rem,var(--reka-select-content-available-height,100vh))]',
           'bg-(--ui-color-bg-content-primary)',
           'shadow-(--popup-window-box-shadow)',
           'rounded-(--ui-border-radius-xl) will-change-[opacity]',
           // 'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]',
-          'origin-(--reka-dropdown-menu-content-transform-origin)',
+          'origin-(--reka-select-content-transform-origin)',
           'font-[family-name:var(--ui-font-family-primary)]',
           'relative',
           'isolate',
@@ -51,7 +54,7 @@ export default () => {
         viewport: [
           'relative',
           'scroll-py-1',
-          'w-60 max-h-[40vh]',
+          'w-60 flex-1',
           'overflow-x-hidden overflow-y-auto scrollbar-thin'
         ].join(' '),
         arrow: 'fill-(--ui-color-bg-content-primary)',
