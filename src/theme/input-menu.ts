@@ -36,7 +36,8 @@ export default () => {
       trailingClear: 'p-0',
       content: [
         'base-mode',
-        // single height cap on content (viewport just scrolls); 100vh fallback keeps it valid if reka doesn't set the var
+        'flex flex-col',
+        // single height cap on content (viewport scrolls via flex-1); 100vh fallback keeps it valid if reka doesn't set the var
         'max-h-[min(40rem,var(--reka-combobox-content-available-height,100vh))]',
         'bg-(--ui-color-bg-content-primary)',
         'shadow-(--popup-window-box-shadow)',
@@ -52,7 +53,7 @@ export default () => {
       viewport: [
         'relative',
         'scroll-py-1',
-        'w-60',
+        'w-60 flex-1',
         'overflow-x-hidden overflow-y-auto scrollbar-thin'
       ].join(' '),
       arrow: 'fill-(--ui-color-bg-content-primary)',

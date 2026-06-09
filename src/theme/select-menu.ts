@@ -10,16 +10,17 @@ export default () => {
   return defuFn({
     slots: {
       input: 'border-b border-(--ui-color-divider-vibrant-default)',
-      focusScope: 'flex flex-col min-h-0',
+      focusScope: 'flex flex-col min-h-0 flex-1',
       viewport: [
         'relative',
         'scroll-py-1',
-        'w-60',
+        'w-60 flex-1',
         'overflow-x-hidden overflow-y-auto scrollbar-thin'
       ].join(' '),
       content: (content: string) => [
         content,
-        // single height cap on content (viewport just scrolls); 100vh fallback keeps it valid if reka doesn't set the var
+        'flex flex-col',
+        // single height cap on content (focusScope+viewport scroll via flex-1); 100vh fallback keeps it valid if reka doesn't set the var
         'max-h-[min(40rem,var(--reka-combobox-content-available-height,100vh))]',
         'origin-(--reka-combobox-content-transform-origin)'
       ],
