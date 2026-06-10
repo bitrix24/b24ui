@@ -2,9 +2,12 @@
 <script setup lang="ts">
 import { ref, computed, watchEffect } from 'vue'
 import { Repl, useStore, useVueImportMap } from '@vue/repl'
+import { useClipboard } from '@vueuse/core'
 import CodeMirror from '@vue/repl/codemirror-editor'
 import GraduationCapIcon from '@bitrix24/b24icons-vue/outline/GraduationCapIcon'
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
+import ShareIcon from '@bitrix24/b24icons-vue/outline/ShareIcon'
+import CircleCheckIcon from '@bitrix24/b24icons-vue/outline/CircleCheckIcon'
 
 // const colorMode = useColorMode()
 // const theme = computed(() => colorMode.preference === 'dark' ? 'dark' : 'light')
@@ -147,9 +150,14 @@ if (!hasInitialHash) {
   }, 'src/App.vue')
 }
 
+const hasChanged = ref(hasInitialHash)
+
 watchEffect(() => {
   const serialized = store.serialize()
-  if (!hasInitialHash && store.getFiles()['App.vue']?.trimEnd() === defaultCode.trimEnd()) {
+  const isDefault = !hasInitialHash && store.getFiles()['App.vue']?.trimEnd() === defaultCode.trimEnd()
+
+  hasChanged.value = !isDefault
+  if (isDefault) {
     if (location.hash) {
       history.replaceState({}, '', location.pathname)
     }
@@ -157,6 +165,11 @@ watchEffect(() => {
   }
   history.replaceState({}, '', serialized)
 })
+
+const { copy, copied } = useClipboard()
+function share() {
+  copy(location.href)
+}
 
 const previewOptions = {
   headHTML: [
@@ -182,6 +195,17 @@ const previewOptions = {
         </template>
 
         <template #right>
+          <B24Tooltip :text="copied ? 'Copied!' : 'Share'" :disabled="!hasChanged">
+            <B24Button
+              aria-label="Share"
+              color="air-tertiary-no-accent"
+              :icon="copied ? CircleCheckIcon : ShareIcon"
+              :disabled="!hasChanged"
+              size="sm"
+              @click="share"
+            />
+          </B24Tooltip>
+
           <B24Button
             aria-label="Bitrix24 UI on GitHub"
             color="air-tertiary-no-accent"
