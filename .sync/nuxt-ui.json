@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "b597f909aa9f4b12f3c732ec75f52226bcf88c2e",
+  "cursor": "507640490f5d01ff2c9d84d19421cc06a2b2aaec",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -47,10 +47,16 @@
       "summary": "fix(CommandPalette): re-highlight first item after debounced results render"
     },
     "b597f909aa9f4b12f3c732ec75f52226bcf88c2e": {
+      "pr": 77,
+      "b24ui_sha": "91c397fd",
+      "decision": "port",
+      "summary": "feat(ChatPrompt): add `submitOnEnter` prop to control Enter behavior"
+    },
+    "507640490f5d01ff2c9d84d19421cc06a2b2aaec": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "feat(ChatPrompt): add `submitOnEnter` prop to control Enter behavior"
+      "summary": "docs(app): extract playground button into shared component"
     }
   }
 }
