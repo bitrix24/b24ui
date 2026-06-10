@@ -21,6 +21,8 @@ describe('InputTags', () => {
     ['with icon', { props: { icon: Search2Icon } }],
     ['with trailingIcon', { props: { trailingIcon: Search2Icon } }],
     ['with loading', { props: { loading: true } }],
+    ['with highlight', { props: { highlight: true } }],
+    ['with highlight air-primary-success', { props: { color: 'air-primary-success', highlight: true } }],
     ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],
     ['with as', { props: { as: 'section' } }],
     ['with class', { props: { class: '' } }],

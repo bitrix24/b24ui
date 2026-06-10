@@ -35,6 +35,8 @@ describe('CheckboxGroup', () => {
     ...variants.map((variant: string) => [`with variant ${variant}`, { props: { ...props, variant, defaultValue: ['1'] } }]),
     ...variants.map((variant: string) => [`with air-primary-success variant ${variant}`, { props: { ...props, variant, color: 'air-primary-success', defaultValue: ['1'] } }]),
     ...variants.map((variant: string) => [`with horizontal variant ${variant}`, { props: { ...props, variant, orientation: 'horizontal', defaultValue: ['1'] } }]),
+    ['with highlight', { props: { ...props, highlight: true, defaultValue: ['1'] } }],
+    ['with highlight air-primary-success', { props: { ...props, color: 'air-primary-success', highlight: true, defaultValue: ['1'] } }],
     ['with ariaLabel', { props, attrs: { 'aria-label': 'Aria label' } }],
     ['with as', { props: { ...props, as: 'section' } }],
     ['with class', { props: { ...props, class: 'absolute' } }],

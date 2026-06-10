@@ -30,6 +30,8 @@ describe('Switch', () => {
     ['with description', { props: { label: 'Label', description: 'Description' } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { size } }]),
     ['with color success', { props: { color: 'air-primary-success', defaultValue: true } }],
+    ['with highlight', { props: { highlight: true, defaultValue: true } }],
+    ['with highlight air-primary-success', { props: { color: 'air-primary-success', highlight: true, defaultValue: true } }],
     ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],
     ['with trueValue/falseValue as string', { props: { trueValue: 'on', falseValue: 'off', defaultValue: 'on' } }],
     ['with trueValue/falseValue as number', { props: { trueValue: 1, falseValue: 0, defaultValue: 1 } }],
