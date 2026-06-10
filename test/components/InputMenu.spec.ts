@@ -80,6 +80,8 @@ describe('InputMenu', () => {
     ['with virtualize', { props: { ...props, virtualize: true } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { ...props, size } }]),
     [`with success`, { props: { ...props, color: 'air-primary-success' } }],
+    ['with highlight', { props: { ...props, highlight: true } }],
+    ['with highlight air-primary-success', { props: { ...props, color: 'air-primary-success', highlight: true } }],
     ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],
     ['with as', { props: { ...props, as: 'section' } }],
     ['with class', { props: { ...props, class: 'absolute' } }],

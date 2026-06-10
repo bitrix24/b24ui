@@ -37,6 +37,8 @@ describe('Input', () => {
     ...sizes.map((size: string) => [`with size ${size}`, { props: { size } }]),
     // ...variants.map((variant: string) => [`with primary variant ${variant}`, { props: { variant } }]),
     // ...variants.map((variant: string) => [`with success variant ${variant}`, { props: { variant, color: 'air-primary-success' } }]),
+    ['with highlight', { props: { highlight: true } }],
+    ['with highlight air-primary-success', { props: { color: 'air-primary-success', highlight: true } }],
     ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],
     ['with as', { props: { as: 'section' } }],
     ['with class', { props: { class: 'absolute' } }],

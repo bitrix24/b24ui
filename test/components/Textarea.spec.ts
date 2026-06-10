@@ -30,6 +30,8 @@ describe('Textarea', () => {
     ['with loading and avatar', { props: { loading: true, avatar: { src: 'https://github.com/bitrix24.png' } } }],
     ['with loadingIcon', { props: { loading: true, loadingIcon: Cross30Icon } }],
     ['with primary', { props: {} }],
+    ['with highlight', { props: { highlight: true } }],
+    ['with highlight air-primary-success', { props: { color: 'air-primary-success', highlight: true } }],
     ['with air-primary-success', { props: { color: 'air-primary-success' } }],
     // ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],
     ['with as', { props: { as: 'section' } }],

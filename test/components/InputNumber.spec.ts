@@ -30,6 +30,8 @@ describe('InputNumber', () => {
     ['without increment and decrement', { props: { increment: false, decrement: false } }],
     ['without increment and decrement vertical', { props: { increment: false, decrement: false, orientation: 'vertical' } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { size } }]),
+    ['with highlight', { props: { highlight: true } }],
+    ['with highlight air-primary-success', { props: { color: 'air-primary-success', highlight: true } }],
     ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],
     ['with .optional modifier', { props: { modelModifiers: { optional: true } } }, { input: '', expected: undefined }],
     ['with as', { props: { as: 'section' } }],

@@ -77,6 +77,8 @@ describe('SelectMenu', () => {
     ['with arrow', { props: { ...props, arrow: true } }],
     ['with virtualize', { props: { ...props, virtualize: true } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { ...props, size } }]),
+    ['with highlight', { props: { ...props, highlight: true } }],
+    ['with highlight air-primary-success', { props: { ...props, color: 'air-primary-success', highlight: true } }],
     ['with ariaLabel', { props, attrs: { 'aria-label': 'Aria label' } }],
     ['with class', { props: { ...props, class: 'rounded-full' } }],
     ['with b24ui', { props: { ...props, b24ui: { group: 'p-2' } } }],

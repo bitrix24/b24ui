@@ -35,6 +35,8 @@ describe('InputDate', () => {
     ['with trailingIcon', { props: { trailingIcon: SignIcon } }],
     ['with separatorIcon', { props: { range: true, separatorIcon: Cross30Icon } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { size } }]),
+    ['with highlight', { props: { highlight: true, defaultValue: new CalendarDate(2025, 1, 15) } }],
+    ['with highlight air-primary-success', { props: { color: 'air-primary-success', highlight: true, defaultValue: new CalendarDate(2025, 1, 15) } }],
     ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],
     ['with as', { props: { as: 'section' } }],
     ['with class', { props: { class: 'max-w-sm' } }],

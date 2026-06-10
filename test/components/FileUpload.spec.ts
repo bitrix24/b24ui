@@ -71,6 +71,8 @@ describe('FileUpload', () => {
     ['with fileIcon', { props: { ...props, fileIcon: Cross30Icon } }],
     ['with fileDelete', { props: { ...props, fileDelete: { color: 'primary' } } }],
     ['with fileDeleteIcon', { props: { ...props, fileDeleteIcon: SignIcon } }],
+    ['with highlight', { props: { ...props, highlight: true } }],
+    ['with highlight air-primary-success', { props: { ...props, color: 'air-primary-success', highlight: true } }],
     ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],
     ['with as', { props: { as: 'section' } }],
     ['with class', { props: { class: 'w-full gap-4' } }],
