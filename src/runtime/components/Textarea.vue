@@ -231,7 +231,8 @@ onMounted(() => {
     autoFocus()
   }, props.autofocusDelay)
 
-  setTimeout(() => {
+  setTimeout(async () => {
+    await nextTick()
     autoResize()
   }, props.autoresizeDelay)
 })
