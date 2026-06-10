@@ -193,7 +193,7 @@ onUnmounted(() => {
       </div>
 
       <template v-if="props.links?.length">
-        <CollapsibleTrigger data-slot="trigger" :class="b24ui.trigger({ class: 'lg:hidden' })">
+        <CollapsibleTrigger data-slot="trigger" :class="b24ui.trigger({ class: [props.b24ui?.trigger, 'lg:hidden'] })">
           <ReuseTriggerTemplate :open="open" />
         </CollapsibleTrigger>
 
@@ -203,7 +203,7 @@ onUnmounted(() => {
           </slot>
         </CollapsibleContent>
 
-        <p data-slot="trigger" :class="b24ui.trigger({ class: 'hidden lg:flex' })">
+        <p data-slot="trigger" :class="b24ui.trigger({ class: [props.b24ui?.trigger, 'hidden lg:flex'] })">
           <ReuseTriggerTemplate :open="open" />
         </p>
 
