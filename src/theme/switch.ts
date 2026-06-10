@@ -128,6 +128,11 @@ export default {
         label: 'cursor-not-allowed',
         description: 'cursor-not-allowed'
       }
+    },
+    highlight: {
+      true: {
+        base: 'ring ring-inset ring-(--b24ui-border-color)'
+      }
     }
   },
   defaultVariants: {

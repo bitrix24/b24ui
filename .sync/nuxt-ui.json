@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "507640490f5d01ff2c9d84d19421cc06a2b2aaec",
+  "cursor": "a0deee4d85ddde5f8c59ab908cb21001a77f39a7",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -53,10 +53,16 @@
       "summary": "feat(ChatPrompt): add `submitOnEnter` prop to control Enter behavior"
     },
     "507640490f5d01ff2c9d84d19421cc06a2b2aaec": {
+      "pr": 78,
+      "b24ui_sha": "a27ff2d4",
+      "decision": "port",
+      "summary": "docs(app): extract playground button into shared component"
+    },
+    "a0deee4d85ddde5f8c59ab908cb21001a77f39a7": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "docs(app): extract playground button into shared component"
+      "summary": "feat(Checkbox/RadioGroup/Switch): add `highlight` prop for error ring styling"
     }
   }
 }
