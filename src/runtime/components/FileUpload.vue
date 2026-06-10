@@ -366,6 +366,7 @@ defineExpose({
         ref="dropzoneRef"
         :type="variant === 'button' ? 'button' : undefined"
         :role="variant === 'button' ? undefined : 'button'"
+        :disabled="variant === 'button' ? disabled : undefined"
         :data-dragging="isDragging"
         data-slot="base"
         :class="b24ui.base({ class: props.b24ui?.base })"

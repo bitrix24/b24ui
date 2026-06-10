@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "8dbddf938713ed9ed76d85f7076220f52a57d1f0",
+  "cursor": "2890c8334b35b0b6f528c64f56e80950e5b7409b",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -71,10 +71,16 @@
       "summary": "test(components): add highlight coverage across all form controls"
     },
     "8dbddf938713ed9ed76d85f7076220f52a57d1f0": {
+      "pr": 103,
+      "b24ui_sha": "fab9b432",
+      "decision": "port",
+      "summary": "chore(playground): add share button to repl"
+    },
+    "2890c8334b35b0b6f528c64f56e80950e5b7409b": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "chore(playground): add share button to repl"
+      "summary": "fix(FileUpload): pass `disabled` attribute to button variant"
     }
   }
 }
