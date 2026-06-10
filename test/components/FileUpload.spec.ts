@@ -60,6 +60,7 @@ describe('FileUpload', () => {
     ...sizes.map((size: string) => [`with size ${size} variant button`, { props: { ...props, size, variant: 'button' } }]),
     ['with required', { props: { required: true } }],
     ['with disabled', { props: { disabled: true } }],
+    ['with disabled variant button', { props: { disabled: true, variant: 'button' } }],
     ['with accept', { props: { accept: 'image/*' } }],
     ['with multiple', { props: { ...props, multiple: true } }],
     ['without dropzone', { props: { dropzone: false } }],
