@@ -21,7 +21,7 @@ export type CheckboxGroupItem = CheckboxGroupValue | {
   [key: string]: any
 }
 
-export interface CheckboxGroupProps<T extends CheckboxGroupItem[] = CheckboxGroupItem[], VK extends GetItemKeys<T> = 'value'> extends Pick<CheckboxGroupRootProps, 'disabled' | 'loop' | 'name' | 'required'>, Pick<CheckboxProps, 'color' | 'indicator'> {
+export interface CheckboxGroupProps<T extends CheckboxGroupItem[] = CheckboxGroupItem[], VK extends GetItemKeys<T> = 'value'> extends Pick<CheckboxGroupRootProps, 'disabled' | 'loop' | 'name' | 'required'>, Pick<CheckboxProps, 'color' | 'highlight' | 'indicator'> {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'
@@ -110,7 +110,7 @@ const rootProps = useForwardProps(reactivePick(props, 'as', 'modelValue', 'defau
 const checkboxProps = useForwardProps(reactivePick(props, 'variant', 'indicator'))
 const getProxySlots = () => omit(slots, ['legend'])
 
-const { emitFormChange, emitFormInput, color, name, size, id: _id, disabled, ariaAttrs } = useFormField<CheckboxGroupProps<T>>(_props, { bind: false })
+const { emitFormChange, emitFormInput, color, highlight, name, size, id: _id, disabled, ariaAttrs } = useFormField<CheckboxGroupProps<T>>(_props, { bind: false })
 const id = _id.value ?? useId()
 
 // @ts-expect-error We skip test Checkbox.variant
@@ -192,6 +192,7 @@ function onUpdate(value: any) {
         :key="item.value"
         v-bind="{ ...item, ...checkboxProps }"
         :color="color"
+        :highlight="highlight"
         :size="size"
         :name="name"
         :disabled="item.disabled || disabled"

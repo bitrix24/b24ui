@@ -155,6 +155,11 @@ export default {
       true: {
         label: 'after:content-[\'*\'] after:ms-0.5 after:text-(--ui-color-accent-main-alert)'
       }
+    },
+    highlight: {
+      true: {
+        base: 'ring ring-inset ring-(--b24ui-border-color)'
+      }
     }
   },
   compoundVariants: [
