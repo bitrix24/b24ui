@@ -46,7 +46,6 @@ export function useSearch() {
   const links = computed(() => [
     isAssistantEnabled.value && {
       label: 'Ask AI',
-      description: 'Ask the AI assistant powered by our custom MCP server for help.',
       icon: RobotIcon,
       kbds: ['meta', 'i'],
       b24ui: {
