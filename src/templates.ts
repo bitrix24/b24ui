@@ -189,6 +189,11 @@ export function getTemplates(options: ModuleOptions, uiConfig: Record<string, an
     return sources.join('\n')
   }
 
+  const themeBlocks = `@theme static {}
+
+@theme default inline {}
+`
+
   /**
    * use to generate tw colors
    * in `index.css` add `@import '#build/b24ui.css';`
@@ -220,11 +225,20 @@ export function getTemplates(options: ModuleOptions, uiConfig: Record<string, an
   }
 }
 
-@theme static {}
-
-@theme default inline {}
-`
+${themeBlocks}`
     }
+  })
+
+  // Static fallback shipped in the published npm package and exposed via
+  // `package.json` `imports` so tooling that resolves `#build/b24ui.css` through
+  // Node module resolution (Prettier, Tailwind IntelliSense) has something to
+  // read. Strips `@source` directives (paths don't exist on consumer machines)
+  // and the body rule (the runtime template handles it with the user's prefix,
+  // avoiding an unprefixed `@apply` that breaks tooling when `theme.prefix` is set).
+  templates.push({
+    filename: 'b24ui.static.css',
+    write: true,
+    getContents: () => themeBlocks
   })
 
   templates.push({
