@@ -117,6 +117,16 @@ function handleEnter(event: KeyboardEvent) {
   onEnter(event)
 }
 
+// @memo single keydown handler — two `@keydown.*` on one element generate a
+// duplicate `onKeydown` key that vue-tsc >=3.3 rejects (TS1117).
+function onKeydown(event: KeyboardEvent) {
+  if (event.key === 'Escape') {
+    blur(event)
+  } else if (event.key === 'Enter') {
+    handleEnter(event)
+  }
+}
+
 defineExpose({
   textareaRef: toRef(() => textareaRef.value?.textareaRef)
 })
@@ -139,9 +149,8 @@ defineExpose({
       :b24ui="transformUI(omit(b24ui, ['root', 'body', 'header', 'footer']), props.b24ui)"
       data-slot="body"
       :class="b24ui.body({ class: props.b24ui?.body })"
-      @keydown.enter="handleEnter"
+      @keydown="onKeydown"
       @compositionend="onCompositionEnd"
-      @keydown.esc="blur"
     >
       <template v-for="(_, name) in getProxySlots()" #[name]="slotData">
         <slot :name="name" v-bind="slotData" />
