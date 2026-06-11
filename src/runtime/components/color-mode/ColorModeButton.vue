@@ -16,6 +16,7 @@ import { useColorMode } from '#imports'
 import { useComponentProps } from '../../composables/useComponentProps'
 import { useForwardProps } from '../../composables/useForwardProps'
 import { useLocale } from '../../composables/useLocale'
+import { usePrefix } from '../../composables/usePrefix'
 import icons from '../../dictionary/icons'
 import B24Button from '../Button.vue'
 
@@ -32,6 +33,7 @@ const colorMode = useColorMode()
 // const appConfig = useAppConfig()
 
 const buttonProps = useForwardProps(reactiveOmit(props, 'icon'))
+const prefix = usePrefix()
 
 const isDark = computed({
   get() {
@@ -53,8 +55,8 @@ const isDark = computed({
     @click="isDark = !isDark"
   >
     <template #leading="{ b24ui }">
-      <Component :is="icons.dark" data-slot="leadingIcon" :class="b24ui.leadingIcon({ class: [props.b24ui?.leadingIcon, 'hidden dark:inline-block'] })" />
-      <Component :is="icons.light" data-slot="leadingIcon" :class="b24ui.leadingIcon({ class: [props.b24ui?.leadingIcon, 'dark:hidden'] })" />
+      <Component :is="icons.dark" data-slot="leadingIcon" :class="b24ui.leadingIcon({ class: [props.b24ui?.leadingIcon, prefix('hidden dark:inline-block')] })" />
+      <Component :is="icons.light" data-slot="leadingIcon" :class="b24ui.leadingIcon({ class: [props.b24ui?.leadingIcon, prefix('dark:hidden')] })" />
     </template>
   </B24Button>
 </template>

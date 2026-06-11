@@ -66,6 +66,7 @@ import { useComponentProps } from '../../composables/useComponentProps'
 import { useForwardProps } from '../../composables/useForwardProps'
 import { useScrollspy } from '../../composables/useScrollspy'
 import { useLocale } from '../../composables/useLocale'
+import { usePrefix } from '../../composables/usePrefix'
 import { tv } from '../../utils/tv'
 import icons from '../../dictionary/icons'
 
@@ -84,6 +85,7 @@ const rootProps = useForwardProps(reactivePick(props, 'as', 'open', 'defaultOpen
 const { t } = useLocale()
 const router = useRouter()
 const appConfig = useAppConfig() as ContentToc['AppConfig']
+const prefix = usePrefix()
 const { activeHeadings, updateHeadings } = useScrollspy()
 
 const [DefineListTemplate, ReuseListTemplate] = createReusableTemplate<{ links: T[], level: number }>({
@@ -193,21 +195,21 @@ onUnmounted(() => {
       </div>
 
       <template v-if="props.links?.length">
-        <CollapsibleTrigger data-slot="trigger" :class="b24ui.trigger({ class: [props.b24ui?.trigger, 'lg:hidden'] })">
+        <CollapsibleTrigger data-slot="trigger" :class="b24ui.trigger({ class: [props.b24ui?.trigger, prefix('lg:hidden')] })">
           <ReuseTriggerTemplate :open="open" />
         </CollapsibleTrigger>
 
-        <CollapsibleContent data-slot="content" :class="b24ui.content({ class: [props.b24ui?.content, 'lg:hidden'] })">
+        <CollapsibleContent data-slot="content" :class="b24ui.content({ class: [props.b24ui?.content, prefix('lg:hidden')] })">
           <slot name="content" :links="props.links">
             <ReuseListTemplate :links="props.links" :level="0" />
           </slot>
         </CollapsibleContent>
 
-        <p data-slot="trigger" :class="b24ui.trigger({ class: [props.b24ui?.trigger, 'hidden lg:flex'] })">
+        <p data-slot="trigger" :class="b24ui.trigger({ class: [props.b24ui?.trigger, prefix('hidden lg:flex')] })">
           <ReuseTriggerTemplate :open="open" />
         </p>
 
-        <div data-slot="content" :class="b24ui.content({ class: [props.b24ui?.content, 'hidden lg:flex'] })">
+        <div data-slot="content" :class="b24ui.content({ class: [props.b24ui?.content, prefix('hidden lg:flex')] })">
           <slot name="content" :links="props.links">
             <ReuseListTemplate :links="props.links" :level="0" />
           </slot>

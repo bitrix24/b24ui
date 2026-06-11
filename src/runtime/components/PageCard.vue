@@ -75,6 +75,7 @@ import { computed, ref } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
+import { usePrefix } from '../composables/usePrefix'
 import { getSlotChildrenText } from '../utils'
 import { tv } from '../utils/tv'
 import B24Avatar from './Avatar.vue'
@@ -92,6 +93,7 @@ const props = useComponentProps('pageCard', _props)
 const cardRef = ref<HTMLElement>()
 
 const appConfig = useAppConfig() as PageCard['AppConfig']
+const prefix = usePrefix()
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pageCard || {}) })({
@@ -172,10 +174,10 @@ const ariaLabel = computed(() => {
       v-if="props.to"
       :aria-label="ariaLabel"
       v-bind="{ to: props.to, target: props.target, ...$attrs }"
-      class="focus:outline-none peer"
+      :class="prefix('focus:outline-none peer')"
       raw
     >
-      <span class="absolute inset-0" aria-hidden="true" />
+      <span :class="prefix('absolute inset-0')" aria-hidden="true" />
     </B24Link>
   </Primitive>
 </template>

@@ -68,6 +68,7 @@ import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
+import { usePrefix } from '../composables/usePrefix'
 import { tv } from '../utils/tv'
 import B24PageFeature from './PageFeature.vue'
 import B24Container from './Container.vue'
@@ -82,6 +83,7 @@ const slots = defineSlots<PageSectionSlots>()
 const props = useComponentProps('pageSection', _props)
 
 const appConfig = useAppConfig() as PageSection['AppConfig']
+const prefix = usePrefix()
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pageSection || {}) })({
@@ -159,7 +161,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pageSe
       </div>
 
       <slot v-if="!!slots.default" />
-      <div v-else-if="props.orientation === 'horizontal'" class="hidden lg:block" />
+      <div v-else-if="props.orientation === 'horizontal'" :class="prefix('hidden lg:block')" />
     </B24Container>
 
     <slot name="bottom" />
