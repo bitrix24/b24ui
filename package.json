@@ -91,7 +91,7 @@
     }
   },
   "imports": {
-    "#build/b24ui.css": "./.nuxt/b24ui.css"
+    "#build/b24ui.css": "./.nuxt/b24ui.static.css"
   },
   "bin": {
     "bitrix24-ui": "./cli/index.mjs"
@@ -101,7 +101,7 @@
   "files": [
     "README.md",
     "LICENSE",
-    ".nuxt/b24ui.css",
+    ".nuxt/b24ui.static.css",
     "dist",
     "cli",
     "vue-plugin.d.ts"
