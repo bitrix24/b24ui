@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "252b90659ce93f3795d97c4c056c14f027e02e1d",
+  "cursor": "e96a0b62945d3a2412f3e779d3e71ffc386c667a",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -83,10 +83,16 @@
       "summary": "fix(FileUpload): pass `disabled` attribute to button variant"
     },
     "252b90659ce93f3795d97c4c056c14f027e02e1d": {
+      "pr": 105,
+      "b24ui_sha": "bb201030",
+      "decision": "port",
+      "summary": "fix(ContentToc): apply `ui.trigger` prop to trigger elements"
+    },
+    "e96a0b62945d3a2412f3e779d3e71ffc386c667a": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(ContentToc): apply `ui.trigger` prop to trigger elements"
+      "summary": "fix(Textarea): autoresize on mount with pre-filled value"
     }
   }
 }
