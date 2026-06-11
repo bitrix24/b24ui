@@ -70,6 +70,7 @@ import { Primitive } from 'reka-ui'
 import { useHead, useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
 import { useLocale } from '../composables/useLocale'
+import { usePrefix } from '../composables/usePrefix'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Link from './Link.vue'
@@ -86,6 +87,7 @@ const props = useComponentProps('banner', _props)
 
 const { t } = useLocale()
 const appConfig = useAppConfig() as Banner['AppConfig']
+const prefix = usePrefix()
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.banner || {}) })({
@@ -159,11 +161,11 @@ function onClose() {
       v-if="props.to"
       :aria-label="props.title"
       v-bind="{ to: props.to, target: props.target, ...$attrs }"
-      class="focus:outline-none"
+      :class="prefix('focus:outline-none')"
       tabindex="-1"
       raw
     >
-      <span class="absolute inset-0" aria-hidden="true" />
+      <span :class="prefix('absolute inset-0')" aria-hidden="true" />
     </B24Link>
 
     <B24Container data-slot="container" :class="b24ui.container({ class: props.b24ui?.container })">

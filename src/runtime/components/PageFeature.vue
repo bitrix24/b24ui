@@ -45,6 +45,7 @@ import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
+import { usePrefix } from '../composables/usePrefix'
 import { getSlotChildrenText } from '../utils'
 import { tv } from '../utils/tv'
 import B24Link from './Link.vue'
@@ -59,6 +60,7 @@ const slots = defineSlots<PageFeatureSlots>()
 const props = useComponentProps('pageFeature', _props)
 
 const appConfig = useAppConfig() as PageFeature['AppConfig']
+const prefix = usePrefix()
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pageFeature || {}) })({
@@ -91,10 +93,10 @@ const ariaLabel = computed(() => {
         v-if="props.to"
         :aria-label="ariaLabel"
         v-bind="{ to: props.to, target: props.target, ...$attrs }"
-        class="focus:outline-none peer"
+        :class="prefix('focus:outline-none peer')"
         raw
       >
-        <span class="absolute inset-0" aria-hidden="true" />
+        <span :class="prefix('absolute inset-0')" aria-hidden="true" />
       </B24Link>
 
       <slot>

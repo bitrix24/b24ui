@@ -46,6 +46,7 @@ import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
+import { usePrefix } from '../composables/usePrefix'
 import { tv } from '../utils/tv'
 import B24Chip from './Chip.vue'
 import B24Avatar from './Avatar.vue'
@@ -61,6 +62,7 @@ const slots = defineSlots<UserSlots>()
 const props = useComponentProps('user', _props)
 
 const appConfig = useAppConfig() as User['AppConfig']
+const prefix = usePrefix()
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.user || {}) })({
@@ -106,10 +108,10 @@ const chipSize = computed<ChipProps['size']>(() => {
         v-if="props.to"
         :aria-label="props.name"
         v-bind="{ to: props.to, target: props.target, ...$attrs }"
-        class="focus:outline-none peer"
+        :class="prefix('focus:outline-none peer')"
         raw
       >
-        <span class="absolute inset-0" aria-hidden="true" />
+        <span :class="prefix('absolute inset-0')" aria-hidden="true" />
       </B24Link>
 
       <slot>
