@@ -1,7 +1,8 @@
 ---
-title: Tabs
+title: ProseTabs
 description: 'Group related information into interactive tabs to improve content navigation.'
 category: components
+navigation.title: Tabs
 links:
   - label: GitHub
     iconName: GitHubIcon

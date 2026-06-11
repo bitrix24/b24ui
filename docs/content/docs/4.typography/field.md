@@ -1,7 +1,8 @@
 ---
-title: Field
+title: ProseField
 description: Provide clear and comprehensive documentation for the API configurable elements.
 category: components
+navigation.title: Field
 links:
   - label: GitHub
     iconName: GitHubIcon

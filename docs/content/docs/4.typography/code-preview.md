@@ -1,7 +1,8 @@
 ---
-title: CodePreview
+title: ProseCodePreview
 description: 'For clearer docs, pair code snippets with their visual output and source.'
 category: components
+navigation.title: CodePreview
 links:
   - label: GitHub
     iconName: GitHubIcon

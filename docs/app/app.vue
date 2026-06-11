@@ -9,24 +9,6 @@ const { isEnabled: isAssistantEnabled } = useAssistant()
 // const { isEnabled: isAssistantEnabled, panelWidth: assistantPanelWidth, shouldPushContent } = useAssistant()
 
 const { data: navigation } = await useFetch('/api/navigation.json')
-const { data: files } = useLazyAsyncData(
-  'search',
-  async () => {
-    const data = await queryCollectionSearchSections('docs', {
-      ignoredTags: ['style']
-    })
-
-    return data.map((file) => {
-      return {
-        ...file,
-        id: file.id.replace(/([^/])(#.*)?$/, (_, char, hash = '') => `${char}/${hash}`)
-      }
-    })
-  },
-  {
-    server: false
-  }
-)
 
 useHead({
   meta: [
@@ -51,7 +33,6 @@ if (import.meta.server) {
 
 const { rootNavigation, navigationByFramework } = useNavigation(navigation)
 provide('navigation', rootNavigation)
-provide('files', files)
 </script>
 
 <template>
@@ -86,7 +67,7 @@ provide('files', files)
 
       <template v-if="!route.path.startsWith('/examples')">
         <ClientOnly>
-          <Search :files="files" :navigation="navigationByFramework" />
+          <Search :navigation="navigationByFramework" />
           <!-- @memo this for docus -->
           <!-- template v-if="isAssistantEnabled">
             <LazyAssistantPanel />

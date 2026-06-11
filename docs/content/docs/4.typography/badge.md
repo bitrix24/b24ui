@@ -1,7 +1,8 @@
 ---
-title: Badge
+title: ProseBadge
 description: 'Present versioning information, status labels, and relevant tags within your material.'
 category: components
+navigation.title: Badge
 links:
   - label: GitHub
     iconName: GitHubIcon

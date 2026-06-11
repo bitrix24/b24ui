@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "65b47ce7b491238755fc7ab9e403822646da89fd",
+  "cursor": "a1bef8babc7eab2ebdf4e34d3d5205cb3053a1c7",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -113,10 +113,16 @@
       "summary": "chore(deps): update all non-major dependencies (selective — shared deps; + pnpm dedupe for jiti/vite)"
     },
     "65b47ce7b491238755fc7ab9e403822646da89fd": {
+      "pr": 110,
+      "b24ui_sha": "f15873b4",
+      "decision": "port",
+      "summary": "fix(InputMenu/Select/SelectMenu): respect `trailing: false` over default `trailingIcon`"
+    },
+    "a1bef8babc7eab2ebdf4e34d3d5205cb3053a1c7": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(InputMenu/Select/SelectMenu): respect `trailing: false` over default `trailingIcon`"
+      "summary": "feat(ContentSearch): add async search support via search/searchStatus (core + docs, adapted)"
     }
   }
 }

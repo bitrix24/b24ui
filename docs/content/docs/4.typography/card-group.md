@@ -1,7 +1,8 @@
 ---
-title: CardGroup
+title: ProseCardGroup
 description: 'Arrange content cards into flexible grids to enhance structure and readability.'
 category: components
+navigation.title: CardGroup
 links:
   - label: GitHub
     iconName: GitHubIcon
