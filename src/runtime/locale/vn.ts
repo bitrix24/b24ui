@@ -51,6 +51,7 @@ export default defineLocale<Messages>({
     },
     contentSearch: {
       links: 'Kết quả',
+      search: 'Kết quả',
       theme: 'Chủ đề'
     },
     contentSearchButton: {
