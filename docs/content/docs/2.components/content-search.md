@@ -162,19 +162,16 @@ Use the `shortcut` prop to change the shortcut used in [defineShortcuts](/docs/c
 
 Use the `links` prop to add a group of quick-access links at the top of the command palette:
 
-```vue [app.vue] {21}
+```vue [app.vue] {18}
 <script setup lang="ts">
 const links = [{
   label: 'Docs',
-  icon: 'i-lucide-book',
   to: '/docs/getting-started'
 }, {
   label: 'Components',
-  icon: 'i-lucide-box',
   to: '/docs/components'
 }, {
   label: 'Showcase',
-  icon: 'i-lucide-presentation',
   to: '/showcase'
 }]
 </script>
