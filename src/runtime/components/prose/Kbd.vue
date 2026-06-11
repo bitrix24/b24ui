@@ -6,9 +6,13 @@ import type { ComponentConfig } from '../../types/tv'
 type ProseKbd = ComponentConfig<typeof theme, AppConfig, 'kbd', 'b24ui.prose'>
 
 export interface ProseKbdProps {
-  value: string
+  value?: string
   class?: any
   b24ui?: { base?: any }
+}
+
+export interface ProseKbdSlots {
+  default?(props?: {}): any
 }
 </script>
 
@@ -20,6 +24,7 @@ import { tv } from '../../utils/tv'
 import B24Kbd from '../Kbd.vue'
 
 const _props = defineProps<ProseKbdProps>()
+defineSlots<ProseKbdSlots>()
 
 const props = useComponentProps('prose.kbd', _props)
 
@@ -30,5 +35,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
 </script>
 
 <template>
-  <B24Kbd :value="props.value" :class="b24ui({ class: [props.b24ui?.base, props.class] })" />
+  <B24Kbd :value="props.value" :class="b24ui({ class: [props.b24ui?.base, props.class] })">
+    <slot />
+  </B24Kbd>
 </template>
