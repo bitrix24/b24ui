@@ -43,9 +43,9 @@
   bitrix24 links).
 - **typography (15 files)**: `title` → `Prose<Name>` + added `navigation.title`.
   Skipped `code-tree.md`, `icon.md` (absent in b24ui).
-- `form.md` / `use-form-field.md`: **skipped** — upstream deletes the
-  use-form-field page; b24ui keeps a diverged richer version, so its link stays
-  valid (removing would drop b24ui content).
+- `form.md` / `use-form-field.md`: **applied** — followed upstream: removed the
+  `use-form-field.md` page and de-linked the `useFormField` mention in `form.md`
+  (maintainer confirmed dropping the page is fine). No dangling refs remain.
 
 **Validation:** dev:prepare · full `typecheck` (incl. `nuxt typecheck docs`) ·
 `lint` · full `vitest run` (4971 passed | 6 skipped) · module `build`.
