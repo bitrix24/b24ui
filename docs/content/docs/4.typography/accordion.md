@@ -1,7 +1,8 @@
 ---
-title: Accordion
+title: ProseAccordion
 description: 'Add interactive toggles for a more structured content presentation.'
 category: components
+navigation.title: Accordion
 links:
   - label: GitHub
     iconName: GitHubIcon

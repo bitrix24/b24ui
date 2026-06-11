@@ -1,7 +1,8 @@
 ---
-title: Callout
+title: ProseCallout
 description: 'Organize critical content for easy scanning with colored panels and intuitive symbols.'
 category: components
+navigation.title: Callout
 links:
   - label: GitHub
     iconName: GitHubIcon

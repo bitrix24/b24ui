@@ -98,6 +98,11 @@ export function useSearch() {
   ].filter(link => !!link) as ContentSearchLink[]) // @memo: use filter: `isAssistantEnabled`
 
   const groups = computed(() => [
+    {
+      id: 'framework',
+      label: 'Framework',
+      items: frameworks.value
+    },
     ...(
       config.public.useAI
         ? [
@@ -122,12 +127,7 @@ export function useSearch() {
               }]
             }]
         : []
-    ),
-    {
-      id: 'framework',
-      label: 'Framework',
-      items: frameworks.value
-    }
+    )
   ])
 
   return {

@@ -1,7 +1,8 @@
 ---
-title: Card
+title: ProseCard
 description: 'Develop prominent content areas with integrated navigation options.'
 category: components
+navigation.title: Card
 links:
   - label: GitHub
     iconName: GitHubIcon

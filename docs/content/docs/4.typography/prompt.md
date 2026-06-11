@@ -1,7 +1,8 @@
 ---
-title: Prompt
+title: ProsePrompt
 description: 'Show pre‑built AI prompts with one‑click copying and IDE integration.'
 category: components
+navigation.title: Prompt
 links:
   - label: GitHub
     iconName: GitHubIcon

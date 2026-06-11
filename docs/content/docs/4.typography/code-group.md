@@ -1,7 +1,8 @@
 ---
-title: CodeGroup
+title: ProseCodeGroup
 description: 'Use a tabbed layout to present multiple code snippets for a clearer view.'
 category: components
+navigation.title: CodeGroup
 links:
   - label: GitHub
     iconName: GitHubIcon

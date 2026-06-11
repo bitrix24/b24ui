@@ -1,7 +1,8 @@
 ---
-title: CodeCollapse
+title: ProseCodeCollapse
 description: 'Add toggle functionality for lengthy code sections to optimize layout.'
 category: components
+navigation.title: CodeCollapse
 links:
   - label: GitHub
     iconName: GitHubIcon

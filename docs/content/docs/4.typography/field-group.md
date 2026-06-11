@@ -1,7 +1,8 @@
 ---
-title: FieldGroup
+title: ProseFieldGroup
 description: 'Combine logically connected fields to create exhaustive API documentation.'
 category: components
+navigation.title: FieldGroup
 links:
   - label: GitHub
     iconName: GitHubIcon

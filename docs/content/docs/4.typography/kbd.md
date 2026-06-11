@@ -1,7 +1,8 @@
 ---
-title: Kbd
+title: ProseKbd
 description: 'Show all available hotkeys with their properly formatted keys.'
 category: components
+navigation.title: Kbd
 links:
   - label: GitHub
     iconName: GitHubIcon

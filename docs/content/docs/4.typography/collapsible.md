@@ -1,7 +1,8 @@
 ---
-title: Collapsible
+title: ProseCollapsible
 description: 'Smooth content toggle with expand and collapse effects.'
 category: components
+navigation.title: Collapsible
 links:
   - label: GitHub
     iconName: GitHubIcon
