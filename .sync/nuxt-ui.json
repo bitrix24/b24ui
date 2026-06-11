@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "807de5be094ea94c40cd3cf5e3165a74e01ad612",
+  "cursor": "081cf01acb50041aa67c339350076eb7c816b10d",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -101,10 +101,16 @@
       "summary": "fix(ProseKbd): add default slot and make `value` optional"
     },
     "807de5be094ea94c40cd3cf5e3165a74e01ad612": {
+      "pr": 108,
+      "b24ui_sha": "c4eb7dcd",
+      "decision": "port",
+      "summary": "chore(deps): update vue-tsc to ^3.3.0 (+ b24ui ChatPrompt TS1117 fix it surfaced)"
+    },
+    "081cf01acb50041aa67c339350076eb7c816b10d": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "chore(deps): update vue-tsc to ^3.3.0 (+ b24ui ChatPrompt TS1117 fix it surfaced)"
+      "summary": "chore(deps): update all non-major dependencies (selective — shared deps; + pnpm dedupe for jiti/vite)"
     }
   }
 }
