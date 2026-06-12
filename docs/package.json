@@ -15,7 +15,6 @@
     "@ai-sdk/mcp": "^1.0.42",
     "@ai-sdk/vue": "^3.0.185",
     "@comark/vue": "^0.3.1",
-    "@nuxt/a11y": "1.0.0-alpha.1",
     "@nuxt/content": "^3.14.0",
     "@nuxt/image": "^2.0.0",
     "@bitrix24/b24ui-nuxt": "workspace:*",
