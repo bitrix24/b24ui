@@ -14,6 +14,7 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     env:
+      pnpm_config_strict_dep_builds: false
       NUXT_PUBLIC_USE_AI: false
       NUXT_PUBLIC_SITE_URL: https://bitrix24.github.io
       NUXT_PUBLIC_BASE_URL: /b24ui

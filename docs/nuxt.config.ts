@@ -248,7 +248,6 @@ export default defineNuxtConfig({
     './modules/bx-assistant',
     '@nuxt/content',
     // '@nuxt/image',
-    '@nuxt/a11y',
     '@nuxtjs/mcp-toolkit',
     'nuxt-component-meta',
     'nuxt-llms',
@@ -554,10 +553,6 @@ export default defineNuxtConfig({
         '@bitrix24/b24icons-vue/file-type/MarkdownIcon'
       ]
     }
-  },
-
-  a11y: {
-    logIssues: false
   },
 
   bxAssistant: {
