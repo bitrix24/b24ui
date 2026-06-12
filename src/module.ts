@@ -1,5 +1,4 @@
-import type { HookResult } from '@nuxt/schema'
-import type { ModuleDependencies } from 'nuxt/schema'
+import type { HookResult, ModuleDependencies } from '@nuxt/schema'
 import type { ColorModeType, ColorModeTypeLight } from './runtime/types'
 import { defu } from 'defu'
 import { createResolver, defineNuxtModule, addComponentsDir, addImports, addImportsDir, addPlugin, hasNuxtModule } from '@nuxt/kit'
