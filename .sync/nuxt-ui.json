@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "f51b1e8809b5a35e9e3583db7a433cd7dd2c8f97",
+  "cursor": "f639b19db25161ce0cd34f0e21c3303f8fe3caf8",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -131,10 +131,16 @@
       "summary": "fix(module): ship stripped #build/b24ui.css fallback (b24ui.static.css) for tooling"
     },
     "f51b1e8809b5a35e9e3583db7a433cd7dd2c8f97": {
+      "pr": 113,
+      "b24ui_sha": "47dbcedf",
+      "decision": "port",
+      "summary": "fix(components): apply theme.prefix to hardcoded utility classes via usePrefix (10 of 14 components; rest absent in b24ui)"
+    },
+    "f639b19db25161ce0cd34f0e21c3303f8fe3caf8": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(components): apply theme.prefix to hardcoded utility classes via usePrefix (10 of 14 components; rest absent in b24ui)"
+      "summary": "fix(ContentSearch): preserve intermediate ancestors in breadcrumb prefix (follow-up to #111)"
     }
   }
 }
