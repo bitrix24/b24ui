@@ -32,3 +32,13 @@ only reads `href` as a truthy guard, so `null` is handled.
 ## Validation
 dev:prepare · typecheck · lint · vitest run (4972 passed | 6 skipped) · module
 build — all green after the `LinkBase` fix.
+
+## CI follow-up — vite dedupe
+First CI run failed (TS2322/2769 "two different types with this name exist" in
+`app-config.ts` + `vitest.config.ts`): the 4.4.8 resolve left **two vite
+copies** in the lockfile (7.3.2 + 7.3.5). Local incremental installs auto-dedupe
+vite, so it only surfaced under CI's `--frozen-lockfile` install. Fixed with
+`pnpm dedupe` → single `vite@7.3.5` (also bumped `vue` 3.5.32 → 3.5.38, clearing
+the `@nuxtjs/mcp-toolkit` vue peer warning). Re-verified with a frozen install
+to mirror CI: all green.
+
