@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "3736eeeb2d3adff03a33db275edecaaf25f01dc5",
+  "cursor": "527b4389957b646f522c42b0219666a3424c4b2a",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -155,10 +155,16 @@
       "summary": "chore(deps): update all non-major dependencies (docs: mcp-toolkit/takumi/og-image/shiki + lockfile regen)"
     },
     "3736eeeb2d3adff03a33db275edecaaf25f01dc5": {
+      "pr": 117,
+      "b24ui_sha": "b538d45c",
+      "decision": "port",
+      "summary": "chore(deps): update nuxt framework to ^4.4.6 (+ LinkBase href string|null forward-port; + vite dedupe for CI)"
+    },
+    "527b4389957b646f522c42b0219666a3424c4b2a": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "chore(deps): update nuxt framework to ^4.4.6 (+ LinkBase href string|null forward-port for vue-router types)"
+      "summary": "chore(deps): update vite/vue/plugin-vue/vue-router ranges (root + repl/vue playgrounds) + lockfile dedupe"
     }
   }
 }
