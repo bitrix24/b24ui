@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "dc3141cf1618a6978af6250417e9ecf8f1e44f15",
+  "cursor": "0523359489ab906f414460edbcf45b87c10440a7",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -143,10 +143,16 @@
       "summary": "fix(ContentSearch): preserve intermediate ancestors in breadcrumb prefix (follow-up to #111)"
     },
     "dc3141cf1618a6978af6250417e9ecf8f1e44f15": {
+      "pr": 115,
+      "b24ui_sha": "376b759e",
+      "decision": "port",
+      "summary": "chore(deps): update pnpm/action-setup action to v6 (3 b24ui workflows)"
+    },
+    "0523359489ab906f414460edbcf45b87c10440a7": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "chore(deps): update pnpm/action-setup action to v6 (3 b24ui workflows)"
+      "summary": "chore(deps): update all non-major dependencies (docs: mcp-toolkit/takumi/og-image/shiki + lockfile regen)"
     }
   }
 }
