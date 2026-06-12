@@ -6,16 +6,20 @@ exports[`ChatMessages > renders with assistant correctly 1`] = `
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start justify-end ms-auto max-w-[75%] gap-3 pb-8">
       <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Hello, how are you?</div>
-      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Hello, how are you?</div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <article data-role="assistant" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start gap-3 pb-8">
       <div data-slot="leading" class="inline-flex items-center justify-center min-h-6 mt-2"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--b24ui-background) ring ring-(--b24ui-border-color) style-outline-no-accent size-8 text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) shrink-0"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--b24ui-icon) shrink-0 size-7"><path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path></svg></span></div>
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">I am fine, thank you!</div>
-      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">I am fine, thank you!</div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <!--v-if-->
@@ -29,16 +33,20 @@ exports[`ChatMessages > renders with b24ui correctly 1`] = `
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start justify-end ms-auto max-w-[75%] gap-3 pb-8">
       <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Hello, how are you?</div>
-      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Hello, how are you?</div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <article data-role="assistant" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start gap-3 pb-8">
       <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">I am fine, thank you!</div>
-      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">I am fine, thank you!</div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <!--v-if-->
@@ -52,16 +60,20 @@ exports[`ChatMessages > renders with class correctly 1`] = `
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start justify-end ms-auto max-w-[75%] gap-3 pb-8">
       <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Hello, how are you?</div>
-      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Hello, how are you?</div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <article data-role="assistant" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start gap-3 pb-8">
       <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">I am fine, thank you!</div>
-      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">I am fine, thank you!</div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <!--v-if-->
@@ -75,16 +87,20 @@ exports[`ChatMessages > renders with compact correctly 1`] = `
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start justify-end ms-auto max-w-[75%] gap-1.5 pb-3">
       <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-2 px-3 py-2 rounded-sm min-h-8">Hello, how are you?</div>
-      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-2 px-3 py-2 rounded-sm min-h-8">Hello, how are you?</div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <article data-role="assistant" data-slot="root" class="group/message relative w-full scroll-mt-3">
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start gap-1.5 pb-3">
       <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-2 px-3 py-2 rounded-sm min-h-8">I am fine, thank you!</div>
-      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-2 px-3 py-2 rounded-sm min-h-8">I am fine, thank you!</div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <!--v-if-->
@@ -98,16 +114,20 @@ exports[`ChatMessages > renders with content slot correctly 1`] = `
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start justify-end ms-auto max-w-[75%] gap-3 pb-8">
       <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Content slot</div>
-      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Content slot</div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <article data-role="assistant" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start gap-3 pb-8">
       <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Content slot</div>
-      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Content slot</div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <!--v-if-->
@@ -128,16 +148,20 @@ exports[`ChatMessages > renders with files slot correctly 1`] = `
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start justify-end ms-auto max-w-[75%] gap-3 pb-8">
       <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Hello, how are you?</div>
-      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Hello, how are you?</div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <article data-role="assistant" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start gap-3 pb-8">
       <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">I am fine, thank you!</div>
-      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">I am fine, thank you!</div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <!--v-if-->
@@ -151,24 +175,30 @@ exports[`ChatMessages > renders with indicator slot correctly 1`] = `
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start justify-end ms-auto max-w-[75%] gap-3 pb-8">
       <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Hello, how are you?</div>
-      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Hello, how are you?</div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <article data-role="assistant" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start gap-3 pb-8">
       <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">I am fine, thank you!</div>
-      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">I am fine, thank you!</div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <article data-role="assistant" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start gap-3 pb-8">
       <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Indicator slot</div>
-      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Indicator slot</div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <!---->
@@ -181,16 +211,20 @@ exports[`ChatMessages > renders with messages correctly 1`] = `
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start justify-end ms-auto max-w-[75%] gap-3 pb-8">
       <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Hello, how are you?</div>
-      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Hello, how are you?</div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <article data-role="assistant" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start gap-3 pb-8">
       <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">I am fine, thank you!</div>
-      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">I am fine, thank you!</div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <!--v-if-->
@@ -204,16 +238,20 @@ exports[`ChatMessages > renders with status error correctly 1`] = `
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start justify-end ms-auto max-w-[75%] gap-3 pb-8">
       <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Hello, how are you?</div>
-      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Hello, how are you?</div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <article data-role="assistant" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start gap-3 pb-8">
       <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">I am fine, thank you!</div>
-      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">I am fine, thank you!</div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <!--v-if-->
@@ -227,16 +265,20 @@ exports[`ChatMessages > renders with status ready correctly 1`] = `
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start justify-end ms-auto max-w-[75%] gap-3 pb-8">
       <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Hello, how are you?</div>
-      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Hello, how are you?</div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <article data-role="assistant" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start gap-3 pb-8">
       <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">I am fine, thank you!</div>
-      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">I am fine, thank you!</div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <!--v-if-->
@@ -250,16 +292,20 @@ exports[`ChatMessages > renders with status streaming correctly 1`] = `
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start justify-end ms-auto max-w-[75%] gap-3 pb-8">
       <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Hello, how are you?</div>
-      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Hello, how are you?</div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <article data-role="assistant" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start gap-3 pb-8">
       <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">I am fine, thank you!</div>
-      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">I am fine, thank you!</div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <!--v-if-->
@@ -273,26 +319,32 @@ exports[`ChatMessages > renders with status submitted correctly 1`] = `
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start justify-end ms-auto max-w-[75%] gap-3 pb-8">
       <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Hello, how are you?</div>
-      <!--v-if-->
-    </div>
-  </article>
-  <article data-role="assistant" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
-    <!--v-if-->
-    <div data-slot="container" class="relative flex items-start gap-3 pb-8">
-      <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">I am fine, thank you!</div>
-      <!--v-if-->
-    </div>
-  </article>
-  <article data-role="assistant" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
-    <!--v-if-->
-    <div data-slot="container" class="relative flex items-start gap-3 pb-8">
-      <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">
-        <div data-slot="indicator" class="h-6 flex items-center gap-1 py-3 *:size-2 *:rounded-full *:bg-(--ui-color-design-tinted-na-content-icon) [&amp;>*:nth-child(1)]:animate-[bounce_1s_infinite] [&amp;>*:nth-child(2)]:animate-[bounce_1s_0.15s_infinite] [&amp;>*:nth-child(3)]:animate-[bounce_1s_0.3s_infinite]"><span></span><span></span><span></span></div>
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Hello, how are you?</div>
+        <!--v-if-->
       </div>
+    </div>
+  </article>
+  <article data-role="assistant" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
+    <!--v-if-->
+    <div data-slot="container" class="relative flex items-start gap-3 pb-8">
       <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">I am fine, thank you!</div>
+        <!--v-if-->
+      </div>
+    </div>
+  </article>
+  <article data-role="assistant" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
+    <!--v-if-->
+    <div data-slot="container" class="relative flex items-start gap-3 pb-8">
+      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">
+          <div data-slot="indicator" class="h-6 flex items-center gap-1 py-3 *:size-2 *:rounded-full *:bg-(--ui-color-design-tinted-na-content-icon) [&amp;>*:nth-child(1)]:animate-[bounce_1s_infinite] [&amp;>*:nth-child(2)]:animate-[bounce_1s_0.15s_infinite] [&amp;>*:nth-child(3)]:animate-[bounce_1s_0.3s_infinite]"><span></span><span></span><span></span></div>
+        </div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <!---->
@@ -305,16 +357,20 @@ exports[`ChatMessages > renders with user correctly 1`] = `
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start justify-end ms-auto max-w-[75%] gap-3 pb-8">
       <div data-slot="leading" class="inline-flex items-center justify-center min-h-6"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--b24ui-background) ring ring-(--b24ui-border-color) style-outline-no-accent size-8 text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) shrink-0"><img src="https://github.com/bitrix24.png" width="32" height="32" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span></div>
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] space-y-4">Hello, how are you?</div>
-      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] space-y-4">Hello, how are you?</div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <article data-role="assistant" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start gap-3 pb-8">
       <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">I am fine, thank you!</div>
-      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">I am fine, thank you!</div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <!--v-if-->
@@ -328,16 +384,20 @@ exports[`ChatMessages > renders with viewport slot correctly 1`] = `
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start justify-end ms-auto max-w-[75%] gap-3 pb-8">
       <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Hello, how are you?</div>
-      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">Hello, how are you?</div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <article data-role="assistant" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
     <!--v-if-->
     <div data-slot="container" class="relative flex items-start gap-3 pb-8">
       <!--v-if-->
-      <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">I am fine, thank you!</div>
-      <!--v-if-->
+      <div data-slot="body" class="min-w-0">
+        <div data-slot="content" class="relative text-pretty *:first:mt-0 *:last:mb-0 bg-[var(--b24ui-background,var(--b24ui-default-background))] border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))] border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))] text-[color:var(--b24ui-color,var(--b24ui-default-color))] [--b24ui-default-background:#dff6c1] [--b24ui-default-border-color:#dff6c1] [--b24ui-default-border-width:var(--ui-design-tinted-success-stroke-weight)] [--b24ui-default-color:var(--ui-color-palette-black-base)] dark:[--b24ui-default-background:var(--ui-color-design-tinted-success-bg)] dark:[--b24ui-default-border-color:var(--ui-color-design-tinted-success-stroke)] dark:[--b24ui-default-color:var(--ui-color-design-tinted-success-content)] space-y-4 px-3 py-2 rounded-md min-h-10.5">I am fine, thank you!</div>
+        <!--v-if-->
+      </div>
     </div>
   </article>
   <!--v-if-->

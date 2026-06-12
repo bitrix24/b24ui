@@ -8,6 +8,7 @@ import highlight from '@comark/vue/plugins/highlight'
 import AlertIcon from '@bitrix24/b24icons-vue/outline/AlertIcon'
 import RobotIcon from '@bitrix24/b24icons-vue/outline/RobotIcon'
 import TrashcanIcon from '@bitrix24/b24icons-vue/outline/TrashcanIcon'
+import PenIcon from '@bitrix24/b24icons-vue/actions/PenIcon'
 
 type MayHasQuery = {
   query?: string
@@ -63,12 +64,34 @@ function getDomain(url: string): string {
 function getFaviconUrl(url: string): string {
   return `https://www.google.com/s2/favicons?sz=32&domain=${getDomain(url)}`
 }
+
+function generateMessages() {
+  chat.messages.push({
+    id: '1',
+    parts: [{ type: 'text', text: 'Hello, how are you?' }],
+    role: 'user'
+  })
+  chat.messages.push({
+    id: '2',
+    parts: [{ type: 'text', text: 'Fine, and you?' }],
+    role: 'assistant'
+  })
+}
 </script>
 
 <template>
   <B24DashboardNavbar class="h-(--b24ui-header-height) shrink-0 flex items-center justify-between ps-2 pe-4 lg:ps-4 lg:pe-4 gap-1.5 absolute top-0 inset-x-0 z-5">
     <template #right>
       <B24Button
+        v-if="!chat.messages.length"
+        :icon="RobotIcon"
+        label="Generate messages"
+        size="sm"
+        color="air-tertiary"
+        @click="generateMessages"
+      />
+      <B24Button
+        v-if="chat.messages.length"
         :icon="TrashcanIcon"
         size="sm"
         color="air-tertiary"
@@ -83,7 +106,7 @@ function getFaviconUrl(url: string): string {
       should-auto-scroll
       :messages="chat.messages"
       :status="chat.status"
-      :user="{ avatar: { src: '/avatar/assistant.png' } }"
+      :user="{ avatar: { src: '/avatar/assistant.png' }, actions: [{ label: 'Edit', icon: PenIcon, onClick: () => console.log('edit') }] }"
       :spacing-offset="72"
       :assistant="{ actions: [{ label: 'Edit', icon: RobotIcon, onClick: () => console.log('edit') }] }"
     >
