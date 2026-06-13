@@ -466,7 +466,7 @@ importers:
         specifier: ^2.0.34
         version: 2.0.34(zod@4.4.3)
       '@ai-sdk/vue':
-        specifier: ^3.0.185
+        specifier: ^3.0.191
         version: 3.0.201(vue@3.5.38(typescript@6.0.3))(zod@4.4.3)
       '@bitrix24/b24icons-nuxt':
         specifier: ^2.0.7
@@ -493,7 +493,7 @@ importers:
         specifier: ^3.22.4
         version: 3.22.4(@tiptap/core@3.22.4(@tiptap/pm@3.22.4))
       ai:
-        specifier: ^6.0.185
+        specifier: ^6.0.191
         version: 6.0.201(zod@4.4.3)
       maska:
         specifier: ^3.2.0

@@ -33,6 +33,16 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
 
 ## 2. Invariants you MUST preserve
 
+- **Dependency / playground manifests — mirror across ALL b24ui playgrounds.**
+  Upstream ships `playgrounds/{nuxt,vue,repl}`; b24ui has a **fourth**,
+  `playgrounds/demo`, with no upstream counterpart. When a port bumps a shared
+  dependency (e.g. a `chore(deps)` batch) or edits a playground manifest, apply
+  the **same** change to every b24ui manifest that pins that dep at the same
+  range — `package.json`, `docs/package.json`, **and each of**
+  `playgrounds/{nuxt,demo,vue,repl}/package.json`. After bumping, confirm parity
+  with `node -e "..."` diffing nuxt vs demo (and check vue/repl), then
+  regenerate the lockfile once. A dep that exists only in `nuxt` but not `demo`
+  (or vice-versa) is fine; a dep present in **both** must not drift.
 - **jsDoc on every prop** — keep the description and `@defaultValue`. Never drop
   a jsDoc block to make code compile. (A passing `vue-tsc` is necessary, not
   sufficient.)
@@ -104,3 +114,4 @@ History of the maps lives in git; no separate version field.
 
 - 2026-06-04 — _(seed)_ initial rules extracted from `.sync/PLAN.md` review. Last reviewed: 2026-06-04.
 - 2026-06-09 — port of `007b136a` (PR #72): added rule — match the reka **transform-origin / available-height CSS var namespace to the underlying primitive** (`--reka-combobox-*` for InputMenu/SelectMenu, `--reka-select-*` for Select, `--reka-dropdown-menu-*` / `--reka-context-menu-*` for menus); a `max-h` cap on `content` only takes effect when `content` is also `flex flex-col` (viewport scrolls via `flex-1`); do **not** add `overflow-hidden` to b24ui menu `content` — the arrow is rendered inside it and would be clipped. Last reviewed: 2026-06-09.
+- 2026-06-13 — port of `ca5accf3` (PR #126): added the **playground-manifest mirroring** invariant (§2). A `chore(deps)` port bumped `package.json`, `docs/package.json`, and `playgrounds/nuxt/package.json` but missed b24ui's extra `playgrounds/demo/package.json` (`ai`, `@ai-sdk/vue` drifted to old ranges); fixed in a follow-up. Always sweep `playgrounds/{nuxt,demo,vue,repl}` for shared deps before regenerating the lockfile. Last reviewed: 2026-06-13.
