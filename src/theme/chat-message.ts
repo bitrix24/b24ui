@@ -16,7 +16,7 @@ export default {
     leadingAvatarSize: '',
     files: 'flex items-center gap-1.5',
     content: [
-      'relative text-pretty *:first:mt-0 *:last:mb-0',
+      'relative text-pretty wrap-break-word *:first:mt-0 *:last:mb-0',
       'bg-[var(--b24ui-background,var(--b24ui-default-background))]',
       'border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))]',
       'border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))]',
