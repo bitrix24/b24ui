@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "09f9cd0142275911ab4aa515c94ef56a9e7639e5",
+  "cursor": "ca5accf3362eaf060e4d02e53daeab5272637880",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -203,10 +203,16 @@
       "summary": "chore(release): v4.8.0 — upstream @nuxt/ui version bump + CHANGELOG; n/a (b24ui has its own package name @bitrix24/b24ui-nuxt, version and changelog)"
     },
     "09f9cd0142275911ab4aa515c94ef56a9e7639e5": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 125,
+      "b24ui_sha": "3b356b71",
       "decision": "noop",
       "summary": "docs(content): update badges (Soon -> 4.8+, drop navigation.badge:New) — n/a: upstream version-label maintenance; b24ui versions independently, keeps its own Soon/New badges per its roadmap, and listbox/prompt targets don't match b24ui docs"
+    },
+    "ca5accf3362eaf060e4d02e53daeab5272637880": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "chore(deps): update all non-major dependencies (#6497) — selective: shared deps in root/docs/playground manifests (ai/@ai-sdk, vitest, tanstack-virtual, unplugin-vue-components, regle, takumi, valibot, vue-component-meta, mcp-toolkit), c12 override ^3.3.4, pnpm 11.1.3->11.3.0, lockfile regen under gate"
     }
   }
 }
