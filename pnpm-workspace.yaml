@@ -16,7 +16,7 @@ overrides:
   '@bitrix24/b24ui-nuxt': workspace:*
   nitropack: ^2.13.0
   unplugin: ^3.0.0
-  c12: ^3.3.2
+  c12: ^3.3.4
   h3: 1.15.11
   unimport: 6.0.2
   nuxt-og-image: 6.5.3
