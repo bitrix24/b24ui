@@ -91,7 +91,7 @@ name: 'toast-avatar-example'
 
 ### Color
 
-Pass a `color` field to the `toast.add` method to change the color of the Toast.
+Pass a `color` field to the `toast.add` method to change the color of the Toast. The same `color` also tints the inner [Avatar](/docs/components/avatar/) when one is rendered — set `avatar.color` to override that cascade per-instance.
 
 ::component-example
 ---
