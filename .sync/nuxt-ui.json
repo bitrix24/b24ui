@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "48685b6fa645bb0db694b2f789e6bd43af116dfc",
+  "cursor": "eb468e6095e36eaf0ad3209660637e0e664856b0",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -185,10 +185,16 @@
       "summary": "chore(repl): expose composables subpath — barrel re-export in entry.ts + @bitrix24/b24ui-nuxt/composables import-map alias (2799fa6f between cursor and this was already ported as #68)"
     },
     "48685b6fa645bb0db694b2f789e6bd43af116dfc": {
+      "pr": 122,
+      "b24ui_sha": "1fc566a9",
+      "decision": "port",
+      "summary": "feat(ChatMessage): add `body` slot wrapping content+actions; theme actions-alignment (header flex, body min-w-0, side.right header/actions, drop left-11/6.5 compounds, default side left); regen 42 snapshots; playground demos"
+    },
+    "eb468e6095e36eaf0ad3209660637e0e664856b0": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "feat(ChatMessage): add `body` slot wrapping content+actions; theme actions-alignment (header flex, body min-w-0, side.right header/actions, drop left-11/6.5 compounds, default side left); regen 42 snapshots; playground demos"
+      "summary": "fix(ChatMessage): add `wrap-break-word` to content slot theme; regen ChatMessage/ChatMessages snapshots (nuxt+vue)"
     }
   }
 }
