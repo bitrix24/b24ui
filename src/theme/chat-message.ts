@@ -7,15 +7,16 @@
 export default {
   slots: {
     root: 'group/message relative w-full',
-    header: 'mb-1.5',
+    header: 'flex mb-1.5',
     container: 'relative flex items-start',
+    body: 'min-w-0',
     leading: 'inline-flex items-center justify-center min-h-6',
     leadingIcon: 'shrink-0 text-(--ui-color-design-plain-content-icon-secondary)',
     leadingAvatar: 'shrink-0',
     leadingAvatarSize: '',
     files: 'flex items-center gap-1.5',
     content: [
-      'relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0',
+      'relative text-pretty *:first:mt-0 *:last:mb-0',
       'bg-[var(--b24ui-background,var(--b24ui-default-background))]',
       'border-[color:var(--b24ui-border-color,var(--b24ui-default-border-color))]',
       'border-[length:var(--b24ui-border-width,var(--b24ui-default-border-width))]',
@@ -86,7 +87,8 @@ export default {
       left: {},
       right: {
         container: 'justify-end ms-auto max-w-[75%]',
-        files: 'justify-end'
+        header: 'justify-end',
+        actions: 'right-0'
       }
     },
     leading: {
@@ -121,22 +123,6 @@ export default {
       }
     },
     {
-      leading: true,
-      compact: false,
-      side: 'left',
-      class: {
-        actions: 'left-11'
-      }
-    },
-    {
-      leading: true,
-      compact: true,
-      side: 'left',
-      class: {
-        actions: 'left-6.5'
-      }
-    },
-    {
       variant: ['message', 'event', 'system'],
       compact: false,
       class: {
@@ -161,6 +147,7 @@ export default {
     }
   ],
   defaultVariants: {
+    side: 'left',
     variant: 'message'
   }
 }

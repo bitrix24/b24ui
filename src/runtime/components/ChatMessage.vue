@@ -54,6 +54,7 @@ export interface ChatMessageSlots<TMetadata = unknown, TDataParts extends UIData
   header?(props: UIMessage<TMetadata, TDataParts, TTools>): VNode[]
   leading?(props: UIMessage<TMetadata, TDataParts, TTools> & { avatar: ChatMessageProps<TMetadata, TDataParts, TTools>['avatar'], b24ui: ChatMessage['b24ui'] }): VNode[]
   files?(props: Omit<UIMessage<TMetadata, TDataParts, TTools>, 'parts'> & { parts: FileUIPart[] }): VNode[]
+  body?(props: UIMessage<TMetadata, TDataParts, TTools>): VNode[]
   content?(props: UIMessage<TMetadata, TDataParts, TTools> & { content?: string }): VNode[]
   actions?(props: UIMessage<TMetadata, TDataParts, TTools> & { actions: ChatMessageProps<TMetadata, TDataParts, TTools>['actions'] }): VNode[]
 }
@@ -120,25 +121,29 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chatMe
         </slot>
       </div>
 
-      <div v-if="textParts.length || !!slots.content" data-slot="content" :class="b24ui.content({ class: props.b24ui?.content })">
-        <slot name="content" v-bind="{ ...messageProps }">
-          <template v-for="(part, index) in textParts" :key="`${props.id}-${part.type}-${index}`">
-            {{ part.text }}
-          </template>
-        </slot>
-      </div>
+      <div v-if="textParts.length || !!slots.content || props.actions || !!slots.actions || !!slots.body" data-slot="body" :class="b24ui.body({ class: props.b24ui?.body })">
+        <slot name="body" v-bind="{ ...messageProps }">
+          <div v-if="textParts.length || !!slots.content" data-slot="content" :class="b24ui.content({ class: props.b24ui?.content })">
+            <slot name="content" v-bind="{ ...messageProps }">
+              <template v-for="(part, index) in textParts" :key="`${props.id}-${part.type}-${index}`">
+                {{ part.text }}
+              </template>
+            </slot>
+          </div>
 
-      <div v-if="props.actions || !!slots.actions" data-slot="actions" :class="b24ui.actions({ class: props.b24ui?.actions })">
-        <slot name="actions" v-bind="{ ...messageProps, actions: props.actions }">
-          <B24Tooltip v-for="(action, index) in props.actions" :key="index" :text="action.label">
-            <B24Button
-              size="sm"
-              color="air-secondary-no-accent"
-              v-bind="omit(action, ['onClick'])"
-              :label="undefined"
-              @click="typeof action.onClick === 'function' ? action.onClick($event, messageProps) : undefined"
-            />
-          </B24Tooltip>
+          <div v-if="props.actions || !!slots.actions" data-slot="actions" :class="b24ui.actions({ class: props.b24ui?.actions })">
+            <slot name="actions" v-bind="{ ...messageProps, actions: props.actions }">
+              <B24Tooltip v-for="(action, index) in props.actions" :key="index" :text="action.label">
+                <B24Button
+                  size="sm"
+                  color="air-secondary-no-accent"
+                  v-bind="omit(action, ['onClick'])"
+                  :label="undefined"
+                  @click="typeof action.onClick === 'function' ? action.onClick($event, messageProps) : undefined"
+                />
+              </B24Tooltip>
+            </slot>
+          </div>
         </slot>
       </div>
     </div>
