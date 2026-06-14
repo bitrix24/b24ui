@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "17a9d04f30f25908f7bdafc1ff39b1d9d56301fb",
+  "cursor": "d0cfc2b1b23ea0c93c6579eeb7de1f6f0ed6e138",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -215,10 +215,16 @@
       "summary": "chore(deps): update all non-major dependencies (#6497) — selective: shared deps in root/docs/playground manifests incl. playgrounds/demo (ai/@ai-sdk, vitest, tanstack-virtual, unplugin-vue-components, regle, takumi, valibot, vue-component-meta, mcp-toolkit), c12 override ^3.3.4, pnpm 11.1.3->11.3.0, lockfile regen under gate; +PORTING.md playground-mirroring invariant"
     },
     "17a9d04f30f25908f7bdafc1ff39b1d9d56301fb": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 127,
+      "b24ui_sha": "ca6082b1",
       "decision": "port",
       "summary": "chore(deps): update dependency reka-ui to v2.9.8 (#6485) — direct 1:1 bump (b24ui pins same exact version), lockfile regen under gate"
+    },
+    "d0cfc2b1b23ea0c93c6579eeb7de1f6f0ed6e138": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "noop",
+      "summary": "docs(showcase): add croix-rouge (#6502) — n/a: upstream curates nuxt/ui showcase sites (Croix-Rouge etc., built with nuxt/ui); b24ui maintains its own 'built with Bitrix24 UI' showcase, so upstream entries + screenshot assets don't apply"
     }
   }
 }
