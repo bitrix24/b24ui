@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "f4d7cbe71f3cb62eaf8b92a4da73f115324fcf6a",
+  "cursor": "5d82418c56e956a9f1b684b48f9bf40197cdf3aa",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -233,10 +233,16 @@
       "summary": "chore(deps): update tiptap to ^3.23.6 (#6498) — all @tiptap/* ^3.22.4->^3.23.6 across 5 manifests (root 17, docs/nuxt/vue/demo 2 each; demo mirrored per invariant), lockfile regen under gate"
     },
     "f4d7cbe71f3cb62eaf8b92a4da73f115324fcf6a": {
+      "pr": 130,
+      "b24ui_sha": "94b66669",
+      "decision": "noop",
+      "summary": "fix(Select/SelectMenu/InputMenu): add fallback for max-height (#6503) — already present in b24ui: all three themes use max-h-[min(40rem,var(--reka-*-content-available-height,100vh))] (b24ui's own 40rem cap + 100vh fallback). The fix's fallback intent is satisfied; matching upstream's 15rem would regress b24ui sizing"
+    },
+    "5d82418c56e956a9f1b684b48f9bf40197cdf3aa": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "noop",
-      "summary": "fix(Select/SelectMenu/InputMenu): add fallback for max-height (#6503) — already present in b24ui: all three themes use max-h-[min(40rem,var(--reka-*-content-available-height,100vh))] (b24ui's own 40rem cap + 100vh fallback). The fix's fallback intent is satisfied; matching upstream's 15rem would regress b24ui sizing"
+      "summary": "fix(locale): improve Thai translation (#6509) — n/a: upstream reorders chatReasoning (already after prose in b24ui) and trims its own pricingTable.caption; b24ui's th.ts is independently translated with different wording (caption 'เปรียบเทียบแผนราคา', thoughtFor 'ใช้เวลาคิด{duration}'), so upstream's specific string edits have no matching target"
     }
   }
 }
