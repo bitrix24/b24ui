@@ -1,10 +1,10 @@
 {
-  "$schema-note": "Map upstream color tokens to the b24ui air-* system. Flat, alphabetical. Seed reflects the air palette in src/theme/*.ts; refine per component during porting (see PORTING.md §4). Note: mapping is often component-specific — treat these as defaults, not absolutes.",
-  "error": "air-primary-alert",
-  "info": "air-primary-copilot",
-  "neutral": "air-secondary-no-accent",
+  "$schema-note": "Upstream nuxt/ui color tokens -> b24ui air-* system. Verified against src/theme/*.ts. NOTE: the mapping is often component-specific (b24ui has air-secondary-accent/-no-accent/-alert, air-tertiary*, air-boost, air-selection variants a component may use instead). Treat these as the default semantic mapping; pick the precise air-* token per component during porting (PORTING.md §4).",
   "primary": "air-primary",
   "secondary": "air-secondary",
   "success": "air-primary-success",
-  "warning": "air-primary-alert"
+  "info": "air-primary-copilot",
+  "warning": "air-primary-warning",
+  "error": "air-primary-alert",
+  "neutral": "air-secondary-no-accent"
 }
