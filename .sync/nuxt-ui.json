@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "5d82418c56e956a9f1b684b48f9bf40197cdf3aa",
+  "cursor": "78cc1ce5e96afa3f7a0f1456f17b1b179b9c5327",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -239,10 +239,16 @@
       "summary": "fix(Select/SelectMenu/InputMenu): add fallback for max-height (#6503) — already present in b24ui: all three themes use max-h-[min(40rem,var(--reka-*-content-available-height,100vh))] (b24ui's own 40rem cap + 100vh fallback). The fix's fallback intent is satisfied; matching upstream's 15rem would regress b24ui sizing"
     },
     "5d82418c56e956a9f1b684b48f9bf40197cdf3aa": {
+      "pr": 131,
+      "b24ui_sha": "777fedc1",
+      "decision": "noop",
+      "summary": "fix(locale): improve Thai translation (#6509) — n/a: upstream reorders chatReasoning (already after prose in b24ui) and trims its own pricingTable.caption; b24ui's th.ts is independently translated with different wording (caption 'เปรียบเทียบแผนราคา', thoughtFor 'ใช้เวลาคิด{duration}'), so upstream's specific string edits have no matching target"
+    },
+    "78cc1ce5e96afa3f7a0f1456f17b1b179b9c5327": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "noop",
-      "summary": "fix(locale): improve Thai translation (#6509) — n/a: upstream reorders chatReasoning (already after prose in b24ui) and trims its own pricingTable.caption; b24ui's th.ts is independently translated with different wording (caption 'เปรียบเทียบแผนราคา', thoughtFor 'ใช้เวลาคิด{duration}'), so upstream's specific string edits have no matching target"
+      "summary": "docs(showcase): add Pitchwall (#6510) — n/a: another nuxt/ui showcase-gallery entry (site built with nuxt/ui) + screenshot; b24ui keeps its own 'built with Bitrix24 UI' showcase (same rationale as #128)"
     }
   }
 }
