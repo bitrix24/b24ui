@@ -42,11 +42,17 @@ type ComponentAppConfig<
   A extends Record<string, any>,
   K extends string,
   U extends string = 'b24ui' | 'b24ui.prose'
-> = A & (
-  U extends 'b24ui.prose'
-    ? { b24ui?: { prose?: { [k in K]?: Partial<T> } } }
-    : { [key in Exclude<U, 'b24ui.prose'>]?: { [k in K]?: Partial<T> } }
-  )
+> = Omit<A, 'b24ui'> & {
+  b24ui: U extends 'b24ui.prose'
+    ? (A extends { b24ui: infer UI } ? Omit<UI, 'prose'> : Record<string, never>) & {
+      prose?: (A extends { b24ui: { prose?: infer P } } ? Omit<NonNullable<P>, K> : Record<string, never>) & {
+        [k in K]?: Partial<T>
+      }
+    }
+    : (A extends { b24ui: infer UI } ? Omit<UI, K> : Record<string, never>) & {
+      [k in K]?: Partial<T>
+    }
+}
 
 /**
  * Defines the configuration shape expected for a component.
