@@ -256,13 +256,15 @@ ${themeBlocks}`
     filename: 'types/b24ui.d.ts',
     getContents: () => {
       return `import * as b24ui from '#build/b24ui'
-import type { TVConfig } from '@bitrix24/b24ui-nuxt'
+import type { TVConfig, DeepRequired } from '@bitrix24/b24ui-nuxt'
 import type { defaultConfig } from 'tailwind-variants'
 
 type AppConfigUI = {
   prefix?: string
   tv?: typeof defaultConfig
 } & TVConfig<typeof b24ui>
+
+type AppConfigRuntimeUI = DeepRequired<Pick<AppConfigUI, 'tv'>> & Omit<AppConfigUI, 'tv'>
 
 declare module '@nuxt/schema' {
   interface AppConfigInput {
@@ -271,6 +273,9 @@ declare module '@nuxt/schema' {
      * @see https://bitrix24.github.io/b24ui/docs/getting-started/theme/components/
      */
     b24ui?: AppConfigUI
+  }
+  interface AppConfig {
+    b24ui: AppConfigRuntimeUI
   }
 }
 
