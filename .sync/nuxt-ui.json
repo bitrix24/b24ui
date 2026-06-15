@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "a4dfa9e6b6c87a6d104a86c4169ab9e30747c355",
+  "cursor": "fc6295b233bb46c90715f36f4a3838dcd8dcf063",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -263,10 +263,16 @@
       "summary": "fix(module): revert tagPriority to -2 for inline style tag — direct 1:1 in src/runtime/plugins/colors.ts (tagPriority 'critical' -> -2; id bitrix24-ui-colors)"
     },
     "a4dfa9e6b6c87a6d104a86c4169ab9e30747c355": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 135,
+      "b24ui_sha": "178cc77b",
       "decision": "port",
       "summary": "chore: add .cursor to .gitignore — added .cursor under the Misc section (after .DS_Store), matching upstream"
+    },
+    "fc6295b233bb46c90715f36f4a3838dcd8dcf063": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "noop",
+      "summary": "chore(playground): update vite optimizeDeps include list — upstream only alphabetizes its include[] (no add/remove, zero runtime effect); b24ui's playgrounds/nuxt list is a superset (same 9 + many @bitrix24/b24icons-vue entries) with its own grouping, so the cosmetic reorder doesn't map"
     }
   }
 }
