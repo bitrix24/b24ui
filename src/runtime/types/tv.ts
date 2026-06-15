@@ -44,12 +44,12 @@ type ComponentAppConfig<
   U extends string = 'b24ui' | 'b24ui.prose'
 > = Omit<A, 'b24ui'> & {
   b24ui: U extends 'b24ui.prose'
-    ? (A extends { b24ui: infer UI } ? Omit<UI, 'prose'> : Record<string, never>) & {
+    ? (A extends { b24ui: infer B24UI } ? Omit<B24UI, 'prose'> : Record<string, never>) & {
       prose?: (A extends { b24ui: { prose?: infer P } } ? Omit<NonNullable<P>, K> : Record<string, never>) & {
         [k in K]?: Partial<T>
       }
     }
-    : (A extends { b24ui: infer UI } ? Omit<UI, K> : Record<string, never>) & {
+    : (A extends { b24ui: infer B24UI } ? Omit<B24UI, K> : Record<string, never>) & {
       [k in K]?: Partial<T>
     }
 }

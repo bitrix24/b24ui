@@ -26,6 +26,7 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
 |---|---|
 | `ui` prop / `ui?:` type | `b24ui` prop / `b24ui?:` type |
 | slot prop `{ ui }` | `{ b24ui }` |
+| `infer UI` / a `UI` type-var | `infer B24UI` / `B24UI` (rename the inferred type variable too) |
 | imports `#ui/...`, `@nuxt/ui` | b24ui equivalents under `src/runtime/...` |
 | iconify name `i-lucide-x` etc. | `b24-icons` component — see [`icon-map.json`](./icon-map.json) |
 | color token (`primary`, `neutral`, …) | `air-*` system — see [`color-map.json`](./color-map.json) |
@@ -115,3 +116,4 @@ History of the maps lives in git; no separate version field.
 - 2026-06-04 — _(seed)_ initial rules extracted from `.sync/PLAN.md` review. Last reviewed: 2026-06-04.
 - 2026-06-09 — port of `007b136a` (PR #72): added rule — match the reka **transform-origin / available-height CSS var namespace to the underlying primitive** (`--reka-combobox-*` for InputMenu/SelectMenu, `--reka-select-*` for Select, `--reka-dropdown-menu-*` / `--reka-context-menu-*` for menus); a `max-h` cap on `content` only takes effect when `content` is also `flex flex-col` (viewport scrolls via `flex-1`); do **not** add `overflow-hidden` to b24ui menu `content` — the arrow is rendered inside it and would be clipped. Last reviewed: 2026-06-09.
 - 2026-06-13 — port of `ca5accf3` (PR #126): added the **playground-manifest mirroring** invariant (§2). A `chore(deps)` port bumped `package.json`, `docs/package.json`, and `playgrounds/nuxt/package.json` but missed b24ui's extra `playgrounds/demo/package.json` (`ai`, `@ai-sdk/vue` drifted to old ranges); fixed in a follow-up. Always sweep `playgrounds/{nuxt,demo,vue,repl}` for shared deps before regenerating the lockfile. Last reviewed: 2026-06-13.
+- 2026-06-15 — port of `ffaf163f` (PR #140): added the §1 rewrite — **rename inferred type variables too**: when porting types that `infer UI` (or otherwise name a `UI` type-var), rename it to `B24UI`, consistent with `ui → b24ui`. Caught in review of the `ComponentAppConfig` rewrite (`A extends { b24ui: infer UI }` → `infer B24UI`). Last reviewed: 2026-06-15.
