@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "7a0825ad6a17627ce4c6dd860df3cebb7cf1d813",
+  "cursor": "564adbfcb46486d5f80fd1663a4b37c0d762390c",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -275,10 +275,16 @@
       "summary": "chore(playground): update vite optimizeDeps include list — upstream only alphabetizes its include[] (no add/remove, zero runtime effect); b24ui's playgrounds/nuxt list is a superset (same 9 + many @bitrix24/b24icons-vue entries) with its own grouping, so the cosmetic reorder doesn't map"
     },
     "7a0825ad6a17627ce4c6dd860df3cebb7cf1d813": {
+      "pr": 137,
+      "b24ui_sha": "c2affeb3",
+      "decision": "port",
+      "summary": "fix(Form): add method=\"post\" to the <form> root in Form.vue (prevents GET-submit leaking field values into the URL); regen Form snapshots (nuxt+vue). b24ui has no AuthForm snapshot so only Form snaps changed"
+    },
+    "564adbfcb46486d5f80fd1663a4b37c0d762390c": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(Form): add method=\"post\" to the <form> root in Form.vue (prevents GET-submit leaking field values into the URL); regen Form snapshots (nuxt+vue). b24ui has no AuthForm snapshot so only Form snaps changed"
+      "summary": "docs(toast): remove misleading AppConfig notes — removed the 4 ::note blocks claiming the position/duration/max/expand examples use AppConfig (they use props directly) from docs/content/docs/2.components/toast.md; b24ui had the same notes (pointing at b24ui app.config.ts)"
     }
   }
 }
