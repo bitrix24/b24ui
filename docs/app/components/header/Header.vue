@@ -52,8 +52,12 @@ defineShortcuts({
     />
 
     <template #right>
+      <B24Tooltip text="Search" :kbds="['meta', 'K']" ignore-non-keyboard-focus>
+        <B24ContentSearchButton />
+      </B24Tooltip>
+
       <!-- @memo @memo this for NUXT.UI.docs -->
-      <B24Tooltip text="Ask AI for help">
+      <B24Tooltip text="Ask AI" :kbds="['meta', 'I']" ignore-non-keyboard-focus>
         <B24Button
           v-if="isAssistantEnabled"
           color="air-selection"
@@ -64,7 +68,6 @@ defineShortcuts({
       </B24Tooltip>
       <!-- @memo this for docus -->
       <!-- AssistantChat v-if="isAssistantEnabled" / -->
-      <B24ContentSearchButton />
 
       <B24ColorModeButton />
 
