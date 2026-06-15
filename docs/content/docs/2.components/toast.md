@@ -207,10 +207,6 @@ name: 'toast-example'
 :toaster-position-example
 ::
 
-::note{to="https://github.com/bitrix24/b24ui/blob/main/docs/app/app.config.ts#L3"}
-In this example, we use the `AppConfig` to configure the `position` prop of the `Toaster` component globally.
-::
-
 ### Change global duration
 
 Change the `toaster.duration` prop on the [App](/docs/components/app/#props) component to change the duration of the toasts.
@@ -237,10 +233,6 @@ name: 'toast-example'
 :toaster-duration-example
 ::
 
-::note{to="https://github.com/bitrix24/b24ui/blob/main/docs/app/app.config.ts#L4"}
-In this example, we use the `AppConfig` to configure the `duration` prop of the `Toaster` component globally.
-::
-
 ### Change global max
 
 Change the `toaster.max` prop on the [App](/docs/components/app/#props) component to change the max number of toasts displayed at once.
@@ -265,10 +257,6 @@ name: 'toast-example'
 
 #options
 :toaster-max-example
-::
-
-::note{to="https://github.com/bitrix24/b24ui/blob/main/docs/app/app.config.ts#L5"}
-In this example, we use the `AppConfig` to configure the `max` prop of the `Toaster` component globally.
 ::
 
 ### Stacked toasts
@@ -299,10 +287,6 @@ name: 'toast-example'
 
 #options
 :toaster-expand-example
-::
-
-::note{to="https://github.com/bitrix24/b24ui/blob/main/docs/app/app.config.ts#L6"}
-In this example, we use the `AppConfig` to configure the `expand` prop of the `Toaster` component globally.
 ::
 
 ### Deduplicated toasts
