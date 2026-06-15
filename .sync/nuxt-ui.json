@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "5b9a9c90e7799ade73faa72e8e419ab3192aab66",
+  "cursor": "2dac77803466b79a12a2c806c90a6b48b75a5a63",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -251,10 +251,16 @@
       "summary": "docs(showcase): add Pitchwall (#6510) — n/a: another nuxt/ui showcase-gallery entry (site built with nuxt/ui) + screenshot; b24ui keeps its own 'built with Bitrix24 UI' showcase (same rationale as #128)"
     },
     "5b9a9c90e7799ade73faa72e8e419ab3192aab66": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 133,
+      "b24ui_sha": "2e5594c0",
       "decision": "noop",
       "summary": "chore(repl): use Vue-compatible component overrides for Icon and Link — already covered centrally: b24ui's vite plugin (src/plugins/components.ts) resolves Link to vue/overrides/none/Link.vue when router:false (REPL uses bitrix24UIPluginVite({router:false})); Icon part n/a (b24ui has no Icon.vue). Upstream's manual per-REPL resolveId override is redundant"
+    },
+    "2dac77803466b79a12a2c806c90a6b48b75a5a63": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "fix(module): revert tagPriority to -2 for inline style tag — direct 1:1 in src/runtime/plugins/colors.ts (tagPriority 'critical' -> -2; id bitrix24-ui-colors)"
     }
   }
 }
