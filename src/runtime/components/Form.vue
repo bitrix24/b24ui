@@ -462,6 +462,7 @@ defineExpose(api)
     :is="parentBus ? 'div' : 'form'"
     :id="formId"
     ref="formRef"
+    method="post"
     :class="b24ui({ class: [props.b24ui?.base, props.class] })"
     @submit.prevent="onSubmitWrapper"
   >
