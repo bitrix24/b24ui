@@ -2,6 +2,13 @@
 @import "@bitrix24/b24ui-nuxt";
 
 @source "../../../content/**/*";
+/*
+ * Exclude the upstream-sync notes from Tailwind's class scanning. The root
+ * `source("../../../..")` above scans the whole repo, and `.sync/log/*.md`
+ * contains illustrative class strings with placeholders (e.g.
+ * `--reka-*-content-available-height`) that produce invalid CSS during build.
+ */
+@source not "../../../../.sync";
 
 @theme static {
 
