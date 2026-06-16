@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "80bd0cc05e64bc1932fe9b421bf7bc255019f689",
+  "cursor": "00aded736a5b62de4cb3216311d11b9ea9a5c5b0",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -299,10 +299,16 @@
       "summary": "fix(module): expose component theme keys in AppConfig type (#6520) — add DeepRequired (utils.ts), rewrite ComponentAppConfig to Omit<A,'b24ui'>&{b24ui:...} (tv.ts, infer B24UI), templates.ts AppConfig augmentation with AppConfigRuntimeUI=DeepRequired<Pick<AppConfigUI,'tv'>>&Omit<...> (b24ui has no colors/icons, only tv), module.ts cast. Naming ui->b24ui, UI->B24UI"
     },
     "80bd0cc05e64bc1932fe9b421bf7bc255019f689": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 141,
+      "b24ui_sha": "f01a3b77",
       "decision": "port",
       "summary": "docs(search): improve relevance and tooltip behavior (#6521) — partial: Search.vue :transition=false; Header.vue search button wrapped in tooltip (meta+K) moved before AI, AI tooltip meta+I, both ignore-non-keyboard-focus. Skipped useSearch.ts description rewrites (b24ui keeps 'Bitrix24 UI' branding + own nav)"
+    },
+    "00aded736a5b62de4cb3216311d11b9ea9a5c5b0": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "noop",
+      "summary": "chore(release): v4.8.1 — upstream @nuxt/ui version bump (4.8.0->4.8.1) + CHANGELOG; n/a (b24ui versions independently, same as v4.8.0/#124)"
     }
   }
 }
