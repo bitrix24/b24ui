@@ -1,5 +1,54 @@
 # Changelog
 
+## [2.9.0](https://github.com/bitrix24/b24ui/compare/v2.8.0...v2.9.0) (2026-06-16)
+
+### Features
+
+* **ContentSearch:** add async search support via `search` / `searchStatus`
+* **ChatMessage:** add `body` slot and improve actions alignment
+
+### Bug Fixes
+
+* **InputMenu/SelectMenu:** re-highlight first item when items change
+* **Form:** support setting the `name` attribute
+* **Form:** add `method="post"` to prevent credential leaking via GET
+* **module:** merge custom variants into AppConfig type
+* **module:** expose component theme keys in AppConfig type
+* **module:** revert `tagPriority` to `-2` for inline style tag
+* **module:** ship stripped `#build/b24ui.css` fallback for tooling
+* **ChatMessage:** add `wrap-break-word` to content slot
+* **ContentSearch:** preserve intermediate ancestors in breadcrumb prefix
+* **components:** apply `theme.prefix` to hardcoded utility classes
+* **InputMenu/Select/SelectMenu:** respect `trailing: false` over default `trailingIcon`
+* **ProseKbd:** add default slot and make `value` optional
+* **Textarea:** autoresize on mount with pre-filled value
+* **ContentToc:** apply `b24ui.trigger` prop to trigger elements
+* **FileUpload:** pass `disabled` attribute to button variant
+
+### Docs
+
+* **search:** improve relevance and tooltip behavior
+* **toast:** remove misleading AppConfig notes from examples
+* fix missing CSS variables on prerendered pages
+* resolve prerender payload 204 and build warnings
+* drop redundant homepage payload prerender ignore
+
+### CI
+
+* **deploy:** raise Node heap limit to fix docs prerender OOM
+
+### Chore
+
+* **deps:** update Nuxt framework to `^4.4.6`
+* **deps:** update Tiptap to `^3.24.0`
+* **deps:** update reka-ui to `v2.9.8`
+* **deps:** update Vite, vue-tsc to `^3.3.3`, vitest-environment-nuxt to v2
+* **deps:** update pnpm to v11, pnpm/action-setup to v6
+* **deps:** several non-major dependency refreshes
+* **repl:** expose composables subpath in the playground
+* sync with nuxt/ui upstream (no-op syncs)
+* add `.cursor` to `.gitignore`
+
 ## [2.8.0](https://github.com/bitrix24/b24ui/compare/v2.7.1...v2.8.0) (2026-05-20)
 
 ### Features
