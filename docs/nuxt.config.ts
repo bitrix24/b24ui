@@ -383,16 +383,7 @@ export default defineNuxtConfig({
         ...pagesService
       ],
       crawlLinks: true,
-      autoSubfolderIndex: false,
-      // The homepage payload (`/_payload.json` and `<baseURL>/_payload.json`)
-      // returns 204 during prerender — a Nuxt 4.4 payloadExtraction + baseURL
-      // quirk that surfaced after the dependency bump (the page itself renders
-      // fine; only its extracted payload is empty). Skip just those root-level
-      // payloads so the build doesn't fail; per-page doc payloads are untouched
-      // and the homepage payload is fetched on hydration instead.
-      ignore: [
-        new RegExp(`^(?:${baseUrl})?/_payload\\.json(?:\\?.*)?$`)
-      ]
+      autoSubfolderIndex: false
     }
   },
 
