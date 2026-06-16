@@ -264,7 +264,7 @@ type AppConfigUI = {
   tv?: typeof defaultConfig
 } & TVConfig<typeof b24ui>
 
-type AppConfigRuntimeUI = DeepRequired<Pick<AppConfigUI, 'tv'>> & Omit<AppConfigUI, 'tv'>
+type AppConfigRuntimeUI = DeepRequired<Pick<AppConfigUI, 'tv'>> & typeof b24ui
 
 declare module '@nuxt/schema' {
   interface AppConfigInput {
@@ -274,7 +274,7 @@ declare module '@nuxt/schema' {
      */
     b24ui?: AppConfigUI
   }
-  interface AppConfig {
+  interface CustomAppConfig {
     b24ui: AppConfigRuntimeUI
   }
 }
