@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "e99a61bc0be2bee92a3062fc1c3e3701075e06e4",
+  "cursor": "be36fc37ceae066db292e71aa447622e7e59eba3",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -335,10 +335,16 @@
       "summary": "fix(module): merge custom variants into AppConfig type (#6531) — follow-up to #140 in templates.ts: AppConfigRuntimeUI Omit<AppConfigUI,'tv'> -> typeof b24ui (merges actual theme/custom variants); interface AppConfig -> CustomAppConfig"
     },
     "e99a61bc0be2bee92a3062fc1c3e3701075e06e4": {
+      "pr": 150,
+      "b24ui_sha": "4f421916",
+      "decision": "port",
+      "summary": "chore(deps): update vue-tsc to ^3.3.3 (#6533) — vue-tsc ^3.3.0->^3.3.3 + vue-component-type-helpers ^3.3.0->^3.3.3 (root); vue-tsc bump in playgrounds nuxt/vue + demo (mirrored per invariant; repl pins neither); lockfile regen under gate (resolves 3.3.4)"
+    },
+    "be36fc37ceae066db292e71aa447622e7e59eba3": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "chore(deps): update vue-tsc to ^3.3.3 (#6533) — vue-tsc ^3.3.0->^3.3.3 + vue-component-type-helpers ^3.3.0->^3.3.3 (root); vue-tsc bump in playgrounds nuxt/vue + demo (mirrored per invariant; repl pins neither); lockfile regen under gate (resolves 3.3.4)"
+      "summary": "chore(deps): update devdependency vitest-environment-nuxt to v2 (#6534) — direct 1:1 major bump in root package.json (^1.0.1->^2.0.0), only manifest referencing it (no playground mirror needed); lockfile regen under gate (resolves 2.0.0); full test suite re-run green as it's the vitest nuxt env"
     }
   }
 }
