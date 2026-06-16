@@ -62,10 +62,15 @@ const B24_DOCS = {
 function getComponentMeta(componentName: string) {
   const pascalCaseName = componentName.charAt(0).toUpperCase() + componentName.slice(1)
 
+  // Strip an already-present `B24`/`Prose` prefix before re-prefixing, so a name
+  // that already carries one (e.g. a doc titled `ProseCallout`) is not doubled
+  // into `ProseProseCallout`. `pascalCaseName` is returned unchanged for naming.
+  const baseName = pascalCaseName.replace(/^(?:B24|Prose)/, '')
+
   const strategies = [
-    `B24${pascalCaseName}`,
-    `Prose${pascalCaseName}`,
-    pascalCaseName
+    `B24${baseName}`,
+    `Prose${baseName}`,
+    baseName
   ]
 
   let componentMeta: any
