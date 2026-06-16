@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "ad7b54e5371b7856ccabaf39308339052fa9ca1b",
+  "cursor": "f8186e2d49472629cb0ea29ef1da468227bde677",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -347,10 +347,16 @@
       "summary": "chore(deps): update devdependency vitest-environment-nuxt to v2 (#6534) — direct 1:1 major bump in root package.json (^1.0.1->^2.0.0), only manifest referencing it (no playground mirror needed); lockfile regen under gate (resolves 2.0.0); full test suite re-run green as it's the vitest nuxt env"
     },
     "ad7b54e5371b7856ccabaf39308339052fa9ca1b": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 152,
+      "b24ui_sha": "ab563e45",
       "decision": "noop",
       "summary": "chore(github): guard pkg.pr.new publish to the nuxt org — n/a: upstream tightens the module.yml Publish step to github.repository_owner=='nuxt'. b24ui has no module.yml and no pkg-pr-new/preview-publish step anywhere (workflows: ci.yml, deploy.yml, npm-publish.yml) — nothing to guard"
+    },
+    "f8186e2d49472629cb0ea29ef1da468227bde677": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "fix(Form): support setting the name attribute (#6539) — Form.vue name prop N extends true?string:never -> string (now the form element's name attr + nested-form state path); template binds :name=\"parentBus?undefined:props.name\"; spec adds name/method/id/class/b24ui/aria-label cases (ui->b24ui), +12 regenerated snapshots (nuxt+vue)"
     }
   }
 }
