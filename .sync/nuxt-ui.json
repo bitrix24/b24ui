@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "7d88221f75bb0bb45b490f422a6bbf6e9379eb2b",
+  "cursor": "be67bf9275fd06f528e71aaba686e245ccd32659",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -317,10 +317,16 @@
       "summary": "chore(deps): update all non-major dependencies (#6529) — selective: shared deps in root/docs/nuxt/demo (internationalized date+number, tanstack-virtual, fuse.js, tinyglobby, ai/@ai-sdk, eslint, takumi, vue-component-meta), pnpm 11.3.0->11.5.0, lockfile regen under gate; +maintainer-requested @ai-sdk/deepseek ^2.0.38. Skipped iconify-json/@ai-sdk-anthropic|gateway (n/a) + vue playground date (diverges ^3.9.0). Branch updated with main (#143 ci-deploy) before merge"
     },
     "7d88221f75bb0bb45b490f422a6bbf6e9379eb2b": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 145,
+      "b24ui_sha": "ac3150e3",
       "decision": "port",
       "summary": "chore(deps): update tiptap to ^3.24.0 (#6532) — all @tiptap/* ^3.23.6->^3.24.0 across 5 manifests (root 17, docs/nuxt/vue/demo 2 each), lockfile regen under gate (resolves 3.26.1)"
+    },
+    "be67bf9275fd06f528e71aaba686e245ccd32659": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "noop",
+      "summary": "docs(mcp): add github copilot cli (#6526) — n/a: edits docs/.../7.ai/1.mcp.md (nuxt/ui MCP editor-setup guide, ui.nuxt.com/mcp). b24ui's 7.ai/ has no 1.mcp.md (only 2.llms-txt, 3.skills) — no MCP setup page to update"
     }
   }
 }
