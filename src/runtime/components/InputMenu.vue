@@ -248,7 +248,7 @@ export interface InputMenuSlots<
 </script>
 
 <script setup lang="ts" generic="T extends ArrayOrNested<InputMenuItem>, VK extends GetItemKeys<T> | undefined = undefined, M extends boolean = false, Mod extends Omit<ModelModifiers, 'lazy'> = Omit<ModelModifiers, 'lazy'>, C extends boolean | object = false">
-import { computed, useTemplateRef, toRef, onMounted, toRaw, nextTick, watch } from 'vue'
+import { computed, ref, useTemplateRef, toRef, onMounted, toRaw, nextTick, watch } from 'vue'
 import { TagsInputRoot, TagsInputItem, TagsInputItemText, TagsInputItemDelete, TagsInputInput } from 'reka-ui'
 import { Combobox, Autocomplete } from 'reka-ui/namespaced'
 import { defu } from 'defu'
@@ -481,7 +481,10 @@ function onFocus(event: FocusEvent) {
   emitFormFocus()
 }
 
+const isOpen = ref(false)
 function onUpdateOpen(value: boolean) {
+  isOpen.value = value
+
   let timeoutId
 
   if (!value) {
@@ -552,6 +555,21 @@ function onClear() {
 }
 
 const viewportRef = useTemplateRef('viewportRef')
+
+const comboboxRootRef = useTemplateRef('comboboxRootRef')
+
+// reka-ui only re-highlights the first item when the list goes from empty to non-empty.
+// With `create-item`, the create item is always registered so the count never drops to 0,
+// leaving the highlight stale when async `items` load. Re-highlight when items change while open.
+// Wait an extra tick so freshly mounted items are registered in reka-ui's collection before highlighting.
+watch(() => props.items, async () => {
+  if (!isOpen.value) {
+    return
+  }
+
+  await nextTick()
+  comboboxRootRef.value?.highlightFirstItem?.()
+}, { flush: 'post' })
 
 defineExpose({
   inputRef: toRef(() => inputRef.value?.$el as HTMLInputElement),
@@ -655,6 +673,7 @@ defineExpose({
   </DefineItemTemplate>
 
   <Component.Root
+    ref="comboboxRootRef"
     v-slot="{ modelValue, open }"
     v-bind="rootProps"
     :name="name"

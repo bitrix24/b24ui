@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "f8186e2d49472629cb0ea29ef1da468227bde677",
+  "cursor": "0414dd0d1ba694962562efdabfb60c135ab742ad",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -353,10 +353,16 @@
       "summary": "chore(github): guard pkg.pr.new publish to the nuxt org — n/a: upstream tightens the module.yml Publish step to github.repository_owner=='nuxt'. b24ui has no module.yml and no pkg-pr-new/preview-publish step anywhere (workflows: ci.yml, deploy.yml, npm-publish.yml) — nothing to guard"
     },
     "f8186e2d49472629cb0ea29ef1da468227bde677": {
+      "pr": 153,
+      "b24ui_sha": "6c129a9b",
+      "decision": "port",
+      "summary": "fix(Form): support setting the name attribute (#6539) — Form.vue name prop N extends true?string:never -> string (now the form element's name attr + nested-form state path); template binds :name=\"parentBus?undefined:props.name\"; spec adds name/method/id/class/b24ui/aria-label cases (ui->b24ui), +12 regenerated snapshots (nuxt+vue)"
+    },
+    "0414dd0d1ba694962562efdabfb60c135ab742ad": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(Form): support setting the name attribute (#6539) — Form.vue name prop N extends true?string:never -> string (now the form element's name attr + nested-form state path); template binds :name=\"parentBus?undefined:props.name\"; spec adds name/method/id/class/b24ui/aria-label cases (ui->b24ui), +12 regenerated snapshots (nuxt+vue)"
+      "summary": "fix(InputMenu/SelectMenu): re-highlight first item when items change (#6538) — both components: import ref (+watch/nextTick in SelectMenu), isOpen ref set in onUpdateOpen, comboboxRootRef + watch(props.items,{flush:'post'}) calling highlightFirstItem while open, ref on Component.Root/ComboboxRoot; +create-item test in both specs (+4 tests across nuxt/vue). Fixes stale highlight with create-item + async items"
     }
   }
 }
