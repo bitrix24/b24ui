@@ -24,6 +24,9 @@ jobs:
 
     env:
       # FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      # Raise V8 heap limit: docs prerender (nuxt generate) otherwise hits the
+      # default ~4GB cap and OOMs (exit 134). Runner has 16GB RAM available.
+      NODE_OPTIONS: --max-old-space-size=8192
       NUXT_PUBLIC_USE_AI: false
       NUXT_PUBLIC_SITE_URL: https://bitrix24.github.io
       NUXT_PUBLIC_BASE_URL: /b24ui
