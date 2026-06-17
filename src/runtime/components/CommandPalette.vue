@@ -675,12 +675,12 @@ function onSelect(e: Event, item: T) {
         no-border
         no-padding
         :size="props.size"
-        v-bind="typeof props.input === 'object' ? props.input : {}"
         :placeholder="placeholder"
         :autofocus="props.autofocus"
         :loading="props.loading"
         :trailing-icon="props.trailingIcon"
         :icon="props.icon || icons.search"
+        v-bind="typeof props.input === 'object' ? props.input : {}"
         data-slot="input"
         :class="b24ui.input({ class: props.b24ui?.input })"
         @keydown.backspace="onBackspace"
