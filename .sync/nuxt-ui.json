@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "4da3a5d34373b8c99a7304d5cd143da8273a9238",
+  "cursor": "b8ee80b663d9a0076a2db0a2f3ef54ae9db7e893",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -431,10 +431,16 @@
       "summary": "docs(navigation): query description field for content toc — docs/server/api/navigation.json.get.ts: add 'description' to queryCollectionNavigation fields (['framework','category']->['framework','category','description']). Direct 1:1; b24ui matched upstream pre-change"
     },
     "4da3a5d34373b8c99a7304d5cd143da8273a9238": {
+      "pr": 171,
+      "b24ui_sha": "1be274b8",
+      "decision": "port",
+      "summary": "feat(FileUpload): expose removeFile in slots (#6492) — FileUpload.vue: add removeFile:(index?)=>void to the files/file/file-trailing slot type defs and bind :remove-file=\"removeFile\" on those 3 slots (files-top/files-bottom/actions already had it). b24ui file-trailing carries b24ui:FileUpload['b24ui']. Slot-prop only, no snapshot churn"
+    },
+    "b8ee80b663d9a0076a2db0a2f3ef54ae9db7e893": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "feat(FileUpload): expose removeFile in slots (#6492) — FileUpload.vue: add removeFile:(index?)=>void to the files/file/file-trailing slot type defs and bind :remove-file=\"removeFile\" on those 3 slots (files-top/files-bottom/actions already had it). b24ui file-trailing carries b24ui:FileUpload['b24ui']. Slot-prop only, no snapshot churn"
+      "summary": "docs(composables): improve examples — replace inline vue code in use-overlay/use-scroll-shadow/use-toast docs with ::component-example; add 4 example components adapted to b24ui (B24Button/B24Modal, b24ui prop, air colors, ReplyIcon from b24icons). All 3 composables+pages already existed in b24ui"
     }
   }
 }
