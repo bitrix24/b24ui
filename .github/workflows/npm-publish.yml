@@ -69,6 +69,14 @@ jobs:
       - name: Build
         run: pnpm build
 
+      # Smoke-build the dev playgrounds before publishing so a broken Nuxt or
+      # Vue build blocks the release (these no longer run in PR CI).
+      - name: Build Nuxt playground
+        run: pnpm run dev:build
+
+      - name: Build Vue playground
+        run: pnpm run dev:vue:build
+
       - name: 'Publish 🚀'
         shell: bash
         run: pnpm publish --no-git-checks
