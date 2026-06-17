@@ -44,6 +44,12 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   with `node -e "..."` diffing nuxt vs demo (and check vue/repl), then
   regenerate the lockfile once. A dep that exists only in `nuxt` but not `demo`
   (or vice-versa) is fine; a dep present in **both** must not drift.
+- **Locales — do NOT add new ones.** b24ui maintains its own curated locale
+  set and does not adopt new languages from upstream. When an upstream commit
+  adds a locale (a new `src/runtime/locale/<code>.ts` + an `index.ts` export),
+  **skip** it: make no `src` change, record `.sync/log/<sha>.md` with the skip
+  rationale, set the ledger `decision` to `skip`, and close the PR as skipped.
+  (Edits to *existing* b24ui locales still port normally.)
 - **jsDoc on every prop** — keep the description and `@defaultValue`. Never drop
   a jsDoc block to make code compile. (A passing `vue-tsc` is necessary, not
   sufficient.)
@@ -117,3 +123,4 @@ History of the maps lives in git; no separate version field.
 - 2026-06-09 — port of `007b136a` (PR #72): added rule — match the reka **transform-origin / available-height CSS var namespace to the underlying primitive** (`--reka-combobox-*` for InputMenu/SelectMenu, `--reka-select-*` for Select, `--reka-dropdown-menu-*` / `--reka-context-menu-*` for menus); a `max-h` cap on `content` only takes effect when `content` is also `flex flex-col` (viewport scrolls via `flex-1`); do **not** add `overflow-hidden` to b24ui menu `content` — the arrow is rendered inside it and would be clipped. Last reviewed: 2026-06-09.
 - 2026-06-13 — port of `ca5accf3` (PR #126): added the **playground-manifest mirroring** invariant (§2). A `chore(deps)` port bumped `package.json`, `docs/package.json`, and `playgrounds/nuxt/package.json` but missed b24ui's extra `playgrounds/demo/package.json` (`ai`, `@ai-sdk/vue` drifted to old ranges); fixed in a follow-up. Always sweep `playgrounds/{nuxt,demo,vue,repl}` for shared deps before regenerating the lockfile. Last reviewed: 2026-06-13.
 - 2026-06-15 — port of `ffaf163f` (PR #140): added the §1 rewrite — **rename inferred type variables too**: when porting types that `infer UI` (or otherwise name a `UI` type-var), rename it to `B24UI`, consistent with `ui → b24ui`. Caught in review of the `ComponentAppConfig` rewrite (`A extends { b24ui: infer UI }` → `infer B24UI`). Last reviewed: 2026-06-15.
+- 2026-06-17 — skip of `fa525382` (PR #167): added the §2 **Locales** invariant — b24ui does not adopt new languages from upstream. The Latvian (`lv`) addition was ported then reverted on maintainer instruction; PR #167 closed without merge and recorded as `decision: skip`. Future upstream new-locale commits are skipped the same way (edits to existing locales still port). Last reviewed: 2026-06-17.
