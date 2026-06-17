@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "ee996542e51d2b2b7e8fc3373d3eadd07b8f3877",
+  "cursor": "c354247d5550ba32c69fcb5b24203dee4a851b0c",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -383,10 +383,16 @@
       "summary": "chore(deps): update nuxt framework to ^4.4.7 (#6549) — nuxt/@nuxt/kit/@nuxt/schema ^4.4.6->^4.4.7 (root/docs/playgrounds nuxt+demo mirrored; repl/vue don't pin); @nuxt/kit override ^4.4.7; lockfile regen (resolved already 4.4.8). No-ops already in b24ui: h3:1.15.11 override present, docs a11y block absent (@nuxt/a11y dropped #120), LinkBase href string|null applied #117"
     },
     "ee996542e51d2b2b7e8fc3373d3eadd07b8f3877": {
+      "pr": 162,
+      "b24ui_sha": "5e5a1100",
+      "decision": "port",
+      "summary": "chore(deps): update vite (#6530) — vue ^3.5.34->^3.5.35 (root + repl + vue playgrounds); vite ^7.3.3->^7.3.5 (repl + vue); vue-router ^5.0.7->^5.1.0 (vue playground). nuxt/demo don't pin these (via nuxt); root vue-router is peer range, untouched. lockfile regen under gate"
+    },
+    "c354247d5550ba32c69fcb5b24203dee4a851b0c": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "chore(deps): update vite (#6530) — vue ^3.5.34->^3.5.35 (root + repl + vue playgrounds); vite ^7.3.3->^7.3.5 (repl + vue); vue-router ^5.0.7->^5.1.0 (vue playground). nuxt/demo don't pin these (via nuxt); root vue-router is peer range, untouched. lockfile regen under gate"
+      "summary": "chore(deps): update reka-ui to v2.9.9 (#6556) — direct 1:1 exact-version bump in root package.json (2.9.8->2.9.9); lockfile regen under gate (resolves 2.9.9; held same exact pin as upstream though 2.9.10 exists)"
     }
   }
 }
