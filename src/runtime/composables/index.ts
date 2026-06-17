@@ -18,6 +18,7 @@ export * from './useResizable'
 export * from './useScrollShadow'
 export * from './useScrollspy'
 export * from './useToast'
+export * from './useTour'
 // special composables
 export * from './useDevice'
 export * from './useConfetti'
