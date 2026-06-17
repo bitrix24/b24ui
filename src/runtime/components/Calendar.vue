@@ -238,7 +238,7 @@ const btnSize = computed(() => {
               data-slot="cellWeek"
               :class="b24ui.cellWeek({ class: props.b24ui?.cellWeek })"
             >
-              {{ getWeekNumber(weekDates[0], locale.code) }}
+              {{ getWeekNumber(weekDates[0], props.locale ?? locale.code) }}
             </td>
             <Calendar.Cell
               v-for="weekDate in weekDates"
