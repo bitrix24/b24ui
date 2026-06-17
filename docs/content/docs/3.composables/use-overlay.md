@@ -17,19 +17,11 @@ links:
 
 Use the auto-imported `useOverlay` composable to programmatically control [Modal](/docs/components/modal/) and [Slideover](/docs/components/slideover/) components.
 
-```vue
-<script setup lang="ts">
-import { LazyModalExample } from '#components'
-
-const overlay = useOverlay()
-
-const modal = overlay.create(LazyModalExample)
-
-async function openModal() {
-  modal.open()
-}
-</script>
-```
+::component-example
+---
+name: 'use-overlay-example'
+---
+::
 
 - The `useOverlay` composable is created using `createSharedComposable`, ensuring that the same overlay state is shared across your entire application.
 
