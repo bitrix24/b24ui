@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "4d0232566be9bd14f17e3311b3e9e20610724fb9",
+  "cursor": "5199b7e1d262d693af4114884f06bd9126cd3202",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -449,10 +449,16 @@
       "summary": "feat(ScrollArea): add shadow prop (#6561) — ScrollArea.vue: add shadow?:boolean|{size?:number} prop (default false), import useScrollShadow, compute scrollShadowStyle, bind :style on root Primitive; spec +['with shadow'] case (+2 snapshots nuxt/vue); example ScrollAreaShadowExample.vue (B24ScrollArea, :b24ui) + scroll-area.md Shadow section. Dropped upstream :badge Soon (feature works in b24ui)"
     },
     "4d0232566be9bd14f17e3311b3e9e20610724fb9": {
+      "pr": 174,
+      "b24ui_sha": "c63b8d32",
+      "decision": "port",
+      "summary": "docs(form-field): add a warning to help field (#6560) — append one sentence to the Help section of form-field.md noting error takes precedence over help when both are set. Direct 1:1 markdown prose"
+    },
+    "5199b7e1d262d693af4114884f06bd9126cd3202": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "docs(form-field): add a warning to help field (#6560) — append one sentence to the Help section of form-field.md noting error takes precedence over help when both are set. Direct 1:1 markdown prose"
+      "summary": "feat(ContentSearch/DashboardSearch): forward input config to command palette (#6312) — CommandPalette.vue: move v-bind(props.input) after explicit input binds so forwarded config wins; DashboardSearch.vue + ContentSearch.vue: add input?:boolean|Omit<InputProps,'modelValue'|'defaultValue'> prop, inputProps computed (false->false else defu(input,{fixed:true})), bind :input=\"inputProps\". No snapshot churn (default still {fixed:true})"
     }
   }
 }

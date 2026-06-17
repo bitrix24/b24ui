@@ -4,7 +4,7 @@ import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/dashboard-search'
 import type { UseFuseOptions } from '@vueuse/integrations/useFuse'
-import type { ButtonProps, ModalProps, CommandPaletteProps, CommandPaletteSlots, CommandPaletteGroup, CommandPaletteItem, LinkPropsKeys } from '../types'
+import type { ButtonProps, ModalProps, CommandPaletteProps, CommandPaletteSlots, CommandPaletteGroup, CommandPaletteItem, LinkPropsKeys, InputProps } from '../types'
 import type { ComponentConfig } from '../types/tv'
 
 type DashboardSearch = ComponentConfig<typeof theme, AppConfig, 'dashboardSearch'>
@@ -24,6 +24,12 @@ export interface DashboardSearchProps<T extends CommandPaletteItem = CommandPale
    * @defaultValue true
    */
   close?: boolean | Omit<ButtonProps, LinkPropsKeys>
+  /**
+   * Configure the input or hide it with `false`.
+   * `{ fixed: true }`{lang="ts-type"}
+   * @defaultValue true
+   */
+  input?: boolean | Omit<InputProps, 'modelValue' | 'defaultValue'>
   /**
    * Keyboard shortcut to open the search (used by [`defineShortcuts`](https://bitrix24.github.io/b24ui/docs/composables/define-shortcuts/))
    * @defaultValue 'meta_k'
@@ -105,6 +111,12 @@ const appConfig = useAppConfig() as DashboardSearch['AppConfig']
 /** @memo not use loadingIcon */
 const commandPaletteProps = useForwardProps(reactivePick(props, 'size', 'icon', 'trailingIcon', 'selectedIcon', 'childrenIcon', 'placeholder', 'autofocus', 'loading', 'close', 'closeIcon', 'back', 'backIcon', 'disabled', 'highlightOnHover', 'labelKey', 'descriptionKey', 'preserveGroupOrder', 'virtualize', 'searchDelay'))
 const modalProps = useForwardProps(reactivePick(props, 'overlay', 'transition', 'content', 'dismissible', 'fullscreen', 'modal', 'portal'))
+const inputProps = computed(() => {
+  if (props.input === false) {
+    return false
+  }
+  return defu(typeof props.input === 'object' ? props.input : {}, { fixed: true })
+})
 
 const getProxySlots = () => omit(slots, ['content'])
 
@@ -204,7 +216,7 @@ defineExpose({
           v-bind="commandPaletteProps"
           :groups="groups"
           :fuse="fuse"
-          :input="{ fixed: true }"
+          :input="inputProps"
           :b24ui="transformUI(omit(b24ui, ['modal']), props.b24ui)"
           @update:model-value="onSelect"
           @update:open="open = $event"

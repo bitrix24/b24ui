@@ -5,7 +5,7 @@ import type { ContentNavigationItem } from '@nuxt/content'
 import type { AppConfig } from '@nuxt/schema'
 import type { UseFuseOptions } from '@vueuse/integrations/useFuse'
 import theme from '#build/b24ui/content/content-search'
-import type { ButtonProps, LinkProps, ModalProps, CommandPaletteProps, CommandPaletteSlots, CommandPaletteGroup, CommandPaletteItem, IconComponent, LinkPropsKeys } from '../../types'
+import type { ButtonProps, LinkProps, ModalProps, CommandPaletteProps, CommandPaletteSlots, CommandPaletteGroup, CommandPaletteItem, IconComponent, LinkPropsKeys, InputProps } from '../../types'
 import type { ComponentConfig } from '../../types/tv'
 
 type ContentSearch = ComponentConfig<typeof theme, AppConfig, 'contentSearch'>
@@ -70,6 +70,12 @@ export interface ContentSearchProps<T extends ContentSearchLink = ContentSearchL
    * @defaultValue true
    */
   close?: boolean | Omit<ButtonProps, LinkPropsKeys>
+  /**
+   * Configure the input or hide it with `false`.
+   * `{ fixed: true }`{lang="ts-type"}
+   * @defaultValue true
+   */
+  input?: boolean | Omit<InputProps, 'modelValue' | 'defaultValue'>
   /**
    * Keyboard shortcut to open the search (used by [`defineShortcuts`](https://bitrix24.github.io/b24ui/docs/composables/define-shortcuts/))
    * @defaultValue 'meta_k'
@@ -164,6 +170,12 @@ const appConfig = useAppConfig() as ContentSearch['AppConfig']
 /** @memo not use loadingIcon */
 const commandPaletteProps = useForwardProps(reactivePick(props, 'size', 'icon', 'trailingIcon', 'selectedIcon', 'childrenIcon', 'placeholder', 'autofocus', 'loading', 'close', 'closeIcon', 'back', 'backIcon', 'disabled', 'highlightOnHover', 'labelKey', 'descriptionKey', 'preserveGroupOrder', 'virtualize', 'searchDelay'))
 const modalProps = useForwardProps(reactivePick(props, 'overlay', 'transition', 'content', 'dismissible', 'fullscreen', 'modal', 'portal'))
+const inputProps = computed(() => {
+  if (props.input === false) {
+    return false
+  }
+  return defu(typeof props.input === 'object' ? props.input : {}, { fixed: true })
+})
 
 const getProxySlots = () => omit(slots, ['content'])
 
@@ -356,7 +368,7 @@ defineExpose({
           v-bind="commandPaletteProps"
           :groups="groups"
           :fuse="fuse"
-          :input="{ fixed: true }"
+          :input="inputProps"
           :b24ui="transformUI(omit(b24ui, ['modal']), props.b24ui)"
           @update:model-value="onSelect"
           @update:open="open = $event"
