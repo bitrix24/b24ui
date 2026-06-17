@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "af80a674a5061dea3272ea113fa497d698fc184b",
+  "cursor": "71b900105281de05df07dff4fe4426ac49043e63",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -419,10 +419,16 @@
       "summary": "feat(locale): add Latvian language (#6552) — SKIPPED per maintainer decision: b24ui does not introduce new locales from upstream. Initial lv.ts port (PR #167) closed without merge; skip recorded via PR #168. Added PORTING.md §2 'Locales' rule — future upstream locale-addition commits are skipped the same way."
     },
     "af80a674a5061dea3272ea113fa497d698fc184b": {
+      "pr": 169,
+      "b24ui_sha": "71092336",
+      "decision": "port",
+      "summary": "feat(Sidebar): add transition prop (#6484) — Sidebar.vue: add transition?:boolean prop (default true) + pass to b24ui computed; theme/sidebar.ts: move transition utils from base gap/container/rail slots into a transition:{true:{...}} variant, easing ease-linear->ease-out (per upstream). Snapshots regenerated with no change (b24ui specs don't render those slots)."
+    },
+    "71b900105281de05df07dff4fe4426ac49043e63": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "feat(Sidebar): add transition prop (#6484) — Sidebar.vue: add transition?:boolean prop (default true) + pass to b24ui computed; theme/sidebar.ts: move transition utils from base gap/container/rail slots into a transition:{true:{...}} variant, easing ease-linear->ease-out (per upstream). Snapshots regenerated with no change (b24ui specs don't render those slots)."
+      "summary": "docs(navigation): query description field for content toc — docs/server/api/navigation.json.get.ts: add 'description' to queryCollectionNavigation fields (['framework','category']->['framework','category','description']). Direct 1:1; b24ui matched upstream pre-change"
     }
   }
 }
