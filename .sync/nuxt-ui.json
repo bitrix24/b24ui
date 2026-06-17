@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "f66eb65f5cb80e245491a6de75d9bb3b175be011",
+  "cursor": "fa5253825258dfb7e543dd84452602979b329703",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -407,10 +407,16 @@
       "summary": "chore(release): v4.8.2 — n/a: upstream @nuxt/ui version bump 4.8.1->4.8.2 + CHANGELOG (aggregates #6539/#6538/#6546/#6531, already ported as b24ui #153/#155/#157/#149). b24ui versions independently (@bitrix24/b24ui-nuxt, own changelog). Same as #124 (v4.8.0) / #142 (v4.8.1)"
     },
     "f66eb65f5cb80e245491a6de75d9bb3b175be011": {
+      "pr": 166,
+      "b24ui_sha": "ffb0859f",
+      "decision": "port",
+      "summary": "feat(Select/SelectMenu): use multiple in theme (#6554) — pass multiple:props.multiple into the b24ui computed in Select.vue + SelectMenu.vue; add empty multiple:{true:''} variant to theme/select.ts (styling hook). select-menu.ts merges select() via defuFn so it inherits the variant (only select.ts edited, mirroring upstream). Empty variant -> no snapshot churn"
+    },
+    "fa5253825258dfb7e543dd84452602979b329703": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "feat(Select/SelectMenu): use multiple in theme (#6554) — pass multiple:props.multiple into the b24ui computed in Select.vue + SelectMenu.vue; add empty multiple:{true:''} variant to theme/select.ts (styling hook). select-menu.ts merges select() via defuFn so it inherits the variant (only select.ts edited, mirroring upstream). Empty variant -> no snapshot churn"
+      "summary": "feat(locale): add Latvian language (#6552) — add src/runtime/locale/lv.ts + index export. Adapted to b24ui Messages/defineLocale: added required locale:'lv' field, dropped listbox block (no Listbox in b24ui), added b24ui-specific sidebarLayout block in Latvian (Atvērt/Aizvērt navigāciju, Navigācija, Satura navigācija). typecheck-verified"
     }
   }
 }

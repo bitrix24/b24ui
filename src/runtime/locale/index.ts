@@ -34,6 +34,7 @@ export { default as ms } from './ms'
 export { default as de } from './de'
 export { default as en } from './en'
 export { default as la } from './la'
+export { default as lv } from './lv'
 
 export { default as fr } from './fr'
 export { default as in } from './in'
