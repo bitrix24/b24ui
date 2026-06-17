@@ -190,6 +190,9 @@ export default () => {
             content: '',
             viewport: 'w-full'
           }
+        },
+        multiple: {
+          true: ''
         }
       },
       compoundVariants: (prev: Record<string, any>[]) => {

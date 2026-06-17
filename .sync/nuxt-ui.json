@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "d6341d559c191558bf7fc5e613023b0589047c07",
+  "cursor": "f66eb65f5cb80e245491a6de75d9bb3b175be011",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -401,10 +401,16 @@
       "summary": "chore: ignore .claude dir (#6555) — n/a: upstream adds a blanket `.claude` to .gitignore. b24ui deliberately manages .claude granularly (ignores .claude/settings.local.json, channels/, debug/, /.claude/skills/b24-ui-nuxt/) to keep the rest trackable; a blanket ignore would over-ignore. .cursor sibling already ported in #135"
     },
     "d6341d559c191558bf7fc5e613023b0589047c07": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 165,
+      "b24ui_sha": "5202a7ed",
       "decision": "noop",
       "summary": "chore(release): v4.8.2 — n/a: upstream @nuxt/ui version bump 4.8.1->4.8.2 + CHANGELOG (aggregates #6539/#6538/#6546/#6531, already ported as b24ui #153/#155/#157/#149). b24ui versions independently (@bitrix24/b24ui-nuxt, own changelog). Same as #124 (v4.8.0) / #142 (v4.8.1)"
+    },
+    "f66eb65f5cb80e245491a6de75d9bb3b175be011": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "feat(Select/SelectMenu): use multiple in theme (#6554) — pass multiple:props.multiple into the b24ui computed in Select.vue + SelectMenu.vue; add empty multiple:{true:''} variant to theme/select.ts (styling hook). select-menu.ts merges select() via defuFn so it inherits the variant (only select.ts edited, mirroring upstream). Empty variant -> no snapshot churn"
     }
   }
 }

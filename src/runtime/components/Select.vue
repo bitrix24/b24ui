@@ -237,7 +237,8 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.select
   leading: Boolean(isLeading.value || !!props.avatar || !!slots.leading),
   trailing: Boolean(isTrailing.value || !!slots.trailing),
   fieldGroup: orientation.value,
-  position: position.value
+  position: position.value,
+  multiple: props.multiple
 }))
 
 const groups = computed<SelectItem[][]>(() =>
