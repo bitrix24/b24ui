@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "c354247d5550ba32c69fcb5b24203dee4a851b0c",
+  "cursor": "c550912da7fac862a1c51e2e356493ca5b4863b5",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -389,10 +389,16 @@
       "summary": "chore(deps): update vite (#6530) — vue ^3.5.34->^3.5.35 (root + repl + vue playgrounds); vite ^7.3.3->^7.3.5 (repl + vue); vue-router ^5.0.7->^5.1.0 (vue playground). nuxt/demo don't pin these (via nuxt); root vue-router is peer range, untouched. lockfile regen under gate"
     },
     "c354247d5550ba32c69fcb5b24203dee4a851b0c": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 163,
+      "b24ui_sha": "eca10c8e",
       "decision": "port",
       "summary": "chore(deps): update reka-ui to v2.9.9 (#6556) — direct 1:1 exact-version bump in root package.json (2.9.8->2.9.9); lockfile regen under gate (resolves 2.9.9; held same exact pin as upstream though 2.9.10 exists)"
+    },
+    "c550912da7fac862a1c51e2e356493ca5b4863b5": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "noop",
+      "summary": "chore: ignore .claude dir (#6555) — n/a: upstream adds a blanket `.claude` to .gitignore. b24ui deliberately manages .claude granularly (ignores .claude/settings.local.json, channels/, debug/, /.claude/skills/b24-ui-nuxt/) to keep the rest trackable; a blanket ignore would over-ignore. .cursor sibling already ported in #135"
     }
   }
 }
