@@ -136,7 +136,8 @@ const props = withDefaults(defineProps<LinkProps>(), {
   type: 'button',
   ariaCurrentValue: 'page',
   isAction: false,
-  active: undefined
+  active: undefined,
+  locale: undefined
 })
 defineSlots<LinkSlots>()
 
