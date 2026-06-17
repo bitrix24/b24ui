@@ -87,7 +87,7 @@ export interface SlideoverSlots {
 </script>
 
 <script setup lang="ts">
-import { computed, toRef } from 'vue'
+import { computed, toRef, watch } from 'vue'
 import { DialogRoot, DialogTrigger, DialogPortal, DialogOverlay, DialogContent, DialogTitle, DialogDescription, DialogClose, VisuallyHidden } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
@@ -120,6 +120,17 @@ const { t } = useLocale()
 const appConfig = useAppConfig() as Slideover['AppConfig']
 
 const rootProps = useForwardProps(reactivePick(props, 'open', 'defaultOpen', 'modal'), emits)
+
+// Workaround for reka-ui useHideOthers timing: blur focused element before
+// aria-hidden is applied to siblings, otherwise the browser logs
+// "Blocked aria-hidden on an element because its descendant retained focus".
+// reka-ui keeps a separate ref to the trigger, so focus return on close still works.
+watch(() => props.open, (val) => {
+  if (val && typeof document !== 'undefined') {
+    const active = document.activeElement as HTMLElement | null
+    if (active && active !== document.body) active.blur()
+  }
+}, { flush: 'sync' })
 const portalProps = usePortal(toRef(() => props.portal))
 const contentProps = toRef(() => props.content)
 const contentEvents = computed(() => {
