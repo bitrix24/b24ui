@@ -185,8 +185,8 @@ importers:
         specifier: ^2.0.3
         version: 2.0.3
       reka-ui:
-        specifier: 2.9.8
-        version: 2.9.8(vue@3.5.38(typescript@6.0.3))
+        specifier: 2.9.9
+        version: 2.9.9(vue@3.5.38(typescript@6.0.3))
       scule:
         specifier: ^1.3.0
         version: 1.3.0
@@ -225,7 +225,7 @@ importers:
         version: 1.4.1(typescript@6.0.3)
       vaul-vue:
         specifier: 0.4.1
-        version: 0.4.1(reka-ui@2.9.8(vue@3.5.38(typescript@6.0.3)))(vue@3.5.38(typescript@6.0.3))
+        version: 0.4.1(reka-ui@2.9.9(vue@3.5.38(typescript@6.0.3)))(vue@3.5.38(typescript@6.0.3))
       vue-component-type-helpers:
         specifier: ^3.3.3
         version: 3.3.4
@@ -7167,8 +7167,8 @@ packages:
     peerDependencies:
       vue: '>= 3.4.0'
 
-  reka-ui@2.9.8:
-    resolution: {integrity: sha512-7dxaBJ6nQ0zOQZXPV45219tTEgZPstmihBLS9ABPhSiPiJ8SiF0sacfZHFaBptS0v9N4tzsevq+8MNBpE4p5JQ==}
+  reka-ui@2.9.9:
+    resolution: {integrity: sha512-/e+hdF9vP8E2kPrKR4RdgMQQsfpCr8l436Zn8GRWM3jKT9EG1lOO/UFMGBVEnrMLOVoJSjjmIFrej4tMOb+6qQ==}
     peerDependencies:
       vue: '>= 3.4.0'
 
@@ -15940,7 +15940,7 @@ snapshots:
     transitivePeerDependencies:
       - '@vue/composition-api'
 
-  reka-ui@2.9.8(vue@3.5.38(typescript@6.0.3)):
+  reka-ui@2.9.9(vue@3.5.38(typescript@6.0.3)):
     dependencies:
       '@floating-ui/dom': 1.7.6
       '@floating-ui/vue': 1.1.11(vue@3.5.38(typescript@6.0.3))
@@ -16967,10 +16967,10 @@ snapshots:
     transitivePeerDependencies:
       - '@vue/composition-api'
 
-  vaul-vue@0.4.1(reka-ui@2.9.8(vue@3.5.38(typescript@6.0.3)))(vue@3.5.38(typescript@6.0.3)):
+  vaul-vue@0.4.1(reka-ui@2.9.9(vue@3.5.38(typescript@6.0.3)))(vue@3.5.38(typescript@6.0.3)):
     dependencies:
       '@vueuse/core': 10.11.1(vue@3.5.38(typescript@6.0.3))
-      reka-ui: 2.9.8(vue@3.5.38(typescript@6.0.3))
+      reka-ui: 2.9.9(vue@3.5.38(typescript@6.0.3))
       vue: 3.5.38(typescript@6.0.3)
     transitivePeerDependencies:
       - '@vue/composition-api'
