@@ -6,14 +6,21 @@ import type { MaybeRefOrGetter } from 'vue'
  *
  * When an overlay (Modal / Slideover / Drawer — the latter via vaul-vue, which
  * itself wraps reka-ui's `DialogContent`) opens, reka-ui synchronously sets
- * `aria-hidden="true"` on sibling landmarks (e.g. `#__nuxt`). If the user's
- * focus is still on the trigger element at that moment, the browser logs:
+ * `aria-hidden="true"` on sibling landmarks (e.g. `#app` / `#__nuxt`). If the
+ * user's focus is still on the trigger element at that moment, the browser logs:
  *
  *   "Blocked aria-hidden on an element because its descendant retained focus."
  *
  * We pre-empt that by blurring the currently focused element synchronously as
  * soon as `open` flips to `true`. By the time reka-ui applies `aria-hidden`,
  * `document.activeElement` is `<body>` and the warning is gone.
+ *
+ * Two trigger paths are covered:
+ *   - Controlled flip: parent sets `:open` / `v-model:open` to `true`
+ *     (handled by the `watch` on the open ref).
+ *   - Uncontrolled flip: user clicks the built-in `<DialogTrigger>` / `<DrawerTrigger>`
+ *     slot, reka-ui mutates its internal state and emits `update:open`
+ *     (handled by the wrapped emits function returned below).
  *
  * Trade-off: focus briefly lives on `<body>` between `blur()` and the moment
  * reka-ui's focus-trap pulls it into the dialog. In jsdom and all major
@@ -35,10 +42,22 @@ import type { MaybeRefOrGetter } from 'vue'
  *
  * @see https://github.com/unovue/reka-ui/issues/1280 — TODO: remove once fixed upstream
  */
-export function useBlurOnOpen(open: MaybeRefOrGetter<boolean | undefined>) {
+function blurActiveElement() {
+  if (!import.meta.client) return
+  const active = document.activeElement as HTMLElement | null
+  if (active && active !== document.body) active.blur()
+}
+
+export function useBlurOnOpen<E extends (event: any, ...args: any[]) => any>(
+  open: MaybeRefOrGetter<boolean | undefined>,
+  emits: E
+): E {
   watch(() => toValue(open), (val) => {
-    if (!val || !import.meta.client) return
-    const active = document.activeElement as HTMLElement | null
-    if (active && active !== document.body) active.blur()
+    if (val) blurActiveElement()
   }, { flush: 'sync' })
+
+  return ((event: any, ...args: any[]) => {
+    if (event === 'update:open' && args[0] === true) blurActiveElement()
+    return emits(event, ...args)
+  }) as E
 }

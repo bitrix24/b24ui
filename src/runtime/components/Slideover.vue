@@ -120,9 +120,7 @@ const props = useComponentProps('slideover', _props)
 const { t } = useLocale()
 const appConfig = useAppConfig() as Slideover['AppConfig']
 
-const rootProps = useForwardProps(reactivePick(props, 'open', 'defaultOpen', 'modal'), emits)
-
-useBlurOnOpen(() => props.open)
+const rootProps = useForwardProps(reactivePick(props, 'open', 'defaultOpen', 'modal'), useBlurOnOpen(() => props.open, emits))
 const portalProps = usePortal(toRef(() => props.portal))
 const contentProps = toRef(() => props.content)
 const contentEvents = computed(() => {
