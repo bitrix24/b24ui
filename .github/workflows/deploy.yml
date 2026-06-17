@@ -57,6 +57,15 @@ jobs:
       - name: Prepare
         run: pnpm run dev:prepare
 
+      # Build the dev playgrounds here (moved out of ci.yml to keep PR CI fast).
+      # They run before the docs generation so a broken playground build fails
+      # the deploy and prevents publishing docs from a broken state.
+      - name: Build Nuxt playground
+        run: pnpm run dev:build
+
+      - name: Build Vue playground
+        run: pnpm run dev:vue:build
+
       - name: Generate Docs
         run: pnpm run docs:full:generate
 
