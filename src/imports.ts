@@ -13,6 +13,7 @@ export const publicComposables: Record<string, string[]> = {
   useScrollShadow: ['useScrollShadow'],
   useScrollspy: ['useScrollspy'],
   useToast: ['useToast'],
+  useTour: ['useTour'],
   // special composables
   useLocale: ['useLocale'],
   useDevice: ['useDevice'],

@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "5199b7e1d262d693af4114884f06bd9126cd3202",
+  "cursor": "dc0515128ee6783b6cebd410c85a3e405fb7872a",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -455,10 +455,16 @@
       "summary": "docs(form-field): add a warning to help field (#6560) — append one sentence to the Help section of form-field.md noting error takes precedence over help when both are set. Direct 1:1 markdown prose"
     },
     "5199b7e1d262d693af4114884f06bd9126cd3202": {
+      "pr": 175,
+      "b24ui_sha": "3a3c4148",
+      "decision": "port",
+      "summary": "feat(ContentSearch/DashboardSearch): forward input config to command palette (#6312) — CommandPalette.vue: move v-bind(props.input) after explicit input binds so forwarded config wins; DashboardSearch.vue + ContentSearch.vue: add input?:boolean|Omit<InputProps,'modelValue'|'defaultValue'> prop, inputProps computed (false->false else defu(input,{fixed:true})), bind :input=\"inputProps\". No snapshot churn (default still {fixed:true})"
+    },
+    "dc0515128ee6783b6cebd410c85a3e405fb7872a": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "feat(ContentSearch/DashboardSearch): forward input config to command palette (#6312) — CommandPalette.vue: move v-bind(props.input) after explicit input binds so forwarded config wins; DashboardSearch.vue + ContentSearch.vue: add input?:boolean|Omit<InputProps,'modelValue'|'defaultValue'> prop, inputProps computed (false->false else defu(input,{fixed:true})), bind :input=\"inputProps\". No snapshot churn (default still {fixed:true})"
+      "summary": "feat(useTour): new composable (#6557) — new useTour.ts (verbatim, framework-agnostic; jsdoc UPopover->B24Popover), registered in composables/index.ts + imports.ts publicComposables. Popover.vue: move reference from Trigger to Content (:reference=props.reference??props.content?.reference) + jsdoc; Trigger v-if drops ||props.reference. Tests: useTour.spec verbatim + Popover reference case/2 it-tests (+2 snapshots). Docs use-tour.md + UseTourExample.vue (B24*, MagicWandIcon, air-tertiary, text-base; badge New not Soon)"
     }
   }
 }
