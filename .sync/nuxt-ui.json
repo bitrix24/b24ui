@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "d850ae60531787984ba2416d6fca99626637b41b",
+  "cursor": "4d0232566be9bd14f17e3311b3e9e20610724fb9",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -443,10 +443,16 @@
       "summary": "docs(composables): improve examples — replace inline vue code in use-overlay/use-scroll-shadow/use-toast docs with ::component-example; add 4 example components adapted to b24ui (B24Button/B24Modal, b24ui prop, air colors, ReplyIcon from b24icons). All 3 composables+pages already existed in b24ui"
     },
     "d850ae60531787984ba2416d6fca99626637b41b": {
+      "pr": 173,
+      "b24ui_sha": "61753ad6",
+      "decision": "port",
+      "summary": "feat(ScrollArea): add shadow prop (#6561) — ScrollArea.vue: add shadow?:boolean|{size?:number} prop (default false), import useScrollShadow, compute scrollShadowStyle, bind :style on root Primitive; spec +['with shadow'] case (+2 snapshots nuxt/vue); example ScrollAreaShadowExample.vue (B24ScrollArea, :b24ui) + scroll-area.md Shadow section. Dropped upstream :badge Soon (feature works in b24ui)"
+    },
+    "4d0232566be9bd14f17e3311b3e9e20610724fb9": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "feat(ScrollArea): add shadow prop (#6561) — ScrollArea.vue: add shadow?:boolean|{size?:number} prop (default false), import useScrollShadow, compute scrollShadowStyle, bind :style on root Primitive; spec +['with shadow'] case (+2 snapshots nuxt/vue); example ScrollAreaShadowExample.vue (B24ScrollArea, :b24ui) + scroll-area.md Shadow section. Dropped upstream :badge Soon (feature works in b24ui)"
+      "summary": "docs(form-field): add a warning to help field (#6560) — append one sentence to the Help section of form-field.md noting error takes precedence over help when both are set. Direct 1:1 markdown prose"
     }
   }
 }
