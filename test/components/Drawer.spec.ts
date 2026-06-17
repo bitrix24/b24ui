@@ -42,4 +42,19 @@ describe('Drawer', () => {
 
     expect(await axe(wrapper.element)).toHaveNoViolations()
   })
+
+  it('blurs the active element when opening to avoid reka-ui aria-hidden focus warning', async () => {
+    const trigger = document.createElement('button')
+    document.body.appendChild(trigger)
+    trigger.focus()
+    expect(document.activeElement).toBe(trigger)
+
+    const wrapper = await mountSuspended(Drawer, {
+      props: { open: false, portal: false, title: 'Title' }
+    })
+    await wrapper.setProps({ open: true })
+
+    expect(document.activeElement).not.toBe(trigger)
+    trigger.remove()
+  })
 })
