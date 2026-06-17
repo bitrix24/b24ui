@@ -63,6 +63,11 @@ export interface SidebarProps<T extends SidebarMode = SidebarMode> {
    */
   rail?: boolean
   /**
+   * Animate the sidebar when collapsing or expanding.
+   * @defaultValue true
+   */
+  transition?: boolean
+  /**
    * The mode of the sidebar menu on mobile.
    * @defaultValue 'slideover'
    */
@@ -111,6 +116,7 @@ const _props = withDefaults(defineProps<SidebarProps<T>>(), {
   collapsible: 'offcanvas',
   side: 'left',
   close: false,
+  transition: true,
   rail: false,
   mode: 'slideover' as never
 })
@@ -190,7 +196,8 @@ const hasHeader = computed(() => !!slots.header || props.title || !!slots.title 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sidebar || {}) })({
   side: props.side,
   variant: props.variant,
-  collapsible: props.collapsible
+  collapsible: props.collapsible,
+  transition: props.transition
 }))
 
 const Menu = computed(() => ({
