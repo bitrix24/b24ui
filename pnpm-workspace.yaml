@@ -12,7 +12,7 @@ ignoreWorkspaceRootCheck: true
 linkWorkspacePackages: true
 
 overrides:
-  '@nuxt/kit': ^4.4.6
+  '@nuxt/kit': ^4.4.7
   '@bitrix24/b24ui-nuxt': workspace:*
   nitropack: ^2.13.0
   unplugin: ^3.0.0
