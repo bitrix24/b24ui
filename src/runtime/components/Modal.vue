@@ -96,6 +96,7 @@ import { reactivePick, createReusableTemplate } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
 import { useForwardProps } from '../composables/useForwardProps'
+import { useBlurOnOpen } from '../composables/useBlurOnOpen'
 import { FieldGroupReset } from '../composables/useFieldGroup'
 import { useLocale } from '../composables/useLocale'
 import { usePortal } from '../composables/usePortal'
@@ -122,7 +123,7 @@ const props = useComponentProps('modal', _props)
 const { t } = useLocale()
 const appConfig = useAppConfig() as Modal['AppConfig']
 
-const rootProps = useForwardProps(reactivePick(props, 'open', 'defaultOpen', 'modal'), emits)
+const rootProps = useForwardProps(reactivePick(props, 'open', 'defaultOpen', 'modal'), useBlurOnOpen(() => props.open, emits))
 const portalProps = usePortal(toRef(() => props.portal))
 const contentProps = toRef(() => props.content)
 const contentEvents = computed(() => {
