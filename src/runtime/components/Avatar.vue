@@ -88,7 +88,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.avatar
 const rootClass = computed(() => b24ui.value.root({ class: [props.b24ui?.root, props.class] }))
 
 const sizePx = computed(() => {
-  const sizeClass = rootClass.value.split(' ').find(c => /^size-\d+$/.test(c))
+  const sizeClass = (rootClass.value || '').split(' ').find(c => /^size-\d+$/.test(c))
   if (sizeClass) {
     const num = Number.parseFloat(sizeClass.split('-')[1] ?? '')
     if (!Number.isNaN(num)) return num * 4
