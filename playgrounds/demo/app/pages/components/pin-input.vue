@@ -52,6 +52,7 @@ const onComplete = (value: string[]) => {
     <Matrix v-slot="props" :attrs="attrs" :b24ui="{ root: 'max-w-80' }">
       <B24PinInput placeholder="○" autofocus v-bind="{ ...singleAttrs, ...props }" @complete="onComplete" />
       <B24PinInput placeholder="○" required v-bind="{ ...singleAttrs, ...props }" />
+      <B24PinInput placeholder="○" :length="6" :separator="3" v-bind="{ ...singleAttrs, ...props }" />
     </Matrix>
   </PlaygroundPage>
 </template>

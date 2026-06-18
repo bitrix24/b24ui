@@ -114,6 +114,37 @@ props:
 ---
 ::
 
+### Separator
+
+Use the `separator` prop to insert a separator between groups of inputs. Pass a number to insert one after every Nth input.
+
+::component-code
+---
+ignore:
+  - placeholder
+props:
+  length: 6
+  separator: 3
+  placeholder: '○'
+---
+::
+
+You can also pass an array of positions to insert separators after specific inputs.
+
+::component-code
+---
+prettier: true
+ignore:
+  - placeholder
+  - length
+  - separator
+props:
+  length: 7
+  separator: [3, 4]
+  placeholder: '○'
+---
+::
+
 ### Color
 
 Use the `color` prop to change the ring color when the PinInput is focused.
@@ -221,11 +252,27 @@ props:
 The `highlight` prop is used here to show the focus state.
 ::
 
+## Examples
+
+### With separator slot
+
+Use the `separator` slot to customize the separator appearance.
+
+::component-example
+---
+name: 'pin-input-separator-slot-example'
+---
+::
+
 ## API
 
 ### Props
 
 :component-props
+
+### Slots
+
+:component-slots
 
 ### Emits
 
