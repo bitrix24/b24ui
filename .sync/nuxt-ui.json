@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "89b30e8ebe2b3b3e637ba823d1c35bc2c2d32a68",
+  "cursor": "52367b1ac375e86b4f996ed07958114e9d63a81a",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -491,10 +491,16 @@
       "summary": "feat(module): add theme.unstyled option (#6551) — module.ts unstyled?:boolean in theme interface; utils/theme.ts applyUnstyled (blanks slots/variants/compoundVariants classes, keeps keys); templates.ts call in prod+dev paths; Avatar.vue (rootClass.value||'') guard; test/utils/theme.spec.ts verbatim (+10 tests); docs nuxt.md+vue.md sections (b24ui key, dropped Soon badge). Skipped defaults.ts (b24ui has no theme defaults block)"
     },
     "89b30e8ebe2b3b3e637ba823d1c35bc2c2d32a68": {
+      "pr": 181,
+      "b24ui_sha": "092f33a1",
+      "decision": "port",
+      "summary": "feat(PinInput): add separator prop (#6392) — PinInput.vue: separator?:number|number[] prop, PinInputSlots(separator slot), defineSlots, shouldInsertSeparator helper, template rewrite (template v-for + span data-slot=separator with #separator slot fallback bullet); theme/pin-input.ts separator slot. Spec +separator/positions/slot cases (+6 snapshots). Example (Minus40Icon), playground nuxt+demo rows (demo mirrored), docs Separator+Slots sections (dropped Soon badge)"
+    },
+    "52367b1ac375e86b4f996ed07958114e9d63a81a": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "feat(PinInput): add separator prop (#6392) — PinInput.vue: separator?:number|number[] prop, PinInputSlots(separator slot), defineSlots, shouldInsertSeparator helper, template rewrite (template v-for + span data-slot=separator with #separator slot fallback bullet); theme/pin-input.ts separator slot. Spec +separator/positions/slot cases (+6 snapshots). Example (Minus40Icon), playground nuxt+demo rows (demo mirrored), docs Separator+Slots sections (dropped Soon badge)"
+      "summary": "fix(ProseKbd): type default slot as VNode[] — prose/Kbd.vue: import VNode, ProseKbdSlots.default return any -> VNode[]. Direct 1:1 type-only; no snapshot churn"
     }
   }
 }
