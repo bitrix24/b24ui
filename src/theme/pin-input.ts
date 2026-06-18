@@ -26,7 +26,8 @@ export default () => ({
       'focus-visible:ring-1',
       'focus-visible:ring-inset',
       'focus-visible:ring-(--b24ui-border-color)'
-    ].join(' ')
+    ].join(' '),
+    separator: 'text-dimmed flex items-center justify-center'
   },
   variants: {
     size: {
