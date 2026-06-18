@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "40f9c03e12ff1f556837051443c4f070dcf24897",
+  "cursor": "9ad24cfdb49c6c203fa7a59e542fd19d7828113a",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -473,10 +473,16 @@
       "summary": "fix(Link): set default for locale prop (#6563) — add locale: undefined to Link.vue withDefaults (explicit default). Direct 1:1; no render change (undefined already implicit)"
     },
     "40f9c03e12ff1f556837051443c4f070dcf24897": {
+      "pr": 178,
+      "b24ui_sha": "fc69602e",
+      "decision": "port",
+      "summary": "chore(deps): update tiptap to ^3.26.0 (#6568) — all @tiptap/* ^3.24.0->^3.26.0 across 5 manifests (root 17, docs/nuxt/vue/demo 2 each; demo mirrored per invariant; repl pins none); lockfile regen under gate (resolves 3.26.1)"
+    },
+    "9ad24cfdb49c6c203fa7a59e542fd19d7828113a": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "chore(deps): update tiptap to ^3.26.0 (#6568) — all @tiptap/* ^3.24.0->^3.26.0 across 5 manifests (root 17, docs/nuxt/vue/demo 2 each; demo mirrored per invariant; repl pins none); lockfile regen under gate (resolves 3.26.1)"
+      "summary": "chore(deps): update all non-major dependencies (#6567) — selective shared deps: root packageManager 11.5.0->11.5.2, @tanstack/vue-virtual ^3.13.28, fuse.js ^7.4.2, @vue/test-utils ^2.4.11, ai ^6.0.197, happy-dom ^20.10.2, vitest ^4.1.8; docs @ai-sdk/mcp ^1.0.46/@ai-sdk/vue ^3.0.197/@comark/vue ^0.4.0/@takumi-rs/core ^1.7.0/ai ^6.0.197/nuxt-og-image ^6.5.2/nuxt-schema-org ^6.1.0/shiki ^4.2.0; playgrounds nuxt+demo @ai-sdk/vue ^3.0.197/@comark/vue ^0.4.0/ai ^6.0.197 (demo mirrored). Skipped reproduire.yml, @nuxt/icon, @ai-sdk/gateway, @iconify-json/*, release-it (n/a). lockfile regen under gate"
     }
   }
 }
