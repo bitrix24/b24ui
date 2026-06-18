@@ -36,6 +36,14 @@ export interface ModuleOptions {
    */
   theme?: {
     /**
+     * Remove all default theme classes from components, keeping only their
+     * structure and the classes you supply via `class`, `b24ui` or `app.config.b24ui`.
+     * @defaultValue `false`
+     * @see https://bitrix24.github.io/b24ui/docs/getting-started/installation/nuxt/#themeunstyled
+     */
+    unstyled?: boolean
+
+    /**
      * The default variants to use for components
      * @see https://bitrix24.github.io/b24ui/docs/getting-started/installation/nuxt/#themedefaultvariants
      */
