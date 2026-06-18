@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { ClassValue } from 'tailwind-variants'
 import type { CardProps } from '@bitrix24/b24ui-nuxt'
 
 export type MatrixValue<V> = V extends readonly (infer U)[] ? U : V
@@ -92,8 +93,8 @@ const headers = computed(() => {
         :variant="cardVariant"
         :b24ui="{
           ...props.b24ui,
-          root: ['grow', cardBorderClass, props.b24ui?.root],
-          body: ['flex flex-col items-start justify-start gap-5', props.b24ui?.body]
+          root: ['grow', cardBorderClass, props.b24ui?.root as ClassValue],
+          body: ['flex flex-col items-start justify-start gap-5', props.b24ui?.body as ClassValue]
         }"
       >
         <template #header>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { ClassValue } from 'tailwind-variants'
 import type { CardProps } from '@bitrix24/b24ui-nuxt'
 import { createPlaygroundContext, providePlaygroundContext, usePlaygroundCardStyles } from '../composables/usePlaygroundContext'
 
@@ -39,8 +40,8 @@ const { cardVariant, cardBorderClass } = usePlaygroundCardStyles(playgroundConte
     :variant="cardVariant"
     :b24ui="{
       ...b24ui,
-      root: [playgroundContext.isUseBg.value ? 'backdrop-blur-xl' : '', 'overflow-clip border-0 border-t-2 lg:border-t-0 rounded-none lg:rounded-(--ui-border-radius-md)', b24ui?.root],
-      body: ['flex items-stretch flex-wrap justify-center md:justify-start gap-4 min-h-0 p-4', b24ui?.body]
+      root: [playgroundContext.isUseBg.value ? 'backdrop-blur-xl' : '', 'overflow-clip border-0 border-t-2 lg:border-t-0 rounded-none lg:rounded-(--ui-border-radius-md)', b24ui?.root as ClassValue],
+      body: ['flex items-stretch flex-wrap justify-center md:justify-start gap-4 min-h-0 p-4', b24ui?.body as ClassValue]
     }"
   >
     <slot v-bind="{ playgroundContext, cardVariant, cardBorderClass }" />

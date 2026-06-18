@@ -117,4 +117,18 @@ describe('Button', () => {
 
     expect(await axe(wrapper.element)).toHaveNoViolations()
   })
+
+  it('replaces a slot class through a `:b24ui` function', async () => {
+    const wrapper = await mountSuspended(Button, {
+      props: {
+        label: 'Button',
+        b24ui: { label: () => 'text-3xl font-bold' }
+      }
+    })
+
+    const label = wrapper.get('[data-slot="label"]')
+    expect(label.classes()).toContain('text-3xl')
+    // A default label class (e.g. `text-clip`) is dropped, not merged.
+    expect(label.classes()).not.toContain('text-clip')
+  })
 })
