@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "eacd6b19c9b48244cd270a3a3a39900f259a3791",
+  "cursor": "b026ca2cdb0e4d6aff6d271a95e2d7e5e1bd7e3f",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -539,10 +539,16 @@
       "summary": "chore(deps): update nuxt framework to ^4.4.8 (#6578) — nuxt/@nuxt/kit/@nuxt/schema ^4.4.7->^4.4.8 (root/docs/playgrounds nuxt+demo mirrored; repl/vue don't pin); @nuxt/kit override ^4.4.8; lockfile regen under gate (resolves 4.4.8). @nuxt/icon n/a"
     },
     "eacd6b19c9b48244cd270a3a3a39900f259a3791": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 190,
+      "b24ui_sha": "651ff066",
       "decision": "port",
       "summary": "docs(search): init index on nuxt ready — docs/app/components/search/Search.vue: drop const {open}=useContentSearch() and replace watch(open, init) with onNuxtReady(init) (build index on ready). Direct 1:1; status kept (:search-status). Docs-only"
+    },
+    "b026ca2cdb0e4d6aff6d271a95e2d7e5e1bd7e3f": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "skip",
+      "summary": "feat(theme): uniformize focus styles across components (#6576) — SKIPPED (maintainer call): rewrites focus styling across ~50 themes to nuxt/ui's outline-3/outline-{color}/25 + theme.colors model. b24ui has its own air-token focus system (ring-(--b24ui-border-color), --ui-color-design-selection-content, …) and no theme.colors; adopting upstream would regress the air design. Generic bits (a:focus-visible reset, keyframes overflow:hidden) also deferred. Tracked in issue #191"
     }
   }
 }
