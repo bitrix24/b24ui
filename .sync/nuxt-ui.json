@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "8c433975c87717716f5f718d617eef6d1eef180f",
+  "cursor": "76bcd3b7cf36d81e10536513e32a371314111828",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -527,10 +527,16 @@
       "summary": "fix(Select): open menu on label click (#6575) — Select.vue: onTriggerClick(open) re-dispatches pointerdown so a <label for> click opens the menu; @click on SelectTrigger. +label spec (B24FormField+B24Select, +2). Skipped upstream's theme replaceFocus removal: b24ui select.ts replaceFocus is a no-op woven into air compounds, select-menu.ts is active b24ui-specific focus swap — tied to focus-uniformization (b026ca2c), not this fix. No snapshot churn"
     },
     "8c433975c87717716f5f718d617eef6d1eef180f": {
+      "pr": 188,
+      "b24ui_sha": "fef79ac7",
+      "decision": "port",
+      "summary": "chore(deps): update vue-tsc to ^3.3.4 (#6573) — vue-tsc ^3.3.3->^3.3.4 (root + playgrounds nuxt/vue/demo, demo mirrored) + vue-component-type-helpers ^3.3.4 (root); lockfile regen under gate (3.3.4). ChatPrompt.vue keydown consolidation is a no-op — b24ui already has the single onKeydown handler from #108"
+    },
+    "76bcd3b7cf36d81e10536513e32a371314111828": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "chore(deps): update vue-tsc to ^3.3.4 (#6573) — vue-tsc ^3.3.3->^3.3.4 (root + playgrounds nuxt/vue/demo, demo mirrored) + vue-component-type-helpers ^3.3.4 (root); lockfile regen under gate (3.3.4). ChatPrompt.vue keydown consolidation is a no-op — b24ui already has the single onKeydown handler from #108"
+      "summary": "chore(deps): update nuxt framework to ^4.4.8 (#6578) — nuxt/@nuxt/kit/@nuxt/schema ^4.4.7->^4.4.8 (root/docs/playgrounds nuxt+demo mirrored; repl/vue don't pin); @nuxt/kit override ^4.4.8; lockfile regen under gate (resolves 4.4.8). @nuxt/icon n/a"
     }
   }
 }
