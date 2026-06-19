@@ -662,10 +662,9 @@ defineExpose({
 
   <Primitive as="div" data-slot="root" :class="b24ui.root({ addNew: true, class: [props.b24ui?.root] })">
     <ComboboxRoot
-      :id="id"
       ref="comboboxRootRef"
       v-slot="{ modelValue, open }"
-      v-bind="{ ...rootProps as any, ...$attrs, ...ariaAttrs }"
+      v-bind="(rootProps as any)"
       ignore-filter
       as-child
       :name="name"
@@ -675,10 +674,12 @@ defineExpose({
     >
       <ComboboxAnchor as-child>
         <ComboboxTrigger
+          :id="id"
           ref="triggerRef"
           data-slot="base"
           :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
           tabindex="0"
+          v-bind="{ ...$attrs, ...ariaAttrs }"
         >
           <B24Badge
             v-if="isTag"
