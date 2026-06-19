@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "c3bef7a21bdd67343492f01e874044e59894b95b",
+  "cursor": "e8d18c37a0ebfe527ddc8fc38846d68f52e273be",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -515,10 +515,16 @@
       "summary": "fix(Tabs): render active indicator during SSR (#6570) — theme/tabs.ts: add ssr() helper gating CSS pseudo-element fallback on active trigger by absence of [data-slot=indicator]; applied to b24ui's link variant + horizontal/vertical.link compounds + color compound (after:bg-(--ui-color-design-selection-content)). b24ui has only link variant (no pill), air tokens. 46 snapshots updated. Skipped docs-app tweaks (FrameworkTabs/useNavigation nuxt/ui-docs-specific; [...slug].vue absent)"
     },
     "c3bef7a21bdd67343492f01e874044e59894b95b": {
+      "pr": 186,
+      "b24ui_sha": "43909435",
+      "decision": "port",
+      "summary": "fix(SelectMenu): bind id and aria attributes on trigger (#6572) — SelectMenu.vue: move :id + $attrs/ariaAttrs from ComboboxRoot onto ComboboxTrigger (focusable element); ComboboxRoot v-bind -> (rootProps as any). 10 snapshots updated (id/aria move root->trigger)"
+    },
+    "e8d18c37a0ebfe527ddc8fc38846d68f52e273be": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(SelectMenu): bind id and aria attributes on trigger (#6572) — SelectMenu.vue: move :id + $attrs/ariaAttrs from ComboboxRoot onto ComboboxTrigger (focusable element); ComboboxRoot v-bind -> (rootProps as any). 10 snapshots updated (id/aria move root->trigger)"
+      "summary": "fix(Select): open menu on label click (#6575) — Select.vue: onTriggerClick(open) re-dispatches pointerdown so a <label for> click opens the menu; @click on SelectTrigger. +label spec (B24FormField+B24Select, +2). Skipped upstream's theme replaceFocus removal: b24ui select.ts replaceFocus is a no-op woven into air compounds, select-menu.ts is active b24ui-specific focus swap — tied to focus-uniformization (b026ca2c), not this fix. No snapshot churn"
     }
   }
 }
