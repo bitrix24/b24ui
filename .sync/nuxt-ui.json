@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "ea576e2f321665574c416af34e7ef04e68654a79",
+  "cursor": "9e5b8a6bff4f9f12fc6282b450466ec68dc9017d",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -503,10 +503,16 @@
       "summary": "fix(ProseKbd): type default slot as VNode[] — prose/Kbd.vue: import VNode, ProseKbdSlots.default return any -> VNode[]. Direct 1:1 type-only; no snapshot churn"
     },
     "ea576e2f321665574c416af34e7ef04e68654a79": {
+      "pr": 183,
+      "b24ui_sha": "f6e54a55",
+      "decision": "port",
+      "summary": "feat(theme): allow replacing slot classes with a function (#6562) — types/tv.ts +SlotClassReplacer/SlotClass, widen base/slots/ComponentSlots ClassValue->SlotClass; useComponentProps ClassValue->SlotClass; utils/tv.ts rewritten as Proxy with findReplacer/plainClasses/applyReplacer/wrapSlots/extractDirectives + WideTV, preserving b24ui twMergeConfig + b24ui?.tv config; tv.spec.ts verbatim + Button :b24ui replacer case (+34). Playground fix: cast forwarded props.b24ui?.root|body to ClassValue in Matrix/PlaygroundPage (nuxt+demo). Docs: function-form note in 3.components.md b24ui-prop section; skipped global-config/Theme-component restructure + skills file (b24ui structure differs) -> issue #184"
+    },
+    "9e5b8a6bff4f9f12fc6282b450466ec68dc9017d": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "feat(theme): allow replacing slot classes with a function (#6562) — types/tv.ts +SlotClassReplacer/SlotClass, widen base/slots/ComponentSlots ClassValue->SlotClass; useComponentProps ClassValue->SlotClass; utils/tv.ts rewritten as Proxy with findReplacer/plainClasses/applyReplacer/wrapSlots/extractDirectives + WideTV, preserving b24ui twMergeConfig + b24ui?.tv config; tv.spec.ts verbatim + Button :b24ui replacer case (+34). Playground fix: cast forwarded props.b24ui?.root|body to ClassValue in Matrix/PlaygroundPage (nuxt+demo). Docs: function-form note in 3.components.md b24ui-prop section; skipped global-config/Theme-component restructure + skills file (b24ui structure differs)"
+      "summary": "fix(Tabs): render active indicator during SSR (#6570) — theme/tabs.ts: add ssr() helper gating CSS pseudo-element fallback on active trigger by absence of [data-slot=indicator]; applied to b24ui's link variant + horizontal/vertical.link compounds + color compound (after:bg-(--ui-color-design-selection-content)). b24ui has only link variant (no pill), air tokens. 46 snapshots updated. Skipped docs-app tweaks (FrameworkTabs/useNavigation nuxt/ui-docs-specific; [...slug].vue absent)"
     }
   }
 }
