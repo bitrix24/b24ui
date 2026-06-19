@@ -17,6 +17,12 @@
  * @todo scroll / flex-wrap long list tabs
  */
 
+// Active-tab highlight shown before reka-ui's `TabsIndicator` mounts (SSR / pre-hydration).
+// reka-ui only renders the real indicator on the client (it needs DOM measurements), so we gate
+// a CSS-only pseudo-element fallback on the active trigger by the *absence* of the indicator
+// element — the instant reka's measured indicator appears, this selector stops matching.
+const ssr = (...classes: string[]) => classes.map(c => `in-[[data-slot=list]:not(:has([data-slot=indicator]))]:data-[state=active]:${c}`).join(' ')
+
 export default {
   slots: {
     root: [
@@ -49,7 +55,7 @@ export default {
       link: {
         list: 'border-(--ui-color-divider-vibrant-accent-more)',
         indicator: 'rounded-(--ui-border-radius-pill)',
-        trigger: 'focus:outline-none'
+        trigger: ['focus:outline-none', ssr('after:content-[\'\']', 'after:absolute', 'after:rounded-(--ui-border-radius-pill)')]
       }
     },
     orientation: {
@@ -105,7 +111,8 @@ export default {
       variant: 'link',
       class: {
         list: 'border-b -mb-px',
-        indicator: '-bottom-px h-px'
+        indicator: '-bottom-px h-px',
+        trigger: ssr('after:inset-x-0', 'after:-bottom-[calc(var(--spacing)+1px)]', 'after:h-px')
       }
     },
     // endregion ////
@@ -115,7 +122,8 @@ export default {
       variant: 'link',
       class: {
         list: 'border-s -ms-px',
-        indicator: '-start-px w-px'
+        indicator: '-start-px w-px',
+        trigger: ssr('after:inset-y-0', 'after:-start-[calc(var(--spacing)+1px)]', 'after:w-px')
       }
     },
     // endregion ////
@@ -128,7 +136,8 @@ export default {
         trigger: [
           'focus-visible:ring-1 focus-visible:ring-inset',
           'data-[state=active]:text-(--b24ui-color)',
-          'focus-visible:ring-(--ui-color-design-selection-content)'
+          'focus-visible:ring-(--ui-color-design-selection-content)',
+          ssr('after:bg-(--ui-color-design-selection-content)')
         ]
       }
     }
