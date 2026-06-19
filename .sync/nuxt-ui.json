@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "e8d18c37a0ebfe527ddc8fc38846d68f52e273be",
+  "cursor": "8c433975c87717716f5f718d617eef6d1eef180f",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -521,10 +521,16 @@
       "summary": "fix(SelectMenu): bind id and aria attributes on trigger (#6572) — SelectMenu.vue: move :id + $attrs/ariaAttrs from ComboboxRoot onto ComboboxTrigger (focusable element); ComboboxRoot v-bind -> (rootProps as any). 10 snapshots updated (id/aria move root->trigger)"
     },
     "e8d18c37a0ebfe527ddc8fc38846d68f52e273be": {
+      "pr": 187,
+      "b24ui_sha": "f8cefc1b",
+      "decision": "port",
+      "summary": "fix(Select): open menu on label click (#6575) — Select.vue: onTriggerClick(open) re-dispatches pointerdown so a <label for> click opens the menu; @click on SelectTrigger. +label spec (B24FormField+B24Select, +2). Skipped upstream's theme replaceFocus removal: b24ui select.ts replaceFocus is a no-op woven into air compounds, select-menu.ts is active b24ui-specific focus swap — tied to focus-uniformization (b026ca2c), not this fix. No snapshot churn"
+    },
+    "8c433975c87717716f5f718d617eef6d1eef180f": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(Select): open menu on label click (#6575) — Select.vue: onTriggerClick(open) re-dispatches pointerdown so a <label for> click opens the menu; @click on SelectTrigger. +label spec (B24FormField+B24Select, +2). Skipped upstream's theme replaceFocus removal: b24ui select.ts replaceFocus is a no-op woven into air compounds, select-menu.ts is active b24ui-specific focus swap — tied to focus-uniformization (b026ca2c), not this fix. No snapshot churn"
+      "summary": "chore(deps): update vue-tsc to ^3.3.4 (#6573) — vue-tsc ^3.3.3->^3.3.4 (root + playgrounds nuxt/vue/demo, demo mirrored) + vue-component-type-helpers ^3.3.4 (root); lockfile regen under gate (3.3.4). ChatPrompt.vue keydown consolidation is a no-op — b24ui already has the single onKeydown handler from #108"
     }
   }
 }
