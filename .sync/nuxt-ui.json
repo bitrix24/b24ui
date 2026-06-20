@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "52d3c45478d1cfc88e288a093407d459ccf5ad48",
+  "cursor": "f2ff8241da9f4e8b89e1f1ae0980288f39ed00de",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -581,10 +581,16 @@
       "summary": "fix(templates): resolve vite root to an absolute path for #build aliases (#6586) — src/plugins/templates.ts: writeTemplates(config.root || process.cwd()) -> writeTemplates(path.resolve(config.root || '.')). config.root is unresolved in the Vite config hook, so a CLI root can be relative; alias targets must be absolute (Vite 8 warns, @tailwindcss/vite rejects relative -> silently drops theme classes). Direct 1:1 (b24ui matched the pre-change; path already imported). No test/snapshot churn"
     },
     "52d3c45478d1cfc88e288a093407d459ccf5ad48": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 199,
+      "b24ui_sha": "fa4cd982",
       "decision": "port",
       "summary": "fix(ProseCodeCollapse): cap root max-height instead of toggling pre height (#6565) — src/theme/prose/code-collapse.ts: collapsed state now caps the root max-h-[200px] (overflow-hidden) instead of toggling [&_pre]:h-[200px]<->h-auto; root base gains my-5 [&>div]:my-0 [&_pre]:max-h-[80vh] [&_pre]:pb-[48px], open:true -> rounded, open:false -> max-h-[200px]+border footer. Theme port with the file's existing air-token mapping (bg-muted->bg-(--ui-color-design-outline-bg), rounded(-b)-md->rounded(-b)-(--ui-border-radius-md), pb-12->pb-[48px], from-muted->from-(--ui-color-g-plastic-greish-bg), border-muted->border-(--ui-color-design-outline-stroke) [closest air outline-stroke, not in color-map]). No snapshot churn"
+    },
+    "f2ff8241da9f4e8b89e1f1ae0980288f39ed00de": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "no-op",
+      "summary": "chore(renovate): remove groups from package rules — NO-OP: upstream edits renovate.json only (drops tailwindcss/vite/vue-tsc/vue group packageRules). b24ui has no Renovate config (no renovate.json/.renovaterc/.github/renovate.json tracked anywhere — git ls-files grep renovate => none), so nothing to port. b24ui uses GitHub default Dependabot alerts but ships no Renovate/Dependabot config file. Bookkeeping only"
     }
   }
 }
