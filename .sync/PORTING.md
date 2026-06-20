@@ -32,6 +32,14 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
 | color token (`primary`, `neutral`, …) | `air-*` system — see [`color-map.json`](./color-map.json) |
 | theme object | corresponding `src/theme/<component>.ts` |
 
+> **Icons — the shared interface (read this first).** b24ui uses the *same semantic
+> icon keys* as nuxt/ui (`src/runtime/dictionary/icons.ts`: `chevronDown`, `check`,
+> `close`, `loading`, `external`, …). So when upstream references
+> `appConfig.ui.icons.<key>` or `icons.<key>`, **keep it unchanged** — b24ui already
+> resolves that key to the right `b24-icon`. The [`icon-map.json`](./icon-map.json)
+> is only the fallback for cases where upstream **hardcodes** a literal `i-lucide-*`
+> string; map those to the listed `b24-icons` component import. Most icon diffs are 1:1.
+
 ## 2. Invariants you MUST preserve
 
 - **Dependency / playground manifests — mirror across ALL b24ui playgrounds.**
