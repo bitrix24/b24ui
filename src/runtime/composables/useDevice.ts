@@ -39,7 +39,7 @@ const _useDevice = () => {
     const xl = mediaQueries.xl.value
     const xl2 = mediaQueries['2xl'].value
 
-    let current: ScreenSize = 'xs'
+    let current: ScreenSize
     if (xl2) current = '2xl'
     else if (xl) current = 'xl'
     else if (lg) current = 'lg'
