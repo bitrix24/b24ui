@@ -3,7 +3,7 @@
  */
 export default {
   slots: {
-    root: 'relative [&_pre]:h-[200px] bg-(--ui-color-design-outline-bg)',
+    root: 'relative my-5 bg-(--ui-color-design-outline-bg) [&>div]:my-0 [&_pre]:max-h-[80vh] [&_pre]:pb-[48px]',
     footer: [
       'h-[64px]',
       'absolute inset-x-px bottom-px',
@@ -16,11 +16,11 @@ export default {
   variants: {
     open: {
       true: {
-        root: '[&_pre]:h-auto [&_pre]:min-h-[200px] [&_pre]:max-h-[80vh] [&_pre]:pb-[48px]'
+        root: 'rounded-(--ui-border-radius-md)'
       },
       false: {
-        root: '[&_pre]:overflow-hidden',
-        footer: 'bg-linear-to-t from-(--ui-color-g-plastic-greish-bg)'
+        root: 'max-h-[200px] overflow-hidden rounded-b-(--ui-border-radius-md) [&_pre]:overflow-hidden',
+        footer: 'inset-x-0 bottom-0 border border-t-0 border-(--ui-color-design-outline-stroke) bg-linear-to-t from-(--ui-color-g-plastic-greish-bg)'
       }
     }
   }
