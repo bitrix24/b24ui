@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "f71bc4692d3fb0b7ef52ff91413bfee800586f8f",
+  "cursor": "238e291791737b15fe94eeac6f93468cfcf932bb",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -569,10 +569,16 @@
       "summary": "fix(CommandPalette): only scroll to highlighted item when focused (#6579) — CommandPalette.vue: guard the watch(filteredGroups) re-highlight with rootEl.contains(document.activeElement) — highlightFirstItem() only when the palette has focus, else highlightSelected(undefined, false) so async results (useLazyFetch) below the fold don't scroll the whole page. Direct 1:1 (b24ui matched the pre-change; same reka ListboxRoot API). +spec (results without focus re-highlight but don't scrollIntoView; with focus do). Builds on #76 (efd7b8ec)"
     },
     "f71bc4692d3fb0b7ef52ff91413bfee800586f8f": {
+      "pr": 197,
+      "b24ui_sha": "f12f16d6",
+      "decision": "port",
+      "summary": "docs(Chat): validate AI theme and inputs — PARTIAL port (docs-only). ai.post.ts: ported 1:1 — currentPage is interpolated verbatim into the system prompt (same prompt-injection surface as upstream), added safeCurrentPage server-side guard (string, <=128, no \\r\\n, /^\\/docs\\/[\\w/-]*$/) and swapped currentPage->safeCurrentPage; matches b24ui client which only sends /docs/ paths. useTheme.ts: NO-OP — b24ui already neutered AI theme application (customColors/cssVariables styles are computed(()=>''), applyThemeSettings is a track-only stub, no injectCustomColors/appConfig.ui mutation), so the untrusted sink the upstream sanitizers protect doesn't exist. No src change"
+    },
+    "238e291791737b15fe94eeac6f93468cfcf932bb": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "docs(Chat): validate AI theme and inputs — PARTIAL port (docs-only). ai.post.ts: ported 1:1 — currentPage is interpolated verbatim into the system prompt (same prompt-injection surface as upstream), added safeCurrentPage server-side guard (string, <=128, no \\r\\n, /^\\/docs\\/[\\w/-]*$/) and swapped currentPage->safeCurrentPage; matches b24ui client which only sends /docs/ paths. useTheme.ts: NO-OP — b24ui already neutered AI theme application (customColors/cssVariables styles are computed(()=>''), applyThemeSettings is a track-only stub, no injectCustomColors/appConfig.ui mutation), so the untrusted sink the upstream sanitizers protect doesn't exist. No src change"
+      "summary": "fix(templates): resolve vite root to an absolute path for #build aliases (#6586) — src/plugins/templates.ts: writeTemplates(config.root || process.cwd()) -> writeTemplates(path.resolve(config.root || '.')). config.root is unresolved in the Vite config hook, so a CLI root can be relative; alias targets must be absolute (Vite 8 warns, @tailwindcss/vite rejects relative -> silently drops theme classes). Direct 1:1 (b24ui matched the pre-change; path already imported). No test/snapshot churn"
     }
   }
 }
