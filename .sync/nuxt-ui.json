@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "c34ab9278c4000599619142465c93d2ff0b1a995",
+  "cursor": "f99778e3e7639c11f6b46a4e4c57fbc66077195a",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -593,22 +593,28 @@
       "summary": "chore(renovate): remove groups from package rules — NO-OP: upstream edits renovate.json only (drops tailwindcss/vite/vue-tsc/vue group packageRules). b24ui has no Renovate config (no renovate.json/.renovaterc/.github/renovate.json tracked anywhere — git ls-files grep renovate => none), so nothing to port. b24ui uses GitHub default Dependabot alerts but ships no Renovate/Dependabot config file. Bookkeeping only"
     },
     "3909032706bdb05a95e09db79ee0c420e9d0face": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 201,
+      "b24ui_sha": "1f28ea21",
       "decision": "no-op",
       "summary": "chore(deps): update dependency @nuxtjs/color-mode to v4 (#6050) — NO-OP: b24ui has no @nuxtjs/color-mode in any manifest (own air-design color-mode), so the ^3.5.2->^4.0.0 bump and the ContentSearch/DashboardSearch snapshot regen are N/A. Combined into the deps-batch PR with 7e359508+c34ab927"
     },
     "7e359508f820f19d9d1c63b98603f278e708c719": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 201,
+      "b24ui_sha": "1f28ea21",
       "decision": "port",
       "summary": "chore(deps): update all non-major dependencies (#6592) — bumped every b24ui-pinned pkg to the batch target, mirrored across root/docs/playgrounds incl. fork-only demo (kept nuxt<->demo parity): motion-v 2.3.0, vue-component-type-helpers/meta 3.3.5, @nuxt/eslint-config 1.16.0, ai 6.0.205, eslint 10.5.0, happy-dom 20.10.3, vue 3.5.38, vue-tsc 3.3.5, tailwindcss(dep)/@tailwindcss/postcss/@tailwindcss/vite 4.3.1, @ai-sdk/mcp 1.0.50, @ai-sdk/vue 3.0.205, @regle/core+rules 1.27.2, @takumi-rs/core 1.8.5, better-sqlite3 12.10.1, nuxt-og-image 6.6.0, nuxt-schema-org 6.2.1, prettier 3.8.4; packageManager pnpm@11.6.0. Skipped (not in b24ui): @nuxtjs/color-mode, @iconify-json/*, @ai-sdk/anthropic, @ai-sdk/gateway. Left peerDeps.tailwindcss ^4.0.0 and @ai-sdk/deepseek ^2.0.38 untouched. eslint 10.5.0 no-useless-assignment knock-on: removed inHeader=false before break in extractSections.ts (same as upstream) + dropped dead 'let current=xs' init in b24ui-only useDevice.ts. lockfile regen under gate, lockfileVersion 9.0 unchanged. Combined into the deps-batch PR"
     },
     "c34ab9278c4000599619142465c93d2ff0b1a995": {
+      "pr": 201,
+      "b24ui_sha": "1f28ea21",
+      "decision": "port",
+      "summary": "chore(deps): update tiptap to ^3.26.1 (#6593) — all @tiptap/* b24ui pins ^3.26.0->^3.26.1 (root 17 pkgs + extension-emoji/extension-text-align in docs/playgrounds nuxt+demo+vue; nuxt<->demo parity kept). b24ui pins the same tiptap set as upstream, no missing pkgs, peer ranges untouched. Combined into the deps-batch PR with 39090327+7e359508"
+    },
+    "f99778e3e7639c11f6b46a4e4c57fbc66077195a": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "chore(deps): update tiptap to ^3.26.1 (#6593) — all @tiptap/* b24ui pins ^3.26.0->^3.26.1 (root 17 pkgs + extension-emoji/extension-text-align in docs/playgrounds nuxt+demo+vue; nuxt<->demo parity kept). b24ui pins the same tiptap set as upstream, no missing pkgs, peer ranges untouched. Combined into the deps-batch PR with 39090327+7e359508"
+      "summary": "feat(ChatMessages): expose registerMessageRef (#6275) — ChatMessages.vue: defineExpose({ registerMessageRef }) + pass it to the default slot (<slot :register-message-ref>), and type the default slot prop (registerMessageRef: (id, element: ComponentPublicInstance|null)=>void). Direct 1:1 (ui->b24ui already applied; registerMessageRef fn + imports already present). +docs Expose section. No snapshot churn (binding/expose don't change markup)"
     }
   }
 }
