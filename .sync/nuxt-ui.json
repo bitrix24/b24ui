@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "02259a6ae963408b2a971722b9b66d225a0505f3",
+  "cursor": "f71bc4692d3fb0b7ef52ff91413bfee800586f8f",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -563,10 +563,16 @@
       "summary": "feat(Calendar): add month and year selection (#6582) — SKIPPED (maintainer call): largest single-component change (Calendar.vue +296, calendar.ts +102, docs +226, ~4800-line snapshot regen). Component logic ports mechanically but the theme does not: upstream calendar.ts is built on theme.colors loops + nuxt/ui semantic tokens, while b24ui's calendar.ts is air-design-token based with no theme.colors — the new `view` variant, daySizes/pickerSizes compounds, month/year cellTrigger styling and headingLabel slot need a deliberate air-design pass, not a 1:1 translation. No upstream-dep blocker (reka-ui 2.9.10 already exposes Month/YearPicker namespaced, #193). Tracked in issue #194"
     },
     "02259a6ae963408b2a971722b9b66d225a0505f3": {
+      "pr": 196,
+      "b24ui_sha": "508cebb4",
+      "decision": "port",
+      "summary": "fix(CommandPalette): only scroll to highlighted item when focused (#6579) — CommandPalette.vue: guard the watch(filteredGroups) re-highlight with rootEl.contains(document.activeElement) — highlightFirstItem() only when the palette has focus, else highlightSelected(undefined, false) so async results (useLazyFetch) below the fold don't scroll the whole page. Direct 1:1 (b24ui matched the pre-change; same reka ListboxRoot API). +spec (results without focus re-highlight but don't scrollIntoView; with focus do). Builds on #76 (efd7b8ec)"
+    },
+    "f71bc4692d3fb0b7ef52ff91413bfee800586f8f": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(CommandPalette): only scroll to highlighted item when focused (#6579) — CommandPalette.vue: guard the watch(filteredGroups) re-highlight with rootEl.contains(document.activeElement) — highlightFirstItem() only when the palette has focus, else highlightSelected(undefined, false) so async results (useLazyFetch) below the fold don't scroll the whole page. Direct 1:1 (b24ui matched the pre-change; same reka ListboxRoot API). +spec (results without focus re-highlight but don't scrollIntoView; with focus do). Builds on #76 (efd7b8ec)"
+      "summary": "docs(Chat): validate AI theme and inputs — PARTIAL port (docs-only). ai.post.ts: ported 1:1 — currentPage is interpolated verbatim into the system prompt (same prompt-injection surface as upstream), added safeCurrentPage server-side guard (string, <=128, no \\r\\n, /^\\/docs\\/[\\w/-]*$/) and swapped currentPage->safeCurrentPage; matches b24ui client which only sends /docs/ paths. useTheme.ts: NO-OP — b24ui already neutered AI theme application (customColors/cssVariables styles are computed(()=>''), applyThemeSettings is a track-only stub, no injectCustomColors/appConfig.ui mutation), so the untrusted sink the upstream sanitizers protect doesn't exist. No src change"
     }
   }
 }

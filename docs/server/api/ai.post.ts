@@ -48,6 +48,17 @@ export default defineEventHandler(async (event) => {
     throw createError({ status: 400, message: 'Invalid or missing messages array.' })
   }
 
+  // `currentPage` is interpolated verbatim into the system prompt below, so it is an
+  // indirect prompt-injection surface (a crafted /docs/... link can smuggle newlines and
+  // instructions via Vue Router's path decoding). Accept it only when it is a plain docs
+  // path with no control characters; otherwise drop it.
+  const safeCurrentPage = typeof currentPage === 'string'
+    && currentPage.length <= 128
+    && !/[\r\n]/.test(currentPage)
+    && /^\/docs\/[\w/-]*$/.test(currentPage)
+    ? currentPage
+    : null
+
   const mcpTools = mcpToolsToAiTools()
 
   const deepseek = createDeepSeek({
@@ -60,7 +71,7 @@ export default defineEventHandler(async (event) => {
   const system = `You are a helpful assistant for Bitrix24 UI, a UI library for Nuxt and Vue. Use your knowledge base tools to search for relevant information before answering questions.
 
 The user is using **${framework === 'vue' ? 'Vue' : 'Nuxt'}**. Tailor your answers accordingly — ${framework === 'vue' ? 'use the Vite plugin setup, Vue Router, and vite.config.ts instead of Nuxt-specific features like modules or app.config.ts. IMPORTANT: The Vite plugin auto-imports components and Bitrix24 UI composables, but Vue core APIs and VueUse must be explicitly imported — always include these in code examples (e.g. `import { ref, computed } from \'vue\'`).' : 'use Nuxt modules, auto-imports, app.config.ts, and other Nuxt-specific features. Nuxt auto-imports Vue APIs (ref, computed, etc.), composables, and components — do not include these imports in code examples.'}
-${currentPage ? `\nThe user is currently viewing the documentation page at \`${currentPage}\`. Use this context to provide more relevant answers (e.g. read that page first if the question seems related), but don't limit yourself to that page if the question is broader or unrelated.\n` : ''}
+${safeCurrentPage ? `\nThe user is currently viewing the documentation page at \`${safeCurrentPage}\`. Use this context to provide more relevant answers (e.g. read that page first if the question seems related), but don't limit yourself to that page if the question is broader or unrelated.\n` : ''}
 Guidelines:
 - For documentation questions, ALWAYS use tools to search for information. Never rely on pre-trained knowledge for Bitrix24 UI APIs, props, or usage.
 — When users ask you to apply a theme change in real time (e.g., "make it blue," "create a Sakura theme," "change the font"), tell them that the library style matches the Bitrix24 style and suggest using standard properties (color, variant).
