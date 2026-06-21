@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "f99778e3e7639c11f6b46a4e4c57fbc66077195a",
+  "cursor": "006324aeb91ae4054c314c9cb4a9d552fe04e44e",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -611,10 +611,16 @@
       "summary": "chore(deps): update tiptap to ^3.26.1 (#6593) — all @tiptap/* b24ui pins ^3.26.0->^3.26.1 (root 17 pkgs + extension-emoji/extension-text-align in docs/playgrounds nuxt+demo+vue; nuxt<->demo parity kept). b24ui pins the same tiptap set as upstream, no missing pkgs, peer ranges untouched. Combined into the deps-batch PR with 39090327+7e359508"
     },
     "f99778e3e7639c11f6b46a4e4c57fbc66077195a": {
+      "pr": 202,
+      "b24ui_sha": "f0e21619",
+      "decision": "port",
+      "summary": "feat(ChatMessages): expose registerMessageRef (#6275) — ChatMessages.vue: defineExpose({ registerMessageRef }) + pass it to the default slot (<slot :register-message-ref>), and type the default slot prop (registerMessageRef: (id, element: ComponentPublicInstance|null)=>void). Direct 1:1 (ui->b24ui already applied; registerMessageRef fn + imports already present). +docs Expose section. No snapshot churn (binding/expose don't change markup)"
+    },
+    "006324aeb91ae4054c314c9cb4a9d552fe04e44e": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "feat(ChatMessages): expose registerMessageRef (#6275) — ChatMessages.vue: defineExpose({ registerMessageRef }) + pass it to the default slot (<slot :register-message-ref>), and type the default slot prop (registerMessageRef: (id, element: ComponentPublicInstance|null)=>void). Direct 1:1 (ui->b24ui already applied; registerMessageRef fn + imports already present). +docs Expose section. No snapshot churn (binding/expose don't change markup)"
+      "summary": "feat(Modal/Slideover): add leave and enter events (#6596) — Modal.vue + Slideover.vue: add 'leave':[] and 'enter':[] to *Emits and wire @enter=emits('enter') / @leave=emits('leave') on the reka dialog content (alongside existing after:enter/after:leave). Direct 1:1 (both matched the pre-change). Docs untouched (emit tables generated from component-meta). No snapshot churn"
     }
   }
 }
