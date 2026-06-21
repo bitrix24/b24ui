@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "09eb639a33460e1ece8fcfc7dd9c2f523af9b0b4",
+  "cursor": "cccb3d5a4a3e837173b1d31e6397efaedb032f59",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -623,10 +623,16 @@
       "summary": "feat(Modal/Slideover): add leave and enter events (#6596) — Modal.vue + Slideover.vue: add 'leave':[] and 'enter':[] to *Emits and wire @enter=emits('enter') / @leave=emits('leave') on the reka dialog content (alongside existing after:enter/after:leave). Direct 1:1 (both matched the pre-change). Docs untouched (emit tables generated from component-meta). No snapshot churn"
     },
     "09eb639a33460e1ece8fcfc7dd9c2f523af9b0b4": {
+      "pr": 204,
+      "b24ui_sha": "c2ea493d",
+      "decision": "port",
+      "summary": "feat(components): allow hiding icon with false (#6597) — 5 components (ChatPromptSubmit, CommandPalette, DashboardSearchButton, FileUpload, content/ContentSearchButton): icon?: IconComponent -> IconComponent|false; usage props.icon||icons.X -> props.icon===false?undefined:(props.icon??icons.X); FileUpload wraps icon/avatar in v-if=props.icon!==false. +spec each. Test selector adapted: b24-icons render their own data-slot=icon (overrides Button/Input data-slot=leadingIcon), so specs assert [data-slot=icon]; CommandPalette spec uses icon-less items to isolate the input icon. No snapshot churn (defaults unchanged)"
+    },
+    "cccb3d5a4a3e837173b1d31e6397efaedb032f59": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "feat(components): allow hiding icon with false (#6597) — 5 components (ChatPromptSubmit, CommandPalette, DashboardSearchButton, FileUpload, content/ContentSearchButton): icon?: IconComponent -> IconComponent|false; usage props.icon||icons.X -> props.icon===false?undefined:(props.icon??icons.X); FileUpload wraps icon/avatar in v-if=props.icon!==false. +spec each. Test selector adapted: b24-icons render their own data-slot=icon (overrides Button/Input data-slot=leadingIcon), so specs assert [data-slot=icon]; CommandPalette spec uses icon-less items to isolate the input icon. No snapshot churn (defaults unchanged)"
+      "summary": "feat(vite): add root option to override .nuxt-ui directory location (#6595) — add root?: string to Bitrix24UIOptions (unplugin.ts) and use it in templates.ts: writeTemplates(path.resolve(options.root || config.root || '.')). Lets electron-vite-style setups point the generated .b24ui-nuxt theme-templates dir at the project root. Builds on #198 (238e2917). +docs root section in vue installation (adapted: .b24ui-nuxt/bitrix24UIPluginVite, dropped upstream 4.9+ badge). No snapshot churn"
     }
   }
 }
