@@ -161,6 +161,18 @@ describe('CommandPalette', () => {
     ['with footer slot', { props, slots: { footer: () => 'Footer slot' } }]
   ])
 
+  it('hides the input icon when icon is false', async () => {
+    // Use icon-less items so the only `data-slot="icon"` is the input's leading
+    // icon (b24-icons render their own `data-slot="icon"`, so item icons would
+    // otherwise also match).
+    const iconProps = { groups: [{ id: 'users', items: [{ label: 'bitrix24' }] }] } as any
+    const withIcon = await mountSuspended(CommandPalette, { props: iconProps })
+    expect(withIcon.find('[data-slot="icon"]').exists()).toBe(true)
+
+    const withoutIcon = await mountSuspended(CommandPalette, { props: { ...iconProps, icon: false } })
+    expect(withoutIcon.find('[data-slot="icon"]').exists()).toBe(false)
+  })
+
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(CommandPalette, {
       props: {

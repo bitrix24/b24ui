@@ -74,11 +74,11 @@ export interface CommandPaletteProps<G extends CommandPaletteGroup<T> = CommandP
    */
   size?: CommandPalette['variants']['size']
   /**
-   * The icon displayed in the input.
+   * The icon displayed in the input. Set to `false` to hide the icon.
    * @defaultValue icons.search
    * @IconComponent
    */
-  icon?: IconComponent
+  icon?: IconComponent | false
   /**
    * The icon displayed on the right side of the input.
    * @defaultValue icons.search
@@ -690,7 +690,7 @@ function onSelect(e: Event, item: T) {
         :autofocus="props.autofocus"
         :loading="props.loading"
         :trailing-icon="props.trailingIcon"
-        :icon="props.icon || icons.search"
+        :icon="props.icon === false ? undefined : (props.icon ?? icons.search)"
         v-bind="typeof props.input === 'object' ? props.input : {}"
         data-slot="input"
         :class="b24ui.input({ class: props.b24ui?.input })"

@@ -8,11 +8,11 @@ type ContentSearchButton = ComponentConfig<typeof theme, AppConfig, 'contentSear
 
 export interface ContentSearchButtonProps extends Omit<ButtonProps, LinkPropsKeys | 'icon' | 'label' | 'color'> {
   /**
-   * The icon displayed in the button.
+   * The icon displayed in the button. Set to `false` to hide the icon.
    * @defaultValue icons.search
    * @IconComponent
    */
-  icon?: IconComponent
+  icon?: IconComponent | false
   /**
    * The label displayed in the button.
    * @defaultValue t('contentSearchButton.label')
@@ -92,7 +92,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.conten
 <template>
   <DefineButtonTemplate>
     <B24Button
-      :icon="props.icon || icons.search"
+      :icon="props.icon === false ? undefined : (props.icon ?? icons.search)"
       :label="props.label || t('contentSearchButton.label')"
       v-bind="{
         ...buttonProps,
