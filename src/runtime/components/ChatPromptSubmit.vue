@@ -10,11 +10,11 @@ type ChatPromptSubmit = ComponentConfig<typeof theme, AppConfig, 'chatPromptSubm
 export interface ChatPromptSubmitProps extends Omit<ButtonProps, LinkPropsKeys | 'icon' | 'color'> {
   status?: ChatStatus
   /**
-   * The icon displayed in the button when the status is `ready`.
+   * The icon displayed in the button when the status is `ready`. Set to `false` to hide the icon.
    * @defaultValue icons.imSend
    * @IconComponent
    */
-  icon?: IconComponent
+  icon?: IconComponent | false
   /**
    * The color of the button when the status is `ready`.
    * @defaultValue 'air-primary'
@@ -99,7 +99,7 @@ const disabled = computed(() => props.status === 'ready' ? props.disabled : fals
 
 const statusButtonProps = computed(() => ({
   ready: {
-    icon: props.icon || icons.imSend,
+    icon: props.icon === false ? undefined : (props.icon ?? icons.imSend),
     color: props.color,
     type: 'submit' as const
   },

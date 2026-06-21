@@ -18,11 +18,11 @@ export interface FileUploadProps<M extends boolean = false> extends /** @vue-ign
   id?: string
   name?: string
   /**
-   * The icon to display.
+   * The icon to display. Set to `false` to hide the icon.
    * @defaultValue icons.upload
    * @IconComponent
    */
-  icon?: IconComponent
+  icon?: IconComponent | false
   label?: string
   description?: string
   /**
@@ -383,19 +383,21 @@ defineExpose({
           :class="b24ui.wrapper({ class: props.b24ui?.wrapper })"
         >
           <slot name="leading" :b24ui="b24ui">
-            <Component
-              :is="props.icon || icons.upload"
-              v-if="variant === 'button'"
-              data-slot="icon"
-              :class="b24ui.icon({ class: props.b24ui?.icon })"
-            />
-            <B24Avatar
-              v-else
-              :icon="props.icon || icons.upload"
-              :size="props.size"
-              data-slot="avatar"
-              :class="b24ui.avatar({ class: props.b24ui?.avatar })"
-            />
+            <template v-if="props.icon !== false">
+              <Component
+                :is="props.icon ?? icons.upload"
+                v-if="variant === 'button'"
+                data-slot="icon"
+                :class="b24ui.icon({ class: props.b24ui?.icon })"
+              />
+              <B24Avatar
+                v-else
+                :icon="props.icon ?? icons.upload"
+                :size="props.size"
+                data-slot="avatar"
+                :class="b24ui.avatar({ class: props.b24ui?.avatar })"
+              />
+            </template>
           </slot>
 
           <template v-if="variant !== 'button'">

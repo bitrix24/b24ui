@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "006324aeb91ae4054c314c9cb4a9d552fe04e44e",
+  "cursor": "09eb639a33460e1ece8fcfc7dd9c2f523af9b0b4",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -617,10 +617,16 @@
       "summary": "feat(ChatMessages): expose registerMessageRef (#6275) — ChatMessages.vue: defineExpose({ registerMessageRef }) + pass it to the default slot (<slot :register-message-ref>), and type the default slot prop (registerMessageRef: (id, element: ComponentPublicInstance|null)=>void). Direct 1:1 (ui->b24ui already applied; registerMessageRef fn + imports already present). +docs Expose section. No snapshot churn (binding/expose don't change markup)"
     },
     "006324aeb91ae4054c314c9cb4a9d552fe04e44e": {
+      "pr": 203,
+      "b24ui_sha": "a49f341f",
+      "decision": "port",
+      "summary": "feat(Modal/Slideover): add leave and enter events (#6596) — Modal.vue + Slideover.vue: add 'leave':[] and 'enter':[] to *Emits and wire @enter=emits('enter') / @leave=emits('leave') on the reka dialog content (alongside existing after:enter/after:leave). Direct 1:1 (both matched the pre-change). Docs untouched (emit tables generated from component-meta). No snapshot churn"
+    },
+    "09eb639a33460e1ece8fcfc7dd9c2f523af9b0b4": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "feat(Modal/Slideover): add leave and enter events (#6596) — Modal.vue + Slideover.vue: add 'leave':[] and 'enter':[] to *Emits and wire @enter=emits('enter') / @leave=emits('leave') on the reka dialog content (alongside existing after:enter/after:leave). Direct 1:1 (both matched the pre-change). Docs untouched (emit tables generated from component-meta). No snapshot churn"
+      "summary": "feat(components): allow hiding icon with false (#6597) — 5 components (ChatPromptSubmit, CommandPalette, DashboardSearchButton, FileUpload, content/ContentSearchButton): icon?: IconComponent -> IconComponent|false; usage props.icon||icons.X -> props.icon===false?undefined:(props.icon??icons.X); FileUpload wraps icon/avatar in v-if=props.icon!==false. +spec each. Test selector adapted: b24-icons render their own data-slot=icon (overrides Button/Input data-slot=leadingIcon), so specs assert [data-slot=icon]; CommandPalette spec uses icon-less items to isolate the input icon. No snapshot churn (defaults unchanged)"
     }
   }
 }

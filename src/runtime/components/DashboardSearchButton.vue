@@ -8,11 +8,11 @@ type DashboardSearchButton = ComponentConfig<typeof theme, AppConfig, 'dashboard
 
 export interface DashboardSearchButtonProps extends Omit<ButtonProps, LinkPropsKeys | 'icon' | 'label' | 'color'> {
   /**
-   * The icon displayed in the button.
+   * The icon displayed in the button. Set to `false` to hide the icon.
    * @defaultValue icons.search
    * @IconComponent
    */
-  icon?: IconComponent
+  icon?: IconComponent | false
   /**
    * The label displayed in the button.
    * @defaultValue t('dashboardSearchButton.label')
@@ -92,7 +92,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashbo
 <template>
   <DefineButtonTemplate>
     <B24Button
-      :icon="props.icon || icons.search"
+      :icon="props.icon === false ? undefined : (props.icon ?? icons.search)"
       :label="props.label || t('dashboardSearchButton.label')"
       v-bind="{
         ...buttonProps,
