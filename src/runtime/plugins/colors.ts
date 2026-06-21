@@ -2,7 +2,7 @@ import { computed } from 'vue'
 // import colors from 'tailwindcss/colors'
 import type { UseHeadInput } from '@unhead/vue/types'
 // import { defineNuxtPlugin, useAppConfig, useNuxtApp, useHead } from '#imports'
-import { defineNuxtPlugin, useNuxtApp, useHead } from '#imports'
+import { defineNuxtPlugin, injectHead, useNuxtApp, useHead } from '#imports'
 
 /**
  * @see src/templates.ts -> getTemplates
@@ -25,6 +25,10 @@ function generateColor(key: string, shade: number) {
   return `--ui-${key}: var(--ui-color-${key}-${shade});`
 }
 */
+
+function removeTemporaryColorsStyle() {
+  document.querySelector('[data-bitrix24-ui-colors]')?.remove()
+}
 
 export default defineNuxtPlugin(() => {
   // const appConfig = useAppConfig()
@@ -64,9 +68,7 @@ export default defineNuxtPlugin(() => {
       style.setAttribute('data-bitrix24-ui-colors', '')
       document.head.appendChild(style)
 
-      headData.script = [{
-        innerHTML: 'document.head.removeChild(document.querySelector(\'[data-bitrix24-ui-colors]\'))'
-      }]
+      injectHead().hooks.hookOnce('dom:rendered', removeTemporaryColorsStyle)
     }
   }
 
