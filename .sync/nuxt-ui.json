@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "cccb3d5a4a3e837173b1d31e6397efaedb032f59",
+  "cursor": "7225e9f451e405d6b07de8ee44b93a11a50b55a8",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -629,10 +629,16 @@
       "summary": "feat(components): allow hiding icon with false (#6597) — 5 components (ChatPromptSubmit, CommandPalette, DashboardSearchButton, FileUpload, content/ContentSearchButton): icon?: IconComponent -> IconComponent|false; usage props.icon||icons.X -> props.icon===false?undefined:(props.icon??icons.X); FileUpload wraps icon/avatar in v-if=props.icon!==false. +spec each. Test selector adapted: b24-icons render their own data-slot=icon (overrides Button/Input data-slot=leadingIcon), so specs assert [data-slot=icon]; CommandPalette spec uses icon-less items to isolate the input icon. No snapshot churn (defaults unchanged)"
     },
     "cccb3d5a4a3e837173b1d31e6397efaedb032f59": {
+      "pr": 205,
+      "b24ui_sha": "da0f6e9e",
+      "decision": "port",
+      "summary": "feat(vite): add root option to override .nuxt-ui directory location (#6595) — add root?: string to Bitrix24UIOptions (unplugin.ts) and use it in templates.ts: writeTemplates(path.resolve(options.root || config.root || '.')). Lets electron-vite-style setups point the generated .b24ui-nuxt theme-templates dir at the project root. Builds on #198 (238e2917). +docs root section in vue installation (adapted: .b24ui-nuxt/bitrix24UIPluginVite, dropped upstream 4.9+ badge). No snapshot churn"
+    },
+    "7225e9f451e405d6b07de8ee44b93a11a50b55a8": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "feat(vite): add root option to override .nuxt-ui directory location (#6595) — add root?: string to Bitrix24UIOptions (unplugin.ts) and use it in templates.ts: writeTemplates(path.resolve(options.root || config.root || '.')). Lets electron-vite-style setups point the generated .b24ui-nuxt theme-templates dir at the project root. Builds on #198 (238e2917). +docs root section in vue installation (adapted: .b24ui-nuxt/bitrix24UIPluginVite, dropped upstream 4.9+ badge). No snapshot churn"
+      "summary": "fix(module): remove inline script in SPA mode for strict CSP (#6577) — colors.ts: in SPA mode the temporary <style data-bitrix24-ui-colors> was removed via an inline <script> (CSP violation); replace with injectHead().hooks.hookOnce('dom:rendered', removeTemporaryColorsStyle) where the fn does querySelector('[data-bitrix24-ui-colors]')?.remove(). +import injectHead from #imports. vue/stubs/base.ts: export injectHead from @unhead/vue too. Direct 1:1 (same plugin/SPA path, only the data-attribute name differs). No snapshot churn"
     }
   }
 }

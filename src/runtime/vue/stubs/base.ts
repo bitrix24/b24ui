@@ -3,7 +3,7 @@ import type { Ref, Plugin as VuePlugin } from 'vue'
 import { createHooks } from 'hookable'
 import type { NuxtApp } from '#app'
 
-export { useHead } from '@unhead/vue'
+export { injectHead, useHead } from '@unhead/vue'
 
 export { useAppConfig } from '../composables/useAppConfig'
 export { defineShortcuts } from '../../composables/defineShortcuts'
