@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "e4989f7cc15bf7c8d9338b24f14aaeb08ef328a6",
+  "cursor": "8577e955b934538396f147f3b69a98bd6ef82aae",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -653,28 +653,46 @@
       "summary": "chore(release): v4.9.0 — NO-OP: upstream release bump (package.json version 4.8.2->4.9.0 + nuxt/ui CHANGELOG.md). b24ui has its own versioning/release cycle (currently 2.8.0, release-please style) independent of nuxt/ui 4.x and its own CHANGELOG, so nothing to port. Bookkeeping only"
     },
     "e327ec459bc1d22655a23bf0f2a25061cac059e8": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 209,
+      "b24ui_sha": "d54af8fb",
       "decision": "no-op",
       "summary": "docs(content): update badges — NO-OP: flips nuxt/ui version badges Soon->4.9+ (theme/css-variables, calendar, pin-input, scroll-area, use-tour) + navigation.badge Soon->New, tied to nuxt/ui's v4.9 release. b24ui has its own versioning (2.x), doesn't carry 4.9+ labels, and the edited lines don't exist in b24ui's corresponding pages. Combined into the docs-tail PR"
     },
     "81745fe1c89504f56443486a88ec727b7473a4bc": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 209,
+      "b24ui_sha": "d54af8fb",
       "decision": "port",
       "summary": "docs: improve SEO metadata — docs-only, partial. sitemap.xml.get.ts: drop <lastmod>/today const (+comment). raw/[...slug].md.get.ts + raw/index.md.get.ts: drop last_updated front-matter. table.md: +SEO description sentence. The docs/app/pages/docs/[...slug].vue framework-suffix change is N/A (file absent in b24ui). Combined into the docs-tail PR"
     },
     "ed4712c62ca347ab6fc9287648ec3a01c8a88dd0": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 209,
+      "b24ui_sha": "d54af8fb",
       "decision": "no-op",
       "summary": "docs: rename framework for typecheck — NO-OP: renames a local var in docs/app/pages/docs/[...slug].vue, which b24ui doesn't have. Combined into the docs-tail PR"
     },
     "e4989f7cc15bf7c8d9338b24f14aaeb08ef328a6": {
+      "pr": 209,
+      "b24ui_sha": "d54af8fb",
+      "decision": "no-op",
+      "summary": "docs(community): add json-render item — NO-OP: adds an entry to docs/content/community.yml, which b24ui doesn't maintain. Combined into the docs-tail PR"
+    },
+    "2b29845eeb19bda661e0a2fc39893adc95b29ee4": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "no-op",
-      "summary": "docs(community): add json-render item — NO-OP: adds an entry to docs/content/community.yml, which b24ui doesn't maintain. Combined into the docs-tail PR"
+      "summary": "chore: route questions to discussions and adopt issue types — NO-OP: edits nuxt/ui .github (ISSUE_TEMPLATE/*, advanced-issue-labeler.yml, follow-up/issue-labeler/priority/stale workflows) + docs index.md/contribution.md Discord/Discussions wording. None of those .github files exist in b24ui (only ci/deploy/npm-publish workflows, no ISSUE_TEMPLATE), and the docs lines are nuxt/ui-specific (b24ui has its own bitrix24 wording). Combined into the github-tail PR"
+    },
+    "650e3d3f970134580e9db90dfd5faac96df6b8e6": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "no-op",
+      "summary": "chore(github): remove priority workflow — NO-OP: deletes .github/workflows/priority.yml, which b24ui doesn't have. Combined into the github-tail PR"
+    },
+    "8577e955b934538396f147f3b69a98bd6ef82aae": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "no-op",
+      "summary": "chore(github): remove issue-labeler workflow and v4 version labeling — NO-OP: deletes .github/advanced-issue-labeler.yml + .github/workflows/issue-labeler.yml, neither of which b24ui has. Combined into the github-tail PR. (= upstream/v4 HEAD: sync caught up)"
     }
   }
 }
