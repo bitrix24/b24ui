@@ -76,6 +76,14 @@ export interface Bitrix24UIOptions extends Omit<ModuleOptions, 'colorMode' | 'co
    * @see https://bitrix24.github.io/b24ui/docs/getting-started/installation/vue/#scanpackages
    */
   scanPackages?: string[]
+  /**
+   * Root directory where the `.b24ui-nuxt` directory (generated theme templates) is created.
+   * Useful for setups like `electron-vite` where `config.root` points to a sub-directory
+   * (e.g. `src/renderer`) that Tailwind doesn't scan.
+   * @defaultValue `config.root`
+   * @see https://bitrix24.github.io/b24ui/docs/getting-started/installation/vue/#root
+   */
+  root?: string
 }
 
 export const runtimeDir = normalize(fileURLToPath(new URL('./runtime', import.meta.url)))
