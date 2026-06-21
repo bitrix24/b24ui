@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "92b7e13fede96f0c34591579333f4caaf1d2ee55",
+  "cursor": "2166ff7772130269248d526bb11f2d0897bb7fe1",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -641,10 +641,16 @@
       "summary": "fix(module): remove inline script in SPA mode for strict CSP (#6577) — colors.ts: in SPA mode the temporary <style data-bitrix24-ui-colors> was removed via an inline <script> (CSP violation); replace with injectHead().hooks.hookOnce('dom:rendered', removeTemporaryColorsStyle) where the fn does querySelector('[data-bitrix24-ui-colors]')?.remove(). +import injectHead from #imports. vue/stubs/base.ts: export injectHead from @unhead/vue too. Direct 1:1 (same plugin/SPA path, only the data-attribute name differs). No snapshot churn"
     },
     "92b7e13fede96f0c34591579333f4caaf1d2ee55": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 207,
+      "b24ui_sha": "9684f5c9",
       "decision": "port",
       "summary": "docs(tabs): add bottom tab bar example (#6585) — docs-only. New example TabsBottomTabBarExample.vue (B24Tabs, b24ui prop, :content=false, list/trigger/label classes for a mobile bottom tab bar) with b24-icons (i-lucide-house->main/HomePageIcon, activity->main/ActivityIcon, settings->main/SettingsIcon, user->common-b24/UserIcon; added to icon-map.json). +tabs.md 'With bottom tab bar' section (inline :component-example syntax). UTabs->B24Tabs, ui->b24ui. No src change, no snapshot churn"
+    },
+    "2166ff7772130269248d526bb11f2d0897bb7fe1": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "no-op",
+      "summary": "chore(release): v4.9.0 — NO-OP: upstream release bump (package.json version 4.8.2->4.9.0 + nuxt/ui CHANGELOG.md). b24ui has its own versioning/release cycle (currently 2.8.0, release-please style) independent of nuxt/ui 4.x and its own CHANGELOG, so nothing to port. Bookkeeping only"
     }
   }
 }
