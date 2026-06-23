@@ -15,6 +15,10 @@ export interface EditorMentionMenuItem {
    */
   icon?: IconComponent
   avatar?: AvatarProps
+  /**
+   * Default `color` for the item's leading `B24Avatar`. Overridden by `avatar.color` when set.
+   */
+  color?: AvatarProps['color']
   disabled?: boolean
   class?: any
   [key: string]: any
@@ -93,7 +97,7 @@ onMounted(async () => {
       item.icon
         ? h(item.icon, { class: styles.value.itemLeadingIcon() })
         : item.avatar
-          ? h(B24Avatar, { ...item.avatar, size: styles.value.itemLeadingAvatarSize(), class: styles.value.itemLeadingAvatar() })
+          ? h(B24Avatar, { color: item.color, ...item.avatar, size: styles.value.itemLeadingAvatarSize(), class: styles.value.itemLeadingAvatar() })
           : null,
       h('span', { class: styles.value.itemWrapper() }, [
         h('span', { class: styles.value.itemLabel() }, item.label),
