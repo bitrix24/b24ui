@@ -23,6 +23,10 @@ export interface CommandPaletteItem extends Omit<LinkProps, 'type' | 'raw' | 'cu
    */
   icon?: IconComponent
   avatar?: AvatarProps
+  /**
+   * Default `color` for the item's leading `B24Avatar`. Overridden by `avatar.color` when set.
+   */
+  color?: AvatarProps['color']
   chip?: ChipProps
   kbds?: KbdProps['value'][] | KbdProps[]
   active?: boolean
@@ -554,6 +558,7 @@ function onSelect(e: Event, item: T) {
               <B24Avatar
                 v-else-if="item.avatar"
                 :size="((item.b24ui?.itemLeadingAvatarSize || props.b24ui?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])"
+                :color="item.color"
                 v-bind="item.avatar"
                 data-slot="itemLeadingAvatar"
                 :class="b24ui.itemLeadingAvatar({ class: [props.b24ui?.itemLeadingAvatar, item.b24ui?.itemLeadingAvatar], active: active || item.active })"
