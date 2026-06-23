@@ -147,7 +147,14 @@ defineExpose({
         data-slot="icon"
         :class="b24ui.icon({ class: props.b24ui?.icon })"
       />
-      <B24Avatar v-else-if="props.avatar" :size="((props.b24ui?.avatarSize || b24ui.avatarSize()) as AvatarProps['size'])" v-bind="props.avatar" data-slot="avatar" :class="b24ui.avatar({ class: props.b24ui?.avatar })" />
+      <B24Avatar
+        v-else-if="props.avatar"
+        :size="((props.b24ui?.avatarSize || b24ui.avatarSize()) as AvatarProps['size'])"
+        :color="(props.color as AvatarProps['color'])"
+        v-bind="props.avatar"
+        data-slot="avatar"
+        :class="b24ui.avatar({ class: props.b24ui?.avatar })"
+      />
     </slot>
 
     <div data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
