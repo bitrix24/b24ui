@@ -39,6 +39,7 @@ Use the `items` prop as an array of objects with the following properties:
 - `label?: string`{lang="ts-type"}
 - [`icon?: IconComponent`{lang="ts-type"}](#usage)
 - `avatar?: AvatarProps`{lang="ts-type"}
+- `color?: AvatarProps['color']`{lang="ts-type"}
 - `badge?: string | number | BadgeProps`{lang="ts-type"}
 - `content?: string`{lang="ts-type"}
 - `value?: string | number`{lang="ts-type"}
