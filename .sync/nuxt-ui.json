@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "82cfef23cf27a1b41b2ec34e935201c7df52fce7",
+  "cursor": "fab73ab2ecceccd6a2d4e55eabf42efe9f7c9e23",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -695,10 +695,16 @@
       "summary": "chore(github): remove issue-labeler workflow and v4 version labeling — NO-OP: deletes .github/advanced-issue-labeler.yml + .github/workflows/issue-labeler.yml, neither of which b24ui has. Combined into the github-tail PR. (= upstream/v4 HEAD: sync caught up)"
     },
     "82cfef23cf27a1b41b2ec34e935201c7df52fce7": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 211,
+      "b24ui_sha": "618d215c",
       "decision": "port",
       "summary": "chore(deps): update all non-major dependencies (#6625) — bumped b24ui-pinned pkgs to batch target, mirrored across root/docs/playgrounds incl. fork-only demo (nuxt<->demo parity): root @tanstack/vue-virtual 3.13.29, ai 6.0.208, happy-dom 20.10.6, vitest 4.1.9; docs @ai-sdk/mcp 1.0.52, @ai-sdk/vue 3.0.208, @regle/core+rules 1.28.0, @takumi-rs/core 1.8.7, ai 6.0.208, better-sqlite3 12.11.1, joi 18.2.3; playgrounds nuxt+demo @ai-sdk/vue 3.0.208, ai 6.0.208; packageManager pnpm@11.8.0. Skipped (not in b24ui): @ai-sdk/anthropic, @ai-sdk/gateway, @iconify-json/*. Left peerDependencies.joi ^18.0.0 untouched (upstream bumped the docs dependency joi, not the peer). lockfile regen under gate, lockfileVersion 9.0 unchanged"
+    },
+    "fab73ab2ecceccd6a2d4e55eabf42efe9f7c9e23": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "no-op",
+      "summary": "fix(LocaleSelect): add missing keys in emoji mapping (#6629) — NO-OP: upstream adds be/eu/is/lo entries to nuxt/ui's getEmojiFlag languageToCountry map. b24ui's getEmojiFlag map is its own curated set (en/de/la/br/fr/it/pl/ru/ua/tr/sc/tc/ja/vn/id/ms/th/ar/kk/hi), not nuxt/ui's ISO table, so there's nothing equivalent to patch; and the added langs (be/eu/is/lo) aren't in b24ui's locale set (PORTING.md §2 locale invariant — b24ui doesn't adopt new locales). Bookkeeping only"
     }
   }
 }
