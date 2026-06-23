@@ -49,6 +49,19 @@ export default defineLocale<Messages>({
       noMatch: 'Không tìm thấy kết quả',
       placeholder: 'Nhập lệnh hoặc tìm kiếm…'
     },
+    dateTimePicker: {
+      backToDate: 'Quay lại ngày',
+      openPicker: 'Mở bộ chọn',
+      hours: 'Giờ',
+      minutes: 'Phút',
+      presets: {
+        today: 'Hôm nay',
+        tomorrow: 'Ngày mai',
+        endOfWeek: 'Cuối tuần',
+        inAWeek: 'Một tuần sau',
+        endOfMonth: 'Cuối tháng'
+      }
+    },
     contentSearch: {
       links: 'Kết quả',
       search: 'Kết quả',

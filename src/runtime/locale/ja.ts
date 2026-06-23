@@ -49,6 +49,19 @@ export default defineLocale<Messages>({
       noMatch: '一致する結果がありません',
       placeholder: 'コマンドを入力または検索…'
     },
+    dateTimePicker: {
+      backToDate: '日付に戻る',
+      openPicker: 'ピッカーを開く',
+      hours: '時',
+      minutes: '分',
+      presets: {
+        today: '今日',
+        tomorrow: '明日',
+        endOfWeek: '週末',
+        inAWeek: '1週間後',
+        endOfMonth: '月末'
+      }
+    },
     contentSearch: {
       links: '結果',
       search: '検索結果',

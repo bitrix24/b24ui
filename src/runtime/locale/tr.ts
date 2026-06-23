@@ -49,6 +49,19 @@ export default defineLocale<Messages>({
       noMatch: 'Eşleşme bulunamadı',
       placeholder: 'Komut girin veya arayın…'
     },
+    dateTimePicker: {
+      backToDate: 'Tarihe dön',
+      openPicker: 'Seçiciyi aç',
+      hours: 'Saat',
+      minutes: 'Dakika',
+      presets: {
+        today: 'Bugün',
+        tomorrow: 'Yarın',
+        endOfWeek: 'Haftanın sonu',
+        inAWeek: 'Bir hafta sonra',
+        endOfMonth: 'Ay sonu'
+      }
+    },
     contentSearch: {
       links: 'Sonuçlar',
       search: 'Sonuçlar',

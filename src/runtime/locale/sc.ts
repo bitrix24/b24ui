@@ -49,6 +49,19 @@ export default defineLocale<Messages>({
       noMatch: '未找到匹配项',
       placeholder: '输入命令或搜索…'
     },
+    dateTimePicker: {
+      backToDate: '返回日期',
+      openPicker: '打开选择器',
+      hours: '小时',
+      minutes: '分钟',
+      presets: {
+        today: '今天',
+        tomorrow: '明天',
+        endOfWeek: '本周末',
+        inAWeek: '一周后',
+        endOfMonth: '月末'
+      }
+    },
     contentSearch: {
       links: '结果',
       search: '搜索结果',

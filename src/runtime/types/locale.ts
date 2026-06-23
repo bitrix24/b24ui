@@ -42,6 +42,19 @@ export type Messages = {
     noMatch: string
     placeholder: string
   }
+  dateTimePicker: {
+    backToDate: string
+    openPicker: string
+    hours: string
+    minutes: string
+    presets: {
+      today: string
+      tomorrow: string
+      endOfWeek: string
+      inAWeek: string
+      endOfMonth: string
+    }
+  }
   contentSearch: {
     description?: string
     links: string

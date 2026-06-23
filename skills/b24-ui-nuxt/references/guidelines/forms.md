@@ -172,6 +172,22 @@ function onSubmit(event: FormSubmitEvent<Schema>) {
 <B24FormField name="dateRange" label="Date range">
   <B24InputDate v-model="state.dateRange" range />
 </B24FormField>
+
+<!-- Date + time in a popover with presets (Bitrix24-style) -->
+<B24FormField name="meetingAt" label="Meeting at">
+  <B24DateTimePicker v-model="state.meetingAt" />
+</B24FormField>
+
+<!-- Date only mode (time forced to 00:00:00) -->
+<B24FormField name="dueDate" label="Due date">
+  <B24DateTimePicker v-model="state.dueDate" date-only />
+</B24FormField>
+
+<!-- Custom presets — import the type and pass a list of { label, hint?, value } -->
+<!-- import type { DateTimePickerPreset } from '@bitrix24/b24ui-nuxt' -->
+<B24FormField name="callAt" label="Call at">
+  <B24DateTimePicker v-model="state.callAt" :presets="customPresets" />
+</B24FormField>
 ```
 
 ## Programmatic validation
