@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "8577e955b934538396f147f3b69a98bd6ef82aae",
+  "cursor": "82cfef23cf27a1b41b2ec34e935201c7df52fce7",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -677,22 +677,28 @@
       "summary": "docs(community): add json-render item — NO-OP: adds an entry to docs/content/community.yml, which b24ui doesn't maintain. Combined into the docs-tail PR"
     },
     "2b29845eeb19bda661e0a2fc39893adc95b29ee4": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 210,
+      "b24ui_sha": "69444c60",
       "decision": "no-op",
       "summary": "chore: route questions to discussions and adopt issue types — NO-OP: edits nuxt/ui .github (ISSUE_TEMPLATE/*, advanced-issue-labeler.yml, follow-up/issue-labeler/priority/stale workflows) + docs index.md/contribution.md Discord/Discussions wording. None of those .github files exist in b24ui (only ci/deploy/npm-publish workflows, no ISSUE_TEMPLATE), and the docs lines are nuxt/ui-specific (b24ui has its own bitrix24 wording). Combined into the github-tail PR"
     },
     "650e3d3f970134580e9db90dfd5faac96df6b8e6": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 210,
+      "b24ui_sha": "69444c60",
       "decision": "no-op",
       "summary": "chore(github): remove priority workflow — NO-OP: deletes .github/workflows/priority.yml, which b24ui doesn't have. Combined into the github-tail PR"
     },
     "8577e955b934538396f147f3b69a98bd6ef82aae": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 210,
+      "b24ui_sha": "69444c60",
       "decision": "no-op",
       "summary": "chore(github): remove issue-labeler workflow and v4 version labeling — NO-OP: deletes .github/advanced-issue-labeler.yml + .github/workflows/issue-labeler.yml, neither of which b24ui has. Combined into the github-tail PR. (= upstream/v4 HEAD: sync caught up)"
+    },
+    "82cfef23cf27a1b41b2ec34e935201c7df52fce7": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "chore(deps): update all non-major dependencies (#6625) — bumped b24ui-pinned pkgs to batch target, mirrored across root/docs/playgrounds incl. fork-only demo (nuxt<->demo parity): root @tanstack/vue-virtual 3.13.29, ai 6.0.208, happy-dom 20.10.6, vitest 4.1.9; docs @ai-sdk/mcp 1.0.52, @ai-sdk/vue 3.0.208, @regle/core+rules 1.28.0, @takumi-rs/core 1.8.7, ai 6.0.208, better-sqlite3 12.11.1, joi 18.2.3; playgrounds nuxt+demo @ai-sdk/vue 3.0.208, ai 6.0.208; packageManager pnpm@11.8.0. Skipped (not in b24ui): @ai-sdk/anthropic, @ai-sdk/gateway, @iconify-json/*. Left peerDependencies.joi ^18.0.0 untouched (upstream bumped the docs dependency joi, not the peer). lockfile regen under gate, lockfileVersion 9.0 unchanged"
     }
   }
 }
