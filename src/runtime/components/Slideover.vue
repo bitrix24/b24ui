@@ -122,7 +122,7 @@ const props = useComponentProps('slideover', _props)
 const { t } = useLocale()
 const appConfig = useAppConfig() as Slideover['AppConfig']
 
-const rootProps = useForwardProps(reactivePick(props, 'open', 'defaultOpen', 'modal'), useBlurOnOpen(() => props.open, emits))
+const rootProps = useForwardProps(reactivePick(props, 'open', 'defaultOpen', 'modal', 'unmountOnHide'), useBlurOnOpen(() => props.open, emits))
 const portalProps = usePortal(toRef(() => props.portal))
 const contentProps = toRef(() => props.content)
 const contentEvents = computed(() => {
@@ -162,7 +162,7 @@ const isBtnCloseExternal = computed(() => (!props.inset && ['left', 'right', 'bo
       <slot :open="open" />
     </DialogTrigger>
 
-    <DialogPortal v-bind="portalProps">
+    <DialogPortal v-bind="portalProps" :force-mount="(portalProps.disabled && props.unmountOnHide === false) || undefined">
       <FieldGroupReset>
         <DialogOverlay v-if="props.overlay" data-slot="overlay" :class="b24ui.overlay({ class: props.b24ui?.overlay })" />
 

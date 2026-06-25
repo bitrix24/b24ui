@@ -4,8 +4,9 @@ exports[`Checkbox > renders with ariaLabel correctly 1`] = `
 "<div data-slot="root" class="relative flex items-start style-filled flex-row">
   <div data-slot="container" class="flex items-center h-4"><button aria-label="Aria label" data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
       <!---->
-      <!--v-if-->
-    </button></div>
+    </button>
+    <!--v-if-->
+  </div>
   <!--v-if-->
 </div>"
 `;
@@ -14,8 +15,9 @@ exports[`Checkbox > renders with as correctly 1`] = `
 "<section data-slot="root" class="relative flex items-start style-filled flex-row">
   <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
       <!---->
-      <!--v-if-->
-    </button></div>
+    </button>
+    <!--v-if-->
+  </div>
   <!--v-if-->
 </section>"
 `;
@@ -24,8 +26,9 @@ exports[`Checkbox > renders with b24ui correctly 1`] = `
 "<div data-slot="root" class="relative flex items-start style-filled flex-row">
   <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
       <!---->
-      <!--v-if-->
-    </button></div>
+    </button>
+    <!--v-if-->
+  </div>
   <!--v-if-->
 </div>"
 `;
@@ -34,26 +37,27 @@ exports[`Checkbox > renders with class correctly 1`] = `
 "<div data-slot="root" class="relative items-start style-filled flex-row inline-flex">
   <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
       <!---->
-      <!--v-if-->
-    </button></div>
+    </button>
+    <!--v-if-->
+  </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Checkbox > renders with color air-primary-success correctly 1`] = `
 "<div data-slot="root" class="relative flex items-start style-filled-success flex-row">
-  <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span>
-      <!--v-if-->
-    </button></div>
+  <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span></button>
+    <!--v-if-->
+  </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Checkbox > renders with defaultValue correctly 1`] = `
 "<div data-slot="root" class="relative flex items-start style-filled flex-row">
-  <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span>
-      <!--v-if-->
-    </button></div>
+  <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span></button>
+    <!--v-if-->
+  </div>
   <!--v-if-->
 </div>"
 `;
@@ -62,8 +66,9 @@ exports[`Checkbox > renders with description correctly 1`] = `
 "<div data-slot="root" class="relative flex items-start style-filled flex-row">
   <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
       <!---->
-      <!--v-if-->
-    </button></div>
+    </button>
+    <!--v-if-->
+  </div>
   <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Label</span>
     <p data-slot="description" class="mt-[4px] text-description">Description</p>
   </div>
@@ -74,8 +79,9 @@ exports[`Checkbox > renders with description slot correctly 1`] = `
 "<div data-slot="root" class="relative flex items-start style-filled flex-row">
   <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
       <!---->
-      <!--v-if-->
-    </button></div>
+    </button>
+    <!--v-if-->
+  </div>
   <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Description slot</span>
     <!--v-if-->
   </div>
@@ -86,26 +92,27 @@ exports[`Checkbox > renders with disabled correctly 1`] = `
 "<div data-slot="root" class="relative flex items-start style-filled flex-row opacity-30">
   <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4 cursor-not-allowed" id="v-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" data-disabled="" disabled="">
       <!---->
-      <!--v-if-->
-    </button></div>
+    </button>
+    <!--v-if-->
+  </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Checkbox > renders with highlight air-primary-success correctly 1`] = `
 "<div data-slot="root" class="relative flex items-start style-filled-success flex-row">
-  <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4 ring ring-inset ring-(--b24ui-border-color)" id="v-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span>
-      <!--v-if-->
-    </button></div>
+  <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4 ring ring-inset ring-(--b24ui-border-color)" id="v-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span></button>
+    <!--v-if-->
+  </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Checkbox > renders with highlight correctly 1`] = `
 "<div data-slot="root" class="relative flex items-start style-filled flex-row">
-  <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4 ring ring-inset ring-(--b24ui-border-color)" id="v-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span>
-      <!--v-if-->
-    </button></div>
+  <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4 ring ring-inset ring-(--b24ui-border-color)" id="v-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span></button>
+    <!--v-if-->
+  </div>
   <!--v-if-->
 </div>"
 `;
@@ -114,17 +121,18 @@ exports[`Checkbox > renders with id correctly 1`] = `
 "<div data-slot="root" class="relative flex items-start style-filled flex-row">
   <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="id" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
       <!---->
-      <!--v-if-->
-    </button></div>
+    </button>
+    <!--v-if-->
+  </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Checkbox > renders with indeterminate correctly 1`] = `
 "<div data-slot="root" class="relative flex items-start style-filled flex-row">
-  <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0" role="checkbox" type="button" aria-checked="mixed" aria-required="false" data-state="indeterminate"><span data-state="indeterminate" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M7 11v2h10v-2H7" clip-rule="evenodd"></path></svg></span>
-      <!--v-if-->
-    </button></div>
+  <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0" role="checkbox" type="button" aria-checked="mixed" aria-required="false" data-state="indeterminate"><span data-state="indeterminate" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M7 11v2h10v-2H7" clip-rule="evenodd"></path></svg></span></button>
+    <!--v-if-->
+  </div>
   <!--v-if-->
 </div>"
 `;
@@ -133,8 +141,9 @@ exports[`Checkbox > renders with label correctly 1`] = `
 "<div data-slot="root" class="relative flex items-start style-filled flex-row">
   <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
       <!---->
-      <!--v-if-->
-    </button></div>
+    </button>
+    <!--v-if-->
+  </div>
   <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Label</span>
     <!--v-if-->
   </div>
@@ -145,8 +154,9 @@ exports[`Checkbox > renders with label slot correctly 1`] = `
 "<div data-slot="root" class="relative flex items-start style-filled flex-row">
   <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
       <!---->
-      <!--v-if-->
-    </button></div>
+    </button>
+    <!--v-if-->
+  </div>
   <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Label slot</span>
     <!--v-if-->
   </div>
@@ -155,9 +165,9 @@ exports[`Checkbox > renders with label slot correctly 1`] = `
 
 exports[`Checkbox > renders with modelValue correctly 1`] = `
 "<div data-slot="root" class="relative flex items-start style-filled flex-row">
-  <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span>
-      <!--v-if-->
-    </button></div>
+  <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span></button>
+    <!--v-if-->
+  </div>
   <!--v-if-->
 </div>"
 `;
@@ -166,8 +176,9 @@ exports[`Checkbox > renders with name correctly 1`] = `
 "<div data-slot="root" class="relative flex items-start style-filled flex-row">
   <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
       <!---->
-      <!--v-if-->
-    </button></div>
+    </button>
+    <!--v-if-->
+  </div>
   <!--v-if-->
 </div>"
 `;
@@ -176,8 +187,9 @@ exports[`Checkbox > renders with required correctly 1`] = `
 "<div data-slot="root" class="relative flex items-start style-filled flex-row">
   <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0" role="checkbox" type="button" aria-checked="false" aria-required="true" data-state="unchecked">
       <!---->
-      <!--v-if-->
-    </button></div>
+    </button>
+    <!--v-if-->
+  </div>
   <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label after:content-['*'] after:ms-0.5 after:text-(--ui-color-accent-main-alert)">Label</span>
     <!--v-if-->
   </div>
@@ -186,54 +198,54 @@ exports[`Checkbox > renders with required correctly 1`] = `
 
 exports[`Checkbox > renders with size lg correctly 1`] = `
 "<div data-slot="root" class="relative flex items-start style-filled flex-row">
-  <div data-slot="container" class="flex items-center h-5"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-5" id="v-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span>
-      <!--v-if-->
-    </button></div>
+  <div data-slot="container" class="flex items-center h-5"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-5" id="v-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span></button>
+    <!--v-if-->
+  </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Checkbox > renders with size md correctly 1`] = `
 "<div data-slot="root" class="relative flex items-start style-filled flex-row">
-  <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span>
-      <!--v-if-->
-    </button></div>
+  <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span></button>
+    <!--v-if-->
+  </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Checkbox > renders with size sm correctly 1`] = `
 "<div data-slot="root" class="relative flex items-start style-filled flex-row">
-  <div data-slot="container" class="flex items-center h-3.5"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-3.5" id="v-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span>
-      <!--v-if-->
-    </button></div>
+  <div data-slot="container" class="flex items-center h-3.5"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-3.5" id="v-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span></button>
+    <!--v-if-->
+  </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Checkbox > renders with size xs correctly 1`] = `
 "<div data-slot="root" class="relative flex items-start style-filled flex-row">
-  <div data-slot="container" class="flex items-center h-3"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-3" id="v-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span>
-      <!--v-if-->
-    </button></div>
+  <div data-slot="container" class="flex items-center h-3"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-3" id="v-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span></button>
+    <!--v-if-->
+  </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Checkbox > renders with trueValue/falseValue as number correctly 1`] = `
 "<div data-slot="root" class="relative flex items-start style-filled flex-row">
-  <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span>
-      <!--v-if-->
-    </button></div>
+  <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span></button>
+    <!--v-if-->
+  </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Checkbox > renders with trueValue/falseValue as string correctly 1`] = `
 "<div data-slot="root" class="relative flex items-start style-filled flex-row">
-  <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span>
-      <!--v-if-->
-    </button></div>
+  <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span></button>
+    <!--v-if-->
+  </div>
   <!--v-if-->
 </div>"
 `;
@@ -242,8 +254,9 @@ exports[`Checkbox > renders with trueValue/falseValue unchecked correctly 1`] = 
 "<div data-slot="root" class="relative flex items-start style-filled flex-row">
   <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
       <!---->
-      <!--v-if-->
-    </button></div>
+    </button>
+    <!--v-if-->
+  </div>
   <!--v-if-->
 </div>"
 `;
@@ -252,8 +265,9 @@ exports[`Checkbox > renders with value correctly 1`] = `
 "<div data-slot="root" class="relative flex items-start style-filled flex-row">
   <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
       <!---->
-      <!--v-if-->
-    </button></div>
+    </button>
+    <!--v-if-->
+  </div>
   <!--v-if-->
 </div>"
 `;
