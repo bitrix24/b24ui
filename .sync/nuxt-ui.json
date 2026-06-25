@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "8498238b41e1513705ae5b674c6bea35ed910662",
+  "cursor": "54125f3f6ee98816b757e9c30c6bf3eaae458dc8",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -713,10 +713,22 @@
       "summary": "chore(deps): update reka-ui (#6626) — reka-ui 2.9.10->2.10.0 (exact pin) + wire new reka props: Modal/Slideover forward unmountOnHide and DialogPortal :force-mount=(portalProps.disabled && unmountOnHide===false)||undefined; Popover forward enableTouch (hover); Select forward nullableValue; App omit teleportTo from ConfigProviderProps; useForwardProps cast emits for reka 2.10.0's tightened useEmitAsProps. +Modal/Slideover SSR specs, +docs Unmount (modal/slideover) & enableTouch tip (popover, adapted to b24ui MDC, dropped Soon badge). 746 snapshots regenerated (reka 2.10.0 adds dir=ltr + serialization churn; benign). lockfile regen under gate, lockfileVersion 9.0. Direct 1:1. PR #6626 siblings 54125f3f/4deb61b9 are empty marker commits (feature lives here)"
     },
     "8498238b41e1513705ae5b674c6bea35ed910662": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 215,
+      "b24ui_sha": "3ac6b99b",
       "decision": "port",
       "summary": "docs(Chat): refocus prompt when sidebar reopens — docs/app/components/chat/Chat.vue: add promptRef + watch(open) that refocuses promptRef.value?.textareaRef?.focus() on nextTick when the offcanvas sidebar reopens (autofocus only fires once); +ref=promptRef on B24ChatPrompt. Direct 1:1 (UChatPrompt->B24ChatPrompt; open from useChat(); B24ChatPrompt exposes textareaRef). Docs-only, no snapshot churn"
+    },
+    "4deb61b91cc22ec1bbda80faa35f13a267c8ad1d": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "no-op",
+      "summary": "feat(Modal/Slideover): support unmountOnHide prop (#6626) — NO-OP: empty marker commit (no diff in .patch). The actual unmountOnHide feature landed in 1ea8a98f (b24ui PR #214). Combined into the PR #6626 marker bookkeeping PR"
+    },
+    "54125f3f6ee98816b757e9c30c6bf3eaae458dc8": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "no-op",
+      "summary": "feat(Popover): support enableTouch prop (#6626) — NO-OP: empty marker commit (no diff in .patch). The actual enableTouch feature landed in 1ea8a98f (b24ui PR #214). Combined into the PR #6626 marker bookkeeping PR"
     }
   }
 }
