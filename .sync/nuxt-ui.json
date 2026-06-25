@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "fab73ab2ecceccd6a2d4e55eabf42efe9f7c9e23",
+  "cursor": "1ea8a98f21f062a818b1da033a88a35343d24b8b",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -701,10 +701,16 @@
       "summary": "chore(deps): update all non-major dependencies (#6625) — bumped b24ui-pinned pkgs to batch target, mirrored across root/docs/playgrounds incl. fork-only demo (nuxt<->demo parity): root @tanstack/vue-virtual 3.13.29, ai 6.0.208, happy-dom 20.10.6, vitest 4.1.9; docs @ai-sdk/mcp 1.0.52, @ai-sdk/vue 3.0.208, @regle/core+rules 1.28.0, @takumi-rs/core 1.8.7, ai 6.0.208, better-sqlite3 12.11.1, joi 18.2.3; playgrounds nuxt+demo @ai-sdk/vue 3.0.208, ai 6.0.208; packageManager pnpm@11.8.0. Skipped (not in b24ui): @ai-sdk/anthropic, @ai-sdk/gateway, @iconify-json/*. Left peerDependencies.joi ^18.0.0 untouched (upstream bumped the docs dependency joi, not the peer). lockfile regen under gate, lockfileVersion 9.0 unchanged"
     },
     "fab73ab2ecceccd6a2d4e55eabf42efe9f7c9e23": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 212,
+      "b24ui_sha": "a53d6cd5",
       "decision": "no-op",
       "summary": "fix(LocaleSelect): add missing keys in emoji mapping (#6629) — NO-OP: upstream adds be/eu/is/lo entries to nuxt/ui's getEmojiFlag languageToCountry map. b24ui's getEmojiFlag map is its own curated set (en/de/la/br/fr/it/pl/ru/ua/tr/sc/tc/ja/vn/id/ms/th/ar/kk/hi), not nuxt/ui's ISO table, so there's nothing equivalent to patch; and the added langs (be/eu/is/lo) aren't in b24ui's locale set (PORTING.md §2 locale invariant — b24ui doesn't adopt new locales). Bookkeeping only"
+    },
+    "1ea8a98f21f062a818b1da033a88a35343d24b8b": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "chore(deps): update reka-ui (#6626) — reka-ui 2.9.10->2.10.0 (exact pin) + wire new reka props: Modal/Slideover forward unmountOnHide and DialogPortal :force-mount=(portalProps.disabled && unmountOnHide===false)||undefined; Popover forward enableTouch (hover); Select forward nullableValue; App omit teleportTo from ConfigProviderProps; useForwardProps cast emits for reka 2.10.0's tightened useEmitAsProps. +Modal/Slideover SSR specs, +docs Unmount (modal/slideover) & enableTouch tip (popover, adapted to b24ui MDC, dropped Soon badge). 746 snapshots regenerated (reka 2.10.0 adds dir=ltr + serialization churn; benign). lockfile regen under gate, lockfileVersion 9.0. Direct 1:1. PR #6626 siblings 54125f3f/4deb61b9 are empty marker commits (feature lives here)"
     }
   }
 }
