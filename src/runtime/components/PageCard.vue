@@ -119,7 +119,7 @@ const ariaLabel = computed(() => {
     :data-orientation="props.orientation"
     data-slot="root"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
-    v-bind="$attrs"
+    v-bind="!props.to ? $attrs : {}"
     @click="props.onClick"
   >
     <div data-slot="container" :class="b24ui.container({ class: props.b24ui?.container })">

@@ -88,7 +88,14 @@ const chipSize = computed<ChipProps['size']>(() => {
 </script>
 
 <template>
-  <Primitive :as="props.as" :data-orientation="props.orientation" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })" @click="props.onClick">
+  <Primitive
+    :as="props.as"
+    v-bind="!props.to ? $attrs : {}"
+    :data-orientation="props.orientation"
+    data-slot="root"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
+    @click="props.onClick"
+  >
     <slot name="avatar" :b24ui="b24ui">
       <B24Chip v-if="props.chip && props.avatar && !['3xs'].includes(props.size || '')" inset v-bind="typeof props.chip === 'object' ? props.chip : {}" :size="chipSize">
         <B24Avatar :alt="props.name" v-bind="props.avatar" :size="props.size" data-slot="avatar" :class="b24ui.avatar({ class: props.b24ui?.avatar })" />

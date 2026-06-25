@@ -57,7 +57,7 @@ const iconFromIconName = computed(() => resolveIcon(props.iconName))
 </script>
 
 <template>
-  <div data-slot="base" :class="b24ui.base({ class: props.class })">
+  <div v-bind="!props.to ? $attrs : {}" data-slot="base" :class="b24ui.base({ class: props.class })">
     <B24Link
       v-if="props.to"
       v-bind="{ to: props.to, target, ...$attrs }"

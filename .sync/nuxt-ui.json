@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "f03f98bafa972f593927bf01669369da8a30e212",
+  "cursor": "d3b5f1d3f966e92f9194e1e114f5c84ea1e8cbaa",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -731,10 +731,16 @@
       "summary": "feat(Popover): support enableTouch prop (#6626) — NO-OP: empty marker commit (no diff in .patch). The actual enableTouch feature landed in 1ea8a98f (b24ui PR #214). Combined into the PR #6626 marker bookkeeping PR"
     },
     "f03f98bafa972f593927bf01669369da8a30e212": {
+      "pr": 217,
+      "b24ui_sha": "eb90f185",
+      "decision": "port",
+      "summary": "feat(ContentSearch/DashboardSearch): support unmountOnHide prop (#6523) — DashboardSearch.vue + content/ContentSearch.vue: add unmountOnHide to Pick<ModalProps> and to the modalProps reactivePick; docs Search.vue +:unmount-on-hide=false. Direct 1:1 (b24ui matched pre-change). Builds on 1ea8a98f (#214) Modal unmountOnHide. No snapshot churn"
+    },
+    "d3b5f1d3f966e92f9194e1e114f5c84ea1e8cbaa": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "feat(ContentSearch/DashboardSearch): support unmountOnHide prop (#6523) — DashboardSearch.vue + content/ContentSearch.vue: add unmountOnHide to Pick<ModalProps> and to the modalProps reactivePick; docs Search.vue +:unmount-on-hide=false. Direct 1:1 (b24ui matched pre-change). Builds on 1ea8a98f (#214) Modal unmountOnHide. No snapshot churn"
+      "summary": "fix(components): forward $attrs to root element when to prop is absent (#6628) — add v-bind=!props.to?$attrs:{} on root of Banner/PageFeature/User/prose Callout/prose Card; PageCard already bound v-bind=$attrs unconditionally (fork divergence, double-applied with to) -> made conditional. +attr-forwarding specs (Banner/PageCard/PageFeature/User) + new prose/Callout.spec + prose/Card.spec. BlogPost/ChangelogVersion N/A (absent in b24ui). PageFeature/User Primitive reflowed multiline for max-attributes-per-line. No snapshot churn"
     }
   }
 }
