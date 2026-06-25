@@ -76,7 +76,14 @@ const ariaLabel = computed(() => {
 </script>
 
 <template>
-  <Primitive :as="props.as" :data-orientation="props.orientation" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })" @click="props.onClick">
+  <Primitive
+    :as="props.as"
+    v-bind="!props.to ? $attrs : {}"
+    :data-orientation="props.orientation"
+    data-slot="root"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
+    @click="props.onClick"
+  >
     <div v-if="props.icon || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
       <slot name="leading" :b24ui="b24ui">
         <Component

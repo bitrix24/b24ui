@@ -80,7 +80,7 @@ const iconFromIconName = computed(() => {
 </script>
 
 <template>
-  <div data-slot="base" :class="b24ui.base({ class: [props.b24ui?.base, props.class] })">
+  <div v-bind="!props.to ? $attrs : {}" data-slot="base" :class="b24ui.base({ class: [props.b24ui?.base, props.class] })">
     <B24Link
       v-if="props.to"
       :aria-label="ariaLabel"
