@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "f2fa61fd55de7c78006865a8f785b2dcf346d371",
+  "cursor": "cba2c2c40c23d7a3624f7948357a70c3d35846fe",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -743,10 +743,16 @@
       "summary": "fix(components): forward $attrs to root element when to prop is absent (#6628) — add v-bind=!props.to?$attrs:{} on root of Banner/PageFeature/User/prose Callout/prose Card; PageCard already bound v-bind=$attrs unconditionally (fork divergence, double-applied with to) -> made conditional. +attr-forwarding specs (Banner/PageCard/PageFeature/User) + new prose/Callout.spec + prose/Card.spec. BlogPost/ChangelogVersion N/A (absent in b24ui). PageFeature/User Primitive reflowed multiline for max-attributes-per-line. No snapshot churn"
     },
     "f2fa61fd55de7c78006865a8f785b2dcf346d371": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 219,
+      "b24ui_sha": "ba35034b",
       "decision": "no-op",
       "summary": "docs(nuxt.config): scan .ts and .navigation.yml for client icon bundle — NO-OP: upstream widens @nuxt/icon clientBundle.scan glob in docs/nuxt.config.ts (scan:true -> globInclude incl. ts + dot .navigation.yml). b24ui docs has no @nuxt/icon clientBundle/scan config (renders via @bitrix24/b24icons-vue components, not iconify client-bundle scan), so nothing to widen. Bookkeeping only"
+    },
+    "cba2c2c40c23d7a3624f7948357a70c3d35846fe": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "skip",
+      "summary": "feat(InputRating): new component (#5757) — SKIPPED (maintainer call): brand-new InputRating component, 17 files/+1979 lines (InputRating.vue, theme/input-rating.ts, registration in theme/index.ts + icons.ts + types/index.ts + useComponentProps.ts, tests+snapshot, docs/playground/screenshots). Not a 1:1 port: like Calendar (#194) the theme is built on nuxt/ui theme.colors loops + semantic tokens, while b24ui is air-design-token based with no theme.colors — needs a deliberate air-design pass + full component registration, not mechanical translation. Tracked in issue #220"
     }
   }
 }
