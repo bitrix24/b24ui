@@ -28,7 +28,7 @@ npm install @bitrix24/b24ui-nuxt @bitrix24/b24icons-vue tailwindcss
 ```
 
 ```bash [bun]
-yarn add @bitrix24/b24ui-nuxt @bitrix24/b24icons-vue tailwindcss
+bun add @bitrix24/b24ui-nuxt @bitrix24/b24icons-vue tailwindcss
 ```
 
 ### Nuxt
