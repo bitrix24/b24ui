@@ -184,7 +184,9 @@ const to = computed(() => {
     return path
   }
 
-  return localePath(path, typeof props.locale === 'string' ? props.locale : undefined)
+  const localizedPath = localePath(path, typeof props.locale === 'string' ? props.locale : undefined)
+
+  return localizedPath || path
 })
 
 const isInternalLink = computed(() => {
