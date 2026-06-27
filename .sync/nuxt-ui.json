@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "cba2c2c40c23d7a3624f7948357a70c3d35846fe",
+  "cursor": "0faeb9265e720b43021b020c3bd9d7878b9464da",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -749,10 +749,16 @@
       "summary": "docs(nuxt.config): scan .ts and .navigation.yml for client icon bundle — NO-OP: upstream widens @nuxt/icon clientBundle.scan glob in docs/nuxt.config.ts (scan:true -> globInclude incl. ts + dot .navigation.yml). b24ui docs has no @nuxt/icon clientBundle/scan config (renders via @bitrix24/b24icons-vue components, not iconify client-bundle scan), so nothing to widen. Bookkeeping only"
     },
     "cba2c2c40c23d7a3624f7948357a70c3d35846fe": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 221,
+      "b24ui_sha": "d2c92ecf",
       "decision": "skip",
       "summary": "feat(InputRating): new component (#5757) — SKIPPED (maintainer call): brand-new InputRating component, 17 files/+1979 lines (InputRating.vue, theme/input-rating.ts, registration in theme/index.ts + icons.ts + types/index.ts + useComponentProps.ts, tests+snapshot, docs/playground/screenshots). Not a 1:1 port: like Calendar (#194) the theme is built on nuxt/ui theme.colors loops + semantic tokens, while b24ui is air-design-token based with no theme.colors — needs a deliberate air-design pass + full component registration, not mechanical translation. Tracked in issue #220"
+    },
+    "0faeb9265e720b43021b020c3bd9d7878b9464da": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "no-op",
+      "summary": "fix(AuthForm): track password visibility per field (#6638) — NO-OP: upstream edits src/runtime/components/AuthForm.vue (+spec), which b24ui does not have (no AuthForm component anywhere, git ls-files grep authform => none). Nothing to port. Bookkeeping only"
     }
   }
 }
