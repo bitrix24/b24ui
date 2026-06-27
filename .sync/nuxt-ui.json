@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "906e8fd49f2dbf664133c79f2ebe5569e63d627e",
+  "cursor": "09fb52b73397733a61c1f53dbd035c2ba040145e",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -761,10 +761,16 @@
       "summary": "fix(AuthForm): track password visibility per field (#6638) — NO-OP: upstream edits src/runtime/components/AuthForm.vue (+spec), which b24ui does not have (no AuthForm component anywhere, git ls-files grep authform => none). Nothing to port. Bookkeeping only"
     },
     "906e8fd49f2dbf664133c79f2ebe5569e63d627e": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 223,
+      "b24ui_sha": "e9fd944f",
       "decision": "port",
       "summary": "fix(Link): fall back to original path when localePath fails (#6637) — Link.vue: return localePath(path,...) -> const localizedPath=localePath(...); return localizedPath || path (empty localePath no longer yields empty to). Direct 1:1 (b24ui matched pre-change). +new test/components/nuxt/LinkLocale.spec.ts (new dir) mocking $localePath=()=>'' for Link+Button. No snapshot churn"
+    },
+    "09fb52b73397733a61c1f53dbd035c2ba040145e": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "no-op",
+      "summary": "fix(ContentNavigation): key items by identity to prevent leading icon flash (#6640) — NO-OP: upstream keys the navigation v-for by `${index}-${link.path}` in src/runtime/components/content/ContentNavigation.vue (+spec). b24ui has no ContentNavigation component (git ls-files grep contentnavigation => none). Nothing to port. Bookkeeping only"
     }
   }
 }
