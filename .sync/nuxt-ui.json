@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "09fb52b73397733a61c1f53dbd035c2ba040145e",
+  "cursor": "88baabcf42b115b7da1a65e5f71092a37b5c9bf3",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -767,10 +767,16 @@
       "summary": "fix(Link): fall back to original path when localePath fails (#6637) — Link.vue: return localePath(path,...) -> const localizedPath=localePath(...); return localizedPath || path (empty localePath no longer yields empty to). Direct 1:1 (b24ui matched pre-change). +new test/components/nuxt/LinkLocale.spec.ts (new dir) mocking $localePath=()=>'' for Link+Button. No snapshot churn"
     },
     "09fb52b73397733a61c1f53dbd035c2ba040145e": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 224,
+      "b24ui_sha": "24d80226",
       "decision": "no-op",
       "summary": "fix(ContentNavigation): key items by identity to prevent leading icon flash (#6640) — NO-OP: upstream keys the navigation v-for by `${index}-${link.path}` in src/runtime/components/content/ContentNavigation.vue (+spec). b24ui has no ContentNavigation component (git ls-files grep contentnavigation => none). Nothing to port. Bookkeeping only"
+    },
+    "88baabcf42b115b7da1a65e5f71092a37b5c9bf3": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "fix(Separator): forward fall-through attributes to root (#6641) — Separator.vue: add defineOptions({ inheritAttrs: false }) + change root <Separator> binding v-bind=rootProps -> v-bind={...rootProps, ...$attrs} so fall-through attrs land on the actual root. Direct 1:1 (b24ui matched pre-change; useForwardProps rootProps + reka <Separator> root unchanged; no ui/icon/color renames). +attr-forwarding spec mirroring #218 (d3b5f1d3) (targets [data-slot=root] since Separator is multi-root). 2 snapshots updated (Separator + -vue): the existing 'with color success' renderEach case passes `color` which is NOT a SeparatorProps member = a fall-through attr; pre-fix multi-root dropped it, post-fix $attrs forwards it to root -> snapshot now carries color=air-primary-success (the fix demonstrating itself)"
     }
   }
 }

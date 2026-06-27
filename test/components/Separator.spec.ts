@@ -37,4 +37,13 @@ describe('Separator', () => {
 
     expect(await axe(wrapper.element)).toHaveNoViolations()
   })
+
+  it('forwards fall-through attributes to the root', async () => {
+    const wrapper = await mountSuspended(Separator, {
+      attrs: { 'aria-label': 'test-label', 'data-testid': 'test-id' }
+    })
+    const root = wrapper.find('[data-slot="root"]')
+    expect(root.attributes('aria-label')).toBe('test-label')
+    expect(root.attributes('data-testid')).toBe('test-id')
+  })
 })

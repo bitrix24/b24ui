@@ -66,6 +66,8 @@ import { useForwardProps } from '../composables/useForwardProps'
 import { tv } from '../utils/tv'
 import B24Avatar from './Avatar.vue'
 
+defineOptions({ inheritAttrs: false })
+
 const _props = withDefaults(defineProps<SeparatorProps>(), {
   accent: 'default',
   orientation: 'horizontal',
@@ -106,7 +108,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.separa
     </div>
   </DefineContainer>
 
-  <Separator v-bind="rootProps" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+  <Separator v-bind="{ ...rootProps, ...$attrs }" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <ReuseContainer v-if="hasContent && props.position === 'start'" />
 
     <div data-slot="border" :class="b24ui.border({ class: props.b24ui?.border })" />
