@@ -1,5 +1,86 @@
 # Changelog
 
+## [2.9.0](https://github.com/bitrix24/b24ui/compare/v2.8.0...v2.9.0) (2026-06-27)
+
+### Features
+
+* **useTour:** new composable for guided tours
+* **module:** add `theme.unstyled` option
+* **theme:** allow replacing slot classes with a function
+* **vite:** add `root` option to override `.b24ui-nuxt` directory location
+* **components:** allow hiding icon with `false`
+* **ChatMessage:** add `body` slot and improve actions alignment
+* **ChatMessages:** expose `registerMessageRef`
+* **ContentSearch:** add async search support via `search` / `searchStatus`
+* **ContentSearch/DashboardSearch:** support `unmountOnHide` prop
+* **ContentSearch/DashboardSearch:** forward input config to command palette
+* **FileUpload:** expose `removeFile` in slots
+* **Modal/Slideover:** add `leave` and `enter` events
+* **PinInput:** add `separator` prop
+* **ScrollArea:** add `shadow` prop
+* **Select/SelectMenu:** use `multiple` in theme
+* **Sidebar:** add `transition` prop
+
+### Bug Fixes
+
+* **Link:** fall back to original path when `localePath` fails
+* **Link:** set default for `locale` prop
+* **Separator:** forward fall-through attributes to root
+* **components:** forward `$attrs` to root element when `to` prop is absent
+* **components:** apply `theme.prefix` to hardcoded utility classes
+* **module:** remove inline script in SPA mode for strict CSP
+* **module:** merge custom variants into AppConfig type
+* **module:** expose component theme keys in AppConfig type
+* **module:** revert `tagPriority` to `-2` for inline style tag
+* **module:** ship stripped `#build/b24ui.css` fallback for tooling
+* **templates:** resolve vite root to an absolute path for `#build` aliases
+* **ProseCodeCollapse:** cap root max-height instead of toggling pre height
+* **ProseKbd:** type default slot as `VNode[]`
+* **ProseKbd:** add default slot and make `value` optional
+* **CommandPalette:** only scroll to highlighted item when focused
+* **Select:** open menu on label click
+* **SelectMenu:** bind `id` and aria attributes on trigger
+* **InputMenu/SelectMenu:** re-highlight first item when items change
+* **InputMenu/Select/SelectMenu:** respect `trailing: false` over default `trailingIcon`
+* **InputNumber/InputDate/InputTime/Calendar:** restore `locale` prop
+* **Tabs:** render active indicator during SSR
+* **Modal/Slideover/Drawer:** suppress reka-ui `aria-hidden` focus warning
+* **Form:** support setting the `name` attribute
+* **Form:** add `method="post"` to prevent credential leaking via GET
+* **ChatMessage:** add `wrap-break-word` to content slot
+* **ContentSearch:** preserve intermediate ancestors in breadcrumb prefix
+* **ContentToc:** apply `b24ui.trigger` prop to trigger elements
+* **Textarea:** autoresize on mount with pre-filled value
+* **FileUpload:** pass `disabled` attribute to button variant
+* **docs:** resolve prerender payload 204 and build warnings
+* **docs:** drop redundant homepage payload prerender ignore
+
+### Docs
+
+* **Chat:** refocus prompt when sidebar reopens
+* **Chat:** validate AI assistant currentPage input
+* **tabs:** add bottom tab bar example
+* **search:** init index on nuxt ready
+* **search:** improve relevance and tooltip behavior
+* **form-field:** add a warning to help field
+* **composables:** improve examples
+* **navigation:** query `description` field for content toc
+* **toast:** add `duration` prop docs and remove misleading AppConfig notes from examples
+* SEO metadata and docs-tail bookkeeping (badges / community / typecheck)
+* fix missing CSS variables on prerendered pages
+
+### CI
+
+* **deploy:** raise Node heap limit to fix docs prerender OOM
+* move playground builds out of PR CI into the deploy job
+
+### Chore
+
+* **deps:** update Nuxt to `^4.4.6`, Tiptap `^3.24.0`, reka-ui `v2.9.8`, Vite, vue-tsc `^3.3.3`, vitest-environment-nuxt v2, pnpm v11, pnpm/action-setup v6 and 25 dependency refreshes in total
+* **repl:** expose composables subpath in the playground
+* sync with nuxt/ui upstream (no-op syncs)
+* add `.cursor` to `.gitignore`
+
 ## [2.8.0](https://github.com/bitrix24/b24ui/compare/v2.7.1...v2.8.0) (2026-05-20)
 
 ### Features
