@@ -51,8 +51,6 @@ provide('navigation', rootNavigation)
         ]"
       >
         <template v-if="!route.path.startsWith('/examples')">
-          <!-- Banner / -->
-
           <Header />
         </template>
 

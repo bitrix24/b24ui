@@ -38,8 +38,6 @@ provide('navigation', rootNavigation)
 
     <div class="flex">
       <div class="flex-1 min-w-0" :class="[route.path.startsWith('/docs/') && 'root']">
-        <!-- <Banner /> -->
-
         <Header />
 
         <B24Error :error="error" :b24ui="{ root: 'min-h-[calc(100vh-var(--topbar-height)-var(--topbar-height))]' }" />

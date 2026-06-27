@@ -1,7 +1,6 @@
 ---
 title: useScrollShadow
 description: 'A composable function to apply scroll shadow effects to any scrollable element.'
-navigation.badge: New
 ---
 
 ## Usage
