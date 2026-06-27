@@ -16,7 +16,6 @@ links:
     avatar:
       src: /b24ui/avatar/rekaui.svg
     to: https://reka-ui.com/docs/components/collapsible
-navigation.badge: New
 ---
 
 ## Usage

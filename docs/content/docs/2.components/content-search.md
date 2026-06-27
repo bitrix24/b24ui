@@ -94,7 +94,7 @@ const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSe
 Use the `fuse` prop to configure [useFuse](https://vueuse.org/integrations/useFuse) options passed to the underlying [CommandPalette](/docs/components/command-palette/) such as `resultLimit` (default `12`) and `fuseOptions.threshold` (default `0.1`).
 ::
 
-### Search :badge{label="Soon" class="align-text-top"}
+### Search
 
 Use the `search` prop with [`useSearchCollection`](https://content.nuxt.com/docs/utils/use-search-collection) for server-side [FTS5 full-text search](https://www.sqlite.org/fts5.html) with highlighted snippets instead of client-side filtering:
 
