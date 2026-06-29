@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "a84de85b2a017c8692e6da889291c06d5015c115",
+  "cursor": "e4ca5798118d8073d04eb208136d1f34334bf1b7",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -815,10 +815,16 @@
       "summary": "chore(deps): update actions/checkout action to v7 (#6655) — bump actions/checkout@v6->v7 in b24ui's 3 workflows (ci.yml, deploy.yml, npm-publish.yml). Upstream touched module.yml/release.yml/reproduire.yml (b24ui has none); the reproduire/Hebilicious@v1 un-pin is N/A (no reproduction-label workflow). CI-only, no src impact; checkout@v7 exercised by this PR's own ci run. No snapshot churn"
     },
     "a84de85b2a017c8692e6da889291c06d5015c115": {
+      "pr": 233,
+      "b24ui_sha": "63fe722c",
+      "decision": "port",
+      "summary": "feat(ScrollArea): add getScrollElement virtualize option (#6650) — ScrollArea.vue: new getScrollElement?:()=>Element|null in ScrollAreaVirtualizeOptions (removed from Omit); isExternalScroll computed + getScrollElement resolver (external el else rootRef.$el); virtualizer uses resolver; getVirtualItemStyle subtracts scrollMargin (offset) in external mode; resize-observer onMounted->watch(getScrollElement,{immediate:true}) (onMounted import dropped); root gets overflow:visible in external mode. Component applied 1:1 (b24ui matched pre-change; only b24ui.root/$attrs surface diff untouched). +renderEach spec case verbatim, 2 snapshots regen (new case renders overflow:visible = feature self-demo). Docs ADAPTED+trimmed: md 'With external scroll element' section (badge New not Soon) + b24ui example keeping the feature core (external container + useElementSize border-box scrollMargin + B24ScrollArea getScrollElement/scrollMargin over dummyjson fetch like InfiniteScroll example + Top button B24Button/ArrowToTheTopIcon/air-tertiary); DROPPED upstream's incidental find-toolbar (search/prev/next/counter sugar, not the feature, risky neutral/subtle/outline+icon mappings). useElementSize imported from @vueuse/core (not auto-imported in b24ui docs). +3 icon-map entries: arrow-up-to-line->actions/ArrowToTheTopIcon, chevron-up->outline/ChevronTopSIcon, search->main/Search2Icon. Tests 5145 passed (+2). Deviation noted in PR"
+    },
+    "e4ca5798118d8073d04eb208136d1f34334bf1b7": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "feat(ScrollArea): add getScrollElement virtualize option (#6650) — ScrollArea.vue: new getScrollElement?:()=>Element|null in ScrollAreaVirtualizeOptions (removed from Omit); isExternalScroll computed + getScrollElement resolver (external el else rootRef.$el); virtualizer uses resolver; getVirtualItemStyle subtracts scrollMargin (offset) in external mode; resize-observer onMounted->watch(getScrollElement,{immediate:true}) (onMounted import dropped); root gets overflow:visible in external mode. Component applied 1:1 (b24ui matched pre-change; only b24ui.root/$attrs surface diff untouched). +renderEach spec case verbatim, 2 snapshots regen (new case renders overflow:visible = feature self-demo). Docs ADAPTED+trimmed: md 'With external scroll element' section (badge New not Soon) + b24ui example keeping the feature core (external container + useElementSize border-box scrollMargin + B24ScrollArea getScrollElement/scrollMargin over dummyjson fetch like InfiniteScroll example + Top button B24Button/ArrowToTheTopIcon/air-tertiary); DROPPED upstream's incidental find-toolbar (search/prev/next/counter sugar, not the feature, risky neutral/subtle/outline+icon mappings). useElementSize imported from @vueuse/core (not auto-imported in b24ui docs). +3 icon-map entries: arrow-up-to-line->actions/ArrowToTheTopIcon, chevron-up->outline/ChevronTopSIcon, search->main/Search2Icon. Tests 5145 passed (+2). Deviation noted in PR"
+      "summary": "fix(module): avoid unhead v2-only hookOnce in colors plugin (#6658) — src/runtime/plugins/colors.ts SPA-hydration branch: replace injectHead().hooks.hookOnce('dom:rendered', removeTemporaryColorsStyle) with self-unhooking head.hooks?.hook('dom:rendered', ()=>{removeTemporaryColorsStyle(); unhook?.()}) so once-semantics work on both unhead v2 (Hookable.hookOnce) and v3 (HookableCore.hook only). Direct 1:1 (b24ui had identical line; data-bitrix24-ui-colors attr untouched). Arrived upstream DURING the #227-233 batch (first commit past prior v4 HEAD a84de85, now new v4 HEAD). Client-only plugin path, no snapshot churn"
     }
   }
 }
