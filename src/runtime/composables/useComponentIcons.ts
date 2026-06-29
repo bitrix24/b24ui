@@ -1,6 +1,7 @@
 import { computed, toValue } from 'vue'
 import type { MaybeRefOrGetter } from 'vue'
-import type { AvatarProps, IconComponent } from '../types'
+import type { AvatarProps } from '../components/Avatar.vue'
+import type { IconComponent } from '../types/icons'
 import icons from '../dictionary/icons'
 
 export interface UseComponentIconsProps {

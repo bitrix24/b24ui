@@ -3,7 +3,8 @@ import type { SeparatorProps as _SeparatorProps } from 'reka-ui'
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/separator'
-import type { AvatarProps, IconComponent } from '../types'
+import type { IconComponent } from '../types/icons'
+import type { AvatarProps } from './Avatar.vue'
 import type { ComponentConfig } from '../types/tv'
 
 type Separator = ComponentConfig<typeof theme, AppConfig, 'separator'>

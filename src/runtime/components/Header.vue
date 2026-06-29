@@ -1,7 +1,11 @@
 <script lang="ts">
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
-import type { ButtonProps, DrawerProps, ModalProps, SlideoverProps, LinkPropsKeys } from '../types'
+import type { ButtonProps } from './Button.vue'
+import type { DrawerProps } from './Drawer.vue'
+import type { LinkPropsKeys } from './Link.vue'
+import type { ModalProps } from './Modal.vue'
+import type { SlideoverProps } from './Slideover.vue'
 import type { ComponentConfig } from '../types/tv'
 import theme from '#build/b24ui/header'
 

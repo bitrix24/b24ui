@@ -1,7 +1,11 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/dashboard-search-button'
-import type { ButtonProps, ButtonSlots, IconComponent, KbdProps, TooltipProps, LinkPropsKeys } from '../types'
+import type { IconComponent } from '../types/icons'
+import type { ButtonProps, ButtonSlots } from './Button.vue'
+import type { KbdProps } from './Kbd.vue'
+import type { LinkPropsKeys } from './Link.vue'
+import type { TooltipProps } from './Tooltip.vue'
 import type { ComponentConfig } from '../types/tv'
 
 type DashboardSearchButton = ComponentConfig<typeof theme, AppConfig, 'dashboardSearchButton'>

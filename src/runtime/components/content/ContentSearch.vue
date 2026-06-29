@@ -5,7 +5,12 @@ import type { ContentNavigationItem } from '@nuxt/content'
 import type { AppConfig } from '@nuxt/schema'
 import type { UseFuseOptions } from '@vueuse/integrations/useFuse'
 import theme from '#build/b24ui/content/content-search'
-import type { ButtonProps, LinkProps, ModalProps, CommandPaletteProps, CommandPaletteSlots, CommandPaletteGroup, CommandPaletteItem, IconComponent, LinkPropsKeys, InputProps } from '../../types'
+import type { IconComponent } from '../../types/icons'
+import type { ButtonProps } from '../Button.vue'
+import type { CommandPaletteGroup, CommandPaletteItem, CommandPaletteProps, CommandPaletteSlots } from '../CommandPalette.vue'
+import type { InputProps } from '../Input.vue'
+import type { LinkProps, LinkPropsKeys } from '../Link.vue'
+import type { ModalProps } from '../Modal.vue'
 import type { ComponentConfig } from '../../types/tv'
 
 type ContentSearch = ComponentConfig<typeof theme, AppConfig, 'contentSearch'>

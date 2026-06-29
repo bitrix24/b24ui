@@ -2,7 +2,10 @@
 import type { ContextMenuContentProps as RekaContextMenuContentProps, ContextMenuContentEmits as RekaContextMenuContentEmits } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import type theme from '#build/b24ui/context-menu'
-import type { AvatarProps, ContextMenuItem, ContextMenuSlots, IconComponent, KbdProps } from '../types'
+import type { IconComponent } from '../types/icons'
+import type { AvatarProps } from './Avatar.vue'
+import type { ContextMenuItem, ContextMenuSlots } from './ContextMenu.vue'
+import type { KbdProps } from './Kbd.vue'
 import type { ArrayOrNested, GetItemKeys } from '../types/utils'
 import type { ComponentConfig } from '../types/tv'
 

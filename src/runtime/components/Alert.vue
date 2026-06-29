@@ -2,7 +2,10 @@
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/alert'
-import type { AvatarProps, ButtonProps, IconComponent, LinkPropsKeys } from '../types'
+import type { IconComponent } from '../types/icons'
+import type { AvatarProps } from './Avatar.vue'
+import type { ButtonProps } from './Button.vue'
+import type { LinkPropsKeys } from './Link.vue'
 import type { ComponentConfig } from '../types/tv'
 
 type Alert = ComponentConfig<typeof theme, AppConfig, 'alert'>

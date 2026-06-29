@@ -3,7 +3,8 @@ import type { PaginationRootProps, PaginationRootEmits } from 'reka-ui'
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/pagination'
-import type { ButtonProps, IconComponent } from '../types'
+import type { IconComponent } from '../types/icons'
+import type { ButtonProps } from './Button.vue'
 import type { ComponentConfig } from '../types/tv'
 
 type Pagination = ComponentConfig<typeof theme, AppConfig, 'pagination'>

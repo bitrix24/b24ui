@@ -2,7 +2,8 @@
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/prose/collapsible'
-import type { IconComponent, CollapsibleProps } from '../../types'
+import type { IconComponent } from '../../types/icons'
+import type { CollapsibleProps } from '../Collapsible.vue'
 import type { ComponentConfig } from '../../types/tv'
 
 type ProseCollapsible = ComponentConfig<typeof theme, AppConfig, 'collapsible', 'b24ui.prose'>

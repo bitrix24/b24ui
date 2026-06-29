@@ -1,7 +1,7 @@
 import { isEqual } from 'ohash/utils'
 import { withTrailingSlash, withLeadingSlash, joinURL } from 'ufo'
 import type { GetItemKeys } from '../types/utils'
-import type { IconComponent } from '../types'
+import type { IconComponent } from '../types/icons'
 import icons from '../dictionary/icons'
 
 export function pick<Data extends object, Keys extends keyof Data>(data: Data, keys: Keys[]): Pick<Data, Keys> {

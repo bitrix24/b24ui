@@ -1,9 +1,8 @@
 <script lang="ts">
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
-import type { TabsItem } from '../Tabs.vue'
+import type { TabsItem, TabsProps } from '../Tabs.vue'
 import theme from '#build/b24ui/prose/tabs'
-import type { TabsProps } from '../../types'
 import type { ComponentConfig } from '../../types/tv'
 
 type ProseTabs = ComponentConfig<typeof theme, AppConfig, 'tabs', 'b24ui.prose'>

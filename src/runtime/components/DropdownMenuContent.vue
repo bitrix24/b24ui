@@ -4,7 +4,11 @@ import type { DropdownMenuContentProps as RekaDropdownMenuContentProps, Dropdown
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import type theme from '#build/b24ui/dropdown-menu'
-import type { KbdProps, AvatarProps, DropdownMenuItem, DropdownMenuSlots, IconComponent, InputProps } from '../types'
+import type { IconComponent } from '../types/icons'
+import type { AvatarProps } from './Avatar.vue'
+import type { DropdownMenuItem, DropdownMenuSlots } from './DropdownMenu.vue'
+import type { InputProps } from './Input.vue'
+import type { KbdProps } from './Kbd.vue'
 import type { ArrayOrNested, GetItemKeys, NestedItem, DynamicSlots, MergeTypes } from '../types/utils'
 import type { ComponentConfig } from '../types/tv'
 
