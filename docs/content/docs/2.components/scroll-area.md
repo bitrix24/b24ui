@@ -159,6 +159,28 @@ class: '!p-0'
 ---
 ::
 
+### With external scroll element :badge{label="New" class="align-text-top"}
+
+Pass a `getScrollElement` function in the `virtualize` prop to virtualize against an ancestor scroll container instead of the component's own viewport. Set `scrollMargin` to the list's offset from the scroll element's start (e.g. the height of the content above it).
+
+::component-example
+---
+prettier: true
+collapse: true
+overflowHidden: true
+name: 'scroll-area-external-scroll-example'
+class: '!p-0'
+---
+::
+
+::note
+Because the container owns the scroll, the toolbar's "Top" button scrolls it directly with `container.scrollTo`.
+::
+
+::caution
+The `shadow` prop has no effect in this mode, since the root no longer owns the scroll. Apply your own fade to the scroll container instead.
+::
+
 ### With programmatic scroll
 
 You can use the exposed `virtualizer` to programmatically control scroll position.

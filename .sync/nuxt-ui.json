@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "df099a5e69a8207db13ac39a5bed335b26fd7640",
+  "cursor": "a84de85b2a017c8692e6da889291c06d5015c115",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -809,10 +809,16 @@
       "summary": "chore(deps): update all non-major dependencies (#6651) — §2 per-dep mirror across b24ui manifests (incl. 4th demo playground, nuxt<->demo parity kept): pnpm 11.8.0->11.9.0 (packageManager), @tanstack/vue-virtual 3.13.29->3.13.30, unplugin 3.0.0->3.2.0 (root + pnpm-workspace.yaml catalog), ai 6.0.208->6.0.214 (root/docs/demo/nuxt), eslint 10.5.0->10.6.0, vue 3.5.38->3.5.39 (root/repl/vue), @ai-sdk/vue 3.0.208->3.0.214 (docs/demo/nuxt), vite 7.3.5->7.3.6 (repl/vue). Skipped (absent in b24ui): @nuxt/icon, @ai-sdk/anthropic, @ai-sdk/gateway, @iconify-json/simple-icons. +pnpm_config_verify_deps_before_run:false to .github/workflows/ci.yml (b24ui analog of upstream module.yml; pnpm 11.9.0 verifies deps pre-run). Lockfile regen under gate via corepack pnpm 11.9.0, lockfileVersion 9.0, +1474/-561 (vue/eslint/vite transitive graph re-pin, no major churn). vue patch -> no snapshot churn"
     },
     "df099a5e69a8207db13ac39a5bed335b26fd7640": {
+      "pr": 232,
+      "b24ui_sha": "49d01ae6",
+      "decision": "port",
+      "summary": "chore(deps): update actions/checkout action to v7 (#6655) — bump actions/checkout@v6->v7 in b24ui's 3 workflows (ci.yml, deploy.yml, npm-publish.yml). Upstream touched module.yml/release.yml/reproduire.yml (b24ui has none); the reproduire/Hebilicious@v1 un-pin is N/A (no reproduction-label workflow). CI-only, no src impact; checkout@v7 exercised by this PR's own ci run. No snapshot churn"
+    },
+    "a84de85b2a017c8692e6da889291c06d5015c115": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "chore(deps): update actions/checkout action to v7 (#6655) — bump actions/checkout@v6->v7 in b24ui's 3 workflows (ci.yml, deploy.yml, npm-publish.yml). Upstream touched module.yml/release.yml/reproduire.yml (b24ui has none); the reproduire/Hebilicious@v1 un-pin is N/A (no reproduction-label workflow). CI-only, no src impact; checkout@v7 exercised by this PR's own ci run. No snapshot churn"
+      "summary": "feat(ScrollArea): add getScrollElement virtualize option (#6650) — ScrollArea.vue: new getScrollElement?:()=>Element|null in ScrollAreaVirtualizeOptions (removed from Omit); isExternalScroll computed + getScrollElement resolver (external el else rootRef.$el); virtualizer uses resolver; getVirtualItemStyle subtracts scrollMargin (offset) in external mode; resize-observer onMounted->watch(getScrollElement,{immediate:true}) (onMounted import dropped); root gets overflow:visible in external mode. Component applied 1:1 (b24ui matched pre-change; only b24ui.root/$attrs surface diff untouched). +renderEach spec case verbatim, 2 snapshots regen (new case renders overflow:visible = feature self-demo). Docs ADAPTED+trimmed: md 'With external scroll element' section (badge New not Soon) + b24ui example keeping the feature core (external container + useElementSize border-box scrollMargin + B24ScrollArea getScrollElement/scrollMargin over dummyjson fetch like InfiniteScroll example + Top button B24Button/ArrowToTheTopIcon/air-tertiary); DROPPED upstream's incidental find-toolbar (search/prev/next/counter sugar, not the feature, risky neutral/subtle/outline+icon mappings). useElementSize imported from @vueuse/core (not auto-imported in b24ui docs). +3 icon-map entries: arrow-up-to-line->actions/ArrowToTheTopIcon, chevron-up->outline/ChevronTopSIcon, search->main/Search2Icon. Tests 5145 passed (+2). Deviation noted in PR"
     }
   }
 }
