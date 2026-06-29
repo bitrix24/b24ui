@@ -42,7 +42,7 @@ const props = useComponentProps('prose.p', _props)
 const appConfig = useAppConfig() as ProseP['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.p || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.prose?.p || {}) })({
   small: Boolean(props.small),
   accent: props.accent
 }))

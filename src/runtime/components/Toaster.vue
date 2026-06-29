@@ -100,7 +100,7 @@ const swipeDirection = computed(() => {
 })
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.toaster || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.toaster || {}) })({
   position: props.position,
   swipeDirection: swipeDirection.value
 }))

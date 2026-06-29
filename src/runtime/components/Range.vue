@@ -93,7 +93,7 @@ const rangeValue = computed({
 
 const thumbs = computed(() => rangeValue.value?.length ?? 1)
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.range || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.range || {}) })({
   disabled: disabled.value,
   size: size.value ?? props.size,
   color: color.value ?? props.color,

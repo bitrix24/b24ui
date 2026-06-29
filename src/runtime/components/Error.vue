@@ -79,7 +79,7 @@ const { t } = useLocale()
 const appConfig = useAppConfig() as Error['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.error || {}) })())
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.error || {}) })())
 
 function handleError() {
   clearError({ redirect: props.redirect })

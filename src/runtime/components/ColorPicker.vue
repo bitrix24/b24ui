@@ -93,7 +93,7 @@ const modelValue = defineModel<string>(undefined)
 const appConfig = useAppConfig() as ColorPicker['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.colorPicker || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.colorPicker || {}) })({
   size: props.size
 }))
 

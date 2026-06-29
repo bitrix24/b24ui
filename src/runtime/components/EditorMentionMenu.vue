@@ -48,7 +48,7 @@ const props = withDefaults(defineProps<EditorMentionMenuProps<T>>(), {
 
 const appConfig = useAppConfig() as EditorMentionMenu['AppConfig']
 
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.editorMentionMenu || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.editorMentionMenu || {}) })({
   size: props.size
 }))
 

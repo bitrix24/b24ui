@@ -68,7 +68,7 @@ const appConfig = useAppConfig() as EditorSuggestionMenu['AppConfig']
 
 const handlers = inject('editorHandlers', computed(() => createHandlers()))
 
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.editorSuggestionMenu || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.editorSuggestionMenu || {}) })({
   size: props.size
 }))
 

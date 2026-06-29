@@ -50,7 +50,7 @@ const props = useComponentProps('avatarGroup', _props)
 const appConfig = useAppConfig() as AvatarGroup['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.avatarGroup || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.avatarGroup || {}) })({
   size: props.size,
   color: props.color
 }))

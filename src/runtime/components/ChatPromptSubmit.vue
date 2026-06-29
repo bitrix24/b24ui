@@ -129,7 +129,7 @@ const statusButtonProps = computed(() => ({
 } satisfies { [key: string]: ButtonProps })[props.status])
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chatPromptSubmit || {}) })())
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.chatPromptSubmit || {}) })())
 </script>
 
 <template>

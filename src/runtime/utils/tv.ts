@@ -221,7 +221,7 @@ function extractDirectives(componentConfig: any): { config: any, directives?: Re
  * Wraps `tailwind-variants`' `tv` so slot classes can be **replaced** (not just
  * merged) through a function form — `(defaults) => classes` — in `:b24ui`, the
  * `class` prop and `app.config.b24ui`. The wrapper is transparent for every other
- * usage: it preserves the `TVReturnType` (so `extend: tv(theme)` keeps working
+ * usage: it preserves the `TVReturnType` (so `extend: theme` keeps working
  * via property reads) and only intercepts the slot functions on invocation.
  */
 export const tv = ((componentConfig?: any) => {

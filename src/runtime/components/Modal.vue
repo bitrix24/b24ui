@@ -151,7 +151,7 @@ const contentEvents = computed(() => {
 const [DefineContentTemplate, ReuseContentTemplate] = createReusableTemplate()
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.modal || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.modal || {}) })({
   transition: props.transition,
   fullscreen: props.fullscreen,
   overlayBlur: props.overlayBlur,

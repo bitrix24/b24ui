@@ -127,7 +127,7 @@ const isTag = computed(() => {
 })
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.textarea || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.textarea || {}) })({
   color: color.value ?? props.color,
   // size: size?.value ?? props.size,
   loading: props.loading,

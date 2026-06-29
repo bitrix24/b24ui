@@ -122,7 +122,7 @@ const appConfig = useAppConfig() as Tabs['AppConfig']
 const rootProps = useForwardProps(reactivePick(props, 'as', 'unmountOnHide'), emits)
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.tabs || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.tabs || {}) })({
   variant: props.variant,
   size: props.size,
   orientation: props.orientation

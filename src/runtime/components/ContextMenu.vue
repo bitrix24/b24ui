@@ -138,7 +138,7 @@ const contentProps = toRef(() => props.content)
 const getProxySlots = () => omit(slots, ['default'])
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.contextMenu || {}) })({}))
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.contextMenu || {}) })({}))
 </script>
 
 <template>

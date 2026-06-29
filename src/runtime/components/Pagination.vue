@@ -133,7 +133,7 @@ const nextIcon = computed(() => props.nextIcon || (dir.value === 'rtl' ? icons.c
 const lastIcon = computed(() => props.lastIcon || (dir.value === 'rtl' ? icons.chevronDoubleLeft : icons.chevronDoubleRight))
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pagination || {}) })())
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.pagination || {}) })())
 </script>
 
 <template>

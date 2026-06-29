@@ -95,7 +95,7 @@ const show = defineModel<boolean>('show', { default: true })
 const appConfig = useAppConfig() as Chip['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chip || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.chip || {}) })({
   color: props.color,
   inverted: Boolean(props.inverted),
   size: props.size, // size.value ?? props.size

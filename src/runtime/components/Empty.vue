@@ -72,7 +72,7 @@ const props = useComponentProps('empty', _props)
 const appConfig = useAppConfig() as Empty['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.empty || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.empty || {}) })({
   color: props.color,
   inverted: Boolean(props.inverted),
   size: props.size

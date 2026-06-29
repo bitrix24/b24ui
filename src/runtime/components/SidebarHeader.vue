@@ -45,7 +45,7 @@ const props = useComponentProps('sidebarHeader', _props)
 const appConfig = useAppConfig() as SidebarHeader['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sidebarHeader || {}) })())
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.sidebarHeader || {}) })())
 </script>
 
 <template>

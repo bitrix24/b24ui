@@ -43,7 +43,7 @@ const props = withDefaults(defineProps<EditorEmojiMenuProps<T>>(), {
 
 const appConfig = useAppConfig() as EditorEmojiMenu['AppConfig']
 
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.editorEmojiMenu || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.editorEmojiMenu || {}) })({
   size: props.size
 }))
 

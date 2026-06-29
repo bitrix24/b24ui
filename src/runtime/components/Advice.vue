@@ -55,7 +55,7 @@ const { isLeading, leadingIconName } = useComponentIcons(
 )
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.advice || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.advice || {}) })({
   angle: props.angle
 }))
 </script>

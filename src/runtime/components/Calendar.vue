@@ -154,7 +154,7 @@ const prevYearIcon = computed(() => props.prevYearIcon || (dir.value === 'rtl' ?
 const prevMonthIcon = computed(() => props.prevMonthIcon || (dir.value === 'rtl' ? icons.chevronRight : icons.chevronLeft))
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.calendar || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.calendar || {}) })({
   color: props.color,
   size: props.size,
   weekNumbers: props.weekNumbers

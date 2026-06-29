@@ -39,7 +39,7 @@ const props = useComponentProps('main', _props)
 const appConfig = useAppConfig() as Main['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.main || {}) }))
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.main || {}) }))
 </script>
 
 <template>

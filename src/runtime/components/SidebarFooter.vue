@@ -45,7 +45,7 @@ const props = useComponentProps('sidebarFooter', _props)
 const appConfig = useAppConfig() as SidebarFooter['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sidebarFooter || {}) })())
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.sidebarFooter || {}) })())
 </script>
 
 <template>

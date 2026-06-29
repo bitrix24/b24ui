@@ -95,7 +95,7 @@ const props = useComponentProps<DescriptionListProps<T>>('descriptionList', _pro
 const appConfig = useAppConfig() as DescriptionList['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.descriptionList || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.descriptionList || {}) })({
   size: props.size
 }))
 

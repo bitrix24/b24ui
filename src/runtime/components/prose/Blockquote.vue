@@ -31,7 +31,7 @@ const props = useComponentProps('prose.blockquote', _props)
 const appConfig = useAppConfig() as ProseBlockquote['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.blockquote || {}) })())
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.prose?.blockquote || {}) })())
 </script>
 
 <template>

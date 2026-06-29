@@ -37,7 +37,7 @@ const props = useComponentProps('chatPalette', _props)
 const appConfig = useAppConfig() as ChatPalette['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chatPalette || {}) })())
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.chatPalette || {}) })())
 </script>
 
 <template>

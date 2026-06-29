@@ -48,7 +48,7 @@ const props = useComponentProps('chatShimmer', _props)
 const appConfig = useAppConfig() as ChatShimmer['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chatShimmer || {}) }))
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.chatShimmer || {}) }))
 
 // eslint-disable-next-line vue/no-dupe-keys
 const spread = computed(() => (props.text || '').length * props.spread)

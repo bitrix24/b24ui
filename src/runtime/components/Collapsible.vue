@@ -47,7 +47,7 @@ const appConfig = useAppConfig() as Collapsible['AppConfig']
 const rootProps = useForwardProps(reactivePick(props, 'as', 'defaultOpen', 'open', 'disabled', 'unmountOnHide'), emits)
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.collapsible || {}) })())
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.collapsible || {}) })())
 </script>
 
 <template>

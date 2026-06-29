@@ -98,7 +98,7 @@ const appConfig = useAppConfig() as PageCard['AppConfig']
 const prefix = usePrefix()
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pageCard || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.pageCard || {}) })({
   orientation: props.orientation,
   reverse: props.reverse,
   variant: props.variant,

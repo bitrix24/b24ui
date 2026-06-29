@@ -46,7 +46,7 @@ const props = useComponentProps('prose.callout', _props)
 const appConfig = useAppConfig() as ProseCallout['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.callout || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.prose?.callout || {}) })({
   color: props.color,
   to: !!props.to
 }))

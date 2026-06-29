@@ -76,7 +76,7 @@ const props = useComponentProps('formField', _props)
 const appConfig = useAppConfig() as FormField['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.formField || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.formField || {}) })({
   size: props.size,
   required: props.required,
   orientation: props.orientation,

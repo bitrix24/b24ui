@@ -96,7 +96,7 @@ const forwardedAttrs = computed(() => {
 })
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.switch || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.switch || {}) })({
   size: size.value ?? props.size,
   color: color.value ?? props.color,
   highlight: highlight.value ?? props.highlight,

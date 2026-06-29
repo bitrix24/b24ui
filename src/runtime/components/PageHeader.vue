@@ -50,7 +50,7 @@ const props = useComponentProps('pageHeader', _props)
 const appConfig = useAppConfig() as PageHeader['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pageHeader || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.pageHeader || {}) })({
   title: !!props.title || !!slots.title
 }))
 </script>

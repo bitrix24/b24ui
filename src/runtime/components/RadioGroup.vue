@@ -120,7 +120,7 @@ const { emitFormChange, emitFormInput, color, name, size, highlight, id: _id, di
 const id = _id.value ?? useId()
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.radioGroup || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.radioGroup || {}) })({
   size: size.value ?? props.size,
   color: color.value ?? props.color,
   highlight: highlight.value ?? props.highlight,

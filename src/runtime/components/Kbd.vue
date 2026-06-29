@@ -55,7 +55,7 @@ const { getKbdKey } = useKbd()
 const appConfig = useAppConfig() as Kbd['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.kbd || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.kbd || {}) })({
   accent: props.accent,
   size: props.size
 }))

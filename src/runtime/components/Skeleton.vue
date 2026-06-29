@@ -36,7 +36,7 @@ const props = useComponentProps('skeleton', _props)
 const appConfig = useAppConfig() as Skeleton['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.skeleton || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.skeleton || {}) })({
   accent: props.accent
 }))
 </script>

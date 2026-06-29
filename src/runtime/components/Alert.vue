@@ -104,7 +104,7 @@ const { t } = useLocale()
 const appConfig = useAppConfig() as Alert['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.alert || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.alert || {}) })({
   color: props.color,
   inverted: Boolean(props.inverted),
   size: props.size,
