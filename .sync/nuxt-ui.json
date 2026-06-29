@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "82cd5b526cf87517d931439b8ce85ed70c88cc87",
+  "cursor": "6576fb81dd34c25a8e6b2209b9df9b2bf935f99b",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -791,10 +791,16 @@
       "summary": "perf(components): drop the redundant inner in component extend (#6647) — replace `extend: tv(theme)` -> `extend: theme` across all 162 occurrences in src/runtime/{components,components/prose,components/content,vue/overrides/*} (tv's extend takes a raw theme object; inner tv() wrapper redundant). Outer tv({...})(...) unchanged so tv stays imported. Direct 1:1 mechanical (1 line/file, 162 files, +162/-162; upstream 163, delta = diverging component set). appConfig.b24ui?.<name> spread pre-existing/untouched. Behaviour-preserving, no snapshot churn"
     },
     "82cd5b526cf87517d931439b8ce85ed70c88cc87": {
+      "pr": 229,
+      "b24ui_sha": "75348073",
+      "decision": "port",
+      "summary": "chore(deps): update dependency reka-ui to v2.10.1 (#6652) — exact-pin bump reka-ui 2.10.0->2.10.1 in root package.json (only manifest pinning it; playgrounds/docs get it transitively) + lockfile regen under CI gate (reka-ui entry + vaul-vue transitive, 8/+8-; integrity sha512-drcOQ4r... matches upstream byte-for-byte). Direct 1:1, no snapshot churn"
+    },
+    "6576fb81dd34c25a8e6b2209b9df9b2bf935f99b": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "chore(deps): update dependency reka-ui to v2.10.1 (#6652) — exact-pin bump reka-ui 2.10.0->2.10.1 in root package.json (only manifest pinning it; playgrounds/docs get it transitively) + lockfile regen under CI gate (reka-ui entry + vaul-vue transitive, 8/+8-; integrity sha512-drcOQ4r... matches upstream byte-for-byte). Direct 1:1, no snapshot churn"
+      "summary": "perf(types): decouple useComponentProps from the component-types barrel (#6648) — move ThemeSlotOverrides/ThemeUI/ThemeDefaults/ThemeContextDefaults out of composables/useComponentProps.ts into NEW src/runtime/types/theme.ts (imports SlotClass from ./tv, * as b24ui from #build/b24ui, * as ComponentTypes from ./index); drop the 3 now-unused imports from useComponentProps.ts + re-type ThemeContext.defaults -> ComputedRef<Record<string,Record<string,any>|undefined>>; +export * from './theme' in types/index.ts; Theme.vue + useComponentProps.spec.ts retarget type import to ../types/theme; REMOVE the useComponentProps.ts eslint no-restricted-imports exemption added in #227 (composable no longer touches barrel). Adapted: moved b24ui's OWN 114-key ThemeDefaults verbatim (diverges from upstream: commented-out absent comps, range=slider remap, custom advice/countdown/descriptionList/tableWrapper + deprecated navbar*/sidebar*). Types-only, no snapshot churn. 5 files +new theme.ts, +4/-185"
     }
   }
 }

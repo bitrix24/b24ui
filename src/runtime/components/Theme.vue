@@ -3,7 +3,7 @@ import type { VNode } from 'vue'
 import { computed } from 'vue'
 import defu from 'defu'
 import { injectThemeContext, provideThemeContext } from '../composables/useComponentProps'
-import type { ThemeContextDefaults, ThemeDefaults, ThemeUI } from '../composables/useComponentProps'
+import type { ThemeContextDefaults, ThemeDefaults, ThemeUI } from '../types/theme'
 
 export interface ThemeProps {
   /**
