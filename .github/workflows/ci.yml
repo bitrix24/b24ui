@@ -23,7 +23,7 @@ jobs:
       NUXT_PUBLIC_GIT_URL: https://github.com/bitrix24/b24ui
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Install pnpm
         uses: pnpm/action-setup@v6
