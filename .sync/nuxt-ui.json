@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "3bf1a92a9d3aa47ee7f02c1b2363363bc906f313",
+  "cursor": "82cd5b526cf87517d931439b8ce85ed70c88cc87",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -785,10 +785,16 @@
       "summary": "perf(types): import cross-component types from source, not the barrel (#6646) — replace `import type {...} from '../types'` barrel imports with per-source imports (owning component .vue, e.g. ButtonProps from ./Button.vue; or specific ../types/* module, e.g. Messages from ../types/locale) across 119 consumer files in src/runtime/{components,composables,utils,dictionary,locale,vue/...}; +eslint no-restricted-imports guard on ../types & ../../types for components/**/*.vue + composables/**/*.ts, with useComponentProps.ts exempted (keeps `import type * as ComponentTypes from '../types'`). Adapted, not 1:1: resolved each type->source against b24ui's OWN exports (IconComponent->../types/icons since b24ui has no Icon.vue; own component set; curated 20 locale files vs upstream 62 per §2). 0 unresolved / 0 ambiguous names. Rule appended via existing .append chain (bitrix24-ui/ namespace). Types-only, no snapshot churn. 120 files, +284/-120. Rebased onto main after v2.9.0 release (#226) landed mid-CI"
     },
     "3bf1a92a9d3aa47ee7f02c1b2363363bc906f313": {
+      "pr": 228,
+      "b24ui_sha": "9c2a5afa",
+      "decision": "port",
+      "summary": "perf(components): drop the redundant inner in component extend (#6647) — replace `extend: tv(theme)` -> `extend: theme` across all 162 occurrences in src/runtime/{components,components/prose,components/content,vue/overrides/*} (tv's extend takes a raw theme object; inner tv() wrapper redundant). Outer tv({...})(...) unchanged so tv stays imported. Direct 1:1 mechanical (1 line/file, 162 files, +162/-162; upstream 163, delta = diverging component set). appConfig.b24ui?.<name> spread pre-existing/untouched. Behaviour-preserving, no snapshot churn"
+    },
+    "82cd5b526cf87517d931439b8ce85ed70c88cc87": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "perf(components): drop the redundant inner in component extend (#6647) — replace `extend: tv(theme)` -> `extend: theme` across all 162 occurrences in src/runtime/{components,components/prose,components/content,vue/overrides/*} (tv's extend takes a raw theme object; inner tv() wrapper redundant). Outer tv({...})(...) unchanged so tv stays imported. Direct 1:1 mechanical (1 line/file, 162 files, +162/-162; upstream 163, delta = diverging component set). appConfig.b24ui?.<name> spread pre-existing/untouched. Behaviour-preserving, no snapshot churn"
+      "summary": "chore(deps): update dependency reka-ui to v2.10.1 (#6652) — exact-pin bump reka-ui 2.10.0->2.10.1 in root package.json (only manifest pinning it; playgrounds/docs get it transitively) + lockfile regen under CI gate (reka-ui entry + vaul-vue transitive, 8/+8-; integrity sha512-drcOQ4r... matches upstream byte-for-byte). Direct 1:1, no snapshot churn"
     }
   }
 }
