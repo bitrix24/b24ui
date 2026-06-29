@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "cd52459e10dccad564a86fd233b3e3951f0b776e",
+  "cursor": "df099a5e69a8207db13ac39a5bed335b26fd7640",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -803,10 +803,16 @@
       "summary": "perf(types): decouple useComponentProps from the component-types barrel (#6648) — move ThemeSlotOverrides/ThemeUI/ThemeDefaults/ThemeContextDefaults out of composables/useComponentProps.ts into NEW src/runtime/types/theme.ts (imports SlotClass from ./tv, * as b24ui from #build/b24ui, * as ComponentTypes from ./index); drop the 3 now-unused imports from useComponentProps.ts + re-type ThemeContext.defaults -> ComputedRef<Record<string,Record<string,any>|undefined>>; +export * from './theme' in types/index.ts; Theme.vue + useComponentProps.spec.ts retarget type import to ../types/theme; REMOVE the useComponentProps.ts eslint no-restricted-imports exemption added in #227 (composable no longer touches barrel). Adapted: moved b24ui's OWN 114-key ThemeDefaults verbatim (diverges from upstream: commented-out absent comps, range=slider remap, custom advice/countdown/descriptionList/tableWrapper + deprecated navbar*/sidebar*). Types-only, no snapshot churn. 5 files +new theme.ts, +4/-185"
     },
     "cd52459e10dccad564a86fd233b3e3951f0b776e": {
+      "pr": 231,
+      "b24ui_sha": "a18330d0",
+      "decision": "port",
+      "summary": "chore(deps): update all non-major dependencies (#6651) — §2 per-dep mirror across b24ui manifests (incl. 4th demo playground, nuxt<->demo parity kept): pnpm 11.8.0->11.9.0 (packageManager), @tanstack/vue-virtual 3.13.29->3.13.30, unplugin 3.0.0->3.2.0 (root + pnpm-workspace.yaml catalog), ai 6.0.208->6.0.214 (root/docs/demo/nuxt), eslint 10.5.0->10.6.0, vue 3.5.38->3.5.39 (root/repl/vue), @ai-sdk/vue 3.0.208->3.0.214 (docs/demo/nuxt), vite 7.3.5->7.3.6 (repl/vue). Skipped (absent in b24ui): @nuxt/icon, @ai-sdk/anthropic, @ai-sdk/gateway, @iconify-json/simple-icons. +pnpm_config_verify_deps_before_run:false to .github/workflows/ci.yml (b24ui analog of upstream module.yml; pnpm 11.9.0 verifies deps pre-run). Lockfile regen under gate via corepack pnpm 11.9.0, lockfileVersion 9.0, +1474/-561 (vue/eslint/vite transitive graph re-pin, no major churn). vue patch -> no snapshot churn"
+    },
+    "df099a5e69a8207db13ac39a5bed335b26fd7640": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "chore(deps): update all non-major dependencies (#6651) — §2 per-dep mirror across b24ui manifests (incl. 4th demo playground, nuxt<->demo parity kept): pnpm 11.8.0->11.9.0 (packageManager), @tanstack/vue-virtual 3.13.29->3.13.30, unplugin 3.0.0->3.2.0 (root + pnpm-workspace.yaml catalog), ai 6.0.208->6.0.214 (root/docs/demo/nuxt), eslint 10.5.0->10.6.0, vue 3.5.38->3.5.39 (root/repl/vue), @ai-sdk/vue 3.0.208->3.0.214 (docs/demo/nuxt), vite 7.3.5->7.3.6 (repl/vue). Skipped (absent in b24ui): @nuxt/icon, @ai-sdk/anthropic, @ai-sdk/gateway, @iconify-json/simple-icons. +pnpm_config_verify_deps_before_run:false to .github/workflows/ci.yml (b24ui analog of upstream module.yml; pnpm 11.9.0 verifies deps pre-run). Lockfile regen under gate via corepack pnpm 11.9.0, lockfileVersion 9.0, +1474/-561 (vue/eslint/vite transitive graph re-pin, no major churn). vue patch -> no snapshot churn"
+      "summary": "chore(deps): update actions/checkout action to v7 (#6655) — bump actions/checkout@v6->v7 in b24ui's 3 workflows (ci.yml, deploy.yml, npm-publish.yml). Upstream touched module.yml/release.yml/reproduire.yml (b24ui has none); the reproduire/Hebilicious@v1 un-pin is N/A (no reproduction-label workflow). CI-only, no src impact; checkout@v7 exercised by this PR's own ci run. No snapshot churn"
     }
   }
 }
