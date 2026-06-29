@@ -2,7 +2,8 @@
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/editor-mention-menu'
 import type { EditorMenuOptions } from '../composables/useEditorMenu'
-import type { AvatarProps, IconComponent } from '../types'
+import type { IconComponent } from '../types/icons'
+import type { AvatarProps } from './Avatar.vue'
 import type { ComponentConfig } from '../types/tv'
 
 type EditorMentionMenu = ComponentConfig<typeof theme, AppConfig, 'editorMentionMenu'>

@@ -7,7 +7,7 @@
  */
 
 import { h } from 'vue'
-import type { IconComponent } from '../types'
+import type { IconComponent } from '../types/icons'
 import ArrowToTheLeftIcon from '@bitrix24/b24icons-vue/actions/ArrowToTheLeftIcon'
 import ArrowToTheRightIcon from '@bitrix24/b24icons-vue/actions/ArrowToTheRightIcon'
 import CheckIcon from '@bitrix24/b24icons-vue/outline/CheckLIcon'

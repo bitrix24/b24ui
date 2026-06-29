@@ -1,7 +1,7 @@
 import type { Ref, InjectionKey } from 'vue'
 import { ref, nextTick, inject } from 'vue'
 import { useState } from '#imports'
-import type { ToastProps, ToastEmits } from '../types'
+import type { ToastEmits, ToastProps } from '../components/Toast.vue'
 import type { EmitsToProps } from '../types/utils'
 
 export const toastMaxInjectionKey: InjectionKey<Ref<number | undefined>> = Symbol('bitrix24-ui.toast-max')

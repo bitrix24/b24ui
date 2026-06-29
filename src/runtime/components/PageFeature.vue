@@ -2,7 +2,8 @@
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/page-feature'
-import type { IconComponent, LinkProps } from '../types'
+import type { IconComponent } from '../types/icons'
+import type { LinkProps } from './Link.vue'
 import type { ComponentConfig } from '../types/tv'
 
 type PageFeature = ComponentConfig<typeof theme, AppConfig, 'pageFeature'>

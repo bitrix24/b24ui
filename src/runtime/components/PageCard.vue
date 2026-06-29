@@ -2,7 +2,9 @@
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/page-card'
-import type { IconComponent, LinkProps, AvatarProps } from '../types'
+import type { IconComponent } from '../types/icons'
+import type { AvatarProps } from './Avatar.vue'
+import type { LinkProps } from './Link.vue'
 import type { ComponentConfig } from '../types/tv'
 
 type PageCard = ComponentConfig<typeof theme, AppConfig, 'pageCard'>

@@ -2,7 +2,7 @@
 import type { SliderRootProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/range'
-import type { TooltipProps } from '../types'
+import type { TooltipProps } from './Tooltip.vue'
 import type { ComponentConfig } from '../types/tv'
 
 type Range = ComponentConfig<typeof theme, AppConfig, 'range'>

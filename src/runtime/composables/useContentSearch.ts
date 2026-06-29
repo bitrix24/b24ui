@@ -5,7 +5,7 @@ import { createSharedComposable } from '@vueuse/core'
 import icons from '../dictionary/icons'
 import { sanitizeSnippet } from '../utils/search'
 import type { ContentSearchFile, ContentSearchItem, ContentSearchLink, ContentSearchResult } from '../components/content/ContentSearch.vue'
-import type { IconComponent } from '../types'
+import type { IconComponent } from '../types/icons'
 
 function _useContentSearch() {
   const open = ref(false)

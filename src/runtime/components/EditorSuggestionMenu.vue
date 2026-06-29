@@ -2,7 +2,7 @@
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/editor-suggestion-menu'
 import type { EditorMenuOptions } from '../composables/useEditorMenu'
-import type { IconComponent } from '../types'
+import type { IconComponent } from '../types/icons'
 import type { EditorItem, EditorCustomHandlers } from '../types/editor'
 import type { ComponentConfig } from '../types/tv'
 

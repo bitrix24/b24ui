@@ -2,7 +2,8 @@
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/prose/accordion'
-import type { AccordionProps, IconComponent } from '../../types'
+import type { IconComponent } from '../../types/icons'
+import type { AccordionProps } from '../Accordion.vue'
 import type { ComponentConfig } from '../../types/tv'
 
 type ProseAccordion = ComponentConfig<typeof theme, AppConfig, 'accordion', 'b24ui.prose'>

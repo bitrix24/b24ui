@@ -3,7 +3,8 @@ import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/empty'
 import type { ComponentConfig } from '../types/tv'
-import type { ButtonProps, IconComponent } from '../types'
+import type { IconComponent } from '../types/icons'
+import type { ButtonProps } from './Button.vue'
 
 type Empty = ComponentConfig<typeof theme, AppConfig, 'empty'>
 

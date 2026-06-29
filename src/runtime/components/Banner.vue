@@ -2,7 +2,9 @@
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/banner'
-import type { ButtonProps, IconComponent, LinkProps, LinkPropsKeys } from '../types'
+import type { IconComponent } from '../types/icons'
+import type { ButtonProps } from './Button.vue'
+import type { LinkProps, LinkPropsKeys } from './Link.vue'
 import type { ComponentConfig } from '../types/tv'
 
 type Banner = ComponentConfig<typeof theme, AppConfig, 'banner'>

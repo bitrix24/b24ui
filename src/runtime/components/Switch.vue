@@ -3,7 +3,7 @@ import type { SwitchRootProps, SwitchRootEmits } from 'reka-ui'
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/switch'
-import type { IconComponent } from '../types'
+import type { IconComponent } from '../types/icons'
 import type { ButtonHTMLAttributes } from '../types/html'
 import type { ComponentConfig } from '../types/tv'
 

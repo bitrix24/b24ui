@@ -2,7 +2,9 @@
 import type { ChatStatus } from 'ai'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/chat-prompt-submit'
-import type { ButtonProps, ButtonSlots, IconComponent, LinkPropsKeys } from '../types'
+import type { IconComponent } from '../types/icons'
+import type { ButtonProps, ButtonSlots } from './Button.vue'
+import type { LinkPropsKeys } from './Link.vue'
 import type { ComponentConfig } from '../types/tv'
 
 type ChatPromptSubmit = ComponentConfig<typeof theme, AppConfig, 'chatPromptSubmit'>

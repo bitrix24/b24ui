@@ -1,7 +1,8 @@
 <script lang="ts">
 import type { ConfigProviderProps, TooltipProviderProps } from 'reka-ui'
 import type { VNode } from 'vue'
-import type { ToasterProps, Locale, Messages } from '../types'
+import type { Locale, Messages } from '../types/locale'
+import type { ToasterProps } from './Toaster.vue'
 
 export interface AppProps<T extends Messages = Messages> extends Omit<ConfigProviderProps, 'useId' | 'locale' | 'teleportTo'> {
   tooltip?: TooltipProviderProps

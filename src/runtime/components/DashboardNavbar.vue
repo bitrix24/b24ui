@@ -3,7 +3,9 @@ import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/dashboard-navbar'
 import type { DashboardContext } from '../utils/dashboard'
-import type { ButtonProps, IconComponent, LinkPropsKeys } from '../types'
+import type { IconComponent } from '../types/icons'
+import type { ButtonProps } from './Button.vue'
+import type { LinkPropsKeys } from './Link.vue'
 import type { ComponentConfig } from '../types/tv'
 
 type DashboardNavbar = ComponentConfig<typeof theme, AppConfig, 'dashboardNavbar'>

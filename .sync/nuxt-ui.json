@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "88baabcf42b115b7da1a65e5f71092a37b5c9bf3",
+  "cursor": "7eab4bcb78f17b9eed365d617aa3ef3874c21bac",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -773,10 +773,16 @@
       "summary": "fix(ContentNavigation): key items by identity to prevent leading icon flash (#6640) — NO-OP: upstream keys the navigation v-for by `${index}-${link.path}` in src/runtime/components/content/ContentNavigation.vue (+spec). b24ui has no ContentNavigation component (git ls-files grep contentnavigation => none). Nothing to port. Bookkeeping only"
     },
     "88baabcf42b115b7da1a65e5f71092a37b5c9bf3": {
+      "pr": 225,
+      "b24ui_sha": "007602bf",
+      "decision": "port",
+      "summary": "fix(Separator): forward fall-through attributes to root (#6641) — Separator.vue: add defineOptions({ inheritAttrs: false }) + change root <Separator> binding v-bind=rootProps -> v-bind={...rootProps, ...$attrs} so fall-through attrs land on the actual root. Direct 1:1 (b24ui matched pre-change; useForwardProps rootProps + reka <Separator> root unchanged; no ui/icon/color renames). +attr-forwarding spec mirroring #218 (d3b5f1d3) (targets [data-slot=root] since Separator is multi-root). 2 snapshots updated (Separator + -vue): the existing 'with color success' renderEach case passes `color` which is NOT a SeparatorProps member = a fall-through attr; pre-fix multi-root dropped it, post-fix $attrs forwards it to root -> snapshot now carries color=air-primary-success (the fix demonstrating itself)"
+    },
+    "7eab4bcb78f17b9eed365d617aa3ef3874c21bac": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(Separator): forward fall-through attributes to root (#6641) — Separator.vue: add defineOptions({ inheritAttrs: false }) + change root <Separator> binding v-bind=rootProps -> v-bind={...rootProps, ...$attrs} so fall-through attrs land on the actual root. Direct 1:1 (b24ui matched pre-change; useForwardProps rootProps + reka <Separator> root unchanged; no ui/icon/color renames). +attr-forwarding spec mirroring #218 (d3b5f1d3) (targets [data-slot=root] since Separator is multi-root). 2 snapshots updated (Separator + -vue): the existing 'with color success' renderEach case passes `color` which is NOT a SeparatorProps member = a fall-through attr; pre-fix multi-root dropped it, post-fix $attrs forwards it to root -> snapshot now carries color=air-primary-success (the fix demonstrating itself)"
+      "summary": "perf(types): import cross-component types from source, not the barrel (#6646) — replace `import type {...} from '../types'` barrel imports with per-source imports (owning component .vue, e.g. ButtonProps from ./Button.vue; or specific ../types/* module, e.g. Messages from ../types/locale) across 119 consumer files in src/runtime/{components,composables,utils,dictionary,locale,vue/...}; +eslint no-restricted-imports guard on ../types & ../../types for components/**/*.vue + composables/**/*.ts, with useComponentProps.ts exempted (keeps `import type * as ComponentTypes from '../types'`). Adapted, not 1:1: resolved each type->source against b24ui's OWN exports (IconComponent->../types/icons since b24ui has no Icon.vue; own component set; curated 20 locale files vs upstream 62 per §2). 0 unresolved / 0 ambiguous names. Rule appended via existing .append chain (bitrix24-ui/ namespace). Types-only, no snapshot churn. 120 files, +284/-120"
     }
   }
 }

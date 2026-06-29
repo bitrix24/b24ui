@@ -2,7 +2,7 @@
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import type { ComponentConfig } from '../../types/tv'
-import type { IconComponent } from '../../types'
+import type { IconComponent } from '../../types/icons'
 import theme from '#build/b24ui/prose/code-group'
 
 type ProseCodeGroup = ComponentConfig<typeof theme, AppConfig, 'codeGroup', 'b24ui.prose'>

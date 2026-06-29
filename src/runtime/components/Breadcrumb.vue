@@ -3,7 +3,9 @@
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/breadcrumb'
-import type { AvatarProps, IconComponent, LinkProps } from '../types'
+import type { IconComponent } from '../types/icons'
+import type { AvatarProps } from './Avatar.vue'
+import type { LinkProps } from './Link.vue'
 import type { DynamicSlots, GetItemKeys } from '../types/utils'
 import type { ComponentConfig } from '../types/tv'
 

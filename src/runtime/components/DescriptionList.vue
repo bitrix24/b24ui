@@ -2,7 +2,9 @@
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/description-list'
-import type { AvatarProps, ButtonProps, IconComponent } from '../types'
+import type { IconComponent } from '../types/icons'
+import type { AvatarProps } from './Avatar.vue'
+import type { ButtonProps } from './Button.vue'
 import type { DynamicSlots } from '../types/utils'
 import type { ComponentConfig } from '../types/tv'
 

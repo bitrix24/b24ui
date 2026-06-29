@@ -2,7 +2,9 @@
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/page-section'
-import type { ButtonProps, IconComponent, PageFeatureProps } from '../types'
+import type { IconComponent } from '../types/icons'
+import type { ButtonProps } from './Button.vue'
+import type { PageFeatureProps } from './PageFeature.vue'
 import type { ComponentConfig } from '../types/tv'
 
 type PageSection = ComponentConfig<typeof theme, AppConfig, 'pageSection'>

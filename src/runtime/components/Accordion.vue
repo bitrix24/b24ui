@@ -4,7 +4,7 @@ import type { AccordionRootProps, AccordionRootEmits } from 'reka-ui'
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/accordion'
-import type { IconComponent } from '../types'
+import type { IconComponent } from '../types/icons'
 import type { DynamicSlots, GetItemKeys } from '../types/utils'
 import type { ComponentConfig } from '../types/tv'
 
