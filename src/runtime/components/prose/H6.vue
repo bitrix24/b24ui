@@ -38,7 +38,7 @@ const props = useComponentProps('prose.h6', _props)
 const appConfig = useAppConfig() as ProseH6['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.h6 || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.prose?.h6 || {}) })({
   accent: props.accent
 }))
 </script>

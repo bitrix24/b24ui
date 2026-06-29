@@ -58,7 +58,7 @@ const { t } = useLocale()
 const appConfig = useAppConfig() as ProseCodeCollapse['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.codeCollapse || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.prose?.codeCollapse || {}) })({
   open: open.value
 }))
 </script>

@@ -31,7 +31,7 @@ const props = useComponentProps('prose.em', _props)
 const appConfig = useAppConfig() as ProseEm['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.em || {}) })())
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.prose?.em || {}) })())
 </script>
 
 <template>

@@ -72,7 +72,7 @@ const props = useComponentProps('tableWrapper', _props)
 const appConfig = useAppConfig() as TableWrapper['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.tableWrapper || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.tableWrapper || {}) })({
   size: props.size,
   rounded: Boolean(props.rounded),
   zebra: Boolean(props.zebra),

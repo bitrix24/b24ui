@@ -82,7 +82,7 @@ const contentProps = toRef(() => defu(props.content, providerContext.content.val
 const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10, rounded: true }) as TooltipArrowProps)
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.tooltip || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.tooltip || {}) })({
   side: contentProps.value.side
 }))
 </script>

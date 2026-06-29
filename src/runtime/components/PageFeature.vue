@@ -64,7 +64,7 @@ const appConfig = useAppConfig() as PageFeature['AppConfig']
 const prefix = usePrefix()
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pageFeature || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.pageFeature || {}) })({
   orientation: props.orientation,
   title: !!props.title || !!slots.title,
   to: !!props.to || !!props.onClick

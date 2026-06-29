@@ -198,7 +198,7 @@ function closeSidebar() {
 const hasHeader = computed(() => !!slots.header || props.title || !!slots.title || props.description || !!slots.description || !!slots.actions || canClose.value || !!slots.close)
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sidebar || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.sidebar || {}) })({
   side: props.side,
   variant: props.variant,
   collapsible: props.collapsible,

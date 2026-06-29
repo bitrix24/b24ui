@@ -126,7 +126,7 @@ const contentEvents = computed(() => {
 })
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.drawer || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.drawer || {}) })({
   direction: props.direction,
   inset: props.inset,
   snapPoints: props.snapPoints && props.snapPoints.length > 0,

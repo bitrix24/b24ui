@@ -178,7 +178,7 @@ const currentValue = computed<PageCardGroupValue | PageCardGroupValue[] | undefi
 })
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pageCardGroup || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.pageCardGroup || {}) })({
   size: props.size,
   columns: props.columns,
   disabled: disabled.value

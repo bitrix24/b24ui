@@ -31,7 +31,7 @@ const props = useComponentProps('prose.cardGroup', _props)
 const appConfig = useAppConfig() as ProseCardGroup['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.cardGroup || {}) }))
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.prose?.cardGroup || {}) }))
 </script>
 
 <template>

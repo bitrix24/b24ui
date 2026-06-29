@@ -111,7 +111,7 @@ const { dir } = useLocale()
 const appConfig = useAppConfig() as ScrollArea['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.scrollArea || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.scrollArea || {}) })({
   orientation: props.orientation
 }))
 

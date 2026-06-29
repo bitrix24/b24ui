@@ -98,7 +98,7 @@ const [DefineTriggerTemplate, ReuseTriggerTemplate] = createReusableTemplate<{ o
 
 // @memo We not support: color, highlight, highlightVariant, highlightColor
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.contentToc || {}) })({}))
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.contentToc || {}) })({}))
 
 function scrollToHeading(id: string) {
   const encodedId = encodeURIComponent(id)

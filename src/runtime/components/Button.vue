@@ -155,7 +155,7 @@ const isLabel = computed(() => {
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({
-  extend: tv(theme),
+  extend: theme,
   ...defu({
     variants: {
       active: {

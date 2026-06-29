@@ -146,7 +146,7 @@ const contentEvents = computed(() => {
 })
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.slideover || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.slideover || {}) })({
   transition: props.transition,
   side: props.side,
   inset: props.inset,

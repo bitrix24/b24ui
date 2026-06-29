@@ -123,7 +123,7 @@ const { isLeading, leadingIconName } = useComponentIcons(
 const appConfig = useAppConfig() as Countdown['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.countdown || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.countdown || {}) })({
   size: props.size,
   leading: Boolean(isLeading.value),
   useCircle: Boolean(props.useCircle)

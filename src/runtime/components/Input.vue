@@ -144,7 +144,7 @@ const isTag = computed(() => {
 })
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.input || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.input || {}) })({
   type: props.type as Input['variants']['type'],
   color: color.value ?? props.color,
   size: inputSize?.value ?? props.size,

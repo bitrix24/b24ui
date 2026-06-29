@@ -52,7 +52,7 @@ const props = useComponentProps('prose.card', _props)
 const appConfig = useAppConfig() as ProseCard['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.card || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.prose?.card || {}) })({
   color: props.color,
   to: !!props.to,
   title: !!props.title

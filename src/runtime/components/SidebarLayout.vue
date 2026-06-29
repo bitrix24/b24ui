@@ -101,7 +101,7 @@ const openSidebarSlideover = ref(false)
 const isLoading = ref(false)
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sidebarLayout || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.sidebarLayout || {}) })({
   useSidebar: isUseSideBar.value,
   useNavbar: isUseNavbar.value,
   useRightBar: isUseRightBar.value,

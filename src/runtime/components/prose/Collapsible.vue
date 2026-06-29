@@ -58,7 +58,7 @@ const { t } = useLocale()
 const appConfig = useAppConfig() as ProseCollapsible['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.collapsible || {}) })())
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.prose?.collapsible || {}) })())
 </script>
 
 <template>

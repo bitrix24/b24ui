@@ -305,7 +305,7 @@ const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: C
 })
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.commandPalette || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.commandPalette || {}) })({
   size: props.size,
   virtualize: !!props.virtualize
 }))

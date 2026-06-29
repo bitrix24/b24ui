@@ -169,7 +169,7 @@ function stepVariant(index: number | string) {
 }
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.progress || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.progress || {}) })({
   animation: props.animation,
   size: props.size,
   color: props.color,

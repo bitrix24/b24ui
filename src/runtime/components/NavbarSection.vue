@@ -47,7 +47,7 @@ const props = useComponentProps('navSection', _props)
 const appConfig = useAppConfig() as NavSection['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.navbarSection || {}) })())
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.navbarSection || {}) })())
 </script>
 
 <template>

@@ -89,7 +89,7 @@ const [DefineContainer, ReuseContainer] = createReusableTemplate()
 const hasContent = computed(() => !!(props.label || props.icon || props.avatar || slots.default))
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.separator || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.separator || {}) })({
   accent: props.accent,
   orientation: props.orientation,
   size: props.size,

@@ -39,7 +39,7 @@ const props = useComponentProps('dashboardToolbar', _props)
 const appConfig = useAppConfig() as DashboardToolbar['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashboardToolbar || {}) })())
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.dashboardToolbar || {}) })())
 </script>
 
 <template>

@@ -88,7 +88,7 @@ const textParts = computed(() => props.parts?.filter((part): part is TextUIPart 
 const messageProps = computed(() => omit(props, ['as', 'icon', 'avatar', 'variant', 'color', 'side', 'actions', 'compact', 'class', 'b24ui']))
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chatMessage || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.chatMessage || {}) })({
   variant: props.variant,
   color: props.color,
   side: props.side,

@@ -282,7 +282,7 @@ function processColumns(columns: TableColumn<T>[]): TableColumn<T>[] {
 }
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.table || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.table || {}) })({
   sticky: props.sticky,
   loading: props.loading,
   loadingColor: props.loadingColor,

@@ -110,7 +110,7 @@ const props = useComponentProps('chatTool', _props)
 const appConfig = useAppConfig() as ChatTool['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chatTool || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.chatTool || {}) })({
   variant: props.variant,
   chevron: props.chevron,
   loading: Boolean(props.loading),

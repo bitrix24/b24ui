@@ -47,7 +47,7 @@ const [DefineZoomedImageTemplate, ReuseZoomedImageTemplate] = createReusableTemp
 const open = ref(false)
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.img || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.prose?.img || {}) })({
   zoom: props.zoom,
   open: open.value,
   width: !!props.width

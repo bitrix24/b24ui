@@ -104,7 +104,7 @@ const appConfig = useAppConfig() as Stepper['AppConfig']
 const rootProps = useForwardProps(reactivePick(props, 'as', 'linear'))
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.stepper || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.stepper || {}) })({
   orientation: props.orientation,
   size: props.size,
   color: props.color

@@ -47,7 +47,7 @@ const props = useComponentProps('navbarSpacer', _props)
 const appConfig = useAppConfig() as NavbarSpacer['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.navbarSpacer || {}) })())
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.navbarSpacer || {}) })())
 </script>
 
 <template>

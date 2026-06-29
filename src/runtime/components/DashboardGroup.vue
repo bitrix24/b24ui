@@ -44,7 +44,7 @@ const nuxtApp = useNuxtApp()
 const appConfig = useAppConfig() as DashboardGroup['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashboardGroup || {}) }))
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.dashboardGroup || {}) }))
 
 const sidebarOpen = ref(false)
 const sidebarCollapsed = ref(false)

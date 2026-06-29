@@ -46,7 +46,7 @@ const model = defineModel<string>()
 const appConfig = useAppConfig() as ProseCodeGroup['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.codeGroup || {}) })())
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.prose?.codeGroup || {}) })())
 
 const rerenderCount = ref(1)
 

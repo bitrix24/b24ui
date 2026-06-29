@@ -61,7 +61,7 @@ const appConfig = useAppConfig() as ProsePrompt['AppConfig']
 const bodyRef = useTemplateRef<HTMLElement>('bodyRef')
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.prompt || {}) })())
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.prose?.prompt || {}) })())
 
 const iconFromIconName = computed(() => resolveIcon(props.iconName))
 

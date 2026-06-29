@@ -31,7 +31,7 @@ const props = useComponentProps('prose.codePreview', _props)
 const appConfig = useAppConfig() as ProseCodePreview['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.codePreview || {}) })({ code: !!slots.code }))
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.prose?.codePreview || {}) })({ code: !!slots.code }))
 </script>
 
 <template>

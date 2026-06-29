@@ -48,7 +48,7 @@ const id = `${dashboardContext.storageKey}-panel-${props.id || useId()}`
 const { el, size, isDragging, onMouseDown, onTouchStart, onDoubleClick } = useResizable(id, toRef(() => ({ ...dashboardContext, ...props })))
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashboardPanel || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.dashboardPanel || {}) })({
   size: !!size.value
 }))
 </script>
