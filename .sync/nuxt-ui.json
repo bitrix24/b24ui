@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "e4ca5798118d8073d04eb208136d1f34334bf1b7",
+  "cursor": "8d46034c19474e62e5dbc25b5efb3f887d615c58",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -821,10 +821,16 @@
       "summary": "feat(ScrollArea): add getScrollElement virtualize option (#6650) — ScrollArea.vue: new getScrollElement?:()=>Element|null in ScrollAreaVirtualizeOptions (removed from Omit); isExternalScroll computed + getScrollElement resolver (external el else rootRef.$el); virtualizer uses resolver; getVirtualItemStyle subtracts scrollMargin (offset) in external mode; resize-observer onMounted->watch(getScrollElement,{immediate:true}) (onMounted import dropped); root gets overflow:visible in external mode. Component applied 1:1 (b24ui matched pre-change; only b24ui.root/$attrs surface diff untouched). +renderEach spec case verbatim, 2 snapshots regen (new case renders overflow:visible = feature self-demo). Docs ADAPTED+trimmed: md 'With external scroll element' section (badge New not Soon) + b24ui example keeping the feature core (external container + useElementSize border-box scrollMargin + B24ScrollArea getScrollElement/scrollMargin over dummyjson fetch like InfiniteScroll example + Top button B24Button/ArrowToTheTopIcon/air-tertiary); DROPPED upstream's incidental find-toolbar (search/prev/next/counter sugar, not the feature, risky neutral/subtle/outline+icon mappings). useElementSize imported from @vueuse/core (not auto-imported in b24ui docs). +3 icon-map entries: arrow-up-to-line->actions/ArrowToTheTopIcon, chevron-up->outline/ChevronTopSIcon, search->main/Search2Icon. Tests 5145 passed (+2). Deviation noted in PR"
     },
     "e4ca5798118d8073d04eb208136d1f34334bf1b7": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 234,
+      "b24ui_sha": "acb5c96b",
       "decision": "port",
       "summary": "fix(module): avoid unhead v2-only hookOnce in colors plugin (#6658) — src/runtime/plugins/colors.ts SPA-hydration branch: replace injectHead().hooks.hookOnce('dom:rendered', removeTemporaryColorsStyle) with self-unhooking head.hooks?.hook('dom:rendered', ()=>{removeTemporaryColorsStyle(); unhook?.()}) so once-semantics work on both unhead v2 (Hookable.hookOnce) and v3 (HookableCore.hook only). Direct 1:1 (b24ui had identical line; data-bitrix24-ui-colors attr untouched). Arrived upstream DURING the #227-233 batch (first commit past prior v4 HEAD a84de85, now new v4 HEAD). Client-only plugin path, no snapshot churn"
+    },
+    "8d46034c19474e62e5dbc25b5efb3f887d615c58": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "no-op",
+      "summary": "feat(module): pre-bundle used icons into @nuxt/icon client bundle — NO-OP: whole commit is @nuxt/icon+iconify machinery (new src/utils/icons.ts getClientBundleIcons parsing i-{collection}-{name} -> {collection}:{name}; module.ts icon:clientBundleIcons hook; @nuxt/icon 2.2.4->2.2.5 + pnpm-workspace minimumReleaseAgeExclude; docs about clientBundle/@iconify-json). b24ui has NO @nuxt/icon dep (grep => none; only commented-out in module.ts), renders icons via @bitrix24/b24icons-vue components, no theme/icons.ts, no utils/icons.ts, no icon:clientBundleIcons hook. Docs prose describes @nuxt/icon clientBundle behavior b24ui doesn't implement -> not carried over. Matches prior @nuxt/icon no-ops #69/#219. Bookkeeping only"
     }
   }
 }
