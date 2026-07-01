@@ -117,6 +117,11 @@ export default {
         ].join(' ') // bg-default/75
       }
     },
+    externalScroll: {
+      true: {
+        root: 'overflow-visible'
+      }
+    },
     loading: {
       true: {
         thead: [
