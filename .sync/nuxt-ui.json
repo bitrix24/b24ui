@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "8d46034c19474e62e5dbc25b5efb3f887d615c58",
+  "cursor": "7e6d0f767666be718ae32709a029cfe456fb660b",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -827,10 +827,16 @@
       "summary": "fix(module): avoid unhead v2-only hookOnce in colors plugin (#6658) — src/runtime/plugins/colors.ts SPA-hydration branch: replace injectHead().hooks.hookOnce('dom:rendered', removeTemporaryColorsStyle) with self-unhooking head.hooks?.hook('dom:rendered', ()=>{removeTemporaryColorsStyle(); unhook?.()}) so once-semantics work on both unhead v2 (Hookable.hookOnce) and v3 (HookableCore.hook only). Direct 1:1 (b24ui had identical line; data-bitrix24-ui-colors attr untouched). Arrived upstream DURING the #227-233 batch (first commit past prior v4 HEAD a84de85, now new v4 HEAD). Client-only plugin path, no snapshot churn"
     },
     "8d46034c19474e62e5dbc25b5efb3f887d615c58": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 235,
+      "b24ui_sha": "d57802d0",
       "decision": "no-op",
       "summary": "feat(module): pre-bundle used icons into @nuxt/icon client bundle — NO-OP: whole commit is @nuxt/icon+iconify machinery (new src/utils/icons.ts getClientBundleIcons parsing i-{collection}-{name} -> {collection}:{name}; module.ts icon:clientBundleIcons hook; @nuxt/icon 2.2.4->2.2.5 + pnpm-workspace minimumReleaseAgeExclude; docs about clientBundle/@iconify-json). b24ui has NO @nuxt/icon dep (grep => none; only commented-out in module.ts), renders icons via @bitrix24/b24icons-vue components, no theme/icons.ts, no utils/icons.ts, no icon:clientBundleIcons hook. Docs prose describes @nuxt/icon clientBundle behavior b24ui doesn't implement -> not carried over. Matches prior @nuxt/icon no-ops #69/#219. Bookkeeping only"
+    },
+    "7e6d0f767666be718ae32709a029cfe456fb660b": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "feat(Table): add getScrollElement virtualize option (#6657) — Table.vue: new getScrollElement?:()=>Element|null in virtualize option (removed from Omit); isExternalScroll computed + externalScroll tv variant (alongside b24ui's extra virtualize variant); getScrollElement resolver + scrollMargin computed wired into useVirtualizer (scrollMargin getter + getScrollElement); virtualPaddingTop -=scrollMargin, virtualPaddingBottom +=scrollMargin. theme/table.ts +externalScroll:{true:{root:'overflow-visible'}} (after sticky). ScrollArea refactor: move isExternalScroll above tv + externalScroll variant; offset simplified to start-virtualizerProps.scrollMargin (defaults 0); drop inline overflow:visible root style (now theme variant). theme/scroll-area.ts +externalScroll variant. Component 1:1 (b24ui matched pre-change). +Table renderEach case; 4 snapshots (Table +2 new case overflow-visible; ScrollArea 2 updated inline-style->overflow-visible class). Docs adapted: table.md section (badge New) + NEW TableExternalScrollExample (b24ui payments table: overflow-auto container + sticky title scrollMargin via useElementSize + B24Table virtualize getScrollElement/scrollMargin, :b24ui; TableColumn from @bitrix24/b24ui-nuxt, resolveComponent B24Badge, air status colors like TableVirtualizeExample); ScrollArea example extended with horizontal orientation (orientation prop, axis-aware itemSize/scrollMargin, Start/Top button ArrowToTheLeft/Top) + scroll-area.md orientation options block (find-toolbar stays dropped from #a84de85). useElementSize imported from @vueuse/core. Tests 5147 passed (+2)"
     }
   }
 }

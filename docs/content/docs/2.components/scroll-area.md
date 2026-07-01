@@ -170,11 +170,18 @@ collapse: true
 overflowHidden: true
 name: 'scroll-area-external-scroll-example'
 class: '!p-0'
+options:
+  - name: orientation
+    label: orientation
+    default: vertical
+    items:
+      - vertical
+      - horizontal
 ---
 ::
 
 ::note
-Because the container owns the scroll, the toolbar's "Top" button scrolls it directly with `container.scrollTo`.
+Because the container owns the scroll, the header's "Top"/"Start" button scrolls it directly with `container.scrollTo`.
 ::
 
 ::caution
