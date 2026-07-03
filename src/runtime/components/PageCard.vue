@@ -56,7 +56,7 @@ export interface PageCardProps {
   variant?: PageCard['variants']['variant']
   to?: LinkProps['to']
   target?: LinkProps['target']
-  onClick?: (event: MouseEvent) => void | Promise<void>
+  onClick?: (event: MouseEvent) => void
   class?: any
   b24ui?: PageCard['slots']
 }

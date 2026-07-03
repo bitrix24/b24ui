@@ -61,7 +61,7 @@ export interface ButtonProps extends Omit<UseComponentIconsProps, 'trailing' | '
    * @defaultValue false
    */
   useDropdown?: boolean
-  onClick?: ((event: MouseEvent) => void | Promise<void>) | Array<((event: MouseEvent) => void | Promise<void>)>
+  onClick?: ((event: MouseEvent) => void) | Array<((event: MouseEvent) => void)>
   class?: any
   /**
    * The class to apply when the link is active
