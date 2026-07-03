@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "269080a85dc877a2140bdc951c32ccd5626f4684",
+  "cursor": "efd44e2c1a5924faa962c52b7ea9c71cd440e7c9",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -851,10 +851,16 @@
       "summary": "chore(deps): migrate AI SDK to v7 (#6636) — SKIPPED/DEFERRED (maintainer call): major dep migration ai ^6->^7, @ai-sdk/anthropic ^3->^4, @ai-sdk/gateway ^3->^4, @ai-sdk/mcp ^1->^2, @ai-sdk/vue ^3->^4 + docs/playground client (new Chat()->useChat()) + server routes (system->instructions, stepCountIs->isStepCount, toUIMessageStreamResponse->toUIMessageStream+createUIMessageStreamResponse, toTextStreamResponse->createTextStreamResponse, onFinish->onEnd, model ids). Upstream touched NO src/runtime, but b24ui runtime imports ai (ChatMessages/ChatMessage/ChatPromptSubmit + utils/ai.ts) AND has a b24ui-only bx-assistant module (AssistantPanel/search.ts/useAssistant.ts) using @ai-sdk/vue+streamText with no upstream reference -> not a mechanical replay; needs a deliberate v7 adoption pass verifying runtime types + hand-migrating bx-assistant + lockfile regen + end-to-end test. Also verbatim .patch fetch egress-blocked this session. b24ui stays on ai@6. Consistent with prior deferrals #220/#194. Bookkeeping only, cursor advances; tracked for future AI-SDK-v7 task"
     },
     "269080a85dc877a2140bdc951c32ccd5626f4684": {
+      "pr": 239,
+      "b24ui_sha": "394fca07",
+      "decision": "port",
+      "summary": "fix(Button): allow inline event handlers with non-void return types (#6668) — narrow handler types `=> void | Promise<void>` -> `=> void` on onClick/onSubmit (TS void-bivalence widens accepted return types so inline template handlers returning non-void no longer error). b24ui files: Button(onClick), Form(onSubmit), LinkBase(onClick), PageCard, PageFeature, User, vue/overrides/inertia/LinkBase — all single+Array/()=> union variants. BlogPost/ChangelogVersion absent (N/A). +b24ui extension: Badge.onCloseClick (b24ui-only clickable-close prop, same pattern/fix). 8 files +8/-8. Type-only, no snapshot churn"
+    },
+    "efd44e2c1a5924faa962c52b7ea9c71cd440e7c9": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(Button): allow inline event handlers with non-void return types (#6668) — narrow handler types `=> void | Promise<void>` -> `=> void` on onClick/onSubmit (TS void-bivalence widens accepted return types so inline template handlers returning non-void no longer error). b24ui files: Button(onClick), Form(onSubmit), LinkBase(onClick), PageCard, PageFeature, User, vue/overrides/inertia/LinkBase — all single+Array/()=> union variants. BlogPost/ChangelogVersion absent (N/A). +b24ui extension: Badge.onCloseClick (b24ui-only clickable-close prop, same pattern/fix). 8 files +8/-8. Type-only, no snapshot churn"
+      "summary": "chore(deps): update all non-major dependencies (#6671) — §2 per-dep mirror (nuxt<->demo parity): tailwindcss ^4.3.1->^4.3.2 (root/docs/demo/nuxt/repl/vue), @tailwindcss/postcss+vite ^4.3.1->^4.3.2 (root), @tanstack/vue-virtual 3.13.30->3.13.31 (root), unplugin 3.2.0->3.3.0 (root + pnpm-workspace catalog), vue-component-type-helpers 3.3.5->3.3.6 (root), vue-tsc 3.3.5->3.3.6 (root/demo/nuxt/vue), valibot 1.4.1->1.4.2 (docs), vue-component-meta 3.3.5->3.3.6 (docs). Left untouched: root tailwindcss ^4.0.0 + valibot ^1.0.0 peers. Skipped: @iconify-json/* (no @nuxt/icon in b24ui), @regle/core+rules (b24ui pins ^1.28.0 != upstream ^1.28.1), prettier (b24ui ^3.8.4 != ^3.9.1). Lockfile regen corepack pnpm 11.9.0, lockfileVersion 9.0, +419/-155 (no major churn). No snapshot churn"
     }
   }
 }

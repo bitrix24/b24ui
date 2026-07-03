@@ -23,12 +23,12 @@
     "@tiptap/extension-text-align": "^3.26.1",
     "ai": "^6.0.214",
     "nuxt": "^4.4.8",
-    "tailwindcss": "^4.3.1",
+    "tailwindcss": "^4.3.2",
     "zod": "^4.4.3",
     "maska": "^3.2.0"
   },
   "devDependencies": {
     "typescript": "^6.0.3",
-    "vue-tsc": "^3.3.5"
+    "vue-tsc": "^3.3.6"
   }
 }
