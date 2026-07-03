@@ -41,7 +41,7 @@ export interface BadgeProps extends Omit<UseComponentIconsProps, 'loading' | 'lo
    * @defaultValue false
    */
   useClose?: boolean
-  onCloseClick?: ((event: MouseEvent) => void | Promise<void>) | Array<((event: MouseEvent) => void | Promise<void>)>
+  onCloseClick?: ((event: MouseEvent) => void) | Array<((event: MouseEvent) => void)>
   class?: any
   b24ui?: Badge['slots']
 }

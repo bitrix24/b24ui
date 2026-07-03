@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "dfbbfeb5a9ab3cbaf9582ba3393cceb1584baa5e",
+  "cursor": "269080a85dc877a2140bdc951c32ccd5626f4684",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -845,10 +845,16 @@
       "summary": "chore(github): update reproduire workflow version — NO-OP: re-pins Hebilicious/reproduire @v1 -> @4b686ae...#v0.0.9 in .github/workflows/reproduire.yml (partial revert of df099a5's un-pin). b24ui has no reproduire.yml (only ci/deploy/npm-publish workflows); same N/A basis as df099a5 (#232). Bookkeeping only"
     },
     "dfbbfeb5a9ab3cbaf9582ba3393cceb1584baa5e": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 238,
+      "b24ui_sha": "a2c59cf0",
       "decision": "skip",
       "summary": "chore(deps): migrate AI SDK to v7 (#6636) — SKIPPED/DEFERRED (maintainer call): major dep migration ai ^6->^7, @ai-sdk/anthropic ^3->^4, @ai-sdk/gateway ^3->^4, @ai-sdk/mcp ^1->^2, @ai-sdk/vue ^3->^4 + docs/playground client (new Chat()->useChat()) + server routes (system->instructions, stepCountIs->isStepCount, toUIMessageStreamResponse->toUIMessageStream+createUIMessageStreamResponse, toTextStreamResponse->createTextStreamResponse, onFinish->onEnd, model ids). Upstream touched NO src/runtime, but b24ui runtime imports ai (ChatMessages/ChatMessage/ChatPromptSubmit + utils/ai.ts) AND has a b24ui-only bx-assistant module (AssistantPanel/search.ts/useAssistant.ts) using @ai-sdk/vue+streamText with no upstream reference -> not a mechanical replay; needs a deliberate v7 adoption pass verifying runtime types + hand-migrating bx-assistant + lockfile regen + end-to-end test. Also verbatim .patch fetch egress-blocked this session. b24ui stays on ai@6. Consistent with prior deferrals #220/#194. Bookkeeping only, cursor advances; tracked for future AI-SDK-v7 task"
+    },
+    "269080a85dc877a2140bdc951c32ccd5626f4684": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "fix(Button): allow inline event handlers with non-void return types (#6668) — narrow handler types `=> void | Promise<void>` -> `=> void` on onClick/onSubmit (TS void-bivalence widens accepted return types so inline template handlers returning non-void no longer error). b24ui files: Button(onClick), Form(onSubmit), LinkBase(onClick), PageCard, PageFeature, User, vue/overrides/inertia/LinkBase — all single+Array/()=> union variants. BlogPost/ChangelogVersion absent (N/A). +b24ui extension: Badge.onCloseClick (b24ui-only clickable-close prop, same pattern/fix). 8 files +8/-8. Type-only, no snapshot churn"
     }
   }
 }
