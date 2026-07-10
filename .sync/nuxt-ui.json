@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "730a54c023c5750a696df73879dbc806981e2d85",
+  "cursor": "4c607453fe405705e715c24801939bdc7acf6ba6",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -983,10 +983,16 @@
       "summary": "test(composables): add specs for defineLocale, useKbd and useFormField (#6701) — test-only, 3 new specs. b24ui adaptations: defineLocale baseOptions +locale:'en' (b24ui requires locale field); useFormField error color assertion 'error'->'air-primary-alert' (b24ui token). useKbd verbatim. +6 test files (237), tests 5411."
     },
     "730a54c023c5750a696df73879dbc806981e2d85": {
+      "pr": 263,
+      "b24ui_sha": "82874398bfb9dc22082d8c0d440164061e64693b",
+      "decision": "port",
+      "summary": "fix(useResizable): share resize logic between mouse and touch (#6705) — dedupe onMouseMove/onTouchMove into one resize(clientX,...) helper; hoist getComputedStyle fontSize read out of per-move path via getRootFontSize() called once per drag (returns 1 when unit != rem). b24ui composable matched, applied verbatim; onTouchMove removed. No tests/snapshots. Tests 5411."
+    },
+    "4c607453fe405705e715c24801939bdc7acf6ba6": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(useResizable): share resize logic between mouse and touch (#6705) — dedupe onMouseMove/onTouchMove into one resize(clientX,...) helper; hoist getComputedStyle fontSize read out of per-move path via getRootFontSize() called once per drag (returns 1 when unit != rem). b24ui composable matched, applied verbatim; onTouchMove removed. No tests/snapshots. Tests 5411."
+      "summary": "fix(useResizable): recover from corrupted persisted storage (#6704) — persisted null (corrupted cookie/localStorage) bypassed defaults and crashed on access. writeStorage(patch) heals on write; isCollapsed/size getters use ?. + default fallback; external collapsed watch routes through isCollapsed.value. b24ui composable matched, applied verbatim. Created useResizable.spec.ts verbatim (signature/defaults match). +2 test files (239), tests 5437."
     }
   }
 }
