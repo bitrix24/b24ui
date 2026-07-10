@@ -75,6 +75,7 @@ const pages = [
   '/docs/components/pin-input/',
   '/docs/components/radio-group/',
   '/docs/components/range/',
+  '/docs/components/listbox/',
   '/docs/components/select/',
   '/docs/components/select-menu/',
   '/docs/components/switch/',

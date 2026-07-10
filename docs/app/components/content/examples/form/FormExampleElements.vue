@@ -36,6 +36,12 @@ const schema = z.object({
   checkboxGroup: z.any().refine(values => !!values?.find((option: any) => option === 'option-2'), {
     message: 'Option 2 must be included'
   }),
+  listbox: z.any().refine(option => option?.value === 'option-2', {
+    message: 'Please select Option 2'
+  }),
+  listboxMultiple: z.any().refine(values => !!values?.find((option: any) => option.value === 'option-2'), {
+    message: 'Option 2 must be included'
+  }),
   inputTags: z.array(z.string(), { message: 'Please add at least one tag' }).min(1, 'Please add at least one tag'),
   inputDate: z.any().refine(value => !!value, {
     message: 'Please select a date'
@@ -85,6 +91,8 @@ function resetState() {
   state.checkbox = undefined
   state.radioGroup = undefined
   state.checkboxGroup = undefined
+  state.listbox = undefined
+  state.listboxMultiple = undefined
   state.inputTags = undefined
   state.inputDate = undefined
   state.inputTime = undefined
@@ -166,6 +174,14 @@ function resetState() {
       </B24FormField>
 
       <div class="hidden md:block" />
+
+      <B24FormField name="listbox" label="Listbox">
+        <B24Listbox v-model="state.listbox" :items="items" class="w-full" />
+      </B24FormField>
+
+      <B24FormField name="listboxMultiple" label="Listbox (Multiple)">
+        <B24Listbox v-model="state.listboxMultiple" :items="items" multiple class="w-full" />
+      </B24FormField>
 
       <B24FormField name="file" label="FileUpload">
         <B24FileUpload

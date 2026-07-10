@@ -97,6 +97,11 @@ export default defineLocale<Messages>({
       decrement: 'Кеміту',
       increment: 'Арттыру'
     },
+    listbox: {
+      noData: 'Деректер жоқ',
+      noMatch: 'Сәйкес деректер жоқ',
+      search: 'Іздеу…'
+    },
     modal: {
       close: 'Жабу'
     },
