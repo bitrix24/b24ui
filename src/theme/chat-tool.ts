@@ -29,24 +29,25 @@ export default {
     suffix: 'text-dimmed ms-1',
     trailingIcon: 'size-4 shrink-0 group-data-[state=open]:rotate-180 transition-transform duration-200',
     content: 'motion-safe:data-[state=open]:animate-[collapsible-down_200ms_ease-out] motion-safe:data-[state=closed]:animate-[collapsible-up_200ms_ease-out] overflow-hidden',
-    body: 'text-sm text-dimmed whitespace-pre-wrap'
+    body: 'text-sm text-dimmed whitespace-pre-wrap',
+    actions: 'flex items-center justify-end gap-1.5'
   },
   variants: {
     variant: {
       inline: {
-        body: 'pt-2'
+        body: 'pt-2',
+        actions: 'pt-2'
       },
       card: {
         root: 'light:[--leftmenu-group-stroke:var(--ui-color-base-30)] rounded-md ring ring-(--leftmenu-group-stroke) overflow-hidden',
         trigger: 'px-2 py-1',
         trailingIcon: 'ms-auto',
-        body: 'border-t border-(--leftmenu-group-stroke) p-2 max-h-[200px] overflow-y-auto'
+        body: 'border-t border-(--leftmenu-group-stroke) p-2 max-h-[200px] overflow-y-auto',
+        actions: 'border-t border-(--leftmenu-group-stroke) p-2'
       }
     },
     chevron: {
-      leading: {
-        leadingIcon: 'group-hover:opacity-0'
-      },
+      leading: '',
       trailing: ''
     },
     useWait: {
@@ -62,7 +63,7 @@ export default {
     alone: {
       false: {
         leadingIcon: [
-          'absolute inset-0 group-data-[state=open]:opacity-0',
+          'absolute inset-0 group-hover:opacity-0 group-data-[state=open]:opacity-0',
           'transition-opacity duration-200'
         ].join(' '),
         chevronIcon: [

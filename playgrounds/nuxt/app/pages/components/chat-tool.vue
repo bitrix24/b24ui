@@ -1,9 +1,15 @@
 <script setup lang="ts">
+import type { ButtonProps } from '@bitrix24/b24ui-nuxt'
 import SearchIcon from '@bitrix24/b24icons-vue/outline/SearchIcon'
 import AiStarsQuestionIcon from '@bitrix24/b24icons-vue/outline/AiStarsQuestionIcon'
 import AiProcessIcon from '@bitrix24/b24icons-vue/outline/AiProcessIcon'
 import AiInternetSearchIcon from '@bitrix24/b24icons-vue/outline/AiInternetSearchIcon'
 import AiReflectionIcon from '@bitrix24/b24icons-vue/outline/AiReflectionIcon'
+
+const actions: ButtonProps[] = [
+  { label: 'Approve', onClick: () => console.log('approve') },
+  { label: 'Deny', color: 'air-secondary', onClick: () => console.log('deny') }
+]
 </script>
 
 <template>
@@ -61,6 +67,18 @@ import AiReflectionIcon from '@bitrix24/b24icons-vue/outline/AiReflectionIcon'
         class="w-full"
       >
         Found 5 matching components.
+      </B24ChatTool>
+
+      <B24ChatTool
+        text="Run terminal command"
+        suffix="pnpm run lint"
+        :icon="AiProcessIcon"
+        variant="card"
+        chevron="leading"
+        class="w-full"
+        :actions="actions"
+      >
+        <pre class="whitespace-pre-wrap">$ pnpm run lint</pre>
       </B24ChatTool>
     </div>
   </PlaygroundPage>

@@ -4,6 +4,7 @@ import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/chat-tool'
 import type { IconComponent } from '../types/icons'
+import type { ButtonProps } from './Button.vue'
 import type { ChatShimmerProps } from './ChatShimmer.vue'
 import type { ComponentConfig } from '../types/tv'
 
@@ -69,6 +70,11 @@ export interface ChatToolProps extends Pick<CollapsibleRootProps, 'defaultOpen' 
    * Customize the [`ChatShimmer`](https://bitrix24.github.io/b24ui/docs/components/chat-shimmer/) component when streaming.
    */
   shimmer?: Partial<Omit<ChatShimmerProps, 'text'>>
+  /**
+   * Display a list of actions below the trigger, useful for tool approval flows.
+   * `{ size: 'xs' }`{lang="ts-type"}
+   */
+  actions?: ButtonProps[]
   class?: any
   b24ui?: ChatTool['slots']
 }
@@ -79,16 +85,18 @@ export interface ChatToolEmits {
 
 export interface ChatToolSlots {
   default?(props: { open: boolean }): VNode[]
+  actions?(props?: {}): VNode[]
 }
 </script>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { CollapsibleRoot, CollapsibleTrigger, CollapsibleContent } from 'reka-ui'
 import { useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
+import B24Button from './Button.vue'
 import B24ChatShimmer from './ChatShimmer.vue'
 import LoaderWaitIcon from '@bitrix24/b24icons-vue/animated/LoaderWaitIcon'
 import LoaderClockIcon from '@bitrix24/b24icons-vue/animated/LoaderClockIcon'
@@ -128,6 +136,15 @@ function setOpen(value: boolean) {
 }
 
 const hasContent = computed(() => !!slots.default)
+
+// Auto-open when actions first appear (e.g. a pending tool approval) so the content
+// is visible while the user decides. Uncontrolled only, respects an explicit `defaultOpen`,
+// and fires once so the user can still collapse it.
+watch(() => !!props.actions?.length, (hasActions) => {
+  if (hasActions && hasContent.value && props.open === undefined && props.defaultOpen === undefined) {
+    internalOpen.value = true
+  }
+}, { immediate: true })
 
 const resolvedLoadingIcon = computed(() => {
   if (props.loadingIcon) return props.loadingIcon
@@ -191,5 +208,16 @@ const chevronIconName = computed(() => props.chevronIcon || icons.chevronDown)
         <slot :open="isOpen" />
       </div>
     </CollapsibleContent>
+
+    <div
+      v-if="props.actions?.length || !!slots.actions"
+      data-slot="actions"
+      :data-state="hasContent && isOpen ? 'open' : 'closed'"
+      :class="b24ui.actions({ class: props.b24ui?.actions })"
+    >
+      <slot name="actions">
+        <B24Button v-for="(action, index) in props.actions" :key="index" size="xs" v-bind="action" />
+      </slot>
+    </div>
   </CollapsibleRoot>
 </template>
