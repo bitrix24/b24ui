@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "1c1d9be442de642ff6edb69900ea0f7bae4408ac",
+  "cursor": "d7284f3a3f284fc4be3dc9f09b24a91bbf1e0d14",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -875,10 +875,16 @@
       "summary": "fix(ChatMessages): re-evaluate streaming indicator on each render (#6673) — ChatMessages.vue: showIndicator computed -> plain function + v-if=showIndicator() (computed cached first streaming render with empty assistant msg and never recomputed under @ai-sdk/vue shallowRef+triggerRef in-place mutation; per-render fn fixes stuck indicator). Direct 1:1 (b24ui matched). computed import still used elsewhere. NOT entangled with deferred ai v7 (Vue-reactivity fix, holds for v6/v7). +spec case 'hides streaming indicator once assistant produces parts' verbatim (Parent wrapper re-renders via spacingOffset tick; asserts [data-slot=indicator] appears then gone). No snapshot churn. Tests 5277 (+2)"
     },
     "1c1d9be442de642ff6edb69900ea0f7bae4408ac": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 245,
+      "b24ui_sha": "b55bd3e7",
       "decision": "port",
       "summary": "chore(deps): update all non-major dependencies (#6679) — §2 mirror (nuxt<->demo parity): pnpm 11.9.0->11.10.0, @comark/vue ^0.4.0->^0.5.0 (docs/demo/nuxt), @nuxt/content ^3.14.0->^3.15.0 (docs/demo/nuxt; root ^3.0.0 peer untouched), @nuxtjs/mdc ^0.22.0->^0.22.1 (docs). Skipped: ai+@ai-sdk/* (b24ui on deferred v6 line), @iconify-json/*+@nuxt/icon (none in b24ui), shiki (^4.2.0!=^4.3.0), nuxt-og-image (^6.6.0!=^6.7.0), @regle/* (^1.28.0!=^1.28.2). mdc.config.ts: added import type ShikiTransformer from @shikijs/types + transformerColorHighlight() as ShikiTransformer + @shikijs/types ^4.3.1 devDep (docs) — needed because lockfile resolved shiki to 4.3.1 under ^4.2.0 -> @shikijs/types 4.3.1 vs 3.23.0 TS2322. Lockfile regen corepack pnpm 11.10.0, lockfileVersion 9.0. No snapshot churn"
+    },
+    "d7284f3a3f284fc4be3dc9f09b24a91bbf1e0d14": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "no-op",
+      "summary": "docs: use shiki-transformer-icon-highlight package (#6684) — NO-OP: upstream swaps its local docs/app/utils/shiki-transformer-icon-highlight.ts for the published shiki-transformer-icon-highlight@0.1.0 (+dep, +pnpm-workspace minimumReleaseAgeExclude swap @nuxt/icon@2.2.5 -> the new pkg). b24ui docs use ONLY transformerColorHighlight, not transformerIconHighlight — no such util/import (grep => none, file absent), and no minimumReleaseAgeExclude block (the @nuxt/icon exclude came from skipped 8d46034). Nothing to swap. Bookkeeping only"
     }
   }
 }
