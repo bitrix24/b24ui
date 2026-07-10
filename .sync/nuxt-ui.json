@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "ad931219f70142bba8aa4e5f48bcfaa3765cb5aa",
+  "cursor": "276302eef23a8ea9a2b144aca80e18b6efa55111",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -887,10 +887,16 @@
       "summary": "docs: use shiki-transformer-icon-highlight package (#6684) — NO-OP: upstream swaps its local docs/app/utils/shiki-transformer-icon-highlight.ts for the published shiki-transformer-icon-highlight@0.1.0 (+dep, +pnpm-workspace minimumReleaseAgeExclude swap @nuxt/icon@2.2.5 -> the new pkg). b24ui docs use ONLY transformerColorHighlight, not transformerIconHighlight — no such util/import (grep => none, file absent), and no minimumReleaseAgeExclude block (the @nuxt/icon exclude came from skipped 8d46034). Nothing to swap. Bookkeeping only"
     },
     "ad931219f70142bba8aa4e5f48bcfaa3765cb5aa": {
+      "pr": 247,
+      "b24ui_sha": "805ca93f",
+      "decision": "port",
+      "summary": "chore(deps): update tiptap to ^3.27.1 (#6654) — bump all 25 @tiptap/* ^3.26.1->^3.27.1 across root/docs/demo/nuxt/vue + useEditorMenu.ts: +import type Plugin from @tiptap/pm/state + const plugin:Plugin=Suggestion({...}) (SuggestionPluginState not exported). Lockfile regen (tiptap 3.27.3). DEVIATION: @tiptap/y-tiptap@3.0.3 (via extension-collaboration) pins @tiptap/pm@3.26.1 -> 2nd prosemirror-view 1.41.8 -> EditorCompletionExtension.ts decorations DecorationSet vs DecorationSource TS2322 (dup types). Fix: +'@tiptap/pm': ^3.27.1 to pnpm-workspace overrides -> single @tiptap/pm/view. (blanket pnpm dedupe rejected: churned nuxt paths -> unrelated TS2883 in plugins/*). No snapshot churn"
+    },
+    "276302eef23a8ea9a2b144aca80e18b6efa55111": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "chore(deps): update tiptap to ^3.27.1 (#6654) — bump all 25 @tiptap/* ^3.26.1->^3.27.1 across root/docs/demo/nuxt/vue + useEditorMenu.ts: +import type Plugin from @tiptap/pm/state + const plugin:Plugin=Suggestion({...}) (SuggestionPluginState not exported). Lockfile regen (tiptap 3.27.3). DEVIATION: @tiptap/y-tiptap@3.0.3 (via extension-collaboration) pins @tiptap/pm@3.26.1 -> 2nd prosemirror-view 1.41.8 -> EditorCompletionExtension.ts decorations DecorationSet vs DecorationSource TS2322 (dup types). Fix: +'@tiptap/pm': ^3.27.1 to pnpm-workspace overrides -> single @tiptap/pm/view. (blanket pnpm dedupe rejected: churned nuxt paths -> unrelated TS2883 in plugins/*). No snapshot churn"
+      "summary": "fix(Link): apply rel prop to internal links (#6677) — NuxtLink strips rel from custom slot props so explicit rel on internal links was dropped. Link.vue: externalRel computed -> unified rel computed applied to every branch (noRel->null; rel!==undefined->rel||null; !isInternalLink||(target&&!=_self)->noopener noreferrer; else null); 4 rel: bindings -> rel. vue/overrides/none/Link.vue: +hasTarget computed, linkRel->rel (isExternal||hasTarget), 2 rel:linkRel->rel. vue/overrides/{inertia,vue-router}/Link.vue: +target,rel to reactiveOmit. Direct 1:1 (b24ui matched). +4 renderEach cases (internal to-object+target, internal rel, internal noRel, external rel); 8 snapshots (internal+rel now renders rel=nofollow). Tests 5285 (+8)"
     }
   }
 }
