@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "53e88a468824c0a9b5f9d2bd08a4113b6922afe7",
+  "cursor": "5c986dd4051a3b409945a25015888dd3b8d70642",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -863,10 +863,16 @@
       "summary": "chore(deps): update all non-major dependencies (#6671) — §2 per-dep mirror (nuxt<->demo parity): tailwindcss ^4.3.1->^4.3.2 (root/docs/demo/nuxt/repl/vue), @tailwindcss/postcss+vite ^4.3.1->^4.3.2 (root), @tanstack/vue-virtual 3.13.30->3.13.31 (root), unplugin 3.2.0->3.3.0 (root + pnpm-workspace catalog), vue-component-type-helpers 3.3.5->3.3.6 (root), vue-tsc 3.3.5->3.3.6 (root/demo/nuxt/vue), valibot 1.4.1->1.4.2 (docs), vue-component-meta 3.3.5->3.3.6 (docs). Left untouched: root tailwindcss ^4.0.0 + valibot ^1.0.0 peers. Skipped: @iconify-json/* (no @nuxt/icon in b24ui), @regle/core+rules (b24ui pins ^1.28.0 != upstream ^1.28.1), prettier (b24ui ^3.8.4 != ^3.9.1). Lockfile regen corepack pnpm 11.9.0, lockfileVersion 9.0, +419/-155 (no major churn). No snapshot churn"
     },
     "53e88a468824c0a9b5f9d2bd08a4113b6922afe7": {
+      "pr": 243,
+      "b24ui_sha": "7cb7f642",
+      "decision": "port",
+      "summary": "feat(Drawer): add close and closeIcon props (#6669) — Drawer.vue: +close (boolean|Omit<ButtonProps,LinkPropsKeys>) + closeIcon (IconComponent, b24ui has no Icon.vue so not IconProps['name']) props, +actions/close slots, header restructured into wrapper(title+desc)+actions(ms-auto, DrawerClose->B24Button size=md color=air-tertiary-no-accent aria-label=t('drawer.close')); imports DrawerClose/useLocale/icons(dictionary)/B24Button. Mirrors b24ui's OWN Modal pattern (not upstream neutral/ghost). theme/drawer.ts: header flex + new wrapper/actions/close slots. i18n: +drawer.close to types/locale.ts + all 20 locales (each = that locale's modal.close value; no invented translations, curated set preserved). +renderEach close/closeIcon/actions-slot/close-slot cases (mirror Modal.spec). Snapshots 8 written + 30 updated (title/desc now under data-slot=wrapper). b24ui VisuallyHidden a11y title untouched so wrapper is a11y-safe. Tests 5155 (+8)"
+    },
+    "5c986dd4051a3b409945a25015888dd3b8d70642": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "feat(Drawer): add close and closeIcon props (#6669) — Drawer.vue: +close (boolean|Omit<ButtonProps,LinkPropsKeys>) + closeIcon (IconComponent, b24ui has no Icon.vue so not IconProps['name']) props, +actions/close slots, header restructured into wrapper(title+desc)+actions(ms-auto, DrawerClose->B24Button size=md color=air-tertiary-no-accent aria-label=t('drawer.close')); imports DrawerClose/useLocale/icons(dictionary)/B24Button. Mirrors b24ui's OWN Modal pattern (not upstream neutral/ghost). theme/drawer.ts: header flex + new wrapper/actions/close slots. i18n: +drawer.close to types/locale.ts + all 20 locales (each = that locale's modal.close value; no invented translations, curated set preserved). +renderEach close/closeIcon/actions-slot/close-slot cases (mirror Modal.spec). Snapshots 8 written + 30 updated (title/desc now under data-slot=wrapper). b24ui VisuallyHidden a11y title untouched so wrapper is a11y-safe. Tests 5155 (+8)"
+      "summary": "fix(ChatMessages): re-evaluate streaming indicator on each render (#6673) — ChatMessages.vue: showIndicator computed -> plain function + v-if=showIndicator() (computed cached first streaming render with empty assistant msg and never recomputed under @ai-sdk/vue shallowRef+triggerRef in-place mutation; per-render fn fixes stuck indicator). Direct 1:1 (b24ui matched). computed import still used elsewhere. NOT entangled with deferred ai v7 (Vue-reactivity fix, holds for v6/v7). +spec case 'hides streaming indicator once assistant produces parts' verbatim (Parent wrapper re-renders via spacingOffset tick; asserts [data-slot=indicator] appears then gone). No snapshot churn. Tests 5277 (+2)"
     }
   }
 }
