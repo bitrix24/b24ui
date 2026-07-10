@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "0f2b9da04eabe99619418c15cc9f26964896aaa7",
+  "cursor": "d56e39a06c9bb8aee24ce2f294e41c4533ff086d",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1013,10 +1013,16 @@
       "summary": "docs(sidebar): render examples with gpu transform (#6291) — append transform-gpu to class of all 14 sidebar.md example blocks. b24ui had identical class; appended to each. Left pre-existing !justify-st2art typo untouched. Docs-content only, no test/snapshot impact. Tests 5477."
     },
     "0f2b9da04eabe99619418c15cc9f26964896aaa7": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 268,
+      "b24ui_sha": "2a8f9fe847bb9cce8581e0923d21fc7c7fce7b40",
       "decision": "no-op",
       "summary": "docs(page-hero): wrong mdc formatting — removes stray #default{unwrap=\"p\"} line from page-hero.md. NOT APPLICABLE: b24ui has no PageHero component and no page-hero.md docs (fork never included PageHero; ships its own Page* family). Repo-wide search for the malformed line found no matches. No-op."
+    },
+    "d56e39a06c9bb8aee24ce2f294e41c4533ff086d": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "fix(types): type prose components in app config (#6711) — TVConfig now recurses for the prose key (P extends 'prose' ? TVConfig<T[P]> : {...}) so nested prose component configs are typed. Upstream edits both halves of its intersected mapped type; b24ui has a single merged mapped type (compoundVariants inline), so the fix collapses to one edit. Type-only. Tests 5477."
     }
   }
 }
