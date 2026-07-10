@@ -105,6 +105,9 @@ export default defineLocale<Messages>({
     modal: {
       close: 'ปิด'
     },
+    drawer: {
+      close: 'ปิด'
+    },
     pricingTable: {
       caption: 'เปรียบเทียบแผนราคา'
     },

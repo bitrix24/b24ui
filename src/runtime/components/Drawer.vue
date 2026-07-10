@@ -4,6 +4,9 @@ import type { DrawerRootProps, DrawerRootEmits } from 'vaul-vue'
 import type { DialogContentProps, DialogContentEmits } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/drawer'
+import type { ButtonProps } from './Button.vue'
+import type { IconComponent } from '../types/icons'
+import type { LinkPropsKeys } from './Link.vue'
 import type { EmitsToProps } from '../types/utils'
 import type { ComponentConfig } from '../types/tv'
 
@@ -54,6 +57,18 @@ export interface DrawerProps extends Pick<DrawerRootProps, 'activeSnapPoint' | '
    * @defaultValue true
    */
   scrollbarThin?: boolean
+  /**
+   * Display a close button to dismiss the drawer.
+   * `{ size: 'md', color: 'air-tertiary-no-accent' }`{lang="ts-type"}
+   * @defaultValue false
+   */
+  close?: boolean | Omit<ButtonProps, LinkPropsKeys>
+  /**
+   * The icon displayed in the close button.
+   * @defaultValue icons.close
+   * @IconComponent
+   */
+  closeIcon?: IconComponent
   class?: any
   b24ui?: Drawer['slots']
 }
@@ -68,6 +83,8 @@ export interface DrawerSlots {
   header?(props?: {}): VNode[]
   title?(props?: {}): VNode[]
   description?(props?: {}): VNode[]
+  actions?(props?: {}): VNode[]
+  close?(props: { b24ui: Drawer['b24ui'] }): VNode[]
   body?(props?: {}): VNode[]
   footer?(props?: {}): VNode[]
 }
@@ -76,16 +93,19 @@ export interface DrawerSlots {
 <script setup lang="ts">
 import { computed, toRef } from 'vue'
 import { VisuallyHidden } from 'reka-ui'
-import { DrawerRoot, DrawerRootNested, DrawerTrigger, DrawerPortal, DrawerOverlay, DrawerContent, DrawerTitle, DrawerDescription, DrawerHandle } from 'vaul-vue'
+import { DrawerRoot, DrawerRootNested, DrawerTrigger, DrawerPortal, DrawerOverlay, DrawerContent, DrawerTitle, DrawerDescription, DrawerHandle, DrawerClose } from 'vaul-vue'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
 import { useForwardProps } from '../composables/useForwardProps'
 import { useBlurOnOpen } from '../composables/useBlurOnOpen'
+import { useLocale } from '../composables/useLocale'
 import { FieldGroupReset } from '../composables/useFieldGroup'
 import { usePortal } from '../composables/usePortal'
 import { pointerDownOutside } from '../utils/overlay'
 import { tv } from '../utils/tv'
+import icons from '../dictionary/icons'
+import B24Button from './Button.vue'
 
 const _props = withDefaults(defineProps<DrawerProps>(), {
   direction: 'bottom',
@@ -101,6 +121,8 @@ const emits = defineEmits<DrawerEmits>()
 const slots = defineSlots<DrawerSlots>()
 
 const props = useComponentProps('drawer', _props)
+
+const { t } = useLocale()
 
 const appConfig = useAppConfig() as Drawer['AppConfig']
 
@@ -167,21 +189,42 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.drawer || 
 
           <slot name="content">
             <div data-slot="container" :class="b24ui.container({ class: props.b24ui?.container })">
-              <div v-if="!!slots.header || (props.title || !!slots.title) || (props.description || !!slots.description)" data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
+              <div v-if="!!slots.header || (props.title || !!slots.title) || (props.description || !!slots.description) || (props.close || !!slots.close) || !!slots.actions" data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
                 <slot name="header">
-                  <DrawerTitle v-if="!props.title && !slots.title" />
-                  <DrawerTitle v-else data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
-                    <slot name="title">
-                      {{ props.title }}
-                    </slot>
-                  </DrawerTitle>
+                  <div v-if="props.title || !!slots.title || props.description || !!slots.description" data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
+                    <DrawerTitle v-if="!props.title && !slots.title" />
+                    <DrawerTitle v-else data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
+                      <slot name="title">
+                        {{ props.title }}
+                      </slot>
+                    </DrawerTitle>
 
-                  <DrawerDescription v-if="!props.description && !slots.description" />
-                  <DrawerDescription v-else data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
-                    <slot name="description">
-                      {{ props.description }}
-                    </slot>
-                  </DrawerDescription>
+                    <DrawerDescription v-if="!props.description && !slots.description" />
+                    <DrawerDescription v-else data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
+                      <slot name="description">
+                        {{ props.description }}
+                      </slot>
+                    </DrawerDescription>
+                  </div>
+
+                  <div v-if="!!slots.actions || props.close || !!slots.close" data-slot="actions" :class="b24ui.actions({ class: props.b24ui?.actions })">
+                    <slot name="actions" />
+
+                    <DrawerClose v-if="props.close || !!slots.close" as-child>
+                      <slot name="close" :b24ui="b24ui">
+                        <B24Button
+                          v-if="props.close"
+                          :icon="props.closeIcon || icons.close"
+                          size="md"
+                          color="air-tertiary-no-accent"
+                          :aria-label="t('drawer.close')"
+                          v-bind="(typeof props.close === 'object' ? props.close : {})"
+                          data-slot="close"
+                          :class="b24ui.close({ class: props.b24ui?.close })"
+                        />
+                      </slot>
+                    </DrawerClose>
+                  </div>
                 </slot>
               </div>
 

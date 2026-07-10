@@ -4,6 +4,7 @@ import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { renderEach } from '../component-render'
 import Drawer from '../../src/runtime/components/Drawer.vue'
 import theme from '#build/b24ui/drawer'
+import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
 
 describe('Drawer', () => {
   const directions = Object.keys(theme.variants.direction) as any
@@ -14,6 +15,8 @@ describe('Drawer', () => {
     // Props
     ['with title', { props: { ...props, title: 'Title' } }],
     ['with description', { props: { ...props, title: 'Title', description: 'Description' } }],
+    ['with close', { props: { ...props, title: 'Title', close: true } }],
+    ['with closeIcon', { props: { ...props, title: 'Title', close: true, closeIcon: Cross30Icon } }],
     ...directions.map((direction: string) => [`with direction ${direction}`, { props: { ...props, direction, title: 'Title', description: 'Description' } }]),
     ...directions.map((direction: string) => [`with direction ${direction} inset`, { props: { ...props, direction, inset: true, title: 'Title', description: 'Description' } }]),
     ['without handle', { props: { ...props, handle: false, title: 'Title', description: 'Description' } }],
@@ -26,6 +29,8 @@ describe('Drawer', () => {
     ['with header slot', { props, slots: { header: () => 'Header slot' } }],
     ['with title slot', { props, slots: { title: () => 'Title slot' } }],
     ['with description slot', { props, slots: { description: () => 'Description slot' } }],
+    ['with actions slot', { props: { ...props, title: 'Title' }, slots: { actions: () => 'Actions slot' } }],
+    ['with close slot', { props: { ...props, title: 'Title', close: true }, slots: { close: () => 'Close slot' } }],
     ['with body slot', { props, slots: { body: () => 'Body slot' } }],
     ['with footer slot', { props, slots: { footer: () => 'Footer slot' } }]
   ])

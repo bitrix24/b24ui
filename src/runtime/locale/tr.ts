@@ -105,6 +105,9 @@ export default defineLocale<Messages>({
     modal: {
       close: 'Kapat'
     },
+    drawer: {
+      close: 'Kapat'
+    },
     pricingTable: {
       caption: 'Fiyat planları karşılaştırması'
     },

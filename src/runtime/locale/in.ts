@@ -105,6 +105,9 @@ export default defineLocale<Messages>({
     modal: {
       close: 'बंद करें'
     },
+    drawer: {
+      close: 'बंद करें'
+    },
     pricingTable: {
       caption: 'मूल्य योजनाओं की तुलना'
     },

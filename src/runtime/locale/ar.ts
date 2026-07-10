@@ -106,6 +106,9 @@ export default defineLocale<Messages>({
     modal: {
       close: 'إغلاق'
     },
+    drawer: {
+      close: 'إغلاق'
+    },
     pricingTable: {
       caption: 'مقارنة خطط الأسعار'
     },

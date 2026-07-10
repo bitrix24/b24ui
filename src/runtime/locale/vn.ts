@@ -105,6 +105,9 @@ export default defineLocale<Messages>({
     modal: {
       close: 'Đóng'
     },
+    drawer: {
+      close: 'Đóng'
+    },
     pricingTable: {
       caption: 'So sánh gói giá'
     },

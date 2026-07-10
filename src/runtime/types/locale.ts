@@ -108,6 +108,9 @@ export type Messages = {
   modal: {
     close: string
   }
+  drawer: {
+    close: string
+  }
   pricingTable: {
     caption: string
   }
