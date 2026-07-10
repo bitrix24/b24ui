@@ -22,9 +22,10 @@ export interface ProsePromptProps {
    */
   iconName?: string
   /**
+   * The `copy` action is always displayed, list any additional actions to show alongside it.
    * @defaultValue ['copy']
    */
-  actions?: ('copy' | 'cursor' | 'windsurf')[]
+  actions?: ('copy' | 'cursor' | 'windsurf' | 'claude')[]
   class?: any
   b24ui?: ProsePrompt['slots']
 }
@@ -48,7 +49,7 @@ import B24Button from '../Button.vue'
 defineOptions({ inheritAttrs: false })
 
 const _props = withDefaults(defineProps<ProsePromptProps>(), {
-  actions: () => ['copy']
+  actions: () => []
 })
 defineSlots<ProsePromptSlots>()
 
@@ -63,6 +64,9 @@ const bodyRef = useTemplateRef<HTMLElement>('bodyRef')
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.prose?.prompt || {}) })())
 
+// eslint-disable-next-line vue/no-dupe-keys
+const actions = computed(() => [...new Set(['copy', ...props.actions])])
+
 const iconFromIconName = computed(() => resolveIcon(props.iconName))
 
 function getPromptText() {
@@ -74,17 +78,15 @@ function copyPrompt() {
 }
 
 function openInCursor() {
-  const url = new URL('cursor://anysphere.cursor-deeplink/prompt')
-  url.searchParams.set('text', getPromptText())
-
-  window.open(url.toString(), '_self')
+  window.open(`cursor://anysphere.cursor-deeplink/prompt?text=${encodeURIComponent(getPromptText())}`, '_self')
 }
 
 function openInWindsurf() {
-  const url = new URL('windsurf://cascade/newChat')
-  url.searchParams.set('prompt', getPromptText())
+  window.open(`windsurf://cascade/newChat?prompt=${encodeURIComponent(getPromptText())}`, '_self')
+}
 
-  window.open(url.toString(), '_self')
+function openInClaude() {
+  window.open(`claude://code/new?q=${encodeURIComponent(getPromptText())}`, '_self')
 }
 </script>
 
@@ -114,7 +116,7 @@ function openInWindsurf() {
 
     <div data-slot="actions" :class="b24ui.actions({ class: props.b24ui?.actions })">
       <B24Button
-        v-if="props.actions.includes('copy')"
+        v-if="actions.includes('copy')"
         :icon="copied ? icons.copyCheck : icons.copy"
         color="air-primary-copilot"
         size="sm"
@@ -123,7 +125,7 @@ function openInWindsurf() {
       />
 
       <B24Button
-        v-if="props.actions.includes('cursor')"
+        v-if="actions.includes('cursor')"
         :icon="icons.CursorIcon"
         color="air-secondary-accent-2"
         size="sm"
@@ -132,12 +134,21 @@ function openInWindsurf() {
       />
 
       <B24Button
-        v-if="props.actions.includes('windsurf')"
+        v-if="actions.includes('windsurf')"
         :icon="icons.WindsurfIcon"
         color="air-secondary-accent-2"
         size="sm"
         :label="t('prose.prompt.openIn', { name: 'Windsurf' })"
         @click="openInWindsurf"
+      />
+
+      <B24Button
+        v-if="actions.includes('claude')"
+        :icon="icons.ClaudeIcon"
+        color="air-secondary-accent-2"
+        size="sm"
+        :label="t('prose.prompt.openIn', { name: 'Claude' })"
+        @click="openInClaude"
       />
     </div>
   </div>

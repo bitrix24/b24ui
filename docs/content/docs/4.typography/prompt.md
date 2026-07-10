@@ -38,7 +38,7 @@ slots:
 
 ### Actions
 
-Use the `actions` prop to control which buttons are displayed. Defaults to `["copy"]`. Available actions are `copy`, `cursor` and `windsurf`.
+Use the `actions` prop to display additional buttons. The `copy` button is always displayed, available actions are `cursor`, `windsurf` and `claude`.
 
 ::component-code{slug="prompt" prose}
 ---
@@ -49,9 +49,8 @@ hide:
 props:
   description: Add a color mode toggle.
   actions:
-    - copy
     - cursor
-    - windsurf
+    - claude
   class: 'w-full my-0'
 slots:
   default: |
