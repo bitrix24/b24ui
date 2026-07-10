@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "7bdcb1381c7cb55c7fd602545b3ddc4461b19c43",
+  "cursor": "c256997f33b44324d43b212bae6b2be2de83b42c",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -935,10 +935,16 @@
       "summary": "test(ChatPrompt): avoid using fake timers before suspended (#6688) — test-only: move vi.useFakeTimers() from before mountSuspended() to after it in the 're-enables submit after compositionend cooldown' case so fake timers don't interfere with the async suspension lifecycle. Direct 1:1 (b24ui matched). No src change, no snapshot churn. Tests 5289"
     },
     "7bdcb1381c7cb55c7fd602545b3ddc4461b19c43": {
+      "pr": 255,
+      "b24ui_sha": "9267e867",
+      "decision": "port",
+      "summary": "feat(Prompt): add claude action (#6693) — prose/Prompt.vue: +claude action; copy now always shown (default actions->[], +computed actions=[...new Set(['copy',...props.actions])]); +openInClaude (claude://code/new?q=), openIn* condensed to encodeURIComponent one-liners; template v-if props.actions->actions computed + Claude B24Button. Docs prompt.md updated (copy always; example cursor+claude). Adapted (b24ui naming). DEVIATION: upstream icon=i-simple-icons-claude (iconify); b24ui has no @nuxt/icon/Claude b24icon, so added inline ClaudeIcon SVG to dictionary/icons.ts (simple-icons claude path, verbatim) mirroring existing CursorIcon/WindsurfIcon; button color air-secondary-accent-2. 14 ProsePrompt snapshots (benign: claude v-if placeholder + copy always via computed). Tests 5289"
+    },
+    "c256997f33b44324d43b212bae6b2be2de83b42c": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "feat(Prompt): add claude action (#6693) — prose/Prompt.vue: +claude action; copy now always shown (default actions->[], +computed actions=[...new Set(['copy',...props.actions])]); +openInClaude (claude://code/new?q=), openIn* condensed to encodeURIComponent one-liners; template v-if props.actions->actions computed + Claude B24Button. Docs prompt.md updated (copy always; example cursor+claude). Adapted (b24ui naming). DEVIATION: upstream icon=i-simple-icons-claude (iconify); b24ui has no @nuxt/icon/Claude b24icon, so added inline ClaudeIcon SVG to dictionary/icons.ts (simple-icons claude path, verbatim) mirroring existing CursorIcon/WindsurfIcon; button color air-secondary-accent-2. 14 ProsePrompt snapshots (benign: claude v-if placeholder + copy always via computed). Tests 5289"
+      "summary": "fix(inertia): make useRoute().fullPath reactive across navigations (#6696) — inertia useRoute stub returned fullPath: page.url (captured once, stale across navigations). Change to getter get fullPath() { return page.url }. b24ui: src/runtime/vue/stubs/inertia.ts matched, applied verbatim. Direct 1:1. Runtime stub, no snapshot churn. Tests 5289"
     }
   }
 }
