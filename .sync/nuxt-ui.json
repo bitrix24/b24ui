@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "2128414292aeec7d8fc3c724745eb6ea81d086b8",
+  "cursor": "000aba433df85a8b28dc16127a587fc18822b32f",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -959,10 +959,16 @@
       "summary": "feat(ContentToc): scroll list independently and center active link (#6697) — desktop TOC list scrolls independently (root lg:overflow-hidden + content lg:overflow-y-auto) and active link is centered via activeIndex computed + watch scrolling contentRef; useScrollShadow on content. b24ui adapted: sticky/max-h stays on docs class prop; theme root flex flex-col lg:overflow-hidden, container/top/bottom/trigger get min-h-0/shrink-0, content lg:overflow-y-auto. Deviation: no scrollbar-none in b24ui -> lg:scrollbar-thin lg:scrollbar-transparent. Not ported: [...slug].vue highlight/circuit (b24ui unsupported). 16 snapshots class-only. Tests 5309."
     },
     "2128414292aeec7d8fc3c724745eb6ea81d086b8": {
+      "pr": 259,
+      "b24ui_sha": "491d7c133a396b749a21f5fd6f84a30c0414402b",
+      "decision": "port",
+      "summary": "fix(defineShortcuts): add missing arrowdown to shiftable keys (#6702) — shiftableKeys had arrowright twice, omitted arrowdown, so shift_arrowdown never fired. b24ui composables/defineShortcuts.ts:41 had identical bug; fixed verbatim. Ported 2 tests (shift_arrowdown fires, bare arrowdown doesn't with Shift). No snapshots. Tests 5313."
+    },
+    "000aba433df85a8b28dc16127a587fc18822b32f": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(defineShortcuts): add missing arrowdown to shiftable keys (#6702) — shiftableKeys had arrowright twice, omitted arrowdown, so shift_arrowdown never fired. b24ui composables/defineShortcuts.ts:41 had identical bug; fixed verbatim. Ported 2 tests (shift_arrowdown fires, bare arrowdown doesn't with Shift). No snapshots. Tests 5313."
+      "summary": "fix(useFileUpload): keep dropzone type filter reactive to accept (#6699) — useDropZone got dataTypes.value (static snapshot); pass computed ref dataTypes instead. parseAcceptToDataTypes returns [] not undefined for unrestricted; dataTypes typed readonly string[]. b24ui composable matched, applied verbatim. Created test/composables/useFileUpload.spec.ts verbatim (composable-only). +2 test files (229), tests 5341."
     }
   }
 }
