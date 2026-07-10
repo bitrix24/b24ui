@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "000aba433df85a8b28dc16127a587fc18822b32f",
+  "cursor": "59440671dd20196ca3a7cc613dc13438251e706d",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -965,10 +965,16 @@
       "summary": "fix(defineShortcuts): add missing arrowdown to shiftable keys (#6702) — shiftableKeys had arrowright twice, omitted arrowdown, so shift_arrowdown never fired. b24ui composables/defineShortcuts.ts:41 had identical bug; fixed verbatim. Ported 2 tests (shift_arrowdown fires, bare arrowdown doesn't with Shift). No snapshots. Tests 5313."
     },
     "000aba433df85a8b28dc16127a587fc18822b32f": {
+      "pr": 260,
+      "b24ui_sha": "0651f57c0eb12ea08b786fa55b6a3305bdb2f6d0",
+      "decision": "port",
+      "summary": "fix(useFileUpload): keep dropzone type filter reactive to accept (#6699) — useDropZone got dataTypes.value (static snapshot); pass computed ref dataTypes instead. parseAcceptToDataTypes returns [] not undefined for unrestricted; dataTypes typed readonly string[]. b24ui composable matched, applied verbatim. Created test/composables/useFileUpload.spec.ts verbatim (composable-only). +2 test files (229), tests 5341."
+    },
+    "59440671dd20196ca3a7cc613dc13438251e706d": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(useFileUpload): keep dropzone type filter reactive to accept (#6699) — useDropZone got dataTypes.value (static snapshot); pass computed ref dataTypes instead. parseAcceptToDataTypes returns [] not undefined for unrestricted; dataTypes typed readonly string[]. b24ui composable matched, applied verbatim. Created test/composables/useFileUpload.spec.ts verbatim (composable-only). +2 test files (229), tests 5341."
+      "summary": "fix(useScrollspy): unobserve previous headings on update (#6700) — observerCallback batches entry changes into a Set + single write (watcher runs once per callback); updateHeadings disconnect()s observer and resets visibleHeadings before re-observing so navigations don't accumulate stale targets. b24ui composable matched, applied verbatim. Created test/composables/useScrollspy.spec.ts verbatim (mock IntersectionObserver). +2 test files (231), tests 5355."
     }
   }
 }
