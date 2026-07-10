@@ -557,10 +557,10 @@
       "summary": "chore(deps): update reka-ui to v2.9.10 (#6584) — direct 1:1 exact-version bump in root package.json (2.9.9->2.9.10); lockfile regen under gate (resolves 2.9.10). A second reka-ui@2.9.9 stays for transitive @nuxt/ui@4.7.1 (its own pin) — expected in the fork"
     },
     "ca3c72eb6606da882a6aba5c9f35a3ff0dddf820": {
-      "pr": 195,
-      "b24ui_sha": "06ea4ebd",
-      "decision": "skip",
-      "summary": "feat(Calendar): add month and year selection (#6582) — SKIPPED (maintainer call): largest single-component change (Calendar.vue +296, calendar.ts +102, docs +226, ~4800-line snapshot regen). Component logic ports mechanically but the theme does not: upstream calendar.ts is built on theme.colors loops + nuxt/ui semantic tokens, while b24ui's calendar.ts is air-design-token based with no theme.colors — the new `view` variant, daySizes/pickerSizes compounds, month/year cellTrigger styling and headingLabel slot need a deliberate air-design pass, not a 1:1 translation. No upstream-dep blocker (reka-ui 2.9.10 already exposes Month/YearPicker namespaced, #193). Tracked in issue #194"
+      "pr": 242,
+      "b24ui_sha": "9511eb6b",
+      "decision": "port",
+      "summary": "feat(Calendar): add month and year selection (#6582) — PORTED in PR #242 (resolves #194), adapted to air design. Originally recorded as SKIP in the sync stream (#195, b24ui 06ea4ebd) because the theme needed a deliberate air-design pass rather than a 1:1 translation: upstream calendar.ts is built on theme.colors loops + nuxt/ui semantic tokens, while b24ui's calendar.ts is air-design-token based with no theme.colors. The focused implementation ports the day→month→year view state machine, viewControl heading button, month/year picker grids and additive emits/slots (Calendar.vue), reworks the theme with the `view` variant + size compounds in air tokens (calendar.ts), updates docs/example (calendar.md, CalendarTodayExample.vue) and regenerates snapshots (nuxt + vue). No upstream-dep blocker (reka-ui 2.9.10 exposes Month/YearPicker namespaced, #193)"
     },
     "02259a6ae963408b2a971722b9b66d225a0505f3": {
       "pr": 196,
