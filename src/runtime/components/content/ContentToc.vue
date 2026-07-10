@@ -58,13 +58,14 @@ export interface ContentTocSlots<T extends ContentTocLink = ContentTocLink> {
 </script>
 
 <script setup lang="ts" generic="T extends ContentTocLink">
-import { computed, onUnmounted } from 'vue'
+import { computed, onUnmounted, useTemplateRef, watch, nextTick } from 'vue'
 import { CollapsibleRoot, CollapsibleTrigger, CollapsibleContent } from 'reka-ui'
 import { reactivePick, createReusableTemplate } from '@vueuse/core'
 import { useRouter, useAppConfig, useNuxtApp } from '#imports'
 import { useComponentProps } from '../../composables/useComponentProps'
 import { useForwardProps } from '../../composables/useForwardProps'
 import { useScrollspy } from '../../composables/useScrollspy'
+import { useScrollShadow } from '../../composables/useScrollShadow'
 import { useLocale } from '../../composables/useLocale'
 import { usePrefix } from '../../composables/usePrefix'
 import { tv } from '../../utils/tv'
@@ -87,6 +88,9 @@ const router = useRouter()
 const appConfig = useAppConfig() as ContentToc['AppConfig']
 const prefix = usePrefix()
 const { activeHeadings, updateHeadings } = useScrollspy()
+
+const contentRef = useTemplateRef<HTMLElement>('contentRef')
+const { style: scrollShadowStyle } = useScrollShadow(contentRef)
 
 const [DefineListTemplate, ReuseListTemplate] = createReusableTemplate<{ links: T[], level: number }>({
   props: {
@@ -118,6 +122,40 @@ function flattenLinks(links: T[]): T[] {
 // }
 
 // const linkHeight = 1.75 // rem — text-sm line-height (1.25rem) + py-1 (0.5rem)
+
+const activeIndex = computed(() => {
+  if (!activeHeadings.value?.length) {
+    return -1
+  }
+
+  return flattenLinks(props.links || []).findIndex(link => activeHeadings.value.includes(link.id))
+})
+
+// Keep the active link centered within the (desktop) list when it changes.
+// Scroll the container directly rather than `scrollIntoView` so only the list
+// moves, never the page.
+watch(activeIndex, (index) => {
+  const container = contentRef.value
+  if (index < 0 || !container) {
+    return
+  }
+
+  nextTick(() => {
+    const link = container.querySelectorAll<HTMLElement>('a[data-slot="link"]')[index]
+    if (!link) {
+      return
+    }
+
+    const containerRect = container.getBoundingClientRect()
+    const linkRect = link.getBoundingClientRect()
+    const linkOffset = (linkRect.top - containerRect.top) + container.scrollTop
+
+    container.scrollTo({
+      top: linkOffset - container.clientHeight / 2 + linkRect.height / 2,
+      behavior: 'smooth'
+    })
+  })
+})
 
 const nuxtApp = useNuxtApp()
 
@@ -209,7 +247,7 @@ onUnmounted(() => {
           <ReuseTriggerTemplate :open="open" />
         </p>
 
-        <div data-slot="content" :class="b24ui.content({ class: [props.b24ui?.content, prefix('hidden lg:flex')] })">
+        <div ref="contentRef" data-slot="content" :class="b24ui.content({ class: [props.b24ui?.content, prefix('hidden lg:flex')] })" :style="scrollShadowStyle">
           <slot name="content" :links="props.links">
             <ReuseListTemplate :links="props.links" :level="0" />
           </slot>

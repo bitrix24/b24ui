@@ -6,14 +6,14 @@
  */
 export default {
   slots: {
-    root: '',
+    root: 'flex flex-col lg:overflow-hidden',
     container: [
       'border-dashed border-b-(length:--ui-border-width-thick) border-(--ui-color-divider-vibrant-default)',
       'lg:border-0',
-      'flex flex-col'
+      'flex flex-col lg:min-h-0'
     ].join(' '),
-    top: '',
-    bottom: 'hidden lg:flex lg:flex-col gap-[24px]',
+    top: 'lg:shrink-0',
+    bottom: 'hidden lg:flex lg:flex-col lg:shrink-0 gap-[24px]',
     trigger: [
       'group',
       'pb-[12px]',
@@ -25,7 +25,8 @@ export default {
       'text-(length:--ui-font-size-lg)/(--ui-font-line-height-3xs)',
       'font-(--ui-font-weight-semi-bold)',
       'flex-1',
-      'flex items-center gap-[6px]'
+      'flex items-center gap-[6px]',
+      'lg:shrink-0'
     ].join(' '),
     title: 'line-clamp-1 lg:line-clamp-2', // truncate
     trailing: 'ms-auto inline-flex gap-[6px] items-center',
@@ -41,7 +42,8 @@ export default {
       'motion-safe:data-[state=open]:animate-[collapsible-down_200ms_ease-out]',
       'motion-safe:data-[state=closed]:animate-[collapsible-up_200ms_ease-out]',
       'overflow-hidden',
-      'focus:outline-none'
+      'focus:outline-none',
+      'lg:min-h-0 lg:overflow-y-auto lg:scrollbar-thin lg:scrollbar-transparent'
     ].join(' '),
     list: 'min-w-0',
     listWithChildren: 'ms-[12px]',

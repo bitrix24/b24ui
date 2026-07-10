@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "1a3a9dc35b6a4e7a3aea57d93532b155de51c0ec",
+  "cursor": "64b9f7dd93863370ada09dc3be31bb05a8a5a4ce",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -947,10 +947,16 @@
       "summary": "fix(inertia): make useRoute().fullPath reactive across navigations (#6696) — inertia useRoute stub returned fullPath: page.url (captured once, stale across navigations). Change to getter get fullPath() { return page.url }. b24ui: src/runtime/vue/stubs/inertia.ts matched, applied verbatim. Direct 1:1. Runtime stub, no snapshot churn. Tests 5289"
     },
     "1a3a9dc35b6a4e7a3aea57d93532b155de51c0ec": {
+      "pr": 257,
+      "b24ui_sha": "5f789029ecb613c900b1b33bc6dcac332eab8b71",
+      "decision": "port",
+      "summary": "feat(ChatTool): add actions prop for tool approval (#6699) — ChatTool gains actions?: ButtonProps[] rendering a button row below the trigger + actions slot, auto-opens once when actions appear (uncontrolled, respects defaultOpen). Theme: actions slot (inline/card), chevron.leading->'' with group-hover:opacity-0 moved into alone.false.leadingIcon. ai.ts: isToolApprovalPending() + isToolStreaming treats approval-requested as paused (pure string helpers, harmless on v6). Ported component/theme/util/docs/playgrounds/tests. DEFERRED the v7 tool-approval flow (chat.md, chat.vue, chat.post.ts, ChatToolApprovalExample.vue — toolApproval/addToolApprovalResponse). Skipped chat-message.ts body:w-full (b24ui has no naked variant). Tests 5309."
+    },
+    "64b9f7dd93863370ada09dc3be31bb05a8a5a4ce": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "feat(ChatTool): add actions prop for tool approval (#6699) — ChatTool gains actions?: ButtonProps[] rendering a button row below the trigger + actions slot, auto-opens once when actions appear (uncontrolled, respects defaultOpen). Theme: actions slot (inline/card), chevron.leading->'' with group-hover:opacity-0 moved into alone.false.leadingIcon. ai.ts: isToolApprovalPending() + isToolStreaming treats approval-requested as paused (pure string helpers, harmless on v6). Ported component/theme/util/docs/playgrounds/tests. DEFERRED the v7 tool-approval flow (chat.md, chat.vue, chat.post.ts, ChatToolApprovalExample.vue — toolApproval/addToolApprovalResponse). Skipped chat-message.ts body:w-full (b24ui has no naked variant). Tests 5309."
+      "summary": "feat(ContentToc): scroll list independently and center active link (#6697) — desktop TOC list scrolls independently (root lg:overflow-hidden + content lg:overflow-y-auto) and active link is centered via activeIndex computed + watch scrolling contentRef; useScrollShadow on content. b24ui adapted: sticky/max-h stays on docs class prop; theme root flex flex-col lg:overflow-hidden, container/top/bottom/trigger get min-h-0/shrink-0, content lg:overflow-y-auto. Deviation: no scrollbar-none in b24ui -> lg:scrollbar-thin lg:scrollbar-transparent. Not ported: [...slug].vue highlight/circuit (b24ui unsupported). 16 snapshots class-only. Tests 5309."
     }
   }
 }
