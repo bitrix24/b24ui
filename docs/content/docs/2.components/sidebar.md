@@ -30,7 +30,7 @@ collapse: true
 prettier: true
 name: 'sidebar-example'
 overflowHidden: true
-class: '!p-0 !justify-st2art h-[500px] contain-[paint]'
+class: '!p-0 !justify-st2art h-[500px] contain-[paint] transform-gpu'
 ---
 ::
 
@@ -52,7 +52,7 @@ options:
       - floating
       - inset
     default: 'inset'
-class: '!p-0 !justify-start h-[500px] contain-[paint]'
+class: '!p-0 !justify-start h-[500px] contain-[paint] transform-gpu'
 ---
 ::
 
@@ -85,7 +85,7 @@ options:
       - floating
       - inset
     default: 'sidebar'
-class: '!p-0 !justify-start h-[500px] contain-[paint]'
+class: '!p-0 !justify-start h-[500px] contain-[paint] transform-gpu'
 ---
 ::
 
@@ -110,7 +110,7 @@ options:
       - left
       - right
     default: 'right'
-class: '!p-0 !justify-start h-[500px] contain-[paint]'
+class: '!p-0 !justify-start h-[500px] contain-[paint] transform-gpu'
 ---
 ::
 
@@ -134,7 +134,7 @@ slots:
   default: |
 
     <Placeholder class="h-full" />
-class: '!p-0 !justify-start h-[500px] contain-[paint]'
+class: '!p-0 !justify-start h-[500px] contain-[paint] transform-gpu'
 ---
 
 :placeholder{class="h-full"}
@@ -162,7 +162,7 @@ slots:
   default: |
 
     <Placeholder class="h-full" />
-class: '!p-0 !justify-start h-[500px] contain-[paint]'
+class: '!p-0 !justify-start h-[500px] contain-[paint] transform-gpu'
 ---
 
 :placeholder{class="h-full"}
@@ -190,7 +190,7 @@ slots:
   default: |
 
     <Placeholder class="h-full" />
-class: '!p-0 !justify-start h-[500px] contain-[paint]'
+class: '!p-0 !justify-start h-[500px] contain-[paint] transform-gpu'
 ---
 
 :placeholder{class="h-full"}
@@ -227,7 +227,7 @@ slots:
   default: |
 
     <Placeholder class="h-full" />
-class: '!p-0 !justify-start h-[500px] contain-[paint]'
+class: '!p-0 !justify-start h-[500px] contain-[paint] transform-gpu'
 ---
 
 :placeholder{class="h-full"}
@@ -269,7 +269,7 @@ slots:
   default: |
 
     <Placeholder class="h-full" />
-class: '!p-0 !justify-start h-[500px] contain-[paint]'
+class: '!p-0 !justify-start h-[500px] contain-[paint] transform-gpu'
 ---
 
 :placeholder{class="h-full"}
@@ -316,7 +316,7 @@ collapse: true
 prettier: true
 name: 'sidebar-open-example'
 overflowHidden: true
-class: '!p-0 !justify-start h-[500px] contain-[paint]'
+class: '!p-0 !justify-start h-[500px] contain-[paint] transform-gpu'
 ---
 ::
 
@@ -334,7 +334,7 @@ collapse: true
 prettier: true
 name: 'sidebar-persist-example'
 overflowHidden: true
-class: '!p-0 !justify-start h-[500px] contain-[paint]'
+class: '!p-0 !justify-start h-[500px] contain-[paint] transform-gpu'
 ---
 ::
 
@@ -354,7 +354,7 @@ collapse: true
 prettier: true
 name: 'sidebar-width-example'
 overflowHidden: true
-class: '!p-0 !justify-start h-[500px] contain-[paint]'
+class: '!p-0 !justify-start h-[500px] contain-[paint] transform-gpu'
 ---
 ::
 
@@ -368,7 +368,7 @@ collapse: true
 prettier: true
 name: 'sidebar-header-example'
 overflowHidden: true
-class: '!p-0 !justify-start h-[500px] contain-[paint]'
+class: '!p-0 !justify-start h-[500px] contain-[paint] transform-gpu'
 ---
 ::
 
@@ -386,7 +386,7 @@ collapse: true
 prettier: true
 name: 'sidebar-chat-example'
 overflowHidden: true
-class: '!p-0 !justify-start h-[500px] contain-[paint]'
+class: '!p-0 !justify-start h-[500px] contain-[paint] transform-gpu'
 ---
 ::
 
