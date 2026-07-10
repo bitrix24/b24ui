@@ -97,6 +97,11 @@ export default defineLocale<Messages>({
       decrement: '减少',
       increment: '增加'
     },
+    listbox: {
+      noData: '无数据',
+      noMatch: '无匹配数据',
+      search: '搜索…'
+    },
     modal: {
       close: '关闭'
     },

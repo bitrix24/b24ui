@@ -97,6 +97,11 @@ export default defineLocale<Messages>({
       decrement: 'घटाएँ',
       increment: 'बढ़ाएँ'
     },
+    listbox: {
+      noData: 'कोई डेटा नहीं',
+      noMatch: 'कोई मिलान डेटा नहीं',
+      search: 'खोजें…'
+    },
     modal: {
       close: 'बंद करें'
     },
