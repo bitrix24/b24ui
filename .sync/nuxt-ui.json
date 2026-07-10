@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "59440671dd20196ca3a7cc613dc13438251e706d",
+  "cursor": "c257686a254906f7ffd333ed5da29c112924f7dd",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -971,10 +971,16 @@
       "summary": "fix(useFileUpload): keep dropzone type filter reactive to accept (#6699) — useDropZone got dataTypes.value (static snapshot); pass computed ref dataTypes instead. parseAcceptToDataTypes returns [] not undefined for unrestricted; dataTypes typed readonly string[]. b24ui composable matched, applied verbatim. Created test/composables/useFileUpload.spec.ts verbatim (composable-only). +2 test files (229), tests 5341."
     },
     "59440671dd20196ca3a7cc613dc13438251e706d": {
+      "pr": 261,
+      "b24ui_sha": "652b37237103cb1eab9024851e2ef50462eb1e89",
+      "decision": "port",
+      "summary": "fix(useScrollspy): unobserve previous headings on update (#6700) — observerCallback batches entry changes into a Set + single write (watcher runs once per callback); updateHeadings disconnect()s observer and resets visibleHeadings before re-observing so navigations don't accumulate stale targets. b24ui composable matched, applied verbatim. Created test/composables/useScrollspy.spec.ts verbatim (mock IntersectionObserver). +2 test files (231), tests 5355."
+    },
+    "c257686a254906f7ffd333ed5da29c112924f7dd": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(useScrollspy): unobserve previous headings on update (#6700) — observerCallback batches entry changes into a Set + single write (watcher runs once per callback); updateHeadings disconnect()s observer and resets visibleHeadings before re-observing so navigations don't accumulate stale targets. b24ui composable matched, applied verbatim. Created test/composables/useScrollspy.spec.ts verbatim (mock IntersectionObserver). +2 test files (231), tests 5355."
+      "summary": "test(composables): add specs for defineLocale, useKbd and useFormField (#6701) — test-only, 3 new specs. b24ui adaptations: defineLocale baseOptions +locale:'en' (b24ui requires locale field); useFormField error color assertion 'error'->'air-primary-alert' (b24ui token). useKbd verbatim. +6 test files (237), tests 5411."
     }
   }
 }
