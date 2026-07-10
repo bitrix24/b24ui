@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "a71dece0fdc332c06f0de4b7f4e8d1fa00559cb8",
+  "cursor": "c3b2996f181d68b2382db6aef8c429a5f0fc3d88",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -911,10 +911,16 @@
       "summary": "fix(components): forward data-slot to component root (#6643) — SKIPPED/DEFERRED (maintainer call): broad convention across ~40 components (root data-slot=root -> :data-slot=($attrs['data-slot'] ?? 'root'); $attrs-forwarders strip data-slot; 3 strategies by attr-inheritance) + .github/contributing/component-structure.md + NEW test/components/DataSlot.spec.ts mounting ALL components (probe appears once on outermost) + ~165 snapshots. Too large/risky for b24ui: 122 components/128 root data-slots each needing the right strategy (not find/replace); the enforcing test requires 100% incl. fork-only comps (Advice/Countdown/DescriptionList/TableWrapper/ModalDialogClose/Sidebar*/Navbar*) with no upstream ref; verbatim .patch egress-blocked (WebFetch imprecise for ~40-file structural diff). Doesn't block later independent commits. Deferred like #dfbbfeb; tracked for a dedicated data-slot-convention pass. Bookkeeping only, cursor advances"
     },
     "a71dece0fdc332c06f0de4b7f4e8d1fa00559cb8": {
+      "pr": 251,
+      "b24ui_sha": "89627c24",
+      "decision": "port",
+      "summary": "fix(SelectMenu/InputMenu): only re-highlight first item with create-item (#6689) — the watch(()=>props.items) re-highlight also fired on infinite-scroll appends, scrolling viewport to top. Guard `if (!isOpen.value)` -> `if (!isOpen.value || !props.createItem)` + 2-line comment, in both InputMenu.vue & SelectMenu.vue. Direct 1:1 (b24ui matched). 2 files +6/-2. Runtime watch guard, no snapshot churn, no upstream test. Tests 5289 (unchanged)"
+    },
+    "c3b2996f181d68b2382db6aef8c429a5f0fc3d88": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(SelectMenu/InputMenu): only re-highlight first item with create-item (#6689) — the watch(()=>props.items) re-highlight also fired on infinite-scroll appends, scrolling viewport to top. Guard `if (!isOpen.value)` -> `if (!isOpen.value || !props.createItem)` + 2-line comment, in both InputMenu.vue & SelectMenu.vue. Direct 1:1 (b24ui matched). 2 files +6/-2. Runtime watch guard, no snapshot churn, no upstream test. Tests 5289 (unchanged)"
+      "summary": "fix(FileUpload): add aria-disabled attribute when disabled (#6653) — non-button variant renders role=button div (no native disabled), so disabled dropzone wasn't announced. +:aria-disabled=\"variant==='button' ? undefined : (disabled || undefined)\" on base after :disabled. Direct 1:1 (b24ui matched). 4 snapshots updated (disabled non-button cases now carry aria-disabled=true on data-slot=base). Tests 5289"
     }
   }
 }
