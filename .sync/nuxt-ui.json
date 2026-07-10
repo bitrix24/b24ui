@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "c9c5232238f483f51b1be30128fa1c548a7b0329",
+  "cursor": "a71dece0fdc332c06f0de4b7f4e8d1fa00559cb8",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -905,10 +905,16 @@
       "summary": "fix(useComponentProps): let app config defaultVariants override withDefaults (#6686) — reorder proxy priority: appConfig.b24ui.<name>.defaultVariants[prop] lookup moved ABOVE the withDefaults/raw block (early-return if defined), tail -> return undefined; jsdoc chain -> explicit>B24Theme>appConfig defaultVariants>withDefaults. Makes defaultVariants work for withDefaults-pinned props (e.g. orientation). Direct 1:1 (b24ui matched, appConfig.b24ui). +spec 'app.config defaultVariants' block (B24FormField, appConfig.b24ui.formField, orientation horizontal overrides withDefaults vertical -> data-orientation=horizontal + place-items-baseline; explicit prop still wins). Behaviour-preserving w/o appConfig set, no snapshot churn. Tests 5289 (+4)"
     },
     "c9c5232238f483f51b1be30128fa1c548a7b0329": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 250,
+      "b24ui_sha": "2ea7a3b5",
       "decision": "skip",
       "summary": "fix(components): forward data-slot to component root (#6643) — SKIPPED/DEFERRED (maintainer call): broad convention across ~40 components (root data-slot=root -> :data-slot=($attrs['data-slot'] ?? 'root'); $attrs-forwarders strip data-slot; 3 strategies by attr-inheritance) + .github/contributing/component-structure.md + NEW test/components/DataSlot.spec.ts mounting ALL components (probe appears once on outermost) + ~165 snapshots. Too large/risky for b24ui: 122 components/128 root data-slots each needing the right strategy (not find/replace); the enforcing test requires 100% incl. fork-only comps (Advice/Countdown/DescriptionList/TableWrapper/ModalDialogClose/Sidebar*/Navbar*) with no upstream ref; verbatim .patch egress-blocked (WebFetch imprecise for ~40-file structural diff). Doesn't block later independent commits. Deferred like #dfbbfeb; tracked for a dedicated data-slot-convention pass. Bookkeeping only, cursor advances"
+    },
+    "a71dece0fdc332c06f0de4b7f4e8d1fa00559cb8": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "fix(SelectMenu/InputMenu): only re-highlight first item with create-item (#6689) — the watch(()=>props.items) re-highlight also fired on infinite-scroll appends, scrolling viewport to top. Guard `if (!isOpen.value)` -> `if (!isOpen.value || !props.createItem)` + 2-line comment, in both InputMenu.vue & SelectMenu.vue. Direct 1:1 (b24ui matched). 2 files +6/-2. Runtime watch guard, no snapshot churn, no upstream test. Tests 5289 (unchanged)"
     }
   }
 }
