@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "d0581cf88fa13008871484e5f88fdb0f9f744ff7",
+  "cursor": "7bdcb1381c7cb55c7fd602545b3ddc4461b19c43",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -929,10 +929,16 @@
       "summary": "feat(unplugin): pre-bundle used icons into the Vue/Vite build (#6635) — NO-OP: Vue/Vite sibling of 8d46034 (@nuxt/icon client bundle). New IconsPlugin (src/plugins/icons.ts) emitting virtual:nuxt-ui-icons + runtime/vue/plugins/icons.ts (@iconify/vue addIcon) + types/icons.d.ts + utils/icons.ts; unplugin.ts +icon.clientBundle option (from @nuxt/icon ModuleOptions) + registers IconsPlugin; plugins.ts unshifts icons plugin. All @nuxt/icon+@iconify+@iconify-json. b24ui uses @bitrix24/b24icons-vue components: no @nuxt/icon/@iconify deps, none of the icon files, and b24ui's unplugin.ts has no @nuxt/icon import/icon option/IconsPlugin and plugins.ts registers no icon plugin. Nothing to wire. Same basis as #69/#219/#8d46034. Bookkeeping only"
     },
     "d0581cf88fa13008871484e5f88fdb0f9f744ff7": {
+      "pr": 254,
+      "b24ui_sha": "eb0990c5",
+      "decision": "port",
+      "summary": "test(ChatPrompt): avoid using fake timers before suspended (#6688) — test-only: move vi.useFakeTimers() from before mountSuspended() to after it in the 're-enables submit after compositionend cooldown' case so fake timers don't interfere with the async suspension lifecycle. Direct 1:1 (b24ui matched). No src change, no snapshot churn. Tests 5289"
+    },
+    "7bdcb1381c7cb55c7fd602545b3ddc4461b19c43": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "test(ChatPrompt): avoid using fake timers before suspended (#6688) — test-only: move vi.useFakeTimers() from before mountSuspended() to after it in the 're-enables submit after compositionend cooldown' case so fake timers don't interfere with the async suspension lifecycle. Direct 1:1 (b24ui matched). No src change, no snapshot churn. Tests 5289"
+      "summary": "feat(Prompt): add claude action (#6693) — prose/Prompt.vue: +claude action; copy now always shown (default actions->[], +computed actions=[...new Set(['copy',...props.actions])]); +openInClaude (claude://code/new?q=), openIn* condensed to encodeURIComponent one-liners; template v-if props.actions->actions computed + Claude B24Button. Docs prompt.md updated (copy always; example cursor+claude). Adapted (b24ui naming). DEVIATION: upstream icon=i-simple-icons-claude (iconify); b24ui has no @nuxt/icon/Claude b24icon, so added inline ClaudeIcon SVG to dictionary/icons.ts (simple-icons claude path, verbatim) mirroring existing CursorIcon/WindsurfIcon; button color air-secondary-accent-2. 14 ProsePrompt snapshots (benign: claude v-if placeholder + copy always via computed). Tests 5289"
     }
   }
 }
