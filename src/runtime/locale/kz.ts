@@ -105,6 +105,9 @@ export default defineLocale<Messages>({
     modal: {
       close: 'Жабу'
     },
+    drawer: {
+      close: 'Жабу'
+    },
     pricingTable: {
       caption: 'Баға жоспарларын салыстыру'
     },

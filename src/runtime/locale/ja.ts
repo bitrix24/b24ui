@@ -105,6 +105,9 @@ export default defineLocale<Messages>({
     modal: {
       close: '閉じる'
     },
+    drawer: {
+      close: '閉じる'
+    },
     pricingTable: {
       caption: '料金プランの比較'
     },

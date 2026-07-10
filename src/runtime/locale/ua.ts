@@ -105,6 +105,9 @@ export default defineLocale<Messages>({
     modal: {
       close: 'Закрити'
     },
+    drawer: {
+      close: 'Закрити'
+    },
     pricingTable: {
       caption: 'Порівняння тарифних планів'
     },

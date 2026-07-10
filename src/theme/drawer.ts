@@ -16,7 +16,8 @@ export default {
     ].join(' '),
     handle: 'shrink-0 !bg-(--ui-color-divider-default) transition-opacity',
     container: 'w-full flex flex-col gap-4 p-4 overflow-y-auto',
-    header: '',
+    header: 'flex items-center gap-1.5 min-h-8',
+    wrapper: 'min-w-0 flex-1',
     title: [
       'font-[family-name:var(--ui-font-family-primary)]',
       'text-label',
@@ -29,8 +30,10 @@ export default {
       'text-description',
       'text-(length:--ui-font-size-sm)'
     ].join(' '),
+    actions: 'flex items-center gap-1.5 shrink-0 ms-auto',
     body: 'flex-1',
-    footer: 'flex flex-col gap-1.5'
+    footer: 'flex flex-col gap-1.5',
+    close: ''
   },
   variants: {
     overlayBlur: {
