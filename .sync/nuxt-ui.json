@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "a037b71f830d624041ed70a0226a4b97f2a6a57e",
+  "cursor": "0f2b9da04eabe99619418c15cc9f26964896aaa7",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1007,10 +1007,16 @@
       "summary": "fix(defineShortcuts): defer standalone shortcuts that prefix a chain (#5654) — a standalone that is the first key of a chain (f and f-h) is held back (pendingShortcut + pendingTimer via useTimeoutFn) until the chain completes (cancel), delay elapses (run), or a non-completing key arrives (run then new key); re-resolved before firing to honor state changes. Cached chainedShortcuts/standardShortcuts/chainPrefixes computeds. b24ui composable matched, applied verbatim. Deviation: rewrote toHaveBeenCalledBefore (no jest-extended in b24ui) as mock.invocationCallOrder compare. +5 tests. Tests 5477."
     },
     "a037b71f830d624041ed70a0226a4b97f2a6a57e": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 267,
+      "b24ui_sha": "ca02e0f0079ef8714b47552f55465d017984e5f9",
       "decision": "port",
       "summary": "docs(sidebar): render examples with gpu transform (#6291) — append transform-gpu to class of all 14 sidebar.md example blocks. b24ui had identical class; appended to each. Left pre-existing !justify-st2art typo untouched. Docs-content only, no test/snapshot impact. Tests 5477."
+    },
+    "0f2b9da04eabe99619418c15cc9f26964896aaa7": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "no-op",
+      "summary": "docs(page-hero): wrong mdc formatting — removes stray #default{unwrap=\"p\"} line from page-hero.md. NOT APPLICABLE: b24ui has no PageHero component and no page-hero.md docs (fork never included PageHero; ships its own Page* family). Repo-wide search for the malformed line found no matches. No-op."
     }
   }
 }
