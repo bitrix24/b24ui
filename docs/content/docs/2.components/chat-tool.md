@@ -261,6 +261,38 @@ slots:
 ---
 ::
 
+### Actions
+
+Use the `actions` prop to display a list of [Button](/docs/components/button/) below the trigger, useful for tools that require a user confirmation before running.
+
+::component-code
+---
+prettier: true
+hide:
+  - class
+ignore:
+  - text
+  - icon
+  - variant
+  - actions
+cast:
+  icon: 'RocketIcon'
+props:
+  actions:
+    - label: 'Approve'
+    - label: 'Deny'
+      color: air-secondary
+  text: 'Run terminal command'
+  variant: card
+  icon: 'RocketIcon'
+  class: 'w-60'
+slots:
+  default: |
+
+    $ pnpm run lint
+---
+::
+
 ## Examples
 
 ::tip{to="/docs/components/chat/"}
