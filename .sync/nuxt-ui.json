@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "76d613c590ed8f0ac7884aa3c3ca2cd5027da6e2",
+  "cursor": "123184b5c72fd3f7d4b6c032a6dd4b52a5046e6e",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1031,10 +1031,16 @@
       "summary": "fix(Editor): prevent suggestion menu blinking on keystroke (#6712) — tiptap suggestion plugin emits a loading pass (placeholder items) before resolved items; onStart/onUpdate acted on it, opening empty and tearing down/recreating the menu each keystroke. onStart: move filteredItems below a `if (suggestionProps.loading) return` guard; onUpdate: hoist commandFn to top then loading guard before re-filtering. b24ui handlers matched, applied 1:1. Type-only tiptap loading field typechecks. Tests 5477."
     },
     "76d613c590ed8f0ac7884aa3c3ca2cd5027da6e2": {
+      "pr": 271,
+      "b24ui_sha": "3ef8d015d8e59157c3705524a3f93f5718372128",
+      "decision": "port",
+      "summary": "feat(Editor): allow disabling starter kit for plain text (#6713) — starterKit prop now boolean | Partial<StarterKitOptions> (default true); false gives plain-text editor (plainText override disables all formatting, keeps essential nodes), Code/HorizontalRule gated behind props.starterKit !== false. b24ui Editor.vue matched, applied verbatim; kept b24ui dropcursor token var(--ui-color-accent-main-primary). Docs: added ::tip in editor.md. Default true reproduces prior config -> no snapshot churn. Tests 5477."
+    },
+    "123184b5c72fd3f7d4b6c032a6dd4b52a5046e6e": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "feat(Editor): allow disabling starter kit for plain text (#6713) — starterKit prop now boolean | Partial<StarterKitOptions> (default true); false gives plain-text editor (plainText override disables all formatting, keeps essential nodes), Code/HorizontalRule gated behind props.starterKit !== false. b24ui Editor.vue matched, applied verbatim; kept b24ui dropcursor token var(--ui-color-accent-main-primary). Docs: added ::tip in editor.md. Default true reproduces prior config -> no snapshot churn. Tests 5477."
+      "summary": "feat(ChatPrompt): add body slot and focus highlight (#6709) — PARTIAL. Ported the body slot (replaces internal textarea; exposes submit/close/placeholder/disabled/b24ui; submit/blur event-optional via e ?? new Event) adapted to b24ui (B24Textarea, b24ui prop). +3 body-slot tests + render case; 2 snapshots written, no existing churn. DEFERRED the color prop + focus-highlight theme: b24ui chat-prompt.ts is a static theme with air variant set (outline/tinted/filled/plain, --ui-color-design-* tokens), no color variant / options.theme.colors, so the color variant + function conversion + focusHighlight compoundVariants are entangled with an absent color system. Tests 5485."
     }
   }
 }

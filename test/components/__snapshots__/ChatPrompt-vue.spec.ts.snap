@@ -24,6 +24,12 @@ exports[`ChatPrompt > renders with b24ui correctly 1`] = `
 </form>"
 `;
 
+exports[`ChatPrompt > renders with body slot correctly 1`] = `
+"<form data-slot="root" class="relative flex flex-col items-stretch gap-[2px] ps-[12px] pe-2 py-2 w-full rounded-lg bg-(--ui-color-design-outline-bg) ring-(--ui-color-design-outline-stroke) ring-1 text-(--ui-color-design-outline-content)">
+  <!--v-if-->Body slot<div data-slot="footer" class="flex items-center justify-end gap-2"></div>
+</form>"
+`;
+
 exports[`ChatPrompt > renders with class correctly 1`] = `
 "<form data-slot="root" class="relative flex flex-col items-stretch gap-[2px] w-full rounded-lg bg-(--ui-color-design-outline-bg) ring-(--ui-color-design-outline-stroke) ring-1 text-(--ui-color-design-outline-content) p-5">
   <!--v-if-->

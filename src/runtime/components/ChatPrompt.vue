@@ -43,6 +43,10 @@ export interface ChatPromptSlots extends Omit<TextareaSlots, 'default'> {
   // @memo: this is our modification.
   default?(props: { b24ui: ChatPrompt['slots'] }): VNode[]
   footer?(props?: {}): VNode[]
+  /**
+   * Replace the internal textarea, e.g. to render an [Editor](/docs/components/editor/) with mentions.
+   */
+  body?(props: { submit: (event?: Event) => void, close: (event?: Event) => void, placeholder: string, disabled: boolean, b24ui: any }): VNode[]
 }
 </script>
 
@@ -80,7 +84,7 @@ const appConfig = useAppConfig() as ChatPrompt['AppConfig']
 
 const textareaProps = useForwardProps(reactivePick(props, 'rows', 'autofocus', 'autofocusDelay', 'autoresize', 'autoresizeDelay', 'maxrows', 'icon', 'avatar', 'loading'))
 
-const getProxySlots = () => omit(slots, ['header', 'footer', 'default'])
+const getProxySlots = () => omit(slots, ['header', 'footer', 'default', 'body'])
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.chatPrompt || {}) })({
@@ -89,18 +93,18 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.chatPrompt
 
 const textareaRef = useTemplateRef('textareaRef')
 
-function submit(e: Event) {
+function submit(e?: Event) {
   if (model.value.trim() === '') {
     return
   }
 
-  emits('submit', e)
+  emits('submit', e ?? new Event('submit'))
 }
 
-function blur(e: Event) {
+function blur(e?: Event) {
   textareaRef.value?.textareaRef?.blur()
 
-  emits('close', e)
+  emits('close', e ?? new Event('close'))
 }
 
 const { onKeydown: onEnter, onCompositionEnd } = useIMEGuard((event) => {
@@ -138,24 +142,33 @@ defineExpose({
       <slot name="header" />
     </div>
 
-    <B24Textarea
-      ref="textareaRef"
-      v-model="model"
+    <slot
+      name="body"
+      :submit="submit"
+      :close="blur"
       :placeholder="props.placeholder || t('chatPrompt.placeholder')"
       :disabled="Boolean(props.error) || props.disabled"
-      no-border
-      fixed
-      v-bind="{ ...textareaProps, ...$attrs }"
-      :b24ui="transformUI(omit(b24ui, ['root', 'body', 'header', 'footer']), props.b24ui)"
-      data-slot="body"
-      :class="b24ui.body({ class: props.b24ui?.body })"
-      @keydown="onKeydown"
-      @compositionend="onCompositionEnd"
+      :b24ui="b24ui"
     >
-      <template v-for="(_, name) in getProxySlots()" #[name]="slotData">
-        <slot :name="name" v-bind="slotData" />
-      </template>
-    </B24Textarea>
+      <B24Textarea
+        ref="textareaRef"
+        v-model="model"
+        :placeholder="props.placeholder || t('chatPrompt.placeholder')"
+        :disabled="Boolean(props.error) || props.disabled"
+        no-border
+        fixed
+        v-bind="{ ...textareaProps, ...$attrs }"
+        :b24ui="transformUI(omit(b24ui, ['root', 'body', 'header', 'footer']), props.b24ui)"
+        data-slot="body"
+        :class="b24ui.body({ class: props.b24ui?.body })"
+        @keydown="onKeydown"
+        @compositionend="onCompositionEnd"
+      >
+        <template v-for="(_, name) in getProxySlots()" #[name]="slotData">
+          <slot :name="name" v-bind="slotData" />
+        </template>
+      </B24Textarea>
+    </slot>
 
     <div data-slot="footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
       <slot name="footer" />
