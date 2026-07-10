@@ -1,4 +1,7 @@
-import { describe, expectTypeOf, test } from 'vitest'
+import { describe, expectTypeOf, it, expect, test, beforeAll, afterAll } from 'vitest'
+import { mountSuspended } from '@nuxt/test-utils/runtime'
+import { useAppConfig } from '#imports'
+import { B24FormField } from '#components'
 import type * as b24ui from '#build/b24ui'
 import type { ThemeDefaults } from '../../src/runtime/types/theme'
 
@@ -36,5 +39,42 @@ describe('ThemeDefaults registry', () => {
 
   test('ThemeDefaults declares no entries beyond the `#build/b24ui` registry', () => {
     expectTypeOf<ExtraInThemeDefaults>().toBeNever()
+  })
+})
+
+// `app.config.b24ui.<name>.defaultVariants` must override a prop the component
+// pins in `withDefaults` (here `orientation`). Regression test for upstream #6683.
+describe('app.config defaultVariants', () => {
+  let appConfig: { b24ui?: Record<string, any> }
+
+  beforeAll(() => {
+    appConfig = useAppConfig() as { b24ui?: Record<string, any> }
+    appConfig.b24ui ??= {}
+    appConfig.b24ui.formField = { defaultVariants: { orientation: 'horizontal' } }
+  })
+
+  afterAll(() => {
+    delete appConfig.b24ui!.formField
+  })
+
+  it('overrides the withDefaults fallback', async () => {
+    const wrapper = await mountSuspended(B24FormField, {
+      props: { label: 'Label' }
+    })
+
+    const root = wrapper.find('[data-slot="root"]')
+    // Drives both the `data-orientation` attribute and the tv class resolution,
+    // even though `orientation` isn't set in the theme's `defaultVariants`.
+    expect(root.attributes('data-orientation')).toBe('horizontal')
+    expect(root.classes()).toContain('place-items-baseline')
+  })
+
+  it('still lets an explicit prop win', async () => {
+    const wrapper = await mountSuspended(B24FormField, {
+      props: { label: 'Label', orientation: 'vertical' }
+    })
+
+    const root = wrapper.find('[data-slot="root"]')
+    expect(root.attributes('data-orientation')).toBe('vertical')
   })
 })
