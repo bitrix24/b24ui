@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "64b9f7dd93863370ada09dc3be31bb05a8a5a4ce",
+  "cursor": "2128414292aeec7d8fc3c724745eb6ea81d086b8",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -953,10 +953,16 @@
       "summary": "feat(ChatTool): add actions prop for tool approval (#6699) — ChatTool gains actions?: ButtonProps[] rendering a button row below the trigger + actions slot, auto-opens once when actions appear (uncontrolled, respects defaultOpen). Theme: actions slot (inline/card), chevron.leading->'' with group-hover:opacity-0 moved into alone.false.leadingIcon. ai.ts: isToolApprovalPending() + isToolStreaming treats approval-requested as paused (pure string helpers, harmless on v6). Ported component/theme/util/docs/playgrounds/tests. DEFERRED the v7 tool-approval flow (chat.md, chat.vue, chat.post.ts, ChatToolApprovalExample.vue — toolApproval/addToolApprovalResponse). Skipped chat-message.ts body:w-full (b24ui has no naked variant). Tests 5309."
     },
     "64b9f7dd93863370ada09dc3be31bb05a8a5a4ce": {
+      "pr": 258,
+      "b24ui_sha": "c723febd34aa17651f0e984f95e3fc15b4866a8c",
+      "decision": "port",
+      "summary": "feat(ContentToc): scroll list independently and center active link (#6697) — desktop TOC list scrolls independently (root lg:overflow-hidden + content lg:overflow-y-auto) and active link is centered via activeIndex computed + watch scrolling contentRef; useScrollShadow on content. b24ui adapted: sticky/max-h stays on docs class prop; theme root flex flex-col lg:overflow-hidden, container/top/bottom/trigger get min-h-0/shrink-0, content lg:overflow-y-auto. Deviation: no scrollbar-none in b24ui -> lg:scrollbar-thin lg:scrollbar-transparent. Not ported: [...slug].vue highlight/circuit (b24ui unsupported). 16 snapshots class-only. Tests 5309."
+    },
+    "2128414292aeec7d8fc3c724745eb6ea81d086b8": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "feat(ContentToc): scroll list independently and center active link (#6697) — desktop TOC list scrolls independently (root lg:overflow-hidden + content lg:overflow-y-auto) and active link is centered via activeIndex computed + watch scrolling contentRef; useScrollShadow on content. b24ui adapted: sticky/max-h stays on docs class prop; theme root flex flex-col lg:overflow-hidden, container/top/bottom/trigger get min-h-0/shrink-0, content lg:overflow-y-auto. Deviation: no scrollbar-none in b24ui -> lg:scrollbar-thin lg:scrollbar-transparent. Not ported: [...slug].vue highlight/circuit (b24ui unsupported). 16 snapshots class-only. Tests 5309."
+      "summary": "fix(defineShortcuts): add missing arrowdown to shiftable keys (#6702) — shiftableKeys had arrowright twice, omitted arrowdown, so shift_arrowdown never fired. b24ui composables/defineShortcuts.ts:41 had identical bug; fixed verbatim. Ported 2 tests (shift_arrowdown fires, bare arrowdown doesn't with Shift). No snapshots. Tests 5313."
     }
   }
 }
