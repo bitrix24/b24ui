@@ -17,7 +17,8 @@ import {
   B24Range,
   B24PinInput,
   B24CheckboxGroup,
-  B24FileUpload
+  B24FileUpload,
+  B24Listbox
 } from '#components'
 
 export async function renderForm(options: {
@@ -63,7 +64,8 @@ export async function renderForm(options: {
           B24Range,
           B24PinInput,
           B24CheckboxGroup,
-          B24FileUpload
+          B24FileUpload,
+          B24Listbox
         },
         template: options.slotTemplate
       }

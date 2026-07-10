@@ -98,7 +98,7 @@ export interface ThemeDefaults {
   inputTags?: Partial<ComponentTypes.InputTagsProps>
   inputTime?: Partial<ComponentTypes.InputTimeProps>
   kbd?: Partial<ComponentTypes.KbdProps>
-  // listbox?: Partial<ComponentTypes.ListboxProps>
+  listbox?: Partial<ComponentTypes.ListboxProps>
   main?: Partial<ComponentTypes.MainProps>
   // marquee?: Partial<ComponentTypes.MarqueeProps>
   modal?: Partial<ComponentTypes.ModalProps>

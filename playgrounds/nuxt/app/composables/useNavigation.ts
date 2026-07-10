@@ -57,6 +57,7 @@ const components = [
   'input',
   'kbd',
   'link',
+  'listbox',
   'locale',
   // 'marquee',
   'modal',

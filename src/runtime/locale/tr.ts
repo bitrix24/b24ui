@@ -97,6 +97,11 @@ export default defineLocale<Messages>({
       decrement: 'Azalt',
       increment: 'Artır'
     },
+    listbox: {
+      noData: 'Veri yok',
+      noMatch: 'Eşleşen veri yok',
+      search: 'Ara…'
+    },
     modal: {
       close: 'Kapat'
     },
