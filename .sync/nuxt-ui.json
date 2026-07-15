@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "86cd25c5cadacfbbe63d04195a4fb05fec9702d9",
+  "cursor": "f41d11e2e330213385a807fccece1c3a3d3bb936",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1049,10 +1049,16 @@
       "summary": "chore(deps): update tiptap to ^3.27.3 (#6719) — §2 manifest bump. Bumped all b24ui @tiptap/* pins ^3.27.1 -> ^3.27.3 (root 17-pkg set, docs/playgrounds extension-emoji + extension-text-align, pnpm-workspace @tiptap/pm override). Regenerated pnpm-lock.yaml (pnpm 11.10.0); net -425 lines from collapsing duplicate tiptap/prosemirror trees (prosemirror-view@1.41.8/model@1.25.8) into one resolution. Dep-only, typecheck confirms no dup-prosemirror-view regression. Tests 5485."
     },
     "86cd25c5cadacfbbe63d04195a4fb05fec9702d9": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 275,
+      "b24ui_sha": "80ab3e4aac78b55dfd6e4b4130d57701eecfeaff",
       "decision": "port",
       "summary": "feat(Empty): add loading and loadingIcon props (#6707) — loading?: boolean + loadingIcon?: IconComponent; iconName swaps to icons.loading (LoaderWaitIcon) when loading; aria-busy on root; theme loading.true.icon animate-spin (b24ui structure indicator>icon). Adapted to b24ui IconComponent + Component:is. Docs: Loading/Loading Icon sections (LoaderClockIcon cast). Playgrounds nuxt+demo: Loading toggle. NOT ported: tests — b24ui has no Empty.spec.ts (only orphaned obsolete snapshots), no target. Default behavior unchanged, no snapshot churn. Tests 5485."
+    },
+    "f41d11e2e330213385a807fccece1c3a3d3bb936": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "no-op",
+      "summary": "fix(Carousel): prevent reset when plugin props use inline objects — watcher no longer calls emblaApi.reInit, relies on useEmblaCarousel arePluginsEqual guard so inline-object plugin props don't reset carousel. NOT APPLICABLE: b24ui has no Carousel component (no src or docs carousel files). No-op."
     }
   }
 }
