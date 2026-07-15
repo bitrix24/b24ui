@@ -393,6 +393,10 @@ props:
 ---
 ::
 
+::note
+When using `label` items as group headings, pass an array of arrays so a label gets filtered out together with its group when searching.
+::
+
 ### With icon in items
 
 You can use the `icon` property to display an [Icon](https://bitrix24.github.io/b24icons/icons/) inside the items.
