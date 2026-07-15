@@ -19,6 +19,14 @@ export interface EmptyProps {
    * @IconComponent
    */
   icon?: IconComponent
+  /** When `true`, the loading icon will be displayed. */
+  loading?: boolean
+  /**
+   * The icon when the `loading` prop is `true`.
+   * @defaultValue icons.loading
+   * @IconComponent
+   */
+  loadingIcon?: IconComponent
   title?: string
   description?: string
   /**
@@ -60,6 +68,7 @@ import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
 import { tv } from '../utils/tv'
+import icons from '../dictionary/icons'
 import B24Button from './Button.vue'
 
 const _props = withDefaults(defineProps<EmptyProps>(), {
@@ -71,22 +80,25 @@ const props = useComponentProps('empty', _props)
 
 const appConfig = useAppConfig() as Empty['AppConfig']
 
+const iconName = computed(() => props.loading ? (props.loadingIcon || icons.loading) : props.icon)
+
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.empty || {}) })({
   color: props.color,
   inverted: Boolean(props.inverted),
-  size: props.size
+  size: props.size,
+  loading: props.loading
 }))
 </script>
 
 <template>
-  <Primitive :as="props.as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <div v-if="!!slots.header || (props.icon || !!slots.leading) || (props.title || !!slots.title) || (props.description || !!slots.description)" data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
+  <Primitive :as="props.as" :aria-busy="props.loading ? 'true' : undefined" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+    <div v-if="!!slots.header || (iconName || !!slots.leading) || (props.title || !!slots.title) || (props.description || !!slots.description)" data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
       <slot name="header">
         <slot name="leading" :b24ui="b24ui">
-          <div v-if="props.icon" data-slot="indicator" :class="b24ui.indicator({ class: props.b24ui?.indicator })">
+          <div v-if="iconName" data-slot="indicator" :class="b24ui.indicator({ class: props.b24ui?.indicator })">
             <Component
-              :is="props.icon"
+              :is="iconName"
               data-slot="icon"
               :class="b24ui.icon({ class: props.b24ui?.icon })"
             />

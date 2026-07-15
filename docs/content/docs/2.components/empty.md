@@ -66,6 +66,45 @@ props:
 ---
 ::
 
+### Loading
+
+Use the `loading` prop to show a loading icon in place of the icon. The layout stays identical, so you can toggle between loading and empty states without layout shifts.
+
+::component-code
+---
+prettier: true
+ignore:
+  - title
+  - description
+props:
+  loading: true
+  title: Loading projects
+  description: Please wait while we fetch your projects.
+---
+::
+
+### Loading Icon
+
+Use the `loading-icon` prop to customize the loading icon. Defaults to `icons.loading`.
+
+::component-code
+---
+prettier: true
+ignore:
+  - title
+  - description
+  - loading
+  - loadingIcon
+cast:
+  loadingIcon: 'LoaderClockIcon'
+props:
+  loading: true
+  loadingIcon: 'LoaderClockIcon'
+  title: Loading projects
+  description: Please wait while we fetch your projects.
+---
+::
+
 ### Actions
 
 Use the `actions` prop to add some [Button](/docs/components/button/) actions to the empty state.

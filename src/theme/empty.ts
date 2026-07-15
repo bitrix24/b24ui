@@ -76,6 +76,11 @@ export default {
     inverted: {
       true: '',
       false: ''
+    },
+    loading: {
+      true: {
+        icon: 'animate-spin'
+      }
     }
   },
   compoundVariants: [
