@@ -14,7 +14,7 @@ linkWorkspacePackages: true
 overrides:
   '@nuxt/kit': ^4.4.8
   '@bitrix24/b24ui-nuxt': workspace:*
-  '@tiptap/pm': ^3.27.1
+  '@tiptap/pm': ^3.27.3
   nitropack: ^2.13.0
   unplugin: ^3.3.0
   c12: ^3.3.4
