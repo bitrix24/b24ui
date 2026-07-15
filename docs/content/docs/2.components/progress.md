@@ -92,6 +92,10 @@ props:
 ---
 ::
 
+::tip
+The animation is automatically disabled when the user prefers reduced motion, the indeterminate bar is displayed as a full width pulse instead.
+::
+
 ### Animation
 
 Use the `animation` prop to change the animation of the Progress to an inverse carousel, a swinging bar or an elastic bar. Defaults to `loading`.

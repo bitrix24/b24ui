@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "17196ecc3057a18d540f8b9a77f857fbbe8969c0",
+  "cursor": "f95152949ac6762aa61610482892bd6551a21593",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1067,10 +1067,16 @@
       "summary": "fix(BlogPost/ChangelogVersion): format date in UTC to prevent hydration mismatch — adds timeZone: 'UTC' to date formatter in BlogPost.vue + ChangelogVersion.vue. NOT APPLICABLE: b24ui has neither component (no blog/changelog files in src or docs). No-op."
     },
     "17196ecc3057a18d540f8b9a77f857fbbe8969c0": {
+      "pr": 278,
+      "b24ui_sha": "97e7e3def23c253127aee55fb1ea58095a0923b5",
+      "decision": "port",
+      "summary": "docs(select-menu/input-menu): use grouped items in items type example — restructure flat items into array-of-arrays (one sub-array per label group) in input-menu.md/select-menu.md + add ::note to all three (input-menu/listbox/select-menu). b24ui: grouped Fruits/Vegetables, preserved fork intra-Fruits separator inside sub-array; listbox already grouped so note-only. Docs-content only. Tests 5485."
+    },
+    "f95152949ac6762aa61610482892bd6551a21593": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "docs(select-menu/input-menu): use grouped items in items type example — restructure flat items into array-of-arrays (one sub-array per label group) in input-menu.md/select-menu.md + add ::note to all three (input-menu/listbox/select-menu). b24ui: grouped Fruits/Vegetables, preserved fork intra-Fruits separator inside sub-array; listbox already grouped so note-only. Docs-content only. Tests 5485."
+      "summary": "fix(components): respect prefers-reduced-motion in animations — wrap animate-* utilities in motion-safe: and add motion-reduce: fallbacks across ChatShimmer/ChatMessages/Progress/Table themes. b24ui: chat-messages.ts (3 bounce indicators → motion-safe:), chat-shimmer.ts (shimmer + rtl-shimmer → motion-safe:, base gets motion-reduce:bg-none motion-reduce:text-muted), progress.ts (10 indicator animations incl. fork-extra progressbar-loading/-vertical → motion-safe:, base indicator gets motion-reduce:data-[state=indeterminate]:animate-pulse), table.ts (5 loading thead animations incl. fork-extra progressbar-loading → motion-safe:, base loading thead gets motion-reduce:after:inset-x-0 motion-reduce:after:animate-pulse). Marquee N/A (b24ui has no Marquee). Docs +tip in chat-shimmer/progress/table. 118 snapshots regenerated across 14 spec files (also ChatTool/ChatReasoning embed ChatShimmer, Toast embeds Progress). Tests 5485."
     }
   }
 }
