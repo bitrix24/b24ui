@@ -27,7 +27,7 @@ type CastDateValue = [number, number, number]
 type CastTimeValue = [number, number, number]
 type CastTimeRangeValue = { start: CastTimeValue, end: CastTimeValue }
 
-const iconsTypeList = ['icon', 'trailingIcon', 'deleteIcon', 'selectedIcon', 'incrementIcon', 'decrementIcon', 'checkedIcon', 'uncheckedIcon', 'separatorIcon', 'closeIcon', 'backIcon', 'prevIcon', 'nextIcon']
+const iconsTypeList = ['icon', 'loadingIcon', 'trailingIcon', 'deleteIcon', 'selectedIcon', 'incrementIcon', 'decrementIcon', 'checkedIcon', 'uncheckedIcon', 'separatorIcon', 'closeIcon', 'backIcon', 'prevIcon', 'nextIcon']
 const convertIcon = (key: string): null | string => {
   if (!iconsTypeList.includes(key)) {
     return null
@@ -35,6 +35,8 @@ const convertIcon = (key: string): null | string => {
 
   if (key === 'icon') {
     return `:icon="RocketIcon"`
+  } else if (key === 'loadingIcon') {
+    return `:loading-icon="RocketIcon"`
   } else if (key === 'trailingIcon') {
     return `:trailing-icon="RocketIcon"`
   } else if (key === 'deleteIcon') {
