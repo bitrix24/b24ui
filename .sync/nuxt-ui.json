@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "f95152949ac6762aa61610482892bd6551a21593",
+  "cursor": "2cc2849f9fadfcc2a70933b4a278c8b058e91cd3",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1073,10 +1073,16 @@
       "summary": "docs(select-menu/input-menu): use grouped items in items type example — restructure flat items into array-of-arrays (one sub-array per label group) in input-menu.md/select-menu.md + add ::note to all three (input-menu/listbox/select-menu). b24ui: grouped Fruits/Vegetables, preserved fork intra-Fruits separator inside sub-array; listbox already grouped so note-only. Docs-content only. Tests 5485."
     },
     "f95152949ac6762aa61610482892bd6551a21593": {
+      "pr": 279,
+      "b24ui_sha": "ab25ae695eee376606874f6ea35878b0bca0628c",
+      "decision": "port",
+      "summary": "fix(components): respect prefers-reduced-motion in animations — wrap animate-* utilities in motion-safe: and add motion-reduce: fallbacks across ChatShimmer/ChatMessages/Progress/Table themes. b24ui: chat-messages.ts (3 bounce indicators → motion-safe:), chat-shimmer.ts (shimmer + rtl-shimmer → motion-safe:, base gets motion-reduce:bg-none motion-reduce:text-muted), progress.ts (10 indicator animations incl. fork-extra progressbar-loading/-vertical → motion-safe:, base indicator gets motion-reduce:data-[state=indeterminate]:animate-pulse), table.ts (5 loading thead animations incl. fork-extra progressbar-loading → motion-safe:, base loading thead gets motion-reduce:after:inset-x-0 motion-reduce:after:animate-pulse). Marquee N/A (b24ui has no Marquee). Docs +tip in chat-shimmer/progress/table. 118 snapshots regenerated across 14 spec files (also ChatTool/ChatReasoning embed ChatShimmer, Toast embeds Progress). Tests 5485."
+    },
+    "2cc2849f9fadfcc2a70933b4a278c8b058e91cd3": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(components): respect prefers-reduced-motion in animations — wrap animate-* utilities in motion-safe: and add motion-reduce: fallbacks across ChatShimmer/ChatMessages/Progress/Table themes. b24ui: chat-messages.ts (3 bounce indicators → motion-safe:), chat-shimmer.ts (shimmer + rtl-shimmer → motion-safe:, base gets motion-reduce:bg-none motion-reduce:text-muted), progress.ts (10 indicator animations incl. fork-extra progressbar-loading/-vertical → motion-safe:, base indicator gets motion-reduce:data-[state=indeterminate]:animate-pulse), table.ts (5 loading thead animations incl. fork-extra progressbar-loading → motion-safe:, base loading thead gets motion-reduce:after:inset-x-0 motion-reduce:after:animate-pulse). Marquee N/A (b24ui has no Marquee). Docs +tip in chat-shimmer/progress/table. 118 snapshots regenerated across 14 spec files (also ChatTool/ChatReasoning embed ChatShimmer, Toast embeds Progress). Tests 5485."
+      "summary": "perf(module): declare sideEffects for barrel tree-shaking — add sideEffects: [\"**/*.css\"] to package.json after main, enabling consumer bundlers to tree-shake unused JS barrel exports while preserving CSS side effects. b24ui had no sideEffects field; **/*.css glob covers dist/runtime/index.css + .nuxt/b24ui.static.css. No dep/lockfile change. Manifest metadata only. Tests 5485."
     }
   }
 }
