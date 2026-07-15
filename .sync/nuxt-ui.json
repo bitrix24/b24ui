@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "fe5bb2388b32fd13a4fe677b1d82328312ca501b",
+  "cursor": "17196ecc3057a18d540f8b9a77f857fbbe8969c0",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1061,10 +1061,16 @@
       "summary": "fix(Carousel): prevent reset when plugin props use inline objects — watcher no longer calls emblaApi.reInit, relies on useEmblaCarousel arePluginsEqual guard so inline-object plugin props don't reset carousel. NOT APPLICABLE: b24ui has no Carousel component (no src or docs carousel files). No-op."
     },
     "fe5bb2388b32fd13a4fe677b1d82328312ca501b": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 277,
+      "b24ui_sha": "50a8be9ce18938689227c08688bc6ae5eb8abb7f",
       "decision": "no-op",
       "summary": "fix(BlogPost/ChangelogVersion): format date in UTC to prevent hydration mismatch — adds timeZone: 'UTC' to date formatter in BlogPost.vue + ChangelogVersion.vue. NOT APPLICABLE: b24ui has neither component (no blog/changelog files in src or docs). No-op."
+    },
+    "17196ecc3057a18d540f8b9a77f857fbbe8969c0": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "docs(select-menu/input-menu): use grouped items in items type example — restructure flat items into array-of-arrays (one sub-array per label group) in input-menu.md/select-menu.md + add ::note to all three (input-menu/listbox/select-menu). b24ui: grouped Fruits/Vegetables, preserved fork intra-Fruits separator inside sub-array; listbox already grouped so note-only. Docs-content only. Tests 5485."
     }
   }
 }

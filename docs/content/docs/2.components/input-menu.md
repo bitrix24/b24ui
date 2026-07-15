@@ -791,22 +791,26 @@ externalTypes:
 props:
   modelValue: 'Apple'
   items:
-    - type: 'label'
-      label: 'Fruits'
-    - Apple
-    - Banana
-    - type: 'separator'
-    - Blueberry
-    - Grapes
-    - Pineapple
-    - type: 'label'
-      label: 'Vegetables'
-    - Aubergine
-    - Broccoli
-    - Carrot
-    - Courgette
-    - Leek
+    - - type: 'label'
+        label: 'Fruits'
+      - Apple
+      - Banana
+      - type: 'separator'
+      - Blueberry
+      - Grapes
+      - Pineapple
+    - - type: 'label'
+        label: 'Vegetables'
+      - Aubergine
+      - Broccoli
+      - Carrot
+      - Courgette
+      - Leek
 ---
+::
+
+::note
+When using `label` items as group headings, pass an array of arrays so a label gets filtered out together with its group when searching.
 ::
 
 ### With colors items
