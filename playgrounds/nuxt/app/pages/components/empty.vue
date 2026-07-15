@@ -19,6 +19,7 @@ const attrs = reactive({
 })
 
 const inverted = ref(false)
+const loading = ref(false)
 </script>
 
 <template>
@@ -41,14 +42,16 @@ const inverted = ref(false)
         size="xs"
       />
       <B24Switch v-model="inverted" label="Inverted" size="xs" />
+      <B24Switch v-model="loading" label="Loading" size="xs" />
     </template>
 
     <Matrix v-slot="props" :attrs="attrs" :b24ui="{ root: 'max-w-120' }">
       <B24Empty
         :icon="ProductIcon"
-        title="No projects found"
-        description="It looks like you haven't added any projects. Create one to get started."
-        :actions="[
+        :loading="loading"
+        :title="loading ? 'Loading projects' : 'No projects found'"
+        :description="loading ? 'Please wait while we fetch your projects.' : 'It looks like you haven\'t added any projects. Create one to get started.'"
+        :actions="loading ? undefined : [
           {
             label: 'Create new',
             icon: AddProductIcon,
