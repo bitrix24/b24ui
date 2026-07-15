@@ -96,10 +96,10 @@ ignore:
   - loading
   - loadingIcon
 cast:
-  loadingIcon: 'LoaderClockIcon'
+  loadingIcon: 'RocketIcon'
 props:
   loading: true
-  loadingIcon: 'LoaderClockIcon'
+  loadingIcon: 'RocketIcon'
   title: Loading projects
   description: Please wait while we fetch your projects.
 ---
