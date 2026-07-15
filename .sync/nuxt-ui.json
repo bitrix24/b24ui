@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "f41d11e2e330213385a807fccece1c3a3d3bb936",
+  "cursor": "fe5bb2388b32fd13a4fe677b1d82328312ca501b",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1055,10 +1055,16 @@
       "summary": "feat(Empty): add loading and loadingIcon props (#6707) — loading?: boolean + loadingIcon?: IconComponent; iconName swaps to icons.loading (LoaderWaitIcon) when loading; aria-busy on root; theme loading.true.icon animate-spin (b24ui structure indicator>icon). Adapted to b24ui IconComponent + Component:is. Docs: Loading/Loading Icon sections (LoaderClockIcon cast). Playgrounds nuxt+demo: Loading toggle. NOT ported: tests — b24ui has no Empty.spec.ts (only orphaned obsolete snapshots), no target. Default behavior unchanged, no snapshot churn. Tests 5485."
     },
     "f41d11e2e330213385a807fccece1c3a3d3bb936": {
+      "pr": 276,
+      "b24ui_sha": "202b114defac5ab1a2f73978fe1be30eaf670e59",
+      "decision": "no-op",
+      "summary": "fix(Carousel): prevent reset when plugin props use inline objects — watcher no longer calls emblaApi.reInit, relies on useEmblaCarousel arePluginsEqual guard so inline-object plugin props don't reset carousel. NOT APPLICABLE: b24ui has no Carousel component (no src or docs carousel files). No-op."
+    },
+    "fe5bb2388b32fd13a4fe677b1d82328312ca501b": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "no-op",
-      "summary": "fix(Carousel): prevent reset when plugin props use inline objects — watcher no longer calls emblaApi.reInit, relies on useEmblaCarousel arePluginsEqual guard so inline-object plugin props don't reset carousel. NOT APPLICABLE: b24ui has no Carousel component (no src or docs carousel files). No-op."
+      "summary": "fix(BlogPost/ChangelogVersion): format date in UTC to prevent hydration mismatch — adds timeZone: 'UTC' to date formatter in BlogPost.vue + ChangelogVersion.vue. NOT APPLICABLE: b24ui has neither component (no blog/changelog files in src or docs). No-op."
     }
   }
 }
