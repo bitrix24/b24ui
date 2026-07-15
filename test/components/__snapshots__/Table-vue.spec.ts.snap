@@ -926,7 +926,7 @@ exports[`Table > renders with loading animation carousel correctly 1`] = `
 "<div data-slot="root" class="relative overflow-auto style-filled">
   <table data-slot="base" class="min-w-full font-[family-name:var(--ui-font-family-primary)] table-fixed border-separate border-spacing-0">
     <!--v-if-->
-    <thead data-slot="thead" class="relative [&amp;>tr]:[&amp;>th]:h-[45px] after:absolute after:z-1 after:h-px after:bg-(--b24ui-background) after:animate-[carousel_2s_ease-in-out_infinite] rtl:after:animate-[carousel-rtl_2s_ease-in-out_infinite]">
+    <thead data-slot="thead" class="relative [&amp;>tr]:[&amp;>th]:h-[45px] after:absolute after:z-1 after:h-px after:bg-(--b24ui-background) motion-reduce:after:inset-x-0 motion-reduce:after:animate-pulse motion-safe:after:animate-[carousel_2s_ease-in-out_infinite] motion-safe:rtl:after:animate-[carousel-rtl_2s_ease-in-out_infinite]">
       <tr data-slot="tr" class="data-[selected=true]:bg-(--ui-color-bg-content-tertiary) light:data-[selected=true]:bg-[#f4fcde]">
         <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-label whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Id</th>
         <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-label whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Amount</th>
@@ -981,7 +981,7 @@ exports[`Table > renders with loading animation carousel-inverse correctly 1`] =
 "<div data-slot="root" class="relative overflow-auto style-filled">
   <table data-slot="base" class="min-w-full font-[family-name:var(--ui-font-family-primary)] table-fixed border-separate border-spacing-0">
     <!--v-if-->
-    <thead data-slot="thead" class="relative [&amp;>tr]:[&amp;>th]:h-[45px] after:absolute after:z-1 after:h-px after:bg-(--b24ui-background) after:animate-[carousel-inverse_2s_ease-in-out_infinite] rtl:after:animate-[carousel-inverse-rtl_2s_ease-in-out_infinite]">
+    <thead data-slot="thead" class="relative [&amp;>tr]:[&amp;>th]:h-[45px] after:absolute after:z-1 after:h-px after:bg-(--b24ui-background) motion-reduce:after:inset-x-0 motion-reduce:after:animate-pulse motion-safe:after:animate-[carousel-inverse_2s_ease-in-out_infinite] motion-safe:rtl:after:animate-[carousel-inverse-rtl_2s_ease-in-out_infinite]">
       <tr data-slot="tr" class="data-[selected=true]:bg-(--ui-color-bg-content-tertiary) light:data-[selected=true]:bg-[#f4fcde]">
         <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-label whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Id</th>
         <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-label whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Amount</th>
@@ -1036,7 +1036,7 @@ exports[`Table > renders with loading animation elastic correctly 1`] = `
 "<div data-slot="root" class="relative overflow-auto style-filled">
   <table data-slot="base" class="min-w-full font-[family-name:var(--ui-font-family-primary)] table-fixed border-separate border-spacing-0">
     <!--v-if-->
-    <thead data-slot="thead" class="relative [&amp;>tr]:[&amp;>th]:h-[45px] after:absolute after:z-1 after:h-px after:bg-(--b24ui-background) after:animate-[elastic_2s_ease-in-out_infinite]">
+    <thead data-slot="thead" class="relative [&amp;>tr]:[&amp;>th]:h-[45px] after:absolute after:z-1 after:h-px after:bg-(--b24ui-background) motion-reduce:after:inset-x-0 motion-reduce:after:animate-pulse motion-safe:after:animate-[elastic_2s_ease-in-out_infinite]">
       <tr data-slot="tr" class="data-[selected=true]:bg-(--ui-color-bg-content-tertiary) light:data-[selected=true]:bg-[#f4fcde]">
         <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-label whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Id</th>
         <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-label whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Amount</th>
@@ -1091,7 +1091,7 @@ exports[`Table > renders with loading animation loading correctly 1`] = `
 "<div data-slot="root" class="relative overflow-auto style-filled">
   <table data-slot="base" class="min-w-full font-[family-name:var(--ui-font-family-primary)] table-fixed border-separate border-spacing-0">
     <!--v-if-->
-    <thead data-slot="thead" class="relative [&amp;>tr]:[&amp;>th]:h-[45px] after:absolute after:z-1 after:h-px after:bg-(--b24ui-background) after:animate-[progressbar-loading_2s_infinite]">
+    <thead data-slot="thead" class="relative [&amp;>tr]:[&amp;>th]:h-[45px] after:absolute after:z-1 after:h-px after:bg-(--b24ui-background) motion-reduce:after:inset-x-0 motion-reduce:after:animate-pulse motion-safe:after:animate-[progressbar-loading_2s_infinite]">
       <tr data-slot="tr" class="data-[selected=true]:bg-(--ui-color-bg-content-tertiary) light:data-[selected=true]:bg-[#f4fcde]">
         <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-label whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Id</th>
         <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-label whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Amount</th>
@@ -1146,7 +1146,7 @@ exports[`Table > renders with loading animation swing correctly 1`] = `
 "<div data-slot="root" class="relative overflow-auto style-filled">
   <table data-slot="base" class="min-w-full font-[family-name:var(--ui-font-family-primary)] table-fixed border-separate border-spacing-0">
     <!--v-if-->
-    <thead data-slot="thead" class="relative [&amp;>tr]:[&amp;>th]:h-[45px] after:absolute after:z-1 after:h-px after:bg-(--b24ui-background) after:animate-[swing_2s_ease-in-out_infinite]">
+    <thead data-slot="thead" class="relative [&amp;>tr]:[&amp;>th]:h-[45px] after:absolute after:z-1 after:h-px after:bg-(--b24ui-background) motion-reduce:after:inset-x-0 motion-reduce:after:animate-pulse motion-safe:after:animate-[swing_2s_ease-in-out_infinite]">
       <tr data-slot="tr" class="data-[selected=true]:bg-(--ui-color-bg-content-tertiary) light:data-[selected=true]:bg-[#f4fcde]">
         <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-label whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Id</th>
         <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-label whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Amount</th>
@@ -1201,7 +1201,7 @@ exports[`Table > renders with loading color air-primary correctly 1`] = `
 "<div data-slot="root" class="relative overflow-auto style-filled">
   <table data-slot="base" class="min-w-full font-[family-name:var(--ui-font-family-primary)] table-fixed border-separate border-spacing-0">
     <!--v-if-->
-    <thead data-slot="thead" class="relative [&amp;>tr]:[&amp;>th]:h-[45px] after:absolute after:z-1 after:h-px after:bg-(--b24ui-background) after:animate-[progressbar-loading_2s_infinite]">
+    <thead data-slot="thead" class="relative [&amp;>tr]:[&amp;>th]:h-[45px] after:absolute after:z-1 after:h-px after:bg-(--b24ui-background) motion-reduce:after:inset-x-0 motion-reduce:after:animate-pulse motion-safe:after:animate-[progressbar-loading_2s_infinite]">
       <tr data-slot="tr" class="data-[selected=true]:bg-(--ui-color-bg-content-tertiary) light:data-[selected=true]:bg-[#f4fcde]">
         <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-label whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Id</th>
         <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-label whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Amount</th>
@@ -1256,7 +1256,7 @@ exports[`Table > renders with loading color air-primary-alert correctly 1`] = `
 "<div data-slot="root" class="relative overflow-auto style-filled-alert">
   <table data-slot="base" class="min-w-full font-[family-name:var(--ui-font-family-primary)] table-fixed border-separate border-spacing-0">
     <!--v-if-->
-    <thead data-slot="thead" class="relative [&amp;>tr]:[&amp;>th]:h-[45px] after:absolute after:z-1 after:h-px after:bg-(--b24ui-background) after:animate-[progressbar-loading_2s_infinite]">
+    <thead data-slot="thead" class="relative [&amp;>tr]:[&amp;>th]:h-[45px] after:absolute after:z-1 after:h-px after:bg-(--b24ui-background) motion-reduce:after:inset-x-0 motion-reduce:after:animate-pulse motion-safe:after:animate-[progressbar-loading_2s_infinite]">
       <tr data-slot="tr" class="data-[selected=true]:bg-(--ui-color-bg-content-tertiary) light:data-[selected=true]:bg-[#f4fcde]">
         <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-label whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Id</th>
         <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-label whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Amount</th>
@@ -1311,7 +1311,7 @@ exports[`Table > renders with loading color air-primary-copilot correctly 1`] = 
 "<div data-slot="root" class="relative overflow-auto style-filled-copilot">
   <table data-slot="base" class="min-w-full font-[family-name:var(--ui-font-family-primary)] table-fixed border-separate border-spacing-0">
     <!--v-if-->
-    <thead data-slot="thead" class="relative [&amp;>tr]:[&amp;>th]:h-[45px] after:absolute after:z-1 after:h-px after:bg-(--b24ui-background) after:animate-[progressbar-loading_2s_infinite]">
+    <thead data-slot="thead" class="relative [&amp;>tr]:[&amp;>th]:h-[45px] after:absolute after:z-1 after:h-px after:bg-(--b24ui-background) motion-reduce:after:inset-x-0 motion-reduce:after:animate-pulse motion-safe:after:animate-[progressbar-loading_2s_infinite]">
       <tr data-slot="tr" class="data-[selected=true]:bg-(--ui-color-bg-content-tertiary) light:data-[selected=true]:bg-[#f4fcde]">
         <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-label whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Id</th>
         <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-label whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Amount</th>
@@ -1366,7 +1366,7 @@ exports[`Table > renders with loading color air-primary-success correctly 1`] = 
 "<div data-slot="root" class="relative overflow-auto style-filled-success">
   <table data-slot="base" class="min-w-full font-[family-name:var(--ui-font-family-primary)] table-fixed border-separate border-spacing-0">
     <!--v-if-->
-    <thead data-slot="thead" class="relative [&amp;>tr]:[&amp;>th]:h-[45px] after:absolute after:z-1 after:h-px after:bg-(--b24ui-background) after:animate-[progressbar-loading_2s_infinite]">
+    <thead data-slot="thead" class="relative [&amp;>tr]:[&amp;>th]:h-[45px] after:absolute after:z-1 after:h-px after:bg-(--b24ui-background) motion-reduce:after:inset-x-0 motion-reduce:after:animate-pulse motion-safe:after:animate-[progressbar-loading_2s_infinite]">
       <tr data-slot="tr" class="data-[selected=true]:bg-(--ui-color-bg-content-tertiary) light:data-[selected=true]:bg-[#f4fcde]">
         <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-label whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Id</th>
         <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-label whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Amount</th>
@@ -1421,7 +1421,7 @@ exports[`Table > renders with loading color air-primary-warning correctly 1`] = 
 "<div data-slot="root" class="relative overflow-auto style-filled-warning">
   <table data-slot="base" class="min-w-full font-[family-name:var(--ui-font-family-primary)] table-fixed border-separate border-spacing-0">
     <!--v-if-->
-    <thead data-slot="thead" class="relative [&amp;>tr]:[&amp;>th]:h-[45px] after:absolute after:z-1 after:h-px after:bg-(--b24ui-background) after:animate-[progressbar-loading_2s_infinite]">
+    <thead data-slot="thead" class="relative [&amp;>tr]:[&amp;>th]:h-[45px] after:absolute after:z-1 after:h-px after:bg-(--b24ui-background) motion-reduce:after:inset-x-0 motion-reduce:after:animate-pulse motion-safe:after:animate-[progressbar-loading_2s_infinite]">
       <tr data-slot="tr" class="data-[selected=true]:bg-(--ui-color-bg-content-tertiary) light:data-[selected=true]:bg-[#f4fcde]">
         <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-label whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Id</th>
         <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-label whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Amount</th>
@@ -1476,7 +1476,7 @@ exports[`Table > renders with loading correctly 1`] = `
 "<div data-slot="root" class="relative overflow-auto style-filled">
   <table data-slot="base" class="min-w-full font-[family-name:var(--ui-font-family-primary)] table-fixed border-separate border-spacing-0">
     <!--v-if-->
-    <thead data-slot="thead" class="relative [&amp;>tr]:[&amp;>th]:h-[45px] after:absolute after:z-1 after:h-px after:bg-(--b24ui-background) after:animate-[progressbar-loading_2s_infinite]">
+    <thead data-slot="thead" class="relative [&amp;>tr]:[&amp;>th]:h-[45px] after:absolute after:z-1 after:h-px after:bg-(--b24ui-background) motion-reduce:after:inset-x-0 motion-reduce:after:animate-pulse motion-safe:after:animate-[progressbar-loading_2s_infinite]">
       <tr data-slot="tr" class="data-[selected=true]:bg-(--ui-color-bg-content-tertiary) light:data-[selected=true]:bg-[#f4fcde]">
         <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-label whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Id</th>
         <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-label whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Amount</th>
@@ -1531,7 +1531,7 @@ exports[`Table > renders with loading slot correctly 1`] = `
 "<div data-slot="root" class="relative overflow-auto style-filled">
   <table data-slot="base" class="min-w-full font-[family-name:var(--ui-font-family-primary)] table-fixed border-separate border-spacing-0">
     <!--v-if-->
-    <thead data-slot="thead" class="relative [&amp;>tr]:[&amp;>th]:h-[45px] after:absolute after:z-1 after:h-px after:bg-(--b24ui-background) after:animate-[progressbar-loading_2s_infinite]">
+    <thead data-slot="thead" class="relative [&amp;>tr]:[&amp;>th]:h-[45px] after:absolute after:z-1 after:h-px after:bg-(--b24ui-background) motion-reduce:after:inset-x-0 motion-reduce:after:animate-pulse motion-safe:after:animate-[progressbar-loading_2s_infinite]">
       <tr data-slot="tr" class="data-[selected=true]:bg-(--ui-color-bg-content-tertiary) light:data-[selected=true]:bg-[#f4fcde]">
         <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-label whitespace-nowrap text-left rtl:text-right font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">
           <div data-slot="root" class="relative flex items-start style-filled flex-row">

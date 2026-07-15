@@ -128,7 +128,8 @@ export default {
           'after:absolute',
           'after:z-1',
           'after:h-px',
-          'after:bg-(--b24ui-background)'
+          'after:bg-(--b24ui-background)',
+          'motion-reduce:after:inset-x-0 motion-reduce:after:animate-pulse'
         ].join(' ')
       }
     },
@@ -153,35 +154,35 @@ export default {
       loading: true,
       loadingAnimation: 'loading',
       class: {
-        thead: 'after:animate-[progressbar-loading_2s_infinite]'
+        thead: 'motion-safe:after:animate-[progressbar-loading_2s_infinite]'
       }
     },
     {
       loading: true,
       loadingAnimation: 'carousel',
       class: {
-        thead: 'after:animate-[carousel_2s_ease-in-out_infinite] rtl:after:animate-[carousel-rtl_2s_ease-in-out_infinite]'
+        thead: 'motion-safe:after:animate-[carousel_2s_ease-in-out_infinite] motion-safe:rtl:after:animate-[carousel-rtl_2s_ease-in-out_infinite]'
       }
     },
     {
       loading: true,
       loadingAnimation: 'carousel-inverse',
       class: {
-        thead: 'after:animate-[carousel-inverse_2s_ease-in-out_infinite] rtl:after:animate-[carousel-inverse-rtl_2s_ease-in-out_infinite]'
+        thead: 'motion-safe:after:animate-[carousel-inverse_2s_ease-in-out_infinite] motion-safe:rtl:after:animate-[carousel-inverse-rtl_2s_ease-in-out_infinite]'
       }
     },
     {
       loading: true,
       loadingAnimation: 'swing',
       class: {
-        thead: 'after:animate-[swing_2s_ease-in-out_infinite]'
+        thead: 'motion-safe:after:animate-[swing_2s_ease-in-out_infinite]'
       }
     },
     {
       loading: true,
       loadingAnimation: 'elastic',
       class: {
-        thead: 'after:animate-[elastic_2s_ease-in-out_infinite]'
+        thead: 'motion-safe:after:animate-[elastic_2s_ease-in-out_infinite]'
       }
     }
     // endregion ////
