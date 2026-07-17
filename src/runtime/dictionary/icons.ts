@@ -130,6 +130,7 @@ export default {
   arrowDown: ArrowDownLIcon,
   arrowUp: ArrowTopLIcon,
   stop: StopLIcon,
+  star: FavoriteIcon,
   reload: RefreshIcon,
   drag: DragLIcon,
   menu: HamburgerMenuIcon,
