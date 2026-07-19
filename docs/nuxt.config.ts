@@ -71,6 +71,7 @@ const pages = [
   '/docs/components/input-time/',
   '/docs/components/input-menu/',
   '/docs/components/input-number/',
+  '/docs/components/input-rating/',
   '/docs/components/input-tags/',
   '/docs/components/pin-input/',
   '/docs/components/radio-group/',

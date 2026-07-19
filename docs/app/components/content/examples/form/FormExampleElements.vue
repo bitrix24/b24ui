@@ -50,6 +50,7 @@ const schema = z.object({
     message: 'Please select a time'
   }),
   range: z.number().min(1, 'Must be greater than 0').max(20, 'Must be less than 20'),
+  rating: z.number().min(1, 'Please select a rating'),
   pin: z.string().regex(/^\d$/, 'Must be a digit').array().length(5, 'All 5 digits are required'),
   file: z.file({ message: 'Please upload a file' }).min(1, 'File is required').max(1024 * 1024, 'File must be less than 1MB').mime('image/png', 'Only PNG images are allowed')
 })
@@ -60,6 +61,7 @@ const state = reactive<Partial<Schema>>({
   switch: false,
   checkbox: false,
   range: 0,
+  rating: 0,
   pin: []
 })
 
@@ -202,6 +204,10 @@ function resetState() {
 
       <B24FormField name="range" label="Range">
         <B24Range v-model="state.range" class="mt-2.5" />
+      </B24FormField>
+
+      <B24FormField name="rating" label="InputRating">
+        <B24InputRating v-model="state.rating" />
       </B24FormField>
 
       <B24FormField name="checkboxGroup">
