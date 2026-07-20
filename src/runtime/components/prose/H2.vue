@@ -9,6 +9,12 @@ type ProseH2 = ComponentConfig<typeof theme, AppConfig, 'h2', 'b24ui.prose'>
 export interface ProseH2Props {
   id?: string
   /**
+   * Wrap the heading in an anchor link when an `id` is present.
+   * `@nuxt/content` and `@nuxtjs/mdc` enable this for H2–H4 by default.
+   * @defaultValue false
+   */
+  anchor?: boolean
+  /**
    * @defaultValue 'default'
    */
   accent?: ProseH2['variants']['accent']
@@ -44,7 +50,8 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.prose?.h2 
   accent: props.accent
 }))
 
-const generate = computed(() => props.id && typeof headings?.anchorLinks === 'object' && headings.anchorLinks.h2)
+// NOTE: the `mdc.headings.anchorLinks` fallback is deprecated, remove in v5 in favor of the `anchor` prop.
+const generate = computed(() => props.id && (props.anchor ?? (typeof headings?.anchorLinks === 'boolean' ? headings.anchorLinks : headings?.anchorLinks?.h2) ?? false))
 </script>
 
 <template>
