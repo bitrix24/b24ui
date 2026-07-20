@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "f400bc67670b90837d362bc97c1dd90cddfd786a",
+  "cursor": "2a172ef187763c74d437a85fda3168e3f80ff00a",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1127,10 +1127,16 @@
       "summary": "docs: update badges — relabel :badge{label=Soon}->4.10+ across chat-prompt/chat-tool/drawer/empty/modal/scroll-area/slideover/table + input-rating Soon->New + use-tour drops New. NOT APPLICABLE: targets upstream version string (4.10+) vs b24ui independent versioning; b24ui uses New-style badges and affected docs already correct (scroll-area/table/input-rating already label=New; drawer/empty/modal/slideover/chat-* carry no availability badge). No-op."
     },
     "f400bc67670b90837d362bc97c1dd90cddfd786a": {
+      "pr": 290,
+      "b24ui_sha": "cabc07a00e05b13cd8ee04a4e455ece9112b3734",
+      "decision": "port",
+      "summary": "chore(playground): expose all public composables in repl — in playgrounds/repl/src/App.vue, replace hardcoded importCode composable list with Object.values(publicComposables).flat() (imported from ../../../src/imports) + dynamic window.X=X assignments. Adapted: kept b24Ui default import + @bitrix24/b24ui-builtin source. New list = b24ui's real auto-import surface; drops previously-hardcoded useColorMode (not in publicComposables — @todo), adds the many that were missing. Playground/repl only, not in ci gate; verified pnpm repl:build. Tests 5557."
+    },
+    "2a172ef187763c74d437a85fda3168e3f80ff00a": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "chore(playground): expose all public composables in repl — in playgrounds/repl/src/App.vue, replace hardcoded importCode composable list with Object.values(publicComposables).flat() (imported from ../../../src/imports) + dynamic window.X=X assignments. Adapted: kept b24Ui default import + @bitrix24/b24ui-builtin source. New list = b24ui's real auto-import surface; drops previously-hardcoded useColorMode (not in publicComposables — @todo), adds the many that were missing. Playground/repl only, not in ci gate; verified pnpm repl:build. Tests 5557."
+      "summary": "fix(CommandPalette): always escape search highlight to prevent XSS — src/runtime/utils/search.ts removed isAlreadyEscaped()/sanitize() (entity-detection bypass was the vuln) and replaced 3 sanitize() calls in highlight() with escapeHTML(). Added 4 upstream XSS regression tests to test/utils/search.spec.ts (highlight signature matches 1:1). sanitizeSnippet untouched. Normal-input output unchanged → no snapshot churn. Tests 5565 (+4 highlight)."
     }
   }
 }
