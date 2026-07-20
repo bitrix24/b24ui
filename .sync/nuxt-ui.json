@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "2a172ef187763c74d437a85fda3168e3f80ff00a",
+  "cursor": "e931bdf79700b95fe6298ae015b5a08bd7c4f82c",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1133,10 +1133,16 @@
       "summary": "chore(playground): expose all public composables in repl — in playgrounds/repl/src/App.vue, replace hardcoded importCode composable list with Object.values(publicComposables).flat() (imported from ../../../src/imports) + dynamic window.X=X assignments. Adapted: kept b24Ui default import + @bitrix24/b24ui-builtin source. New list = b24ui's real auto-import surface; drops previously-hardcoded useColorMode (not in publicComposables — @todo), adds the many that were missing. Playground/repl only, not in ci gate; verified pnpm repl:build. Tests 5557."
     },
     "2a172ef187763c74d437a85fda3168e3f80ff00a": {
+      "pr": 291,
+      "b24ui_sha": "559a5cdbfa20d50e81c818022c4857598b134a33",
+      "decision": "port",
+      "summary": "fix(CommandPalette): always escape search highlight to prevent XSS — src/runtime/utils/search.ts removed isAlreadyEscaped()/sanitize() (entity-detection bypass was the vuln) and replaced 3 sanitize() calls in highlight() with escapeHTML(). Added 4 upstream XSS regression tests to test/utils/search.spec.ts (highlight signature matches 1:1). sanitizeSnippet untouched. Normal-input output unchanged → no snapshot churn. Tests 5565 (+4 highlight)."
+    },
+    "e931bdf79700b95fe6298ae015b5a08bd7c4f82c": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(CommandPalette): always escape search highlight to prevent XSS — src/runtime/utils/search.ts removed isAlreadyEscaped()/sanitize() (entity-detection bypass was the vuln) and replaced 3 sanitize() calls in highlight() with escapeHTML(). Added 4 upstream XSS regression tests to test/utils/search.spec.ts (highlight signature matches 1:1). sanitizeSnippet untouched. Normal-input output unchanged → no snapshot churn. Tests 5565 (+4 highlight)."
+      "summary": "docs(typography): improve headers and text page — headers-and-text.md: hash-icon copy H2/H3->H2/H3/H4, and consolidate the two ::note blocks (anchorLinks + toc) into one merged note/code example (renderer.anchorLinks + build.markdown.toc together). Applied atop b24ui post-#287 state. Docs-content only."
     }
   }
 }
