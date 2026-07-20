@@ -46,7 +46,7 @@ exports[`NavigationMenu > renders with arrow correctly 1`] = `
     </ul>
   </div>
   <!--v-if-->
-  <div data-slot="viewportWrapper" class="absolute top-[53px] left-0 flex w-full">
+  <div data-slot="viewportWrapper" class="absolute top-[53px] start-0 flex w-full">
     <div data-slot="viewport" class="relative base-mode bg-(--ui-color-bg-content-primary) shadow-(--popup-window-box-shadow) h-(--reka-navigation-menu-viewport-height) w-(--reka-navigation-menu-viewport-width) left-(--reka-navigation-menu-viewport-left) rtl:left-auto rtl:right-[calc(100%-var(--reka-navigation-menu-viewport-left)-var(--reka-navigation-menu-viewport-width))] rounded-(--ui-border-radius-xl) will-change-[opacity] transition-[width,height,left,right] duration-200 origin-[top_center] z-1 overflow-x-hidden overflow-y-auto scrollbar-thin" data-state="open" data-orientation="horizontal">
       <!---->
       <!---->
@@ -103,7 +103,7 @@ exports[`NavigationMenu > renders with as correctly 1`] = `
     </ul>
   </div>
   <!--v-if-->
-  <div data-slot="viewportWrapper" class="absolute top-[53px] left-0 flex w-full">
+  <div data-slot="viewportWrapper" class="absolute top-[53px] start-0 flex w-full">
     <!---->
   </div>
 </section>"
@@ -157,7 +157,7 @@ exports[`NavigationMenu > renders with b24ui correctly 1`] = `
     </ul>
   </div>
   <!--v-if-->
-  <div data-slot="viewportWrapper" class="absolute top-[53px] left-0 flex w-full">
+  <div data-slot="viewportWrapper" class="absolute top-[53px] start-0 flex w-full">
     <!---->
   </div>
 </nav>"
@@ -184,7 +184,7 @@ exports[`NavigationMenu > renders with chip correctly 1`] = `
     </ul>
   </div>
   <!--v-if-->
-  <div data-slot="viewportWrapper" class="absolute top-[53px] left-0 flex w-full">
+  <div data-slot="viewportWrapper" class="absolute top-[53px] start-0 flex w-full">
     <!---->
   </div>
 </nav>"
@@ -238,7 +238,7 @@ exports[`NavigationMenu > renders with class correctly 1`] = `
     </ul>
   </div>
   <!--v-if-->
-  <div data-slot="viewportWrapper" class="absolute top-[53px] left-0 flex w-full">
+  <div data-slot="viewportWrapper" class="absolute top-[53px] start-0 flex w-full">
     <!---->
   </div>
 </nav>"
@@ -292,7 +292,7 @@ exports[`NavigationMenu > renders with content orientation horizontal correctly 
     </ul>
   </div>
   <!--v-if-->
-  <div data-slot="viewportWrapper" class="absolute top-[53px] left-0 flex w-full">
+  <div data-slot="viewportWrapper" class="absolute top-[53px] start-0 flex w-full">
     <!---->
   </div>
 </nav>"
@@ -344,7 +344,7 @@ exports[`NavigationMenu > renders with content orientation vertical correctly 1`
     </ul>
   </div>
   <!--v-if-->
-  <div data-slot="viewportWrapper" class="absolute top-[53px] left-0 flex w-full">
+  <div data-slot="viewportWrapper" class="absolute top-[53px] start-0 flex w-full">
     <div data-slot="viewport" class="relative base-mode bg-(--ui-color-bg-content-primary) shadow-(--popup-window-box-shadow) h-(--reka-navigation-menu-viewport-height) w-(--reka-navigation-menu-viewport-width) left-(--reka-navigation-menu-viewport-left) rtl:left-auto rtl:right-[calc(100%-var(--reka-navigation-menu-viewport-left)-var(--reka-navigation-menu-viewport-width))] rounded-(--ui-border-radius-xl) will-change-[opacity] transition-[width,height,left,right] duration-200 origin-[top_center] z-1 overflow-x-hidden overflow-y-auto scrollbar-thin" data-state="open" data-orientation="horizontal">
       <!---->
       <!---->
@@ -453,7 +453,7 @@ exports[`NavigationMenu > renders with custom slot correctly 1`] = `
     </ul>
   </div>
   <!--v-if-->
-  <div data-slot="viewportWrapper" class="absolute top-[53px] left-0 flex w-full">
+  <div data-slot="viewportWrapper" class="absolute top-[53px] start-0 flex w-full">
     <!---->
   </div>
 </nav>"
@@ -507,7 +507,7 @@ exports[`NavigationMenu > renders with def correctly 1`] = `
     </ul>
   </div>
   <!--v-if-->
-  <div data-slot="viewportWrapper" class="absolute top-[53px] left-0 flex w-full">
+  <div data-slot="viewportWrapper" class="absolute top-[53px] start-0 flex w-full">
     <!---->
   </div>
 </nav>"
@@ -559,7 +559,7 @@ exports[`NavigationMenu > renders with defaultValue correctly 1`] = `
     </ul>
   </div>
   <!--v-if-->
-  <div data-slot="viewportWrapper" class="absolute top-[53px] left-0 flex w-full">
+  <div data-slot="viewportWrapper" class="absolute top-[53px] start-0 flex w-full">
     <div data-slot="viewport" class="relative base-mode bg-(--ui-color-bg-content-primary) shadow-(--popup-window-box-shadow) h-(--reka-navigation-menu-viewport-height) w-(--reka-navigation-menu-viewport-width) left-(--reka-navigation-menu-viewport-left) rtl:left-auto rtl:right-[calc(100%-var(--reka-navigation-menu-viewport-left)-var(--reka-navigation-menu-viewport-width))] rounded-(--ui-border-radius-xl) will-change-[opacity] transition-[width,height,left,right] duration-200 origin-[top_center] z-1 overflow-x-hidden overflow-y-auto scrollbar-thin" data-state="open" data-orientation="horizontal">
       <!---->
       <!---->
@@ -615,7 +615,7 @@ exports[`NavigationMenu > renders with externalIcon correctly 1`] = `
     </ul>
   </div>
   <!--v-if-->
-  <div data-slot="viewportWrapper" class="absolute top-[53px] left-0 flex w-full">
+  <div data-slot="viewportWrapper" class="absolute top-[53px] start-0 flex w-full">
     <!---->
   </div>
 </nav>"
@@ -656,7 +656,7 @@ exports[`NavigationMenu > renders with item slot correctly 1`] = `
     </ul>
   </div>
   <!--v-if-->
-  <div data-slot="viewportWrapper" class="absolute top-[53px] left-0 flex w-full">
+  <div data-slot="viewportWrapper" class="absolute top-[53px] start-0 flex w-full">
     <!---->
   </div>
 </nav>"
@@ -710,7 +710,7 @@ exports[`NavigationMenu > renders with item-label slot correctly 1`] = `
     </ul>
   </div>
   <!--v-if-->
-  <div data-slot="viewportWrapper" class="absolute top-[53px] left-0 flex w-full">
+  <div data-slot="viewportWrapper" class="absolute top-[53px] start-0 flex w-full">
     <!---->
   </div>
 </nav>"
@@ -763,7 +763,7 @@ exports[`NavigationMenu > renders with item-leading slot correctly 1`] = `
     </ul>
   </div>
   <!--v-if-->
-  <div data-slot="viewportWrapper" class="absolute top-[53px] left-0 flex w-full">
+  <div data-slot="viewportWrapper" class="absolute top-[53px] start-0 flex w-full">
     <!---->
   </div>
 </nav>"
@@ -814,7 +814,7 @@ exports[`NavigationMenu > renders with item-trailing slot correctly 1`] = `
     </ul>
   </div>
   <!--v-if-->
-  <div data-slot="viewportWrapper" class="absolute top-[53px] left-0 flex w-full">
+  <div data-slot="viewportWrapper" class="absolute top-[53px] start-0 flex w-full">
     <!---->
   </div>
 </nav>"
@@ -868,7 +868,7 @@ exports[`NavigationMenu > renders with items correctly 1`] = `
     </ul>
   </div>
   <!--v-if-->
-  <div data-slot="viewportWrapper" class="absolute top-[53px] left-0 flex w-full">
+  <div data-slot="viewportWrapper" class="absolute top-[53px] start-0 flex w-full">
     <!---->
   </div>
 </nav>"
@@ -982,7 +982,7 @@ exports[`NavigationMenu > renders with labelKey correctly 1`] = `
     </ul>
   </div>
   <!--v-if-->
-  <div data-slot="viewportWrapper" class="absolute top-[53px] left-0 flex w-full">
+  <div data-slot="viewportWrapper" class="absolute top-[53px] start-0 flex w-full">
     <!---->
   </div>
 </nav>"
@@ -1034,7 +1034,7 @@ exports[`NavigationMenu > renders with modelValue correctly 1`] = `
     </ul>
   </div>
   <!--v-if-->
-  <div data-slot="viewportWrapper" class="absolute top-[53px] left-0 flex w-full">
+  <div data-slot="viewportWrapper" class="absolute top-[53px] start-0 flex w-full">
     <div data-slot="viewport" class="relative base-mode bg-(--ui-color-bg-content-primary) shadow-(--popup-window-box-shadow) h-(--reka-navigation-menu-viewport-height) w-(--reka-navigation-menu-viewport-width) left-(--reka-navigation-menu-viewport-left) rtl:left-auto rtl:right-[calc(100%-var(--reka-navigation-menu-viewport-left)-var(--reka-navigation-menu-viewport-width))] rounded-(--ui-border-radius-xl) will-change-[opacity] transition-[width,height,left,right] duration-200 origin-[top_center] z-1 overflow-x-hidden overflow-y-auto scrollbar-thin" data-state="open" data-orientation="horizontal">
       <!---->
       <!---->
@@ -1185,7 +1185,7 @@ exports[`NavigationMenu > renders with trailingIcon correctly 1`] = `
     </ul>
   </div>
   <!--v-if-->
-  <div data-slot="viewportWrapper" class="absolute top-[53px] left-0 flex w-full">
+  <div data-slot="viewportWrapper" class="absolute top-[53px] start-0 flex w-full">
     <!---->
   </div>
 </nav>"
@@ -1237,7 +1237,7 @@ exports[`NavigationMenu > renders with unmountOnHide correctly 1`] = `
     </ul>
   </div>
   <!--v-if-->
-  <div data-slot="viewportWrapper" class="absolute top-[53px] left-0 flex w-full">
+  <div data-slot="viewportWrapper" class="absolute top-[53px] start-0 flex w-full">
     <div data-slot="viewport" class="relative base-mode bg-(--ui-color-bg-content-primary) shadow-(--popup-window-box-shadow) h-(--reka-navigation-menu-viewport-height) w-(--reka-navigation-menu-viewport-width) left-(--reka-navigation-menu-viewport-left) rtl:left-auto rtl:right-[calc(100%-var(--reka-navigation-menu-viewport-left)-var(--reka-navigation-menu-viewport-width))] rounded-(--ui-border-radius-xl) will-change-[opacity] transition-[width,height,left,right] duration-200 origin-[top_center] z-1 overflow-x-hidden overflow-y-auto scrollbar-thin" data-state="closed" data-orientation="horizontal" style="pointer-events: none;" hidden="">
       <div data-dismissable-layer="" style="pointer-events: none;" id="reka-navigation-menu-v-0-0-0-content-group-0-item-1" aria-labelledby="reka-navigation-menu-v-0-0-0-trigger-group-0-item-1" data-state="closed" data-orientation="horizontal" data-viewport="ltr" data-slot="content" class="w-60" hidden="">
         <ul data-slot="childList" class="isolate grid px-0 py-(--menu-popup-padding)">
@@ -1397,7 +1397,7 @@ exports[`NavigationMenu > renders with valueKey correctly 1`] = `
     </ul>
   </div>
   <!--v-if-->
-  <div data-slot="viewportWrapper" class="absolute top-[53px] left-0 flex w-full">
+  <div data-slot="viewportWrapper" class="absolute top-[53px] start-0 flex w-full">
     <div data-slot="viewport" class="relative base-mode bg-(--ui-color-bg-content-primary) shadow-(--popup-window-box-shadow) h-(--reka-navigation-menu-viewport-height) w-(--reka-navigation-menu-viewport-width) left-(--reka-navigation-menu-viewport-left) rtl:left-auto rtl:right-[calc(100%-var(--reka-navigation-menu-viewport-left)-var(--reka-navigation-menu-viewport-width))] rounded-(--ui-border-radius-xl) will-change-[opacity] transition-[width,height,left,right] duration-200 origin-[top_center] z-1 overflow-x-hidden overflow-y-auto scrollbar-thin" data-state="open" data-orientation="horizontal">
       <div data-dismissable-layer="" id="reka-navigation-menu-v-0-0-0-content-Documentation" aria-labelledby="reka-navigation-menu-v-0-0-0-trigger-Documentation" data-state="open" data-orientation="horizontal" data-viewport="ltr" data-slot="content" class="w-60">
         <ul data-slot="childList" class="isolate grid px-0 py-(--menu-popup-padding)">
@@ -1495,7 +1495,7 @@ exports[`NavigationMenu > renders without externalIcon correctly 1`] = `
     </ul>
   </div>
   <!--v-if-->
-  <div data-slot="viewportWrapper" class="absolute top-[53px] left-0 flex w-full">
+  <div data-slot="viewportWrapper" class="absolute top-[53px] start-0 flex w-full">
     <!---->
   </div>
 </nav>"

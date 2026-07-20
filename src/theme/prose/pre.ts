@@ -22,7 +22,7 @@ export default {
     ].join(' '),
     filename: 'text-(--ui-color-design-tinted-na-content) text-(length:--ui-font-size-md)/(--ui-size-xl)',
     icon: 'size-[16px] shrink-0 mt-px',
-    copy: 'absolute top-[11px] right-[11px] lg:opacity-0 lg:group-hover:opacity-100 transition',
+    copy: 'absolute top-[11px] end-[11px] lg:opacity-0 lg:group-hover:opacity-100 transition',
     base: [
       'text-green-350',
       'group',

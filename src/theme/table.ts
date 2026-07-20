@@ -36,7 +36,7 @@ export default {
       'text-(length:--ui-font-size-md)/(--ui-font-line-height-md)',
       'text-label',
       'whitespace-nowrap',
-      'text-left rtl:text-right',
+      'text-start',
       'font-(--ui-font-weight-normal)',
       '[&:has([role=checkbox])]:pe-0',
       'align-middle',
@@ -53,7 +53,7 @@ export default {
       'border-b border-(--ui-color-divider-default)'
     ].join(' '),
     separator: [
-      'absolute z-1 left-0',
+      'absolute z-1 start-0',
       'w-full h-px',
       'bg-(--ui-color-design-tinted-na-stroke)'
     ].join(' '),

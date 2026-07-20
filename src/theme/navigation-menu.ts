@@ -87,7 +87,7 @@ export default {
     childLinkLabelExternalIcon: 'ddd-fix-in-this-place inline-block size-[25px] text-(--ui-color-base-5)',
     separator: 'h-px bg-(--leftmenu-bg-divider) my-4',
     popoverWrapper: 'px-0 py-(--menu-popup-padding)',
-    viewportWrapper: 'absolute top-[53px] left-0 flex w-full',
+    viewportWrapper: 'absolute top-[53px] start-0 flex w-full',
     viewport: [
       'relative',
       'w-full',
