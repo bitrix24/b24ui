@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "c8e810ca887a9e9a6030b7b5ea4634bba23df478",
+  "cursor": "317901253dfd02a857ebdba632816445ba45afef",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1085,10 +1085,16 @@
       "summary": "perf(module): declare sideEffects for barrel tree-shaking — add sideEffects: [\"**/*.css\"] to package.json after main, enabling consumer bundlers to tree-shake unused JS barrel exports while preserving CSS side effects. b24ui had no sideEffects field; **/*.css glob covers dist/runtime/index.css + .nuxt/b24ui.static.css. No dep/lockfile change. Manifest metadata only. Tests 5485."
     },
     "c8e810ca887a9e9a6030b7b5ea4634bba23df478": {
+      "pr": 281,
+      "b24ui_sha": "beaec21df7a35a37bac347f489e920e6cf1c1b6b",
+      "decision": "port",
+      "summary": "chore(deps): update all non-major dependencies — §2 manifest mirroring of the subset where b24ui shares upstream's old range. Bumped: packageManager pnpm@11.10.0->11.13.0, @floating-ui/dom ^1.7.6->^1.8.0, @tanstack/vue-virtual ^3.13.31->^3.13.32, fuse.js ^7.4.2->^7.5.0, vue-component-type-helpers/vue-component-meta/vue-tsc ^3.3.6->^3.3.7 (root+docs+nuxt+vue+demo), eslint ^10.6.0->^10.7.0, vitest ^4.1.9->^4.1.10, @nuxtjs/mcp-toolkit + nuxt-component-meta ^0.17.2->^0.18.0. SKIPPED (b24ui diverges): ai (v6 line, deferred v7), @ai-sdk/vue (v3), @ai-sdk/mcp (v1), @ai-sdk/anthropic/gateway (absent, uses deepseek), @iconify-json/* (uses b24icons), prettier (already behind at ^3.8.4). Lockfile regen w/ pnpm 11.13.0; AI-SDK v6/v3/v1 lines untouched. No overrides match. Tests 5485."
+    },
+    "317901253dfd02a857ebdba632816445ba45afef": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "chore(deps): update all non-major dependencies — §2 manifest mirroring of the subset where b24ui shares upstream's old range. Bumped: packageManager pnpm@11.10.0->11.13.0, @floating-ui/dom ^1.7.6->^1.8.0, @tanstack/vue-virtual ^3.13.31->^3.13.32, fuse.js ^7.4.2->^7.5.0, vue-component-type-helpers/vue-component-meta/vue-tsc ^3.3.6->^3.3.7 (root+docs+nuxt+vue+demo), eslint ^10.6.0->^10.7.0, vitest ^4.1.9->^4.1.10, @nuxtjs/mcp-toolkit + nuxt-component-meta ^0.17.2->^0.18.0. SKIPPED (b24ui diverges): ai (v6 line, deferred v7), @ai-sdk/vue (v3), @ai-sdk/mcp (v1), @ai-sdk/anthropic/gateway (absent, uses deepseek), @iconify-json/* (uses b24icons), prettier (already behind at ^3.8.4). Lockfile regen w/ pnpm 11.13.0; AI-SDK v6/v3/v1 lines untouched. No overrides match. Tests 5485."
+      "summary": "fix(theme): use logical properties for RTL — convert physical directional utilities to logical across theme files (left→start, right→end, text-left/right→text-start/end, transition-[left,right]→inset-inline-*, + rtl: counterparts for translate-x/cursor-resize). b24ui has 9/16 touched files; applied to 8 (navigation-menu viewportWrapper, prose/callout+card externalIcon, prose/pre copy, prose/td+th align, sidebar 6 hunks, table th+separator). prose/tr empty stub. SKIPPED absent: blog-post/content-navigation/content-surround/pricing-plan/pricing-table/prose-code-tree. Contributor-doc RTL guidance (theme-structure.md/AGENTS.md) deferred (docs-only, diverged). Snapshots regen."
     }
   }
 }

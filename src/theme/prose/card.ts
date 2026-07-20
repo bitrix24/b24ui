@@ -22,7 +22,7 @@ export default {
       'size-4',
       'align-top',
       'absolute',
-      'right-2 top-2',
+      'end-2 top-2',
       'pointer-events-none',
       'text-(--b24ui-split-divider-color)',
       'transition-colors'

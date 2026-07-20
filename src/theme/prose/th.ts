@@ -11,9 +11,9 @@ export default {
   },
   variants: {
     align: {
-      left: 'text-left',
+      left: 'text-start',
       center: 'text-center',
-      right: 'text-right'
+      right: 'text-end'
     }
   },
   defaultVariants: {
