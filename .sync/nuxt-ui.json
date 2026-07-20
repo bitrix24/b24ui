@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "f8c0850eb68a6d49fd995c94c74951263c4f13f4",
+  "cursor": "f400bc67670b90837d362bc97c1dd90cddfd786a",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1121,10 +1121,16 @@
       "summary": "chore(release): v4.10.0 — pure release commit (package.json 4.9.0->4.10.0 + CHANGELOG.md regen). NOT APPLICABLE: b24ui is independently versioned (2.9.0) with its own changelog. No-op."
     },
     "f8c0850eb68a6d49fd995c94c74951263c4f13f4": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 289,
+      "b24ui_sha": "dcd17be69791c8b139fad5d8fc00c31304fa1211",
       "decision": "no-op",
       "summary": "docs: update badges — relabel :badge{label=Soon}->4.10+ across chat-prompt/chat-tool/drawer/empty/modal/scroll-area/slideover/table + input-rating Soon->New + use-tour drops New. NOT APPLICABLE: targets upstream version string (4.10+) vs b24ui independent versioning; b24ui uses New-style badges and affected docs already correct (scroll-area/table/input-rating already label=New; drawer/empty/modal/slideover/chat-* carry no availability badge). No-op."
+    },
+    "f400bc67670b90837d362bc97c1dd90cddfd786a": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "chore(playground): expose all public composables in repl — in playgrounds/repl/src/App.vue, replace hardcoded importCode composable list with Object.values(publicComposables).flat() (imported from ../../../src/imports) + dynamic window.X=X assignments. Adapted: kept b24Ui default import + @bitrix24/b24ui-builtin source. New list = b24ui's real auto-import surface; drops previously-hardcoded useColorMode (not in publicComposables — @todo), adds the many that were missing. Playground/repl only, not in ci gate; verified pnpm repl:build. Tests 5557."
     }
   }
 }

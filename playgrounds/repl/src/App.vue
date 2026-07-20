@@ -8,6 +8,7 @@ import GraduationCapIcon from '@bitrix24/b24icons-vue/outline/GraduationCapIcon'
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
 import ShareIcon from '@bitrix24/b24icons-vue/outline/ShareIcon'
 import CircleCheckIcon from '@bitrix24/b24icons-vue/outline/CircleCheckIcon'
+import { publicComposables } from '../../../src/imports'
 
 // const colorMode = useColorMode()
 // const theme = computed(() => colorMode.preference === 'dark' ? 'dark' : 'light')
@@ -172,6 +173,10 @@ function share() {
   copy(location.href)
 }
 
+// Mirror the auto-imports available in a real b24ui app so REPL code can call
+// these composables without importing them.
+const composables = Object.values(publicComposables).flat()
+
 const previewOptions = {
   headHTML: [
     '<script>window.__VUE_PROD_DEVTOOLS__=false<\/script>',
@@ -181,7 +186,7 @@ const previewOptions = {
     '<style>#app { isolation: isolate; }</style>'
   ].join(''),
   customCode: {
-    importCode: `import b24Ui, { useToast, useOverlay, defineShortcuts, extractShortcuts, useDevice, useConfetti, useSpeechRecognition, useColorMode } from '@bitrix24/b24ui-builtin'\nimport { h } from 'vue'\nwindow.useToast = useToast\nwindow.useOverlay = useOverlay\nwindow.defineShortcuts = defineShortcuts\nwindow.extractShortcuts = extractShortcuts\nwindow.useDevice = useDevice\nwindow.useConfetti = useConfetti\nwindow.useSpeechRecognition = useSpeechRecognition\nwindow.useColorMode = useColorMode`,
+    importCode: `import b24Ui, { ${composables.join(', ')} } from '@bitrix24/b24ui-builtin'\nimport { h } from 'vue'\n${composables.map(name => `window.${name} = ${name}`).join('\n')}`,
     useCode: `app.use(b24Ui, { router: (event, context) => { if (context.external && context.href) { if (context.target === '_blank') window.open(context.href, '_blank'); else window.location.href = context.href; } else { console.log('Internal navigation disabled', context); } } })\napp.component('Placeholder', { template: '<div class="relative overflow-hidden rounded-sm border border-dashed border-accented opacity-75 px-4 flex items-center justify-center"><svg class="absolute inset-0 h-full w-full stroke-(--ui-color-divider-vibrant-accent-more)" fill="none"><defs><pattern id="placeholder-pattern" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M-3 13 15-5M-5 5l18-18M-1 21 17 3" /></pattern></defs><rect stroke="none" fill="url(#placeholder-pattern)" width="100%" height="100%" /></svg><slot /></div>' })\nconst _Root = app._component\nconst _B24App = app.component('B24App')\nconst _origMount = app.mount\napp.mount = function(el) {\n  const wrapper = _createApp({ render() { return h(_B24App, null, { default: () => h(_Root) }) } })\n  Object.assign(wrapper._context.components, app._context.components)\n  Object.assign(wrapper._context.directives, app._context.directives)\n  Object.assign(wrapper._context.provides, app._context.provides)\n  wrapper.config.errorHandler = e => console.error(e)\n  wrapper.mount(el)\n  window.__app__ = wrapper\n}`
   }
 }
