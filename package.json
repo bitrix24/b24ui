@@ -137,7 +137,8 @@
     "typecheck": "vue-tsc --noEmit && nuxt typecheck playgrounds/nuxt && nuxt typecheck playgrounds/demo && nuxt typecheck docs && cd playgrounds/vue && vue-tsc --noEmit",
     "test": "vitest",
     "test:vue": "vitest --project vue",
-    "test:nuxt": "vitest --project nuxt"
+    "test:nuxt": "vitest --project nuxt",
+    "bench": "vitest bench --project vue"
   },
   "dependencies": {
     "@floating-ui/dom": "^1.8.0",
