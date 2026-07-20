@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "0a1803d3361dab9a0ebe1bc2097e8bfa283f0c3c",
+  "cursor": "889731836ce865d9904b7516d0163a35e18d6760",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1145,10 +1145,16 @@
       "summary": "docs(typography): improve headers and text page — headers-and-text.md: hash-icon copy H2/H3->H2/H3/H4, and consolidate the two ::note blocks (anchorLinks + toc) into one merged note/code example (renderer.anchorLinks + build.markdown.toc together). Applied atop b24ui post-#287 state. Docs-content only."
     },
     "0a1803d3361dab9a0ebe1bc2097e8bfa283f0c3c": {
+      "pr": 293,
+      "b24ui_sha": "d52beacee860f17e38b05a5c0b65729e890c47f6",
+      "decision": "port",
+      "summary": "docs(color-mode-button): remove fallback slot example — deleted the '### With fallback slot' section from color-mode-button.md. b24ui: since it was the only example on the page, also removed the orphaned '## Examples' heading (intro -> ## API). Docs-content only."
+    },
+    "889731836ce865d9904b7516d0163a35e18d6760": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "docs(color-mode-button): remove fallback slot example — deleted the '### With fallback slot' section from color-mode-button.md. b24ui: since it was the only example on the page, also removed the orphaned '## Examples' heading (intro -> ## API). Docs-content only."
+      "summary": "docs(useCanonical): type link array as unhead Link[] — docs/app/composables/useCanonical.ts: import type { Link } from '@unhead/vue' and change the head-links annotation from Array<{rel,href,type?}> to Link[]. Type-only, docs-app. Tests 5565."
     }
   }
 }
