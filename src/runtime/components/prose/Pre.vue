@@ -4,6 +4,8 @@ import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/prose/pre'
 import type { IconComponent } from '../../types/icons'
 import type { ComponentConfig } from '../../types/tv'
+import type { ButtonProps } from '../Button.vue'
+import type { LinkPropsKeys } from '../Link.vue'
 
 type ProsePre = ComponentConfig<typeof theme, AppConfig, 'pre', 'b24ui.prose'>
 
@@ -15,6 +17,12 @@ export interface ProsePreProps {
   highlights?: number[]
   hideHeader?: boolean
   meta?: string
+  /**
+   * Display a button to copy the code to the clipboard.
+   * `{ size: 'sm', color: 'air-secondary-no-accent' }`{lang="ts-type"}
+   * @defaultValue true
+   */
+  copy?: boolean | Omit<ButtonProps, LinkPropsKeys>
   class?: any
   style?: any
   b24ui?: ProsePre['slots']
@@ -36,14 +44,16 @@ import icons from '../../dictionary/icons'
 import B24CodeIcon from './CodeIcon.vue'
 import B24Button from '../Button.vue'
 
-const _props = defineProps<ProsePreProps>()
+const _props = withDefaults(defineProps<ProsePreProps>(), {
+  copy: true
+})
 
 defineSlots<ProsePreSlots>()
 
 const props = useComponentProps('prose.pre', _props)
 
 const { t } = useLocale()
-const { copy, copied } = useClipboard()
+const { copy: copyToClipboard, copied } = useClipboard()
 const appConfig = useAppConfig() as ProsePre['AppConfig']
 
 const baseRef = useTemplateRef('baseRef')
@@ -54,7 +64,7 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.prose?.pre
 function copyCode() {
   const code = props.code ?? baseRef.value?.textContent ?? ''
 
-  copy(code)
+  copyToClipboard(code)
 }
 </script>
 
@@ -67,6 +77,7 @@ function copyCode() {
     </div>
 
     <B24Button
+      v-if="props.copy"
       color="air-secondary-no-accent"
       size="sm"
       :aria-label="t('prose.pre.copy')"
@@ -75,6 +86,7 @@ function copyCode() {
       tabindex="-1"
       :icon="copied ? icons.copyCheck : icons.copy"
       :b24ui="{ leadingIcon: [copied ? 'text-(--ui-color-accent-main-success)' : 'text-(--ui-btn-color)'] }"
+      v-bind="(typeof props.copy === 'object' ? props.copy : {})"
       @click="copyCode"
     />
 

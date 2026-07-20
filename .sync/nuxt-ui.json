@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "f546b2c9008044a48e4e9a1d08e9082d5012b200",
+  "cursor": "f419731d9b570892e21b990f13985f3f4ad4a56c",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1103,10 +1103,16 @@
       "summary": "perf(vue): skip rewriting unchanged templates — in src/plugins/templates.ts, read existing generated template file and skip writeFileSync when contents are identical (avoids mtime churn → watcher/Tailwind reinvalidation); track created dirs in a Set to skip redundant existsSync. b24ui plugin structurally identical (writes .b24ui-nuxt); applied verbatim. Build-plugin only, no runtime/snapshot impact. Tests 5557."
     },
     "f546b2c9008044a48e4e9a1d08e9082d5012b200": {
+      "pr": 286,
+      "b24ui_sha": "0d77ae456c01e34ff59000eb0c0fdb6656c70ebe",
+      "decision": "port",
+      "summary": "test: add benchmarks — Vitest bench suite (test/bench/components.bench.ts + tv.bench.ts) wired into the vue project (benchmark.include), excluded from nuxt, + pnpm bench script. Adapted to b24ui: components.bench maps 1:1 (Button label/loading, Table data/columns/TableColumn, mountSuspended); tv.bench imports #build/b24ui/* and uses b24ui Button/Table tv() prop shapes (air colors, depth/useLabel/rounded/isAir, loadingColor/loadingAnimation/virtualize, pinned slot). pnpm bench verified — 8 groups green. Not in CI gate. Tests 5557."
+    },
+    "f419731d9b570892e21b990f13985f3f4ad4a56c": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "test: add benchmarks — Vitest bench suite (test/bench/components.bench.ts + tv.bench.ts) wired into the vue project (benchmark.include), excluded from nuxt, + pnpm bench script. Adapted to b24ui: components.bench maps 1:1 (Button label/loading, Table data/columns/TableColumn, mountSuspended); tv.bench imports #build/b24ui/* and uses b24ui Button/Table tv() prop shapes (air colors, depth/useLabel/rounded/isAir, loadingColor/loadingAnimation/virtualize, pinned slot). pnpm bench verified — 8 groups green. Not in CI gate. Tests 5557."
+      "summary": "feat(prose): configurable heading anchors and copy button — prose H1-H4 gain anchor?:boolean (precedence over deprecated mdc.headings.anchorLinks fallback), prose Pre gains copy?:boolean|Omit<ButtonProps,LinkPropsKeys> (default true, v-if-gated button + v-bind customize), ThemeDefaults gains prose namespace (dropped codeTree — absent), spec drops prose from NonProxyComponents (drift catcher balanced). Renamed Pre useClipboard copy→copyToClipboard (dupe-key). Docs: headers-and-text (anchor/B24Theme example) + code (copy prop). Chat.vue N/A (b24ui has no Chat). Backward-compatible defaults → no snapshot churn. Tests 5557."
     }
   }
 }

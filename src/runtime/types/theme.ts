@@ -127,6 +127,36 @@ export interface ThemeDefaults {
   // pricingPlans?: Partial<ComponentTypes.PricingPlansProps>
   // pricingTable?: Partial<ComponentTypes.PricingTableProps>
   progress?: Partial<ComponentTypes.ProgressProps>
+  /**
+   * Prose components that expose overridable props, under a `prose` namespace
+   * (mirrors `app.config.b24ui.prose` and `useComponentProps('prose.<tag>', …)`).
+   * Set prop defaults per element to scope behavior for a subtree, e.g.
+   * `{ prose: { h2: { anchor: true }, pre: { copy: false } } }`. Class-only
+   * elements (`p`, `li`, `table`, `em`, …) are omitted — restyle them via `:b24ui`.
+   */
+  prose?: {
+    a?: Partial<ComponentTypes.ProseAProps>
+    accordion?: Partial<ComponentTypes.ProseAccordionProps>
+    callout?: Partial<ComponentTypes.ProseCalloutProps>
+    card?: Partial<ComponentTypes.ProseCardProps>
+    code?: Partial<ComponentTypes.ProseCodeProps>
+    codeCollapse?: Partial<ComponentTypes.ProseCodeCollapseProps>
+    codeGroup?: Partial<ComponentTypes.ProseCodeGroupProps>
+    collapsible?: Partial<ComponentTypes.ProseCollapsibleProps>
+    field?: Partial<ComponentTypes.ProseFieldProps>
+    fieldGroup?: Partial<ComponentTypes.ProseFieldGroupProps>
+    h1?: Partial<ComponentTypes.ProseH1Props>
+    h2?: Partial<ComponentTypes.ProseH2Props>
+    h3?: Partial<ComponentTypes.ProseH3Props>
+    h4?: Partial<ComponentTypes.ProseH4Props>
+    img?: Partial<ComponentTypes.ProseImgProps>
+    pre?: Partial<ComponentTypes.ProsePreProps>
+    prompt?: Partial<ComponentTypes.ProsePromptProps>
+    steps?: Partial<ComponentTypes.ProseStepsProps>
+    tabs?: Partial<ComponentTypes.ProseTabsProps>
+    td?: Partial<ComponentTypes.ProseTdProps>
+    th?: Partial<ComponentTypes.ProseThProps>
+  }
   radioGroup?: Partial<ComponentTypes.RadioGroupProps>
   range?: Partial<ComponentTypes.RangeProps> // this is slider
   scrollArea?: Partial<ComponentTypes.ScrollAreaProps>

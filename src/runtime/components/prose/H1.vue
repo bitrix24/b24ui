@@ -9,6 +9,11 @@ type ProseH1 = ComponentConfig<typeof theme, AppConfig, 'h1', 'b24ui.prose'>
 export interface ProseH1Props {
   id?: string
   /**
+   * Wrap the heading in an anchor link when an `id` is present.
+   * @defaultValue false
+   */
+  anchor?: boolean
+  /**
    * @defaultValue 'default'
    */
   accent?: ProseH1['variants']['accent']
@@ -43,7 +48,8 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.prose?.h1 
   accent: props.accent
 }))
 
-const generate = computed(() => props.id && typeof headings?.anchorLinks === 'object' && headings.anchorLinks.h1)
+// NOTE: the `mdc.headings.anchorLinks` fallback is deprecated, remove in v5 in favor of the `anchor` prop.
+const generate = computed(() => props.id && (props.anchor ?? (typeof headings?.anchorLinks === 'boolean' ? headings.anchorLinks : headings?.anchorLinks?.h1) ?? false))
 </script>
 
 <template>

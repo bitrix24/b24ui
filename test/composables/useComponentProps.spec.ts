@@ -7,18 +7,15 @@ import type { ThemeDefaults } from '../../src/runtime/types/theme'
 
 /**
  * Hand-maintained list of `#build/b24ui` exports that intentionally don't
- * participate in `<B24Theme :props>` overrides. Two reasons land here:
+ * participate in `<B24Theme :props>` overrides:
  *
- *   - `prose` is a namespace, not a single component (its children live
- *     under `prose.<tag>` and are read via `useComponentProps('prose.p', …)`).
  *   - The matching Vue file doesn't run `useComponentProps`, so a `:props`
  *     entry would types-check but no-op at runtime. If a key stays here
  *     long-term, consider migrating the component to `useComponentProps`
  *     and removing it from this list.
  */
 type NonProxyComponents
-  = | 'prose'
-    | 'link'
+  = | 'link'
     | 'editorEmojiMenu'
     | 'editorMentionMenu'
     | 'editorSuggestionMenu'
