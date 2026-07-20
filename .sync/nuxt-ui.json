@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "e931bdf79700b95fe6298ae015b5a08bd7c4f82c",
+  "cursor": "0a1803d3361dab9a0ebe1bc2097e8bfa283f0c3c",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1139,10 +1139,16 @@
       "summary": "fix(CommandPalette): always escape search highlight to prevent XSS — src/runtime/utils/search.ts removed isAlreadyEscaped()/sanitize() (entity-detection bypass was the vuln) and replaced 3 sanitize() calls in highlight() with escapeHTML(). Added 4 upstream XSS regression tests to test/utils/search.spec.ts (highlight signature matches 1:1). sanitizeSnippet untouched. Normal-input output unchanged → no snapshot churn. Tests 5565 (+4 highlight)."
     },
     "e931bdf79700b95fe6298ae015b5a08bd7c4f82c": {
+      "pr": 292,
+      "b24ui_sha": "4ed7b242e09e802c736bd5289da615469209c689",
+      "decision": "port",
+      "summary": "docs(typography): improve headers and text page — headers-and-text.md: hash-icon copy H2/H3->H2/H3/H4, and consolidate the two ::note blocks (anchorLinks + toc) into one merged note/code example (renderer.anchorLinks + build.markdown.toc together). Applied atop b24ui post-#287 state. Docs-content only."
+    },
+    "0a1803d3361dab9a0ebe1bc2097e8bfa283f0c3c": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "docs(typography): improve headers and text page — headers-and-text.md: hash-icon copy H2/H3->H2/H3/H4, and consolidate the two ::note blocks (anchorLinks + toc) into one merged note/code example (renderer.anchorLinks + build.markdown.toc together). Applied atop b24ui post-#287 state. Docs-content only."
+      "summary": "docs(color-mode-button): remove fallback slot example — deleted the '### With fallback slot' section from color-mode-button.md. b24ui: since it was the only example on the page, also removed the orphaned '## Examples' heading (intro -> ## API). Docs-content only."
     }
   }
 }
