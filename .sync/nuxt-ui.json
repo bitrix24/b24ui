@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "f69c471ce9a75477e844d6f8e4f20ca37b7f4a58",
+  "cursor": "365c010ff3dfdbb7c4f8821ebbb72e70151e34b4",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1163,10 +1163,16 @@
       "summary": "chore(deps): update all non-major dependencies — §2 manifest mirroring of the subset where b24ui shares upstream's old range. Bumped: pnpm@11.13.0->11.17.0, @tailwindcss/postcss+vite+tailwindcss ^4.3.2->^4.3.3, @tanstack/vue-virtual ->^3.13.34, @unhead/vue ->^2.1.16, vue-component-type-helpers/meta/vue-tsc ^3.3.7->^3.3.8, @nuxt/module-builder ->^1.0.3, @vitejs/plugin-vue ->^6.0.8, eslint ->^10.8.0, happy-dom ->^20.11.1, vue ->^3.5.40, @comark/vue ->^0.5.1, @nuxt/content ->^3.15.2, @nuxtjs/mdc ->^0.22.2, vue-router ->^5.2.0. SKIPPED (b24ui diverges): @ai-sdk/deepseek+vue(v3)+mcp(v1)+ai(v6) vs upstream anthropic/gateway/vue4/mcp2/ai7, @iconify-json/* (b24icons), @regle/* (^1.28.0), prettier (^3.8.4), nuxt-og-image (^6.6.0), nuxt-schema-org (^6.2.1). Lockfile regen w/ pnpm 11.17.0. Tests 5565."
     },
     "f69c471ce9a75477e844d6f8e4f20ca37b7f4a58": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 296,
+      "b24ui_sha": "25aa68d810be03f7dea0e0029c2a583189526b90",
       "decision": "no-op",
       "summary": "chore(deps): update actions/labeler action to v7 — bumps .github/workflows/pr-labeler.yml actions/labeler@v6->v7. NOT APPLICABLE: b24ui has no labeler workflow (only ci/deploy/npm-publish). No-op."
+    },
+    "365c010ff3dfdbb7c4f8821ebbb72e70151e34b4": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "chore(deps): update actions/setup-node action to v7 — upstream bumps setup-node@v6->v7 in module.yml (14x)+release.yml (1x). b24ui has different workflows; bumped the single setup-node@v6 in ci.yml, deploy.yml, npm-publish.yml to @v7. Pure version bump, no other params. Validated by PR's own ci run on setup-node@v7."
     }
   }
 }
