@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "bfe1177393f6d49835c3506303d5e46ff0e86654",
+  "cursor": "34554bf868b4dbc5a5781466634cafa3e2bf5c3e",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1175,10 +1175,16 @@
       "summary": "chore(deps): update actions/setup-node action to v7 — upstream bumps setup-node@v6->v7 in module.yml (14x)+release.yml (1x). b24ui has different workflows; bumped the single setup-node@v6 in ci.yml, deploy.yml, npm-publish.yml to @v7. Pure version bump, no other params. Validated by PR's own ci run on setup-node@v7."
     },
     "bfe1177393f6d49835c3506303d5e46ff0e86654": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 298,
+      "b24ui_sha": "9cc9f434744580a696e34dc120a9a17d3149174f",
       "decision": "port",
       "summary": "chore(deps): update tiptap to ^3.29.0 — §2 mirror. b24ui has all @tiptap/* at ^3.27.3 (== upstream old); bumped 25 entries to ^3.29.0 (package.json 17 + docs/demo/nuxt/vue 2 each: emoji+text-align). Lockfile regen w/ pnpm 11.17.0. tiptap powers Editor; full gauntlet green, no snapshot drift. Tests 5565."
+    },
+    "34554bf868b4dbc5a5781466634cafa3e2bf5c3e": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "no-op",
+      "summary": "docs(mcp): update server config for several providers — updates 7.ai/1.mcp.md MCP-server config snippets (Cursor url->httpUrl, Continue serverUrl, Windsurf simplified, etc.) for ui.nuxt.com/mcp. NOT APPLICABLE: b24ui has no 1.mcp.md page (7.ai/ has only llms-txt + skills); snippets are nuxt-ui-specific. No-op."
     }
   }
 }
