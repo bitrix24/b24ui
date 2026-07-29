@@ -1,6 +1,5 @@
 import { computed } from 'vue'
 // import colors from 'tailwindcss/colors'
-import type { UseHeadInput } from '@unhead/vue/types'
 // import { defineNuxtPlugin, useAppConfig, useNuxtApp, useHead } from '#imports'
 import { defineNuxtPlugin, injectHead, useNuxtApp, useHead } from '#imports'
 
@@ -52,7 +51,9 @@ export default defineNuxtPlugin(() => {
   })
 
   // Head
-  const headData: UseHeadInput = {
+  // NOTE: unhead v3 renamed the input type; `Parameters<typeof useHead>[0]` keeps this
+  // assignable across the v2 (`UseHeadInput<Deprecated>`) and v3 (`ReactiveHead`) shapes.
+  const headData: Parameters<typeof useHead>[0] = {
     style: [{
       innerHTML: root,
       tagPriority: 'critical',
