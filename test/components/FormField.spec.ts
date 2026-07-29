@@ -21,6 +21,16 @@ import {
   B24FileUpload
 } from '#components'
 
+// Mock useId to force a consistent return value in Nuxt and Vue. This is required to test aria attributes.
+// `vi.mock` is hoisted to the top of the module, so it must live at the top level to reflect its actual execution order.
+vi.mock('vue', async () => {
+  const actual = await vi.importActual('vue')
+  return {
+    ...actual,
+    useId: () => 'v-0-0' // Static value matching Nuxt's format
+  }
+})
+
 const inputComponents = [
   B24Input,
   B24RadioGroup,
@@ -112,15 +122,6 @@ describe('FormField', () => {
   })
 
   describe.each(inputComponents.map(inputComponent => [(inputComponent as any).__name, inputComponent]))('%s integration', async (name: string, inputComponent: any) => {
-    // Mock useId to force a consistent return value in Nuxt and Vue. This is required to test aria attributes.
-    vi.mock('vue', async () => {
-      const actual = await vi.importActual('vue')
-      return {
-        ...actual,
-        useId: () => 'v-0-0' // Static value matching Nuxt's format
-      }
-    })
-
     if (name === 'RadioGroup') {
       test('unbinds label for', async () => {
         const wrapper = await renderFormField({

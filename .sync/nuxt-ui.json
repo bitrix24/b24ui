@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "34554bf868b4dbc5a5781466634cafa3e2bf5c3e",
+  "cursor": "282759e7c6b6df3d9ae842df7f379f9f8f9298b4",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1181,10 +1181,16 @@
       "summary": "chore(deps): update tiptap to ^3.29.0 — §2 mirror. b24ui has all @tiptap/* at ^3.27.3 (== upstream old); bumped 25 entries to ^3.29.0 (package.json 17 + docs/demo/nuxt/vue 2 each: emoji+text-align). Lockfile regen w/ pnpm 11.17.0. tiptap powers Editor; full gauntlet green, no snapshot drift. Tests 5565."
     },
     "34554bf868b4dbc5a5781466634cafa3e2bf5c3e": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 299,
+      "b24ui_sha": "eb03ae629d7b93254dc528a4cc79a8536884a794",
       "decision": "no-op",
       "summary": "docs(mcp): update server config for several providers — updates 7.ai/1.mcp.md MCP-server config snippets (Cursor url->httpUrl, Continue serverUrl, Windsurf simplified, etc.) for ui.nuxt.com/mcp. NOT APPLICABLE: b24ui has no 1.mcp.md page (7.ai/ has only llms-txt + skills); snippets are nuxt-ui-specific. No-op."
+    },
+    "282759e7c6b6df3d9ae842df7f379f9f8f9298b4": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "chore(deps): update nuxt framework — nuxt/@nuxt/kit/@nuxt/schema ^4.4.8->^4.5.1, @unhead/vue v2->v3, magic-string 0.30->1.1, vite 7->8 (playgrounds). Ported upstream's accompanying fixes: vitest.config.ts #components -> \\0virtual id (vite 8 rewrites '#components' to '?import#components'), FormField.spec.ts vi.mock('vue') hoisted to top level, pnpm-workspace @nuxt/kit override ->^4.5.1 (4.4.8 kit lacks buildDiagnostics that nuxt 4.5.1 CLI imports). b24ui-specific: bumped playgrounds/demo nuxt (b24ui-only workspace, else dup nuxt); fixed stale @tiptap/pm override ->^3.29.0; added vite ^8.1.5 + rolldown ~1.1.5 overrides — b24ui's dep set (unplugin/unhead peers + legacy vitest-environment-nuxt) otherwise resolved 2 vite + 2 rolldown copies, whose clashing native ABIs killed all 125 nuxt-project test workers with 'Missing field moduleType'. colors.ts: headData typed Parameters<typeof useHead>[0] (unhead v3 dropped UseHeadInput). SKIPPED: ContentNavigation.vue (absent); setup.ts iconify fetch stub (N/A — b24icons doesn't fetch). Tests 5565, no snapshot drift."
     }
   }
 }

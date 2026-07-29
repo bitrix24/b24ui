@@ -12,9 +12,16 @@ ignoreWorkspaceRootCheck: true
 linkWorkspacePackages: true
 
 overrides:
-  '@nuxt/kit': ^4.4.8
+  '@nuxt/kit': ^4.5.1
   '@bitrix24/b24ui-nuxt': workspace:*
-  '@tiptap/pm': ^3.27.3
+  # nuxt 4.5.1 requires vite ^8, but several peers (unplugin, unhead, vite-plugin-*)
+  # still resolve vite 7 — two vite copies mean two rolldown native ABIs in one
+  # process, which breaks vitest's pool ("Missing field `moduleType`").
+  vite: ^8.1.5
+  # vite 8 pins rolldown ~1.1.5; unplugin accepts any, so pnpm otherwise also
+  # installs 1.2.0 and the two native ABIs collide in the same worker process.
+  rolldown: ~1.1.5
+  '@tiptap/pm': ^3.29.0
   nitropack: ^2.13.0
   unplugin: ^3.3.0
   c12: ^3.3.4
