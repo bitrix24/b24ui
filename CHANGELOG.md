@@ -1,5 +1,89 @@
 # Changelog
 
+## [2.10.0](https://github.com/bitrix24/b24ui/compare/v2.9.0...v2.10.0) (2026-08-06)
+
+### Features
+
+* **Listbox:** new component
+* **InputRating:** new component
+* **Calendar:** add month and year selection
+* **prose:** configurable heading anchors and copy button
+* **Empty:** add `loading` and `loadingIcon` props
+* **ChatPrompt:** add `body` slot
+* **ChatTool:** add `actions` prop for tool approval
+* **Prompt:** add claude action
+* **Drawer:** add `close` and `closeIcon` props
+* **Editor:** allow disabling starter kit for plain text
+* **ContentToc:** scroll list independently and center active link
+* **Table:** add `getScrollElement` virtualize option
+* **ScrollArea:** add `getScrollElement` virtualize option
+
+### Bug Fixes
+
+* **module:** avoid unhead v2-only `hookOnce` in colors plugin — fixes app initialization crash in SPA mode (`ssr: false`) on Nuxt `>= 4.5.1`
+* **module:** honour the `b24ui.version` option in `appConfig` — it was declared but ignored on the Nuxt path
+* **Modal:** emit transition events from overlay when scrollable
+* **theme:** unify motion easing and respect `prefers-reduced-motion`
+* **ContentToc:** prevent list from collapsing
+* **CommandPalette:** always escape search highlight to prevent XSS
+* **theme:** use logical properties for RTL
+* **components:** respect `prefers-reduced-motion` in animations
+* **Editor:** prevent suggestion menu blinking on keystroke
+* **types:** type prose components in app config
+* **defineShortcuts:** defer standalone shortcuts that prefix a chain
+* **defineShortcuts:** add missing `arrowdown` to shiftable keys
+* **useToast:** dedupe duplicate ids and handle max of 0
+* **useResizable:** recover from corrupted persisted storage
+* **useResizable:** share resize logic between mouse and touch
+* **useScrollspy:** unobserve previous headings on update
+* **useFileUpload:** keep dropzone type filter reactive to `accept`
+* **useComponentProps:** let app config `defaultVariants` override `withDefaults`
+* **inertia:** make `useRoute().fullPath` reactive across navigations
+* **FileUpload:** add `aria-disabled` attribute when disabled
+* **SelectMenu/InputMenu:** only re-highlight first item with `create-item`
+* **Link:** apply `rel` prop to internal links
+* **ChatMessages:** re-evaluate streaming indicator on each render
+* **Button:** allow inline event handlers with non-void return types
+* **docs:** register `loadingIcon` cast so the Empty page prerenders
+
+### Performance
+
+* **components:** memoize tv slot invocations with simple args
+* **Button/Select/SelectMenu/InputMenu:** narrow reactive dependencies
+* **vue:** skip rewriting unchanged templates
+* **module:** declare `sideEffects` for barrel tree-shaking
+* **types:** decouple `useComponentProps` from the component-types barrel
+* **types:** import cross-component types from source, not the barrel
+* **components:** drop the redundant inner in component extend
+
+### Docs
+
+* use content native sqlite connector
+* **input-rating:** remove stray `defaultValue` line in size
+* **chat:** sanitize ai endpoint error logging
+* **installation:** note vue-tsc build race with auto-import declarations
+* **useCanonical:** type link array as unhead `Link[]`
+* **typography:** improve headers and text page
+* **select-menu/input-menu:** use grouped items in items type example
+* **sidebar:** render examples with gpu transform
+* **color-mode-button:** remove fallback slot example
+
+### Tests
+
+* add benchmarks
+* **plugins:** bring `src/runtime/plugins/` under test — the directory matched no vitest `include`, so the SPA crash above could not have been caught
+* **composables:** add specs for `defineLocale`, `useKbd` and `useFormField`
+* **ChatPrompt:** avoid using fake timers before suspended
+
+### Chore
+
+* **deps:** update Nuxt framework to `^4.5.1` — moves `@unhead/vue` from `^2.1.15` to `^3.2.3` and Vite to v8
+* **deps:** update Tiptap to `^3.29.0`, reka-ui to `v2.10.1`, `@nuxt/test-utils` to `^4.1.0`, and 40 package versions refreshed in total
+* **docs:** drop the dead og-image stack — `@takumi-rs/core` and `nuxt-og-image` were unused and blocked upstream syncs; 54 packages leave the lockfile
+* **github:** improve workflows
+* **playground:** expose all public composables in repl
+* sync with nuxt/ui upstream (no-op syncs)
+
 ## [2.9.0](https://github.com/bitrix24/b24ui/compare/v2.8.0...v2.9.0) (2026-06-27)
 
 ### Features

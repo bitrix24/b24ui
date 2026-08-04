@@ -54,6 +54,8 @@ Quick-reference index of 125+ components. For detailed API specifications (props
 | `B24InputDate` | Date picker with calendar | [input-date.md](https://bitrix24.github.io/b24ui/raw/docs/components/input-date.md) |
 | `B24InputTime` | Time picker (12/24h) | [input-time.md](https://bitrix24.github.io/b24ui/raw/docs/components/input-time.md) |
 | `B24InputTags` | Tag/chip input | [input-tags.md](https://bitrix24.github.io/b24ui/raw/docs/components/input-tags.md) |
+| `B24InputRating` | Star/icon rating input | [input-rating.md](https://bitrix24.github.io/b24ui/raw/docs/components/input-rating.md) |
+| `B24Listbox` | Single/multi selection list, always expanded | [listbox.md](https://bitrix24.github.io/b24ui/raw/docs/components/listbox.md) |
 | `B24PinInput` | Verification code input | [pin-input.md](https://bitrix24.github.io/b24ui/raw/docs/components/pin-input.md) |
 | `B24Checkbox` | Single boolean checkbox | [checkbox.md](https://bitrix24.github.io/b24ui/raw/docs/components/checkbox.md) |
 | `B24CheckboxGroup` | Multiple checkboxes | [checkbox-group.md](https://bitrix24.github.io/b24ui/raw/docs/components/checkbox-group.md) |
