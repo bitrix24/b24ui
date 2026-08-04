@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "a158e26b784c8caac8d4c4aa925060fb40083071",
+  "cursor": "706cfd0db7584bcb6aeb55cb0e5dcfa628e45fbf",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1193,10 +1193,16 @@
       "summary": "chore(deps): update nuxt framework — nuxt/@nuxt/kit/@nuxt/schema ^4.4.8->^4.5.1, @unhead/vue v2->v3, magic-string 0.30->1.1, vite 7->8 (playgrounds). Ported upstream's accompanying fixes: vitest.config.ts #components -> \\0virtual id (vite 8 rewrites '#components' to '?import#components'), FormField.spec.ts vi.mock('vue') hoisted to top level, pnpm-workspace @nuxt/kit override ->^4.5.1 (4.4.8 kit lacks buildDiagnostics that nuxt 4.5.1 CLI imports). b24ui-specific: bumped playgrounds/demo nuxt (b24ui-only workspace, else dup nuxt); fixed stale @tiptap/pm override ->^3.29.0; added vite ^8.1.5 + rolldown ~1.1.5 overrides — b24ui's dep set (unplugin/unhead peers + legacy vitest-environment-nuxt) otherwise resolved 2 vite + 2 rolldown copies, whose clashing native ABIs killed all 125 nuxt-project test workers with 'Missing field moduleType'. colors.ts: headData typed Parameters<typeof useHead>[0] (unhead v3 dropped UseHeadInput). SKIPPED: ContentNavigation.vue (absent); setup.ts iconify fetch stub (N/A — b24icons doesn't fetch). Tests 5565, no snapshot drift."
     },
     "a158e26b784c8caac8d4c4aa925060fb40083071": {
+      "pr": 304,
+      "b24ui_sha": "795aa4ae72cab0cf213fd3c5432d324ef1727dcd",
+      "decision": "port",
+      "summary": "docs(installation): note vue-tsc build race with auto-import declarations — adds a ::warning to the Vue installation page that auto-imports.d.ts/components.d.ts are only written when Vite runs, while create-vue's default build runs vue-tsc in parallel (run-p), so a clean checkout can fail with 'Cannot find name useToast'; recommends run-s build-only type-check. Ported verbatim to b24ui's 2.vue.md (same unplugin-auto-import/vue-components setup, useToast is a real b24ui auto-import). Docs-only."
+    },
+    "706cfd0db7584bcb6aeb55cb0e5dcfa628e45fbf": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "docs(installation): note vue-tsc build race with auto-import declarations — adds a ::warning to the Vue installation page that auto-imports.d.ts/components.d.ts are only written when Vite runs, while create-vue's default build runs vue-tsc in parallel (run-p), so a clean checkout can fail with 'Cannot find name useToast'; recommends run-s build-only type-check. Ported verbatim to b24ui's 2.vue.md (same unplugin-auto-import/vue-components setup, useToast is a real b24ui auto-import). Docs-only."
+      "summary": "fix(ContentToc): prevent list from collapsing — ContentToc.vue gains a listStyle computed exposing --list-height (links.length * linkHeight), bound on the desktop content div; theme content slot lg:min-h-0 -> lg:min-h-[min(var(--list-height,8rem),8rem)]. ADAPTED: upstream's 1.75rem constant is for text-sm+py-1; b24ui's link is font-size-lg (15px) x line-height-3xs (1.2) = 18px + pb-12px = 30px, emitted in px since b24ui tokens are px-based. SKIPPED: root's lg:overflow-hidden removal — upstream's root is a sticky overflow-y-auto/max-h scroll container, b24ui's root is just 'flex flex-col lg:overflow-hidden' with nothing to compensate; the collapse fix doesn't depend on it. Snapshots regen (16): only the min-h class swap + --list-height: 210px (7 links). Tests 5565."
     }
   }
 }

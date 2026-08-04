@@ -43,7 +43,7 @@ export default {
       'motion-safe:data-[state=closed]:animate-[collapsible-up_200ms_ease-out]',
       'overflow-hidden',
       'focus:outline-none',
-      'lg:min-h-0 lg:overflow-y-auto lg:scrollbar-thin lg:scrollbar-transparent'
+      'lg:min-h-[min(var(--list-height,8rem),8rem)] lg:overflow-y-auto lg:scrollbar-thin lg:scrollbar-transparent'
     ].join(' '),
     list: 'min-w-0',
     listWithChildren: 'ms-[12px]',

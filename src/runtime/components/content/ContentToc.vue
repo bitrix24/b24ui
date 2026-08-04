@@ -123,6 +123,15 @@ function flattenLinks(links: T[]): T[] {
 
 // const linkHeight = 1.75 // rem — text-sm line-height (1.25rem) + py-1 (0.5rem)
 
+// px — font-size-lg (15px) x line-height-3xs (1.2) = 18px, plus the link's pb-[12px].
+const linkHeight = 30
+
+// The natural height of the list, so the theme can floor how far the list may
+// shrink without inflating a short one: `min(var(--list-height), <floor>)`.
+const listStyle = computed(() => ({
+  '--list-height': `${flattenLinks(props.links || []).length * linkHeight}px`
+}))
+
 const activeIndex = computed(() => {
   if (!activeHeadings.value?.length) {
     return -1
@@ -247,7 +256,7 @@ onUnmounted(() => {
           <ReuseTriggerTemplate :open="open" />
         </p>
 
-        <div ref="contentRef" data-slot="content" :class="b24ui.content({ class: [props.b24ui?.content, prefix('hidden lg:flex')] })" :style="scrollShadowStyle">
+        <div ref="contentRef" data-slot="content" :class="b24ui.content({ class: [props.b24ui?.content, prefix('hidden lg:flex')] })" :style="[listStyle, scrollShadowStyle]">
           <slot name="content" :links="props.links">
             <ReuseListTemplate :links="props.links" :level="0" />
           </slot>
