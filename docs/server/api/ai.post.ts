@@ -1,5 +1,5 @@
 // @memo we not use jsonSchema
-import { streamText, convertToModelMessages, smoothStream, stepCountIs, jsonSchema } from 'ai'
+import { streamText, convertToModelMessages, smoothStream, stepCountIs, jsonSchema, APICallError } from 'ai'
 import { createDeepSeek } from '@ai-sdk/deepseek'
 import { z } from 'zod'
 import { tools as mcpToolDefinitions } from '#nuxt-mcp-toolkit/tools.mjs'
@@ -108,8 +108,22 @@ Guidelines:
     tools: {
       ...mcpTools
     },
-    onError: (error) => {
-      console.error('streamText error:', error)
+    onError: ({ error }) => {
+      // Provider errors carry the outgoing prompt in `requestBodyValues` and the raw
+      // `responseBody`, so log identifying fields only and keep chat content out of the logs.
+      console.error('[api/ai] stream error:', {
+        name: error instanceof Error ? error.name : 'UnknownError',
+        message: error instanceof Error ? error.message : String(error),
+        statusCode: APICallError.isInstance(error) ? error.statusCode : undefined
+      })
     }
-  }).toUIMessageStreamResponse()
+  }).toUIMessageStreamResponse({
+    onError: (error) => {
+      if (APICallError.isInstance(error) && error.statusCode === 429) {
+        return 'You have reached the message limit for now. Please try again later.'
+      }
+
+      return 'An error occurred.'
+    }
+  })
 })
