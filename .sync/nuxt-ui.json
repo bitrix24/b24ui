@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "c4b786c952de69ca650807b7d5fcba7cf8114e28",
+  "cursor": "4ee416f8d479316a5f5b233b5e6604c875af048a",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1205,10 +1205,16 @@
       "summary": "fix(ContentToc): prevent list from collapsing — ContentToc.vue gains a listStyle computed exposing --list-height (links.length * linkHeight), bound on the desktop content div; theme content slot lg:min-h-0 -> lg:min-h-[min(var(--list-height,8rem),8rem)]. ADAPTED: upstream's 1.75rem constant is for text-sm+py-1; b24ui's link is font-size-lg (15px) x line-height-3xs (1.2) = 18px + pb-12px = 30px, emitted in px since b24ui tokens are px-based. SKIPPED: root's lg:overflow-hidden removal — upstream's root is a sticky overflow-y-auto/max-h scroll container, b24ui's root is just 'flex flex-col lg:overflow-hidden' with nothing to compensate; the collapse fix doesn't depend on it. Snapshots regen (16): only the min-h class swap + --list-height: 210px (7 links). Tests 5565."
     },
     "c4b786c952de69ca650807b7d5fcba7cf8114e28": {
+      "pr": 307,
+      "b24ui_sha": "d320047fead1a222d966ac6f67e9114436bba204",
+      "decision": "port",
+      "summary": "chore(github): improve workflows — applied to b24ui counterparts: ci.yml gains persist-credentials:false + node 22->24; npm-publish.yml process job gains persist-credentials:false (neither pushes via git — Pages uses deploy-pages/OIDC, npm uses registry token + --no-git-checks). ALREADY SATISFIED: concurrency (ci.yml + deploy.yml already have groups) and permissions: contents:read (already workflow-level in npm-publish/deploy). NOT PORTED (deliberate): upstream's '- parallel:' step groups — that key is not in the GitHub Actions workflow syntax reference; copying it would invalidate ci.yml and take down the gate every sync PR depends on. N/A: pr-labeler/reproduction/reproduire/stale (absent in b24ui). OUT OF SCOPE: deploy.yml (no upstream counterpart in this commit). YAML validated; PR's own CI exercises node 24."
+    },
+    "4ee416f8d479316a5f5b233b5e6604c875af048a": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "chore(github): improve workflows — applied to b24ui counterparts: ci.yml gains persist-credentials:false + node 22->24; npm-publish.yml process job gains persist-credentials:false (neither pushes via git — Pages uses deploy-pages/OIDC, npm uses registry token + --no-git-checks). ALREADY SATISFIED: concurrency (ci.yml + deploy.yml already have groups) and permissions: contents:read (already workflow-level in npm-publish/deploy). NOT PORTED (deliberate): upstream's '- parallel:' step groups — that key is not in the GitHub Actions workflow syntax reference; copying it would invalidate ci.yml and take down the gate every sync PR depends on. N/A: pr-labeler/reproduction/reproduire/stale (absent in b24ui). OUT OF SCOPE: deploy.yml (no upstream counterpart in this commit). YAML validated; PR's own CI exercises node 24."
+      "summary": "docs(chat): rework ai endpoint around ToolLoopAgent — narrow subset ported. PORTED: sanitized onError in docs/server/api/ai.post.ts (log only name/message/statusCode instead of the whole error — AI SDK provider errors carry requestBodyValues = the user's prompt — plus .toUIMessageStreamResponse({onError}) mapping 429 to the rate-limit copy; APICallError is a core ai export, present in ai@6.0.214; adapted to the streamText idiom where onError is ({error})=>void so the message mapping lives on toUIMessageStreamResponse). ALREADY PRESENT: safeCurrentPage injection guard, AbortController on req close, messages validation, smoothStream/stepCountIs. N/A: all Vercel AI Gateway wiring (providerOptions.gateway caching/user/tags/models, model-as-string routing, AnthropicLanguageModelOptions, new chatUser.ts) — b24ui uses createDeepSeek with an API key, no gateway; also the applyTheme tool + ApplyThemeSettings + componentNames (b24ui ships no live-theming tool by design). DEFERRED: the ToolLoopAgent/createAgentUIStreamResponse rewrite — APIs do exist in ai v6 (verified), but it's a pure architecture swap with no functional gain for b24ui's single-provider/single-toolset setup and can't be runtime-verified without DEEPSEEK_API_KEY. NOT PORTED: page context as a message part (b24ui interpolates into its own system prompt, guard already there); chat.post.ts/completion.post.ts (their whole diff is gateway options). b24ui's ai.post.ts is 115 lines vs upstream's 472."
     }
   }
 }
