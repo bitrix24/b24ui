@@ -43,7 +43,7 @@ export default () => {
           'bg-(--ui-color-bg-content-primary)',
           'shadow-(--popup-window-box-shadow)',
           'rounded-(--ui-border-radius-xl) will-change-[opacity]',
-          // 'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]',
+          // 'motion-safe:data-[state=open]:animate-[scale-in_100ms_var(--ease-out)] motion-safe:data-[state=closed]:animate-[scale-out_100ms_var(--ease-out)]',
           'origin-(--reka-select-content-transform-origin)',
           'font-[family-name:var(--ui-font-family-primary)]',
           'relative',
@@ -184,7 +184,7 @@ export default () => {
         },
         position: {
           'popper': {
-            content: 'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]'
+            content: 'motion-safe:data-[state=open]:animate-[scale-in_100ms_var(--ease-out)] motion-safe:data-[state=closed]:animate-[scale-out_100ms_var(--ease-out)]'
           },
           'item-aligned': {
             content: '',

@@ -28,7 +28,7 @@ export default {
     label: 'truncate',
     suffix: 'text-dimmed ms-1',
     trailingIcon: 'size-4 shrink-0 group-data-[state=open]:rotate-180 transition-transform duration-200',
-    content: 'motion-safe:data-[state=open]:animate-[collapsible-down_200ms_ease-out] motion-safe:data-[state=closed]:animate-[collapsible-up_200ms_ease-out] overflow-hidden',
+    content: 'motion-safe:data-[state=open]:animate-[collapsible-down_200ms_var(--ease-out)] motion-safe:data-[state=closed]:animate-[collapsible-up_200ms_var(--ease-out)] overflow-hidden',
     body: 'text-sm text-dimmed whitespace-pre-wrap',
     actions: 'flex items-center justify-end gap-1.5'
   },

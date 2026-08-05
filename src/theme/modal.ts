@@ -54,8 +54,8 @@ export default {
     },
     transition: {
       true: {
-        overlay: 'motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]',
-        content: 'motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in]'
+        overlay: 'motion-safe:data-[state=open]:animate-[fade-in_200ms_var(--ease-out)] motion-safe:data-[state=closed]:animate-[fade-out_200ms_var(--ease-out)]',
+        content: 'motion-safe:data-[state=open]:animate-[scale-in_200ms_var(--ease-out)] motion-safe:data-[state=closed]:animate-[scale-out_200ms_var(--ease-out)]'
       }
     },
     fullscreen: {
