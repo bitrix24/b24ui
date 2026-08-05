@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "6bd1dfc86c88645801f8485a43c4241635770c84",
+  "cursor": "10bfba4d637dfd9925a1f8ccccb8693f9223552a",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1217,10 +1217,16 @@
       "summary": "docs(chat): rework ai endpoint around ToolLoopAgent — narrow subset ported. PORTED: sanitized onError in docs/server/api/ai.post.ts (log only name/message/statusCode instead of the whole error — AI SDK provider errors carry requestBodyValues = the user's prompt — plus .toUIMessageStreamResponse({onError}) mapping 429 to the rate-limit copy; APICallError is a core ai export, present in ai@6.0.214; adapted to the streamText idiom where onError is ({error})=>void so the message mapping lives on toUIMessageStreamResponse). ALREADY PRESENT: safeCurrentPage injection guard, AbortController on req close, messages validation, smoothStream/stepCountIs. N/A: all Vercel AI Gateway wiring (providerOptions.gateway caching/user/tags/models, model-as-string routing, AnthropicLanguageModelOptions, new chatUser.ts) — b24ui uses createDeepSeek with an API key, no gateway; also the applyTheme tool + ApplyThemeSettings + componentNames (b24ui ships no live-theming tool by design). DEFERRED: the ToolLoopAgent/createAgentUIStreamResponse rewrite — APIs do exist in ai v6 (verified), but it's a pure architecture swap with no functional gain for b24ui's single-provider/single-toolset setup and can't be runtime-verified without DEEPSEEK_API_KEY. NOT PORTED: page context as a message part (b24ui interpolates into its own system prompt, guard already there); chat.post.ts/completion.post.ts (their whole diff is gateway options). b24ui's ai.post.ts is 115 lines vs upstream's 472."
     },
     "6bd1dfc86c88645801f8485a43c4241635770c84": {
+      "pr": 309,
+      "b24ui_sha": "c252903a4564bcf7d88bda5e4433518ba2045e72",
+      "decision": "port",
+      "summary": "perf(Button/Select/SelectMenu/InputMenu): narrow reactive dependencies — stop feeding useComponentIcons a wide object ({...props} / defu(props,...)), which copies every prop through the useComponentProps proxy and subscribes the computed (and b24ui/tv) to all of them. Button: {...props, loading:false} -> {icon, avatar, loading:false} (b24ui's ButtonProps omits trailing/trailingIcon; loading:false preserved — b24ui drives the loading icon via useWait/useClock variants). Select/SelectMenu/InputMenu: toRef(()=>defu(props,{trailingIcon:icons.chevronDown})) -> computed({icon, avatar, trailing, trailingIcon: props.trailingIcon ?? icons.chevronDown, loading}) — ?? matches defu semantics for that key; b24ui uses its own icons dictionary, not appConfig.ui.icons. ALREADY PRESENT: the omit(linkProps) memoization — b24ui already has it as proxyLinkProps. Ported both new benches (button-link, link-stack) with B24 naming/paths. No snapshot drift; tests 5565."
+    },
+    "10bfba4d637dfd9925a1f8ccccb8693f9223552a": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "perf(Button/Select/SelectMenu/InputMenu): narrow reactive dependencies — stop feeding useComponentIcons a wide object ({...props} / defu(props,...)), which copies every prop through the useComponentProps proxy and subscribes the computed (and b24ui/tv) to all of them. Button: {...props, loading:false} -> {icon, avatar, loading:false} (b24ui's ButtonProps omits trailing/trailingIcon; loading:false preserved — b24ui drives the loading icon via useWait/useClock variants). Select/SelectMenu/InputMenu: toRef(()=>defu(props,{trailingIcon:icons.chevronDown})) -> computed({icon, avatar, trailing, trailingIcon: props.trailingIcon ?? icons.chevronDown, loading}) — ?? matches defu semantics for that key; b24ui uses its own icons dictionary, not appConfig.ui.icons. ALREADY PRESENT: the omit(linkProps) memoization — b24ui already has it as proxyLinkProps. Ported both new benches (button-link, link-stack) with B24 naming/paths. No snapshot drift; tests 5565."
+      "summary": "chore(deps): update devdependency @nuxt/test-utils to ^4.1.0 — package.json ^4.0.2->^4.1.0 (lockfile regen, resolves 4.1.0) + test/nuxt/.nuxtrc setups pin 4.0.2->4.1.0 (must track the installed version or the nuxt test env desyncs from the package). N/A: upstream also drops its pnpm-workspace '@nuxt/test-utils': 4.0.2 override (b24ui never pinned it) and removes the package from renovate.json ignoreDeps (b24ui has no renovate config — bumps come through this sync). NOTE/CORRECTION: upstream carries vitest-environment-nuxt ^2.0.0 too; the 282759e entry wrongly listed it as a b24ui-only divergence when explaining the duplicate-vite diagnosis — the vite/rolldown overrides added there remain necessary regardless. Bumps the test harness itself; full suite is the verification: 5565 passed, no snapshot drift."
     }
   }
 }
