@@ -139,8 +139,16 @@ const isLoading = computed(() => {
   return props.loading || (props.loadingAuto && (loadingAutoState.value || (formLoading?.value && props.type === 'submit')))
 })
 
+// Pass only the props the composable reads: a `{ ...props }` spread would walk
+// every prop through the `useComponentProps` proxy and subscribe this computed
+// (and `b24ui`, which reads `isLeading`) to all of them, re-running the whole tv
+// pipeline on unrelated prop changes like `class`.
 const { isLeading, leadingIconName } = useComponentIcons(
-  computed(() => ({ ...props, loading: false }))
+  computed(() => ({
+    icon: props.icon,
+    avatar: props.avatar,
+    loading: false
+  }))
 )
 
 const isLabel = computed(() => {
