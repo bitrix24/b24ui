@@ -235,7 +235,7 @@ export default {
         childList: 'mb-0.5',
         childItem: '',
         linkLeadingAvatar: 'me-1',
-        content: 'motion-safe:data-[state=open]:animate-[collapsible-down_200ms_ease-out] motion-safe:data-[state=closed]:animate-[collapsible-up_200ms_ease-out] overflow-hidden',
+        content: 'motion-safe:data-[state=open]:animate-[collapsible-down_200ms_var(--ease-out)] motion-safe:data-[state=closed]:animate-[collapsible-up_200ms_var(--ease-out)] overflow-hidden',
         linkLabel: 'ms-[9px]'
       }
     },

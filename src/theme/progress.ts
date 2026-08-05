@@ -18,19 +18,19 @@ export default {
     indicator: [
       'rounded-(--ui-border-radius-pill)',
       'size-full',
-      'transition-transform duration-200 ease-out motion-reduce:data-[state=indeterminate]:animate-pulse',
+      'transition-transform duration-200 ease-out motion-reduce:transition-none motion-reduce:data-[state=indeterminate]:animate-pulse',
       'bg-(--b24ui-background)'
     ].join(' '),
     status: [
       'flex justify-end',
       'text-legend', // text-base-500
-      'transition-[width] duration-200'
+      'transition-[width] duration-200 ease-out motion-reduce:transition-none'
     ].join(' '),
     steps: [
       'grid items-end',
       'text-legend'
     ].join(' '),
-    step: 'truncate text-end row-start-1 col-start-1 transition-opacity'
+    step: 'truncate text-end row-start-1 col-start-1 transition-opacity ease-out'
   },
   variants: {
     animation: {
@@ -175,56 +175,56 @@ export default {
       orientation: 'horizontal',
       animation: 'carousel',
       class: {
-        indicator: 'motion-safe:data-[state=indeterminate]:animate-[carousel_2s_ease-in-out_infinite] motion-safe:data-[state=indeterminate]:rtl:animate-[carousel-rtl_2s_ease-in-out_infinite]'
+        indicator: 'motion-safe:data-[state=indeterminate]:animate-[carousel_2s_linear_infinite] motion-safe:data-[state=indeterminate]:rtl:animate-[carousel-rtl_2s_linear_infinite]'
       }
     },
     {
       orientation: 'vertical',
       animation: 'carousel',
       class: {
-        indicator: 'motion-safe:data-[state=indeterminate]:animate-[carousel-vertical_2s_ease-in-out_infinite]'
+        indicator: 'motion-safe:data-[state=indeterminate]:animate-[carousel-vertical_2s_linear_infinite]'
       }
     },
     {
       orientation: 'horizontal',
       animation: 'carousel-inverse',
       class: {
-        indicator: 'motion-safe:data-[state=indeterminate]:animate-[carousel-inverse_2s_ease-in-out_infinite] motion-safe:data-[state=indeterminate]:rtl:animate-[carousel-inverse-rtl_2s_ease-in-out_infinite]'
+        indicator: 'motion-safe:data-[state=indeterminate]:animate-[carousel-inverse_2s_linear_infinite] motion-safe:data-[state=indeterminate]:rtl:animate-[carousel-inverse-rtl_2s_linear_infinite]'
       }
     },
     {
       orientation: 'vertical',
       animation: 'carousel-inverse',
       class: {
-        indicator: 'motion-safe:data-[state=indeterminate]:animate-[carousel-inverse-vertical_2s_ease-in-out_infinite]'
+        indicator: 'motion-safe:data-[state=indeterminate]:animate-[carousel-inverse-vertical_2s_linear_infinite]'
       }
     },
     {
       orientation: 'horizontal',
       animation: 'swing',
       class: {
-        indicator: 'motion-safe:data-[state=indeterminate]:animate-[swing_2s_ease-in-out_infinite]'
+        indicator: 'motion-safe:data-[state=indeterminate]:animate-[swing_2s_var(--ease-in-out)_infinite]'
       }
     },
     {
       orientation: 'vertical',
       animation: 'swing',
       class: {
-        indicator: 'motion-safe:data-[state=indeterminate]:animate-[swing-vertical_2s_ease-in-out_infinite]'
+        indicator: 'motion-safe:data-[state=indeterminate]:animate-[swing-vertical_2s_var(--ease-in-out)_infinite]'
       }
     },
     {
       orientation: 'horizontal',
       animation: 'elastic',
       class: {
-        indicator: 'motion-safe:data-[state=indeterminate]:animate-[elastic_2s_ease-in-out_infinite]'
+        indicator: 'motion-safe:data-[state=indeterminate]:animate-[elastic_2s_var(--ease-in-out)_infinite]'
       }
     },
     {
       orientation: 'vertical',
       animation: 'elastic',
       class: {
-        indicator: 'motion-safe:data-[state=indeterminate]:animate-[elastic-vertical_2s_ease-in-out_infinite]'
+        indicator: 'motion-safe:data-[state=indeterminate]:animate-[elastic-vertical_2s_var(--ease-in-out)_infinite]'
       }
     },
     {

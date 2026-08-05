@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "10bfba4d637dfd9925a1f8ccccb8693f9223552a",
+  "cursor": "735b264e4df8565d05cd522df36406df35fe5896",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1223,10 +1223,16 @@
       "summary": "perf(Button/Select/SelectMenu/InputMenu): narrow reactive dependencies — stop feeding useComponentIcons a wide object ({...props} / defu(props,...)), which copies every prop through the useComponentProps proxy and subscribes the computed (and b24ui/tv) to all of them. Button: {...props, loading:false} -> {icon, avatar, loading:false} (b24ui's ButtonProps omits trailing/trailingIcon; loading:false preserved — b24ui drives the loading icon via useWait/useClock variants). Select/SelectMenu/InputMenu: toRef(()=>defu(props,{trailingIcon:icons.chevronDown})) -> computed({icon, avatar, trailing, trailingIcon: props.trailingIcon ?? icons.chevronDown, loading}) — ?? matches defu semantics for that key; b24ui uses its own icons dictionary, not appConfig.ui.icons. ALREADY PRESENT: the omit(linkProps) memoization — b24ui already has it as proxyLinkProps. Ported both new benches (button-link, link-stack) with B24 naming/paths. No snapshot drift; tests 5565."
     },
     "10bfba4d637dfd9925a1f8ccccb8693f9223552a": {
+      "pr": 311,
+      "b24ui_sha": "90cae06533cb96b0a18e4d4cf426a8ae54a438af",
+      "decision": "port",
+      "summary": "chore(deps): update devdependency @nuxt/test-utils to ^4.1.0 — package.json ^4.0.2->^4.1.0 (lockfile regen, resolves 4.1.0) + test/nuxt/.nuxtrc setups pin 4.0.2->4.1.0 (must track the installed version or the nuxt test env desyncs from the package). N/A: upstream also drops its pnpm-workspace '@nuxt/test-utils': 4.0.2 override (b24ui never pinned it) and removes the package from renovate.json ignoreDeps (b24ui has no renovate config — bumps come through this sync). NOTE/CORRECTION: upstream carries vitest-environment-nuxt ^2.0.0 too; the 282759e entry wrongly listed it as a b24ui-only divergence when explaining the duplicate-vite diagnosis — the vite/rolldown overrides added there remain necessary regardless. Bumps the test harness itself; full suite is the verification: 5565 passed, no snapshot drift."
+    },
+    "735b264e4df8565d05cd522df36406df35fe5896": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "chore(deps): update devdependency @nuxt/test-utils to ^4.1.0 — package.json ^4.0.2->^4.1.0 (lockfile regen, resolves 4.1.0) + test/nuxt/.nuxtrc setups pin 4.0.2->4.1.0 (must track the installed version or the nuxt test env desyncs from the package). N/A: upstream also drops its pnpm-workspace '@nuxt/test-utils': 4.0.2 override (b24ui never pinned it) and removes the package from renovate.json ignoreDeps (b24ui has no renovate config — bumps come through this sync). NOTE/CORRECTION: upstream carries vitest-environment-nuxt ^2.0.0 too; the 282759e entry wrongly listed it as a b24ui-only divergence when explaining the duplicate-vite diagnosis — the vite/rolldown overrides added there remain necessary regardless. Bumps the test harness itself; full suite is the verification: 5565 passed, no snapshot drift."
+      "summary": "fix(theme): unify motion easing and respect prefers-reduced-motion — (1) appended the @media (prefers-reduced-motion: reduce) block to keyframes.css redefining 26 presence keyframes to fade-only (all 26 exist in b24ui; matters MORE here — b24ui's PR #279 gated only decorative loops, leaving 77 animate-[] usages ungated; composes with existing motion-safe:). (2) rewrote 70 animate-[] easings across 19 theme files by upstream's per-type rule: 54 var(--ease-out) presence, 10 linear (carousel/shimmer/progressbar-loading), 6 var(--ease-in-out) (swing/elastic) — inside animate-[] the bare ease-out keyword is CSS cubic-bezier(0,0,.58,1) while the ease-out utility maps to Tailwind's --ease-out, which is the mismatch being unified. (3) same three transition edits as upstream on identical slots: progress indicator/status + toaster base get motion-reduce:transition-none, status/step get ease-out. SKIPPED: elastic keyframes margin->left/top — b24ui's Progress indicator is size-full and statically positioned, so left/top would silently stop it moving (table.thead::after is absolute and would be fine); change is cosmetic (90%->100%). NOT PORTED: the wider per-slot transition sweep — b24ui slots diverge and a blanket motion-reduce across its 80 transition-* would exceed upstream (reduced motion targets movement, not colour/opacity). 745 snapshots regen across 42 files, only expected tokens. Tests 5565."
     }
   }
 }

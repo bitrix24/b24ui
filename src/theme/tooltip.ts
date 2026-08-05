@@ -17,7 +17,7 @@ export default {
       'min-h-[37px]',
       'shadow-xl/20',
       'select-none',
-      'motion-safe:data-[state=delayed-open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]',
+      'motion-safe:data-[state=delayed-open]:animate-[scale-in_100ms_var(--ease-out)] motion-safe:data-[state=closed]:animate-[scale-out_100ms_var(--ease-out)]',
       'p-[13px]',
       'text-(length:--ui-font-size-lg)/[normal] font-[family-name:var(--ui-font-family-system)]',
       'bg-(--ui-color-bg-content-inapp)',

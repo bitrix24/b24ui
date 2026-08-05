@@ -39,8 +39,8 @@ export default {
     ].join(' '),
     content: [
       'relative',
-      'motion-safe:data-[state=open]:animate-[collapsible-down_200ms_ease-out]',
-      'motion-safe:data-[state=closed]:animate-[collapsible-up_200ms_ease-out]',
+      'motion-safe:data-[state=open]:animate-[collapsible-down_200ms_var(--ease-out)]',
+      'motion-safe:data-[state=closed]:animate-[collapsible-up_200ms_var(--ease-out)]',
       'overflow-hidden',
       'focus:outline-none',
       'lg:min-h-[min(var(--list-height,8rem),8rem)] lg:overflow-y-auto lg:scrollbar-thin lg:scrollbar-transparent'
