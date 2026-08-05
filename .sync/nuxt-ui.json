@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "735b264e4df8565d05cd522df36406df35fe5896",
+  "cursor": "8aa804167e5d4e8a618feb0a370e3481e223af8a",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1229,10 +1229,16 @@
       "summary": "chore(deps): update devdependency @nuxt/test-utils to ^4.1.0 — package.json ^4.0.2->^4.1.0 (lockfile regen, resolves 4.1.0) + test/nuxt/.nuxtrc setups pin 4.0.2->4.1.0 (must track the installed version or the nuxt test env desyncs from the package). N/A: upstream also drops its pnpm-workspace '@nuxt/test-utils': 4.0.2 override (b24ui never pinned it) and removes the package from renovate.json ignoreDeps (b24ui has no renovate config — bumps come through this sync). NOTE/CORRECTION: upstream carries vitest-environment-nuxt ^2.0.0 too; the 282759e entry wrongly listed it as a b24ui-only divergence when explaining the duplicate-vite diagnosis — the vite/rolldown overrides added there remain necessary regardless. Bumps the test harness itself; full suite is the verification: 5565 passed, no snapshot drift."
     },
     "735b264e4df8565d05cd522df36406df35fe5896": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 312,
+      "b24ui_sha": "8ec218770084582490a710553f570d510491f836",
       "decision": "port",
       "summary": "fix(theme): unify motion easing and respect prefers-reduced-motion — (1) appended the @media (prefers-reduced-motion: reduce) block to keyframes.css redefining 26 presence keyframes to fade-only (all 26 exist in b24ui; matters MORE here — b24ui's PR #279 gated only decorative loops, leaving 77 animate-[] usages ungated; composes with existing motion-safe:). (2) rewrote 70 animate-[] easings across 19 theme files by upstream's per-type rule: 54 var(--ease-out) presence, 10 linear (carousel/shimmer/progressbar-loading), 6 var(--ease-in-out) (swing/elastic) — inside animate-[] the bare ease-out keyword is CSS cubic-bezier(0,0,.58,1) while the ease-out utility maps to Tailwind's --ease-out, which is the mismatch being unified. (3) same three transition edits as upstream on identical slots: progress indicator/status + toaster base get motion-reduce:transition-none, status/step get ease-out. SKIPPED: elastic keyframes margin->left/top — b24ui's Progress indicator is size-full and statically positioned, so left/top would silently stop it moving (table.thead::after is absolute and would be fine); change is cosmetic (90%->100%). NOT PORTED: the wider per-slot transition sweep — b24ui slots diverge and a blanket motion-reduce across its 80 transition-* would exceed upstream (reduced motion targets movement, not colour/opacity). 745 snapshots regen across 42 files, only expected tokens. Tests 5565."
+    },
+    "8aa804167e5d4e8a618feb0a370e3481e223af8a": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "no-op",
+      "summary": "chore(github): add CodSpeed workflow — wires benchmarks into CodSpeed (hosted continuous benchmarking): @codspeed/vitest-plugin dep, codspeedPlugin() in vitest.config, a '@codspeed/vitest-plugin>vite' override (the plugin caps its vite peer at ^7), a CodSpeedHQ/action@v4 job in module.yml, and bench files rewritten to lazy-mount because CodSpeed's runner ignores tinybench setup/teardown. NOT APPLICABLE: upstream gates the job itself with `if: github.repository_owner == 'nuxt'` — 'Skip forks of the repo, they can't authenticate with CodSpeed'. b24ui is such a fork (no account/app/token), so the job can never run, and everything else serves only it: the plugin's vite ^7 peer cap is exactly the hazard the vite ^8.1.5 / rolldown ~1.1.5 overrides fixed in 282759e, and the bench rewrite is a regression outside CodSpeed (no unmount — each bench keeps a mounted component alive). No-op. Also pre-decides 6add5fb (codspeedhq/action v5) as N/A."
     }
   }
 }
