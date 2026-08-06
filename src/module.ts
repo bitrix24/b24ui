@@ -29,6 +29,11 @@ export interface ModuleOptions {
    * @defaultValue 'vueuse-color-scheme'
    */
   colorModeStorageKey?: string | null
+  /**
+   * Version reported through `appConfig.version` and rendered into the
+   * `<meta name="b24ui">` tag.
+   * @defaultValue the installed `@bitrix24/b24ui-nuxt` version
+   */
   version?: string
   /**
    * Customize how the theme is generated
@@ -206,7 +211,10 @@ export default defineNuxtModule<ModuleOptions>({
 
     nuxt.options.alias['#b24ui'] = resolve('./runtime')
 
-    nuxt.options.appConfig.version = version
+    // `defaults` already carries `version`, so defu guarantees this at runtime —
+    // but `ModuleOptions.version` is optional, so the fallback is what keeps
+    // `appConfig.version` typed as `string` rather than `string | undefined`.
+    nuxt.options.appConfig.version = options.version ?? version
     nuxt.options.appConfig.b24ui = defu(nuxt.options.appConfig.b24ui || {}, getDefaultConfig(options.theme)) as typeof nuxt.options.appConfig.b24ui
 
     nuxt.options.build.transpile.push('reka-ui')

@@ -253,8 +253,6 @@ export default defineNuxtConfig({
     '@nuxtjs/mcp-toolkit',
     'nuxt-component-meta',
     'nuxt-llms',
-    // @memo off this
-    'nuxt-og-image',
     'motion-v/nuxt',
     'nuxt-schema-org'
   ],
@@ -628,7 +626,6 @@ export default defineNuxtConfig({
       '@nuxtjs/mdc',
       '@comark/vue',
       'nuxt/dist',
-      'nuxt-og-image',
       'nuxt-schema-org',
       resolve('./app/components'),
       resolve('./modules')
@@ -707,13 +704,6 @@ export default defineNuxtConfig({
     version: '1.0.0',
     route: `/mcp/`, // ${baseUrl}
     browserRedirect: '/docs/getting-started/' // '/docs/getting-started/ai/mcp'
-  },
-
-  ogImage: {
-    zeroRuntime: true,
-    security: {
-      renderTimeout: 60000
-    }
   },
 
   schemaOrg: {
