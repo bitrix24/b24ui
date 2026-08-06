@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "3a19e23631d5700200c978472d8ab7bdda9cdd89",
+  "cursor": "6add5fb7d8a1280dcbe2c4675e78d8f45f61e7fd",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1266,10 +1266,16 @@
       "issue": 321
     },
     "3a19e23631d5700200c978472d8ab7bdda9cdd89": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 322,
+      "b24ui_sha": "345059ffe0ad998c2899df44dfb7bd77ec5b5a04",
       "decision": "port",
       "summary": "docs: use content native sqlite connector — switches @nuxt/content from the better-sqlite3 native addon to Node's built-in node:sqlite: docs/nuxt.config.ts gains content.experimental.sqliteConnector:'native', docs/package.json drops the direct better-sqlite3 dep. Applied verbatim (b24ui was in the identical pre-change state). better-sqlite3 remains in the lockfile transitively via @nuxt/content, same as upstream; the inert allowBuilds:better-sqlite3 entry in pnpm-workspace was left alone (upstream didn't touch its equivalent). node:sqlite landed in Node 22.5 — b24ui engines allow ^20.19.0 so a Node 20 contributor lacks it, but the docs app isn't shipped and both building workflows are new enough (ci.yml node 24 since c4b786c, deploy.yml node 22). VERIFICATION: the ci gate never builds the docs site (only deploy's docs:full:generate does), so ran the real thing locally on Node v22.22.2 with the deploy env — Prerendered 1240 routes in 228.5s, exit 0. Tests 5589."
+    },
+    "6add5fb7d8a1280dcbe2c4675e78d8f45f61e7fd": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "no-op",
+      "summary": "chore(deps): update codspeedhq/action action to v5 — one line in .github/workflows/module.yml: CodSpeedHQ/action@v4 -> @v5. NOT APPLICABLE, as predicted when 8aa8041 (the commit introducing that job) was recorded as a no-op in PR #316: b24ui has no CodSpeed integration to bump — verified no occurrence of CodSpeed/codspeed anywhere in .github/, package.json, vitest.config.ts or pnpm-workspace.yaml, and its workflow inventory is only ci.yml/deploy.yml/npm-publish.yml. Upstream's own job is gated `if: github.repository_owner == 'nuxt'` ('Skip forks of the repo, they can't authenticate with CodSpeed'). No-op."
     }
   }
 }
