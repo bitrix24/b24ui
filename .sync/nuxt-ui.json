@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "702f481fb55e252154ea938398d30b259d99030d",
+  "cursor": "4200e80c03719d0b6e36e2d3957575bf1c24bc7d",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1247,10 +1247,16 @@
       "summary": "fix(Modal): emit transition events from overlay when scrollable — in scrollable mode the content renders inside DialogOverlay, so the overlay is the transitioning element, but enter/after:enter/leave/after:leave were wired only to DialogContent. Guarded the content handlers with !props.scrollable && emits(...) and added the same four to the scrollable branch's DialogOverlay. Applied verbatim — b24ui's Modal has the identical structure (same scrollable prop, same four emits, same v-if branch wrapping ReuseContentTemplate); only the theme accessor differs (b24ui.overlay vs ui.overlay). Event-wiring only, no snapshot drift. Tests 5565."
     },
     "702f481fb55e252154ea938398d30b259d99030d": {
+      "pr": 318,
+      "b24ui_sha": "4f4ff6be577acab7560f2fdf9cc2f7337306c5ce",
+      "decision": "port",
+      "summary": "docs(input-rating): remove stray defaultValue line in size — the ### Size example's ::component-code front matter had a stray '- defaultValue' hanging off the end of items.size, making it a malformed mapping/sequence mix and offering defaultValue as a selectable size value (it is already covered by the block's ignore: list). b24ui carried the identical defect (InputRating arrived via the fork's own PR #283 from the same source example); removed verbatim. Docs-only."
+    },
+    "4200e80c03719d0b6e36e2d3957575bf1c24bc7d": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "docs(input-rating): remove stray defaultValue line in size — the ### Size example's ::component-code front matter had a stray '- defaultValue' hanging off the end of items.size, making it a malformed mapping/sequence mix and offering defaultValue as a selectable size value (it is already covered by the block's ignore: list). b24ui carried the identical defect (InputRating arrived via the fork's own PR #283 from the same source example); removed verbatim. Docs-only."
+      "summary": "perf(components): memoize tv slot invocations with simple args — wrapSlots gains a per-slot Map cache so variant resolution + twMerge run once per distinct input (re-renders, table cells). isMemoizable() accepts primitives and arrays of primitives (depth-capped 4), rejects non-finite numbers (JSON.stringify turns NaN/Infinity into null, colliding with a real null key tv resolves differently), and bails on objects (clsx maps) / functions (replacers). memoKey() only keys plain objects (an exotic prototype could carry inherited enumerable props tv reads but stringify drops). undefined is a real slot result so a has() check backs the get() miss; cache clears at 500 entries. Applied verbatim — b24ui's wrapSlots was byte-identical to upstream's pre-change version (only :b24ui/app.config.b24ui comment naming differs). Appended the full 12-case memoization describe to test/utils/tv.spec.ts (b24ui already declares the same tvt helper). Tests 5565 -> 5589 (+12 x2 projects), no snapshot drift — memoized path returns identical output."
     }
   }
 }
