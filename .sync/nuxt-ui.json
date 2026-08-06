@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "5afbd5c9aeaffe427c90b7e97249c8e1de9acf04",
+  "cursor": "702f481fb55e252154ea938398d30b259d99030d",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1241,10 +1241,16 @@
       "summary": "chore(github): add CodSpeed workflow — wires benchmarks into CodSpeed (hosted continuous benchmarking): @codspeed/vitest-plugin dep, codspeedPlugin() in vitest.config, a '@codspeed/vitest-plugin>vite' override (the plugin caps its vite peer at ^7), a CodSpeedHQ/action@v4 job in module.yml, and bench files rewritten to lazy-mount because CodSpeed's runner ignores tinybench setup/teardown. NOT APPLICABLE: upstream gates the job itself with `if: github.repository_owner == 'nuxt'` — 'Skip forks of the repo, they can't authenticate with CodSpeed'. b24ui is such a fork (no account/app/token), so the job can never run, and everything else serves only it: the plugin's vite ^7 peer cap is exactly the hazard the vite ^8.1.5 / rolldown ~1.1.5 overrides fixed in 282759e, and the bench rewrite is a regression outside CodSpeed (no unmount — each bench keeps a mounted component alive). No-op. Also pre-decides 6add5fb (codspeedhq/action v5) as N/A."
     },
     "5afbd5c9aeaffe427c90b7e97249c8e1de9acf04": {
+      "pr": 317,
+      "b24ui_sha": "09fa69e63be1b03ee663fe4dfcfb2feb8b049344",
+      "decision": "port",
+      "summary": "fix(Modal): emit transition events from overlay when scrollable — in scrollable mode the content renders inside DialogOverlay, so the overlay is the transitioning element, but enter/after:enter/leave/after:leave were wired only to DialogContent. Guarded the content handlers with !props.scrollable && emits(...) and added the same four to the scrollable branch's DialogOverlay. Applied verbatim — b24ui's Modal has the identical structure (same scrollable prop, same four emits, same v-if branch wrapping ReuseContentTemplate); only the theme accessor differs (b24ui.overlay vs ui.overlay). Event-wiring only, no snapshot drift. Tests 5565."
+    },
+    "702f481fb55e252154ea938398d30b259d99030d": {
       "pr": null,
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(Modal): emit transition events from overlay when scrollable — in scrollable mode the content renders inside DialogOverlay, so the overlay is the transitioning element, but enter/after:enter/leave/after:leave were wired only to DialogContent. Guarded the content handlers with !props.scrollable && emits(...) and added the same four to the scrollable branch's DialogOverlay. Applied verbatim — b24ui's Modal has the identical structure (same scrollable prop, same four emits, same v-if branch wrapping ReuseContentTemplate); only the theme accessor differs (b24ui.overlay vs ui.overlay). Event-wiring only, no snapshot drift. Tests 5565."
+      "summary": "docs(input-rating): remove stray defaultValue line in size — the ### Size example's ::component-code front matter had a stray '- defaultValue' hanging off the end of items.size, making it a malformed mapping/sequence mix and offering defaultValue as a selectable size value (it is already covered by the block's ignore: list). b24ui carried the identical defect (InputRating arrived via the fork's own PR #283 from the same source example); removed verbatim. Docs-only."
     }
   }
 }
