@@ -293,6 +293,9 @@ export default defineNuxtConfig({
           langs: ['bash', 'ts', 'typescript', 'diff', 'vue', 'json', 'yml', 'css', 'mdc', 'blade', 'edge']
         }
       }
+    },
+    experimental: {
+      sqliteConnector: 'native'
     }
   },
 
