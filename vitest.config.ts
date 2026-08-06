@@ -30,6 +30,7 @@ export default defineConfig({
           include: [
             'components/**/**.spec.ts',
             'composables/**.spec.ts',
+            'plugins/**/**.spec.ts',
             'utils/**/**.spec.ts'
           ],
           // Benchmarks run in the `vue` project only (happy-dom, faster); keep them
