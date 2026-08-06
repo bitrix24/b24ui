@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "4200e80c03719d0b6e36e2d3957575bf1c24bc7d",
+  "cursor": "a592f8e3ca28e29c014ef3dc89c86f76ade9d681",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1253,10 +1253,16 @@
       "summary": "docs(input-rating): remove stray defaultValue line in size — the ### Size example's ::component-code front matter had a stray '- defaultValue' hanging off the end of items.size, making it a malformed mapping/sequence mix and offering defaultValue as a selectable size value (it is already covered by the block's ignore: list). b24ui carried the identical defect (InputRating arrived via the fork's own PR #283 from the same source example); removed verbatim. Docs-only."
     },
     "4200e80c03719d0b6e36e2d3957575bf1c24bc7d": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 319,
+      "b24ui_sha": "152774a795c694342dc2f2e77d999308d6fd2ab2",
       "decision": "port",
       "summary": "perf(components): memoize tv slot invocations with simple args — wrapSlots gains a per-slot Map cache so variant resolution + twMerge run once per distinct input (re-renders, table cells). isMemoizable() accepts primitives and arrays of primitives (depth-capped 4), rejects non-finite numbers (JSON.stringify turns NaN/Infinity into null, colliding with a real null key tv resolves differently), and bails on objects (clsx maps) / functions (replacers). memoKey() only keys plain objects (an exotic prototype could carry inherited enumerable props tv reads but stringify drops). undefined is a real slot result so a has() check backs the get() miss; cache clears at 500 entries. Applied verbatim — b24ui's wrapSlots was byte-identical to upstream's pre-change version (only :b24ui/app.config.b24ui comment naming differs). Appended the full 12-case memoization describe to test/utils/tv.spec.ts (b24ui already declares the same tvt helper). Tests 5565 -> 5589 (+12 x2 projects), no snapshot drift — memoized path returns identical output."
+    },
+    "a592f8e3ca28e29c014ef3dc89c86f76ade9d681": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "deferred",
+      "summary": "chore(deps): update dependency @takumi-rs/core to v2 — docs/package.json ^1.8.7 -> ^2.5.4 (major) + lockfile, nothing else. NOT APPLIED: b24ui has the same ^1.8.7 but the package exists only to serve nuxt-og-image, which the fork pins to 6.5.3 via pnpm-workspace overrides (b24ui's own PR #245); that release declares '@takumi-rs/core': '^1.7.0'. Upstream can take v2 because it is on unpinned nuxt-og-image ^6.7.4, while b24ui asks ^6.6.0 and holds 6.5.3 — the same 'behind on nuxt-og-image' divergence recorded when skipping its bumps in 2a4218b. Bumping the direct dep while the only consumer wants ^1.7.0 would break the peer or install both majors of a native package for no gain: b24ui has NO direct takumi imports — every reference is a commented-out defineOgImage('Docs.takumi'/'Component.takumi') in showcase.vue, templates.vue and docs/[...slug]/index.vue, so the takumi OG renderer isn't even active. Follow-up once nuxt-og-image is upgraded/unpinned; then it's a plain manifest edit."
     }
   }
 }
