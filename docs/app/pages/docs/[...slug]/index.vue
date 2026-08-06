@@ -81,21 +81,6 @@ const path = computed(() => pageUrl.replace(/\/$/, ''))
 if (import.meta.server) {
   prerenderRoutes([joinURL(`${config.public.baseUrl}/raw`, `${path.value}.md`)])
 
-  // if (route.path.startsWith('/docs/components/')) {
-  //   defineOgImage('Component.takumi', {
-  //     title: page.value.title,
-  //     description: page.value.description,
-  //     slug: (route.params.slug as string[]).pop() as string
-  //   })
-  // } else {
-  //   defineOgImage('Docs.takumi', {
-  //     title: page.value.title,
-  //     description: page.value.description,
-  //     headline: breadcrumb.value?.[breadcrumb.value.length - 1]?.label || 'Nuxt UI',
-  //     framework: page.value?.framework
-  //   })
-  // }
-
   useSchemaOrg([
     defineArticle({
       '@type': 'TechArticle',

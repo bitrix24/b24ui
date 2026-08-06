@@ -13,8 +13,6 @@ useSeoMeta({
 })
 
 useCanonical()
-
-// defineOgImage('Docs.takumi')
 </script>
 
 <!-- eslint-disable vue/no-v-html -->
