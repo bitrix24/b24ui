@@ -79,6 +79,7 @@ Use the `items` prop as an array of objects with the following properties:
 - `label?: string`{lang="ts-type"}
 - `icon?: IconComponent`{lang="ts-type"}
 - `avatar?: AvatarProps`{lang="ts-type"}
+- `color?: AvatarProps['color']`{lang="ts-type"}
 - `badge?: string | number | BadgeProps`{lang="ts-type"}
 - [`chip?: boolean | ChipProps`{lang="ts-type"}](#with-chip-in-items)
 - `hint?: string`{lang="ts-type"}

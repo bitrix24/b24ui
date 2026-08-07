@@ -39,6 +39,10 @@ export interface NavigationMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'cu
    */
   avatar?: AvatarProps
   /**
+   * Default `color` for the item's leading `B24Avatar`. Overridden by `avatar.color` when set.
+   */
+  color?: AvatarProps['color']
+  /**
    * Display a badge on the item.
    * `{ size: 'xs', color: 'air-primary-alert' }`{lang="ts-type"}
    */
@@ -371,6 +375,7 @@ function onLinkTrailingClick(e: Event, item: NavigationMenuItem) {
             <B24Avatar
               v-else-if="item.avatar"
               :size="((item.b24ui?.linkLeadingAvatarSize || props.b24ui?.linkLeadingAvatarSize || b24ui.linkLeadingAvatarSize()) as AvatarProps['size'])"
+              :color="item.color"
               v-bind="item.avatar"
               data-slot="linkLeadingAvatar"
               :class="b24ui.linkLeadingAvatar({ class: [props.b24ui?.linkLeadingAvatar, item.b24ui?.linkLeadingAvatar], active, disabled: !!item.disabled })"
