@@ -1,0 +1,42 @@
+name: Release Please 🤖
+
+# Keeps a release PR open against main: version bump + CHANGELOG assembled from
+# conventional-commit subjects. Merging it tags the release, and the publish job
+# below runs straight after.
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
+    steps:
+      - name: Prepare release PR / create release
+        id: release
+        uses: googleapis/release-please-action@v4
+        with:
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+
+  # Called directly rather than left to `npm-publish.yml`'s `release: published`
+  # trigger: a release created with GITHUB_TOKEN does not start other workflows,
+  # so waiting on that event would silently never publish.
+  publish:
+    needs: release-please
+    if: needs.release-please.outputs.release_created == 'true'
+    uses: ./.github/workflows/npm-publish.yml
+    permissions:
+      contents: read
+      id-token: write
+      actions: read
+    secrets: inherit

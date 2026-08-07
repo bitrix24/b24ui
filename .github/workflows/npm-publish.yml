@@ -4,16 +4,36 @@ on:
   release:
     types: [ published ]
   workflow_dispatch:
+  # Called by release-please.yml: a release it creates with GITHUB_TOKEN does
+  # not fire `release: published`, so the publish has to be invoked directly.
+  workflow_call:
 
 permissions:
   contents: read
-  id-token: write
-  actions: read
 
 jobs:
   await-ci:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
     steps:
+      # A GitHub Release can be created on any commit and workflow_dispatch can
+      # target any ref, but only history that went through the merge process
+      # should ever reach npm.
+      - name: Assert ${{ github.sha }} is on main
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          SHA: ${{ github.sha }}
+        run: |
+          status=$(gh api "repos/$REPO/compare/main...$SHA" --jq '.status')
+          echo "compare main...$SHA -> $status"
+          case "$status" in
+            identical|behind) echo "$SHA is merged history of main" ;;
+            *) echo "$SHA is not part of main (status=$status); refusing to publish"; exit 1 ;;
+          esac
+
       - name: Wait for ci.yml to succeed on ${{ github.sha }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -46,6 +66,13 @@ jobs:
   process:
     needs: await-ci
     runs-on: ubuntu-latest
+    # Gate the one job that holds the publishing token behind a reviewer. The
+    # `npm-publish` environment must exist in repo settings with required
+    # reviewers configured — without it this runs unprotected, as before.
+    environment: npm-publish
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@v7
