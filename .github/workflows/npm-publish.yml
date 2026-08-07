@@ -3,10 +3,10 @@ name: NPM publish 🚀
 on:
   release:
     types: [ published ]
+  # Also the automated path: release-please.yml dispatches this workflow with
+  # --ref <tag>, so the run's sha is the tagged commit and the OIDC token's
+  # workflow_ref stays this file — which is what npm trusted publishing pins.
   workflow_dispatch:
-  # Called by release-please.yml: a release it creates with GITHUB_TOKEN does
-  # not fire `release: published`, so the publish has to be invoked directly.
-  workflow_call:
 
 permissions:
   contents: read
@@ -17,17 +17,29 @@ jobs:
     permissions:
       contents: read
       actions: read
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      REPO: ${{ github.repository }}
+      SHA: ${{ github.sha }}
     steps:
       # A GitHub Release can be created on any commit and workflow_dispatch can
       # target any ref, but only history that went through the merge process
-      # should ever reach npm.
+      # should ever reach npm. An environment branch policy cannot express this:
+      # it matches ref *names*, and a release run's ref is the tag, which can
+      # point at any commit — asserting the commit is merged history takes an
+      # API call.
       - name: Assert ${{ github.sha }} is on main
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO: ${{ github.repository }}
-          SHA: ${{ github.sha }}
         run: |
-          status=$(gh api "repos/$REPO/compare/main...$SHA" --jq '.status')
+          # Retried: a transient API failure must not strand a tagged release,
+          # and under `bash -e` an unretried $(gh api …) does exactly that.
+          status=""
+          for i in 1 2 3 4 5; do
+            if status=$(gh api "repos/$REPO/compare/main...$SHA" --jq '.status'); then
+              break
+            fi
+            echo "Attempt $i/5: compare API failed, retrying in 15s"
+            sleep 15
+          done
           echo "compare main...$SHA -> $status"
           case "$status" in
             identical|behind) echo "$SHA is merged history of main" ;;
@@ -35,10 +47,6 @@ jobs:
           esac
 
       - name: Wait for ci.yml to succeed on ${{ github.sha }}
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO: ${{ github.repository }}
-          SHA: ${{ github.sha }}
         run: |
           for i in $(seq 1 60); do
             run=$(gh api "repos/$REPO/actions/workflows/ci.yml/runs?head_sha=$SHA&per_page=1" --jq '.workflow_runs[0] // empty')
@@ -106,6 +114,43 @@ jobs:
       - name: Build Vue playground
         run: pnpm run dev:vue:build
 
+      # The trigger paths converge here. Two situations must not reach npm as
+      # anything but a no-op:
+      #  - a re-run for an already-published version (release recreated to fix
+      #    notes, manual dispatch after the bot published) — skip, not
+      #    EPUBLISHCONFLICT;
+      #  - a stale run approved out of order while a newer version already
+      #    shipped — publishing it would move the `latest` dist-tag backwards,
+      #    so refuse and leave a clear message instead.
+      - name: Skip if this version is already on npm or older than latest
+        id: version-check
+        shell: bash
+        run: |
+          name=$(node -p "require('./package.json').name")
+          version=$(node -p "require('./package.json').version")
+          if npm view "$name@$version" version --silent >/dev/null 2>&1; then
+            echo "$name@$version is already published; skipping"
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          latest=$(npm view "$name" dist-tags.latest --silent 2>/dev/null || echo "")
+          if [ -n "$latest" ]; then
+            newer=$(node -p "
+              const p = s => s.split('-')[0].split('.').map(Number);
+              const [a, b] = [p('$version'), p('$latest')];
+              let r = 0;
+              for (let i = 0; i < 3; i++) { if (a[i] !== b[i]) { r = a[i] > b[i] ? 1 : -1; break } }
+              r
+            ")
+            if [ "$newer" = "-1" ]; then
+              echo "::warning::$version is older than published latest $latest — refusing to publish a stale release. Publish manually if this is intended."
+              echo "skip=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+          fi
+          echo "skip=false" >> "$GITHUB_OUTPUT"
+
       - name: 'Publish 🚀'
+        if: steps.version-check.outputs.skip == 'false'
         shell: bash
         run: pnpm publish --no-git-checks

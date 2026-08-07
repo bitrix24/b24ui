@@ -22,6 +22,9 @@ function runPlugin() {
 }
 
 function metaContent(): string | undefined {
+  // Assert first: if the useHead mock ever stops applying, this fails naming
+  // the mock instead of crashing on `calls[0]` with an opaque TypeError.
+  expect(useHeadMock).toHaveBeenCalledTimes(1)
   const arg = useHeadMock.mock.calls[0]![0] as { meta: Array<{ name: string, content: string }> }
   return arg.meta.find(m => m.name === 'b24ui')?.content
 }
@@ -56,7 +59,6 @@ describe('ui-version plugin', () => {
 
     runPlugin()
 
-    expect(useHeadMock).toHaveBeenCalledTimes(1)
     expect(metaContent()).toBe('9.9.9-custom')
   })
 

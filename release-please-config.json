@@ -1,14 +1,10 @@
 {
   "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
   "bootstrap-sha": "ae76be290fcb272d642618cfcceb66bb098825fb",
-  "separate-pull-requests": false,
   "include-component-in-tag": false,
   "packages": {
     ".": {
       "release-type": "node",
-      "package-name": "@bitrix24/b24ui-nuxt",
-      "changelog-path": "CHANGELOG.md",
-      "skip-github-release": false,
       "changelog-sections": [
         { "type": "feat", "section": "Features" },
         { "type": "fix", "section": "Bug Fixes" },
@@ -18,7 +14,6 @@
         { "type": "chore", "section": "Chore" },
         { "type": "ci", "section": "CI" },
         { "type": "refactor", "section": "Chore" },
-        { "type": "style", "section": "Chore", "hidden": true },
         { "type": "build", "section": "Chore" }
       ]
     }

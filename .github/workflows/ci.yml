@@ -5,10 +5,17 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  # Dispatched by release-please.yml onto its release-PR branch: PRs opened
+  # with GITHUB_TOKEN fire no pull_request event, and a dispatched run on the
+  # same head SHA is what satisfies a required `ci` status check.
+  workflow_dispatch:
 
 concurrency:
   group: ci-${{ github.ref }}
-  cancel-in-progress: true
+  # Cancelling superseded runs is only safe for PR churn. A main run may be
+  # the one await-ci polls before publishing a release — cancelling it strands
+  # the tag with nothing on npm.
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   ci:

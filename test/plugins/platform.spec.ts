@@ -30,8 +30,6 @@ function platformState() {
 }
 
 describe('platform plugin', () => {
-  const realUserAgent = navigator.userAgent
-
   beforeEach(() => {
     useHeadMock.mockClear()
     // The state survives between specs inside a file — reset it so each spec
@@ -41,11 +39,15 @@ describe('platform plugin', () => {
 
   afterEach(() => {
     vi.unstubAllGlobals()
-    expect(navigator.userAgent).toBe(realUserAgent)
   })
 
   function stubUserAgent(ua: string) {
-    vi.stubGlobal('navigator', { ...navigator, userAgent: ua })
+    // Not a spread: happy-dom's Navigator keeps every property as a prototype
+    // accessor, so `{ ...navigator }` copies nothing and would leave the stub
+    // with `userAgent` alone. Delegating keeps the rest of navigator live.
+    vi.stubGlobal('navigator', new Proxy(navigator, {
+      get: (target, key) => key === 'userAgent' ? ua : Reflect.get(target, key, target)
+    }))
   }
 
   it('detects Bitrix Mobile and extracts the numeric version', () => {
