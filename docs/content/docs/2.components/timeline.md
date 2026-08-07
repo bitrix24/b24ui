@@ -96,7 +96,7 @@ props:
 
 ### Color
 
-Use the `color` prop to change the color of the active items in a Timeline.
+Use the `color` prop to change the color of the active items in a Timeline. The same `color` also tints the indicator [Avatar](/docs/components/avatar/) of every item — set `item.avatar.color` to override that cascade for a specific item.
 
 ::component-code
 ---

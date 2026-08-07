@@ -144,6 +144,7 @@ function onSelect(event: Event, item: T) {
         <B24Avatar
           :size="props.size"
           :icon="item.icon"
+          :color="(props.color as AvatarProps['color'])"
           v-bind="typeof item.avatar === 'object' ? item.avatar : {}"
           data-slot="indicator"
           :class="b24ui.indicator({ class: [props.b24ui?.indicator, item.b24ui?.indicator] })"
