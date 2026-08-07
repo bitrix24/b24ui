@@ -1261,9 +1261,10 @@
     "a592f8e3ca28e29c014ef3dc89c86f76ade9d681": {
       "pr": 320,
       "b24ui_sha": "4b63c4204d80214d421992edce4926bb59642818",
-      "decision": "deferred",
-      "summary": "chore(deps): update dependency @takumi-rs/core to v2 — docs/package.json ^1.8.7 -> ^2.5.4 (major) + lockfile, nothing else. NOT APPLIED: b24ui has the same ^1.8.7 but the package exists only to serve nuxt-og-image, which the fork pins to 6.5.3 via pnpm-workspace overrides (b24ui's own PR #245); that release declares '@takumi-rs/core': '^1.7.0'. Upstream can take v2 because it is on unpinned nuxt-og-image ^6.7.4, while b24ui asks ^6.6.0 and holds 6.5.3 — the same 'behind on nuxt-og-image' divergence recorded when skipping its bumps in 2a4218b. Bumping the direct dep while the only consumer wants ^1.7.0 would break the peer or install both majors of a native package for no gain: b24ui has NO direct takumi imports — every reference is a commented-out defineOgImage('Docs.takumi'/'Component.takumi') in showcase.vue, templates.vue and docs/[...slug]/index.vue, so the takumi OG renderer isn't even active. Follow-up once nuxt-og-image is upgraded/unpinned; then it's a plain manifest edit.",
-      "issue": 321
+      "decision": "n/a",
+      "summary": "chore(deps): update dependency @takumi-rs/core to v2 — docs/package.json ^1.8.7 -> ^2.5.4 (major) + lockfile, nothing else. NOT APPLIED: b24ui has the same ^1.8.7 but the package exists only to serve nuxt-og-image, which the fork pins to 6.5.3 via pnpm-workspace overrides (b24ui's own PR #245); that release declares '@takumi-rs/core': '^1.7.0'. Upstream can take v2 because it is on unpinned nuxt-og-image ^6.7.4, while b24ui asks ^6.6.0 and holds 6.5.3 — the same 'behind on nuxt-og-image' divergence recorded when skipping its bumps in 2a4218b. Bumping the direct dep while the only consumer wants ^1.7.0 would break the peer or install both majors of a native package for no gain: b24ui has NO direct takumi imports — every reference is a commented-out defineOgImage('Docs.takumi'/'Component.takumi') in showcase.vue, templates.vue and docs/[...slug]/index.vue, so the takumi OG renderer isn't even active. RECONCILED 2026-08-06: resolved the other way — b24ui #324 (3faa2e4, 'drop the dead og-image stack') removed nuxt-og-image AND @takumi-rs/core outright (manifests, the overrides pin, both og-image/*.takumi.vue components, the commented defineOgImage calls and the docs/nuxt.config.ts block), the option raised under 'Also worth deciding' in issue #321 (closed as completed). This entry is now permanently moot rather than pending: @takumi-rs/core no longer exists in b24ui, so upstream bumps to it — and to nuxt-og-image — are N/A by absence. The recurring 'behind on nuxt-og-image' divergence recorded in 2a4218b is retired.",
+      "issue": 321,
+      "resolved_by": "b24ui#324 (3faa2e4) — og-image stack dropped"
     },
     "3a19e23631d5700200c978472d8ab7bdda9cdd89": {
       "pr": 322,
@@ -1272,8 +1273,8 @@
       "summary": "docs: use content native sqlite connector — switches @nuxt/content from the better-sqlite3 native addon to Node's built-in node:sqlite: docs/nuxt.config.ts gains content.experimental.sqliteConnector:'native', docs/package.json drops the direct better-sqlite3 dep. Applied verbatim (b24ui was in the identical pre-change state). better-sqlite3 remains in the lockfile transitively via @nuxt/content, same as upstream; the inert allowBuilds:better-sqlite3 entry in pnpm-workspace was left alone (upstream didn't touch its equivalent). node:sqlite landed in Node 22.5 — b24ui engines allow ^20.19.0 so a Node 20 contributor lacks it, but the docs app isn't shipped and both building workflows are new enough (ci.yml node 24 since c4b786c, deploy.yml node 22). VERIFICATION: the ci gate never builds the docs site (only deploy's docs:full:generate does), so ran the real thing locally on Node v22.22.2 with the deploy env — Prerendered 1240 routes in 228.5s, exit 0. Tests 5589."
     },
     "6add5fb7d8a1280dcbe2c4675e78d8f45f61e7fd": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 323,
+      "b24ui_sha": "ec16d9c98b6597e3d7b611f24a8e601f4424eec9",
       "decision": "no-op",
       "summary": "chore(deps): update codspeedhq/action action to v5 — one line in .github/workflows/module.yml: CodSpeedHQ/action@v4 -> @v5. NOT APPLICABLE, as predicted when 8aa8041 (the commit introducing that job) was recorded as a no-op in PR #316: b24ui has no CodSpeed integration to bump — verified no occurrence of CodSpeed/codspeed anywhere in .github/, package.json, vitest.config.ts or pnpm-workspace.yaml, and its workflow inventory is only ci.yml/deploy.yml/npm-publish.yml. Upstream's own job is gated `if: github.repository_owner == 'nuxt'` ('Skip forks of the repo, they can't authenticate with CodSpeed'). No-op."
     }
