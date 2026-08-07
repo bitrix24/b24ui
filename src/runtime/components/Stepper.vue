@@ -85,7 +85,7 @@ import { useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
 import { useForwardProps } from '../composables/useForwardProps'
 import { tv } from '../utils/tv'
-import { get } from '../utils'
+import { get, itemValueIndex } from '../utils'
 
 const _props = withDefaults(defineProps<StepperProps<T>>(), {
   orientation: 'horizontal',
@@ -114,9 +114,25 @@ const currentStepIndex = computed({
   get() {
     const value = modelValue.value ?? props.defaultValue
 
-    return ((typeof value === 'string')
-      ? props.items.findIndex(item => get(item, props.valueKey as string) === value)
-      : value) ?? 0
+    if (value == null) return 0
+
+    // A number keeps its positional meaning while the item in that slot
+    // carries no `valueKey` — which is also what keeps `set()` round-trips
+    // stable, since it writes the index for exactly those items. Otherwise
+    // items are matched on `valueKey` first, any type; a number that matches
+    // nothing falls back to its position, everything else selects no step.
+    const count = props.items.length
+    const position = typeof value === 'number' ? value : -1
+    const inRange = position >= 0 && position < count
+
+    if (inRange && get(props.items[position] as Record<string, any>, props.valueKey as string) === undefined) {
+      return position
+    }
+
+    const matched = itemValueIndex(props.items, value, props.valueKey as string)
+    if (matched !== -1) return matched
+
+    return inRange ? position : -1
   },
   set(value: number) {
     modelValue.value = get(props.items?.[value], props.valueKey as string) ?? value

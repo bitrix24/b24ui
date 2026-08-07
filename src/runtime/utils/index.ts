@@ -61,6 +61,14 @@ export function set(object: Record<string, any>, path: (string | number)[] | str
   }, object)
 }
 
+/**
+ * Index of the first item whose `valueKey` field strictly equals `value`.
+ * Timeline and Stepper resolve their active item through this.
+ */
+export function itemValueIndex<T>(items: T[], value: unknown, valueKey: string): number {
+  return items.findIndex(item => get(item as Record<string, any>, valueKey) === value)
+}
+
 export function looseToNumber(val: any): any {
   const n = Number.parseFloat(val)
   return Number.isNaN(n) ? val : n
