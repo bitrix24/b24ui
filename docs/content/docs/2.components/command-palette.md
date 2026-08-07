@@ -95,6 +95,7 @@ Each group contains an `items` array of objects that define the commands. Each i
 - `suffix?: string`{lang="ts-type"}
 - `icon?: IconComponent`{lang="ts-type"}
 - `avatar?: AvatarProps`{lang="ts-type"}
+- `color?: AvatarProps['color']`{lang="ts-type"}
 - `chip?: ChipProps`{lang="ts-type"}
 - `kbds?: string[] | KbdProps[]`{lang="ts-type"}
 - `active?: boolean`{lang="ts-type"}
