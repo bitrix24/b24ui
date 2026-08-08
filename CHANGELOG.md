@@ -1,5 +1,35 @@
 # Changelog
 
+## [2.11.0](https://github.com/bitrix24/b24ui/compare/v2.10.0...v2.11.0) (2026-08-08)
+
+
+### Features
+
+* **Timeline,Stepper:** resolve model values through valueKey for numbers too ([#326](https://github.com/bitrix24/b24ui/issues/326)) ([8891da1](https://github.com/bitrix24/b24ui/commit/8891da161a21b891f187769b419a2673551f545e))
+
+
+### Bug Fixes
+
+* leaked listeners in Countdown, accumulated observers in ChatMessages, dev-time style refresh ([#335](https://github.com/bitrix24/b24ui/issues/335)) ([85dc54e](https://github.com/bitrix24/b24ui/commit/85dc54ed05f897100292f97655c38f54cbfb67d7)), closes [#79](https://github.com/bitrix24/b24ui/issues/79) [#80](https://github.com/bitrix24/b24ui/issues/80) [#81](https://github.com/bitrix24/b24ui/issues/81) [#83](https://github.com/bitrix24/b24ui/issues/83)
+
+
+### Docs
+
+* **content:** using @nuxt/content in a client-only app ([#334](https://github.com/bitrix24/b24ui/issues/334)) ([8b9bf3f](https://github.com/bitrix24/b24ui/commit/8b9bf3f6ebd51dcb1122c08285536c3b0c29b69c)), closes [#332](https://github.com/bitrix24/b24ui/issues/332)
+* **sync:** record the Timeline/Stepper resolution divergence as a porting invariant ([#330](https://github.com/bitrix24/b24ui/issues/330)) ([87a5933](https://github.com/bitrix24/b24ui/commit/87a593380436c4c4edbcc0353257a502bb49722a))
+
+
+### Chore
+
+* **sync:** reconcile the deferred takumi entry with [#324](https://github.com/bitrix24/b24ui/issues/324) ([#325](https://github.com/bitrix24/b24ui/issues/325)) ([aa9d6c2](https://github.com/bitrix24/b24ui/commit/aa9d6c225e5b1f4e45a44e894ecaf43ae02ffba2))
+
+
+### CI
+
+* automate releases with release-please and harden the publish gate ([#327](https://github.com/bitrix24/b24ui/issues/327)) ([8be1522](https://github.com/bitrix24/b24ui/commit/8be152259c01f25a6ebbdfd16d05ed8e3b5952f0)), closes [#313](https://github.com/bitrix24/b24ui/issues/313)
+* bump the github-actions group with 4 updates ([#333](https://github.com/bitrix24/b24ui/issues/333)) ([34ecc68](https://github.com/bitrix24/b24ui/commit/34ecc685d5478de6a59723a62b7726080ddf2cb8))
+* finish the [#315](https://github.com/bitrix24/b24ui/issues/315) hardening with a release watchdog and pinned actions ([#331](https://github.com/bitrix24/b24ui/issues/331)) ([a825945](https://github.com/bitrix24/b24ui/commit/a8259458c1bdd3911e6b95a68fb0d35a8123d162))
+
 ## [2.10.0](https://github.com/bitrix24/b24ui/compare/v2.9.0...v2.10.0) (2026-08-06)
 
 ### Features
