@@ -21,12 +21,7 @@ import * as themeContent from './theme/content'
  */
 export const CSS_TEMPLATE_FILENAME = 'b24ui.css'
 
-/**
- * The predicate the dev watcher passes to `updateTemplates`, exported so a test
- * can check it against what `getTemplates` actually registers. A filter that
- * matches nothing is indistinguishable from one that matches — `updateTemplates`
- * just does less work — which is why the mismatch survived unnoticed.
- */
+/** The predicate the dev watcher passes to `updateTemplates`. */
 export const isCssTemplate = (template: { filename?: string }) => template.filename === CSS_TEMPLATE_FILENAME
 
 /**
@@ -336,9 +331,8 @@ export const COMPONENT_DETECTION_WATCH_RE = /\.(?:vue|ts|js|tsx|jsx)$/
  * so a component used for the first time mid-session gets its `@source` entry
  * without a dev-server restart.
  *
- * This filtered on upstream nuxt/ui's `ui.css` while the module registers
- * `b24ui.css`, so it matched nothing and `updateTemplates` did nothing — and a
- * filter that selects zero templates is a successful call, so there was no
+ * A filter that selects zero templates is a successful call — which is how
+ * this shipped filtering on `ui.css` (see `CSS_TEMPLATE_FILENAME`) with no
  * signal at all. Split out of `addTemplates` and given an injectable `update`
  * purely so a test can assert the predicate that actually reaches
  * `updateTemplates` selects a template that really exists; asserting
