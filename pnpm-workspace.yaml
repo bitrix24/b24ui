@@ -28,6 +28,14 @@ overrides:
   h3: 1.15.11
   unimport: 6.0.2
   nuxtseo-shared: 5.2.6
+  # ajv declares `fast-uri: ^3.0.1` and the lockfile sat on 3.1.0, which carries
+  # five advisories (path traversal and host confusion via percent-encoded or
+  # backslash authority delimiters); 3.1.5 is the fixed release in that line.
+  # This is the one vulnerable chain that reaches consumers — @unhead/vue is a
+  # runtime dependency, so ajv and fast-uri land in their node_modules, unlike
+  # the dev-only trees under docs/ and playgrounds/. Scoped to the 3.x range so
+  # a future dependency on fast-uri 4 is not forced backwards.
+  'fast-uri@^3.0.0': ^3.1.5
 
 allowBuilds:
   better-sqlite3: true
