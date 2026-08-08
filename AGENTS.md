@@ -83,6 +83,7 @@ Load these based on your task. **Do not load all files at once** — only load w
 | **[.github/contributing/theme-structure.md](.github/contributing/theme-structure.md)** | Tailwind Variants theme files, slots, variants, compoundVariants |
 | **[.github/contributing/testing.md](.github/contributing/testing.md)** | Vitest patterns, snapshot testing, accessibility testing |
 | **[.github/contributing/documentation.md](.github/contributing/documentation.md)** | Component docs structure, MDC syntax, examples |
+| **[.github/contributing/releasing.md](.github/contributing/releasing.md)** | How a release happens (release-please + npm-publish), version arithmetic, hotfix policy |
 
 ### Code Conventions
 
