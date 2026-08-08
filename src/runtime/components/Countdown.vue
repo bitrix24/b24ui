@@ -148,12 +148,18 @@ const requestId = ref<number>(0)
 // endregion ////
 
 // region events ////
+// `.bind(this)` used to wrap both of these. Every `.bind()` returns a new
+// function, so `removeEventListener` was handed a reference the listener list
+// never contained and removed nothing — the handler outlived the component and
+// went on calling `update()`/`pause()` against a torn-down instance on every
+// tab switch. `this` was `undefined` here anyway (`<script setup>`), and
+// `handleVisibilityChange` does not use it.
 onMounted(() => {
-  document.addEventListener('visibilitychange', handleVisibilityChange.bind(this))
+  document.addEventListener('visibilitychange', handleVisibilityChange)
 })
 
 onBeforeUnmount(() => {
-  document.removeEventListener('visibilitychange', handleVisibilityChange.bind(this))
+  document.removeEventListener('visibilitychange', handleVisibilityChange)
   pause()
 })
 // endregion ////

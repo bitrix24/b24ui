@@ -114,7 +114,7 @@ export const Bitrix24UIPlugin = createUnplugin<Bitrix24UIOptions | undefined>((_
     AutoImportPlugin(options, meta),
     tailwind(),
     PluginsPlugin(options),
-    TemplatePlugin(options, appConfig),
+    TemplatePlugin(options),
     AppConfigPlugin(options, appConfig),
     <UnpluginOptions>{
       name: 'bitrix24:b24ui:plugins-duplication-detection',

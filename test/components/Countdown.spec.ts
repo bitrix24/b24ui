@@ -135,6 +135,36 @@ describe('Countdown', () => {
     })
   })
 
+  describe('lifecycle', () => {
+    afterEach(() => {
+      vi.restoreAllMocks()
+    })
+
+    // The handler used to be registered as `handleVisibilityChange.bind(this)`
+    // and removed as `handleVisibilityChange.bind(this)` — two different
+    // function objects, so `removeEventListener` matched nothing and every
+    // mounted Countdown left a live listener on `document` behind it. Compares
+    // the references rather than just asserting `removeEventListener` ran,
+    // because the buggy version called it too.
+    it('removes the same visibilitychange handler it registered', async () => {
+      const addSpy = vi.spyOn(document, 'addEventListener')
+      const removeSpy = vi.spyOn(document, 'removeEventListener')
+
+      const wrapper = await mountSuspended(Countdown, {
+        props: { seconds: 10, needStartImmediately: false }
+      })
+
+      const registered = addSpy.mock.calls.filter(([type]) => type === 'visibilitychange')
+      expect(registered).toHaveLength(1)
+
+      wrapper.unmount()
+
+      const removed = removeSpy.mock.calls.filter(([type]) => type === 'visibilitychange')
+      expect(removed).toHaveLength(1)
+      expect(removed[0]![1]).toBe(registered[0]![1])
+    })
+  })
+
   describe('events', () => {
     afterEach(() => {
       vi.restoreAllMocks()

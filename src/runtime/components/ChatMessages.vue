@@ -88,7 +88,7 @@ export type ChatMessagesSlots<T extends UIMessage[] = UIMessage[]> = {
 import { ref, computed, watch, nextTick, toRef, onMounted } from 'vue'
 import { Presence } from 'reka-ui'
 import { defu } from 'defu'
-import { useElementBounding, useEventListener, useMutationObserver, watchThrottled } from '@vueuse/core'
+import { useEventListener, useMutationObserver, watchThrottled } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
 import { omit } from '../utils'
@@ -260,7 +260,14 @@ function updateLastMessageHeight() {
     return
   }
 
-  const { height: parentHeight } = useElementBounding(parent.value)
+  // A one-shot read, not a reactive one. `useElementBounding` was called here
+  // on every invocation — from the `props.status` watcher and from the window
+  // `resize` handler, both outside any active effect scope, so each call left
+  // behind a ResizeObserver plus scroll/resize listeners that nothing could
+  // dispose. A long chat accumulated one set per status change. The value was
+  // also read synchronously, before the observer had measured anything, so the
+  // composable was not even buying a correct number.
+  const parentHeight = parent.value.getBoundingClientRect().height
 
   const lastMessage = props.messages.findLast(m => m.role === 'user')
   if (!lastMessage) {
@@ -280,7 +287,7 @@ function updateLastMessageHeight() {
   spacingOffset += Number.parseFloat(parentComputedStyle.paddingTop) || 0
   spacingOffset += Number.parseFloat(parentComputedStyle.paddingBottom) || 0
 
-  lastMessageHeight.value = Math.max(parentHeight.value - lastMessageEl.offsetHeight - spacingOffset, 0)
+  lastMessageHeight.value = Math.max(parentHeight - lastMessageEl.offsetHeight - spacingOffset, 0)
 }
 
 onMounted(() => {
