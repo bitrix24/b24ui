@@ -57,7 +57,7 @@ Use the `items` prop as an array of objects with the following properties:
 
 - `date?: string`{lang="ts-type"}
 - `title?: string`{lang="ts-type"}
-- `description?: AvatarProps`{lang="ts-type"}
+- `description?: string`{lang="ts-type"}
 - [`icon?: IconComponent`{lang="ts-type"}](#with-alternating-layout)
 - `avatar?: AvatarProps`{lang="ts-type"}
 - `value?: string | number`{lang="ts-type"}
@@ -243,6 +243,8 @@ You can control the active item by using the `default-value` prop or the `v-mode
 
 ::tip
 Use the `value-key` prop to change the key used to match items when a `v-model` or `default-value` is provided.
+
+The value is matched against `value-key` on each item, whatever its type. A number keeps its positional meaning when the item at that position carries no `value-key` — so plain arrays keep working by index — and falls back to a position when it matches no item. Out-of-range numbers select nothing.
 ::
 
 ### With select event

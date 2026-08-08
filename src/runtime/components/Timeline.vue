@@ -76,7 +76,7 @@ import { Primitive, Separator } from 'reka-ui'
 import { useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
 import { tv } from '../utils/tv'
-import { get } from '../utils'
+import { get, itemValueIndex } from '../utils'
 import B24Avatar from './Avatar.vue'
 
 const _props = withDefaults(defineProps<TimelineProps<T>>(), {
@@ -103,15 +103,24 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.timeline |
 const currentStepIndex = computed(() => {
   const value = modelValue.value ?? props.defaultValue
 
-  if (typeof value === 'string') {
-    return props.items.findIndex(item => get(item, props.valueKey as string) === value) ?? -1
+  if (value == null) return -1
+
+  // A number keeps its positional meaning while the item in that slot carries
+  // no `valueKey`; otherwise items are matched on `valueKey` first, with a
+  // number that matches nothing falling back to its position. Out-of-range
+  // numbers select nothing.
+  const count = props.items.length
+  const position = typeof value === 'number' ? (props.reverse ? count - 1 - value : value) : -1
+  const inRange = position >= 0 && position < count
+
+  if (inRange && get(props.items[position] as Record<string, any>, props.valueKey as string) === undefined) {
+    return position
   }
 
-  if (props.reverse) {
-    return value != null ? props.items.length - 1 - value : -1
-  } else {
-    return value ?? -1
-  }
+  const matched = itemValueIndex(props.items, value, props.valueKey as string)
+  if (matched !== -1) return matched
+
+  return inRange ? position : -1
 })
 
 function getItemState(index: number): 'active' | 'completed' | undefined {
