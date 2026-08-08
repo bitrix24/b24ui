@@ -71,7 +71,7 @@ jobs:
 
           if bad:
               print('\n'.join(bad))
-              print('::error::actions must be pinned to a 40-character commit SHA, with the version in a trailing comment')
+              print('::error::actions must be pinned to a 40-character commit SHA (house style: keep the version in a trailing comment, which this check does not enforce)')
               sys.exit(1)
           print('all actions are SHA-pinned')
           PY

@@ -169,10 +169,13 @@ jobs:
             name=$(node -p "require('./package.json').name")
             # A failing lookup is not evidence of a missing publish: a registry
             # blip would otherwise tell a maintainer to hand-dispatch a release
-            # that already shipped. Only a confirmed E404 counts.
+            # that already shipped. Only a confirmed E404 counts — matched on the
+            # whole token npm prints, since a bare `*E404*` also matches an
+            # unrelated failure whose message merely contains those characters
+            # (a proxy cache path, a URL fragment).
             if npm_err=$(npm view "$name@$version" version 2>&1 >/dev/null); then
               echo "$name@$version is on npm"
-            elif [[ "$npm_err" == *E404* ]]; then
+            elif [[ "$npm_err" == *"npm error code E404"* || "$npm_err" == *"npm ERR! code E404"* ]]; then
               printf -- '- **`%s` is tagged but `%s@%s` is not on npm.** The publish step did not complete. Recovery: Actions -> NPM publish -> Run workflow, with `%s` selected as the ref; re-runs are safe, an already-published version ends as a green no-op.\n' \
                 "$tag" "$name" "$version" "$tag" >> findings.md
             else
