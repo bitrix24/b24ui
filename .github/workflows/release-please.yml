@@ -1,0 +1,70 @@
+name: Release Please 🤖
+
+# Keeps a release PR open against main: version bump + CHANGELOG assembled from
+# conventional-commit subjects. Merging it creates the tag and the GitHub
+# Release, then dispatches the publish workflow against that tag.
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+# Serialize runs the way ci.yml and deploy.yml already do. A burst of merges
+# otherwise starts one full history scan per push, all racing to update the
+# same release PR. cancel-in-progress stays false: a run may be mid-release.
+concurrency:
+  group: release-please
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      actions: write
+    steps:
+      - name: Prepare release PR / create release
+        id: release
+        uses: googleapis/release-please-action@v4
+        with:
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+
+      # A PR opened with GITHUB_TOKEN fires no pull_request event, so the
+      # release PR would sit with no `ci` check — unmergeable wherever that
+      # check is required. A dispatched run lands on the same head SHA, which
+      # is what status checks are keyed by.
+      - name: Run CI on the release PR
+        if: steps.release.outputs.prs_created == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh workflow run ci.yml \
+            --repo "${{ github.repository }}" \
+            --ref "${{ fromJSON(steps.release.outputs.pr).headBranchName }}"
+
+      # Dispatched, not workflow_call, for two reasons that both broke the
+      # called design:
+      #  - npm trusted publishing matches the token's top-level workflow_ref,
+      #    which for a called workflow is THIS file, not npm-publish.yml — the
+      #    publisher pin would reject the automated path with the manual one
+      #    still working.
+      #  - a called run inherits this run's github.sha (whatever push happened
+      #    to trigger it), while `--ref <tag>` pins the publish to the exact
+      #    tagged commit.
+      # workflow_dispatch is the documented exception to "events fired with
+      # GITHUB_TOKEN start no workflows", so this is also the one reliable way
+      # to chain off a bot-created release. If the dispatch itself fails, the
+      # release exists unpublished — recovery is rerunning exactly this
+      # command by hand.
+      - name: Dispatch publish for ${{ steps.release.outputs.tag_name }}
+        if: steps.release.outputs.release_created == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh workflow run npm-publish.yml \
+            --repo "${{ github.repository }}" \
+            --ref "${{ steps.release.outputs.tag_name }}"
