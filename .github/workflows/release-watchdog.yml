@@ -87,7 +87,7 @@ jobs:
                 return 2
               fi
               echo "attempt $attempt/3 failed for: $* ($(tail -1 /tmp/api.err))" >&2
-              sleep 5
+              [ "$attempt" -lt 3 ] && sleep 5
             done
             return 1
           }
@@ -102,8 +102,7 @@ jobs:
           pr_checked=false
           if prs=$(api --paginate "repos/$REPO/pulls?state=open&per_page=100"); then
             pr_checked=true
-            pr=$(jq -s 'add // []' <<<"$prs" \
-              | jq -r 'map(select(any(.labels[]; .name == "autorelease: pending"))) | first // empty')
+            pr=$(jq -rs 'add // [] | map(select(any(.labels[]; .name == "autorelease: pending"))) | first // empty' <<<"$prs")
           else
             echo "::warning::could not list open pull requests; skipping the release-PR check"
           fi
@@ -155,6 +154,8 @@ jobs:
           # design can produce: the GitHub Release exists, `npm-publish.yml` was
           # dispatched, and something downstream refused. Nothing else notices.
           tag=""
+          # `$?` below is api()'s return code: nothing may be inserted between
+          # this `if` and its `elif`, or the 404 branch silently stops working.
           if release=$(api "repos/$REPO/releases/latest"); then
             tag=$(jq -r '.tag_name // empty' <<<"$release")
           elif [ $? -eq 2 ]; then
@@ -227,11 +228,11 @@ jobs:
           # report and mute the one alert this whole PR exists to raise.
           # `last` on a created-desc list is the oldest match, so a newer issue
           # cannot supersede the one already being updated.
-          existing=$(jq -s 'add // []' <<<"$issues" | jq -r --arg t "$title" --arg m "$MARKER" '
-            map(select(.pull_request == null))
+          existing=$(jq -rs --arg t "$title" --arg m "$MARKER" 'add // []
+            | map(select(.pull_request == null))
             | map(select((.user.login // "") == "github-actions[bot]"))
             | map(select(.title == $t or ((.body // "") | startswith($m))))
-            | last // empty')
+            | last // empty' <<<"$issues")
 
           if [ -n "$existing" ]; then
             number=$(jq -r '.number' <<<"$existing")
