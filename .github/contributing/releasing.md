@@ -84,10 +84,26 @@ Reverting it costs nobody anything, and the re-land is a rebase.
 
 If CI is red for something that is not a revertable commit — a flaky suite, a
 broken runner image, a playground build that only fails in `npm-publish.yml` —
-there is nothing to revert, and the answer is still not to edit the gate out of
-the workflow. Fix the failure, or, when the fix cannot wait, approve the release
-through the `npm-publish` environment (below) so the bypass is a recorded
-approval rather than a commit that quietly removes a safety check.
+there is nothing to revert, and **there is no bypass in the pipeline**. Say it
+plainly, because the alternatives look tempting at 2am and none of them work:
+`process` declares `needs: await-ci`, so a red CI skips the publishing job
+entirely — it never queues, which means the `npm-publish` environment never asks
+anyone to approve anything. Adding required reviewers there does not open a door;
+it only ever closes one.
+
+So the options are the honest two. **Fix the failure** — for a flake, re-running
+`ci.yml` on the release commit is usually faster than any workaround, and the
+`await-ci` gate polls for thirty minutes, so a re-run that goes green inside that
+window needs no further action. **Or accept the delay** and say so on the issue.
+
+If neither is acceptable — a crash-class bug, CI broken for reasons nobody can
+fix quickly — the break-glass is a maintainer publishing by hand: `pnpm build`
+then `pnpm publish` from a machine logged in to npm. It is deliberately ugly.
+It skips the merged-history assert, the CI gate and npm's provenance, and it
+needs a human account with publish rights rather than the repository's OIDC
+identity. Do it only as the last step, and open an issue afterwards recording
+what was published, from where, and why the pipeline could not. Never edit the
+gate out of the workflow to get the same result quietly.
 
 ## What is watched automatically
 

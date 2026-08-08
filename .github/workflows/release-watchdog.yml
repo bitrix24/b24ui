@@ -69,12 +69,15 @@ jobs:
 
           # `gh api` prints the error body to STDOUT and skips --jq whenever the
           # status is >= 400, so the usual `$(gh api … || echo "")` idiom does not
-          # yield an empty string — it yields the error JSON. Every call goes
-          # through this helper instead: the body is printed only on success, a
-          # 404 is reported as its own outcome, and everything else is retried
-          # the way npm-publish.yml already retries its compare call.
+          # yield an empty string — it yields the error JSON. Every call in both
+          # steps goes through this helper instead: the body is printed only on
+          # success, a 404 is reported as its own outcome, and everything else is
+          # retried the way npm-publish.yml already retries its compare call.
+          # Written to a file because the reporting step is a separate shell and
+          # must not fall back to the raw idiom.
+          cat > api.sh <<'HELPER'
           api() {
-            local out status
+            local out
             for attempt in 1 2 3; do
               if out=$(gh api "$@" 2>/tmp/api.err); then
                 printf '%s' "$out"
@@ -88,6 +91,9 @@ jobs:
             done
             return 1
           }
+          HELPER
+          # shellcheck source=/dev/null
+          . ./api.sh
 
           # 1. Release PR sitting open. release-please labels its PR
           # `autorelease: pending`; matching the label rather than the branch
@@ -190,13 +196,21 @@ jobs:
           # cannot turn tomorrow's comment into a duplicate issue. Deliberately
           # not matched by label: the label would have to exist, and a workflow
           # whose whole job is noticing problems should not fail on repo settings.
-          existing=""
-          if issues=$(gh api --paginate "repos/$REPO/issues?state=open&per_page=100" 2>/dev/null); then
-            existing=$(jq -s 'add // []' <<<"$issues" | jq -r --arg t "$title" --arg m "$MARKER" '
-              map(select(.pull_request == null))
-              | map(select(.title == $t or ((.body // "") | contains($m))))
-              | first // empty')
+          # shellcheck source=/dev/null
+          . ./api.sh
+
+          # Deliberately not `|| true`: if this lookup fails we do not know
+          # whether an issue already exists, and guessing means opening a second
+          # public issue about the same release. Failing the run is the cheaper
+          # mistake — the findings are in the log and tomorrow's run retries.
+          if ! issues=$(api --paginate "repos/$REPO/issues?state=open&per_page=100"); then
+            echo "::error::could not list open issues; refusing to risk a duplicate report"
+            exit 1
           fi
+          existing=$(jq -s 'add // []' <<<"$issues" | jq -r --arg t "$title" --arg m "$MARKER" '
+            map(select(.pull_request == null))
+            | map(select(.title == $t or ((.body // "") | contains($m))))
+            | first // empty')
 
           if [ -n "$existing" ]; then
             number=$(jq -r '.number' <<<"$existing")
