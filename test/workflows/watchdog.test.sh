@@ -17,6 +17,7 @@ STUBS="$ROOT/test/workflows/stubs"
 pass=0
 fail=0
 WORKDIR=$(mktemp -d)
+LAST_DIR=
 trap 'rm -rf "$WORKDIR"' EXIT
 
 # run <name> <script> <expected-exit> <expected-findings> [KEY=VALUE ...]
@@ -34,7 +35,15 @@ run() {
   for arg in "$@"; do [ "$arg" = "EMPTY_FINDINGS=1" ] && seed_empty=1; done
 
   local dir
-  dir=$(mktemp -d "$WORKDIR/case.XXXXXX")
+  dir=$(mktemp -d "$WORKDIR/case.XXXXXX" 2>/dev/null)
+  # `cd ""` is a silent no-op, not an error, so an empty $dir would leave the
+  # subshell in the repository root and its fixture `package.json` would land on
+  # the real one. That is not hypothetical — it happened once. Refuse to run.
+  if [ -z "$dir" ] || [ ! -d "$dir" ]; then
+    echo "  FAIL $name — could not create a case directory under $WORKDIR"
+    fail=$((fail + 1))
+    return 1
+  fi
   ( cd "$dir" || exit 1
     printf '{"name":"@bitrix24/b24ui-nuxt"}' > package.json
     # The reporting script consumes findings.md rather than producing it.
@@ -69,6 +78,11 @@ run() {
 # expect_log <name> <regex>  — asserts the previous run said something
 expect_log() {
   local name=$1 pattern=$2
+  if [ -z "$LAST_DIR" ]; then
+    echo "  FAIL $name — the preceding case never ran"
+    fail=$((fail + 1))
+    return 1
+  fi
   if grep -qE "$pattern" "$LAST_DIR/stdout.txt" "$LAST_DIR/stderr.txt" 2>/dev/null; then
     echo "  ok   $name"
     pass=$((pass + 1))
@@ -82,6 +96,11 @@ expect_log() {
 # refute_log <name> <regex>  — asserts the previous run did NOT say something
 refute_log() {
   local name=$1 pattern=$2
+  if [ -z "$LAST_DIR" ]; then
+    echo "  FAIL $name — the preceding case never ran"
+    fail=$((fail + 1))
+    return 1
+  fi
   if grep -qE "$pattern" "$LAST_DIR/stdout.txt" "$LAST_DIR/stderr.txt" 2>/dev/null; then
     echo "  FAIL $name — found a line matching /$pattern/"
     fail=$((fail + 1))
@@ -94,6 +113,11 @@ refute_log() {
 # mutation <name> <expected>  — asserts what the reporting step did to GitHub
 mutation() {
   local name=$1 want=$2
+  if [ -z "$LAST_DIR" ]; then
+    echo "  FAIL $name — the preceding case never ran"
+    fail=$((fail + 1))
+    return 1
+  fi
   local got
   got=$( [ -f "$LAST_DIR/mutations" ] && cut -d' ' -f1 < "$LAST_DIR/mutations" | head -1 )
   got=${got:-none}
