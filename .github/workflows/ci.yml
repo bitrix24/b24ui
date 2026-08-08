@@ -47,34 +47,15 @@ jobs:
       # such a bump here, rewriting `uses:` from @v6 to @v7. A port that does that
       # again fails here instead of silently reopening the hole.
       - name: Assert every action is pinned to a commit SHA
-        run: |
-          # Parsed rather than grepped, because a guard that silently skips the
-          # common `- uses:` step form teaches people to stop checking. Comments
-          # are stripped before validation so a real SHA in a trailing comment
-          # cannot vouch for an unpinned ref next to it.
-          python3 - <<'PY'
-          import re, sys
-          from pathlib import Path
+        run: .github/scripts/assert-actions-pinned.py
 
-          bad = []
-          for f in sorted(p for ext in ('yml', 'yaml') for p in Path('.github').rglob(f'*.{ext}')):
-              for n, line in enumerate(f.read_text().splitlines(), 1):
-                  code = line.split('#', 1)[0]
-                  m = re.search(r'(?:^|[-{,\s])uses:\s*(.+)$', code)
-                  if not m:
-                      continue
-                  ref = m.group(1).strip().strip('"\'')
-                  if not ref or ref.startswith('./'):
-                      continue
-                  if not re.fullmatch(r'[^@\s]+@[0-9a-fA-F]{40}', ref):
-                      bad.append(f'{f}:{n}: {line.strip()}')
-
-          if bad:
-              print('\n'.join(bad))
-              print('::error::actions must be pinned to a 40-character commit SHA (house style: keep the version in a trailing comment, which this check does not enforce)')
-              sys.exit(1)
-          print('all actions are SHA-pinned')
-          PY
+      # The workflow scripts have no other coverage: they run on a schedule, hold
+      # `issues: write`, and every bug three rounds of review found in them was
+      # the same shape — a failure inside an `if` condition, which bash exempts
+      # from errexit, leaving the job green and the outcome wrong. Stubs make that
+      # class reproducible in a second.
+      - name: Test the workflow scripts
+        run: test/workflows/run.sh
 
       - name: Install pnpm
         uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10

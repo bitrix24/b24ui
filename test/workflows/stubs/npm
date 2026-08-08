@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+case "${NPM_SCENARIO:-ok}" in
+  ok)       echo "2.11.0"; exit 0 ;;
+  e404)     echo "npm error code E404" >&2; exit 1 ;;
+  e404_old) echo "npm ERR! code E404" >&2; exit 1 ;;
+  decoy)    echo "npm error request to https://proxy.internal/cache/E404/ab.bin failed" >&2; exit 1 ;;
+  network)  echo "npm error code ETIMEDOUT" >&2; exit 1 ;;
+esac

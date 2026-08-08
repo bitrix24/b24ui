@@ -138,7 +138,8 @@
     "test": "vitest",
     "test:vue": "vitest --project vue",
     "test:nuxt": "vitest --project nuxt",
-    "bench": "vitest bench --project vue"
+    "bench": "vitest bench --project vue",
+    "test:workflows": "test/workflows/run.sh"
   },
   "dependencies": {
     "@floating-ui/dom": "^1.8.0",
