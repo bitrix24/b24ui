@@ -262,11 +262,13 @@ function updateLastMessageHeight() {
 
   // A one-shot read, not a reactive one. `useElementBounding` was called here
   // on every invocation — from the `props.status` watcher and from the window
-  // `resize` handler, both outside any active effect scope, so each call left
-  // behind a ResizeObserver plus scroll/resize listeners that nothing could
-  // dispose. A long chat accumulated one set per status change. The value was
-  // also read synchronously, before the observer had measured anything, so the
-  // composable was not even buying a correct number.
+  // `resize` handler, both outside any active effect scope, so nothing could
+  // dispose what each call registered: a ResizeObserver, a MutationObserver on
+  // style/class, and capturing window `scroll` and `resize` listeners. A long
+  // chat accumulated one such set per status change. The number it returned was
+  // right — `tryOnMounted` falls back to running `update()` synchronously when
+  // there is no component instance — but the reactivity it paid for was never
+  // used: `parentHeight` is read once, on the next line, and never again.
   const parentHeight = parent.value.getBoundingClientRect().height
 
   const lastMessage = props.messages.findLast(m => m.role === 'user')

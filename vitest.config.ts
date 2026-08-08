@@ -29,6 +29,11 @@ export default defineConfig({
           name: 'nuxt',
           dir: './test',
           include: nuxtInclude,
+          // Vitest applies these when `exclude` is unset, so this line changes
+          // nothing today. It is here so the two projects look the same: the
+          // `vue` one below has to spell them out, and the next person adding a
+          // project-specific exclusion should copy a pattern that keeps them.
+          exclude: configDefaults.exclude,
           // Benchmarks run in the `vue` project only (happy-dom, faster); keep them
           // out of the nuxt project so a bare `vitest bench` doesn't double-run them.
           benchmark: { include: [] },

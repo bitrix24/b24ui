@@ -29,11 +29,16 @@ export const CSS_TEMPLATE_FILENAME = 'b24ui.css'
  */
 export const isCssTemplate = (template: { filename?: string }) => template.filename === CSS_TEMPLATE_FILENAME
 
-// Took a `uiConfig` argument that nothing in the body ever read, passed from
-// both call sites. It was not a wiring gap: `app.config.b24ui` reaches the
-// runtime through `#build/app.config` (see plugins/app-config.ts) and is
-// applied by the `tv` wrapper, not by template generation. Dropped rather than
-// wired up, so the signature stops implying an override path that isn't there.
+/**
+ * Builds every template this module registers — per-component themes, the
+ * generated CSS, and the app-config type declarations.
+ *
+ * Used to take a `uiConfig` argument that nothing in the body ever read, passed
+ * from both call sites. It was not a wiring gap: `app.config.b24ui` reaches the
+ * runtime through `#build/app.config` (see plugins/app-config.ts) and is applied
+ * by the `tv` wrapper, not by template generation. Dropped rather than wired up,
+ * so the signature stops implying an override path that isn't there.
+ */
 export function getTemplates(options: ModuleOptions, nuxt?: Nuxt, resolve?: Resolver['resolve']) {
   const templates: NuxtTemplate[] = []
 
@@ -323,6 +328,31 @@ export {}
   return templates
 }
 
+/** Source files whose contents can change which components are detected as used. */
+export const COMPONENT_DETECTION_WATCH_RE = /\.(?:vue|ts|js|tsx|jsx)$/
+
+/**
+ * Re-runs component detection during `nuxt dev` when a source file changes,
+ * so a component used for the first time mid-session gets its `@source` entry
+ * without a dev-server restart.
+ *
+ * This filtered on upstream nuxt/ui's `ui.css` while the module registers
+ * `b24ui.css`, so it matched nothing and `updateTemplates` did nothing — and a
+ * filter that selects zero templates is a successful call, so there was no
+ * signal at all. Split out of `addTemplates` and given an injectable `update`
+ * purely so a test can assert the predicate that actually reaches
+ * `updateTemplates` selects a template that really exists; asserting
+ * `isCssTemplate` against `getTemplates()` on its own would still pass if this
+ * call site went back to a hardcoded literal.
+ */
+export function watchForComponentDetection(nuxt: Nuxt, update: typeof updateTemplates = updateTemplates) {
+  nuxt.hook('builder:watch', async (_, path) => {
+    if (COMPONENT_DETECTION_WATCH_RE.test(path)) {
+      await update({ filter: isCssTemplate })
+    }
+  })
+}
+
 export function addTemplates(options: ModuleOptions, nuxt: Nuxt, resolve: Resolver['resolve']) {
   const templates = getTemplates(options, nuxt, resolve)
   for (const template of templates) {
@@ -338,16 +368,6 @@ export function addTemplates(options: ModuleOptions, nuxt: Nuxt, resolve: Resolv
   })
 
   if (options.experimental?.componentDetection && nuxt.options.dev) {
-    nuxt.hook('builder:watch', async (_, path) => {
-      if (/\.(?:vue|ts|js|tsx|jsx)$/.test(path)) {
-        // Filtered on upstream nuxt/ui's `ui.css` while this module registers
-        // `b24ui.css`, so the filter matched nothing and `updateTemplates` was
-        // a no-op: a component first used mid-session never got its `@source`
-        // entry regenerated and shipped unstyled until the dev server was
-        // restarted. Shared predicate now, checked against the registered
-        // templates in test/utils/templates.spec.ts.
-        await updateTemplates({ filter: isCssTemplate })
-      }
-    })
+    watchForComponentDetection(nuxt)
   }
 }

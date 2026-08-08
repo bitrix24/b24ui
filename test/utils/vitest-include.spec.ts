@@ -14,8 +14,12 @@ import { nuxtInclude, vueInclude, vueExclude } from '../vitest-include'
  * have caught both defects behind #83 — the orphaned file and the two projects
  * spelling `components/**` differently.
  */
-// `import.meta.url` is not a file: URL under either project's transform, so
-// the directory is derived from the vitest root instead.
+// `import.meta.url` itself is a normal `file:` URL here, but resolving a
+// relative path against it is not: `new URL('..', import.meta.url)` comes back
+// as `http://localhost:3000/test` in both projects, and `fileURLToPath` then
+// throws `The URL must be of scheme file`. Derived from the vitest root
+// instead — which is also why the `beforeAll` below has to prove the root
+// resolved.
 const testDir = join(process.cwd(), 'test')
 
 const listSpecs = () => glob('**/*.spec.ts', { cwd: testDir, ignore: ['**/node_modules/**'] })
@@ -50,7 +54,13 @@ describe('vitest include patterns', () => {
     const declaredNuxtOnly = /^(?:plugins\/|components\/content\/|components\/nuxt\/)/
     const nuxtOnly = [...nuxt].filter(spec => !vue.has(spec) && !declaredNuxtOnly.test(spec)).sort()
 
-    expect(nuxtOnly).toEqual([])
+    // Checked in both directions on purpose. Only asserting one of them repeats
+    // the shape of the bug this file exists to prevent: a spec running in a
+    // single project, invisibly. There is no declared vue-only category, so
+    // any such spec is a mistake by definition.
+    const vueOnly = [...vue].filter(spec => !nuxt.has(spec)).sort()
+
+    expect({ nuxtOnly, vueOnly }).toEqual({ nuxtOnly: [], vueOnly: [] })
   })
 
   it('do not leave snapshots behind for specs that no longer exist', async () => {
