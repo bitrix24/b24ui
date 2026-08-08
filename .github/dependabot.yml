@@ -1,0 +1,34 @@
+version: 2
+
+# Actions are pinned to commit SHAs (see any `uses:` line), which stops a
+# retagged `@v7` from executing new code on a runner that in npm-publish.yml
+# holds the publishing OIDC token — but a pin nobody moves is a pin that rots.
+# This config moves them: one grouped PR that bumps the SHAs and rewrites the
+# trailing version comments, which CI then judges like any other change.
+#
+# Monthly, not weekly. Action SHAs do not move weekly, and the review queue here
+# is the real constraint — a weekly schedule mostly produces no-ops and, when it
+# does fire, fires faster than anyone serves it. Grouping keeps the backlog at
+# exactly one perpetually-rebased PR rather than a growing pile.
+#
+# Deliberately github-actions only. npm updates are not skipped because they
+# would be harmless — 64 runtime `dependencies` do reach consumers through their
+# package manager. They are skipped because this repository tracks nuxt/ui and
+# takes dependency bumps as ports of upstream's own (see `.sync/`), so a second
+# stream of npm PRs here would compete with that pipeline rather than add to it.
+# Security-only alerts are a separate repository setting and are unaffected.
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    commit-message:
+      # Conventional-commit prefix so release-please files these under CI in the
+      # changelog instead of ignoring them.
+      prefix: ci
+    groups:
+      # One PR for all of them; these actions move together and reviewing seven
+      # separate SHA bumps is worse than reviewing one.
+      github-actions:
+        patterns:
+          - '*'

@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+# Refuses to run outside the harness: this file is named exactly like the real
+# tool and is committed executable, so a stray PATH edit must not let it answer
+# for the real one — npm-publish.yml reads a version from `node -p` and asks npm
+# whether it is published.
+if [ "${WORKFLOW_TEST_STUBS:-}" != "1" ]; then
+  echo "$(basename "$0"): test stub invoked outside the workflow harness" >&2
+  exit 127
+fi
+# Stub for the GitHub CLI. Reproduces the behaviour that matters: on an error
+# `gh api` writes the response body to STDOUT, its own diagnostic to STDERR, and
+# exits non-zero. Scenarios are selected with GH_SCENARIO.
+ep="$*"
+
+fail() { echo "$1"; echo "gh: $2" >&2; exit 1; }
+
+case "${GH_SCENARIO:-none}" in
+  release_404) [[ "$ep" == *releases/latest* ]] && fail '{"message":"Not Found"}' 'Not Found (HTTP 404)' ;;
+  release_500) [[ "$ep" == *releases/latest* ]] && fail '{"message":"Server Error"}' 'HTTP 500' ;;
+  pulls_fail)  [[ "$ep" == *pulls* ]] && fail '{"message":"rate limited"}' 'HTTP 403' ;;
+  crash_fail)  [[ "$ep" == *labels=severity* ]] && fail '{"message":"rate limited"}' 'HTTP 403' ;;
+  issues_fail) [[ "$ep" == *"issues?state=open&per_page=100"* ]] && fail '{"message":"rate limited"}' 'HTTP 403' ;;
+  flaky_pulls)
+    # Fails the first FLAKY_FAILS calls, then succeeds — the only way to tell a
+    # working retry loop from one that gives up on the first blip.
+    if [[ "$ep" == *pulls* ]]; then
+      n=$(cat "${FLAKY_COUNTER:-/dev/null}" 2>/dev/null || echo 0)
+      n=$((n + 1))
+      [ -n "${FLAKY_COUNTER:-}" ] && echo "$n" > "$FLAKY_COUNTER"
+      [ "$n" -le "${FLAKY_FAILS:-2}" ] && fail '{"message":"Server Error"}' 'HTTP 500'
+    fi
+    ;;
+esac
+
+if [[ "$ep" == *pulls* ]]; then
+  if [ -n "${PULLS_JSON:-}" ]; then
+    echo "$PULLS_JSON"
+  else
+    printf '[{"number":328,"title":"chore(main): release 2.11.0","created_at":"%s","labels":[{"name":"autorelease: pending"}]}]\n' \
+      "${PR_CREATED:-2026-07-01T00:00:00Z}"
+  fi
+  exit 0
+fi
+if [[ "$ep" == *labels=severity* ]]; then echo "${CRASH_ISSUES:-[]}"; exit 0; fi
+if [[ "$ep" == *releases/latest* ]]; then
+  if [ -n "${RELEASE_JSON:-}" ]; then echo "$RELEASE_JSON"; else echo '{"tag_name":"v2.11.0"}'; fi
+  exit 0
+fi
+if [[ "$ep" == *comments* ]]; then echo "COMMENT ${ep}" >> "${MUTATION_LOG:-/dev/null}"; echo '{}'; exit 0; fi
+if [[ "$ep" == *"-f title"* ]]; then echo "CREATE ${ep}" >> "${MUTATION_LOG:-/dev/null}"; echo '{}'; exit 0; fi
+echo "${ISSUES_JSON:-[]}"

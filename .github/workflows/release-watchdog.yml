@@ -1,0 +1,81 @@
+name: Release watchdog 🕰️
+
+# Releases are automated (release-please opens the PR, merging it publishes),
+# but automation moved the failure rather than removing it. Two ways a fix can
+# still end up unshipped, neither of which raises anything on its own:
+#
+#  1. the release PR stays open because nobody merged it;
+#  2. the PR was merged, the tag exists, and the publish never completed —
+#     a failed dispatch, a red CI run, a cancelled job.
+#
+# Issue #315 exists because the first class went unnoticed for five weeks. This
+# job checks both and opens (or updates) a single issue.
+#
+# Runs daily rather than weekly: the crash-class path below has a 2-day budget,
+# and a weekly cron cannot enforce a 48-hour policy. A run with nothing to
+# report is silent, so the cost of the extra runs is a few seconds of compute.
+on:
+  schedule:
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+    inputs:
+      max_open_days:
+        description: 'Override the age threshold in days (0 reports any open release PR — use it to exercise the reporting path)'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-watchdog
+  cancel-in-progress: false
+
+env:
+  # An open release PR older than this is worth a nudge. Deliberately well under
+  # the historical cadence (v2.8.0 -> v2.9.0 was 38 days) and well over a normal
+  # "merge it next week" gap. Documented as a commitment in
+  # .github/contributing/releasing.md — keep the two in sync.
+  MAX_OPEN_DAYS: 14
+  # When an open issue carries `severity:crash`, releasing.md promises a release
+  # within 48 hours. Without this the only number in the policy with teeth would
+  # be the one thing in the release process with no automation behind it.
+  CRASH_MAX_OPEN_DAYS: 2
+  # Lets the dedup survive someone editing the issue title.
+  MARKER: '<!-- release-watchdog -->'
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: read
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      REPO: ${{ github.repository }}
+      OVERRIDE_DAYS: ${{ inputs.max_open_days }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      # The npm check reads a wording that npm has already changed once (the
+      # script still matches the legacy `npm ERR!` shape for that reason), and
+      # ci.yml and npm-publish.yml both pin their runtime. Leaving this one on
+      # whatever the runner image ships that week is the odd one out.
+      - name: Install node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+
+      - name: Collect findings
+        id: check
+        shell: bash
+        run: .github/scripts/watchdog-collect.sh
+
+      - name: Open or update the issue
+        if: steps.check.outputs.found == 'true'
+        shell: bash
+        run: .github/scripts/watchdog-report.sh
