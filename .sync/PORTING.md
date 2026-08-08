@@ -66,6 +66,15 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   write and `next()` stops advancing. Call the divergence out in the PR
   "deviations" section, and never regenerate `test/components/{Timeline,Stepper}`
   snapshots to make a port compile — those specs guard this on purpose.
+- **Workflow actions stay pinned to commit SHAs.** Upstream bumps actions by
+  tag (`actions/setup-node@v6` -> `@v7`); b24ui pins the commit and keeps the
+  version in a trailing comment, because the runner that executes them holds the
+  npm publishing OIDC token. PR #297 is the precedent for how this gets lost: a
+  faithful port of an upstream Renovate bump rewrote `uses:` back to a tag. When
+  porting one, resolve the new tag to its commit — `git ls-remote <repo>
+  refs/tags/vN refs/tags/vN^{}`, and use the **peeled** SHA for annotated tags —
+  and update the comment. `ci.yml` fails the build on any unpinned `uses:`, so a
+  slip here is caught rather than merged.
 - **jsDoc on every prop** — keep the description and `@defaultValue`. Never drop
   a jsDoc block to make code compile. (A passing `vue-tsc` is necessary, not
   sufficient.)
@@ -141,3 +150,4 @@ History of the maps lives in git; no separate version field.
 - 2026-06-15 — port of `ffaf163f` (PR #140): added the §1 rewrite — **rename inferred type variables too**: when porting types that `infer UI` (or otherwise name a `UI` type-var), rename it to `B24UI`, consistent with `ui → b24ui`. Caught in review of the `ComponentAppConfig` rewrite (`A extends { b24ui: infer UI }` → `infer B24UI`). Last reviewed: 2026-06-15.
 - 2026-06-17 — skip of `fa525382` (PR #167): added the §2 **Locales** invariant — b24ui does not adopt new languages from upstream. The Latvian (`lv`) addition was ported then reverted on maintainer instruction; PR #167 closed without merge and recorded as `decision: skip`. Future upstream new-locale commits are skipped the same way (edits to existing locales still port). Last reviewed: 2026-06-17.
 - 2026-08-08 — fix of #310 (PR #326): added the §2 **Timeline / Stepper value resolution** invariant. b24ui now resolves numeric model values through `valueKey`, while upstream still matches strings only — so a faithful port of any upstream commit touching `currentStepIndex` would silently revert the fix and bring back the reported bug (a numeric `items[].value` selecting nothing). Guarded by `test/components/Timeline.spec.ts` and `Stepper.spec.ts`; those snapshots must not be regenerated to make a port compile. Last reviewed: 2026-08-08.
+- 2026-08-08 — hardening of #315 (PR #331): added the §2 **workflow actions stay pinned to commit SHAs** invariant. Upstream bumps actions by tag and PR #297 replayed such a bump verbatim, rewriting `uses:` from `@v6` to `@v7`; b24ui pins commits because that runner holds the npm publishing OIDC token. `ci.yml` now fails on any unpinned `uses:`, so the rule is enforced rather than remembered. Last reviewed: 2026-08-08.

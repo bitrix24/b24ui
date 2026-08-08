@@ -1,23 +1,27 @@
 version: 2
 
 # Actions are pinned to commit SHAs (see any `uses:` line), which stops a
-# retagged `@v7` from executing new code on a runner that holds the publishing
-# OIDC token — but a pin with nobody moving it is a pin that rots. This config
-# is what moves them: Dependabot opens one PR with the new SHA and rewrites the
-# trailing version comment, and CI decides whether it lands.
+# retagged `@v7` from executing new code on a runner that in npm-publish.yml
+# holds the publishing OIDC token — but a pin nobody moves is a pin that rots.
+# This config moves them: one grouped PR that bumps the SHAs and rewrites the
+# trailing version comments, which CI then judges like any other change.
 #
-# Deliberately github-actions only. The npm ecosystem is left off: this is a
-# pnpm workspace whose dev dependency tree carries dozens of advisories that do
-# not reach consumers (`files` in package.json is an allow-list, and `nuxt` is a
-# devDependency), so npm updates here would be a stream of PRs about packages
-# that never enter the published tarball. Dependency work on that side stays
-# manual and scoped — see issue #315 §3.
+# Monthly, not weekly. Action SHAs do not move weekly, and the review queue here
+# is the real constraint — a weekly schedule mostly produces no-ops and, when it
+# does fire, fires faster than anyone serves it. Grouping keeps the backlog at
+# exactly one perpetually-rebased PR rather than a growing pile.
+#
+# Deliberately github-actions only. npm updates are not skipped because they
+# would be harmless — 64 runtime `dependencies` do reach consumers through their
+# package manager. They are skipped because this repository tracks nuxt/ui and
+# takes dependency bumps as ports of upstream's own (see `.sync/`), so a second
+# stream of npm PRs here would compete with that pipeline rather than add to it.
+# Security-only alerts are a separate repository setting and are unaffected.
 updates:
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: weekly
-      day: monday
+      interval: monthly
     commit-message:
       # Conventional-commit prefix so release-please files these under CI in the
       # changelog instead of ignoring them.

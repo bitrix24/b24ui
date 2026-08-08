@@ -17,6 +17,13 @@ concurrency:
   # the tag with nothing on npm.
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
+# This workflow executes the most untrusted code in the repository — a full
+# `pnpm install` with build scripts, then lint, typecheck, tests and build. It
+# needs nothing but read access, and saying so keeps a `push` or dispatch run
+# from inheriting a permissive repository default.
+permissions:
+  contents: read
+
 jobs:
   ci:
     runs-on: ubuntu-latest
@@ -33,6 +40,23 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+
+      # Pinning actions to commit SHAs is a state; this is the control that keeps
+      # it. The realistic way the pins get lost is not carelessness — it is a
+      # port: upstream nuxt/ui bumps actions by tag, and PR #297 replayed exactly
+      # such a bump here, rewriting `uses:` from @v6 to @v7. A port that does that
+      # again fails here instead of silently reopening the hole.
+      - name: Assert every action is pinned to a commit SHA
+        run: |
+          unpinned=$(grep -rnE '^\s*uses:' .github/workflows \
+            | grep -vE 'uses:\s*\./' \
+            | grep -vE 'uses:\s*[^@]+@[0-9a-f]{40}(\s|$)' || true)
+          if [ -n "$unpinned" ]; then
+            echo "$unpinned"
+            echo "::error::actions must be pinned to a 40-character commit SHA, with the version in a trailing comment"
+            exit 1
+          fi
+          echo "all actions are SHA-pinned"
 
       - name: Install pnpm
         uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10

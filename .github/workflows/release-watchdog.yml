@@ -2,18 +2,27 @@ name: Release watchdog 🕰️
 
 # Releases are automated (release-please opens the PR, merging it publishes),
 # but automation moved the failure rather than removing it. Two ways a fix can
-# still sit unshipped, neither of which raises anything on its own:
+# still end up unshipped, neither of which raises anything on its own:
 #
-#  1. the release PR stays open — everything is ready, nobody merged it;
-#  2. the release PR was merged and the tag exists, but nothing reached npm:
-#     the publish dispatch failed, CI never went green, or the run was cancelled.
+#  1. the release PR stays open because nobody merged it;
+#  2. the PR was merged, the tag exists, and the publish never completed —
+#     a failed dispatch, a red CI run, a cancelled job.
 #
 # Issue #315 exists because the first class went unnoticed for five weeks. This
-# job checks both once a week and opens (or updates) a single issue.
+# job checks both and opens (or updates) a single issue.
+#
+# Runs daily rather than weekly: the crash-class path below has a 2-day budget,
+# and a weekly cron cannot enforce a 48-hour policy. A run with nothing to
+# report is silent, so the cost of the extra runs is a few seconds of compute.
 on:
   schedule:
-    - cron: '0 9 * * 1'
+    - cron: '0 9 * * *'
   workflow_dispatch:
+    inputs:
+      max_open_days:
+        description: 'Override the age threshold in days (0 reports any open release PR — use it to exercise the reporting path)'
+        required: false
+        default: ''
 
 permissions:
   contents: read
@@ -25,8 +34,15 @@ concurrency:
 env:
   # An open release PR older than this is worth a nudge. Deliberately well under
   # the historical cadence (v2.8.0 -> v2.9.0 was 38 days) and well over a normal
-  # "merge it next week" gap.
+  # "merge it next week" gap. Documented as a commitment in
+  # .github/contributing/releasing.md — keep the two in sync.
   MAX_OPEN_DAYS: 14
+  # When an open issue carries `severity:crash`, releasing.md promises a release
+  # within 48 hours. Without this the only number in the policy with teeth would
+  # be the one thing in the release process with no automation behind it.
+  CRASH_MAX_OPEN_DAYS: 2
+  # Lets the dedup survive someone editing the issue title.
+  MARKER: '<!-- release-watchdog -->'
 
 jobs:
   watch:
@@ -38,6 +54,7 @@ jobs:
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       REPO: ${{ github.repository }}
+      OVERRIDE_DAYS: ${{ inputs.max_open_days }}
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -50,39 +67,96 @@ jobs:
         run: |
           : > findings.md
 
+          # `gh api` prints the error body to STDOUT and skips --jq whenever the
+          # status is >= 400, so the usual `$(gh api … || echo "")` idiom does not
+          # yield an empty string — it yields the error JSON. Every call goes
+          # through this helper instead: the body is printed only on success, a
+          # 404 is reported as its own outcome, and everything else is retried
+          # the way npm-publish.yml already retries its compare call.
+          api() {
+            local out status
+            for attempt in 1 2 3; do
+              if out=$(gh api "$@" 2>/tmp/api.err); then
+                printf '%s' "$out"
+                return 0
+              fi
+              if grep -q 'HTTP 404' /tmp/api.err; then
+                return 2
+              fi
+              echo "attempt $attempt/3 failed for: $* ($(tail -1 /tmp/api.err))" >&2
+              sleep 5
+            done
+            return 1
+          }
+
           # 1. Release PR sitting open. release-please labels its PR
           # `autorelease: pending`; matching the label rather than the branch
           # name survives a config change to the branch pattern.
-          pr=$(gh api "repos/$REPO/pulls?state=open&per_page=100" \
-            --jq '[.[] | select(any(.labels[]; .name == "autorelease: pending"))] | first // empty')
+          pr=""
+          pr_checked=false
+          if prs=$(api --paginate "repos/$REPO/pulls?state=open&per_page=100"); then
+            pr_checked=true
+            pr=$(jq -s 'add // []' <<<"$prs" \
+              | jq -r 'map(select(any(.labels[]; .name == "autorelease: pending"))) | first // empty')
+          else
+            echo "::warning::could not list open pull requests; skipping the release-PR check"
+          fi
+
+          threshold="$MAX_OPEN_DAYS"
+          if crash=$(api "repos/$REPO/issues?state=open&labels=severity%3Acrash&per_page=1"); then
+            if [ "$(jq 'length' <<<"$crash")" -gt 0 ]; then
+              threshold="$CRASH_MAX_OPEN_DAYS"
+              echo "an open severity:crash issue exists — threshold tightened to $threshold day(s)"
+            fi
+          fi
+          # A dispatch can lower the threshold to exercise the reporting path,
+          # which is otherwise only reachable by waiting two weeks.
+          if [ -n "${OVERRIDE_DAYS:-}" ]; then
+            threshold="$OVERRIDE_DAYS"
+            echo "threshold overridden by dispatch input: $threshold day(s)"
+          fi
 
           if [ -n "$pr" ]; then
             number=$(jq -r '.number' <<<"$pr")
-            title=$(jq -r '.title' <<<"$pr")
             created=$(jq -r '.created_at' <<<"$pr")
             age=$(( ( $(date -u +%s) - $(date -u -d "$created" +%s) ) / 86400 ))
-            echo "release PR #$number is $age day(s) old (threshold ${MAX_OPEN_DAYS})"
-            if [ "$age" -ge "$MAX_OPEN_DAYS" ]; then
-              printf -- '- **#%s (%s) has been open for %s days.** Everything in it is fixed on `main` and not on npm. Merging it tags, releases and publishes.\n' \
-                "$number" "$title" "$age" >> findings.md
+            echo "release PR #$number is $age day(s) old (threshold $threshold)"
+            if [ "$age" -ge "$threshold" ]; then
+              # Referenced by number, never by title: the title is attacker-
+              # supplied text and this body tells a human to run the publish
+              # workflow. GitHub renders the title from the reference itself.
+              printf -- '- **Release PR #%s has been open for %s days.** Everything in it is fixed on `main` and not on npm. Merging it tags, releases and publishes.\n' \
+                "$number" "$age" >> findings.md
             fi
-          else
+          elif [ "$pr_checked" = true ]; then
             echo "no open release PR — nothing unreleased, or a release is mid-flight"
           fi
 
           # 2. Tagged but never published. This is the failure the dispatch
           # design can produce: the GitHub Release exists, `npm-publish.yml` was
           # dispatched, and something downstream refused. Nothing else notices.
-          tag=$(gh api "repos/$REPO/releases/latest" --jq '.tag_name' 2>/dev/null || echo "")
+          tag=""
+          if release=$(api "repos/$REPO/releases/latest"); then
+            tag=$(jq -r '.tag_name // empty' <<<"$release")
+          elif [ $? -eq 2 ]; then
+            echo "no published release yet — nothing to compare against npm"
+          else
+            echo "::warning::could not read the latest release; skipping the npm check"
+          fi
+
           if [ -n "$tag" ]; then
             version="${tag#v}"
             name=$(node -p "require('./package.json').name")
-            if npm view "$name@$version" version --silent >/dev/null 2>&1; then
+            # A failing lookup is not evidence of a missing publish: a registry
+            # blip would otherwise tell a maintainer to hand-dispatch a release
+            # that already shipped. Only a confirmed E404 counts.
+            if npm_err=$(npm view "$name@$version" version 2>&1 >/dev/null); then
               echo "$name@$version is on npm"
-            else
-              echo "$name@$version is NOT on npm"
-              printf -- '- **`%s` is tagged but `%s@%s` is not on npm.** The publish step did not complete. Recovery: Actions -> NPM publish -> Run workflow, with `%s` selected as the ref.\n' \
+            elif [[ "$npm_err" == *E404* ]]; then
+              printf -- '- **`%s` is tagged but `%s@%s` is not on npm.** The publish step did not complete. Recovery: Actions -> NPM publish -> Run workflow, with `%s` selected as the ref; re-runs are safe, an already-published version ends as a green no-op.\n' \
                 "$tag" "$name" "$version" "$tag" >> findings.md
+            else
+              echo "::warning::could not check npm for $name@$version: $npm_err"
             fi
           fi
 
@@ -101,7 +175,8 @@ jobs:
           title="chore: a release is waiting"
 
           {
-            echo "The weekly release watchdog found something waiting:"
+            echo "$MARKER"
+            echo "The release watchdog found something waiting:"
             echo
             cat findings.md
             echo
@@ -111,10 +186,17 @@ jobs:
             echo "_Generated by [Claude Code](https://claude.ai/code)_"
           } > body.md
 
-          # Matched by title rather than by label, so the workflow cannot fail on
-          # a label that was never created in repo settings.
-          existing=$(gh api "repos/$REPO/issues?state=open&per_page=100" \
-            --jq "[.[] | select(.pull_request == null) | select(.title == \"$title\")] | first // empty")
+          # Matched on the hidden marker as well as the title, so an edited title
+          # cannot turn tomorrow's comment into a duplicate issue. Deliberately
+          # not matched by label: the label would have to exist, and a workflow
+          # whose whole job is noticing problems should not fail on repo settings.
+          existing=""
+          if issues=$(gh api --paginate "repos/$REPO/issues?state=open&per_page=100" 2>/dev/null); then
+            existing=$(jq -s 'add // []' <<<"$issues" | jq -r --arg t "$title" --arg m "$MARKER" '
+              map(select(.pull_request == null))
+              | map(select(.title == $t or ((.body // "") | contains($m))))
+              | first // empty')
+          fi
 
           if [ -n "$existing" ]; then
             number=$(jq -r '.number' <<<"$existing")

@@ -4,10 +4,11 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+# Only the deploy job needs to write Pages or mint an OIDC token. The build job
+# runs `pnpm install` and five site builds — the largest third-party execution
+# surface in the repository — so it stays read-only.
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
@@ -16,6 +17,8 @@ concurrency:
 jobs:
   build:
     runs-on: ${{ matrix.os }}
+    permissions:
+      contents: read
 
     strategy:
       matrix:
@@ -38,6 +41,10 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
+          # Full history is needed for the docs' git-based dates; the token is
+          # not, and leaving it in .git/config puts it within reach of every
+          # build script that runs afterwards.
+          persist-credentials: false
 
       - name: Install pnpm
         uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
@@ -103,6 +110,10 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     name: Deploy
     steps:
       - name: Deploy to GitHub Pages
