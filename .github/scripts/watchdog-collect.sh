@@ -6,8 +6,23 @@
 # Covered by test/workflows/watchdog.test.sh — run it after editing.
 set -eo pipefail
 
+here=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 # shellcheck source=lib/gh-api.sh
-. "$(dirname "$0")/lib/gh-api.sh"
+. "$here/lib/gh-api.sh"
+
+# Every threshold is validated, not just the one a human types. An unset or
+# mistyped `MAX_OPEN_DAYS` makes `[ 38 -ge "" ]` fail inside an `if`, which bash
+# exempts from errexit — the check reads false, the job ends green, and the
+# alerting this workflow exists for goes quiet with nothing red anywhere.
+require_days() {
+  local name=$1 value=$2
+  case "$value" in
+    ''|*[!0-9]*)
+      echo "::error::$name must be a non-negative integer, got '$value'"
+      exit 1
+      ;;
+  esac
+}
 
 : > findings.md
 
@@ -23,6 +38,9 @@ else
   echo "::warning::could not list open pull requests; skipping the release-PR check"
 fi
 
+require_days MAX_OPEN_DAYS "${MAX_OPEN_DAYS:-}"
+require_days CRASH_MAX_OPEN_DAYS "${CRASH_MAX_OPEN_DAYS:-}"
+
 threshold="$MAX_OPEN_DAYS"
 if crash=$(api "repos/$REPO/issues?state=open&labels=severity%3Acrash&per_page=1"); then
   if [ "$(jq 'length' <<<"$crash")" -gt 0 ]; then
@@ -36,14 +54,7 @@ else
 fi
 
 if [ -n "${OVERRIDE_DAYS:-}" ]; then
-  # `[ 30 -ge abc ]` returns 2, which reads as false inside an `if` and is exempt
-  # from errexit — a typo would turn the age check off and still end green.
-  case "$OVERRIDE_DAYS" in
-    ''|*[!0-9]*)
-      echo "::error::max_open_days must be a non-negative integer, got '$OVERRIDE_DAYS'"
-      exit 1
-      ;;
-  esac
+  require_days max_open_days "$OVERRIDE_DAYS"
   threshold="$OVERRIDE_DAYS"
   echo "threshold overridden by dispatch input: $threshold day(s)"
 fi

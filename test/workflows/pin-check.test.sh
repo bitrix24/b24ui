@@ -48,6 +48,16 @@ case_ "no ref at all"                 flagged  "uses: actions/checkout"
 case_ "docker ref with a decoy SHA"   flagged  "uses: docker://evil/image:latest # actions/checkout@$SHA"
 case_ "ref-less with a decoy SHA"     flagged  "uses: evil/action  # actions/checkout@$SHA"
 case_ "short SHA"                     flagged  "uses: actions/checkout@3d3c42e"
+# Evasions found by the security review of the first, line-based implementation.
+case_ "value on the following line"   flagged  "- name: x
+        uses:
+          actions/checkout@v7"
+case_ "double-quoted key"             flagged  '- name: x
+        "uses": actions/checkout@v7'
+case_ "single-quoted key"             flagged  "- name: x
+        'uses': actions/checkout@v7"
+case_ "quoted key, pinned"            accepted "- name: x
+        \"uses\": actions/checkout@$SHA"
 
 echo
 if python3 "$CHECK" "$ROOT/.github" >/dev/null 2>&1; then

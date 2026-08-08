@@ -9,7 +9,12 @@
 # the way npm-publish.yml already retries its compare call.
 #
 # Returns: 0 with the body on stdout, 2 for a confirmed 404, 1 for anything else.
-API_ERR="${RUNNER_TEMP:-${TMPDIR:-/tmp}}/gh-api.err"
+# Not a fixed path: `2>/tmp/api.err` follows a symlink planted by anyone who can
+# write there and truncates the target, and two concurrent jobs on a persistent
+# runner would clobber each other's error buffer — which is what the 404-versus-
+# retry decision is read from.
+API_ERR=$(mktemp -t gh-api.XXXXXX)
+trap 'rm -f "$API_ERR"' EXIT
 
 api() {
   local out attempt

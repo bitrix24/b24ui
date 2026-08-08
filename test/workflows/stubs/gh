@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
+# Refuses to run outside the harness: this file is named exactly like the real
+# tool and is committed executable, so a stray PATH edit must not let it answer
+# for the real one — npm-publish.yml reads a version from `node -p` and asks npm
+# whether it is published.
+if [ "${WORKFLOW_TEST_STUBS:-}" != "1" ]; then
+  echo "$(basename "$0"): test stub invoked outside the workflow harness" >&2
+  exit 127
+fi
 # Stub for the GitHub CLI. Reproduces the behaviour that matters: on an error
 # `gh api` writes the response body to STDOUT, its own diagnostic to STDERR, and
 # exits non-zero. Scenarios are selected with GH_SCENARIO.

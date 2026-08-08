@@ -32,7 +32,7 @@ run() {
       watchdog-report.sh) printf -- '- a finding\n' > findings.md ;;
       *) : > findings.md ;;
     esac
-    env PATH="$STUBS:$PATH" \
+    env PATH="$STUBS:$PATH" WORKFLOW_TEST_STUBS=1 \
         GITHUB_OUTPUT="$dir/gh_output" MUTATION_LOG="$dir/mutations" \
         GH_TOKEN=stub REPO=bitrix24/b24ui \
         MAX_OPEN_DAYS=14 CRASH_MAX_OPEN_DAYS=2 API_RETRY_SLEEP=0 \
@@ -116,6 +116,9 @@ run "npm E404 reports a missing publish"        watchdog-collect.sh 0 1 PR_CREAT
 run "the legacy npm ERR! shape too"             watchdog-collect.sh 0 1 PR_CREATED="$FRESH" NPM_SCENARIO=e404_old
 run "a network error is not a missing publish"  watchdog-collect.sh 0 0 PR_CREATED="$FRESH" NPM_SCENARIO=network
 run "E404 inside a URL is not a missing publish" watchdog-collect.sh 0 0 PR_CREATED="$FRESH" NPM_SCENARIO=decoy
+run "a missing MAX_OPEN_DAYS fails loudly"      watchdog-collect.sh 1 0 PR_CREATED="$OLD" MAX_OPEN_DAYS=
+expect_log "  and names the variable"            "::error::MAX_OPEN_DAYS must be a non-negative integer"
+run "a non-numeric CRASH_MAX_OPEN_DAYS too"     watchdog-collect.sh 1 0 PR_CREATED="$OLD" CRASH_MAX_OPEN_DAYS=soon
 run "a non-numeric override fails loudly"       watchdog-collect.sh 1 0 PR_CREATED="$OLD" OVERRIDE_DAYS=abc
 run "a decimal override fails loudly"           watchdog-collect.sh 1 0 PR_CREATED="$OLD" OVERRIDE_DAYS=5.0
 run "override 0 reports any open PR"            watchdog-collect.sh 0 1 PR_CREATED="$FRESH" OVERRIDE_DAYS=0

@@ -6,8 +6,9 @@
 # Covered by test/workflows/watchdog.test.sh — run it after editing.
 set -eo pipefail
 
+here=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 # shellcheck source=lib/gh-api.sh
-. "$(dirname "$0")/lib/gh-api.sh"
+. "$here/lib/gh-api.sh"
 
 title="chore: a release is waiting"
 
