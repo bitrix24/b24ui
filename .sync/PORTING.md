@@ -66,15 +66,9 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   write and `next()` stops advancing. Call the divergence out in the PR
   "deviations" section, and never regenerate `test/components/{Timeline,Stepper}`
   snapshots to make a port compile — those specs guard this on purpose.
-- **Workflow actions stay pinned to commit SHAs.** Upstream bumps actions by
-  tag (`actions/setup-node@v6` -> `@v7`); b24ui pins the commit and keeps the
-  version in a trailing comment, because the runner that executes them holds the
-  npm publishing OIDC token. PR #297 is the precedent for how this gets lost: a
-  faithful port of an upstream Renovate bump rewrote `uses:` back to a tag. When
-  porting one, resolve the new tag to its commit — `git ls-remote <repo>
-  refs/tags/vN refs/tags/vN^{}`, and use the **peeled** SHA for annotated tags —
-  and update the comment. `ci.yml` fails the build on any unpinned `uses:`, so a
-  slip here is caught rather than merged.
+- **Workflow actions stay pinned to commit SHAs.** Upstream bumps them by tag;
+  b24ui pins the commit. You do not have to remember this — `ci.yml` fails the
+  build on any unpinned `uses:` and tells you how to resolve the tag.
 - **jsDoc on every prop** — keep the description and `@defaultValue`. Never drop
   a jsDoc block to make code compile. (A passing `vue-tsc` is necessary, not
   sufficient.)
@@ -105,15 +99,10 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
 ```
 
 **No-op** (upstream commit only touches `docs/`, `playground/`, deps, CI):
-→ make **no** `src` change; the pipeline records `.sync/log/<sha>.md` with a
-one-line rationale.
-
-One carve-out, because §2 assumes the opposite for one case: an upstream commit
-that bumps a **GitHub Action** is a no-op for `src/`, but b24ui pins the same
-actions in its own workflows. If the bumped action appears in
-`.github/workflows/`, apply the equivalent bump there under §2's SHA-pinning
-rule — resolving the tag to a commit — rather than skipping it. PR #297 is what
-this carve-out is for: it ported such a bump and rewrote `uses:` back to a tag.
+→ make **no `src/` change** — which is not the same as making no change at all.
+The pipeline records `.sync/log/<sha>.md` with a one-line rationale, and if the
+commit bumps something b24ui also carries in its own tooling (a GitHub Action
+pinned in `.github/workflows/`, for instance) that part still ports.
 
 ## 4. Updating the maps
 

@@ -9,18 +9,26 @@
 # the way npm-publish.yml already retries its compare call.
 #
 # Returns: 0 with the body on stdout, 2 for a confirmed 404, 1 for anything else.
+API_ERR="${RUNNER_TEMP:-${TMPDIR:-/tmp}}/gh-api.err"
+
 api() {
   local out attempt
   for attempt in 1 2 3; do
-    if out=$(gh api "$@" 2>/tmp/api.err); then
+    if out=$(gh api "$@" 2>"$API_ERR"); then
       printf '%s' "$out"
       return 0
     fi
-    if grep -q 'HTTP 404' /tmp/api.err; then
+    if grep -q 'HTTP 404' "$API_ERR"; then
       return 2
     fi
-    echo "attempt $attempt/3 failed for: $* ($(tail -1 /tmp/api.err))" >&2
-    [ "$attempt" -lt 3 ] && sleep "${API_RETRY_SLEEP:-5}"
+    echo "attempt $attempt/3 failed for: $* ($(tail -1 "$API_ERR"))" >&2
+    # Written as if/fi rather than `[ … ] && sleep`: as the loop's last
+    # statement that form returns non-zero on the final pass, which under
+    # errexit would kill a caller who ever writes `api foo` on a bare line
+    # instead of inside an `if`.
+    if [ "$attempt" -lt 3 ]; then
+      sleep "${API_RETRY_SLEEP:-5}"
+    fi
   done
   return 1
 }

@@ -11,14 +11,20 @@ SCRIPTS="$ROOT/.github/scripts"
 STUBS="$ROOT/test/workflows/stubs"
 pass=0
 fail=0
+WORKDIR=$(mktemp -d)
+trap 'rm -rf "$WORKDIR"' EXIT
 
 # run <name> <script> <expected-exit> <expected-findings> [KEY=VALUE ...]
+# Exit code and findings count are only two of the three things that matter: a
+# branch whose whole job is to say something out loud — the crash-threshold
+# warning, the 404-versus-5xx distinction — is invisible to both. `expect_log`
+# below is the third oracle.
 run() {
   local name=$1 script=$2 want_exit=$3 want_findings=$4
   export script
   shift 4
   local dir
-  dir=$(mktemp -d)
+  dir=$(mktemp -d "$WORKDIR/case.XXXXXX")
   ( cd "$dir" || exit 1
     printf '{"name":"@bitrix24/b24ui-nuxt"}' > package.json
     # The reporting script consumes findings.md rather than producing it.
@@ -49,6 +55,31 @@ run() {
   LAST_DIR=$dir
 }
 
+# expect_log <name> <regex>  — asserts the previous run said something
+expect_log() {
+  local name=$1 pattern=$2
+  if grep -qE "$pattern" "$LAST_DIR/stdout.txt" "$LAST_DIR/stderr.txt" 2>/dev/null; then
+    echo "  ok   $name"
+    pass=$((pass + 1))
+  else
+    echo "  FAIL $name — no line matching /$pattern/"
+    sed 's/^/       out: /' "$LAST_DIR/stdout.txt" | head -8
+    fail=$((fail + 1))
+  fi
+}
+
+# refute_log <name> <regex>  — asserts the previous run did NOT say something
+refute_log() {
+  local name=$1 pattern=$2
+  if grep -qE "$pattern" "$LAST_DIR/stdout.txt" "$LAST_DIR/stderr.txt" 2>/dev/null; then
+    echo "  FAIL $name — found a line matching /$pattern/"
+    fail=$((fail + 1))
+  else
+    echo "  ok   $name"
+    pass=$((pass + 1))
+  fi
+}
+
 # mutation <name> <expected>  — asserts what the reporting step did to GitHub
 mutation() {
   local name=$1 want=$2
@@ -64,9 +95,12 @@ mutation() {
   fi
 }
 
-FRESH=$(date -u -d '0 days ago' +%Y-%m-%dT%H:%M:%SZ)
-OLD=$(date -u -d '38 days ago' +%Y-%m-%dT%H:%M:%SZ)
-FOUR=$(date -u -d '4 days ago' +%Y-%m-%dT%H:%M:%SZ)
+# Built from an epoch offset rather than `date -d '38 days ago'`, which is a GNU
+# extension: on macOS the suite would not run at all.
+days_ago() { python3 -c "import time;print(time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime(time.time() - $1 * 86400)))"; }
+FRESH=$(days_ago 0)
+OLD=$(days_ago 38)
+FOUR=$(days_ago 4)
 BOT='{"number":500,"title":"chore: a release is waiting","body":"<!-- release-watchdog -->\nreport","user":{"login":"github-actions[bot]"}}'
 HUMAN='{"number":999,"title":"chore: a release is waiting","body":"x <!-- release-watchdog --> y","user":{"login":"outsider"}}'
 
@@ -86,6 +120,15 @@ run "a non-numeric override fails loudly"       watchdog-collect.sh 1 0 PR_CREAT
 run "a decimal override fails loudly"           watchdog-collect.sh 1 0 PR_CREATED="$OLD" OVERRIDE_DAYS=5.0
 run "override 0 reports any open PR"            watchdog-collect.sh 0 1 PR_CREATED="$FRESH" OVERRIDE_DAYS=0
 
+run "a failed crash lookup keeps the default"  watchdog-collect.sh 0 0 PR_CREATED="$FOUR" GH_SCENARIO=crash_fail
+expect_log "  and says so rather than failing open" "::warning::could not check for severity:crash"
+refute_log "  and does not tighten the threshold"   "threshold tightened"
+run "a 404 on the release is not an error"      watchdog-collect.sh 0 0 PR_CREATED="$FRESH" GH_SCENARIO=release_404
+expect_log "  and is reported as no release yet"  "no published release yet"
+refute_log "  without a warning"                  "::warning::could not read the latest release"
+run "a 5xx on the release warns"                watchdog-collect.sh 0 0 PR_CREATED="$FRESH" GH_SCENARIO=release_500
+expect_log "  and says the npm check was skipped" "::warning::could not read the latest release"
+
 echo "report:"
 run "opens an issue when none exists"           watchdog-report.sh 0 1 ISSUES_JSON='[]'
 mutation "  and the mutation is a create"       CREATE
@@ -95,6 +138,8 @@ run "ignores an outsider carrying the marker"   watchdog-report.sh 0 1 ISSUES_JS
 mutation "  and opens its own issue instead"    CREATE
 run "refuses to guess when the list fails"      watchdog-report.sh 1 1 GH_SCENARIO=issues_fail
 mutation "  and touches nothing"                none
+
+rm -rf "$WORKDIR"
 
 echo
 echo "$pass passed, $fail failed"

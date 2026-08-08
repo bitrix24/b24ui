@@ -41,9 +41,12 @@ def main() -> int:
     bad = list(unpinned(root))
     if bad:
         print('\n'.join(bad))
-        print('::error::actions must be pinned to a 40-character commit SHA '
-              '(house style: keep the version in a trailing comment, which this '
-              'check does not enforce)')
+        print('::error::actions must be pinned to a 40-character commit SHA. '
+              'Resolve the tag with `git ls-remote <repo> refs/tags/vN '
+              'refs/tags/vN^{}` and use the PEELED sha (the `^{}` line) for '
+              'annotated tags — the bare one is the tag object and will not '
+              'resolve. House style keeps the version in a trailing comment, '
+              'which this check cannot see.')
         return 1
     print('all actions are SHA-pinned')
     return 0

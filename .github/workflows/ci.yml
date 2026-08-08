@@ -57,6 +57,15 @@ jobs:
       - name: Test the workflow scripts
         run: test/workflows/run.sh
 
+      # These are the only shell and Python in a repository whose every other
+      # line is linted by eslint and vue-tsc. shellcheck is preinstalled on the
+      # runner, so this costs a second and is what keeps them honest when nobody
+      # is reading them. Info-level notes are not failures: the `printf` format
+      # strings are deliberately single-quoted, and `-x` follows the sourced
+      # helper rather than warning that it cannot see it.
+      - name: Shellcheck the workflow scripts
+        run: shellcheck -x -S warning .github/scripts/*.sh .github/scripts/lib/*.sh test/workflows/*.sh test/workflows/stubs/*
+
       - name: Install pnpm
         uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
 
