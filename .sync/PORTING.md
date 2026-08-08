@@ -50,6 +50,22 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   **skip** it: make no `src` change, record `.sync/log/<sha>.md` with the skip
   rationale, set the ledger `decision` to `skip`, and close the PR as skipped.
   (Edits to *existing* b24ui locales still port normally.)
+- **Timeline / Stepper value resolution — b24ui diverges on purpose.** Upstream
+  matches `v-model` / `defaultValue` against `valueKey` **only for strings** and
+  reads every number as a positional index, which leaves a numeric
+  `items[].value` unmatchable. b24ui replaced that in PR #326 (issue #310) with a
+  slot rule: a number keeps its positional meaning **while the item in that slot
+  carries no `valueKey`**; otherwise items are matched on `valueKey` first, of any
+  type, and a number matching nothing falls back to its position; out-of-range
+  numbers select nothing. Both components share `itemValueIndex()` from
+  `src/runtime/utils`. When an upstream commit touches `currentStepIndex` in
+  either component, port the rest of its intent and **keep b24ui's rule** —
+  reproducing upstream's `typeof value === 'string'` branch silently reverts the
+  fix. Stepper is the fragile half: its `set()` writes the index back for
+  value-less items, so without the slot rule an unrelated `value: 1` captures that
+  write and `next()` stops advancing. Call the divergence out in the PR
+  "deviations" section, and never regenerate `test/components/{Timeline,Stepper}`
+  snapshots to make a port compile — those specs guard this on purpose.
 - **jsDoc on every prop** — keep the description and `@defaultValue`. Never drop
   a jsDoc block to make code compile. (A passing `vue-tsc` is necessary, not
   sufficient.)
@@ -124,3 +140,4 @@ History of the maps lives in git; no separate version field.
 - 2026-06-13 — port of `ca5accf3` (PR #126): added the **playground-manifest mirroring** invariant (§2). A `chore(deps)` port bumped `package.json`, `docs/package.json`, and `playgrounds/nuxt/package.json` but missed b24ui's extra `playgrounds/demo/package.json` (`ai`, `@ai-sdk/vue` drifted to old ranges); fixed in a follow-up. Always sweep `playgrounds/{nuxt,demo,vue,repl}` for shared deps before regenerating the lockfile. Last reviewed: 2026-06-13.
 - 2026-06-15 — port of `ffaf163f` (PR #140): added the §1 rewrite — **rename inferred type variables too**: when porting types that `infer UI` (or otherwise name a `UI` type-var), rename it to `B24UI`, consistent with `ui → b24ui`. Caught in review of the `ComponentAppConfig` rewrite (`A extends { b24ui: infer UI }` → `infer B24UI`). Last reviewed: 2026-06-15.
 - 2026-06-17 — skip of `fa525382` (PR #167): added the §2 **Locales** invariant — b24ui does not adopt new languages from upstream. The Latvian (`lv`) addition was ported then reverted on maintainer instruction; PR #167 closed without merge and recorded as `decision: skip`. Future upstream new-locale commits are skipped the same way (edits to existing locales still port). Last reviewed: 2026-06-17.
+- 2026-08-08 — fix of #310 (PR #326): added the §2 **Timeline / Stepper value resolution** invariant. b24ui now resolves numeric model values through `valueKey`, while upstream still matches strings only — so a faithful port of any upstream commit touching `currentStepIndex` would silently revert the fix and bring back the reported bug (a numeric `items[].value` selecting nothing). Guarded by `test/components/Timeline.spec.ts` and `Stepper.spec.ts`; those snapshots must not be regenerated to make a port compile. Last reviewed: 2026-08-08.
