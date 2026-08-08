@@ -118,6 +118,16 @@ true:
   with the tag selected as the ref; re-runs are safe, an already-published
   version ends as a green no-op.
 
+The `severity:crash` half of that first line needs the label to exist in
+Settings → Labels. Nothing creates it, and GitHub returns an empty list rather
+than an error for a label that was never created — so if it is missing the
+threshold silently stays at 14 days and the 48-hour promise has nothing behind
+it after all.
+
+Actions → **Release watchdog** → *Run workflow* takes a day-threshold override.
+It is the only way to exercise the reporting path without waiting out the real
+threshold: dispatching with `0` reports whatever release PR is currently open.
+
 ## Optional hardening
 
 `npm-publish.yml` declares `environment: npm-publish`. GitHub auto-creates a

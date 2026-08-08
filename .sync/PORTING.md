@@ -108,6 +108,13 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
 → make **no** `src` change; the pipeline records `.sync/log/<sha>.md` with a
 one-line rationale.
 
+One carve-out, because §2 assumes the opposite for one case: an upstream commit
+that bumps a **GitHub Action** is a no-op for `src/`, but b24ui pins the same
+actions in its own workflows. If the bumped action appears in
+`.github/workflows/`, apply the equivalent bump there under §2's SHA-pinning
+rule — resolving the tag to a commit — rather than skipping it. PR #297 is what
+this carve-out is for: it ported such a bump and rewrote `uses:` back to a tag.
+
 ## 4. Updating the maps
 
 If you hit an icon or color token **not** in the maps:
