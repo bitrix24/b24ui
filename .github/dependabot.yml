@@ -1,0 +1,30 @@
+version: 2
+
+# Actions are pinned to commit SHAs (see any `uses:` line), which stops a
+# retagged `@v7` from executing new code on a runner that holds the publishing
+# OIDC token — but a pin with nobody moving it is a pin that rots. This config
+# is what moves them: Dependabot opens one PR with the new SHA and rewrites the
+# trailing version comment, and CI decides whether it lands.
+#
+# Deliberately github-actions only. The npm ecosystem is left off: this is a
+# pnpm workspace whose dev dependency tree carries dozens of advisories that do
+# not reach consumers (`files` in package.json is an allow-list, and `nuxt` is a
+# devDependency), so npm updates here would be a stream of PRs about packages
+# that never enter the published tarball. Dependency work on that side stays
+# manual and scoped — see issue #315 §3.
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    commit-message:
+      # Conventional-commit prefix so release-please files these under CI in the
+      # changelog instead of ignoring them.
+      prefix: ci
+    groups:
+      # One PR for all of them; these actions move together and reviewing seven
+      # separate SHA bumps is worse than reviewing one.
+      github-actions:
+        patterns:
+          - '*'
