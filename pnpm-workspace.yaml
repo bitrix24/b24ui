@@ -43,6 +43,11 @@ overrides:
   'fast-uri@^3.0.0': ^3.1.5
 
 allowBuilds:
+  # `docs` no longer needs this one — it runs @nuxt/content on the `native`
+  # (node:sqlite) connector since #322 — but better-sqlite3 is still pulled in
+  # transitively and is still the default connector for everyone else, which is
+  # why the integrations/content page tells readers to allow exactly this
+  # package. Removing the entry here would quietly contradict that page.
   better-sqlite3: true
   puppeteer: true
   sharp: true
