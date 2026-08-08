@@ -1,13 +1,18 @@
 #!/usr/bin/env bash
 # Drives .github/scripts/watchdog-*.sh through the states they can actually meet,
-# with gh/npm/node stubbed. Every bug found in three rounds of review on this
-# workflow was the same shape: a failure inside an `if` condition, which bash
-# exempts from errexit, leaving the job green and the outcome wrong. Reasoning
-# about the script does not catch that reliably; running it does.
+# with gh/npm stubbed. Several of the bugs three rounds of review found in this
+# workflow shared one shape — a failure inside an `if` condition, which bash
+# exempts from errexit, so the job stays green and the outcome is wrong — and
+# reasoning about the script does not catch that reliably. Others were plainer:
+# a substring match that was too loose, a dedup filter that trusted the wrong
+# author. Running the thing catches both kinds.
 set -uo pipefail
 
 ROOT=$(cd "$(dirname "$0")/../.." && pwd)
 SCRIPTS="$ROOT/.github/scripts"
+# Deliberately no `node` stub: the real one is present, offline and
+# deterministic, and stubbing it hid a typo in the very line that decides which
+# package the npm check looks up.
 STUBS="$ROOT/test/workflows/stubs"
 pass=0
 fail=0
@@ -23,13 +28,19 @@ run() {
   local name=$1 script=$2 want_exit=$3 want_findings=$4
   export script
   shift 4
+  # The seeding below happens in this shell, so the flag has to be read from the
+  # arguments rather than from the environment handed to the script under test.
+  local seed_empty=0 arg
+  for arg in "$@"; do [ "$arg" = "EMPTY_FINDINGS=1" ] && seed_empty=1; done
+
   local dir
   dir=$(mktemp -d "$WORKDIR/case.XXXXXX")
   ( cd "$dir" || exit 1
     printf '{"name":"@bitrix24/b24ui-nuxt"}' > package.json
     # The reporting script consumes findings.md rather than producing it.
     case "$script" in
-      watchdog-report.sh) printf -- '- a finding\n' > findings.md ;;
+      watchdog-report.sh)
+        if [ "$seed_empty" = 1 ]; then : > findings.md; else printf -- '- a finding\n' > findings.md; fi ;;
       *) : > findings.md ;;
     esac
     env PATH="$STUBS:$PATH" WORKFLOW_TEST_STUBS=1 \
@@ -103,6 +114,11 @@ OLD=$(days_ago 38)
 FOUR=$(days_ago 4)
 BOT='{"number":500,"title":"chore: a release is waiting","body":"<!-- release-watchdog -->\nreport","user":{"login":"github-actions[bot]"}}'
 HUMAN='{"number":999,"title":"chore: a release is waiting","body":"x <!-- release-watchdog --> y","user":{"login":"outsider"}}'
+# The marker exists so a human renaming the issue does not spawn a duplicate…
+BOT_RENAMED='{"number":501,"title":"release 2.11.0 — waiting on review","body":"<!-- release-watchdog -->\nreport","user":{"login":"github-actions[bot]"}}'
+# …and it has to lead the body, or a bot issue merely quoting a past report
+# captures every future one.
+BOT_QUOTED='{"number":502,"title":"something else entirely","body":"we saw <!-- release-watchdog --> in the logs","user":{"login":"github-actions[bot]"}}'
 
 echo "collect:"
 run "quiet when the release PR is fresh"        watchdog-collect.sh 0 0 PR_CREATED="$FRESH"
@@ -139,7 +155,34 @@ run "comments on its own issue"                 watchdog-report.sh 0 1 ISSUES_JS
 mutation "  and the mutation is a comment"      COMMENT
 run "ignores an outsider carrying the marker"   watchdog-report.sh 0 1 ISSUES_JSON="[$HUMAN]"
 mutation "  and opens its own issue instead"    CREATE
+run "still finds its issue after a title edit" watchdog-report.sh 0 1 ISSUES_JSON="[$BOT_RENAMED]"
+mutation "  and comments rather than duplicating"  COMMENT
+run "ignores a bot issue quoting the marker"   watchdog-report.sh 0 1 ISSUES_JSON="[$BOT_QUOTED]"
+mutation "  because the marker must lead the body" CREATE
 run "refuses to guess when the list fails"      watchdog-report.sh 1 1 GH_SCENARIO=issues_fail
+mutation "  and touches nothing"                none
+
+echo "resilience:"
+FLAKY=$(mktemp)
+run "recovers after two transient failures"     watchdog-collect.sh 0 1 PR_CREATED="$OLD" GH_SCENARIO=flaky_pulls FLAKY_COUNTER="$FLAKY" FLAKY_FAILS=2
+expect_log "  after retrying"                    "attempt 2/3 failed"
+: > "$FLAKY"
+run "gives up after three"                      watchdog-collect.sh 0 0 PR_CREATED="$OLD" GH_SCENARIO=flaky_pulls FLAKY_COUNTER="$FLAKY" FLAKY_FAILS=9
+expect_log "  and says the check was skipped"    "::warning::could not list open pull requests"
+rm -f "$FLAKY"
+
+echo "selection:"
+FRESH_PR='{"number":200,"title":"fresh","created_at":"'"$FRESH"'","labels":[{"name":"autorelease: pending"}]}'
+OLD_PR='{"number":100,"title":"stale","created_at":"'"$OLD"'","labels":[{"name":"autorelease: pending"}]}'
+run "picks the older of two labelled PRs"       watchdog-collect.sh 0 1 PULLS_JSON="[$FRESH_PR,$OLD_PR]"
+expect_log "  regardless of array order"         "release PR #100"
+run "and the same in the other order"           watchdog-collect.sh 0 1 PULLS_JSON="[$OLD_PR,$FRESH_PR]"
+expect_log "  still the older one"               "release PR #100"
+run "finds a label that is only on page two"    watchdog-collect.sh 0 1 PULLS_JSON="[] [$OLD_PR]"
+
+echo "running it by hand:"
+run "works without GITHUB_OUTPUT"               watchdog-collect.sh 0 1 PR_CREATED="$OLD" GITHUB_OUTPUT=
+run "an empty report opens nothing"             watchdog-report.sh 0 0 EMPTY_FINDINGS=1 ISSUES_JSON='[]'
 mutation "  and touches nothing"                none
 
 rm -rf "$WORKDIR"

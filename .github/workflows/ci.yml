@@ -49,11 +49,12 @@ jobs:
       - name: Assert every action is pinned to a commit SHA
         run: .github/scripts/assert-actions-pinned.py
 
-      # The workflow scripts have no other coverage: they run on a schedule, hold
-      # `issues: write`, and every bug three rounds of review found in them was
-      # the same shape — a failure inside an `if` condition, which bash exempts
-      # from errexit, leaving the job green and the outcome wrong. Stubs make that
-      # class reproducible in a second.
+      # The workflow scripts have no other coverage: they run on a schedule and
+      # hold `issues: write`. Several of the bugs three rounds of review found in
+      # them shared one shape — a failure inside an `if` condition, which bash
+      # exempts from errexit, so the job stays green and the outcome is wrong —
+      # and that class is invisible to reading. Stubs make it reproducible in a
+      # second.
       - name: Test the workflow scripts
         run: test/workflows/run.sh
 

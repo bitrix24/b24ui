@@ -61,6 +61,15 @@ jobs:
         with:
           persist-credentials: false
 
+      # The npm check reads a wording that npm has already changed once (the
+      # script still matches the legacy `npm ERR!` shape for that reason), and
+      # ci.yml and npm-publish.yml both pin their runtime. Leaving this one on
+      # whatever the runner image ships that week is the odd one out.
+      - name: Install node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+
       - name: Collect findings
         id: check
         shell: bash

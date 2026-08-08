@@ -20,6 +20,16 @@ case "${GH_SCENARIO:-none}" in
   pulls_fail)  [[ "$ep" == *pulls* ]] && fail '{"message":"rate limited"}' 'HTTP 403' ;;
   crash_fail)  [[ "$ep" == *labels=severity* ]] && fail '{"message":"rate limited"}' 'HTTP 403' ;;
   issues_fail) [[ "$ep" == *"issues?state=open&per_page=100"* ]] && fail '{"message":"rate limited"}' 'HTTP 403' ;;
+  flaky_pulls)
+    # Fails the first FLAKY_FAILS calls, then succeeds — the only way to tell a
+    # working retry loop from one that gives up on the first blip.
+    if [[ "$ep" == *pulls* ]]; then
+      n=$(cat "${FLAKY_COUNTER:-/dev/null}" 2>/dev/null || echo 0)
+      n=$((n + 1))
+      [ -n "${FLAKY_COUNTER:-}" ] && echo "$n" > "$FLAKY_COUNTER"
+      [ "$n" -le "${FLAKY_FAILS:-2}" ] && fail '{"message":"Server Error"}' 'HTTP 500'
+    fi
+    ;;
 esac
 
 if [[ "$ep" == *pulls* ]]; then

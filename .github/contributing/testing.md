@@ -2,6 +2,15 @@
 
 Component tests use Vitest with Vue Test Utils and snapshot testing.
 
+There is a second, much smaller suite that is **not** Vitest: `test/workflows/`
+covers the shell and Python under `.github/scripts/` — the release watchdog and
+the action-pin check — by running them against stubbed `gh` and `npm`. It is
+plain bash, runs in about a second, and CI runs it before anything else.
+
+```bash
+pnpm run test:workflows
+```
+
 ## File Location
 
 Tests live in `test/components/` matching the component name (e.g., `Button.spec.ts`).

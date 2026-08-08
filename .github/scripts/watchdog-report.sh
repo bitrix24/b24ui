@@ -10,6 +10,14 @@ here=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 # shellcheck source=lib/gh-api.sh
 . "$here/lib/gh-api.sh"
 
+# The workflow only calls this when there is something to report, but that gate
+# is one `if:` away from being loosened, and an empty report is a public issue
+# with no content in it.
+if [ ! -s findings.md ]; then
+  echo "nothing to report; not opening an issue"
+  exit 0
+fi
+
 title="chore: a release is waiting"
 
 {

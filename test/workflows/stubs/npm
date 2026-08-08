@@ -7,6 +7,18 @@ if [ "${WORKFLOW_TEST_STUBS:-}" != "1" ]; then
   echo "$(basename "$0"): test stub invoked outside the workflow harness" >&2
   exit 127
 fi
+# Asserts the call it was given. A stub that ignores its arguments cannot tell a
+# well-formed lookup from garbage — a `require('./pakcage.json')` typo upstream
+# of this call used to pass the whole suite.
+if [ "$1" != "view" ] || [ "$3" != "version" ]; then
+  echo "npm stub: unexpected call: $*" >&2
+  exit 90
+fi
+case "$2" in
+  *@*) ;;
+  *) echo "npm stub: expected <name>@<version>, got '$2'" >&2; exit 91 ;;
+esac
+
 case "${NPM_SCENARIO:-ok}" in
   ok)       echo "2.11.0"; exit 0 ;;
   e404)     echo "npm error code E404" >&2; exit 1 ;;

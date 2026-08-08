@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 # Drives .github/scripts/assert-actions-pinned.py against a fixture of the forms
-# an unpinned action can take. The first version of this check was a grep that
-# silently passed `- uses: foo@v1` — the commonest way to write a step, and the
-# exact shape of the port that lost a pin in PR #297 — so the point of this test
-# is that every evasion is named and stays named.
+# an unpinned action can take. PR #297 is why the check exists at all — a port of
+# an upstream bump rewrote `uses:` from a SHA back to a tag. The forms below are
+# why it is a parser: the first version was a grep that silently accepted
+# `- uses: foo@v1`, a quoted key, and a value on the following line, all of which
+# GitHub Actions honours. The point of this file is that every evasion found so
+# far is named and stays named.
 set -uo pipefail
 
 ROOT=$(cd "$(dirname "$0")/../.." && pwd)

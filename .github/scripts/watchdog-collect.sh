@@ -6,6 +6,11 @@
 # Covered by test/workflows/watchdog.test.sh — run it after editing.
 set -eo pipefail
 
+# The header says to run this after editing. Outside Actions there is no
+# $GITHUB_OUTPUT, and an empty one turns `>> "$GITHUB_OUTPUT"` into a redirect
+# to a nameless file whose error names neither the file nor the variable.
+: "${GITHUB_OUTPUT:=/dev/stdout}"
+
 here=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 # shellcheck source=lib/gh-api.sh
 . "$here/lib/gh-api.sh"
@@ -33,7 +38,10 @@ pr=""
 pr_checked=false
 if prs=$(api --paginate "repos/$REPO/pulls?state=open&per_page=100"); then
   pr_checked=true
-  pr=$(jq -rs 'add // [] | map(select(any(.labels[]; .name == "autorelease: pending"))) | first // empty' <<<"$prs")
+  # `min_by`, not `first`: the API's array order is not a promise, and with two
+  # labelled PRs `first` can pick the fresh one and silently drop the overdue
+  # one — a miss that looks exactly like having nothing to report.
+  pr=$(jq -rs 'add // [] | map(select(any(.labels[]; .name == "autorelease: pending"))) | min_by(.created_at) // empty' <<<"$prs")
 else
   echo "::warning::could not list open pull requests; skipping the release-PR check"
 fi
