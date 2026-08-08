@@ -19,6 +19,12 @@ jobs:
     runs-on: ${{ matrix.os }}
     permissions:
       contents: read
+      # `actions/configure-pages` calls GET /repos/{owner}/{repo}/pages
+      # unconditionally, and with `enablement` defaulting to false it rethrows
+      # rather than warning — so this job cannot drop the Pages scope entirely.
+      # Read is the whole requirement: it still cannot write Pages config or mint
+      # an OIDC token, which is what moving the other two grants was about.
+      pages: read
 
     strategy:
       matrix:

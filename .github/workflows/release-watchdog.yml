@@ -114,10 +114,23 @@ jobs:
               threshold="$CRASH_MAX_OPEN_DAYS"
               echo "an open severity:crash issue exists — threshold tightened to $threshold day(s)"
             fi
+          else
+            # Failing open here would quietly downgrade a 48-hour promise to a
+            # fortnight, which is exactly the silence this job exists to break.
+            echo "::warning::could not check for severity:crash issues; using the default threshold"
           fi
           # A dispatch can lower the threshold to exercise the reporting path,
           # which is otherwise only reachable by waiting two weeks.
           if [ -n "${OVERRIDE_DAYS:-}" ]; then
+            # `[ 30 -ge abc ]` returns 2, which reads as false inside an `if` and
+            # is exempt from errexit — a typo would turn the age check off and
+            # still end the run green.
+            case "$OVERRIDE_DAYS" in
+              ''|*[!0-9]*)
+                echo "::error::max_open_days must be a non-negative integer, got '$OVERRIDE_DAYS'"
+                exit 1
+                ;;
+            esac
             threshold="$OVERRIDE_DAYS"
             echo "threshold overridden by dispatch input: $threshold day(s)"
           fi
@@ -207,10 +220,18 @@ jobs:
             echo "::error::could not list open issues; refusing to risk a duplicate report"
             exit 1
           fi
+          # Restricted to issues this workflow authored, and the marker must be
+          # the first thing in the body. Anyone can open an issue in a public
+          # repository, and an HTML comment is invisible once rendered — without
+          # the author filter a stranger could quietly capture every future
+          # report and mute the one alert this whole PR exists to raise.
+          # `last` on a created-desc list is the oldest match, so a newer issue
+          # cannot supersede the one already being updated.
           existing=$(jq -s 'add // []' <<<"$issues" | jq -r --arg t "$title" --arg m "$MARKER" '
             map(select(.pull_request == null))
-            | map(select(.title == $t or ((.body // "") | contains($m))))
-            | first // empty')
+            | map(select((.user.login // "") == "github-actions[bot]"))
+            | map(select(.title == $t or ((.body // "") | startswith($m))))
+            | last // empty')
 
           if [ -n "$existing" ]; then
             number=$(jq -r '.number' <<<"$existing")
