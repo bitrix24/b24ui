@@ -1,9 +1,10 @@
 import { fileURLToPath } from 'node:url'
 import { defineVitestProject } from '@nuxt/test-utils/config'
-import { defineConfig } from 'vitest/config'
+import { configDefaults, defineConfig } from 'vitest/config'
 import vue from '@vitejs/plugin-vue'
 import bitrix24UIPluginVite from './src/vite'
 import { glob } from 'tinyglobby'
+import { nuxtInclude, vueInclude, vueExclude } from './test/vitest-include'
 
 const components = await glob('./src/runtime/components/*.vue', { absolute: true })
 const vueComponents = await glob('./src/runtime/vue/components/*.vue', { absolute: true })
@@ -27,12 +28,12 @@ export default defineConfig({
         test: {
           name: 'nuxt',
           dir: './test',
-          include: [
-            'components/**/**.spec.ts',
-            'composables/**.spec.ts',
-            'plugins/**/**.spec.ts',
-            'utils/**/**.spec.ts'
-          ],
+          include: nuxtInclude,
+          // Vitest applies these when `exclude` is unset, so this line changes
+          // nothing today. It is here so the two projects look the same: the
+          // `vue` one below has to spell them out, and the next person adding a
+          // project-specific exclusion should copy a pattern that keeps them.
+          exclude: configDefaults.exclude,
           // Benchmarks run in the `vue` project only (happy-dom, faster); keep them
           // out of the nuxt project so a bare `vitest bench` doesn't double-run them.
           benchmark: { include: [] },
@@ -51,11 +52,11 @@ export default defineConfig({
           name: 'vue',
           environment: 'happy-dom',
           dir: './test',
-          include: [
-            'components/**.spec.ts',
-            'composables/**.spec.ts',
-            'utils/**/**.spec.ts'
-          ],
+          include: vueInclude,
+          // Spreading the defaults back in: `exclude` replaces them wholesale
+          // rather than adding to them, and dropping `**/node_modules/**`
+          // would let this project collect specs out of installed packages.
+          exclude: [...configDefaults.exclude, ...vueExclude],
           benchmark: { include: ['bench/**/*.bench.ts'] },
           setupFiles: ['./test/utils/setup.ts']
         },

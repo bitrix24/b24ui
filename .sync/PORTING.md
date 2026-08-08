@@ -66,6 +66,22 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   write and `next()` stops advancing. Call the divergence out in the PR
   "deviations" section, and never regenerate `test/components/{Timeline,Stepper}`
   snapshots to make a port compile — those specs guard this on purpose.
+- **Generated CSS template is `b24ui.css`, never upstream's `ui.css`.** The
+  `experimental.componentDetection` dev watcher filters `updateTemplates` on that
+  name, and a filter matching nothing is a successful call — the feature just
+  quietly stops working, which is how the mismatch survived (#80). Registration
+  and filter both read `CSS_TEMPLATE_FILENAME` / `isCssTemplate` from one place
+  now; port the intent, never the literal. Guarded by
+  `test/utils/templates.spec.ts`, which runs the predicate the watcher really
+  passes against the templates really registered.
+- **`ChatMessages.updateLastMessageHeight()` measures with
+  `getBoundingClientRect()`, not `useElementBounding()`.** The function runs from
+  the `status` watcher and a window `resize` handler, both outside any effect
+  scope, so each `useElementBounding()` call leaks a ResizeObserver, a
+  MutationObserver and two capturing window listeners that nothing can dispose
+  (#81). Restoring the composable here reads as a faithful port and reintroduces
+  the leak; it bought no correctness, only unused reactivity. Guarded by the
+  ResizeObserver-count case in `test/components/ChatMessages.spec.ts`.
 - **Workflow actions stay pinned to commit SHAs.** Upstream bumps them by tag;
   b24ui pins the commit. You do not have to remember this — `ci.yml` fails the
   build on any unpinned `uses:` and tells you how to resolve the tag.
@@ -147,3 +163,4 @@ History of the maps lives in git; no separate version field.
 - 2026-06-17 — skip of `fa525382` (PR #167): added the §2 **Locales** invariant — b24ui does not adopt new languages from upstream. The Latvian (`lv`) addition was ported then reverted on maintainer instruction; PR #167 closed without merge and recorded as `decision: skip`. Future upstream new-locale commits are skipped the same way (edits to existing locales still port). Last reviewed: 2026-06-17.
 - 2026-08-08 — fix of #310 (PR #326): added the §2 **Timeline / Stepper value resolution** invariant. b24ui now resolves numeric model values through `valueKey`, while upstream still matches strings only — so a faithful port of any upstream commit touching `currentStepIndex` would silently revert the fix and bring back the reported bug (a numeric `items[].value` selecting nothing). Guarded by `test/components/Timeline.spec.ts` and `Stepper.spec.ts`; those snapshots must not be regenerated to make a port compile. Last reviewed: 2026-08-08.
 - 2026-08-08 — hardening of #315 (PR #331): added the §2 **workflow actions stay pinned to commit SHAs** invariant. Upstream bumps actions by tag and PR #297 replayed such a bump verbatim, rewriting `uses:` from `@v6` to `@v7`; b24ui pins commits because that runner holds the npm publishing OIDC token. `ci.yml` now fails on any unpinned `uses:`, so the rule is enforced rather than remembered. Last reviewed: 2026-08-08.
+- 2026-08-08 — fixes of #80/#81 (PR #335): added two §2 invariants — the **generated CSS template name** (`b24ui.css`, not upstream's `ui.css`) and **`ChatMessages` measuring with `getBoundingClientRect()`** rather than `useElementBounding()`. Both were found by the June 2026 audit rather than by a failing test, because both fail silently: a template filter that matches nothing still returns, and a leaked observer costs memory rather than correctness. Now guarded by `test/utils/templates.spec.ts` and a ResizeObserver-count case. The same PR also closed #79 and #83, which need no rule here — `Countdown` is a Bitrix24-only component with no upstream counterpart, and the vitest include patterns are b24ui test infrastructure. Last reviewed: 2026-08-08.

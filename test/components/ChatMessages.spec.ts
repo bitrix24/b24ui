@@ -1,5 +1,5 @@
 import type { ChatMessagesSlots } from '../../src/runtime/components/ChatMessages.vue'
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi, afterEach } from 'vitest'
 import { defineComponent, h, nextTick, ref, shallowRef, triggerRef } from 'vue'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
@@ -46,6 +46,65 @@ describe('ChatMessages', () => {
     })
 
     expect(await axe(wrapper.element)).toHaveNoViolations()
+  })
+
+  describe('last message height', () => {
+    afterEach(() => {
+      vi.unstubAllGlobals()
+    })
+
+    // `updateLastMessageHeight()` used to call `useElementBounding(parent)` on
+    // every invocation. It runs from the `status` watcher and from a window
+    // `resize` handler — both outside an active effect scope — so each call
+    // constructed a ResizeObserver that nothing could ever dispose, and a long
+    // chat session piled them up one per status change.
+    //
+    // Counts constructions rather than asserting a height: happy-dom lays
+    // nothing out, so the measured value is 0 either way and only the
+    // observer bookkeeping distinguishes the two implementations.
+    it('does not construct a ResizeObserver per status change', async () => {
+      let constructed = 0
+      vi.stubGlobal('ResizeObserver', class {
+        constructor() {
+          constructed++
+        }
+
+        observe() {}
+        unobserve() {}
+        disconnect() {}
+      })
+
+      // The watcher only proceeds when the *last* message is the user's.
+      const submittedProps = {
+        messages: [props.messages[1]!, { ...props.messages[0]!, id: 'last-user-message' }]
+      }
+
+      const wrapper = await mountSuspended(ChatMessages, {
+        props: { ...submittedProps, status: 'ready' as const }
+      })
+
+      const settle = async () => {
+        await nextTick()
+        await nextTick()
+        await nextTick()
+      }
+
+      await wrapper.setProps({ status: 'submitted' })
+      await settle()
+
+      // Whatever the first pass legitimately builds is the baseline; the
+      // defect is growth, and that is what has to stay flat.
+      const baseline = constructed
+
+      for (let i = 0; i < 5; i++) {
+        await wrapper.setProps({ status: 'ready' })
+        await settle()
+        await wrapper.setProps({ status: 'submitted' })
+        await settle()
+      }
+
+      expect(constructed).toBe(baseline)
+    })
   })
 
   it('forwards content slot props together with `message`', async () => {

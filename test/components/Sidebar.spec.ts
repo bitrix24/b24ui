@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
-import Sidebar from '#b24ui/components/Sidebar.vue'
-import { renderEach } from './component-render'
+import Sidebar from '../../src/runtime/components/Sidebar.vue'
+import { renderEach } from '../component-render'
 import theme from '#build/b24ui/sidebar'
 
 describe('Sidebar', () => {

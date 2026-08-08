@@ -85,6 +85,7 @@ export interface CountdownSlots {
 
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue'
+import { useEventListener } from '@vueuse/core'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
@@ -148,12 +149,24 @@ const requestId = ref<number>(0)
 // endregion ////
 
 // region events ////
+// Was a manual `addEventListener`/`removeEventListener` pair, each passed
+// `handleVisibilityChange.bind(this)`. Every `.bind()` returns a new function,
+// so removal was handed a reference the listener list never contained and took
+// nothing off it: the handler outlived the component and went on calling
+// `update()`/`pause()` against a torn-down instance on every tab switch.
+// (`this` was `undefined` here regardless — this is `<script setup>` — and the
+// handler does not use it.)
+//
+// `useEventListener` rather than a corrected manual pair, matching
+// ChatMessages/ColorPicker/prose/Img: it keeps the reference itself and ties
+// removal to the component's effect scope, so the two halves cannot drift apart
+// again. `document` is touched inside `onMounted` so it is never evaluated
+// during SSR.
 onMounted(() => {
-  document.addEventListener('visibilitychange', handleVisibilityChange.bind(this))
+  useEventListener(document, 'visibilitychange', handleVisibilityChange)
 })
 
 onBeforeUnmount(() => {
-  document.removeEventListener('visibilitychange', handleVisibilityChange.bind(this))
   pause()
 })
 // endregion ////

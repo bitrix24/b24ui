@@ -12,7 +12,29 @@ import * as theme from './theme'
 import * as themeProse from './theme/prose'
 import * as themeContent from './theme/content'
 
-export function getTemplates(options: ModuleOptions, uiConfig: Record<string, any>, nuxt?: Nuxt, resolve?: Resolver['resolve']) {
+/**
+ * Name of the generated CSS template, shared by the site that registers it and
+ * the dev watcher that refreshes it. These were two independent string
+ * literals and drifted: the watcher kept upstream nuxt/ui's `ui.css` while the
+ * template had been renamed to `b24ui.css`, so the filter silently matched
+ * nothing. One constant is what stops that recurring.
+ */
+export const CSS_TEMPLATE_FILENAME = 'b24ui.css'
+
+/** The predicate the dev watcher passes to `updateTemplates`. */
+export const isCssTemplate = (template: { filename?: string }) => template.filename === CSS_TEMPLATE_FILENAME
+
+/**
+ * Builds every template this module registers — per-component themes, the
+ * generated CSS, and the app-config type declarations.
+ *
+ * Used to take a `uiConfig` argument that nothing in the body ever read, passed
+ * from both call sites. It was not a wiring gap: `app.config.b24ui` reaches the
+ * runtime through `#build/app.config` (see plugins/app-config.ts) and is applied
+ * by the `tv` wrapper, not by template generation. Dropped rather than wired up,
+ * so the signature stops implying an override path that isn't there.
+ */
+export function getTemplates(options: ModuleOptions, nuxt?: Nuxt, resolve?: Resolver['resolve']) {
   const templates: NuxtTemplate[] = []
 
   let hasProse = false
@@ -204,7 +226,7 @@ export function getTemplates(options: ModuleOptions, uiConfig: Record<string, an
    * @memo This for compatibility only
    */
   templates.push({
-    filename: 'b24ui.css',
+    filename: CSS_TEMPLATE_FILENAME,
     write: true,
     getContents: async () => {
       const sources = await generateSources()
@@ -301,8 +323,32 @@ export {}
   return templates
 }
 
+/** Source files whose contents can change which components are detected as used. */
+export const COMPONENT_DETECTION_WATCH_RE = /\.(?:vue|ts|js|tsx|jsx)$/
+
+/**
+ * Re-runs component detection during `nuxt dev` when a source file changes,
+ * so a component used for the first time mid-session gets its `@source` entry
+ * without a dev-server restart.
+ *
+ * A filter that selects zero templates is a successful call — which is how
+ * this shipped filtering on `ui.css` (see `CSS_TEMPLATE_FILENAME`) with no
+ * signal at all. Split out of `addTemplates` and given an injectable `update`
+ * purely so a test can assert the predicate that actually reaches
+ * `updateTemplates` selects a template that really exists; asserting
+ * `isCssTemplate` against `getTemplates()` on its own would still pass if this
+ * call site went back to a hardcoded literal.
+ */
+export function watchForComponentDetection(nuxt: Nuxt, update: typeof updateTemplates = updateTemplates) {
+  nuxt.hook('builder:watch', async (_, path) => {
+    if (COMPONENT_DETECTION_WATCH_RE.test(path)) {
+      await update({ filter: isCssTemplate })
+    }
+  })
+}
+
 export function addTemplates(options: ModuleOptions, nuxt: Nuxt, resolve: Resolver['resolve']) {
-  const templates = getTemplates(options, (nuxt.options.appConfig.b24ui ?? {}) as Record<string, any>, nuxt, resolve)
+  const templates = getTemplates(options, nuxt, resolve)
   for (const template of templates) {
     if (template.filename!.endsWith('.d.ts')) {
       addTypeTemplate(template as NuxtTypeTemplate)
@@ -316,10 +362,6 @@ export function addTemplates(options: ModuleOptions, nuxt: Nuxt, resolve: Resolv
   })
 
   if (options.experimental?.componentDetection && nuxt.options.dev) {
-    nuxt.hook('builder:watch', async (_, path) => {
-      if (/\.(?:vue|ts|js|tsx|jsx)$/.test(path)) {
-        await updateTemplates({ filter: template => template.filename === 'ui.css' })
-      }
-    })
+    watchForComponentDetection(nuxt)
   }
 }
