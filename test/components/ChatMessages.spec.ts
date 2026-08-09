@@ -17,7 +17,10 @@ describe('ChatMessages', () => {
       role: 'user' as const,
       parts: [{ type: 'text' as const, text: 'Hello, how are you?' }]
     }, {
-      id: '6045235a-a435-46b8-989d-2df38ca2eb47',
+      // Distinct from the first: `id` keys both the `v-for` and the
+      // `messagesRefs` map, so a shared one models a thread that cannot exist
+      // and quietly collapses two messages into one entry.
+      id: '31d5f0a4-1cd6-4f0e-9d2a-6b8f1c0e77b2',
       role: 'assistant' as const,
       parts: [{ type: 'text' as const, text: 'I am fine, thank you!' }]
     }]
@@ -46,6 +49,31 @@ describe('ChatMessages', () => {
     })
 
     expect(await axe(wrapper.element)).toHaveNoViolations()
+  })
+
+  it('drops a message ref when that message is removed', async () => {
+    // Vue calls the ref callback with `null` on unmount, and that branch used
+    // to do nothing — so a removed message left its detached element in the map
+    // for the component's lifetime. The only other cleanup is a bulk `.clear()`
+    // that fires when `messages` empties entirely, which is why resetting a
+    // thread looked fine and trimming one message did not.
+    const messages = [
+      { id: 'first', role: 'user' as const, parts: [{ type: 'text' as const, text: 'one' }] },
+      { id: 'second', role: 'assistant' as const, parts: [{ type: 'text' as const, text: 'two' }] }
+    ]
+
+    const wrapper = await mountSuspended(ChatMessages, { props: { messages } })
+    // Read straight off the instance: the map is internal (only
+    // `registerMessageRef` is exposed) and has no public projection, and a
+    // stale entry is invisible from the rendered output by definition.
+    const refs = () => (wrapper.vm as any).messagesRefs as Map<string, HTMLElement>
+
+    expect([...refs().keys()].sort()).toEqual(['first', 'second'])
+
+    await wrapper.setProps({ messages: [messages[0]!] })
+    await nextTick()
+
+    expect([...refs().keys()]).toEqual(['first'])
   })
 
   describe('last message height', () => {

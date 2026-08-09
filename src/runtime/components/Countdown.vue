@@ -84,7 +84,7 @@ export interface CountdownSlots {
 </script>
 
 <script setup lang="ts">
-import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue'
+import { ref, computed, watch, onMounted, onBeforeUnmount, onActivated, onDeactivated } from 'vue'
 import { useEventListener } from '@vueuse/core'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
@@ -168,6 +168,21 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   pause()
+})
+
+// `<KeepAlive>` deactivation does not run `onBeforeUnmount`, so a cached
+// countdown used to keep its `requestAnimationFrame` chain alive — burning a
+// frame callback per tick and emitting `progress`/`end` for something nobody
+// can see, one chain per cached instance. Suspending and resuming it is the
+// same problem as a hidden browser tab, so it reuses the same two halves.
+// `endTime` is absolute, so `resumeCounting()` returns to the right remainder
+// rather than to where the clock was parked.
+onDeactivated(() => {
+  suspendCounting()
+})
+
+onActivated(() => {
+  resumeCounting()
 })
 // endregion ////
 
@@ -299,6 +314,18 @@ function continueProcess(): void {
   if (!counting.value) {
     return
   }
+
+  // Cancel before scheduling, because `requestId` holds one handle and the last
+  // writer wins: two callers on the same tick used to leave the first chain
+  // running with no way to reach it again. That happens on the very first mount
+  // under `<KeepAlive>` — Vue runs `onActivated` right after `onMounted` for a
+  // brand-new cached child, not only on a real reactivation, so the immediate
+  // props watcher's `start()` and `onActivated`'s `resumeCounting()` both land
+  // here. Measured: one extra uncancellable frame chain, and `progress` firing
+  // twice for a single tick. Guarding here rather than at the two call sites
+  // covers any future third caller too. `cancelAnimationFrame` on a stale or
+  // already-fired handle is a no-op, so the recursive call from `step` is safe.
+  cancelAnimationFrame(requestId.value)
 
   const delay = Math.min(totalMilliseconds.value, props.interval!)
 
@@ -433,17 +460,33 @@ function restart(): void {
 }
 
 /**
+ * Stop ticking while the countdown is not on screen.
+ *
+ * Shared by the `visibilitychange` handler and `<KeepAlive>` deactivation —
+ * two ways of asking the same question, and keeping one implementation is what
+ * stops the second from being forgotten when the first changes.
+ */
+function suspendCounting(): void {
+  pause()
+}
+
+/** Catch up to wall-clock time and resume, if the countdown was running. */
+function resumeCounting(): void {
+  update()
+  continueProcess()
+}
+
+/**
  * Visibility change event handler.
  */
 function handleVisibilityChange(): void {
   switch (document?.visibilityState) {
     case 'visible':
-      update()
-      continueProcess()
+      resumeCounting()
       break
 
     case 'hidden':
-      pause()
+      suspendCounting()
       break
   }
 }

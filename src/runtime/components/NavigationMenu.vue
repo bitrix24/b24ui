@@ -80,6 +80,14 @@ export interface NavigationMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'cu
    * @defaultValue `item-${index}`, `item-${level}-${index}` for nested children, or `group-${listIndex}-item-${index}` when using grouped items
    */
   value?: string
+  /**
+   * Submenu items.
+   *
+   * Unlike `items`, this must be a **flat** array — there are no groups and no
+   * separator at this level. An array of arrays is tolerated rather than
+   * supported: it is flattened, and in development a console warning names the
+   * offending item.
+   */
   children?: NavigationMenuChildItem[]
   /**
    * With orientation=`horizontal` if `true` it will position the dropdown menu correctly
@@ -307,6 +315,52 @@ const lists = computed<NavigationMenuItem[][]>(() =>
     : []
 )
 
+const warnedGroupedChildren = new WeakSet<object>()
+
+/**
+ * Children of an item, tolerating the grouped shape `items` accepts.
+ *
+ * `items` takes either a flat array or an array of arrays, and a separator is
+ * drawn between the groups. `children` has never supported that — the type says
+ * `NavigationMenuChildItem[]` — but reaching for the same shape one level down
+ * is the natural guess, and the way it failed gave no hint: every `v-for` here
+ * handed an *array* to a template expecting an object, so the horizontal
+ * dropdown rendered empty entries and the vertical accordion opened onto
+ * nothing at all. Reported as #51.
+ *
+ * Flattened rather than rejected, so an app written against the wrong shape
+ * renders its links instead of a blank panel — with a dev-only warning, since
+ * the grouping itself is still not honoured and silently dropping the author's
+ * intent would only move the confusion.
+ */
+function getChildren(item: NavigationMenuItem): NavigationMenuChildItem[] {
+  const children = item.children
+  if (!children?.length || !isArrayOfArray(children)) {
+    return children ?? []
+  }
+
+  if (import.meta.dev && !warnedGroupedChildren.has(item)) {
+    warnedGroupedChildren.add(item)
+    console.warn(
+      `[B24NavigationMenu] \`children\` of "${item.label ?? '(unlabelled item)'}" is an array of arrays. `
+      + 'Unlike `items`, `children` does not support groups — the nested arrays have been flattened and no '
+      + 'separator is drawn. Pass a flat array to silence this.'
+    )
+  }
+
+  // `.flat()` un-nests one level; it does not drop holes or `null`. Without the
+  // filter a stray `null` inside a group — `items.map(cond ? x : null)` without
+  // a filter, a CMS placeholder for an unpublished entry — is promoted to a
+  // top-level child and reaches `pickLinkProps`, whose first statement is
+  // `Object.keys(link)`. That throws, and Vue does not contain a render error
+  // to the component that raised it. Before this helper existed the same input
+  // was inert rather than fatal, because the sink only ever saw the whole inner
+  // array, so tolerating the shape has to include tolerating what is in it.
+  return (children as unknown as NavigationMenuChildItem[][])
+    .flat()
+    .filter((child): child is NavigationMenuChildItem => child != null)
+}
+
 function getItemValue(item: NavigationMenuItem, index: number, level: number, listIndex: number) {
   const prefix = lists.value.length > 1 ? `group-${listIndex}-` : ''
   return get(item, props.valueKey as string) ?? (level > 0 ? `${prefix}item-${level}-${index}` : `${prefix}item-${index}`)
@@ -509,7 +563,7 @@ function onLinkTrailingClick(e: Event, item: NavigationMenuItem) {
                       {{ get(item, props.labelKey as string) }}
                     </li>
                     <li
-                      v-for="(childItem, childIndex) in item.children"
+                      v-for="(childItem, childIndex) in getChildren(item)"
                       :key="childIndex"
                       data-slot="childItem"
                       :class="b24ui.childItem({ class: [props.b24ui?.childItem, item.b24ui?.childItem] })"
@@ -617,7 +671,7 @@ function onLinkTrailingClick(e: Event, item: NavigationMenuItem) {
           >
             <ul data-slot="childList" :class="b24ui.childList({ class: [props.b24ui?.childList, item.b24ui?.childList] })">
               <li
-                v-for="(childItem, childIndex) in item.children"
+                v-for="(childItem, childIndex) in getChildren(item)"
                 :key="childIndex"
                 data-slot="childItem"
                 :class="b24ui.childItem({ class: [props.b24ui?.childItem, item.b24ui?.childItem] })"
@@ -697,14 +751,14 @@ function onLinkTrailingClick(e: Event, item: NavigationMenuItem) {
         <AccordionRoot
           v-bind="({
             ...accordionProps,
-            defaultValue: getAccordionDefaultValue(item.children, level + 1, listIndex)
+            defaultValue: getAccordionDefaultValue(getChildren(item), level + 1, listIndex)
           } as AccordionRootProps)"
           as="ul"
           data-slot="childList"
           :class="b24ui.childList({ class: props.b24ui?.childList })"
         >
           <ReuseItemTemplate
-            v-for="(childItem, childIndex) in item.children"
+            v-for="(childItem, childIndex) in getChildren(item)"
             :key="childIndex"
             :item="childItem"
             :index="childIndex"

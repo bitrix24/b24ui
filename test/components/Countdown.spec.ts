@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
+import { defineComponent, h, ref, nextTick, KeepAlive } from 'vue'
 import Countdown from '../../src/runtime/components/Countdown.vue'
 import { renderEach } from '../component-render'
 import theme from '#build/b24ui/countdown'
@@ -162,6 +163,110 @@ describe('Countdown', () => {
       const removed = removeSpy.mock.calls.filter(([type]) => type === 'visibilitychange')
       expect(removed).toHaveLength(1)
       expect(removed[0]![1]).toBe(registered[0]![1])
+    })
+
+    // `<KeepAlive>` deactivation does not run `onBeforeUnmount`, so a cached
+    // countdown used to keep its `requestAnimationFrame` chain running —
+    // emitting `progress`/`end` for something nobody can see, one chain per
+    // cached instance.
+    const keepAliveHarness = () => {
+      const shown = ref(true)
+      const Parent = defineComponent({
+        setup() {
+          return () => h(KeepAlive, null, {
+            default: () => (shown.value ? h(Countdown, { seconds: 10 }) : null)
+          })
+        }
+      })
+
+      return { shown, Parent }
+    }
+
+    // Handles scheduled and not yet cancelled — the chains that would actually
+    // fire. Counting `requestAnimationFrame` calls instead would prove nothing:
+    // the component schedules a variable number of times (the deep props
+    // watcher runs more than once under the `nuxt` environment) and the fix
+    // does not remove a call, it cancels the handle the previous call left
+    // behind. Unique ids rather than a constant, so a cancel is attributable.
+    const trackFrames = () => {
+      const live = new Set<number>()
+      let nextId = 0
+
+      vi.spyOn(window, 'requestAnimationFrame').mockImplementation(() => {
+        const id = ++nextId
+        live.add(id)
+        return id
+      })
+      vi.spyOn(window, 'cancelAnimationFrame').mockImplementation((id: number) => {
+        live.delete(id)
+      })
+
+      return live
+    }
+
+    // Vue runs `onActivated` right after `onMounted` for a brand-new cached
+    // child, not only on a real reactivation. So the immediate props watcher's
+    // `start()` and `onActivated`'s `resumeCounting()` both reach
+    // `continueProcess()` on the very first mount, and `requestId` keeps only
+    // the last handle — the earlier chain becomes unreachable and goes on
+    // emitting `progress`/`end` with nothing able to cancel it.
+    it('leaves no extra frame chain alive under `<KeepAlive>`', async () => {
+      const live = trackFrames()
+
+      await mountSuspended(Countdown, { props: { seconds: 10 } })
+      const plain = live.size
+
+      live.clear()
+      await mountSuspended(keepAliveHarness().Parent)
+
+      // Measured against a plain mount rather than pinned to a number: under
+      // the `nuxt` project Nuxt's own `navigation-repaint` plugin schedules a
+      // frame of its own on every `mountSuspended`, and never cancels it. It
+      // lands on both sides equally, so the difference is the component's.
+      expect(live.size).toBe(plain)
+    })
+
+    it('stops and resumes its frame loop across `<KeepAlive>` toggles', async () => {
+      const cancel = vi.spyOn(window, 'cancelAnimationFrame').mockImplementation(() => {})
+      const request = vi.spyOn(window, 'requestAnimationFrame').mockImplementation(() => 1)
+
+      const { shown, Parent } = keepAliveHarness()
+      await mountSuspended(Parent)
+      cancel.mockClear()
+      request.mockClear()
+
+      shown.value = false
+      await nextTick()
+      expect(cancel).toHaveBeenCalled()
+
+      request.mockClear()
+      shown.value = true
+      await nextTick()
+      expect(request).toHaveBeenCalled()
+    })
+
+    it('leaves a stopped countdown stopped across a `<KeepAlive>` toggle', async () => {
+      // Safe today only because `update()` and `continueProcess()` each guard
+      // on `counting`, and `resumeCounting()` never calls `start()`. Nothing
+      // structural protects it, so it is pinned here.
+      vi.spyOn(window, 'cancelAnimationFrame').mockImplementation(() => {})
+      const request = vi.spyOn(window, 'requestAnimationFrame').mockImplementation(() => 1)
+
+      const { shown, Parent } = keepAliveHarness()
+      const wrapper = await mountSuspended(Parent)
+      const countdown = wrapper.findComponent(Countdown).vm as any
+
+      countdown.stop()
+      expect(countdown.counting).toBe(false)
+
+      shown.value = false
+      await nextTick()
+      request.mockClear()
+      shown.value = true
+      await nextTick()
+
+      expect(countdown.counting).toBe(false)
+      expect(request).not.toHaveBeenCalled()
     })
   })
 

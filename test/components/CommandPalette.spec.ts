@@ -232,6 +232,20 @@ describe('CommandPalette', () => {
     })
   })
 
+  it('renders an `item-description` slot for an item that has no description', async () => {
+    // The description span was gated on the item's own `description` field alone,
+    // so a description supplied purely by a slot — a computed string, a badge,
+    // an icon and text — never mounted and produced nothing, silently. The
+    // sibling label branch already had the matching `!!slots[...]` term, which
+    // is what made the omission look accidental rather than intended.
+    const wrapper = await mountSuspended(CommandPalette, {
+      props: { groups: [{ id: 'g', items: [{ label: 'no description field' }] }] } as any,
+      slots: { 'item-description': () => 'Description from a slot' }
+    })
+
+    expect(wrapper.html()).toContain('Description from a slot')
+  })
+
   it('hides the input icon when icon is false', async () => {
     // Use icon-less items so the only `data-slot="icon"` is the input's leading
     // icon (b24-icons render their own `data-slot="icon"`, so item icons would

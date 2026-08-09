@@ -129,6 +129,80 @@ describe('NavigationMenu', () => {
     expect(await axe(wrapper.element)).toHaveNoViolations()
   })
 
+  describe('grouped children (#51)', () => {
+    // `items` accepts a flat array or an array of arrays, so reaching for the
+    // same shape on `children` is the natural guess — and it used to fail in
+    // total silence: every child `v-for` handed an array to a template
+    // expecting an object, so the vertical accordion opened onto nothing. The
+    // links are what the author wanted; render them, and warn that the
+    // grouping itself is dropped.
+    const links = [{ label: 'Link A', to: '/a' }, { label: 'Link B', to: '/b' }]
+
+    const mount = (children: any, props: Record<string, any> = {}) => mountSuspended(NavigationMenu, {
+      props: {
+        orientation: 'vertical',
+        items: [{ label: 'Docs', defaultOpen: true, children }],
+        ...props
+      } as any
+    })
+
+    // `getChildren()` feeds three call sites. Two are reachable from here: the
+    // vertical accordion, and the horizontal dropdown once `unmountOnHide` is
+    // false so its content is force-mounted rather than portalled on open. The
+    // third — the popover shown when a collapsed vertical menu has children —
+    // needs a real open interaction and is not covered.
+    it.each([
+      ['vertical accordion', {}],
+      ['horizontal dropdown', { orientation: 'horizontal', unmountOnHide: false }]
+    ])('renders children flat or grouped alike — %s', async (_name, props) => {
+      const flat = await mount(links, props)
+      const grouped = await mount([links], props)
+
+      for (const wrapper of [flat, grouped]) {
+        expect(wrapper.html()).toContain('Link A')
+        expect(wrapper.html()).toContain('Link B')
+      }
+    })
+
+    it('keeps `defaultOpen` working on a grouped child', async () => {
+      // `getAccordionDefaultValue` was the fourth read of `item.children` and
+      // the first pass missed it: it reduced over the nested arrays, which
+      // carry no `defaultOpen`, so a grouped child rendered but never opened —
+      // and the values it produced no longer lined up with the flattened index
+      // the rows are keyed by.
+      //
+      // Counted rather than matched on a substring: the parent item is itself
+      // `defaultOpen`, so `data-state="open"` appears either way and asserting
+      // its presence proves nothing.
+      const openStates = (wrapper: { html: () => string }) => (wrapper.html().match(/data-state="open"/g) || []).length
+
+      const child = { label: 'Link B', to: '/b', defaultOpen: true }
+      const a = { label: 'Link A', to: '/a' }
+
+      const groupedOpen = await mount([[a, child]])
+      const flatOpen = await mount([a, child])
+      const groupedClosed = await mount([[a, { label: 'Link B', to: '/b' }]])
+
+      expect(openStates(groupedOpen)).toBe(openStates(flatOpen))
+      expect(openStates(groupedOpen)).toBeGreaterThan(openStates(groupedClosed))
+    })
+
+    it('survives a hole in a group instead of throwing', async () => {
+      // `.flat()` un-nests but keeps `null`, which then reaches
+      // `pickLinkProps` -> `Object.keys(null)`. Before the flattening existed
+      // the same input was merely inert, so tolerating the shape has to include
+      // tolerating what is in it.
+      const wrapper = await mount([[{ label: 'Link A', to: '/a' }, null, undefined]])
+
+      expect(wrapper.html()).toContain('Link A')
+    })
+
+    // The dev warning itself is not asserted anywhere, deliberately:
+    // `import.meta.dev` compiles to `undefined` in the `vue` project and
+    // `false` in the `nuxt` one, so the branch is unreachable from this suite
+    // and any assertion about it would pass whether it fired or not.
+  })
+
   test('should have the correct types', () => {
     // normal
     expectSlotProps('item', () => NavigationMenu({
