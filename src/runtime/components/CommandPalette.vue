@@ -40,6 +40,29 @@ export interface CommandPaletteItem extends Omit<LinkProps, 'type' | 'raw' | 'cu
    */
   placeholder?: string
   children?: CommandPaletteItem[]
+  /**
+   * Pre-rendered HTML for the label, used instead of `label` when present.
+   * Normally computed by the palette from the search match: everything escaped,
+   * `<mark>` around the matched run.
+   *
+   * @warning Rendered with `v-html`. Setting it yourself skips the palette's
+   * escaping entirely, so anything you put here — a CMS field, an API response —
+   * is inserted as raw HTML and must be sanitized first. `useContentSearch` is
+   * the in-house example: it routes every snippet through `sanitizeSnippet()`.
+   */
+  labelHtml?: string
+  /**
+   * Pre-rendered HTML for the suffix. Same contract as `labelHtml`.
+   *
+   * @warning Rendered with `v-html` — sanitize anything you set here yourself.
+   */
+  suffixHtml?: string
+  /**
+   * Pre-rendered HTML for the description. Same contract as `labelHtml`.
+   *
+   * @warning Rendered with `v-html` — sanitize anything you set here yourself.
+   */
+  descriptionHtml?: string
   onSelect?: (e: Event) => void
   class?: any
   b24ui?: Pick<CommandPalette['slots'], 'item' | 'itemLeadingIcon' | 'itemLeadingAvatarSize' | 'itemLeadingAvatar' | 'itemLeadingChipSize' | 'itemLeadingChip' | 'itemWrapper' | 'itemLabel' | 'itemDescription' | 'itemLabelPrefix' | 'itemLabelBase' | 'itemLabelSuffix' | 'itemTrailing' | 'itemTrailingKbds' | 'itemTrailingKbdsSize' | 'itemTrailingHighlightedIcon' | 'itemTrailingIcon'>

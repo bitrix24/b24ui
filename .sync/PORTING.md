@@ -138,6 +138,16 @@ History of the maps lives in git; no separate version field.
 
 - New `v-html` / `innerHTML` → keep the upstream sanitization (or add one),
   annotate `<!-- SECURITY: needs sanitization review -->`, and list it in the PR.
+- **Port both halves of a hunk that pairs a new guard with a simplified sink.**
+  When upstream adds a `v-if`/`v-else` around a `v-html` / `innerHTML` / `:src`
+  and *simultaneously* drops a fallback from the expression (`A || B` → `A`),
+  the second half is not tidy-up. Taking only the guard leaves the old fallback
+  reachable the moment anyone loosens the guard later, and — because the guard
+  and the expression then test the same value — nothing renders differently, no
+  test fails, and it reads as safe. That is the shape PR #338 had to go back and
+  finish, from a port made in `0536b294`. Diff the whole hunk, not just the
+  added control-flow keyword. `test/utils/v-html-bindings.spec.ts` now fails on
+  a `v-html` that contains `||` or `??`, so this one is enforced.
 - No new runtime network calls, eval, or dynamic `import()` of remote code.
 - Changes stay within `src/` (+ tests/snapshots).
 
@@ -162,5 +172,6 @@ History of the maps lives in git; no separate version field.
 - 2026-06-15 — port of `ffaf163f` (PR #140): added the §1 rewrite — **rename inferred type variables too**: when porting types that `infer UI` (or otherwise name a `UI` type-var), rename it to `B24UI`, consistent with `ui → b24ui`. Caught in review of the `ComponentAppConfig` rewrite (`A extends { b24ui: infer UI }` → `infer B24UI`). Last reviewed: 2026-06-15.
 - 2026-06-17 — skip of `fa525382` (PR #167): added the §2 **Locales** invariant — b24ui does not adopt new languages from upstream. The Latvian (`lv`) addition was ported then reverted on maintainer instruction; PR #167 closed without merge and recorded as `decision: skip`. Future upstream new-locale commits are skipped the same way (edits to existing locales still port). Last reviewed: 2026-06-17.
 - 2026-08-08 — fix of #310 (PR #326): added the §2 **Timeline / Stepper value resolution** invariant. b24ui now resolves numeric model values through `valueKey`, while upstream still matches strings only — so a faithful port of any upstream commit touching `currentStepIndex` would silently revert the fix and bring back the reported bug (a numeric `items[].value` selecting nothing). Guarded by `test/components/Timeline.spec.ts` and `Stepper.spec.ts`; those snapshots must not be regenerated to make a port compile. Last reviewed: 2026-08-08.
+- 2026-08-09 — hardening around #82 (PR #338): added the §5 rule **port both halves of a hunk that pairs a new guard with a simplified sink**. `0536b294` ported upstream `e751b374` into `CommandPalette.vue`, took its new `v-if`/`v-else` split, and left the paired `v-html="item.labelHtml || get(...)"` fallback in place — dead code, because guard and expression read the same scalar, which is why it survived two years and several reviews. Also added `labelHtml`/`suffixHtml`/`descriptionHtml` to `CommandPaletteItem` with `@warning` jsDoc: upstream leaves them to the `[key: string]: any` index signature, and this is a deliberate divergence, since they are the runtime's only `v-html` sinks and a caller that sets them bypasses the palette's escaping. Enforced by `test/utils/v-html-bindings.spec.ts`. Last reviewed: 2026-08-09.
 - 2026-08-08 — hardening of #315 (PR #331): added the §2 **workflow actions stay pinned to commit SHAs** invariant. Upstream bumps actions by tag and PR #297 replayed such a bump verbatim, rewriting `uses:` from `@v6` to `@v7`; b24ui pins commits because that runner holds the npm publishing OIDC token. `ci.yml` now fails on any unpinned `uses:`, so the rule is enforced rather than remembered. Last reviewed: 2026-08-08.
 - 2026-08-08 — fixes of #80/#81 (PR #335): added two §2 invariants — the **generated CSS template name** (`b24ui.css`, not upstream's `ui.css`) and **`ChatMessages` measuring with `getBoundingClientRect()`** rather than `useElementBounding()`. Both were found by the June 2026 audit rather than by a failing test, because both fail silently: a template filter that matches nothing still returns, and a leaked observer costs memory rather than correctness. Now guarded by `test/utils/templates.spec.ts` and a ResizeObserver-count case. The same PR also closed #79 and #83, which need no rule here — `Countdown` is a Bitrix24-only component with no upstream counterpart, and the vitest include patterns are b24ui test infrastructure. Last reviewed: 2026-08-08.
