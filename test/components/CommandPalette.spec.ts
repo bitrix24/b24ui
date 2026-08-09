@@ -161,6 +161,60 @@ describe('CommandPalette', () => {
     ['with footer slot', { props, slots: { footer: () => 'Footer slot' } }]
   ])
 
+  describe('item markup is never rendered as HTML', () => {
+    // Three `v-html` bindings render an item's label, suffix and description.
+    // They are safe only because every value that reaches them has been through
+    // `highlight()`/`sanitizeSnippet()`, which escape everything and emit
+    // `<mark>` as the sole live tag. Two of the three used to carry a fallback
+    // — `v-html="item.labelHtml || get(item, labelKey)"` — that would have put
+    // the raw, unescaped field straight into `v-html`. Unreachable in practice
+    // because of the `v-if` on the same element, but one edit to that `v-if`
+    // away from being live, so the property is asserted here rather than left
+    // resting on a guard two attributes up.
+    const PAYLOAD = '<img src=x onerror="alert(1)">'
+
+    it('escapes a raw label rather than parsing it', async () => {
+      const wrapper = await mountSuspended(CommandPalette, {
+        props: { groups: [{ id: 'g', items: [{ label: PAYLOAD }] }] } as any
+      })
+
+      expect(wrapper.find('img').exists()).toBe(false)
+      expect(wrapper.html()).toContain('&lt;img')
+    })
+
+    it('escapes a raw suffix rather than parsing it', async () => {
+      const wrapper = await mountSuspended(CommandPalette, {
+        props: { groups: [{ id: 'g', items: [{ label: 'safe', suffix: PAYLOAD }] }] } as any
+      })
+
+      expect(wrapper.find('img').exists()).toBe(false)
+      expect(wrapper.html()).toContain('&lt;img')
+    })
+
+    it('escapes a raw description rather than parsing it', async () => {
+      const wrapper = await mountSuspended(CommandPalette, {
+        props: { groups: [{ id: 'g', items: [{ label: 'safe', description: PAYLOAD }] }] } as any
+      })
+
+      expect(wrapper.find('img').exists()).toBe(false)
+      expect(wrapper.html()).toContain('&lt;img')
+    })
+
+    it('keeps only `<mark>` live when the highlighter produced the markup', async () => {
+      // `labelHtml` is what `highlight()` returns: everything escaped, `<mark>`
+      // inserted around the match. It must render as markup — that is the whole
+      // point of the binding — while the payload beside it stays inert.
+      const wrapper = await mountSuspended(CommandPalette, {
+        props: {
+          groups: [{ id: 'g', items: [{ label: 'ignored', labelHtml: `<mark>hit</mark>&lt;img src=x&gt;` }] }]
+        } as any
+      })
+
+      expect(wrapper.find('mark').exists()).toBe(true)
+      expect(wrapper.find('img').exists()).toBe(false)
+    })
+  })
+
   it('hides the input icon when icon is false', async () => {
     // Use icon-less items so the only `data-slot="icon"` is the input's leading
     // icon (b24-icons render their own `data-slot="icon"`, so item icons would

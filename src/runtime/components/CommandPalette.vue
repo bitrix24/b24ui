@@ -597,7 +597,7 @@ function onSelect(e: Event, item: T) {
                     v-if="item.labelHtml"
                     data-slot="itemLabelBase"
                     :class="b24ui.itemLabelBase({ class: [props.b24ui?.itemLabelBase, item.b24ui?.itemLabelBase], active: active || item.active })"
-                    v-html="item.labelHtml || get(item, props.labelKey as string)"
+                    v-html="item.labelHtml"
                   />
                   <span
                     v-else
@@ -609,7 +609,7 @@ function onSelect(e: Event, item: T) {
                     v-if="item.suffixHtml"
                     data-slot="itemLabelSuffix"
                     :class="b24ui.itemLabelSuffix({ class: [props.b24ui?.itemLabelSuffix, item.b24ui?.itemLabelSuffix], active: active || item.active })"
-                    v-html="item.suffixHtml || item.suffix"
+                    v-html="item.suffixHtml"
                   />
                   <span
                     v-else-if="item.suffix"
