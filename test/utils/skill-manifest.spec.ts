@@ -114,6 +114,11 @@ describe('skill package', () => {
         .replace(/```[\s\S]*?```/g, '')
         .replace(/`[^`\n]*`/g, '')
 
+      // Inline `[text](target)` only. Reference-style links (`[text][ref]`
+      // with a `[ref]: path` definition) are not checked; none exist in the
+      // package today, and supporting them means resolving the two halves
+      // against each other for a form nothing here uses.
+      //
       // Whitespace is allowed inside the capture and trimmed after, rather
       // than excluded from the class. Excluding it means `[x](nope.md )` — one
       // stray trailing space — does not match at all, and a link that never
@@ -390,5 +395,20 @@ describe('skill package', () => {
       .filter(doc => relative(skillDir, join(skillsDir, doc)).startsWith('..'))
 
     expect(stray).toEqual([])
+  })
+
+  it('ships markdown only', async () => {
+    // Every other check globs `**/*.md`, which is only sufficient while the
+    // package contains nothing else — an image or a stray `.DS_Store` inside
+    // it is invisible to all of them, in both directions. That matters beyond
+    // tidiness: the docs also advertise installing the raw directory tree
+    // (Cursor's `install-skill?url=…/tree/main/skills/b24-ui-nuxt`), which
+    // copies whatever is there rather than what `index.json` lists.
+    //
+    // If an asset is ever genuinely needed, this is the line that says so out
+    // loud, and the manifest has to grow a way to carry it.
+    const other = await glob('**/*', { cwd: skillDir, ignore: ['**/*.md', '**/node_modules/**'] })
+
+    expect(other).toEqual([])
   })
 })
