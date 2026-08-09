@@ -67,7 +67,7 @@ Use these everywhere instead of raw palette colors:
 Override theme **slots** on a single instance — wins over global config.
 
 ```vue
-<И24Card :b24ui="{ header: 'bg-muted', body: 'p-8' }" />
+<B24Card :b24ui="{ header: 'bg-muted', body: 'p-8' }" />
 ```
 
 Rules for `b24ui` overrides:

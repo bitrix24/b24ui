@@ -52,7 +52,7 @@ Always wrap your app in `B24App` — it provides:
 
 ## Icons
 
-Bitrix24 UI uses [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/). See [icons guideline](icons.md) for find icons.
+Bitrix24 UI uses [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/). See the [icons guideline](icons.md) for finding the right icon.
 
 ```vue
 <script setup>
@@ -100,7 +100,6 @@ const items = [
 
 ```ts
 import PersonIcon from '@bitrix24/b24icons-vue/main/PersonIcon'
-import PersonIcon from '@bitrix24/b24icons-vue/main/PersonIcon'
 import TrashcanIcon from '@bitrix24/b24icons-vue/outline/TrashcanIcon'
 
 const items = [
@@ -114,7 +113,7 @@ const items = [
 ]
 ```
 
-Components supporting nested arrays: `B24DropdownMenu`, `B24ContextMenu`, `B24CommandPalette`, `B24NavigationMenu`.
+Components supporting nested arrays: `B24DropdownMenu`, `B24ContextMenu`, `B24NavigationMenu`. `B24CommandPalette` groups the same content differently — it has no top-level `items` prop at all, only `groups`, each with its own flat `items`.
 
 Nesting applies to the **top-level** `items` only. A submenu's `children` is always a flat array — `B24NavigationMenu` flattens a nested one and draws no separator, warning in development.
 
@@ -150,7 +149,7 @@ const { isBitrixMobile, screen } = useDevice()
 
 <template>
   <div>
-    <p v-if="isBitrixMobile">ou are using the Bitrix24 mobile app on a small screen.</p>
+    <p v-if="isBitrixMobile">You are using the Bitrix24 mobile app on a small screen.</p>
     <p v-else-if="screen.isMobile">Regular web browser on a small screen.</p>
     <p v-else-if="!isBitrixMobile && (!screen.isMobile)">Regular web browser on a desktop.</p>
     <p v-else>Other combination.</p>

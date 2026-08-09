@@ -9,21 +9,9 @@ The icon metadata from `@bitrix24/b24icons-vue` is stored in `node_modules/@bitr
    - `code` (e.g., `"outline::AchievementIcon"`)
    - `type` (e.g., `"outline"` or `"solid"`)
    - `icon` – the component name (e.g., `"AchievementIcon"`)
-3. **Generate** the import statement:
-   ```ts
-   import {icon} from '@bitrix24/b24icons-vue/{type}/{icon}'
-   ```
-4. **Provide usage examples** (Vue 3 `<script setup>` style):
-   ```vue
-   <script setup>
-   import {icon} from '@bitrix24/b24icons-vue/{type}/{icon}'
-   </script>
-
-   <template>
-     <{icon} class="size-3" />
-     <B24Button :icon="{{ {icon} }}" />
-   </template>
-   ```
+3. **Generate** the import statement, substituting the `icon` and `type` fields from step 2 into
+   `import <icon> from '@bitrix24/b24icons-vue/<type>/<icon>'`. Each icon is a **default** export — the name is never braced, so `import { AchievementIcon } from …` does not work.
+4. **Provide usage examples** (Vue 3 `<script setup>` style), following the worked example below exactly: render the icon as a component, and pass it to `:icon` as the imported component itself — not a string, and not an object literal such as `:icon="{AchievementIcon}"`.
 
 **Answer format** (copy-paste ready):
 - Import line
@@ -40,6 +28,6 @@ import AchievementIcon from '@bitrix24/b24icons-vue/outline/AchievementIcon'
 
 <template>
   <AchievementIcon class="size-5" />
-  <B24Button :icon="{AchievementIcon}" />
+  <B24Button :icon="AchievementIcon" />
 </template>
 ```

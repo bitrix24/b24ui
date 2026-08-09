@@ -102,6 +102,19 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   `describe('grouped children (#51)')` in `test/components/NavigationMenu.spec.ts`;
   its horizontal case needs `unmountOnHide: false` to reach the second site at
   all.
+- **`skills/` is b24ui-authored — never replay upstream skill or doc prose into
+  it.** The package was seeded from nuxt/ui's skill, and every defect the #93
+  audit found was an inherited upstream idiom rather than an ordinary typo:
+  routing rows naming `auth`/`chat`/`docs`/`editor`, `UFieldGroup`,
+  `variant="ghost"` and `color="neutral"` on `B24Button` (neither prop nor
+  colour exists here), Iconify-style string icons (`i-lucide-palette`), a
+  fabricated `mode="drawer"`, and `.nuxt/ui/<component>.ts` for what b24ui
+  writes to `.nuxt/b24ui/`. None of it can fail a build, because prose does not
+  compile. `test/utils/skill-manifest.spec.ts` now enforces the mechanical half
+  — component names (both `B24*` and `Prose*`), icon imports, links, the
+  manifest, routing in both directions — but **props, colours and paths are
+  still on the reader**, so copy the intent from upstream and re-derive every
+  identifier from this repository.
 - **Workflow actions stay pinned to commit SHAs.** Upstream bumps them by tag;
   b24ui pins the commit. You do not have to remember this — `ci.yml` fails the
   build on any unpinned `uses:` and tells you how to resolve the tag.
@@ -196,3 +209,4 @@ History of the maps lives in git; no separate version field.
 - 2026-08-08 — hardening of #315 (PR #331): added the §2 **workflow actions stay pinned to commit SHAs** invariant. Upstream bumps actions by tag and PR #297 replayed such a bump verbatim, rewriting `uses:` from `@v6` to `@v7`; b24ui pins commits because that runner holds the npm publishing OIDC token. `ci.yml` now fails on any unpinned `uses:`, so the rule is enforced rather than remembered. Last reviewed: 2026-08-08.
 - 2026-08-08 — fixes of #80/#81 (PR #335): added two §2 invariants — the **generated CSS template name** (`b24ui.css`, not upstream's `ui.css`) and **`ChatMessages` measuring with `getBoundingClientRect()`** rather than `useElementBounding()`. Both were found by the June 2026 audit rather than by a failing test, because both fail silently: a template filter that matches nothing still returns, and a leaked observer costs memory rather than correctness. Now guarded by `test/utils/templates.spec.ts` and a ResizeObserver-count case. The same PR also closed #79 and #83, which need no rule here — `Countdown` is a Bitrix24-only component with no upstream counterpart, and the vitest include patterns are b24ui test infrastructure. Last reviewed: 2026-08-08.
 - 2026-08-09 — fixes of #51/#336/#337/#340 (PR #341): added two §2 invariants — **`NavigationMenu` children via `getChildren()`** and **`ChatMessages.registerMessageRef` deleting on `null`**. Both are spots where upstream still carries the bug, so a faithful port silently reverts the fix, and neither failure is visible in the output that a reviewer would look at: the accordion mounts onto nothing, and a retained ref costs memory rather than correctness. The other two fixes in that PR need no rule — upstream already carries the `!!slots[...]` term on both `CommandPalette` branches, so #340 was b24ui drift and a port *restores* our behaviour; and `Countdown` (#337) is a Bitrix24-only component with no upstream counterpart. Last reviewed: 2026-08-09.
+- 2026-08-09 — fix of #93 (PR #343): added the §2 **`skills/` is b24ui-authored** invariant. The AI skill package was seeded from nuxt/ui's and had drifted from both the codebase and its own manifest; notably, *every* defect found was an upstream idiom rather than a typo — dead routing targets, `UFieldGroup`, `variant="ghost"`, `color="neutral"`, `i-lucide-*` string icons, a fabricated `mode="drawer"`, and `.nuxt/ui/` for our `.nuxt/b24ui/`. Also fabricated icon imports (`LayoutGridIcon` and friends) in a recipe that had only just started shipping. Guarded by `test/utils/skill-manifest.spec.ts` — ten checks over names, icons, links, manifest parity and routing in both directions — but that guard covers identifiers, not props or paths, so the invariant still has to be read. No `src/` change, so nothing here is a runtime deviation. Last reviewed: 2026-08-09.

@@ -105,7 +105,7 @@ definePageMeta({ layout: 'dashboard' })
           <B24DashboardSidebarCollapse />
         </template>
         <template #right>
-          <B24Button :icon="PlusLIcons" label="New" />
+          <B24Button :icon="PlusLIcon" label="New" />
         </template>
       </B24DashboardNavbar>
     </template>

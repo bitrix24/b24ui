@@ -71,7 +71,7 @@ function onSubmit(event: FormSubmitEvent<Schema>) {
 </B24Form>
 ```
 
-### Inline fields with UFieldGroup
+### Inline fields with B24FieldGroup
 
 ```vue
 <B24FieldGroup>
@@ -198,7 +198,7 @@ function setServerError() {
 }
 
 function resetErrors() {
-  form.value?.clearErrors()
+  form.value?.clear()
 }
 </script>
 

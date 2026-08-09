@@ -16,7 +16,7 @@ Decision matrices for choosing the right component. A list of all components is 
 - Use `B24Modal` for destructive confirmations ("Are you sure you want to delete?")
 - Use `B24Slideover` for detail views in dashboards (email preview, user profile)
 - Use `B24Drawer` for mobile navigation or action sheets
-- Modal and Slideover support `mode="drawer"` for automatic mobile drawer behavior
+- There is no `mode="drawer"` on Modal or Slideover — for drawer-like behaviour give `B24Slideover` `side="bottom"`, or use `B24Drawer` directly
 - For programmatic overlays, use `useOverlay()` instead of `v-model:open`
 - Never put interactive content (buttons, links) inside `B24Tooltip`
 
@@ -56,12 +56,12 @@ Decision matrices for choosing the right component. A list of all components is 
 | Multiple choices from a list | `B24CheckboxGroup` | [checkbox-group.md](https://bitrix24.github.io/b24ui/raw/docs/components/checkbox-group.md) | Multiple selection, vertical or horizontal |
 | Single choice from a list (visible) | `B24RadioGroup` | [radio-group.md](https://bitrix24.github.io/b24ui/raw/docs/components/radio-group.md) | All options visible, one selected |
 | Pick one or more "named features" from a set, each option needs an icon and a sentence | `B24PageCardGroup` | [page-card-group.md](https://bitrix24.github.io/b24ui/raw/docs/components/page-card-group.md) | Card grid with icon + title + description per option, optional category sections, single or multi-select, hover shadow, sm/md/lg sizes |
-| Range value | `B24Slider` | [range.md](https://bitrix24.github.io/b24ui/raw/docs/components/range.md) | Min/max with visual track |
+| Range value | `B24Range` | [range.md](https://bitrix24.github.io/b24ui/raw/docs/components/range.md) | Min/max with visual track |
 | Color value | `B24ColorPicker` | [color-picker.md](https://bitrix24.github.io/b24ui/raw/docs/components/color-picker.md) | Hex/RGB/HSL picker |
 | File upload | `B24FileUpload` | [file-upload.md](https://bitrix24.github.io/b24ui/raw/docs/components/file-upload.md) | Button or drop area variants |
 
 ### Rules
-- Use `B24AuthForm` for login/signup pages — handles fields, social providers, validation, and layout out of the box *(документация отсутствует, см. `B24Form`)*
+- Build login/signup pages from `B24Form` + `B24FormField` + `B24Input` — there is no dedicated auth component, so fields, social-provider buttons and layout are composed like any other form (see [forms](forms.md)). Give credential fields `type="password"` and the matching `autocomplete` (`username`, `current-password`, `new-password`) so password managers work; keep OAuth client secrets and redirect-target validation on the server, never in the component
 - Use `B24Select` for short, known lists (country, status, role)
 - Use `B24SelectMenu` when the list is long or needs search
 - Use `B24InputMenu` when the user might want to type a value that's not in the list

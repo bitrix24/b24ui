@@ -82,7 +82,7 @@ const filteredRows = computed(() => {
     <template #body>
       <B24Table :data="filteredRows" :columns="columns">
         <template #status-cell="{ row }">
-          <B24Badge :color="row.original.status === 'Active' ? 'success' : 'neutral'" :label="row.original.status" />
+          <B24Badge :color="row.original.status === 'Active' ? 'air-primary-success' : 'air-secondary-no-accent'" :label="row.original.status" />
         </template>
 
         <template #actions-cell="{ row }">

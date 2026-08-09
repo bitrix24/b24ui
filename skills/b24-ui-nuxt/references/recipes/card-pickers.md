@@ -19,16 +19,16 @@ For richer cards with a preview image and an inline "Learn more" link (one optio
 
 ```vue
 <script setup lang="ts">
-import LayoutGridIcon from '@bitrix24/b24icons-vue/main/LayoutGridIcon'
-import LayoutListIcon from '@bitrix24/b24icons-vue/main/LayoutListIcon'
-import LayoutKanbanIcon from '@bitrix24/b24icons-vue/main/LayoutKanbanIcon'
+import TableIcon from '@bitrix24/b24icons-vue/main/TableIcon'
+import ListIcon from '@bitrix24/b24icons-vue/main/ListIcon'
+import KanbanIcon from '@bitrix24/b24icons-vue/outline/KanbanIcon'
 
-const layout = ref('grid')
+const layout = ref('table')
 
 const items = [
-  { value: 'grid',    icon: LayoutGridIcon,    label: 'Grid',    description: 'Compact cards with the key metrics on top' },
-  { value: 'list',    icon: LayoutListIcon,    label: 'List',    description: 'Dense rows, best for scanning many records' },
-  { value: 'kanban',  icon: LayoutKanbanIcon,  label: 'Kanban',  description: 'Columns by stage, drag-and-drop between them' }
+  { value: 'table',   icon: TableIcon,   label: 'Table',   description: 'Compact rows with the key metrics in columns' },
+  { value: 'list',    icon: ListIcon,    label: 'List',    description: 'Dense rows, best for scanning many records' },
+  { value: 'kanban',  icon: KanbanIcon,  label: 'Kanban',  description: 'Columns by stage, drag-and-drop between them' }
 ]
 </script>
 
@@ -47,13 +47,18 @@ const items = [
 
 ```vue
 <script setup lang="ts">
+import PhoneUpIcon from '@bitrix24/b24icons-vue/outline/PhoneUpIcon'
+import MailIcon from '@bitrix24/b24icons-vue/main/MailIcon'
+import AiStarsIcon from '@bitrix24/b24icons-vue/outline/AiStarsIcon'
+import CardIcon from '@bitrix24/b24icons-vue/outline/CardIcon'
+
 const enabled = ref<string[]>(['callback', 'feedback'])
 
 const items = [
-  { value: 'callback', category: 'Customer communications', icon: PhoneIcon,   label: 'Callback',     description: 'Capture the phone number and start a callback' },
+  { value: 'callback', category: 'Customer communications', icon: PhoneUpIcon, label: 'Callback',        description: 'Capture the phone number and start a callback' },
   { value: 'contacts', category: 'Customer communications', icon: MailIcon,    label: 'Contact details', description: 'Collect phone, email and client name' },
-  { value: 'feedback', category: 'Customer communications', icon: StarIcon,    label: 'Feedback',     description: 'Gather customer reviews' },
-  { value: 'pay',      category: 'Sales',                   icon: CardIcon,    label: 'Payment',      description: 'Take payment right from the form' }
+  { value: 'feedback', category: 'Customer communications', icon: AiStarsIcon, label: 'Feedback',        description: 'Gather customer reviews' },
+  { value: 'pay',      category: 'Sales',                   icon: CardIcon,    label: 'Payment',         description: 'Take payment right from the form' }
 ]
 </script>
 
@@ -104,16 +109,19 @@ The wrapping `<B24FormField>` keeps precedence over `<B24Theme :props>` defaults
 ```
 
 ```ts
+import TableIcon from '@bitrix24/b24icons-vue/main/TableIcon'
+import ListIcon from '@bitrix24/b24icons-vue/main/ListIcon'
+
 // Avatar mode (colored circle around the icon) — keep the icon inside `avatar.icon`
 const items = [
-  { value: 'grid', avatar: { color: 'air-primary-success', icon: GridIcon }, label: 'Grid', description: '...' },
-  { value: 'list', avatar: { color: 'air-primary-warning', icon: ListIcon }, label: 'List', description: '...' }
+  { value: 'table', avatar: { color: 'air-primary-success', icon: TableIcon }, label: 'Table', description: '...' },
+  { value: 'list',  avatar: { color: 'air-primary-warning', icon: ListIcon },  label: 'List',  description: '...' }
 ]
 
 // Plain-icon mode (no circle) — top-level `icon` wins, `avatar` (if any) is ignored
 const compact = [
-  { value: 'grid', icon: GridIcon, label: 'Grid', description: '...' },
-  { value: 'list', icon: ListIcon, label: 'List', description: '...' }
+  { value: 'table', icon: TableIcon, label: 'Table', description: '...' },
+  { value: 'list',  icon: ListIcon,  label: 'List',  description: '...' }
 ]
 ```
 
