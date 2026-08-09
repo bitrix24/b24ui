@@ -233,7 +233,7 @@ describe('CommandPalette', () => {
   })
 
   it('renders an `item-description` slot for an item that has no description', async () => {
-    // The wrapper span was gated on the item's own `description` field alone,
+    // The description span was gated on the item's own `description` field alone,
     // so a description supplied purely by a slot — a computed string, a badge,
     // an icon and text — never mounted and produced nothing, silently. The
     // sibling label branch already had the matching `!!slots[...]` term, which

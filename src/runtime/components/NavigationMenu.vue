@@ -80,6 +80,14 @@ export interface NavigationMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'cu
    * @defaultValue `item-${index}`, `item-${level}-${index}` for nested children, or `group-${listIndex}-item-${index}` when using grouped items
    */
   value?: string
+  /**
+   * Submenu items.
+   *
+   * Unlike `items`, this must be a **flat** array — there are no groups and no
+   * separator at this level. An array of arrays is tolerated rather than
+   * supported: it is flattened, and in development a console warning names the
+   * offending item.
+   */
   children?: NavigationMenuChildItem[]
   /**
    * With orientation=`horizontal` if `true` it will position the dropdown menu correctly
@@ -340,7 +348,17 @@ function getChildren(item: NavigationMenuItem): NavigationMenuChildItem[] {
     )
   }
 
-  return (children as unknown as NavigationMenuChildItem[][]).flat()
+  // `.flat()` un-nests one level; it does not drop holes or `null`. Without the
+  // filter a stray `null` inside a group — `items.map(cond ? x : null)` without
+  // a filter, a CMS placeholder for an unpublished entry — is promoted to a
+  // top-level child and reaches `pickLinkProps`, whose first statement is
+  // `Object.keys(link)`. That throws, and Vue does not contain a render error
+  // to the component that raised it. Before this helper existed the same input
+  // was inert rather than fatal, because the sink only ever saw the whole inner
+  // array, so tolerating the shape has to include tolerating what is in it.
+  return (children as unknown as NavigationMenuChildItem[][])
+    .flat()
+    .filter((child): child is NavigationMenuChildItem => child != null)
 }
 
 function getItemValue(item: NavigationMenuItem, index: number, level: number, listIndex: number) {
@@ -733,7 +751,7 @@ function onLinkTrailingClick(e: Event, item: NavigationMenuItem) {
         <AccordionRoot
           v-bind="({
             ...accordionProps,
-            defaultValue: getAccordionDefaultValue(item.children, level + 1, listIndex)
+            defaultValue: getAccordionDefaultValue(getChildren(item), level + 1, listIndex)
           } as AccordionRootProps)"
           as="ul"
           data-slot="childList"

@@ -82,6 +82,26 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   (#81). Restoring the composable here reads as a faithful port and reintroduces
   the leak; it bought no correctness, only unused reactivity. Guarded by the
   ResizeObserver-count case in `test/components/ChatMessages.spec.ts`.
+- **`ChatMessages.registerMessageRef` must delete on `null`.** Vue passes `null`
+  when the message unmounts; upstream only ever `set`s, so the detached element
+  stays in `messagesRefs` for the component's lifetime (#336). The only other
+  cleanup is the bulk `.clear()` that fires when `messages` empties entirely,
+  which is why resetting a thread looks fine and trimming one message does not.
+  Upstream still carries this, so the `else` branch reads as b24ui noise in a
+  diff — keep it. Guarded by the ref-drop case in
+  `test/components/ChatMessages.spec.ts`.
+- **`NavigationMenu` reads children through `getChildren()`, never
+  `item.children`.** Upstream iterates `item.children` at three template `v-for`
+  sites and hands it straight to `getAccordionDefaultValue`; b24ui routes all
+  four through `getChildren()`, which un-nests one accidental level of grouping
+  and drops the holes flattening leaves behind (#51). Everything around it is
+  byte-identical upstream — `lists` normalization, the `NavigationMenuChildItem[]`
+  type — so a faithful port of any commit touching those blocks reads as correct
+  and silently reverts the fix, and the failure shows nothing: the accordion
+  still mounts, just onto nothing. Port the intent, keep the call. Guarded by
+  `describe('grouped children (#51)')` in `test/components/NavigationMenu.spec.ts`;
+  its horizontal case needs `unmountOnHide: false` to reach the second site at
+  all.
 - **Workflow actions stay pinned to commit SHAs.** Upstream bumps them by tag;
   b24ui pins the commit. You do not have to remember this — `ci.yml` fails the
   build on any unpinned `uses:` and tells you how to resolve the tag.
@@ -175,3 +195,4 @@ History of the maps lives in git; no separate version field.
 - 2026-08-09 — hardening around #82 (PR #338): added the §5 rule **port both halves of a hunk that pairs a new guard with a simplified sink**. `0536b294` ported upstream `e751b374` into `CommandPalette.vue`, took its new `v-if`/`v-else` split, and left the paired `v-html="item.labelHtml || get(...)"` fallback in place — dead code, because guard and expression read the same scalar, which is why it survived two years and several reviews. Also added `labelHtml`/`suffixHtml`/`descriptionHtml` to `CommandPaletteItem` with `@warning` jsDoc: upstream leaves them to the `[key: string]: any` index signature, and this is a deliberate divergence, since they are the runtime's only `v-html` sinks and a caller that sets them bypasses the palette's escaping. Enforced by `test/utils/v-html-bindings.spec.ts`. Last reviewed: 2026-08-09.
 - 2026-08-08 — hardening of #315 (PR #331): added the §2 **workflow actions stay pinned to commit SHAs** invariant. Upstream bumps actions by tag and PR #297 replayed such a bump verbatim, rewriting `uses:` from `@v6` to `@v7`; b24ui pins commits because that runner holds the npm publishing OIDC token. `ci.yml` now fails on any unpinned `uses:`, so the rule is enforced rather than remembered. Last reviewed: 2026-08-08.
 - 2026-08-08 — fixes of #80/#81 (PR #335): added two §2 invariants — the **generated CSS template name** (`b24ui.css`, not upstream's `ui.css`) and **`ChatMessages` measuring with `getBoundingClientRect()`** rather than `useElementBounding()`. Both were found by the June 2026 audit rather than by a failing test, because both fail silently: a template filter that matches nothing still returns, and a leaked observer costs memory rather than correctness. Now guarded by `test/utils/templates.spec.ts` and a ResizeObserver-count case. The same PR also closed #79 and #83, which need no rule here — `Countdown` is a Bitrix24-only component with no upstream counterpart, and the vitest include patterns are b24ui test infrastructure. Last reviewed: 2026-08-08.
+- 2026-08-09 — fixes of #51/#336/#337/#340 (PR #341): added two §2 invariants — **`NavigationMenu` children via `getChildren()`** and **`ChatMessages.registerMessageRef` deleting on `null`**. Both are spots where upstream still carries the bug, so a faithful port silently reverts the fix, and neither failure is visible in the output that a reviewer would look at: the accordion mounts onto nothing, and a retained ref costs memory rather than correctness. The other two fixes in that PR need no rule — upstream already carries the `!!slots[...]` term on both `CommandPalette` branches, so #340 was b24ui drift and a port *restores* our behaviour; and `Countdown` (#337) is a Bitrix24-only component with no upstream counterpart. Last reviewed: 2026-08-09.

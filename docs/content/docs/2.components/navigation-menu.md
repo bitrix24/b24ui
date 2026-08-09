@@ -162,6 +162,8 @@ Use a flat `children` array of objects to define submenus:
 - `onSelect?(e: Event): void`
 - `class?: any`
 
+Grouping stops at the top level. Unlike `items`, `children` takes a **flat** array only — a nested one is flattened and rendered without a separator, and logs a warning in development.
+
 ::
 
 ### Orientation
