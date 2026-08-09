@@ -131,12 +131,16 @@ describe('skill package', () => {
       // Not a skill package: no `SKILL.md`, so it is skipped rather than
       // failing the run.
       await write('skills/notes/scratch.md', '# Scratch')
+      // Written last, sorts first: with these three in creation order the
+      // package sort is doing real work, where `alpha` before `zeta` alone
+      // would pass whether it sorted or not.
+      await write('skills/aardvark/SKILL.md', frontmatter('Third skill.'))
 
       const manifest = JSON.parse(await buildManifest(root))
 
-      expect(manifest.skills.map((skill: { name: string }) => skill.name)).toEqual(['alpha', 'zeta'])
-      expect(manifest.skills[0].description).toBe('First skill.')
-      expect(manifest.skills[0].files).toEqual([
+      expect(manifest.skills.map((skill: { name: string }) => skill.name)).toEqual(['aardvark', 'alpha', 'zeta'])
+      expect(manifest.skills[1].description).toBe('First skill.')
+      expect(manifest.skills[1].files).toEqual([
         'SKILL.md',
         'references/deep/nested/two.md',
         'references/guidelines/one.md'
@@ -149,12 +153,48 @@ describe('skill package', () => {
       // ordinary rather than exotic — and without unwrapping, the quote
       // characters themselves would ship inside the JSON string.
       await write('skills/zeta/SKILL.md', frontmatter(`'Build UIs: fast.'`))
-      expect(JSON.parse(await buildManifest(root)).skills[1].description).toBe('Build UIs: fast.')
+      expect(JSON.parse(await buildManifest(root)).skills[2].description).toBe('Build UIs: fast.')
 
       // The directory is the name; the frontmatter's copy is a second source for
       // one fact, so they are required to agree rather than left to drift.
       await write('skills/zeta/SKILL.md', '---\nname: something-else\ndescription: Second.\n---\n')
       await expect(buildManifest(root)).rejects.toThrow(/does not match its directory/)
+
+      // Double quotes take the same path as single ones; testing only one left
+      // half the branch unexercised.
+      await write('skills/zeta/SKILL.md', frontmatter('"Build UIs: fast."'))
+      expect(JSON.parse(await buildManifest(root)).skills[2].description).toBe('Build UIs: fast.')
+
+      // A YAML escape is refused rather than shipped undecoded — `''` is one
+      // apostrophe to a parser and two to a naive reader.
+      await write('skills/zeta/SKILL.md', frontmatter(`'It''s fast.'`))
+      await expect(buildManifest(root)).rejects.toThrow(/YAML escape/)
+
+      // A comment after a *quoted* value is legal and must not be mistaken for
+      // part of it.
+      await write('skills/zeta/SKILL.md', frontmatter(`'Fast.' # for Bitrix24`))
+      expect(JSON.parse(await buildManifest(root)).skills[2].description).toBe('Fast.')
+
+      // Whole value is a comment: YAML reads null, a naive reader reads the
+      // comment text as the description.
+      await write('skills/zeta/SKILL.md', frontmatter('# TODO write me'))
+      await expect(buildManifest(root)).rejects.toThrow(/only a comment/)
+
+      // Present but empty, distinct from absent.
+      await write('skills/zeta/SKILL.md', frontmatter(''))
+      await expect(buildManifest(root)).rejects.toThrow(/no `description`/)
+
+      // A block scalar carrying a chomping or indentation indicator — the bare
+      // `>` case alone would pass a guard that only compared literals.
+      await write('skills/zeta/SKILL.md', frontmatter('|-'))
+      await expect(buildManifest(root)).rejects.toThrow(/multi-line YAML scalar/)
+
+      // `name` gets every protection `description` does; it used to get none.
+      await write('skills/zeta/SKILL.md', '---\nname: zeta\nname: evil\ndescription: Second.\n---\n')
+      await expect(buildManifest(root)).rejects.toThrow(/declares `name` 2 times/)
+
+      await write('skills/zeta/SKILL.md', '---\nname: \'zeta\'\ndescription: Second.\n---\n')
+      expect(JSON.parse(await buildManifest(root)).skills[2].name).toBe('zeta')
 
       await write('skills/zeta/SKILL.md', frontmatter('Build UIs fast # and see also'))
       await expect(buildManifest(root)).rejects.toThrow(/trailing comment/)
@@ -169,7 +209,7 @@ describe('skill package', () => {
       await expect(buildManifest(root)).rejects.toThrow(/declares `description` 2 times/)
 
       await write('skills/zeta/SKILL.md', frontmatter('Bell \u0007 and escape \u001B[31m.'))
-      await expect(buildManifest(root)).rejects.toThrow(/control characters/)
+      await expect(buildManifest(root)).rejects.toThrow(/control or invisible characters/)
 
       await write('skills/zeta/SKILL.md', '---\nname: zeta\n---\n')
       await expect(buildManifest(root)).rejects.toThrow(/no `description`/)
@@ -179,14 +219,57 @@ describe('skill package', () => {
       // creates, no permissions needed — into `references/x/../../../escape.md`
       // in a file the installer reads as where-to-write instructions.
       await write('skills/zeta/SKILL.md', frontmatter('Second skill.'))
-      await write(String.raw`skills/zeta/x\..\..\..\escape.md`, 'payload')
-      await expect(buildManifest(root)).rejects.toThrow(/portable manifest path/)
-      await rm(join(root, String.raw`skills/zeta/x\..\..\..\escape.md`))
+      // POSIX-only: on Windows those backslashes are real separators, so the
+      // file lands outside `skills/` and no package contains it.
+      if (process.platform !== 'win32') {
+        await write(String.raw`skills/zeta/x\..\..\..\escape.md`, 'payload')
+        await expect(buildManifest(root)).rejects.toThrow(/is not portable/)
+        await rm(join(root, String.raw`skills/zeta/x\..\..\..\escape.md`))
+      }
+
+      // The package directory reaches the manifest as `name`, and for a while it
+      // was the one value that got no validation at all — a directory anyone can
+      // create with `mkdir 'x\..\..\evil'` put `..\` straight into the field an
+      // installer joins onto its destination path.
+      if (process.platform !== 'win32') {
+        await write(String.raw`skills/x\..\..\evil/SKILL.md`, frontmatter('Escaped.'))
+        await expect(buildManifest(root)).rejects.toThrow(/skill package name is not portable/)
+        await rm(join(root, String.raw`skills/x\..\..\evil`), { recursive: true })
+      }
+
+      // Two names that are one file once installed — case-insensitively on
+      // Windows and macOS, and NFC/NFD-conflated on macOS.
+      await write('skills/zeta/Notes.md', '# Notes')
+      await write('skills/zeta/notes.md', '# Notes')
+      await expect(buildManifest(root)).rejects.toThrow(/collide once installed/)
+      await rm(join(root, 'skills/zeta/Notes.md'))
+      await rm(join(root, 'skills/zeta/notes.md'))
 
       // Refused rather than skipped: a symlinked reference is on disk, looks
       // installed, and never arrives.
-      await symlink(join(root, 'skills/alpha/references/guidelines/one.md'), join(root, 'skills/zeta/linked.md'))
-      await expect(buildManifest(root)).rejects.toThrow(/must not contain symlinks/)
+      // `symlink` needs elevated rights on Windows without Developer Mode.
+      if (process.platform !== 'win32') {
+        await symlink(join(root, 'skills/alpha/references/guidelines/one.md'), join(root, 'skills/zeta/linked.md'))
+        await expect(buildManifest(root)).rejects.toThrow(/must not contain symlinks/)
+        await rm(join(root, 'skills/zeta/linked.md'))
+
+        // A symlinked *directory* reports neither `isFile()` nor `isDirectory()`,
+        // so a guard narrowed to files would drop it without a word.
+        await symlink(join(root, 'skills/alpha/references'), join(root, 'skills/zeta/linked'))
+        await expect(buildManifest(root)).rejects.toThrow(/must not contain symlinks/)
+        await rm(join(root, 'skills/zeta/linked'))
+      }
+
+      // Nothing under `skills/` is a package: an empty manifest would install
+      // nothing while looking successful.
+      const bare = await mkdtemp(join(tmpdir(), 'b24ui-skill-'))
+      try {
+        await mkdir(join(bare, 'skills/notes'), { recursive: true })
+        await writeFile(join(bare, 'skills/notes/scratch.md'), '# Scratch')
+        await expect(buildManifest(bare)).rejects.toThrow(/no skill package found/)
+      } finally {
+        await rm(bare, { recursive: true, force: true })
+      }
     } finally {
       await rm(root, { recursive: true, force: true })
     }
@@ -367,14 +450,25 @@ describe('skill package', () => {
       // page and fatal in the editor — `<И24Card>` sat in `design-system.md`
       // looking exactly like `<B24Card>`, and Greek capital Beta is the same
       // trap one alphabet over.
-      for (const [char] of body.matchAll(/[\p{Script=Cyrillic}\p{Script=Greek}]/gu)) {
-        confusable.push(`${doc}: U+${char.codePointAt(0)!.toString(16).toUpperCase()} ${char}`)
+      // Only *mixed-script* tokens, not any Cyrillic character. Bitrix24 is a
+      // Russian-market product and a reference file demonstrating a locale with
+      // real Russian sample text is legitimate content; `И24Card` is not,
+      // because the token mixes Cyrillic with ASCII. That mix is the homoglyph
+      // signature — pure Russian prose never trips it.
+      for (const [token] of body.matchAll(/[\p{L}\p{N}_$]+/gu)) {
+        const confusableChar = [...token].find(char => /[\p{Script=Cyrillic}\p{Script=Greek}]/u.test(char))
+        if (confusableChar && /[a-z0-9]/i.test(token)) {
+          confusable.push(`${doc}: ${token} contains U+${confusableChar.codePointAt(0)!.toString(16).toUpperCase()}`)
+        }
       }
 
       for (const [block] of body.matchAll(/```[a-z]*\n[\s\S]*?```/g)) {
         // `:icon="{AchievementIcon}"` passes an object where a component is
         // expected; it renders nothing and raises no error.
-        for (const [bind] of block.matchAll(/:[\w-]+="\{\s*[a-z_$][\w$]*\s*\}"/gi)) {
+        // Uppercase identifier only: `:class="{ active }"` and `:style="{ open }"`
+        // are the standard Vue object shorthand and completely correct, while
+        // the bug shape is always a capitalised component or icon name.
+        for (const [bind] of block.matchAll(/:[\w-]+="\{\s*[A-Z][\w$]*\s*\}"/g)) {
           objectBinds.push(`${doc}: ${bind}`)
         }
 
@@ -537,7 +631,13 @@ describe('skill package', () => {
     // all — which passes today only because the two happen to agree, and would
     // go on passing if someone repointed the href and left the label alone.
     // That is precisely the edit a mechanical check exists to catch.
-    const rows = [...index.matchAll(/^\| `B24([A-Za-z0-9]+)` \|[^|]*\| \[([^\]]+)\]\(([^)]+)\)/gm)]
+    // `(?:[^|\n]|\\\\\\|)*` for the purpose column: a bare `[^|]*` cannot cross a
+    // markdown-escaped pipe (legal in a table cell, and this file documents
+    // props whose values are `px` \\| `rem`), and it matches newlines, so a
+    // malformed row could span two lines. Either way the row would drop out of
+    // `rows` rather than fail — which the count below now catches, but a regex
+    // that cannot match legal content would fail for the wrong reason.
+    const rows = [...index.matchAll(/^\| `B24([A-Za-z0-9]+)` \|(?:[^|\n]|\\\|)*\| \[([^\]]+)\]\(([^)\n]+)\)/gm)]
 
     // Counted independently of the pattern, not against a loose floor: a row
     // that loses its Docs column stops matching and simply vanishes from
@@ -549,8 +649,14 @@ describe('skill package', () => {
     expect(rows).toHaveLength(rowLines.length)
     expect(rows.length).toBeGreaterThan(100)
 
+    // The whole URL, not just its last segment. Checking the suffix alone lets
+    // a row keep its filename while losing `raw/` — which serves rendered HTML
+    // instead of the markdown an agent asked for — or point at another host
+    // entirely.
+    const DOCS = 'https://bitrix24.github.io/b24ui/raw/docs/components'
+
     const wrong = rows
-      .filter(([, name, label, href]) => titles.get(label!) !== name || !href!.endsWith(`/${label}`))
+      .filter(([, name, label, href]) => titles.get(label!) !== name || href !== `${DOCS}/${label}`)
       .map(([, name, label, href]) => `B24${name} -> ${label} (${titles.get(label!) ?? 'no such page'}) at ${href}`)
 
     expect(wrong).toEqual([])
@@ -585,7 +691,11 @@ describe('skill package', () => {
     //
     // If an asset is ever genuinely needed, this is the line that says so out
     // loud, and the manifest has to grow a way to carry it.
-    const other = await glob('**/*', { cwd: skillDir, dot: true, ignore: ['**/*.md', '**/node_modules/**'] })
+    const packages = await listPackages()
+    const other = (await Promise.all(packages.map(name =>
+      glob('**/*', { cwd: join(skillsDir, name), dot: true, ignore: ['**/*.md', '**/node_modules/**'] })
+        .then(found => found.map(file => `${name}/${file}`))
+    ))).flat()
 
     expect(other).toEqual([])
   })

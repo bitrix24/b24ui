@@ -16,7 +16,15 @@ const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..')
 const manifestPath = join(repoRoot, 'skills', 'index.json')
 
 const generated = await buildManifest(repoRoot)
-const current = await readFile(manifestPath, 'utf8').catch(() => null)
+// Only "not written yet" counts as absent. A blanket catch would report an
+// unreadable file as out of date and then blindly overwrite it — the same
+// hazard the library narrows its own catch for.
+const current = await readFile(manifestPath, 'utf8').catch((error) => {
+  if (error.code !== 'ENOENT') {
+    throw error
+  }
+  return null
+})
 
 if (process.argv.includes('--check')) {
   if (current !== generated) {

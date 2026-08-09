@@ -12,6 +12,7 @@ Bitrix24 UI uses semantic colors. Never use raw Tailwind palette colors in compo
 | air-primary-alert | Critical errors, destructive actions, and high-priority alerts |
 | air-primary-copilot | Dedicated accents for AI features and assistant interactions |
 | air-primary-warning | Cautions, status delays, and items requiring attention |
+| air-primary-no-accent | High-emphasis surface with no colour signal |
 | **Secondary** | **Medium-emphasis and functional support** |
 | air-secondary | Secondary actions, alternative buttons, and UI backgrounds |
 | air-secondary-alert | Subtle error states or non-critical destructive feedback |
