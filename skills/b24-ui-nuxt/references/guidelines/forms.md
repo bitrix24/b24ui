@@ -71,7 +71,7 @@ function onSubmit(event: FormSubmitEvent<Schema>) {
 </B24Form>
 ```
 
-### Inline fields with UFieldGroup
+### Inline fields with B24FieldGroup
 
 ```vue
 <B24FieldGroup>

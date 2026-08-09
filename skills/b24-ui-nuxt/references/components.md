@@ -61,7 +61,7 @@ Quick-reference index of 125+ components. For detailed API specifications (props
 | `B24CheckboxGroup` | Multiple checkboxes | [checkbox-group.md](https://bitrix24.github.io/b24ui/raw/docs/components/checkbox-group.md) |
 | `B24RadioGroup` | Radio button group | [radio-group.md](https://bitrix24.github.io/b24ui/raw/docs/components/radio-group.md) |
 | `B24Switch` | Toggle switch | [switch.md](https://bitrix24.github.io/b24ui/raw/docs/components/switch.md) |
-| `B24Slider` | Range slider | [range.md](https://bitrix24.github.io/b24ui/raw/docs/components/range.md) |
+| `B24Range` | Range slider | [range.md](https://bitrix24.github.io/b24ui/raw/docs/components/range.md) |
 | `B24ColorPicker` | Color picker (hex/rgb/hsl) | [color-picker.md](https://bitrix24.github.io/b24ui/raw/docs/components/color-picker.md) |
 | `B24FileUpload` | File upload (button or drop area) | [file-upload.md](https://bitrix24.github.io/b24ui/raw/docs/components/file-upload.md) |
 | `B24Form` | Validation wrapper with Standard Schema | [form.md](https://bitrix24.github.io/b24ui/raw/docs/components/form.md) |

@@ -52,7 +52,7 @@ Always wrap your app in `B24App` — it provides:
 
 ## Icons
 
-Bitrix24 UI uses [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/). See [icons guideline](icons.md) for find icons.
+Bitrix24 UI uses [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/). See the [icons guideline](icons.md) for finding the right icon.
 
 ```vue
 <script setup>
@@ -99,7 +99,6 @@ const items = [
 **Nested array** — groups with automatic separators between them:
 
 ```ts
-import PersonIcon from '@bitrix24/b24icons-vue/main/PersonIcon'
 import PersonIcon from '@bitrix24/b24icons-vue/main/PersonIcon'
 import TrashcanIcon from '@bitrix24/b24icons-vue/outline/TrashcanIcon'
 
@@ -150,7 +149,7 @@ const { isBitrixMobile, screen } = useDevice()
 
 <template>
   <div>
-    <p v-if="isBitrixMobile">ou are using the Bitrix24 mobile app on a small screen.</p>
+    <p v-if="isBitrixMobile">You are using the Bitrix24 mobile app on a small screen.</p>
     <p v-else-if="screen.isMobile">Regular web browser on a small screen.</p>
     <p v-else-if="!isBitrixMobile && (!screen.isMobile)">Regular web browser on a desktop.</p>
     <p v-else>Other combination.</p>
