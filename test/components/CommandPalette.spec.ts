@@ -161,6 +161,77 @@ describe('CommandPalette', () => {
     ['with footer slot', { props, slots: { footer: () => 'Footer slot' } }]
   ])
 
+  describe('item markup is never rendered as HTML', () => {
+    // Three `v-html` bindings render an item's label, suffix and description,
+    // and each is guarded by a `v-if` on the same `*Html` value. Two of them
+    // used to carry a fallback — `v-html="item.labelHtml || get(item, labelKey)"`
+    // — that would have put the raw field straight into `v-html`. It was dead
+    // code, because a `v-if` and a `v-html` reading the same scalar can never
+    // disagree, so removing it changes no rendered output and **no test here
+    // fails against the old source**. What these cases pin down is the property
+    // itself, in the two configurations a reader actually cares about:
+    //
+    //  - with no `*Html` set — the default, since the component does not enable
+    //    Fuse's `includeMatches`, so `highlight()` returns undefined — the field
+    //    goes through the `v-else` branch and Vue's `{{ }}` escaping. These also
+    //    turn red if someone widens a `v-if` to admit the raw field, which is
+    //    the realistic way the removed fallback would have come back to life.
+    //  - with `*Html` set, exercising the `v-html` sink for real.
+    //
+    // Worth stating plainly, because the sink is not unconditionally guarded:
+    // `processGroupItems` does `item.labelHtml ?? highlight(...)`, so a caller
+    // that sets `labelHtml` itself skips `highlight()` entirely and owns the
+    // escaping. `useContentSearch` is the in-house example, and it routes
+    // everything through `sanitizeSnippet()`.
+    const PAYLOAD = '<img src=x onerror="alert(1)">'
+
+    it('escapes a raw label rather than parsing it', async () => {
+      const wrapper = await mountSuspended(CommandPalette, {
+        props: { groups: [{ id: 'g', items: [{ label: PAYLOAD }] }] } as any
+      })
+
+      expect(wrapper.find('img').exists()).toBe(false)
+      expect(wrapper.html()).toContain('&lt;img')
+    })
+
+    it('escapes a raw suffix rather than parsing it', async () => {
+      const wrapper = await mountSuspended(CommandPalette, {
+        props: { groups: [{ id: 'g', items: [{ label: 'safe', suffix: PAYLOAD }] }] } as any
+      })
+
+      expect(wrapper.find('img').exists()).toBe(false)
+      expect(wrapper.html()).toContain('&lt;img')
+    })
+
+    it('escapes a raw description rather than parsing it', async () => {
+      const wrapper = await mountSuspended(CommandPalette, {
+        props: { groups: [{ id: 'g', items: [{ label: 'safe', description: PAYLOAD }] }] } as any
+      })
+
+      expect(wrapper.find('img').exists()).toBe(false)
+      expect(wrapper.html()).toContain('&lt;img')
+    })
+
+    // Shaped like `highlight()`/`sanitizeSnippet()` output rather than produced
+    // by calling them — everything escaped, `<mark>` around the match. `<mark>`
+    // must survive as markup, since rendering it is the entire reason these
+    // bindings use `v-html`, while the payload next to it stays inert.
+    const HIGHLIGHTED = '<mark>hit</mark>&lt;img src=x&gt;'
+
+    it.each([
+      ['labelHtml', { label: 'ignored', labelHtml: HIGHLIGHTED }],
+      ['suffixHtml', { label: 'safe', suffixHtml: HIGHLIGHTED }],
+      ['descriptionHtml', { label: 'safe', descriptionHtml: HIGHLIGHTED }]
+    ])('keeps only `<mark>` live in %s', async (_field, item) => {
+      const wrapper = await mountSuspended(CommandPalette, {
+        props: { groups: [{ id: 'g', items: [item] }] } as any
+      })
+
+      expect(wrapper.find('mark').exists()).toBe(true)
+      expect(wrapper.find('img').exists()).toBe(false)
+    })
+  })
+
   it('hides the input icon when icon is false', async () => {
     // Use icon-less items so the only `data-slot="icon"` is the input's leading
     // icon (b24-icons render their own `data-slot="icon"`, so item icons would

@@ -103,11 +103,18 @@ Each group contains an `items` array of objects that define the commands. Each i
 - [`slot?: string`{lang="ts-type"}](#with-custom-slot)
 - `placeholder?: string`{lang="ts-type"}
 - `children?: CommandPaletteItem[]`{lang="ts-type"}
+- `labelHtml?: string`{lang="ts-type"}
+- `suffixHtml?: string`{lang="ts-type"}
+- `descriptionHtml?: string`{lang="ts-type"}
 - `onSelect?: (e: Event) => void`{lang="ts-type"}
 - `class?: any`{lang="ts-type"}
 - `b24ui?: { item?: ClassNameValue, itemLeadingIcon?: ClassNameValue, itemLeadingAvatarSize?: ClassNameValue, itemLeadingAvatar?: ClassNameValue, itemLeadingChipSize?: ClassNameValue, itemLeadingChip?: ClassNameValue, itemLabel?: ClassNameValue, itemLabelPrefix?: ClassNameValue, itemLabelBase?: ClassNameValue, itemLabelSuffix?: ClassNameValue, itemTrailing?: ClassNameValue, itemTrailingKbds?: ClassNameValue, itemTrailingKbdsSize?: ClassNameValue, itemTrailingHighlightedIcon?: ClassNameValue, itemTrailingIcon?: ClassNameValue }`{lang="ts-type"}
 
 You can pass any property from the [Link](/docs/components/link/#props) component such as `to`, `target`, etc.
+
+::caution
+`labelHtml`, `suffixHtml` and `descriptionHtml` are inserted with `v-html`. The palette normally computes them for you from the search match — everything escaped, `<mark>` around the matched run — but a value you set yourself skips that entirely and is rendered as raw HTML. Sanitize anything that comes from a CMS, an API or your users before putting it there.
+::
 
 ::component-code
 ---
