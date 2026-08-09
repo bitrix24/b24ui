@@ -649,7 +649,7 @@ function onSelect(e: Event, item: T) {
                 v-html="item.descriptionHtml"
               />
               <span
-                v-else-if="get(item, props.descriptionKey as string)"
+                v-else-if="get(item, props.descriptionKey as string) || !!slots[(item.slot ? `${item.slot}-description` : group?.slot ? `${group.slot}-description` : `item-description`) as keyof CommandPaletteSlots<T>]"
                 data-slot="itemDescription"
                 :class="b24ui.itemDescription({ class: [props.b24ui?.itemDescription, item.b24ui?.itemDescription] })"
               >

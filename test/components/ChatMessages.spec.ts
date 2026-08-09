@@ -48,6 +48,30 @@ describe('ChatMessages', () => {
     expect(await axe(wrapper.element)).toHaveNoViolations()
   })
 
+  it('drops a message ref when that message is removed', async () => {
+    // Vue calls the ref callback with `null` on unmount, and that branch used
+    // to do nothing — so a removed message left its detached element in the map
+    // for the component's lifetime. The only other cleanup is a bulk `.clear()`
+    // that fires when `messages` empties entirely, which is why resetting a
+    // thread looked fine and trimming one message did not.
+    // The shared `props` fixture reuses one id across both messages, which a
+    // Map cannot tell apart — distinct ids are the whole point here.
+    const messages = [
+      { id: 'first', role: 'user' as const, parts: [{ type: 'text' as const, text: 'one' }] },
+      { id: 'second', role: 'assistant' as const, parts: [{ type: 'text' as const, text: 'two' }] }
+    ]
+
+    const wrapper = await mountSuspended(ChatMessages, { props: { messages } })
+    const refs = () => (wrapper.vm as any).$.setupState.messagesRefs as Map<string, HTMLElement>
+
+    expect([...refs().keys()].sort()).toEqual(['first', 'second'])
+
+    await wrapper.setProps({ messages: [messages[0]!] })
+    await nextTick()
+
+    expect([...refs().keys()]).toEqual(['first'])
+  })
+
   describe('last message height', () => {
     afterEach(() => {
       vi.unstubAllGlobals()

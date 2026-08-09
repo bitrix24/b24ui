@@ -1,4 +1,4 @@
-import { describe, it, expect, test } from 'vitest'
+import { describe, it, expect, test, vi } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { renderEach } from '../component-render'
@@ -127,6 +127,64 @@ describe('NavigationMenu', () => {
     })
 
     expect(await axe(wrapper.element)).toHaveNoViolations()
+  })
+
+  describe('grouped children (#51)', () => {
+    // `items` accepts a flat array or an array of arrays, so reaching for the
+    // same shape on `children` is the natural guess — and it used to fail in
+    // total silence: every child `v-for` handed an array to a template
+    // expecting an object, so the vertical accordion opened onto nothing. The
+    // links are what the author wanted; render them, and warn that the
+    // grouping itself is dropped.
+    const links = [{ label: 'Link A', to: '/a' }, { label: 'Link B', to: '/b' }]
+
+    const mountVertical = (children: any) => mountSuspended(NavigationMenu, {
+      props: {
+        orientation: 'vertical',
+        items: [{ label: 'Docs', defaultOpen: true, children }]
+      } as any
+    })
+
+    it('renders the same children flat or grouped', async () => {
+      const flat = await mountVertical(links)
+      const grouped = await mountVertical([links])
+
+      for (const wrapper of [flat, grouped]) {
+        expect(wrapper.html()).toContain('Link A')
+        expect(wrapper.html()).toContain('Link B')
+      }
+    })
+
+    it('warns that the grouping was dropped, once per item', async () => {
+      const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+      try {
+        await mountVertical([links])
+
+        // Only asserted where `import.meta.dev` is actually true — in the plain
+        // Vue project it is undefined, and a warning nobody sees is not worth
+        // failing the build over.
+        if (import.meta.dev) {
+          const messages = warn.mock.calls.map(([first]) => String(first)).filter(m => m.includes('B24NavigationMenu'))
+          expect(messages).toHaveLength(1)
+          expect(messages[0]).toContain('Docs')
+        }
+      } finally {
+        warn.mockRestore()
+      }
+    })
+
+    it('leaves a flat children array alone', async () => {
+      const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+      try {
+        await mountVertical(links)
+
+        expect(warn.mock.calls.map(([first]) => String(first)).filter(m => m.includes('B24NavigationMenu'))).toEqual([])
+      } finally {
+        warn.mockRestore()
+      }
+    })
   })
 
   test('should have the correct types', () => {

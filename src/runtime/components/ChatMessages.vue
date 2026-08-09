@@ -148,6 +148,13 @@ function registerMessageRef(id: string, element: ComponentPublicInstance | null)
   const elInstance = element?.$el
   if (elInstance) {
     messagesRefs.value.set(id, elInstance)
+  } else {
+    // Vue passes `null` on unmount. Ignoring that case kept the detached
+    // element in the map forever: the only other cleanup is a bulk `.clear()`
+    // that runs when `props.messages` empties entirely, so an app that removes
+    // messages one at a time — deleting one, trimming history, paginating —
+    // retained every one of them for the component's lifetime.
+    messagesRefs.value.delete(id)
   }
 }
 

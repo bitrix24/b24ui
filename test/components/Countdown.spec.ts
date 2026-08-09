@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
+import { defineComponent, h, ref, nextTick, KeepAlive } from 'vue'
 import Countdown from '../../src/runtime/components/Countdown.vue'
 import { renderEach } from '../component-render'
 import theme from '#build/b24ui/countdown'
@@ -162,6 +163,37 @@ describe('Countdown', () => {
       const removed = removeSpy.mock.calls.filter(([type]) => type === 'visibilitychange')
       expect(removed).toHaveLength(1)
       expect(removed[0]![1]).toBe(registered[0]![1])
+    })
+
+    // `<KeepAlive>` deactivation does not run `onBeforeUnmount`, so a cached
+    // countdown used to keep its `requestAnimationFrame` chain running —
+    // emitting `progress`/`end` for something nobody can see, one chain per
+    // cached instance.
+    it('stops and resumes its frame loop across `<KeepAlive>` toggles', async () => {
+      const cancel = vi.spyOn(window, 'cancelAnimationFrame').mockImplementation(() => {})
+      const request = vi.spyOn(window, 'requestAnimationFrame').mockImplementation(() => 1)
+
+      const shown = ref(true)
+      const Parent = defineComponent({
+        setup() {
+          return () => h(KeepAlive, null, {
+            default: () => (shown.value ? h(Countdown, { seconds: 10 }) : null)
+          })
+        }
+      })
+
+      await mountSuspended(Parent)
+      cancel.mockClear()
+      request.mockClear()
+
+      shown.value = false
+      await nextTick()
+      expect(cancel).toHaveBeenCalled()
+
+      request.mockClear()
+      shown.value = true
+      await nextTick()
+      expect(request).toHaveBeenCalled()
     })
   })
 
