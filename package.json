@@ -134,6 +134,8 @@
     "docs:full:generate": "pnpm build && pnpm docs:generate",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "skill:sync": "node scripts/sync-skill-manifest.mjs",
+    "skill:check": "node scripts/sync-skill-manifest.mjs --check",
     "typecheck": "vue-tsc --noEmit && nuxt typecheck playgrounds/nuxt && nuxt typecheck playgrounds/demo && nuxt typecheck docs && cd playgrounds/vue && vue-tsc --noEmit",
     "test": "vitest",
     "test:vue": "vitest --project vue",

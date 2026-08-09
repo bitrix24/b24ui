@@ -40,6 +40,7 @@ pnpm run lint         # Check linting
 pnpm run lint:fix     # Fix linting
 pnpm run typecheck    # Type checking
 pnpm run test         # Run tests
+pnpm run skill:sync   # Regenerate skills/index.json from the skill tree
 ```
 
 ## CLI for Scaffolding
@@ -68,7 +69,7 @@ Options:
 - **Releases are automated**: merging work into `main` publishes nothing; release-please keeps one release PR open and merging *that* tags, releases and publishes to npm. Version arithmetic (`feat` -> minor, `fix` -> patch), the release cadence commitment and the `severity:crash` hotfix policy live in [releasing.md](.github/contributing/releasing.md). Filed here rather than in the References table below, which is scoped to `src/` and `test/` work.
 - **Semantic colors**: Use `text-description`, `bg-elevated`, etc. — never raw Tailwind palette colors like `text-gray-500`.
 - **`Soon` badge on docs headings**: PRs that introduce a new feature or fix often add `:badge{label="Soon" class="align-text-top"}` to the relevant docs heading. This is intentional: the docs site redeploys on merge, but the feature only ships on the next npm release — the badge bridges that gap. Do NOT flag this as inconsistent in reviews. See [documentation.md](.github/contributing/documentation.md) for details.
-- **Skill files live in `skills/`**: Whenever a request mentions editing, adding, or refining a skill (`SKILL.md`, references, recipes, guidelines, layouts), modify the tracked tree under `skills/<skill-name>/` — NOT under `.claude/skills/` (which is gitignored and local-only). The exception is when the user explicitly names the `.claude/skills/` path. If both copies exist, treat `skills/` as the source of truth and ignore `.claude/skills/`.
+- **Skill files live in `skills/`**: Whenever a request mentions editing, adding, or refining a skill (`SKILL.md`, references, recipes, guidelines, layouts), modify the tracked tree under `skills/<skill-name>/` — NOT under `.claude/skills/` (which is gitignored and local-only). The exception is when the user explicitly names the `.claude/skills/` path. If both copies exist, treat `skills/` as the source of truth and ignore `.claude/skills/`. **`skills/index.json` is generated** — after adding, removing or renaming a file there, run `pnpm run skill:sync` rather than editing it by hand; `test/utils/skill-manifest.spec.ts` fails if the committed file is stale, because `npx skills add` installs exactly what it lists and an unlisted file is silently never delivered.
 
 ## Library Source (`src/` and `test/`)
 

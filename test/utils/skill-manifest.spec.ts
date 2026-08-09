@@ -3,6 +3,7 @@ import { existsSync, statSync } from 'node:fs'
 import { dirname, isAbsolute, join, relative, resolve } from 'node:path'
 import { describe, it, expect, beforeAll } from 'vitest'
 import { glob } from 'tinyglobby'
+import { buildManifest } from '../../scripts/lib/skill-manifest.mjs'
 
 /**
  * `skills/` is shipped to AI agents as ground truth — `npx skills add
@@ -73,14 +74,27 @@ describe('skill package', () => {
     expect(await listDocs()).toContain('SKILL.md')
   })
 
+  it('has `index.json` committed exactly as the generator writes it', async () => {
+    // Replaces the two checks that used to assert the hand-kept manifest
+    // against its own sources — file list and description. Asserting a copy is
+    // weaker than not keeping one: this fails for the same reasons and also
+    // names the fix, because `pnpm run skill:sync` produces the correct file.
+    //
+    // Compared through the generator itself rather than a reimplementation
+    // here, so the two cannot agree with each other while both are wrong.
+    expect(await readFile(join(skillsDir, 'index.json'), 'utf8')).toBe(await buildManifest(repoRoot))
+  })
+
   it('lists exactly the files on disk in `index.json`', async () => {
     const manifest = await readManifest()
     const listed = manifest.skills.flatMap(skill => skill.files).sort()
     const onDisk = (await listDocs()).sort()
 
-    // Both directions matter and they fail differently: a file on disk but not
-    // in the manifest is never installed (an agent silently loses a reference),
-    // while a file in the manifest but not on disk breaks the install itself.
+    // Kept alongside the generator check because it fails *legibly*: a diff of
+    // two path lists says which reference an agent would lose, where a diff of
+    // two JSON blobs says a file is stale. Both directions matter and they
+    // fail differently — on disk but unlisted is never installed, listed but
+    // missing breaks the install itself.
     expect(listed).toEqual(onDisk)
   })
 
@@ -370,6 +384,46 @@ describe('skill package', () => {
     }
 
     expect(missing.sort()).toEqual([])
+  })
+
+  it('points every index row at the documentation for that component', async () => {
+    // The row is three columns: the name and the purpose are editorial, the
+    // link is not — it is a mechanical function of the component, and #344
+    // asked whether the whole table should therefore be generated. It should
+    // not: the sections deliberately group by task rather than by the docs'
+    // `category` (six of twelve sections mix categories on purpose), and the
+    // hand-written purpose beats the docs description for an agent — "Data
+    // table (TanStack Table) with sorting, selection, pinning" against "A
+    // responsive data table component." So the mechanical column gets a check
+    // instead, and the editorial ones keep their author.
+    //
+    // Matched through the page's frontmatter `title` rather than by
+    // kebab-casing the name, so a wrong link and a wrong name both fail here
+    // — and so this depends on the frontmatter being right. `page.md` turned
+    // out to have `description:` twice and no `title:` at all, which is how
+    // that was found.
+    const pagesDir = join(repoRoot, 'docs/content/docs/2.components')
+    const titles = new Map<string, string>()
+
+    for (const page of await glob('*.md', { cwd: pagesDir })) {
+      const front = (await readFile(join(pagesDir, page), 'utf8')).match(/^---\n([\s\S]*?)\n---/)?.[1] ?? ''
+      const title = front.match(/^title:(.*)$/m)?.[1]?.trim().replace(/^['"]|['"]$/g, '')
+      if (title) {
+        titles.set(page, title)
+      }
+    }
+
+    expect(titles.get('page.md')).toBe('Page')
+
+    const index = await readFile(join(skillDir, 'references/components.md'), 'utf8')
+    const rows = [...index.matchAll(/^\| `B24([A-Za-z0-9]+)` \|[^|]*\| \[([^\]]+)\]/gm)]
+    expect(rows.length).toBeGreaterThan(100)
+
+    const wrong = rows
+      .filter(([, name, link]) => titles.get(link!) !== name)
+      .map(([, name, link]) => `B24${name} -> ${link} (${titles.get(link!) ?? 'no such page'})`)
+
+    expect(wrong).toEqual([])
   })
 
   it('keeps the manifest description in step with the skill frontmatter', async () => {
