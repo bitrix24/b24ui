@@ -213,7 +213,7 @@ function onSave() {
 
     <template #footer="{ close }">
       <B24Button type="submit" form="user-form" label="Save" size="lg" color="air-primary" />
-      <B24Button label="Cancel" color="air-tertiary" @click="close" size="sm" color="air-tertiary" :normal-case="false" />
+      <B24Button label="Cancel" color="air-tertiary" size="sm" :normal-case="false" @click="close" />
     </template>
   </B24Slideover>
 </template>

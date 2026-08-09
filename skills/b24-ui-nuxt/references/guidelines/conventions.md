@@ -183,7 +183,11 @@ defineShortcuts({
   escape: () => close(),
   meta_enter: {
     handler: () => submit(),
-    whenever: [isFormValid]
+    // `usingInput` is the only per-shortcut option: `true` allows the
+    // shortcut while any input is focused, a string limits it to the input
+    // with that `name`. There is no conditional gate — to disable a shortcut,
+    // make the whole config reactive and drop the key.
+    usingInput: true
   }
 })
 ```
@@ -205,7 +209,7 @@ defineShortcuts(extractShortcuts(items))
 
 ### Internationalization (i18n)
 
-Bitrix24 UI supports 50+ locales. Set the locale on `B24App` — all components inherit it.
+Bitrix24 UI ships 20 locales. Set the locale on `B24App` — all components inherit it.
 
 #### Static locale
 

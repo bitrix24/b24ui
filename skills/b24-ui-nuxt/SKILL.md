@@ -48,6 +48,8 @@ Based on the task, load the relevant reference files **before writing any code**
 **Quick reference:**
 - [components](references/components.md) — categorized component index for finding the right component name
 
+> Adding, removing or renaming a file here? Run `pnpm run skill:sync` — `skills/index.json` is generated, and an unlisted file is never installed.
+
 ### Routing table
 
 | Task | Load these references |

@@ -1,5 +1,6 @@
-import { readFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, readFile, rm, symlink, writeFile } from 'node:fs/promises'
 import { existsSync, statSync } from 'node:fs'
+import { tmpdir } from 'node:os'
 import { dirname, isAbsolute, join, relative, resolve } from 'node:path'
 import { describe, it, expect, beforeAll } from 'vitest'
 import { glob } from 'tinyglobby'
@@ -24,7 +25,25 @@ const repoRoot = process.cwd()
 const skillsDir = join(repoRoot, 'skills')
 const skillDir = join(skillsDir, 'b24-ui-nuxt')
 
-const listDocs = () => glob('**/*.md', { cwd: skillDir, ignore: ['**/node_modules/**'] })
+// `dot: true` on every glob here: picomatch hides dotfiles by default, so
+// without it a `.DS_Store` — the example the markdown-only check names as its
+// reason for existing — and a `.draft.md` are both invisible to every check in
+// this file.
+const GLOB = { dot: true, ignore: ['**/node_modules/**'] }
+
+const listDocs = () => glob('**/*.md', { cwd: skillDir, ...GLOB })
+
+/**
+ * Every skill package on disk, the way the generator discovers them.
+ *
+ * The generator is multi-package; most checks below scope themselves to
+ * `skillDir` because the editorial ones need a package to talk about. These
+ * two must not, though — comparing every package's manifest entry against one
+ * package's files, or calling another package's files stray, would fail the
+ * build spuriously the day a second skill lands.
+ */
+const listPackages = async () =>
+  (await glob('*/SKILL.md', { cwd: skillsDir, ...GLOB })).map(path => path.split('/')[0]!).sort()
 
 const componentsDir = join(repoRoot, 'src/runtime/components')
 
@@ -75,20 +94,111 @@ describe('skill package', () => {
   })
 
   it('has `index.json` committed exactly as the generator writes it', async () => {
-    // Replaces the two checks that used to assert the hand-kept manifest
-    // against its own sources — file list and description. Asserting a copy is
-    // weaker than not keeping one: this fails for the same reasons and also
-    // names the fix, because `pnpm run skill:sync` produces the correct file.
+    // The load-bearing check now that the manifest is generated, and the one
+    // that names its own fix: `pnpm run skill:sync` produces the correct file.
+    // The file-list check below it is kept for legibility — it says *which*
+    // reference an agent would lose, where this one says the file is stale.
     //
     // Compared through the generator itself rather than a reimplementation
     // here, so the two cannot agree with each other while both are wrong.
     expect(await readFile(join(skillsDir, 'index.json'), 'utf8')).toBe(await buildManifest(repoRoot))
   })
 
+  it('discovers packages and refuses the shapes it cannot represent', async () => {
+    // The repository has exactly one skill package, so every other check
+    // exercises one code path and leaves discovery, the multi-package case and
+    // both error branches unrun — they would first execute on the day someone
+    // adds a second skill, which is the worst possible time to find out.
+    //
+    // Built in the OS temp directory: this suite must never write inside the
+    // repository, and a fixture that did would be indistinguishable from the
+    // import-time write that made an earlier draft of the generator repair the
+    // very manifest it was checking.
+    const root = await mkdtemp(join(tmpdir(), 'b24ui-skill-'))
+
+    try {
+      const write = async (path: string, body: string) => {
+        await mkdir(dirname(join(root, path)), { recursive: true })
+        await writeFile(join(root, path), body)
+      }
+
+      const frontmatter = (description: string) => `---\ndescription: ${description}\n---\n`
+
+      await write('skills/alpha/SKILL.md', frontmatter('First skill.'))
+      await write('skills/alpha/references/guidelines/one.md', '# One')
+      await write('skills/alpha/references/deep/nested/two.md', '# Two')
+      await write('skills/zeta/SKILL.md', frontmatter('Second skill.'))
+      // Not a skill package: no `SKILL.md`, so it is skipped rather than
+      // failing the run.
+      await write('skills/notes/scratch.md', '# Scratch')
+
+      const manifest = JSON.parse(await buildManifest(root))
+
+      expect(manifest.skills.map((skill: { name: string }) => skill.name)).toEqual(['alpha', 'zeta'])
+      expect(manifest.skills[0].description).toBe('First skill.')
+      expect(manifest.skills[0].files).toEqual([
+        'SKILL.md',
+        'references/deep/nested/two.md',
+        'references/guidelines/one.md'
+      ])
+      // Nested paths are `/`-joined whatever the platform separator is, since
+      // the manifest is read wherever the skill is installed.
+      expect(await buildManifest(root)).not.toContain('\\')
+
+      // A description containing `: ` has to be quoted in YAML, so quoting is
+      // ordinary rather than exotic — and without unwrapping, the quote
+      // characters themselves would ship inside the JSON string.
+      await write('skills/zeta/SKILL.md', frontmatter(`'Build UIs: fast.'`))
+      expect(JSON.parse(await buildManifest(root)).skills[1].description).toBe('Build UIs: fast.')
+
+      // The directory is the name; the frontmatter's copy is a second source for
+      // one fact, so they are required to agree rather than left to drift.
+      await write('skills/zeta/SKILL.md', '---\nname: something-else\ndescription: Second.\n---\n')
+      await expect(buildManifest(root)).rejects.toThrow(/does not match its directory/)
+
+      await write('skills/zeta/SKILL.md', frontmatter('Build UIs fast # and see also'))
+      await expect(buildManifest(root)).rejects.toThrow(/trailing comment/)
+
+      await write('skills/zeta/SKILL.md', frontmatter('>'))
+      await expect(buildManifest(root)).rejects.toThrow(/multi-line YAML scalar/)
+
+      // YAML resolves a repeated key to the *last* value and this scraper to
+      // the first, so the manifest would carry a description the file does not
+      // actually declare. Exactly the shape of the `page.md` bug.
+      await write('skills/zeta/SKILL.md', '---\ndescription: First.\ndescription: Second.\n---\n')
+      await expect(buildManifest(root)).rejects.toThrow(/declares `description` 2 times/)
+
+      await write('skills/zeta/SKILL.md', frontmatter('Bell \u0007 and escape \u001B[31m.'))
+      await expect(buildManifest(root)).rejects.toThrow(/control characters/)
+
+      await write('skills/zeta/SKILL.md', '---\nname: zeta\n---\n')
+      await expect(buildManifest(root)).rejects.toThrow(/no `description`/)
+
+      // A backslash is ordinary filename data on POSIX. Normalising separators
+      // by splitting on it turned `x\..\..\..\escape.md` — which `touch`
+      // creates, no permissions needed — into `references/x/../../../escape.md`
+      // in a file the installer reads as where-to-write instructions.
+      await write('skills/zeta/SKILL.md', frontmatter('Second skill.'))
+      await write(String.raw`skills/zeta/x\..\..\..\escape.md`, 'payload')
+      await expect(buildManifest(root)).rejects.toThrow(/portable manifest path/)
+      await rm(join(root, String.raw`skills/zeta/x\..\..\..\escape.md`))
+
+      // Refused rather than skipped: a symlinked reference is on disk, looks
+      // installed, and never arrives.
+      await symlink(join(root, 'skills/alpha/references/guidelines/one.md'), join(root, 'skills/zeta/linked.md'))
+      await expect(buildManifest(root)).rejects.toThrow(/must not contain symlinks/)
+    } finally {
+      await rm(root, { recursive: true, force: true })
+    }
+  })
+
   it('lists exactly the files on disk in `index.json`', async () => {
     const manifest = await readManifest()
-    const listed = manifest.skills.flatMap(skill => skill.files).sort()
-    const onDisk = (await listDocs()).sort()
+    const packages = await listPackages()
+    expect(manifest.skills.map(skill => skill.name).sort()).toEqual(packages)
+
+    const listed = manifest.skills.flatMap(skill => skill.files.map(file => `${skill.name}/${file}`)).sort()
+    const onDisk = (await glob('*/**/*.md', { cwd: skillsDir, ...GLOB })).sort()
 
     // Kept alongside the generator check because it fails *legibly*: a diff of
     // two path lists says which reference an agent would lose, where a diff of
@@ -253,10 +363,11 @@ describe('skill package', () => {
     for (const doc of await listDocs()) {
       const body = await readFile(join(skillDir, doc), 'utf8')
 
-      // A Cyrillic letter inside an identifier is invisible on the page and
-      // fatal in the editor — `<И24Card>` sat in `design-system.md` looking
-      // exactly like `<B24Card>`.
-      for (const [char] of body.matchAll(/\p{Script=Cyrillic}/gu)) {
+      // A Cyrillic or Greek letter inside an identifier is invisible on the
+      // page and fatal in the editor — `<И24Card>` sat in `design-system.md`
+      // looking exactly like `<B24Card>`, and Greek capital Beta is the same
+      // trap one alphabet over.
+      for (const [char] of body.matchAll(/[\p{Script=Cyrillic}\p{Script=Greek}]/gu)) {
         confusable.push(`${doc}: U+${char.codePointAt(0)!.toString(16).toUpperCase()} ${char}`)
       }
 
@@ -391,11 +502,16 @@ describe('skill package', () => {
     // link is not — it is a mechanical function of the component, and #344
     // asked whether the whole table should therefore be generated. It should
     // not: the sections deliberately group by task rather than by the docs'
-    // `category` (six of twelve sections mix categories on purpose), and the
-    // hand-written purpose beats the docs description for an agent — "Data
-    // table (TanStack Table) with sorting, selection, pinning" against "A
-    // responsive data table component." So the mechanical column gets a check
-    // instead, and the editorial ones keep their author.
+    // `category`, and the hand-written purpose beats the docs description for
+    // an agent — "Data table (TanStack Table) with sorting, selection,
+    // pinning" against "A responsive data table component." So the mechanical
+    // column gets a check instead, and the editorial ones keep their author.
+    //
+    // Measured, not assumed: four of the twelve sections mix docs categories
+    // — Layout, Element, Overlay and Navigation, with Element alone drawing
+    // from five (`element`, `overlay`, `data`, `layout`, `i18n`). Generating
+    // by category would move `Accordion`, `Timeline`, `User` and `ScrollArea`
+    // out of where someone deciding what to build would look for them.
     //
     // Matched through the page's frontmatter `title` rather than by
     // kebab-casing the name, so a wrong link and a wrong name both fail here
@@ -416,37 +532,45 @@ describe('skill package', () => {
     expect(titles.get('page.md')).toBe('Page')
 
     const index = await readFile(join(skillDir, 'references/components.md'), 'utf8')
-    const rows = [...index.matchAll(/^\| `B24([A-Za-z0-9]+)` \|[^|]*\| \[([^\]]+)\]/gm)]
+    // Captures the label AND the href. An earlier version stopped at the
+    // closing `]`, so it looked up the link *text* and never read the URL at
+    // all — which passes today only because the two happen to agree, and would
+    // go on passing if someone repointed the href and left the label alone.
+    // That is precisely the edit a mechanical check exists to catch.
+    const rows = [...index.matchAll(/^\| `B24([A-Za-z0-9]+)` \|[^|]*\| \[([^\]]+)\]\(([^)]+)\)/gm)]
+
+    // Counted independently of the pattern, not against a loose floor: a row
+    // that loses its Docs column stops matching and simply vanishes from
+    // `rows`, so `toBeGreaterThan(100)` against 116 rows would tolerate fifteen
+    // of them silently losing their link. Every `B24` row has a link column —
+    // the Prose tables use bare names and a different shape — so the two counts
+    // must agree exactly.
+    const rowLines = index.split('\n').filter(line => /^\| `B24/.test(line))
+    expect(rows).toHaveLength(rowLines.length)
     expect(rows.length).toBeGreaterThan(100)
 
     const wrong = rows
-      .filter(([, name, link]) => titles.get(link!) !== name)
-      .map(([, name, link]) => `B24${name} -> ${link} (${titles.get(link!) ?? 'no such page'})`)
+      .filter(([, name, label, href]) => titles.get(label!) !== name || !href!.endsWith(`/${label}`))
+      .map(([, name, label, href]) => `B24${name} -> ${label} (${titles.get(label!) ?? 'no such page'}) at ${href}`)
 
     expect(wrong).toEqual([])
   })
 
-  it('keeps the manifest description in step with the skill frontmatter', async () => {
-    const manifest = await readManifest()
-    const body = await readFile(join(skillDir, 'SKILL.md'), 'utf8')
-    const frontmatter = body.match(/^---\n([\s\S]*?)\n---/)?.[1] ?? ''
-
-    const described = manifest.skills.find(skill => skill.name === 'b24-ui-nuxt')
-    expect(described).toBeDefined()
-
-    // Two copies of one sentence in two files is exactly how the "for Bitrix24
-    // application" wording survived a proofread in one of them. Compared for
-    // equality rather than containment: shortening only the manifest copy to a
-    // prefix of the other leaves them genuinely different and a substring check
-    // still green.
-    expect(frontmatter.match(/^description: (.*)$/m)?.[1]).toBe(described!.description)
-  })
+  // The description-vs-frontmatter check that used to live here is gone rather
+  // than kept alongside the generator: it re-derived its expected value with
+  // the same one-line regex the generator uses, so the two could only ever
+  // agree — including on a quoted or commented scalar, where both were wrong in
+  // the same direction. The file-list check above survives the same argument
+  // because `tinyglobby` walks the tree independently, so it is a second
+  // opinion rather than an echo. `buildManifest`'s own handling of those
+  // shapes is covered by the fixture case instead.
 
   it('keeps every skill file inside the package it ships', async () => {
-    const stray = (await glob('**/*.md', { cwd: skillsDir, ignore: ['**/node_modules/**'] }))
-      // Derived from `skillDir` rather than repeating its last segment, so
-      // renaming the package cannot leave this line pointing at the old name.
-      .filter(doc => relative(skillDir, join(skillsDir, doc)).startsWith('..'))
+    const packages = await listPackages()
+    const stray = (await glob('**/*.md', { cwd: skillsDir, ...GLOB }))
+      // A file belongs to some package or to none; `index.json` itself is not
+      // markdown, so anything loose under `skills/` ships nowhere.
+      .filter(doc => !packages.some(name => doc.startsWith(`${name}/`)))
 
     expect(stray).toEqual([])
   })
@@ -461,7 +585,7 @@ describe('skill package', () => {
     //
     // If an asset is ever genuinely needed, this is the line that says so out
     // loud, and the manifest has to grow a way to carry it.
-    const other = await glob('**/*', { cwd: skillDir, ignore: ['**/*.md', '**/node_modules/**'] })
+    const other = await glob('**/*', { cwd: skillDir, dot: true, ignore: ['**/*.md', '**/node_modules/**'] })
 
     expect(other).toEqual([])
   })

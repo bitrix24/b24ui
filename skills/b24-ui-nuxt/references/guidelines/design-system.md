@@ -95,7 +95,7 @@ These files show every available slot name, variant combination, and default cla
 Override theme for a section of the component tree without affecting the rest of the app. Renders no DOM element — uses `provide`/`inject`:
 
 ```vue
-<B24Theme :b24ui="{ button: { slots: { base: 'rounded-full' } } }">
+<B24Theme :b24ui="{ button: { base: 'rounded-full' } }">
   <B24Button label="Rounded" />
   <B24Button label="Also rounded" />
 </B24Theme>
@@ -141,6 +141,6 @@ Bitrix24 UI exposes CSS variables you can override in `main.css`:
 ```css
 :root {
   --b24ui-container-width: 90rem;
-  --b24ui-header-heights: 3.625rem;
+  --b24ui-header-height: 3.625rem;
 }
 ```
