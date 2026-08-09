@@ -14,6 +14,7 @@ Build public-facing pages — landing, blog, changelog, pricing — using the He
 ```vue [app.vue]
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
+import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
 
 const items = computed<NavigationMenuItem[]>(() => [{
   label: 'Features',
@@ -38,7 +39,7 @@ const items = computed<NavigationMenuItem[]>(() => [{
 
       <template #right>
         <B24ColorModeButton />
-        <B24Button label="Sign in" color="neutral" variant="ghost" />
+        <B24Button label="Sign in" color="air-tertiary-no-accent" />
         <B24Button label="Get started" />
       </template>
 
@@ -56,7 +57,7 @@ const items = computed<NavigationMenuItem[]>(() => [{
         <p class="text-muted text-sm">Copyright © {{ new Date().getFullYear() }}</p>
       </template>
       <template #right>
-        <B24Button icon="i-simple-icons-github" color="neutral" variant="ghost" to="https://github.com" target="_blank" />
+        <B24Button :icon="GitHubIcon" color="air-tertiary-no-accent" to="https://github.com" target="_blank" />
       </template>
     </B24Footer>
   </B24App>
@@ -70,20 +71,30 @@ const items = computed<NavigationMenuItem[]>(() => [{
 ## Landing page
 
 ```vue [pages/index.vue]
+<script setup lang="ts">
+import PersonIcon from '@bitrix24/b24icons-vue/main/PersonIcon'
+import PaletteIcon from '@bitrix24/b24icons-vue/outline/PaletteIcon'
+import MobileIcon from '@bitrix24/b24icons-vue/outline/MobileIcon'
+
+const features = [
+  { title: 'Accessible', description: 'Built on Reka UI with full ARIA support.', icon: PersonIcon },
+  { title: 'Customizable', description: 'Tailwind Variants theming with full control.', icon: PaletteIcon },
+  { title: 'Responsive', description: 'Mobile-first components.', icon: MobileIcon }
+]
+</script>
+
 <template>
   <B24PageSection
     id="features"
     headline="Features"
     title="Everything you need"
     description="A comprehensive suite of components and utilities."
-    :features="[
-      { title: 'Accessible', description: 'Built on Reka UI with full ARIA support.', icon: 'i-lucide-accessibility' },
-      { title: 'Customizable', description: 'Tailwind Variants theming with full control.', icon: 'i-lucide-palette' },
-      { title: 'Responsive', description: 'Mobile-first components.', icon: 'i-lucide-monitor-smartphone' }
-    ]"
+    :features="features"
   />
 </template>
 ```
+
+`icon` is a **component reference**, never a string — Iconify-style names like `i-lucide-palette` are an upstream idiom and resolve to nothing here. See [icons](../guidelines/icons.md).
 
 ## Key components
 

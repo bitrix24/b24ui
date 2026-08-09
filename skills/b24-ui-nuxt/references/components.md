@@ -40,6 +40,9 @@ Quick-reference index of 125+ components. For detailed API specifications (props
 | `B24Timeline` | Timeline display for events and activity | [timeline.md](https://bitrix24.github.io/b24ui/raw/docs/components/timeline.md) |
 | `B24User` | User display — avatar + name + description | [user.md](https://bitrix24.github.io/b24ui/raw/docs/components/user.md) |
 | `B24Theme` | Theme provider — scoped color overrides for children | [theme.md](https://bitrix24.github.io/b24ui/raw/docs/components/theme.md) |
+| `B24Advice` | A couple of lines of text next to an avatar | [advice.md](https://bitrix24.github.io/b24ui/raw/docs/components/advice.md) |
+| `B24Countdown` | Countdown timer with start/pause/abort control | [countdown.md](https://bitrix24.github.io/b24ui/raw/docs/components/countdown.md) |
+| `B24LocaleSelect` | Select for switching the app locale | [locale-select.md](https://bitrix24.github.io/b24ui/raw/docs/components/locale-select.md) |
 
 ## Form
 
@@ -90,12 +93,15 @@ Quick-reference index of 125+ components. For detailed API specifications (props
 | `B24Pagination` | Page navigation | [pagination.md](https://bitrix24.github.io/b24ui/raw/docs/components/pagination.md) |
 | `B24Stepper` | Multi-step wizard | [stepper.md](https://bitrix24.github.io/b24ui/raw/docs/components/stepper.md) |
 | `B24Accordion` | Collapsible sections | [accordion.md](https://bitrix24.github.io/b24ui/raw/docs/components/accordion.md) |
+| `B24Breadcrumb` | Breadcrumb trail showing the path to the current page | [breadcrumb.md](https://bitrix24.github.io/b24ui/raw/docs/components/breadcrumb.md) |
 
 ## Data
 
 | Component | Purpose | Docs |
 |---|---|---|
 | `B24Table` | Data table (TanStack Table) with sorting, selection, pinning | [table.md](https://bitrix24.github.io/b24ui/raw/docs/components/table.md) |
+| `B24TableWrapper` | Wrapper that styles a plain HTML `<table>` | [table-wrapper.md](https://bitrix24.github.io/b24ui/raw/docs/components/table-wrapper.md) |
+| `B24DescriptionList` | Key/value list — a table row turned into its own block | [description-list.md](https://bitrix24.github.io/b24ui/raw/docs/components/description-list.md) |
 
 ## Dashboard
 
@@ -127,6 +133,7 @@ Quick-reference index of 125+ components. For detailed API specifications (props
 | `B24PageAside` | Sticky sidebar wrapper | [page-aside.md](https://bitrix24.github.io/b24ui/raw/docs/components/page-aside.md) |
 | `B24PageLinks` | Related resource links | [page-links.md](https://bitrix24.github.io/b24ui/raw/docs/components/page-links.md) |
 | `B24PageList` | List layout for page items | [page-list.md](https://bitrix24.github.io/b24ui/raw/docs/components/page-list.md) |
+| `B24PageFeature` | Single feature — icon, title and description | [page-feature.md](https://bitrix24.github.io/b24ui/raw/docs/components/page-feature.md) |
 
 ## Prose — Base Typography
 

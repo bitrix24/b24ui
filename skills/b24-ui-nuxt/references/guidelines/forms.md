@@ -198,7 +198,7 @@ function setServerError() {
 }
 
 function resetErrors() {
-  form.value?.clearErrors()
+  form.value?.clear()
 }
 </script>
 

@@ -113,7 +113,7 @@ const items = [
 ]
 ```
 
-Components supporting nested arrays: `B24DropdownMenu`, `B24ContextMenu`, `B24CommandPalette`, `B24NavigationMenu`.
+Components supporting nested arrays: `B24DropdownMenu`, `B24ContextMenu`, `B24NavigationMenu`. `B24CommandPalette` groups the same content differently — it has no top-level `items` prop at all, only `groups`, each with its own flat `items`.
 
 Nesting applies to the **top-level** `items` only. A submenu's `children` is always a flat array — `B24NavigationMenu` flattens a nested one and draws no separator, warning in development.
 
