@@ -42,7 +42,19 @@ const INTRODUCED_IN: Record<string, string> = {
   toValue: '3.3'
 }
 
-const asNumber = (minor: string) => Number(minor)
+/**
+ * Compares `major.minor` pairs component-wise.
+ *
+ * Not `Number('3.10')` — that is 3.1, which sorts *below* 3.9, so a naive
+ * float comparison silently inverts the moment Vue reaches its tenth minor.
+ * Nothing about the wrong answer would look wrong.
+ */
+const compare = (a: string, b: string) => {
+  const [aMajor = 0, aMinor = 0] = a.split('.').map(Number)
+  const [bMajor = 0, bMinor = 0] = b.split('.').map(Number)
+
+  return aMajor - bMajor || aMinor - bMinor
+}
 
 describe('peer dependencies', () => {
   let manifest: { peerDependencies: Record<string, string>, peerDependenciesMeta?: Record<string, unknown>, devDependencies: Record<string, string> }
@@ -86,7 +98,7 @@ describe('peer dependencies', () => {
     const demanded = [...imported]
       .filter(name => name in INTRODUCED_IN)
       .map(name => [name, INTRODUCED_IN[name]!] as const)
-      .sort(([, a], [, b]) => asNumber(b) - asNumber(a))
+      .sort(([, a], [, b]) => compare(b, a))
 
     expect(demanded.length).toBeGreaterThan(0)
 
@@ -97,9 +109,9 @@ describe('peer dependencies', () => {
     // The API is named in the failure message, so it says which import moved
     // the floor rather than only that two numbers differ.
     expect(
-      asNumber(`${declared![1]}.${declared![2]}`),
+      compare(`${declared![1]}.${declared![2]}`, floor),
       `the \`vue\` peer range must cover \`${api}\`, which Vue added in ${floor}`
-    ).toBeGreaterThanOrEqual(asNumber(floor))
+    ).toBeGreaterThanOrEqual(0)
   })
 
   it('develops against a Vue that satisfies its own peer range', () => {
@@ -108,6 +120,6 @@ describe('peer dependencies', () => {
     const peer = manifest.peerDependencies.vue!.match(/(\d+)\.(\d+)/)!
     const dev = manifest.devDependencies.vue!.match(/(\d+)\.(\d+)/)!
 
-    expect(asNumber(`${dev[1]}.${dev[2]}`)).toBeGreaterThanOrEqual(asNumber(`${peer[1]}.${peer[2]}`))
+    expect(compare(`${dev[1]}.${dev[2]}`, `${peer[1]}.${peer[2]}`)).toBeGreaterThanOrEqual(0)
   })
 })
