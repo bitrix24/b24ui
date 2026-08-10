@@ -1,5 +1,42 @@
 # Changelog
 
+## [2.11.0](https://github.com/bitrix24/b24ui/compare/v2.10.0...v2.11.0) (2026-08-10)
+
+
+### Features
+
+* **Timeline,Stepper:** resolve model values through valueKey for numbers too ([#326](https://github.com/bitrix24/b24ui/issues/326)) ([8891da1](https://github.com/bitrix24/b24ui/commit/8891da161a21b891f187769b419a2673551f545e))
+
+
+### Bug Fixes
+
+* **CommandPalette:** stop the raw label and suffix reaching v-html ([#338](https://github.com/bitrix24/b24ui/issues/338)) ([595923b](https://github.com/bitrix24/b24ui/commit/595923b9a3b5efb64c61aa78a6e61a4cdbfc4a85)), closes [#82](https://github.com/bitrix24/b24ui/issues/82)
+* **deps:** declare `vue` as a peer dependency (requires Vue &gt;= 3.5) ([#351](https://github.com/bitrix24/b24ui/issues/351)) ([432e01d](https://github.com/bitrix24/b24ui/commit/432e01d76d29bd8db9b4f5df5aa6fb06671e66db))
+* four component bugs — grouped children, leaked refs, KeepAlive, slot-only description ([#341](https://github.com/bitrix24/b24ui/issues/341)) ([e3d169a](https://github.com/bitrix24/b24ui/commit/e3d169ade594aeb3d415a511cf52b19c32c1e72e))
+* leaked listeners in Countdown, accumulated observers in ChatMessages, dev-time style refresh ([#335](https://github.com/bitrix24/b24ui/issues/335)) ([85dc54e](https://github.com/bitrix24/b24ui/commit/85dc54ed05f897100292f97655c38f54cbfb67d7)), closes [#79](https://github.com/bitrix24/b24ui/issues/79) [#80](https://github.com/bitrix24/b24ui/issues/80) [#81](https://github.com/bitrix24/b24ui/issues/81) [#83](https://github.com/bitrix24/b24ui/issues/83)
+
+
+### Docs
+
+* **content:** using @nuxt/content in a client-only app ([#334](https://github.com/bitrix24/b24ui/issues/334)) ([8b9bf3f](https://github.com/bitrix24/b24ui/commit/8b9bf3f6ebd51dcb1122c08285536c3b0c29b69c)), closes [#332](https://github.com/bitrix24/b24ui/issues/332)
+* **skill:** dead routing refs, phantom components, manifest desync, broken examples ([#343](https://github.com/bitrix24/b24ui/issues/343)) ([0fb88ac](https://github.com/bitrix24/b24ui/commit/0fb88acf0e2bef241e9ba0c74c9126bf6d0e9fab))
+* **skill:** generate skills/index.json instead of hand-maintaining it ([#346](https://github.com/bitrix24/b24ui/issues/346)) ([227cd4e](https://github.com/bitrix24/b24ui/commit/227cd4e96414e66bd7d008e9ed95fcc01a21dff9))
+* **sync:** record the Timeline/Stepper resolution divergence as a porting invariant ([#330](https://github.com/bitrix24/b24ui/issues/330)) ([87a5933](https://github.com/bitrix24/b24ui/commit/87a593380436c4c4edbcc0353257a502bb49722a))
+
+
+### Chore
+
+* **deps:** allow `typescript` v7 as peer dependency (e7b126b) ([#348](https://github.com/bitrix24/b24ui/issues/348)) ([0748129](https://github.com/bitrix24/b24ui/commit/074812954b5fd1a85e71a3b71d0b66f6dee21383))
+* **sync:** reconcile e7b126b with its merged PR ([#350](https://github.com/bitrix24/b24ui/issues/350)) ([480098a](https://github.com/bitrix24/b24ui/commit/480098afb7918a8610152b33decd1ccc1ef96c83))
+* **sync:** reconcile the deferred takumi entry with [#324](https://github.com/bitrix24/b24ui/issues/324) ([#325](https://github.com/bitrix24/b24ui/issues/325)) ([aa9d6c2](https://github.com/bitrix24/b24ui/commit/aa9d6c225e5b1f4e45a44e894ecaf43ae02ffba2))
+
+
+### CI
+
+* automate releases with release-please and harden the publish gate ([#327](https://github.com/bitrix24/b24ui/issues/327)) ([8be1522](https://github.com/bitrix24/b24ui/commit/8be152259c01f25a6ebbdfd16d05ed8e3b5952f0)), closes [#313](https://github.com/bitrix24/b24ui/issues/313)
+* bump the github-actions group with 4 updates ([#333](https://github.com/bitrix24/b24ui/issues/333)) ([34ecc68](https://github.com/bitrix24/b24ui/commit/34ecc685d5478de6a59723a62b7726080ddf2cb8))
+* finish the [#315](https://github.com/bitrix24/b24ui/issues/315) hardening with a release watchdog and pinned actions ([#331](https://github.com/bitrix24/b24ui/issues/331)) ([a825945](https://github.com/bitrix24/b24ui/commit/a8259458c1bdd3911e6b95a68fb0d35a8123d162))
+
 ## [2.10.0](https://github.com/bitrix24/b24ui/compare/v2.9.0...v2.10.0) (2026-08-06)
 
 ### Features
