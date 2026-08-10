@@ -498,6 +498,15 @@ describe('skill package', () => {
     // checked against it. Four rows used to name `auth`, `chat`, `docs` and
     // `editor`, inherited from the nuxt/ui skill, and no such file was ever in
     // this repository.
+    // The routing table names references by bare word, so the vocabulary is
+    // keyed by basename — which is only unambiguous while the basenames are
+    // unique. `guidelines/settings.md` alongside `recipes/settings.md` would
+    // collapse into one entry and let a row resolve to the wrong file: the
+    // `B24Slider`-pointing-at-`range.md` shape, one level up.
+    const references = (await listDocs()).filter(doc => doc.startsWith('references/'))
+    const basenames = references.map(doc => doc.split('/').pop()!)
+    expect(basenames).toHaveLength(new Set(basenames).size)
+
     const known = new Set(
       // Same narrowing as the link scan above, plus `\n`: a link left unclosed
       // must not swallow the rest of the file looking for `.md)`.

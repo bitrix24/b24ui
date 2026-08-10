@@ -179,6 +179,12 @@ function readScalar(frontmatter, key, context) {
  * Paths are split on the *platform* separator and rejoined with `/`, and every
  * segment is validated — see `assertPortableSegment` for why that matters.
  *
+ * Two of the segment checks — a literal `..` segment and an absolute result —
+ * are unreachable on POSIX, where no directory entry can be named `..` and
+ * `relative()` never returns an absolute path for a child. They are the
+ * Windows half of the same rule and cannot be exercised on this CI; the
+ * backslash check is what fires here.
+ *
  * Symlinks are **refused**, not skipped: following one would let a package claim
  * files outside itself, and dropping it quietly would be the failure this
  * generator exists to prevent — a reference that is on disk, looks installed,
