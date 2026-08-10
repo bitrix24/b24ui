@@ -123,7 +123,7 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   which Vue the package needs — and `reka-ui`, which we depend on, declares
   `vue: >= 3.4.0`, so a consumer on 3.4 satisfies every declared constraint,
   installs cleanly, and then hits `useTemplateRef is not a function` on the
-  first mount. `src/` imports `useTemplateRef` in 19 files and `useId` in 11,
+  first mount. `src/` imports `useTemplateRef` in 19 files and `useId` in 12,
   both Vue 3.5 APIs, so the real floor is `^3.5.0` (#99). Porting an upstream
   manifest change would delete the entry and look correct doing so. Guarded by
   `test/utils/peer-dependencies.spec.ts`, which derives the floor from the Vue
@@ -133,8 +133,14 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   around them is ranged. That is not a local workaround to revisit: it moves
   when upstream moves it, through an ordinary port. Do not independently bump
   or loosen either — a `chore(deps)` that adds a caret is a divergence, not an
-  update. (`resolutions` is empty; the `h3` / `unimport` pins that once lived
-  there are gone.)
+  update. Note the override table did not disappear, it moved: `package.json`
+  has no `resolutions` field any more, but `pnpm-workspace.yaml`'s `overrides:`
+  still hard-pins `h3` and `unimport` (and constrains `vite` / `rolldown`), each
+  with its reason written beside it. Check there before concluding that nothing
+  is being forced. **One exception:** a security patch within the same upstream
+  minor may be pinned locally ahead of upstream, with a comment citing the
+  advisory, because waiting for a port is not an acceptable answer to a live
+  CVE. Everything else waits.
 - **Workflow actions stay pinned to commit SHAs.** Upstream bumps them by tag;
   b24ui pins the commit. You do not have to remember this — `ci.yml` fails the
   build on any unpinned `uses:` and tells you how to resolve the tag.
