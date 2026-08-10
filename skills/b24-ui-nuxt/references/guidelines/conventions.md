@@ -71,10 +71,10 @@ Most components follow consistent slot naming:
 | Slot | Used by | Purpose |
 |---|---|---|
 | `#header` | Card, Modal, Slideover, DashboardPanel | Top section |
-| `#body` | DashboardPanel | Scrollable content area |
+| `#body` | Modal, Slideover, Header, DashboardPanel | Scrollable content area; on Header it is the mobile menu |
 | `#footer` | Card, Modal, Slideover, DashboardPanel | Bottom section |
-| `#left` | Page, DashboardNavbar | Left sidebar or content |
-| `#right` | Page, DashboardNavbar, Header | Right sidebar or content |
+| `#left` | Page, DashboardNavbar, Header, Footer | Left sidebar or content |
+| `#right` | Page, DashboardNavbar, Header, Footer | Right sidebar or content |
 | `#leading` | Input, Button, Alert | Before main content (icon area) |
 | `#trailing` | Input, Button | After main content (icon area) |
 | `#content` | Modal, Slideover, Popover, Tooltip | Full content override |
@@ -183,12 +183,23 @@ defineShortcuts({
   escape: () => close(),
   meta_enter: {
     handler: () => submit(),
-    whenever: [isFormValid]
+    // `usingInput` is the only per-shortcut option: `true` allows the shortcut
+    // while any input is focused, a string limits it to the input with that
+    // `name`.
+    usingInput: true
   }
 })
 ```
 
 Keys: `meta` (Cmd/Ctrl), `ctrl`, `alt`, `shift`. Separator: `_`.
+
+To gate a shortcut on state, pass a reactive config and set the key to `false` — `ShortcutsConfig` accepts `false | null | undefined` per key, so there is no need to rebuild the object:
+
+```ts
+defineShortcuts(computed(() => ({
+  meta_enter: isFormValid.value ? { handler: () => submit() } : false
+})))
+```
 
 ### extractShortcuts
 
@@ -205,7 +216,7 @@ defineShortcuts(extractShortcuts(items))
 
 ### Internationalization (i18n)
 
-Bitrix24 UI supports 50+ locales. Set the locale on `B24App` — all components inherit it.
+Bitrix24 UI ships 20 locales. Set the locale on `B24App` — all components inherit it.
 
 #### Static locale
 

@@ -1,5 +1,5 @@
 ---
-description: Page
+title: Page
 description: 'A page grid divided into three columns: left sidebar, main content area, and right sidebar.'
 category: page
 links:

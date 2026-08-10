@@ -133,7 +133,7 @@ Root wrapper. Manages sidebar state and persistence.
 |---|---|---|
 | `storage` | `'cookie'` | `'cookie'`, `'localStorage'`, `false` |
 | `storage-key` | `'dashboard'` | Storage key name |
-| `unit` | `'pixels'` | Size unit: `'pixels'` or `'percentages'` |
+| `unit` | `'px'` | Size unit: `'px'`, `'rem'` or `'%'` |
 
 ### DashboardSidebar
 
