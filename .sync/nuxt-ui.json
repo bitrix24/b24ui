@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "6add5fb7d8a1280dcbe2c4675e78d8f45f61e7fd",
+  "cursor": "e7b126b7aa7cb1b91fc641edfd46022a58c5d19e",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1277,6 +1277,12 @@
       "b24ui_sha": "ec16d9c98b6597e3d7b611f24a8e601f4424eec9",
       "decision": "no-op",
       "summary": "chore(deps): update codspeedhq/action action to v5 — one line in .github/workflows/module.yml: CodSpeedHQ/action@v4 -> @v5. NOT APPLICABLE, as predicted when 8aa8041 (the commit introducing that job) was recorded as a no-op in PR #316: b24ui has no CodSpeed integration to bump — verified no occurrence of CodSpeed/codspeed anywhere in .github/, package.json, vitest.config.ts or pnpm-workspace.yaml, and its workflow inventory is only ci.yml/deploy.yml/npm-publish.yml. Upstream's own job is gated `if: github.repository_owner == 'nuxt'` ('Skip forks of the repo, they can't authenticate with CodSpeed'). No-op."
+    },
+    "e7b126b7aa7cb1b91fc641edfd46022a58c5d19e": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "chore(deps): allow typescript v7 as peer dependency — package.json peerDependencies typescript '^5.6.3 || ^6.0.0' -> '^5.6.3 || ^6.0.0 || ^7.0.0', so consumers on the TS 7 line stop getting an unmet-peer warning. b24ui declared the identical range; applied verbatim. pnpm-lock.yaml also moves one line (the specifier echo in the root importer) — resolved version unchanged at 6.0.3; upstream's commit has no lockfile hunk but b24ui's lockfile records specifiers, so leaving it stale would desync it from the manifest. The fork's own toolchain is untouched (playgrounds still pin typescript ^6.0.3); this only widens what consumers may bring. Manifest-only, no runtime/snapshot impact. Tests 5862/260 files."
     }
   }
 }
