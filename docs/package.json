@@ -19,7 +19,7 @@
     "@nuxt/image": "^2.0.0",
     "@bitrix24/b24ui-nuxt": "workspace:*",
     "@nuxtjs/mcp-toolkit": "^0.18.1",
-    "@nuxtjs/mdc": "^0.22.2",
+    "@nuxtjs/mdc": "^0.23.1",
     "@octokit/rest": "^22.0.1",
     "@regle/core": "^1.28.0",
     "@regle/rules": "^1.28.0",
