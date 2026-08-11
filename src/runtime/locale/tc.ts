@@ -2,7 +2,7 @@ import type { Messages } from '../types/locale'
 import { defineLocale } from '../composables/defineLocale'
 
 export default defineLocale<Messages>({
-  name: '中文（繁體)',
+  name: '中文（繁體）',
   code: 'tc',
   locale: 'zh-TW',
   messages: {

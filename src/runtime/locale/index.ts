@@ -8,7 +8,7 @@
  * la Español
  *
  * fr Français
- * in Indian (हिन्दी)
+ * in हिन्दी
  * it Italiano
  *
  * pl Polski
@@ -23,7 +23,7 @@
  * th ภาษาไทย
  * sc 中文（简体）
  *
- * tc 中文（繁體)
+ * tc 中文（繁體）
  * ja 日本語
  */
 
