@@ -3,8 +3,8 @@ import type { UIMessage } from 'ai'
 import { isTextUIPart, DefaultChatTransport } from 'ai'
 import { Chat } from '@ai-sdk/vue'
 import { isPartStreaming } from '@bitrix24/b24ui-nuxt/utils/ai'
-import { Comark } from '@comark/vue'
-import highlight from '@comark/vue/plugins/highlight'
+import { Markdown } from '@comark/vue'
+import shiki from '@comark/vue/plugins/shiki'
 import RobotIcon from '@bitrix24/b24icons-vue/outline/RobotIcon'
 import SearchIcon from '@bitrix24/b24icons-vue/outline/SearchIcon'
 
@@ -67,11 +67,11 @@ const b24ui = {
             <template #content="{ message }">
               <template v-for="(part, index) in message.parts" :key="`${message.id}-${part.type}-${index}`">
                 <template v-if="isTextUIPart(part)">
-                  <Comark
+                  <Markdown
                     v-if="message.role === 'assistant'"
-                    :markdown="part.text"
+                    :value="part.text"
                     :streaming="isPartStreaming(part)"
-                    :plugins="[highlight()]"
+                    :plugins="[shiki()]"
                     class="*:first:mt-0 *:last:mb-0"
                   />
                   <p v-else-if="message.role === 'user'" class="whitespace-pre-wrap leading-6">

@@ -55,7 +55,7 @@ export default defineNuxtConfig({
         'ai',
         '@ai-sdk/vue',
         '@comark/vue',
-        '@comark/vue/plugins/highlight',
+        '@comark/vue/plugins/shiki',
         '@bitrix24/b24icons-vue/outline/HamburgerMenuIcon',
         '@bitrix24/b24icons-vue/main/B24Icon',
         '@bitrix24/b24icons-vue/actions/ArrowToTheLeftIcon',
