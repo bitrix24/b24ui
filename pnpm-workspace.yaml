@@ -12,9 +12,9 @@ ignoreWorkspaceRootCheck: true
 linkWorkspacePackages: true
 
 overrides:
-  '@nuxt/kit': ^4.5.1
+  '@nuxt/kit': ^4.5.2
   '@bitrix24/b24ui-nuxt': workspace:*
-  # nuxt 4.5.1 requires vite ^8, but several peers (unplugin, unhead, vite-plugin-*)
+  # nuxt 4.5.x requires vite ^8, but several peers (unplugin, unhead, vite-plugin-*)
   # still resolve vite 7 — two vite copies mean two rolldown native ABIs in one
   # process, which breaks vitest's pool ("Missing field `moduleType`").
   vite: ^8.2.1
