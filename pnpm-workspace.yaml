@@ -17,10 +17,23 @@ overrides:
   # nuxt 4.5.1 requires vite ^8, but several peers (unplugin, unhead, vite-plugin-*)
   # still resolve vite 7 — two vite copies mean two rolldown native ABIs in one
   # process, which breaks vitest's pool ("Missing field `moduleType`").
-  vite: ^8.1.5
-  # vite 8 pins rolldown ~1.1.5; unplugin accepts any, so pnpm otherwise also
-  # installs 1.2.0 and the two native ABIs collide in the same worker process.
-  rolldown: ~1.1.5
+  vite: ^8.2.1
+  # vite pins one rolldown line; unplugin accepts any, so pnpm otherwise also
+  # installs a second one and the two native ABIs collide in the same worker
+  # process. Keep this in step with whatever `vite` above resolves to —
+  # vite 8.1.x wants ~1.1.5, vite 8.2.x wants ~1.2.1.
+  rolldown: ~1.2.1
+  # `@nuxt/image` 2.1.0 depends on `ipx` 4.0.0-beta.1, which pulls a second sharp
+  # alongside 0.34.5 and kills the docs prerender as soon as it hits `/_ipx`.
+  # Pinned until ipx 4 is stable. `docs` only declares `^2.0.0`, so without this
+  # the next lockfile regeneration floats to 2.1.0 on its own.
+  '@nuxt/image': 2.0.0
+  # tailwind-variants 3.3.x is a full internal rewrite: invoking a tv() result is
+  # 18 to 103x slower than 3.2.2 (see test/bench/tv.bench.ts) and the exported
+  # type constraints changed in a breaking way. This module calls `tv()` on every
+  # component render, so the regression lands on consumers, not just on CI.
+  # Pinned until upstream addresses the perf regression.
+  tailwind-variants: 3.2.2
   '@tiptap/pm': ^3.29.0
   nitropack: ^2.13.0
   unplugin: ^3.3.0
