@@ -403,7 +403,7 @@ export default defineNuxtConfig({
         'prettier',
         'tailwind-variants',
         '@comark/vue',
-        '@comark/vue/plugins/highlight',
+        '@comark/vue/plugins/shiki',
         'vaul-vue',
         '@vueuse/integrations/useFuse',
         '@floating-ui/dom',
