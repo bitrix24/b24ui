@@ -13,6 +13,10 @@ linkWorkspacePackages: true
 
 overrides:
   '@nuxt/kit': ^4.5.2
+  # `@nuxt/content` 3.15.2 caps `@nuxtjs/mdc` at ^0.22.2, so the docs bump to
+  # 0.23.1 installs a second copy and component-meta reads different components
+  # than the ones the module registers. Drop once content widens to ^0.23.0.
+  '@nuxt/content>@nuxtjs/mdc': ^0.23.1
   '@bitrix24/b24ui-nuxt': workspace:*
   # nuxt 4.5.x requires vite ^8, but several peers (unplugin, unhead, vite-plugin-*)
   # still resolve vite 7 — two vite copies mean two rolldown native ABIs in one
@@ -70,3 +74,6 @@ allowBuilds:
   esbuild: false
   unrs-resolver: false
   vue-demi: false
+
+minimumReleaseAgeExclude:
+  - '@nuxtjs/mdc@0.23.1'
