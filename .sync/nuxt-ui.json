@@ -1136,7 +1136,7 @@
       "pr": 291,
       "b24ui_sha": "559a5cdbfa20d50e81c818022c4857598b134a33",
       "decision": "port",
-      "summary": "fix(CommandPalette): always escape search highlight to prevent XSS — src/runtime/utils/search.ts removed isAlreadyEscaped()/sanitize() (entity-detection bypass was the vuln) and replaced 3 sanitize() calls in highlight() with escapeHTML(). Added 4 upstream XSS regression tests to test/utils/search.spec.ts (highlight signature matches 1:1). sanitizeSnippet untouched. Normal-input output unchanged → no snapshot churn. Tests 5565 (+4 highlight)."
+      "summary": "fix(CommandPalette): always escape search highlight to prevent XSS — src/runtime/utils/search.ts removed isAlreadyEscaped()/sanitize() (entity-detection bypass was the vuln) and replaced 3 sanitize() calls in highlight() with escapeHTML(). Added 4 upstream XSS regression tests to test/utils/search.spec.ts (the XSS-relevant behavior matches 1:1; the signature does NOT — b24ui's `highlight` carries a fifth `useTokenSearch` argument, see PORTING.md §2). sanitizeSnippet untouched. Normal-input output unchanged → no snapshot churn. Tests 5565 (+4 highlight)."
     },
     "e931bdf79700b95fe6298ae015b5a08bd7c4f82c": {
       "pr": 292,
