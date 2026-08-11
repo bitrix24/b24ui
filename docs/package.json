@@ -34,7 +34,7 @@
     "maska": "^3.2.0",
     "minimark": "^0.2.0",
     "motion-v": "^2.3.0",
-    "nuxt": "^4.5.1",
+    "nuxt": "^4.5.2",
     "nuxt-component-meta": "^0.18.0",
     "nuxt-llms": "^0.2.0",
     "nuxt-schema-org": "^6.2.1",
