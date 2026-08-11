@@ -12,6 +12,7 @@ Bitrix24 UI uses semantic colors. Never use raw Tailwind palette colors in compo
 | air-primary-alert | Critical errors, destructive actions, and high-priority alerts |
 | air-primary-copilot | Dedicated accents for AI features and assistant interactions |
 | air-primary-warning | Cautions, status delays, and items requiring attention |
+| air-primary-no-accent | High-emphasis surface with no colour signal |
 | **Secondary** | **Medium-emphasis and functional support** |
 | air-secondary | Secondary actions, alternative buttons, and UI backgrounds |
 | air-secondary-alert | Subtle error states or non-critical destructive feedback |
@@ -95,7 +96,7 @@ These files show every available slot name, variant combination, and default cla
 Override theme for a section of the component tree without affecting the rest of the app. Renders no DOM element — uses `provide`/`inject`:
 
 ```vue
-<B24Theme :b24ui="{ button: { slots: { base: 'rounded-full' } } }">
+<B24Theme :b24ui="{ button: { base: 'rounded-full' } }">
   <B24Button label="Rounded" />
   <B24Button label="Also rounded" />
 </B24Theme>
@@ -141,6 +142,6 @@ Bitrix24 UI exposes CSS variables you can override in `main.css`:
 ```css
 :root {
   --b24ui-container-width: 90rem;
-  --b24ui-header-heights: 3.625rem;
+  --b24ui-header-height: 3.625rem;
 }
 ```
