@@ -25,20 +25,69 @@ jobs:
       contents: write
       pull-requests: write
       actions: write
+    # Job-level so the steps below can branch on it. A step cannot read its own
+    # `env:` from its `if:`, and `secrets` is not available in `if:` at all.
+    env:
+      RELEASE_APP_ID: ${{ secrets.RELEASE_APP_ID }}
     steps:
+      # Why this exists, since a token that is only ever "the same but from a
+      # different identity" looks like ceremony (#353):
+      #
+      # A PR opened with GITHUB_TOKEN fires no `pull_request` event, so `ci.yml`
+      # never runs in a check suite attached to the PR. A ruleset's required
+      # status check counts only those. The dispatched run this file used to
+      # rely on lands on the right SHA and shows up in the PR's checks list —
+      # which is why it looked correct for two releases — but it belongs to the
+      # *branch's* suite, so the rule never sees it and the release PR cannot be
+      # merged. v2.11.0 had to be closed and reopened by hand to ship.
+      #
+      # An App token is not GITHUB_TOKEN, so the PR it opens fires the event and
+      # `ci.yml` runs the ordinary way. It is minted per run, expires in an hour
+      # and is scoped to this repository — unlike a PAT, which is why the App is
+      # worth the extra setup. Absent the secrets this step is skipped and
+      # everything below falls back to exactly the previous behaviour.
+      - name: Mint a token for the release App
+        id: app-token
+        if: env.RELEASE_APP_ID != ''
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ secrets.RELEASE_APP_ID }}
+          private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
+
       - name: Prepare release PR / create release
         id: release
         uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5.0.0
         with:
+          # The `||` is load-bearing. An action's `default:` applies when an
+          # input is absent, not when it is present and empty — so passing the
+          # skipped step's empty output alone would hand release-please an empty
+          # token rather than falling back, and the no-App path would fail at
+          # the API instead of degrading. Naming GITHUB_TOKEN here keeps the
+          # fallback exactly the previous behaviour.
+          #
+          # Do not simplify this line away to "use the default": that is #353
+          # restored, and it fails at merge time rather than here.
+          token: ${{ steps.app-token.outputs.token || secrets.GITHUB_TOKEN }}
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
 
-      # A PR opened with GITHUB_TOKEN fires no pull_request event, so the
-      # release PR would sit with no `ci` check — unmergeable wherever that
-      # check is required. A dispatched run lands on the same head SHA, which
-      # is what status checks are keyed by.
+      # The fallback is deliberately loud. Its failure mode is a green-looking
+      # PR that cannot be merged, discovered by whoever clicks Merge — so the
+      # run that creates it says so, rather than leaving the next person to
+      # rediscover #353 from a 405.
+      #
+      # Keyed on the minted token rather than on `RELEASE_APP_ID`, which is the
+      # same thing today only because a failing mint stops the job. The token is
+      # what actually decides whether this PR is mergeable, so branch on that.
+      - name: Warn that the release PR will need a manual nudge
+        if: steps.app-token.outputs.token == '' && steps.release.outputs.prs_created == 'true'
+        run: |
+          echo "::warning::Release PR opened with GITHUB_TOKEN, so no pull_request event fired and the required \`ci\` check cannot be satisfied. Close and reopen the PR to run CI in a suite the ruleset counts, then merge. Configure RELEASE_APP_ID / RELEASE_APP_PRIVATE_KEY to remove this step — see .github/contributing/releasing.md."
+
+      # Only needed on the fallback path: with an App token the PR fires
+      # `pull_request` and `ci.yml` has already started on its own.
       - name: Run CI on the release PR
-        if: steps.release.outputs.prs_created == 'true'
+        if: steps.app-token.outputs.token == '' && steps.release.outputs.prs_created == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -60,6 +109,14 @@ jobs:
       # to chain off a bot-created release. If the dispatch itself fails, the
       # release exists unpublished — recovery is rerunning exactly this
       # command by hand.
+      #
+      # Unconditional on purpose, including on the App-token path where the
+      # release *does* fire `release: published` and npm-publish.yml starts by
+      # itself. Two runs are cheap and the second one skips: npm-publish
+      # serializes on a concurrency group and refuses a version already on npm.
+      # Making this conditional would trade that for the one outcome worth
+      # avoiding — a tagged release nobody published — on an assumption about
+      # which identity created the release.
       - name: Dispatch publish for ${{ steps.release.outputs.tag_name }}
         if: steps.release.outputs.release_created == 'true'
         env:

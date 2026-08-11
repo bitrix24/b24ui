@@ -1,7 +1,9 @@
 # Releasing
 
-Releases are automated. Nothing here has to be run by hand in the normal case,
-and none of it requires repository settings to be configured first.
+Releases are automated. Nothing here has to be run by hand in the normal case —
+with one setup step that is not optional if `main` requires a `ci` status check:
+[the release App](#the-release-app) must be configured, or every release PR
+arrives unmergeable. That is #353, and the workflow warns when it applies.
 
 ## The normal path
 
@@ -31,6 +33,49 @@ file or the `npm-publish` environment, update npm to match in the same change.
 
 So the only decision a human makes is *when to merge the release PR*. Its
 description is the changelog you are about to ship; read it and merge.
+
+## The release App
+
+`RELEASE_APP_ID` and `RELEASE_APP_PRIVATE_KEY` are repository secrets holding a
+GitHub App with **Contents: read & write** and **Pull requests: read & write**
+on this repository. `release-please.yml` mints a token from them per run and
+opens the release PR as the App.
+
+This is not cosmetic, and the reason is worth stating because the failure it
+prevents looks nothing like a permissions problem. A PR opened with
+`GITHUB_TOKEN` fires no `pull_request` event — that is a deliberate GitHub rule,
+to stop workflows triggering each other in a loop. So `ci.yml` never runs in a
+check suite attached to the PR, and a ruleset's required status check counts
+only those. The release PR then shows a green `ci` in its checks list and still
+refuses to merge:
+
+```
+405 Repository rule violations found
+Required status check "ci" is expected.
+```
+
+The check *is* there, on the right commit, successful. It belongs to the branch
+rather than to the PR. v2.11.0 hit exactly this.
+
+**Without the secrets nothing breaks loudly** — the workflow falls back to
+`GITHUB_TOKEN`, still opens the release PR, and emits a warning saying the PR
+needs a nudge. To ship in that state: **close the release PR and reopen it.**
+`reopened` is a real `pull_request` event, so CI re-runs in a suite the rule
+counts and the merge goes through. Nothing is lost by doing this — release-please
+only acts on pushes to `main`, so the PR is not regenerated in between.
+
+Two things that look like shortcuts and are not:
+
+- **Dispatching `ci.yml` onto the release branch.** This is what the workflow
+  did before #353 and it is why the bug survived two releases: the run is real,
+  green and visible on the PR, and the rule still does not count it.
+- **Posting a `ci` commit status from the workflow.** A status set by the API
+  *would* satisfy the rule — because it would be the release process marking its
+  own homework. Even mirroring a real run's conclusion puts a gate's answer
+  behind a line of shell nobody reviews as a gate. Don't.
+
+`test/workflows/release-wiring.test.sh` fails if this wiring is removed, since
+every line of it reads as boilerplate and none of it fails until merge time.
 
 **The commitment is two weeks.** An open release PR should not outlive it, and
 `release-watchdog.yml` reports one that does. The number lives in that workflow's

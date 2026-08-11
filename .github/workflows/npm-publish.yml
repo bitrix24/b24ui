@@ -8,6 +8,18 @@ on:
   # workflow_ref stays this file — which is what npm trusted publishing pins.
   workflow_dispatch:
 
+# Both triggers can fire for one tag — release-please always dispatches, and on
+# the App-token path the release it creates also fires `release: published`. The
+# "already on npm" check below makes the second run a no-op, but only if it runs
+# *after* the first: two concurrent runs would both see the version unpublished,
+# both build, and both publish, so one dies on EPUBLISHCONFLICT and reports a
+# failed release that in fact shipped. Serializing per ref turns the race into
+# the intended skip. cancel-in-progress stays false — the run being cancelled
+# may be the one holding the publish.
+concurrency:
+  group: npm-publish-${{ github.ref }}
+  cancel-in-progress: false
+
 permissions:
   contents: read
 
