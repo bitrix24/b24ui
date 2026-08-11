@@ -60,4 +60,67 @@ describe('highlight', () => {
     expect(highlight({ label: 'foo', matches: [] }, 'foo', 'label')).toBeUndefined()
     expect(highlight({ label: 'foo' }, 'foo', 'label')).toBeUndefined()
   })
+
+  describe('truncation from the start', () => {
+    // Matches a high surrogate not followed by a low one, or a low surrogate not
+    // preceded by a high one — i.e. half of an astral character.
+    const LONE_SURROGATE = /[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/
+
+    // `maxLength` counts the tag characters that the counter inside
+    // `truncateHTMLFromStart` skips, so the two cancel and the surviving prefix is
+    // always `'<mark>'.length + '</mark>'.length` characters — whatever the match
+    // is, and whether the content is BMP or astral.
+    const RETAINED = '<mark>'.length + '</mark>'.length
+
+    // One character from each corner of the surrogate ranges. A fixture built only
+    // from characters sitting comfortably inside them hides an implementation whose
+    // range bounds are off by one: U+20000 encodes to a low surrogate of U+DC00 and
+    // U+1F3FF to U+DFFF — the two edges — while U+1F600 sits between them.
+    const ASTRAL = ['\u{10000}', '\u{10FFFF}', '\u{1F600}', '\u{1F3FF}', '\u{20000}']
+
+    function highlightAfterFiller(filler: string, count: number) {
+      const value = filler.repeat(count) + 'match'
+      const index = value.indexOf('match')
+
+      return highlight({ label: value, matches: [{ key: 'label', value, indices: [[index, index + 4]] }] }, 'match', 'label')
+    }
+
+    it.each(ASTRAL)('never splits %s, at any truncation boundary', (astral) => {
+      // Truncating by UTF-16 code unit sliced the pair in half whenever the
+      // boundary landed between its surrogates — from 7 characters onward, and
+      // every length after that.
+      const results = Array.from({ length: 40 }, (_, i) => highlightAfterFiller(astral, i + 1))
+
+      // Count what survived rather than only scanning for lone surrogates: an
+      // implementation that deletes every astral character emits none either, and
+      // would otherwise pass a test named "never splits an astral character". This
+      // also fails on a `highlight()` that returns `undefined` throughout, which an
+      // empty-string coalesce would have hidden.
+      expect(results.map(result => (result ?? '').split(astral).length - 1))
+        .toEqual(Array.from({ length: 40 }, (_, i) => Math.min(i + 1, RETAINED)))
+
+      expect(results.filter(result => LONE_SURROGATE.test(result ?? ''))).toEqual([])
+    })
+
+    it.each(ASTRAL)('keeps %s before the match intact, truncating to the budget', (astral) => {
+      // Pinned exactly: counting by code unit kept six characters and half of a
+      // seventh here, and a "fix" that stopped truncating astral content entirely
+      // would keep all 20.
+      expect(highlightAfterFiller(astral, 20)).toBe(`...${astral.repeat(RETAINED)}<mark>match</mark>`)
+    })
+
+    it('truncates a long BMP prefix to the same budget', () => {
+      expect(highlightAfterFiller('a', 50)).toBe(`...${'a'.repeat(RETAINED)}<mark>match</mark>`)
+    })
+
+    it('measures the budget in code points when astral content follows the match', () => {
+      // Guards the caller's half of the fix. Sizing the budget in UTF-16 units
+      // while the counter inside `truncateHTMLFromStart` counts code points would
+      // keep 23 leading characters here instead of 13.
+      const value = `${'b'.repeat(40)}match${'\u{1F600}'.repeat(10)}`
+      const result = highlight({ label: value, matches: [{ key: 'label', value, indices: [[40, 44]] }] }, 'match', 'label')
+
+      expect(result).toBe(`...${'b'.repeat(RETAINED)}<mark>match</mark>${'\u{1F600}'.repeat(10)}`)
+    })
+  })
 })
