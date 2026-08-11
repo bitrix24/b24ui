@@ -40,7 +40,7 @@ function getEmojiFlag(locale: string): string {
 
     tr: 'tr', // Türkçe
     sc: 'cn', // 中文（简体）
-    tc: 'tw', // 中文（繁體)
+    tc: 'tw', // 中文（繁體）
 
     ja: 'jp', // Japanese -> Japan
     vn: 'vn', // Tiếng Việt
@@ -51,7 +51,7 @@ function getEmojiFlag(locale: string): string {
     ar: 'sa', // Arabic -> Saudi Arabia
 
     kk: 'kz', // Kazakh -> Kazakhstan
-    hi: 'in' // Indian (हिन्दी)
+    hi: 'in' // Hindi (हिन्दी)
   }
 
   const baseLanguage = locale.split('-')[0]?.toLowerCase() || locale

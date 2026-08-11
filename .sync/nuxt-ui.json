@@ -2,7 +2,7 @@
   "upstream": "nuxt/ui",
   "branch": "v4",
   "sync_enabled": false,
-  "cursor": "795c3538bba124d5a2d9832b59c92c3347a5f59d",
+  "cursor": "e333e8d424a21b86ede888fb29172fdc7aacc0a4",
   "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
   "stats": {
     "queue_depth": 0,
@@ -1315,22 +1315,28 @@
       "summary": "chore(deps): update @nuxtjs/mdc to ^0.23.1 (nuxt/ui) — docs @nuxtjs/mdc ^0.22.2 -> ^0.23.1 plus upstream's new transitive override '@nuxt/content>@nuxtjs/mdc': ^0.23.1. Verified the premise rather than trusting the comment: @nuxt/content@3.15.2 does declare '@nuxtjs/mdc': '^0.22.2' in its dependencies, and b24ui docs sits on the same pairing, so bumping only docs would install a second mdc copy and component-meta would read different components than the ones the module registers. Ported verbatim, comment included; after install @nuxtjs/mdc resolves to a single copy at 0.23.1. MINIMUM-RELEASE-AGE NOTE SUPERSEDES d7284f3's: that entry recorded that b24ui has no minimumReleaseAgeExclude block, so upstream's entries were treated as n/a — but pnpm 11.20.0 applies a release-age cooldown by default and on this install created the block itself, appending @nuxtjs/mdc@0.23.1, the same entry upstream added by hand. Kept. (@nuxt/icon@2.5.0 from 229b64f stays correctly skipped — that package is not in this tree at all.) renovate.json skipped consistently with 229b64f: no renovate here, dependabot.yml is deliberately github-actions-only, and the allowedVersions rule upstream is deleting ('<0.23.0 || >0.23.0', which had blocked exactly 0.23.0) is one this fork never had. Tests 5878 passed | 6 skipped / 262 files, unchanged. docs:generate run out-of-band since mdc is the docs markdown pipeline and the ci gate never builds the docs site: Prerendered 1240 routes, exit 0 — same route count as before the bump, which is the check that matters (a second mdc copy would surface as components resolving differently, not as a build error)."
     },
     "094fb576c343a65bbff49e8f10c6999ba8e9d046": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 361,
+      "b24ui_sha": "c31d250d192732857ffaa2e77f1bed2b6e19bda5",
       "decision": "no-op",
       "summary": "chore(deps): release-it to v21 and @release-it/conventional-changelog to v12 (nuxt/ui) — NO-OP: two lines in upstream's root devDependencies (@release-it/conventional-changelog ^11.0.1 -> ^12.0.0, release-it ^20.2.1 -> ^21.0.2) plus the lockfile; no config, workflow or source. b24ui does not release with release-it — it uses release-please (release-please-config.json, .release-please-manifest.json, .github/workflows/release-please.yml) with publishing in npm-publish.yml. Confirmed rather than assumed: neither package appears in any manifest in this repository, neither is referenced by any workflow, there is no .release-it.json and no release-it key in package.json. Nothing to bump."
     },
     "10ec237623bc8f4b8cf6b9d45ab4ae24105e0fd8": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 361,
+      "b24ui_sha": "c31d250d192732857ffaa2e77f1bed2b6e19bda5",
       "decision": "no-op",
       "summary": "fix(locale): correct slide placeholder casing in lb (nuxt/ui #6822) — NO-OP: one character in src/runtime/locale/lb.ts, carousel.goto 'Gitt op d\\'Slide {Slide}' -> '{slide}'. The interpolation key is case-sensitive, so {Slide} never matched the value the component passes and Luxembourgish users saw the literal {Slide} instead of a number. b24ui ships its own locale set (ar, br, de, en, fr, id, in, it, ja, kz, la, ms, pl, ru, sc, tc, th, tr, ua, vn) and has no lb.ts. AUDITED rather than just skipped, because the interesting part is the bug class — a placeholder whose casing does not match the interpolated key fails silently, with no error and no test failure — and b24ui maintains 20 locales of its own where the same mistake could exist independently. It does not: grep over src/runtime/locale/*.ts yields only {label} x40, {slide} x20, {name} x20, {filename} x20, {duration} x20, and zero placeholders starting with an uppercase letter. Counts line up exactly with 20 locale files ({label} twice per file, the rest once), so no locale is missing or mis-spelling one either."
     },
     "795c3538bba124d5a2d9832b59c92c3347a5f59d": {
-      "pr": null,
-      "b24ui_sha": "pending-merge",
+      "pr": 361,
+      "b24ui_sha": "c31d250d192732857ffaa2e77f1bed2b6e19bda5",
       "decision": "no-op",
       "summary": "fix(AuthForm): type submit payload with the schema output (nuxt/ui #6816) — NO-OP: AuthForm.vue typed its submit emit from the component's own reactive state (defineEmits<AuthFormEmits<typeof state>>() -> <AuthFormEmits<FormData<T>>>()). state is assembled from the fields prop, so it describes what the form renders rather than what the schema produces — anything the schema adds (a .default(), a transform, a coerced type) was missing or wrong in the emitted payload's type. The commit also adds a type-level regression test via expectEmitPayloadType with a z.boolean().default(false) field, the exact case typeof state got wrong. b24ui has no AuthForm component (no src/runtime/components/AuthForm.vue, no test/components/AuthForm.spec.ts). AUDITED rather than just skipped, because the building blocks do exist here — FormData<S, T> in src/runtime/types/form.ts and the expectEmitPayloadType helper in test/utils/types.ts, already used by the Listbox/Select/SelectMenu/InputMenu specs — so the same mistake could have been made independently in whichever component emits a form submit. The only one is Form.vue, and it is already correct: FormEmits declares submit: [event: FormSubmitEvent<FormData<S, T>>], schema-derived rather than typeof state."
+    },
+    "e333e8d424a21b86ede888fb29172fdc7aacc0a4": {
+      "pr": null,
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "fix(locale): correct native names and tajik language code (nuxt/ui #6823) — two unrelated corrections upstream; one half applies here, the other deliberately does not. (1) NAME MUST BE THE ENDONYM: upstream fixed eight locales carrying the English name in a field rendered by the locale switcher (Danish->Dansk, Schweizerdeutsch->Schweizer Hochdeutsch, Euskera->Euskara, Suomeksi->Suomi, Hebrew->עברית, Hindi->हिन्दी, Icelandic->Íslenska, Urdu->اردو). Audited all 20 b24ui locales: nineteen already carry proper endonyms, one did not — src/runtime/locale/in.ts had name: 'Indian'. Now 'हिन्दी', which is upstream's hi.ts fix verbatim (same language, same replacement value). 'Indian' is not a language and the file's own messages are Hindi (कोड, गुण); the repo already knew this, its comments read hi: 'in' // Indian (हिन्दी), only the rendered field disagreed (LocaleSelect uses labelKey: 'name'). (2) TAJIK CODE tj->tg DOES NOT APPLY AND MUST NOT BE GENERALISED: none of the eight files exist here, and b24ui's locale codes are Bitrix24 portal language codes rather than ISO 639-1 — in, kz, ua, vn, sc, tc, br, la. Several look like exactly the mistake upstream fixed (ua vs ISO uk, kz vs kk, vn vs vi) but they are the identifiers the platform this library integrates with uses, and the repo already carries an explicit ISO<->Bitrix24 mapping for that reason (LocaleSelect.vue and SupportedLanguages.vue map hi: 'in', tc: 'tw', ...). Renaming any would break every consumer passing a Bitrix24 language code. THREE FORK-ONLY FIXES in the same field, found while auditing, none from upstream: src/runtime/dictionary/i18n.ts listed { code: 'in', name: 'भारतीय' }, Devanagari for 'Indian' — the same non-language label translated — now हिन्दी so dictionary and locale agree; src/runtime/locale/tc.ts had '中文（繁體)' with a full-width （ closed by a half-width ), while the dictionary already had 中文（繁體） — fixed at the source plus the same malformed string in three comments (locale/index.ts, LocaleSelect.vue, SupportedLanguages.vue); comments reading // Indian (हिन्दी) now read // Hindi (हिन्दी). OBSERVED, LEFT ALONE: ar.ts says 'العربية' while the dictionary says 'عربي' — both legitimate Arabic endonyms, upstream does not touch Arabic, so choosing one is a call for someone who reads the language. No snapshot contains any of these strings and no test asserts on locale name; tests 5878 passed | 6 skipped / 262 files, unchanged."
     }
   }
 }

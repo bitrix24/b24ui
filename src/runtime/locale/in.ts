@@ -2,7 +2,7 @@ import type { Messages } from '../types/locale'
 import { defineLocale } from '../composables/defineLocale'
 
 export default defineLocale<Messages>({
-  name: 'Indian',
+  name: 'हिन्दी',
   code: 'in',
   locale: 'hi_IN',
   messages: {
