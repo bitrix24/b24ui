@@ -27,7 +27,7 @@ export const contentLocales: ContentLocale[] = [
   { code: 'id', name: 'Bahasa Indonesia', file: 'id.ts' },
   { code: 'ms', name: 'Bahasa Melayu', file: 'ms.ts' },
   { code: 'th', name: 'ภาษาไทย', file: 'th.ts' },
-  { code: 'in', name: 'भारतीय', file: 'in.ts' },
+  { code: 'in', name: 'हिन्दी', file: 'in.ts' },
   { code: 'ar', name: 'عربي', file: 'ar.ts' },
   { code: 'kz', name: 'Қазақша', file: 'kz.ts' }
 ]
