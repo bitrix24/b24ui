@@ -1,14 +1,8 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "sync_enabled": false,
   "cursor": "3dbca020969582d577c7df9698dc8cd484f76dc1",
-  "_cursor_note": "cursor = last upstream commit ported into b24ui (oldest-first, manual cadence). sync_enabled stays false until Phase 2 (porter workflow #67 + CLAUDE_CODE_OAUTH_TOKEN) is wired and trusted. `processed` is maintained per port from now on (backfilled #68-#72 on 2026-06-09).",
-  "stats": {
-    "queue_depth": 0,
-    "noop_ratio": 0,
-    "avg_pr_age_hours": 0
-  },
+  "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
       "pr": 68,
