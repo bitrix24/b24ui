@@ -281,10 +281,14 @@ const options = computed(() => {
             label: variant
           }))
 
+    const type = props?.cast?.[key] ?? prop?.type
+
     return {
       name: key,
       label: key,
-      type: props?.cast?.[key] ?? prop?.type,
+      type,
+      // Determined from the original value so clearing a number input doesn't swap it for a text one
+      inputType: type?.includes('number') && typeof get(props.props, key) === 'number' ? 'number' : 'text',
       items
     }
   })
@@ -572,7 +576,7 @@ const { data: ast } = useAsyncData(codeKey, async () => {
               @update:model-value="setComponentProp(option.name, $event)"
             />
             <B24InputNumber
-              v-else-if="option.label === 'content.sideOffset' || (option.type?.includes('number') && typeof getComponentProp(option.name) === 'number')"
+              v-else-if="option.label === 'content.sideOffset' || option.inputType === 'number'"
               :model-value="getComponentProp(option.name)"
               :b24ui="{ base: 'w-[105px]' }"
               @update:model-value="setComponentProp(option.name, $event)"
