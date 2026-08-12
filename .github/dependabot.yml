@@ -18,11 +18,13 @@ version: 2
 # stream of npm PRs here would compete with that pipeline rather than add to it.
 # Security-only alerts are a separate repository setting and are unaffected.
 #
-# Revisit when that stops being true: if `sync_enabled` in `.sync/nuxt-ui.json`
-# is off for more than a month, or the porter stops advancing its cursor, npm
-# updates have no other route in and this file should grow an `npm` ecosystem
-# as a backstop. A decision that depends on another system working needs to say
-# what happens when it does not.
+# Revisit when that stops being true. That pipeline is deliberately manual —
+# there is no dispatcher and no schedule, so nothing fails loudly when it goes
+# quiet. The condition to watch is therefore the only observable one: if
+# `cursor` in `.sync/nuxt-ui.json` has not advanced in a month while nuxt/ui@v4
+# has moved, npm updates have no other route in and this file should grow an
+# `npm` ecosystem as a backstop. A decision that depends on someone else doing
+# something needs to say what happens when they stop.
 updates:
   - package-ecosystem: github-actions
     directory: /
