@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest'
+import Fuse from 'fuse.js'
 import { highlight, sanitizeSnippet } from '../../src/runtime/utils/search'
 
 describe('sanitizeSnippet', () => {
@@ -31,6 +32,16 @@ describe('sanitizeSnippet', () => {
 })
 
 describe('highlight', () => {
+  // Matches a high surrogate not followed by a low one, or a low surrogate not
+  // preceded by a high one — i.e. half of an astral character.
+  const LONE_SURROGATE = /[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/
+
+  // One character from each corner of the surrogate ranges. A fixture built only
+  // from characters sitting comfortably inside them hides an implementation whose
+  // range bounds are off by one: U+20000 encodes to a low surrogate of U+DC00 and
+  // U+1F3FF to U+DFFF — the two edges — while U+1F600 sits between them.
+  const ASTRAL = ['\u{10000}', '\u{10FFFF}', '\u{1F600}', '\u{1F3FF}', '\u{20000}']
+
   it('escapes an injected tag in the unmatched tail while keeping the match highlighted', () => {
     const value = 'zzzzz &<img src=x onerror=alert(1)>'
     const result = highlight({ label: value, matches: [{ key: 'label', value, indices: [[0, 4]] }] }, 'zzzzz', 'label')
@@ -62,21 +73,11 @@ describe('highlight', () => {
   })
 
   describe('truncation from the start', () => {
-    // Matches a high surrogate not followed by a low one, or a low surrogate not
-    // preceded by a high one — i.e. half of an astral character.
-    const LONE_SURROGATE = /[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/
-
     // `maxLength` counts the tag characters that the counter inside
     // `truncateHTMLFromStart` skips, so the two cancel and the surviving prefix is
     // always `'<mark>'.length + '</mark>'.length` characters — whatever the match
     // is, and whether the content is BMP or astral.
     const RETAINED = '<mark>'.length + '</mark>'.length
-
-    // One character from each corner of the surrogate ranges. A fixture built only
-    // from characters sitting comfortably inside them hides an implementation whose
-    // range bounds are off by one: U+20000 encodes to a low surrogate of U+DC00 and
-    // U+1F3FF to U+DFFF — the two edges — while U+1F600 sits between them.
-    const ASTRAL = ['\u{10000}', '\u{10FFFF}', '\u{1F600}', '\u{1F3FF}', '\u{20000}']
 
     function highlightAfterFiller(filler: string, count: number) {
       const value = filler.repeat(count) + 'match'
@@ -121,6 +122,86 @@ describe('highlight', () => {
       const result = highlight({ label: value, matches: [{ key: 'label', value, indices: [[40, 44]] }] }, 'match', 'label')
 
       expect(result).toBe(`...${'b'.repeat(RETAINED)}<mark>match</mark>${'\u{1F600}'.repeat(10)}`)
+    })
+  })
+
+  describe('insertion boundaries', () => {
+    // Fuse's `indices` are UTF-16 code-unit offsets, so a region boundary can
+    // land between the surrogates of an astral character. The `<mark>` must
+    // snap outward to cover the whole character instead of splitting it.
+
+    it('closes the mark after the whole character when the region ends inside it', () => {
+      // a b c d e \uD83D \uDE00 x y z — the region's exclusive end (6) points
+      // at the low surrogate.
+      const value = 'abcde\u{1F600}xyz'
+      const result = highlight({ label: value, matches: [{ key: 'label', value, indices: [[0, 4]] }] }, 'abcde', 'label')
+
+      expect(result).toBe('<mark>abcde</mark>\u{1F600}xyz')
+
+      const split = highlight({ label: value, matches: [{ key: 'label', value, indices: [[0, 5]] }] }, 'abcde', 'label')
+
+      expect(split).toBe('<mark>abcde\u{1F600}</mark>xyz')
+      expect(LONE_SURROGATE.test(split ?? '')).toBe(false)
+    })
+
+    it('opens the mark before the whole character when the region starts inside it', () => {
+      // a b c \uD83D \uDE00 d e f — the region start (4) points at the low
+      // surrogate.
+      const value = 'abc\u{1F600}def'
+      const result = highlight({ label: value, matches: [{ key: 'label', value, indices: [[4, 6]] }] }, 'def', 'label')
+
+      expect(result).toBe('abc<mark>\u{1F600}de</mark>f')
+      expect(LONE_SURROGATE.test(result ?? '')).toBe(false)
+    })
+
+    it.each(ASTRAL)('snaps both boundaries when each lands inside %s', (astral) => {
+      // a b <hi lo> c d <hi lo> e f — start (3) and exclusive end (7) each
+      // point at a low surrogate.
+      const value = `ab${astral}cd${astral}ef`
+      const result = highlight({ label: value, matches: [{ key: 'label', value, indices: [[3, 6]] }] }, 'abcd', 'label')
+
+      expect(result).toBe(`ab<mark>${astral}cd${astral}</mark>ef`)
+      expect(LONE_SURROGATE.test(result ?? '')).toBe(false)
+    })
+
+    it('skips a region covering a single astral character, like a single BMP one', () => {
+      const value = 'ab\u{1F600}cd'
+
+      // [1, 1] is one BMP character and was always skipped; [2, 3] is one astral
+      // character — two code units, but still a single-character region.
+      expect(highlight({ label: value, matches: [{ key: 'label', value, indices: [[1, 1]] }] }, 'b', 'label')).toBe(value)
+      expect(highlight({ label: value, matches: [{ key: 'label', value, indices: [[2, 3]] }] }, 'b', 'label')).toBe(value)
+    })
+
+    it.each(ASTRAL)('keeps every %s intact wherever the region boundary lands', (astral) => {
+      const value = astral.repeat(5)
+
+      for (let end = 0; end < value.length; end++) {
+        const result = highlight({ label: value, matches: [{ key: 'label', value, indices: [[0, end]] }] }, 'aa', 'label') ?? ''
+
+        // Count what survived, not only lone surrogates: deleting the split
+        // character would otherwise pass.
+        expect(result.split(astral).length - 1).toBe(5)
+        expect(LONE_SURROGATE.test(result)).toBe(false)
+      }
+    })
+
+    it('does not split characters at the boundaries fuse reports (repro from #362)', () => {
+      // Real fuse.js at ContentSearch's shipped defaults, with well-formed input
+      // on both sides: the user searched with the wrong emoji.
+      const label = 'deployment \u{1F600} pipeline'
+      const fuse = new Fuse([{ label }], { ignoreLocation: true, includeMatches: true, threshold: 0.1, keys: ['label'] })
+      const matches = fuse.search('deployment \u{1F680}')[0]?.matches
+
+      // Pin fuse's offsets: the first region's exclusive end (12) falls between
+      // the surrogates of the emoji. If a fuse upgrade stops producing a
+      // mid-pair boundary, fail loudly here instead of passing vacuously.
+      expect(matches?.[0]?.indices).toEqual([[0, 11], [13, 13]])
+
+      const result = highlight({ label, matches: [...matches!] }, 'deployment \u{1F680}', 'label', undefined, true)
+
+      expect(result).toBe('<mark>deployment \u{1F600}</mark> pipeline')
+      expect(LONE_SURROGATE.test(result ?? '')).toBe(false)
     })
   })
 })

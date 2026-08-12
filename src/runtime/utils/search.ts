@@ -70,6 +70,22 @@ export function sanitizeSnippet(snippet: string): string {
     .replaceAll(tagClose, '</mark>')
 }
 
+// Fuse's `indices` are UTF-16 code-unit offsets, so a region boundary can land
+// between the two surrogates of an astral character (emoji, most CJK extension
+// blocks). Slicing there puts the `<mark>` inside the character and orphans
+// both halves, which render as `�`. True when `index` points at a low
+// surrogate whose predecessor is a high surrogate.
+function splitsSurrogatePair(value: string, index: number): boolean {
+  if (index <= 0 || index >= value.length) {
+    return false
+  }
+
+  const low = value.charCodeAt(index)
+  const high = value.charCodeAt(index - 1)
+
+  return low >= 0xDC00 && low <= 0xDFFF && high >= 0xD800 && high <= 0xDBFF
+}
+
 export function highlight<T>(item: T & { matches?: FuseResult<T>['matches'] }, searchTerm: string, forceKey?: GetItemKeys<T>, omitKeys?: GetItemKeys<T>[], useTokenSearch?: boolean) {
   const tokens = useTokenSearch ? (searchTerm.match(/[\p{L}\p{M}\p{N}_]+/gu) || []) : []
   const minTokenLength = tokens.length > 0 ? Math.min(...tokens.map(t => t.length)) : searchTerm.length
@@ -80,22 +96,38 @@ export function highlight<T>(item: T & { matches?: FuseResult<T>['matches'] }, s
     let nextUnhighlightedRegionStartingIndex = 0
 
     indices.forEach((region) => {
-      // skip if region is a single character
-      if (region.length === 2 && region[0] === region[1]) {
+      // Snap a boundary that lands inside an astral character outward, so the
+      // highlight always covers whole characters.
+      let start = region[0]
+      let end = region[1] + 1
+
+      if (splitsSurrogatePair(value, start)) {
+        start--
+      }
+      if (splitsSurrogatePair(value, end)) {
+        end++
+      }
+
+      // A widened start must not reach back into a region that has already been
+      // emitted — `substring` swaps reversed arguments and would duplicate it.
+      start = Math.max(start, nextUnhighlightedRegionStartingIndex)
+
+      // skip if region is a single character — one code point, so a lone astral
+      // character (two code units) is skipped the same as a lone BMP one
+      if (end - start <= 1 || (end - start === 2 && splitsSurrogatePair(value, start + 1))) {
         return
       }
 
-      const lastIndiceNextIndex = region[1] + 1
-      const isMatched = (lastIndiceNextIndex - region[0]) >= minTokenLength
+      const isMatched = (region[1] + 1 - region[0]) >= minTokenLength
 
       content += [
-        escapeHTML(value.substring(nextUnhighlightedRegionStartingIndex, region[0])),
+        escapeHTML(value.substring(nextUnhighlightedRegionStartingIndex, start)),
         isMatched && `<mark>`,
-        escapeHTML(value.substring(region[0], lastIndiceNextIndex)),
+        escapeHTML(value.substring(start, end)),
         isMatched && '</mark>'
       ].filter(Boolean).join('')
 
-      nextUnhighlightedRegionStartingIndex = lastIndiceNextIndex
+      nextUnhighlightedRegionStartingIndex = end
     })
 
     content += escapeHTML(value.substring(nextUnhighlightedRegionStartingIndex))
