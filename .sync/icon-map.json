@@ -1,5 +1,5 @@
 {
-  "$schema-note": "Literal upstream iconify names -> b24-icons components. READ FIRST: b24ui shares nuxt/ui's SEMANTIC icon keys (src/runtime/dictionary/icons.ts vs upstream src/theme/icons.ts), so when a diff references `appConfig.ui.icons.<key>` or `icons.<key>`, KEEP the key unchanged — b24ui already resolves it to the right b24-icon. This table is only for the cases where upstream HARDCODES a literal `i-lucide-*` string. Most entries are derived, not chosen: for every key both sides define, the pair is (upstream's lucide name -> b24ui's component). The exceptions, which are judgement calls rather than derivations: `i-lucide-circle-check` is upstream's `success`, a key b24ui does not have (mapped to the same glyph as `copyCheck`, so two upstream names share one component here on purpose); `i-lucide-refresh-cw` is b24ui's `refresh`, a key upstream does not have; and activity/arrow-up-to-line/house/settings/user predate the derivation and match no key on either side. Upstream keys with no b24ui counterpart (error, eye, eyeOff, folder, folderOpen, success) have no entry — pick a component during the port and add it here in the same commit (PORTING.md §4).",
+  "$schema-note": "Literal upstream iconify names -> b24-icons components, for the one case a port needs it: upstream HARDCODING an `i-lucide-*` string. Both projects define the same semantic icon keys (src/runtime/dictionary/icons.ts here, src/theme/icons.ts upstream), so a diff referencing `icons.<key>` needs no rewrite at all — see PORTING.md §1 for when that does and does not hold. Most rows are derived rather than chosen: for every key both sides define, the pair is (upstream's lucide name -> whatever this repo's dictionary maps that key to), and test/utils/icon-map.spec.ts re-checks that pairing. The rows that are judgement calls instead: circle-check (upstream's `success`, a key we lack — reuses copyCheck's glyph), circle-x (upstream's `error`, which our dictionary folds into `caution`), refresh-cw (our `refresh`, a key upstream lacks), terminal (upstream's only hardcoded literal, answered in prose/CodeIcon.vue), and activity/arrow-up-to-line/house/settings/user, which predate the derivation and match no key on either side. Upstream keys still without a row: eye, eyeOff, folder, folderOpen — pick a component during the port and add it here in the same commit (PORTING.md §4).",
   "i-lucide-activity": "@bitrix24/b24icons-vue/main/ActivityIcon",
   "i-lucide-arrow-down": "@bitrix24/b24icons-vue/outline/ArrowDownLIcon",
   "i-lucide-arrow-left": "@bitrix24/b24icons-vue/actions/ArrowToTheLeftIcon",
@@ -16,6 +16,7 @@
   "i-lucide-chevrons-right": "@bitrix24/b24icons-vue/actions/DoubleShevronsRightIcon",
   "i-lucide-circle-alert": "@bitrix24/b24icons-vue/outline/AlertIcon",
   "i-lucide-circle-check": "@bitrix24/b24icons-vue/outline/CircleCheckIcon",
+  "i-lucide-circle-x": "@bitrix24/b24icons-vue/outline/AlertIcon",
   "i-lucide-copy": "@bitrix24/b24icons-vue/outline/CopyIcon",
   "i-lucide-copy-check": "@bitrix24/b24icons-vue/outline/CircleCheckIcon",
   "i-lucide-ellipsis": "@bitrix24/b24icons-vue/button/DotsIcon",
@@ -40,6 +41,7 @@
   "i-lucide-square": "@bitrix24/b24icons-vue/outline/StopLIcon",
   "i-lucide-star": "@bitrix24/b24icons-vue/outline/FavoriteIcon",
   "i-lucide-sun": "@bitrix24/b24icons-vue/outline/SunIcon",
+  "i-lucide-terminal": "@bitrix24/b24icons-vue/file-type/TerminalIcon",
   "i-lucide-triangle-alert": "@bitrix24/b24icons-vue/main/WarningIcon",
   "i-lucide-upload": "@bitrix24/b24icons-vue/outline/UploadFileIcon",
   "i-lucide-user": "@bitrix24/b24icons-vue/common-b24/UserIcon",
