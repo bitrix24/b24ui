@@ -35,7 +35,6 @@ export default {
       }
     }
   },
-  compoundVariants: [],
   defaultVariants: {
     size: 'md'
   }
