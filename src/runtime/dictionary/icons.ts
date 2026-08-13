@@ -2,6 +2,9 @@
  * Default icons
  * ---
  * @link https://bitrix24.github.io/b24icons/
+ * Both pages below inline this file's `export default` so readers can see every
+ * overridable role. Keeping them in step is enforced, not remembered — add a
+ * role here and `test/utils/icons-docs.spec.ts` fails until both list it.
  * @memo sync with docs/content/docs/1.getting-started/6.integrations/1.icons/1.nuxt.md
  * @memo sync with docs/content/docs/1.getting-started/6.integrations/1.icons/2.vue.md
  */

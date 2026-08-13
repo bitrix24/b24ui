@@ -41,14 +41,13 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
 > `appConfig.ui.icons.<key>` or `icons.<key>`, **keep the key unchanged** and
 > most icon diffs come out 1:1.
 >
-> With one caveat worth knowing before you trust that: the dictionary is the
-> *declared* authority, not the only one. Roughly half the
-> `@bitrix24/b24icons-vue/…` paths under `src/` are hardcoded in components that
-> never read it — `Checkbox.vue` renders `main/CheckIcon` where the dictionary
-> says `outline/CheckLIcon`, and `Badge.vue` renders `actions/Cross20Icon` for
-> `close`. So porting a key faithfully changes what those components render only
-> if they were reading the key in the first place; check the component, not just
-> the key. #380 tracks the inconsistency.
+> With one caveat before you trust that: the dictionary is the *declared*
+> authority, not the only one. Four components pick a **sized variant** of a
+> role's glyph instead — `Checkbox` renders `main/CheckIcon` where the `check`
+> role is `outline/CheckLIcon`, `Badge` renders `actions/Cross20Icon` for
+> `close` — so porting a change to `icons.<key>` reaches the components that
+> read the key and not those four. Check the component, not just the key; the
+> §2 invariant below lists all of them and #380 holds the open question.
 >
 > [`icon-map.json`](./icon-map.json) is only for the other case: upstream
 > **hardcoding** a literal `i-lucide-*` string — which upstream does exactly once
@@ -74,6 +73,27 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   with `node -e "..."` diffing nuxt vs demo (and check vue/repl), then
   regenerate the lockfile once. A dep that exists only in `nuxt` but not `demo`
   (or vice-versa) is fine; a dep present in **both** must not drift.
+- **Some components pick a sized icon variant instead of the dictionary's — do
+  not "fix" that during a port.** `dictionary/icons.ts` holds one glyph per
+  semantic role, at standalone size. Four components deliberately reach past it
+  for a variant scaled to the control they sit in: `Badge` renders
+  `actions/Cross20Icon` and `SidebarLayout` renders `actions/Cross50Icon` where
+  the `close` role is `outline/CrossMIcon`; `Checkbox` renders `main/CheckIcon`
+  and `actions/Minus20Icon` where `check`/`minus` are `outline/CheckLIcon` and
+  `actions/Minus30Icon`; `Button` renders `outline/ChevronDownSIcon` where
+  `chevronDown` is `outline/ChevronDownLIcon`. The suffixes are sizes, not
+  families — all share a `0 0 24 24` viewBox and differ in how much of it the
+  glyph fills (`Minus20Icon` spans x 7→17, `Minus30Icon` spans 6→18). So an
+  upstream commit that changes an `icons.<key>` default reaches the components
+  that read the key, and **not** these four; replaying it onto them silently
+  resizes a tick, a badge cross or a button chevron. The reverse trap is worse:
+  routing them "back" through the dictionary looks like a tidy-up in a diff and
+  changes what four components render. #380 holds the open question of whether
+  these should instead become sized roles or overridable props; until it is
+  answered, leave them. Guarded from the documentation side by
+  `test/utils/icon-claims.spec.ts`, which fails if a component's jsDoc promises
+  an `icons.<key>` that nothing it can reach actually uses — the three claims
+  that were already false are why it exists.
 - **Locales — do NOT add new ones.** b24ui maintains its own curated locale
   set and does not adopt new languages from upstream. When an upstream commit
   adds a locale (a new `src/runtime/locale/<code>.ts` + an `index.ts` export),

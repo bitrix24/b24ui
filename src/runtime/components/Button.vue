@@ -57,7 +57,9 @@ export interface ButtonProps extends Omit<UseComponentIconsProps, 'trailing' | '
    */
   useClock?: boolean
   /**
-   * Shows icons.ChevronDownSIcon on the right side
+   * Shows a small dropdown chevron (`outline/ChevronDownSIcon`) on the right
+   * side. Sized for a button rather than taken from the dictionary's
+   * `chevronDown` role, which is the standalone size — see #380.
    * @defaultValue false
    */
   useDropdown?: boolean
