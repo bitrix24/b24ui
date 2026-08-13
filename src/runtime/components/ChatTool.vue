@@ -40,8 +40,8 @@ export interface ChatToolProps extends Pick<CollapsibleRootProps, 'defaultOpen' 
    */
   useClock?: boolean
   /**
-   * The icon displayed when loading.
-   * @defaultValue icons.loading
+   * The icon displayed when loading. Overrides `useWait` / `useClock`.
+   * @defaultValue `specialized/SpinnerIcon`
    * @IconifyIcon
    */
   loadingIcon?: IconComponent

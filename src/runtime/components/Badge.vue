@@ -37,7 +37,9 @@ export interface BadgeProps extends Omit<UseComponentIconsProps, 'loading' | 'lo
    */
   useLink?: boolean
   /**
-   * Shows icons.close on the right side
+   * Shows a small close cross (`actions/Cross20Icon`) on the right side.
+   * Sized for a badge rather than taken from the dictionary's `close` role,
+   * which is the standalone size — see #380.
    * @defaultValue false
    */
   useClose?: boolean
