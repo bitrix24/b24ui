@@ -17,7 +17,7 @@ export default defineMcpTool({
   },
   inputExamples: [
     { path: '/b24ui/docs/components/button/', headings: ['Usage', 'API'] },
-    { path: '/b24ui/docs/getting-started/installation/' }
+    { path: '/b24ui/docs/getting-started/installation/nuxt/' }
   ],
   cache: '30m',
   async handler({ path, headings }) {
