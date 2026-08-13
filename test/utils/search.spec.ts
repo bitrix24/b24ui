@@ -123,6 +123,82 @@ describe('highlight', () => {
     })
   })
 
+  describe('key selection', () => {
+    // `CommandPalette` calls `highlight()` three times per item against one
+    // shared `matches` array — once per rendered field — and depends on
+    // `forceKey`/`omitKeys` to make each call pick its own entry. Deleting both
+    // guards outright left every test in this file and in
+    // `CommandPalette.spec.ts` passing: no other fixture anywhere carries more
+    // than one match, so both `continue` branches were dead code as far as the
+    // suite was concerned, and a regression would have rendered the label's
+    // text in the suffix slot with nothing failing.
+    const label = 'alpha team'
+    const suffix = 'alpha squad'
+    const description = 'alpha unit'
+
+    // Deliberately not in field order, and `label` deliberately last: a
+    // `forceKey` that stopped being honoured would return the *suffix* entry,
+    // which reads as a plausible result rather than an obvious break.
+    const item = {
+      label,
+      suffix,
+      description,
+      matches: [
+        { key: 'suffix', value: suffix, indices: [[0, 4]] as [number, number][] },
+        { key: 'description', value: description, indices: [[0, 4]] as [number, number][] },
+        { key: 'label', value: label, indices: [[0, 4]] as [number, number][] }
+      ]
+    }
+
+    it('marks the forced key rather than the first match', () => {
+      expect(highlight(item, 'alpha', 'label')).toBe('<mark>alpha</mark> team')
+    })
+
+    it('resolves the three calls `CommandPalette` makes per item to three different fields', () => {
+      expect(highlight(item, 'alpha', 'label', undefined)).toBe('<mark>alpha</mark> team')
+      expect(highlight(item, 'alpha', 'suffix', ['label'])).toBe('<mark>alpha</mark> squad')
+      expect(highlight(item, 'alpha', 'description', ['label', 'suffix'])).toBe('<mark>alpha</mark> unit')
+    })
+
+    it('skips an omitted key and keeps looking', () => {
+      // The case above pins the real call shapes, but it cannot pin `omitKeys`:
+      // every one of its calls sets `forceKey` too, and that narrows the loop to
+      // a single candidate before the omit check can matter. Deleting the
+      // `omitKeys` guard alone leaves all three of its assertions green.
+      //
+      // Here nothing is forced, so the omit is the only thing standing between
+      // the cursor and the first entry — and the loop has to carry on past it
+      // rather than give up, which `returns undefined when every match is
+      // omitted` cannot show either.
+      expect(highlight(item, 'alpha', undefined, ['suffix'])).toBe('<mark>alpha</mark> unit')
+      expect(highlight(item, 'alpha', undefined, ['suffix', 'description'])).toBe('<mark>alpha</mark> team')
+    })
+
+    it('honours an omitted key that is also the forced one', () => {
+      expect(highlight(item, 'alpha', 'label', ['label'])).toBeUndefined()
+    })
+
+    it('takes the first match when nothing is forced or omitted', () => {
+      expect(highlight(item, 'alpha')).toBe('<mark>alpha</mark> squad')
+    })
+
+    it('returns undefined when every match is omitted', () => {
+      expect(highlight(item, 'alpha', undefined, ['label', 'suffix', 'description'])).toBeUndefined()
+    })
+
+    it('returns undefined when the forced key is not among the matches', () => {
+      expect(highlight({ label, matches: [{ key: 'suffix', value: suffix, indices: [[0, 4]] }] }, 'alpha', 'label'))
+        .toBeUndefined()
+    })
+
+    it('falls back to an empty value rather than throwing when a match carries none', () => {
+      // Fuse's own type declares `value?: string`. Without the `value || ''`
+      // guard this reaches `substring()` on `undefined` and throws inside
+      // `CommandPalette`'s render path — a harder failure than an empty mark.
+      expect(highlight({ label, matches: [{ key: 'label', indices: [[0, 3]] }] }, 'alpha', 'label')).toBe('')
+    })
+  })
+
   describe('mark insertion', () => {
     function highlightRegions(value: string, indices: [number, number][]) {
       // A one-character term keeps `minTokenLength` at 1, so every region here is
@@ -233,8 +309,13 @@ describe('highlight', () => {
       // obligation. `NaN` compares false against everything — `end > start`
       // included, so no mark is emitted and nothing looks wrong — and then lands
       // in the cursor, where `substring(NaN)` reads as `substring(0)` and repeats
-      // the entire value after the part already written. `Infinity` clamps to the
-      // end of the value and marks all of it.
+      // the entire value after the part already written.
+      //
+      // All three cases below take the same exit, and it is the filter rather
+      // than any clamp: `Number.isInteger` is false for `NaN`, for `Infinity`
+      // and for `6.5` alike, so none of them reaches the snapping arithmetic at
+      // all. Worth stating because the `Infinity` case reads like a clamp and is
+      // not one.
       const value = 'alpha beta gamma'
 
       function withExtra(extra: [number, number]) {
@@ -273,13 +354,33 @@ describe('highlight', () => {
     // that anything was lost.
     const CLUSTERS: [string, string][] = [
       ['a flag', '\u{1F1FA}\u{1F1F8}'],
-      ['a ZWJ family', '\u{1F468}‍\u{1F469}‍\u{1F467}'],
+      ['a ZWJ family', '\u{1F468}\u200D\u{1F469}\u200D\u{1F467}'],
       ['an emoji with a skin-tone modifier', '\u{1F44D}\u{1F3FF}'],
       ['a Devanagari consonant with a vowel sign', 'कि'],
-      ['a combining accent', 'é']
+      // Escaped rather than written as a glyph. Two hazards, and only the
+      // first applies here: NFC collapses a literal combining mark into one
+      // precomposed code point, so an IDE reformat would silently turn this
+      // into a single-code-point fixture that passes whatever the floor is set
+      // to. The ZWJ family above is escaped for the second reason instead —
+      // its joiners are invisible, so one could be deleted without anyone
+      // seeing. The Devanagari pair needs neither: it is visible, and
+      // `'कि'.normalize('NFC')` round-trips unchanged.
+      ['a combining accent', 'e\u0301'],
+      // U+0300 sits *at* the floor, U+0301 one above it, and only the former
+      // pins it: `0x301 < 0x300` and `0x301 < 0x301` are both false, so raising
+      // the floor by one leaves the accent above unaffected and the mutation
+      // survives. `0x300 < 0x301` is true, which screens this cluster out and
+      // fails loudly.
+      ['a combining grave, at the screening floor', 'e\u0300']
     ]
 
     const segmenter = new Intl.Segmenter(undefined, { granularity: 'grapheme' })
+
+    // The truncation budget, in *code points* — the same figure `truncation from
+    // the start` pins as `RETAINED`. How many clusters that buys depends on the
+    // cluster: six two-code-point flags, but only two five-code-point ZWJ
+    // families, and the remainder is snapped away rather than kept as a fragment.
+    const BUDGET_CODE_POINTS = 13
 
     function highlightAfter(cluster: string, count: number) {
       const value = cluster.repeat(count) + 'match'
@@ -312,6 +413,13 @@ describe('highlight', () => {
         // Re-segmenting what survived must yield whole copies of the fixture and
         // nothing else — a fragment would segment into something different.
         expect([...segmenter.segment(kept)].map(entry => entry.segment).filter(entry => entry !== cluster)).toEqual([])
+
+        // And count them. The filter above is vacuously satisfied by an empty
+        // string, so on its own it passes against an implementation that
+        // truncates the match away entirely — verified by forcing the truncation
+        // branch unconditionally, which left all of these green.
+        expect([...segmenter.segment(kept)])
+          .toHaveLength(Math.min(count, Math.floor(BUDGET_CODE_POINTS / [...cluster].length)))
       }
     })
 
@@ -443,7 +551,12 @@ describe('highlight', () => {
         // `LOW_SURROGATE_START`, a BMP character before a lone low surrogate
         // for `HIGH_SURROGATE_START`, and a lone high surrogate before a
         // private-use character for `LOW_SURROGATE_END`.
-        const unpaired = ['\uDC00\uDC01', '\uD800\uDB00', '\uD700\uDC00', '\uD800\uE000']
+        //
+        // Each probe sits one code point outside the bound it pins, so a widen
+        // of one is caught. Two of them used to sit 0x100 away — far enough that
+        // an off-by-one widen of either `_START` constant reached nothing and
+        // survived the suite, while the comment above claimed otherwise.
+        const unpaired = ['\uDC00\uDC01', '\uD800\uDBFF', '\uD7FF\uDC00', '\uD800\uE000']
 
         expect(unpaired.map((prefix) => {
           const value = `${prefix}zz`
@@ -486,17 +599,22 @@ describe('highlight', () => {
       expect(firstCluster(result)).toBe(FLAG)
     })
 
-    it('measures the ceiling against the value, not its escaped copy', () => {
-      // Escaping expands: `&` to five characters, `"` to six. Weighing the
-      // escaped copy therefore retired the snap for values a fraction of the
-      // ceiling's length — this one is at 22% of it — and did so silently, for
-      // exactly the multi-code-point clusters the snap exists to keep whole
-      // (#387). Held against `value.length`, it snaps.
-      const value = `${'&'.repeat(1600)}${FLAG.repeat(50)}match`
+    // Both escapes the ceiling arithmetic can be defeated by, at their own
+    // expansion factors. `"` is the six-fold one the `createClusterSnapper`
+    // docs cite as the worst case, and until now only `&` had a fixture.
+    it.each([
+      ['&', '&amp;', 1600],
+      ['"', '&quot;', 1350]
+    ])('measures the ceiling against the value, not its %s-escaped copy', (raw, escaped, count) => {
+      // Weighing the escaped copy retired the snap for values a fraction of the
+      // ceiling's length — both of these sit around a fifth of it — and did so
+      // silently, for exactly the multi-code-point clusters the snap exists to
+      // keep whole (#387). Held against `value.length`, they snap.
+      const value = `${raw.repeat(count)}${FLAG.repeat(50)}match`
       const result = highlight(matchAfter(value), 'match', 'label') ?? ''
 
       expect(value.length).toBeLessThan(GRAPHEME_SNAP_MAX_LENGTH)
-      expect(value.replace(/&/g, '&amp;').length + MARKUP).toBeGreaterThan(GRAPHEME_SNAP_MAX_LENGTH)
+      expect(value.replaceAll(raw, escaped).length + MARKUP).toBeGreaterThan(GRAPHEME_SNAP_MAX_LENGTH)
 
       expect(result).not.toMatch(LONE_SURROGATE)
       expect(firstCluster(result)).toBe(FLAG)
@@ -506,8 +624,13 @@ describe('highlight', () => {
   describe('truncation from the start', () => {
     // `maxLength` counts the tag characters that the counter inside
     // `truncateHTMLFromStart` skips, so the two cancel and the surviving prefix is
-    // always `'<mark>'.length + '</mark>'.length` characters — whatever the match
-    // is, and whether the content is BMP or astral.
+    // `'<mark>'.length + '</mark>'.length` characters — whether the content is BMP
+    // or astral.
+    //
+    // Per *mark*, though, not per call: the budget is measured over everything
+    // from the first `<mark>` onward, so it grows by another 13 for every further
+    // mark in that span. `scales the budget with the number of marks` pins that;
+    // every other case here has exactly one.
     const RETAINED = '<mark>'.length + '</mark>'.length
 
     function highlightAfterFiller(filler: string, count: number) {
@@ -543,6 +666,40 @@ describe('highlight', () => {
 
     it('truncates a long BMP prefix to the same budget', () => {
       expect(highlightAfterFiller('a', 50)).toBe(`...${'a'.repeat(RETAINED)}<mark>match</mark>`)
+    })
+
+    it('scales the budget with the number of marks', () => {
+      // Fuse routinely returns several regions for one field on a multi-word
+      // query, and the budget counts the tag characters of *all* of them, so the
+      // retained prefix grows by 13 per mark rather than staying at 13. Nothing
+      // asserted this, and the comment above used to claim the figure was fixed.
+      const COUNTS = [1, 2, 3, 4]
+
+      // The prefix has to outlast the largest budget, or truncation stops
+      // happening and the test quietly measures the whole prefix instead of the
+      // budget — passing for counts that fit and reporting a flat line for the
+      // rest. Derived rather than written as a literal for that reason.
+      const prefixLength = RETAINED * Math.max(...COUNTS) + 1
+
+      const marked = (count: number) => {
+        const words = Array.from({ length: count }, () => 'match').join(' ')
+        const value = 'a'.repeat(prefixLength) + words
+        const indices: [number, number][] = []
+
+        for (let index = 0, at = prefixLength; index < count; index++, at += 6) {
+          indices.push([at, at + 4])
+        }
+
+        const result = highlight({ label: value, matches: [{ key: 'label', value, indices }] }, 'match', 'label') ?? ''
+
+        // An untruncated result would have no ellipsis and would return the full
+        // prefix, which is what the guard above exists to prevent.
+        expect(result.startsWith('...')).toBe(true)
+
+        return result.replace(/^\.\.\./, '').split('<mark>')[0]!.length
+      }
+
+      expect(COUNTS.map(marked)).toEqual(COUNTS.map(count => RETAINED * count))
     })
 
     it('measures the budget in code points when astral content follows the match', () => {
