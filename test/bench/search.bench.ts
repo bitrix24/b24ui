@@ -44,6 +44,12 @@ const flags = prefixed('\u{1F1FA}\u{1F1F8}')
 const underCeiling = itemFor(`${'a'.repeat(8000)}${'\u{1F1FA}\u{1F1F8}'.repeat(10)}${MATCH}`)
 const overCeiling = itemFor(`${'a'.repeat(9000)}${'\u{1F1FA}\u{1F1F8}'.repeat(10)}${MATCH}`)
 
+// The same ceiling, reached by escaping rather than by length. `"` expands
+// six-fold, so this value is a fifth of `underCeiling` and its marked-up copy is
+// six times longer — the case #387 was about, and the one that decides whether
+// weighing the field text rather than that copy costs anything worth having.
+const underCeilingEscaped = itemFor(`${'"'.repeat(1300)}${'\u{1F1FA}\u{1F1F8}'.repeat(50)}${MATCH}`)
+
 // A value carrying many match regions: snapping is bound to one segmenter view
 // per value, and this is the case that regresses hardest if that is undone.
 const manyRegions = (() => {
@@ -84,6 +90,10 @@ describe('highlight', () => {
 
   bench('over the segmentation ceiling', () => {
     highlight(overCeiling, MATCH, 'label')
+  })
+
+  bench('under the ceiling, escaped six-fold', () => {
+    highlight(underCeilingEscaped, MATCH, 'label')
   })
 
   bench('many match regions', () => {

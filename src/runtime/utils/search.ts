@@ -33,6 +33,9 @@ const LINE_FEED = 0x000A
 // surrogate-pair snap applies: `�` is still prevented, but every
 // multi-code-point cluster loses protection — flags, ZWJ sequences, combining
 // marks alike — the same degradation as a runtime without `Intl.Segmenter`.
+//
+// The length compared against it is always the field text, never a string
+// derived from it — see `createClusterSnapper`'s `fieldTextLength`.
 const GRAPHEME_SNAP_MAX_LENGTH = 8192
 
 // True when `index` points at the low half of a surrogate pair — i.e. cutting
@@ -85,8 +88,18 @@ interface ClusterSpan {
  * `Segments.containing()` is called once per boundary, and a value can carry
  * hundreds of match regions: rebuilding the segmenter view for each of them
  * cost 8.1 ms over 1600 boundaries, against 0.6 ms when it is built once.
+ *
+ * @param value The string being sliced.
+ * @param fieldTextLength The length weighed against `GRAPHEME_SNAP_MAX_LENGTH`.
+ * Required rather than defaulted to `value.length`, because the two differ
+ * exactly where it matters: truncation slices the escaped, marked-up copy, and
+ * escaping expands `&` five-fold and `"` six-fold, so weighing that copy retired
+ * the snap for field text a fraction of the ceiling's length — silently, and for
+ * exactly the multi-code-point clusters the snap exists to keep whole (#387). A
+ * default would let the next derived-string caller inherit that bug in silence.
+ * @returns `toStart`/`toEnd`, bound to `value`.
  */
-function createClusterSnapper(value: string) {
+function createClusterSnapper(value: string, fieldTextLength: number) {
   // `null` once resolved to "no segmenter for this value"; `undefined` while
   // still unresolved, so a value that never needs snapping never builds one.
   let segments: Intl.Segments | null | undefined
@@ -106,7 +119,7 @@ function createClusterSnapper(value: string) {
     }
 
     if (segments === undefined) {
-      const segmenter = value.length <= GRAPHEME_SNAP_MAX_LENGTH ? getGraphemeSegmenter() : null
+      const segmenter = fieldTextLength <= GRAPHEME_SNAP_MAX_LENGTH ? getGraphemeSegmenter() : null
 
       segments = segmenter ? segmenter.segment(value) : null
     }
@@ -136,7 +149,7 @@ function createClusterSnapper(value: string) {
   }
 }
 
-function truncateHTMLFromStart(html: string, maxLength: number) {
+function truncateHTMLFromStart(html: string, maxLength: number, fieldTextLength: number) {
   let keptLength = 0
   let totalLength = 0
   let insideTag = false
@@ -186,7 +199,22 @@ function truncateHTMLFromStart(html: string, maxLength: number) {
   // A code point is not what the reader sees. Snap the cut past any grapheme
   // cluster it lands inside, so the visible character after the ellipsis is the
   // one the author wrote rather than its tail.
-  return '...' + html.slice(createClusterSnapper(html).toEnd(html.length - keptLength))
+  //
+  // `html` is the escaped, marked-up copy, so its own length is the wrong thing
+  // to weigh against the ceiling — hence `fieldTextLength`.
+  //
+  // Segmenting a string the ceiling would have excluded is affordable, but the
+  // reason is not that the call is cheap in isolation — on a long run of
+  // regional indicators it is not, since `containing()` walks the run. It is
+  // that `Array.from(html)` above already paid the larger price on the same
+  // string, unconditionally and on both sides of this fix. Measured end to end
+  // against the old behaviour, the difference is tens of microseconds either
+  // way: within noise, and against rendering a flag as the wrong country.
+  //
+  // Run `pnpm run bench` before changing this. Bare figures rot, and the first
+  // ones written here were three orders of magnitude out — they timed one
+  // `Segments` view reused across iterations, where this builds a fresh one.
+  return '...' + html.slice(createClusterSnapper(html, fieldTextLength).toEnd(html.length - keptLength))
 }
 
 /**
@@ -247,7 +275,7 @@ export function highlight<T>(item: T & { matches?: FuseResult<T>['matches'] }, s
     let content = ''
     let nextUnhighlightedRegionStartingIndex = 0
 
-    const snap = createClusterSnapper(value)
+    const snap = createClusterSnapper(value, value.length)
 
     // Fuse merges, sorts and integer-bounds `indices` itself, so this is a no-op
     // for the search path. It matters because `highlight()` is a published
@@ -321,7 +349,7 @@ export function highlight<T>(item: T & { matches?: FuseResult<T>['matches'] }, s
       // Measure the budget in code points too, so it stays in the same units as
       // the counter inside `truncateHTMLFromStart`. Identical to `.length` for
       // BMP-only content.
-      content = truncateHTMLFromStart(content, Array.from(content.slice(markIndex)).length)
+      content = truncateHTMLFromStart(content, Array.from(content.slice(markIndex)).length, value.length)
     }
 
     return content

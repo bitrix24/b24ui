@@ -230,9 +230,11 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
     ~8k, two orders of magnitude worse at 100k. Past the guard only the
     surrogate snap applies: `�` is still prevented, but **every** multi-code-point
     cluster loses protection, not just flags — the same degradation as a runtime
-    without `Intl.Segmenter`. What the guard measures is the *marked-up* string,
-    not the value: truncation runs after the tags are inserted, so the threshold
-    is crossed 13 characters earlier than a reading of `value.length` suggests.
+    without `Intl.Segmenter`. What the guard measures is the value, at both call
+    sites — `createClusterSnapper` takes the length to weigh separately from the
+    string to segment, because truncation segments the escaped, marked-up copy.
+    Weighing that copy instead is #387: escaping expands `&` five-fold and `"`
+    six-fold, so the guard fired for values a fraction of its length, silently.
 
   Upstream has no equivalent — inferred from this file's history, not
   re-inspected — so replaying upstream's `generateHighlightedText` or
