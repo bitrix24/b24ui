@@ -369,10 +369,13 @@ describe('highlight', () => {
     const GRAPHEME_SNAP_MAX_LENGTH = 8192
     const FLAG = '\u{1F1FA}\u{1F1F8}'
 
-    // What the ceiling is measured against is the *marked-up* string, not the
-    // value: truncation runs on `content`, after the tags are inserted, so it is
-    // 13 characters longer. A fixture sized against `value.length` sits under the
-    // ceiling and degrades anyway.
+    // What the ceiling is measured against is the value itself, at both the
+    // mark-insertion and the truncation call. Truncation runs on `content` —
+    // escaped and marked up, so always longer — and weighing *that* put the
+    // boundary somewhere no reader could predict: 13 characters early for plain
+    // text, five times earlier for text made of `&`. The two cases below fence
+    // the constant against `value.length`; `measures the ceiling against the
+    // value` covers the expansion.
     const MARKUP = '<mark></mark>'.length
 
     // Captured before the stub below replaces the global, since this helper has
@@ -454,10 +457,10 @@ describe('highlight', () => {
     })
 
     it('skips the segmenter one character past the length ceiling', () => {
-      const value = `${'a'.repeat(GRAPHEME_SNAP_MAX_LENGTH - 57)}${FLAG.repeat(10)}match`
+      const value = `${'a'.repeat(GRAPHEME_SNAP_MAX_LENGTH - 44)}${FLAG.repeat(10)}match`
       const result = highlight(matchAfter(value), 'match', 'label') ?? ''
 
-      expect(value.length + MARKUP).toBe(GRAPHEME_SNAP_MAX_LENGTH + 1)
+      expect(value.length).toBe(GRAPHEME_SNAP_MAX_LENGTH + 1)
 
       // The surrogate fallback still holds — that is the whole point of the
       // degradation being partial.
@@ -472,10 +475,30 @@ describe('highlight', () => {
       // The mirror of the case above, one character shorter, so the pair fences
       // the constant to a single value: lower it by one and this fails, raise it
       // by one and the other does.
-      const value = `${'a'.repeat(GRAPHEME_SNAP_MAX_LENGTH - 58)}${FLAG.repeat(10)}match`
+      //
+      // This is also the plain-text half of #387. Weighing `content` put this
+      // value 13 characters past the ceiling, so it degraded — a value of
+      // exactly the advertised length, losing the snap with nothing to show why.
+      const value = `${'a'.repeat(GRAPHEME_SNAP_MAX_LENGTH - 45)}${FLAG.repeat(10)}match`
       const result = highlight(matchAfter(value), 'match', 'label') ?? ''
 
-      expect(value.length + MARKUP).toBe(GRAPHEME_SNAP_MAX_LENGTH)
+      expect(value.length).toBe(GRAPHEME_SNAP_MAX_LENGTH)
+      expect(firstCluster(result)).toBe(FLAG)
+    })
+
+    it('measures the ceiling against the value, not its escaped copy', () => {
+      // Escaping expands: `&` to five characters, `"` to six. Weighing the
+      // escaped copy therefore retired the snap for values a fraction of the
+      // ceiling's length — this one is at 22% of it — and did so silently, for
+      // exactly the multi-code-point clusters the snap exists to keep whole
+      // (#387). Held against `value.length`, it snaps.
+      const value = `${'&'.repeat(1600)}${FLAG.repeat(50)}match`
+      const result = highlight(matchAfter(value), 'match', 'label') ?? ''
+
+      expect(value.length).toBeLessThan(GRAPHEME_SNAP_MAX_LENGTH)
+      expect(value.replace(/&/g, '&amp;').length + MARKUP).toBeGreaterThan(GRAPHEME_SNAP_MAX_LENGTH)
+
+      expect(result).not.toMatch(LONE_SURROGATE)
       expect(firstCluster(result)).toBe(FLAG)
     })
   })
