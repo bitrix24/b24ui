@@ -1,4 +1,5 @@
 import { describe, it, expect, vi } from 'vitest'
+import Fuse from 'fuse.js'
 import { highlight, sanitizeSnippet } from '../../src/runtime/utils/search'
 
 describe('sanitizeSnippet', () => {
@@ -146,6 +147,29 @@ describe('highlight', () => {
 
       // Index 1 is the low half of the first emoji.
       expect(highlightRegions(value, [[1, 4]])).toBe('<mark>\u{1F600}\u{1F600}a</mark>bc')
+    })
+
+    it('snaps the boundaries real fuse.js reports, not only recorded ones', () => {
+      // Every other fixture here is a recorded copy of fuse output. A recording
+      // cannot notice when an upgrade stops producing those offsets, and a
+      // fixture that no longer straddles a character passes without exercising
+      // anything. Drive the real library instead, at the options ContentSearch
+      // ships (`ContentSearch.vue`), and assert the offsets it returns — so that
+      // upgrade fails here loudly rather than going quiet.
+      //
+      // Well-formed input on both sides: the user searched with the wrong emoji.
+      const label = 'deployment \u{1F600} pipeline'
+      const fuse = new Fuse([{ label }], { ignoreLocation: true, includeMatches: true, threshold: 0.1, keys: ['label'] })
+      const matches = fuse.search('deployment \u{1F680}')[0]?.matches
+
+      // 12 is the low half of the emoji, so the first region's exclusive end
+      // falls inside it.
+      expect(matches?.[0]?.indices).toEqual([[0, 11], [13, 13]])
+
+      const result = highlight({ label, matches: [...matches!] }, 'deployment \u{1F680}', 'label', undefined, true)
+
+      expect(result).not.toMatch(LONE_SURROGATE)
+      expect(result).toBe('<mark>deployment \u{1F600}</mark> pipeline')
     })
 
     it('does not duplicate text when adjacent regions meet inside one character', () => {
