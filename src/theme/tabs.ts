@@ -30,7 +30,7 @@ export default {
       'flex items-center gap-2'
     ].join(' '),
     list: 'relative flex p-1 group',
-    indicator: 'absolute transition-[translate,width] duration-200',
+    indicator: 'absolute transition-[translate,width] duration-200 motion-reduce:transition-none',
     trigger: [
       'group relative inline-flex items-center min-w-0',
       'data-[state=inactive]:text-(--ui-color-design-plain-na-content)',

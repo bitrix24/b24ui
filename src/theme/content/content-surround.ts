@@ -36,7 +36,7 @@ export default {
       'shrink-0',
       'text-(--ui-color-design-outline-content-icon)',
       'group-hover:text-(--ui-color-design-outline-content-icon-alt)',
-      'transition-[color,translate]'
+      'transition-[color,translate] motion-reduce:transition-none'
     ].join(' '),
     linkTitle: [
       'font-(--ui-font-weight-bold)',
