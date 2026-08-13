@@ -7,7 +7,7 @@ import type { Nuxt, NuxtTemplate, NuxtTypeTemplate } from '@nuxt/schema'
 import type { Resolver } from '@nuxt/kit'
 import type { ModuleOptions } from './module'
 import { applyDefaultVariants, applyPrefixToObject, applyUnstyled } from './utils/theme'
-import { detectUsedComponents } from './utils/components'
+import { COMPONENT_DETECTION_EXTENSIONS, detectUsedComponents } from './utils/components'
 import * as theme from './theme'
 import * as themeProse from './theme/prose'
 import * as themeContent from './theme/content'
@@ -34,7 +34,7 @@ export const isCssTemplate = (template: { filename?: string }) => template.filen
  * by the `tv` wrapper, not by template generation. Dropped rather than wired up,
  * so the signature stops implying an override path that isn't there.
  */
-export function getTemplates(options: ModuleOptions, nuxt?: Nuxt, resolve?: Resolver['resolve']) {
+export function getTemplates(options: ModuleOptions, nuxt?: Nuxt, resolve?: Resolver['resolve'], vue?: { detectedComponents?: Set<string> }) {
   const templates: NuxtTemplate[] = []
 
   let hasProse = false
@@ -52,10 +52,18 @@ export function getTemplates(options: ModuleOptions, nuxt?: Nuxt, resolve?: Reso
           const template = (theme as any)[component]
           let result = typeof template === 'function' ? template(options) : template
 
+          // With `experimental.componentDetection` (Vue integration), a component
+          // detection didn't find keeps its theme file — the `#build/b24ui` aliases
+          // and type imports rely on it existing — but with every class blanked
+          // (like `theme.unstyled`), so the `@source "./b24ui";` scan yields no CSS
+          // for it. Prose has no detection and stays styled.
+          const unused = path !== 'prose' && !!vue?.detectedComponents?.size
+            && !Array.from(vue.detectedComponents).some(detected => camelCase(detected) === component)
+
           // Override default variants from nuxt.config.ts
           result = applyDefaultVariants(result, options.theme?.defaultVariants)
           // Strip default theme classes if `unstyled` is enabled
-          result = applyUnstyled(result, options.theme?.unstyled)
+          result = applyUnstyled(result, options.theme?.unstyled || unused)
           // Apply Tailwind prefix if configured
           result = applyPrefixToObject(result, options.theme?.prefix)
 
@@ -89,7 +97,7 @@ export function getTemplates(options: ModuleOptions, nuxt?: Nuxt, resolve?: Reso
             const themeUtilsPath = fileURLToPath(new URL('./utils/theme', import.meta.url))
             const defaultVariantsJson = JSON.stringify(options.theme?.defaultVariants) ?? 'undefined'
             const prefixJson = 'undefined'
-            const unstyledJson = JSON.stringify(options.theme?.unstyled) ?? 'undefined'
+            const unstyledJson = JSON.stringify(options.theme?.unstyled || unused) ?? 'undefined'
 
             return [
               `import template from ${JSON.stringify(templatePath)}`,
@@ -138,37 +146,46 @@ export function getTemplates(options: ModuleOptions, nuxt?: Nuxt, resolve?: Reso
   writeThemeTemplate(theme)
 
   async function generateSources() {
-    if (!nuxt) {
-      return '@source "./b24ui";'
-    }
-
     const sources: string[] = []
-    const layers = getLayerDirectories(nuxt).map(layer => layer.app)
 
-    // Add layer sources
-    for (const layer of layers) {
-      sources.push(`@source "${layer}**/*";`)
-    }
+    // Layer + inline sources are Nuxt-only; the Vue integration relies on the
+    // user's own Vite/Tailwind setup to scan their source.
+    const layers = nuxt ? getLayerDirectories(nuxt).map(layer => layer.app) : []
 
-    // Add inline sources from Nuxt config (classes defined in config)
-    const inlineConfigs = [
-      nuxt.options.app?.rootAttrs?.class,
-      nuxt.options.app?.head?.htmlAttrs?.class,
-      nuxt.options.app?.head?.bodyAttrs?.class
-    ]
+    if (nuxt) {
+      // Add layer sources
+      for (const layer of layers) {
+        sources.push(`@source "${layer}**/*";`)
+      }
 
-    for (const value of inlineConfigs) {
-      if (value && typeof value === 'string') {
-        sources.push(`@source inline(${JSON.stringify(value)});`)
+      // Add inline sources from Nuxt config (classes defined in config)
+      const inlineConfigs = [
+        nuxt.options.app?.rootAttrs?.class,
+        nuxt.options.app?.head?.htmlAttrs?.class,
+        nuxt.options.app?.head?.bodyAttrs?.class
+      ]
+
+      for (const value of inlineConfigs) {
+        if (value && typeof value === 'string') {
+          sources.push(`@source inline(${JSON.stringify(value)});`)
+        }
       }
     }
 
-    // Add theme sources (component detection or all)
-    if (resolve && options.experimental?.componentDetection) {
+    // Add theme sources. With `experimental.componentDetection`, Nuxt narrows
+    // these to the detected components' files. The Vue plugin can't: its
+    // templates live inside `node_modules`, where Tailwind widens a file
+    // `@source` to a scan of its whole parent directory, so a narrowed list
+    // wouldn't narrow the CSS. It sources the whole directory instead and
+    // blanks the theme of unused components at write time (see
+    // `writeThemeTemplate`), which needs no extra directive.
+    const componentDir = resolve ? resolve('./runtime/components') : undefined
+
+    if (options.experimental?.componentDetection && nuxt && componentDir && layers.length) {
       const detectedComponents = await detectUsedComponents(
         layers,
         'B24',
-        resolve('./runtime/components'),
+        componentDir,
         Array.isArray(options.experimental.componentDetection) ? options.experimental.componentDetection : undefined
       )
 
@@ -324,7 +341,7 @@ export {}
 }
 
 /** Source files whose contents can change which components are detected as used. */
-export const COMPONENT_DETECTION_WATCH_RE = /\.(?:vue|ts|js|tsx|jsx)$/
+export const COMPONENT_DETECTION_WATCH_RE = new RegExp(`\\.(?:${COMPONENT_DETECTION_EXTENSIONS.join('|')})$`)
 
 /**
  * Re-runs component detection during `nuxt dev` when a source file changes,

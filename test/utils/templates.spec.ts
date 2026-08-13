@@ -1,7 +1,10 @@
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
 import { describe, it, expect, vi } from 'vitest'
 import type { Nuxt } from '@nuxt/schema'
 import type { ModuleOptions } from '../../src/module'
 import { CSS_TEMPLATE_FILENAME, getTemplates, isCssTemplate, watchForComponentDetection } from '../../src/templates'
+import { COMPONENT_DETECTION_EXTENSIONS } from '../../src/utils/components'
 
 /**
  * The `experimental.componentDetection` dev watcher refreshes the generated CSS
@@ -81,11 +84,27 @@ describe('watchForComponentDetection', () => {
     const update = vi.fn()
     const { nuxt, fire } = fakeNuxt()
 
+    // Driven off the shared list rather than a literal: the watcher and the
+    // scan glob are two halves of one decision, and an extension added to one
+    // and not the other means a file that changes the answer never triggers a
+    // refresh — no error, no signal. Upstream keeps a literal in each and had
+    // to edit both when `.mts`/`.mjs`/`.cjs` were added.
+    expect(COMPONENT_DETECTION_EXTENSIONS.length).toBeGreaterThan(4)
+
     watchForComponentDetection(nuxt, update)
-    for (const path of ['a.vue', 'b.ts', 'c.js', 'd.tsx', 'e.jsx']) {
-      await fire(path)
+    for (const extension of COMPONENT_DETECTION_EXTENSIONS) {
+      await fire(`a.${extension}`)
     }
 
-    expect(update).toHaveBeenCalledTimes(5)
+    expect(update).toHaveBeenCalledTimes(COMPONENT_DETECTION_EXTENSIONS.length)
+  })
+
+  it('shares that list with the scan glob instead of repeating it', () => {
+    // The assertion above only proves the watcher matches the constant. If the
+    // glob went back to a literal the two could drift apart again with every
+    // test still green.
+    const source = readFileSync(resolve(process.cwd(), 'src/utils/components.ts'), 'utf-8')
+
+    expect(source).toMatch(/globSync\(\[`\*\*\/\*\.\{\$\{COMPONENT_DETECTION_EXTENSIONS\.join\(','\)\}\}`\]/)
   })
 })
