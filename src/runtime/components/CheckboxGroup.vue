@@ -96,8 +96,7 @@ const _props = withDefaults(defineProps<CheckboxGroupProps<T, VK>>(), {
   labelKey: 'label',
   descriptionKey: 'description',
   valueKey: 'value' as never,
-  orientation: 'vertical',
-  color: 'air-primary'
+  orientation: 'vertical'
 })
 const emits = defineEmits<CheckboxGroupEmits<T, VK>>()
 const slots = defineSlots<CheckboxGroupSlots<T>>()
@@ -110,16 +109,25 @@ const rootProps = useForwardProps(reactivePick(props, 'as', 'modelValue', 'defau
 const checkboxProps = useForwardProps(reactivePick(props, 'variant', 'indicator'))
 const getProxySlots = () => omit(slots, ['legend'])
 
-const { emitFormChange, emitFormInput, color, highlight, name, size, id: _id, disabled, ariaAttrs } = useFormField<CheckboxGroupProps<T>>(_props, { bind: false })
+const { emitFormChange, emitFormInput, color: formFieldColor, highlight: formFieldHighlight, name, size: formFieldSize, id: _id, disabled: formFieldDisabled, ariaAttrs } = useFormField<CheckboxGroupProps<T>>(_props, { bind: false })
 const id = _id.value ?? useId()
+
+// eslint-disable-next-line vue/no-dupe-keys
+const size = computed(() => formFieldSize.value ?? props.size)
+
+const color = computed(() => formFieldColor.value ?? props.color)
+
+const highlight = computed(() => formFieldHighlight.value ?? props.highlight)
+
+const disabled = computed(() => formFieldDisabled.value ?? props.disabled)
 
 // @ts-expect-error We skip test Checkbox.variant
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.checkboxGroup || {}) })({
-  size: size.value ?? props.size,
+  size: size.value,
   required: props.required,
   orientation: props.orientation,
-  color: color.value ?? props.color,
+  color: color.value,
   variant: props.variant,
   disabled: disabled.value
 }))

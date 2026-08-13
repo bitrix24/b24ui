@@ -90,18 +90,27 @@ const appConfig = useAppConfig() as InputRating['AppConfig']
 
 const rootProps = useForwardProps(reactivePick(props, 'as', 'length', 'step', 'hoverable', 'clearable', 'required', 'modelValue', 'defaultValue'), emits)
 
-const { id, emitFormChange, emitFormInput, size, color, name, disabled: formDisabled, ariaAttrs } = useFormField<InputRatingProps>(_props)
+const { id, emitFormChange, emitFormInput, size: formFieldSize, color: formFieldColor, name, disabled: formFieldDisabled, ariaAttrs } = useFormField<InputRatingProps>(_props)
+
+// eslint-disable-next-line vue/no-dupe-keys
+const size = computed(() => formFieldSize.value ?? props.size)
+// eslint-disable-next-line vue/no-dupe-keys
+const color = computed(() => formFieldColor.value ?? props.color)
+
+// Resolved once: the theme dims on this, and `readonly` is only "read-only" when
+// it isn't already disabled.
+const isDisabled = computed(() => formFieldDisabled.value ?? props.disabled)
 
 // `readonly` blocks interaction too, but only an explicit `disabled` dims the control.
-const disabled = computed(() => formDisabled.value || props.readonly)
+const disabled = computed(() => isDisabled.value || props.readonly)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.inputRating || {}) })({
-  size: size.value ?? props.size,
-  color: color.value ?? props.color,
+  size: size.value,
+  color: color.value,
   orientation: props.orientation,
-  readonly: props.readonly && !formDisabled.value,
-  disabled: formDisabled.value
+  readonly: props.readonly && !isDisabled.value,
+  disabled: isDisabled.value
 }))
 
 const starIcon = computed(() => props.icon ?? icons.star)
