@@ -19,7 +19,7 @@ export default defineMcpTool({
     { category: 'layout' },
     { search: 'table' },
     { search: 'segmented control' },
-    { category: 'forms', search: 'input' }
+    { category: 'form', search: 'input' }
   ],
   cache: '30m',
   async handler({ category, search }) {
