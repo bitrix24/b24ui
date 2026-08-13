@@ -117,7 +117,6 @@ function setInputRef(index: number, el: Element | ComponentPublicInstance | null
   inputsRef.value[index] = el
 }
 
-const completed = ref(false)
 function onComplete(value: string[] | number[]) {
   // @ts-expect-error - 'target' does not exist in type 'EventInit'
   const event = new Event('change', { target: { value } })
@@ -126,7 +125,7 @@ function onComplete(value: string[] | number[]) {
 }
 
 function onBlur(event: FocusEvent) {
-  if (!event.relatedTarget || completed.value) {
+  if (!event.relatedTarget) {
     emits('blur', event)
     emitFormBlur()
   }
