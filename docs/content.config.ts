@@ -60,7 +60,17 @@ export const collections = {
       include: 'docs/**/*'
     }],
     schema: z.object({
-      category: z.enum(['layout', 'form', 'element', 'navigation', 'data', 'overlay', 'dashboard', 'page', 'chat', 'editor', 'color-mode', 'i18n']).optional(),
+      // Upstream's commit added `content`; auditing the enum against the
+      // frontmatter while porting it turned up three more values this repo
+      // already writes and never declared — `deprecated`, `components` (the
+      // typography pages) and `integrations` (the i18n page). The value still
+      // reaches the collection at runtime, so nothing failed; what was wrong is
+      // the contract, and with it the `category` union the MCP tools filter on.
+      // `test/utils/search-components.spec.ts` now keeps the two in step.
+      category: z.enum(['layout', 'form', 'element', 'navigation', 'data', 'overlay', 'dashboard', 'page', 'chat', 'content', 'components', 'integrations', 'editor', 'color-mode', 'i18n', 'deprecated']).optional(),
+      // Alternate names from other ecosystems, so an MCP search for
+      // "segmented control" or "combobox" reaches the right component.
+      keywords: z.array(z.string()).optional(),
       index: z.boolean().optional(),
       framework: z.enum(['nuxt', 'vue']).optional(),
       badge: z.string().optional(),

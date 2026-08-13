@@ -2,6 +2,11 @@
 title: Accordion
 description: This is a stacked set of collapsible panels
 category: data
+keywords:
+  - disclosure
+  - collapse
+  - faq
+  - expansion panel
 links:
   - label: GitHub
     iconName: GitHubIcon

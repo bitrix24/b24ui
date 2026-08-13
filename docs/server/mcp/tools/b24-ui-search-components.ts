@@ -4,7 +4,7 @@ import { withTrailingSlash } from 'ufo'
 
 export default defineMcpTool({
   title: 'Search Components',
-  description: 'Search components by name, description, or category',
+  description: 'Search components by name, category, or intent. Matches alternate names from other ecosystems (e.g. "segmented control" finds FieldGroup, "combobox" finds InputMenu, "dialog" finds Modal). Results are ranked by relevance',
   annotations: {
     readOnlyHint: true,
     destructiveHint: false,
@@ -13,11 +13,12 @@ export default defineMcpTool({
   },
   inputSchema: {
     category: z.string().optional().describe('Filter components by category'),
-    search: z.string().optional().describe('Search term to filter components by name or description')
+    search: z.string().optional().describe('Search term to filter components by name, description, or intent (alternate names like "segmented control" are matched)')
   },
   inputExamples: [
     { category: 'layout' },
     { search: 'table' },
+    { search: 'segmented control' },
     { category: 'forms', search: 'input' }
   ],
   cache: '30m',
@@ -29,7 +30,7 @@ export default defineMcpTool({
       .where('path', 'LIKE', '/docs/components/%')
       .where('extension', '=', 'md')
       .where('index', 'IS NULL')
-      .select('id', 'title', 'description', 'path', 'category', 'links')
+      .select('id', 'title', 'description', 'path', 'category', 'keywords', 'links')
 
     if (category) {
       query = query.where('category', '=', category)
@@ -42,22 +43,24 @@ export default defineMcpTool({
       title: component.title,
       description: component.description,
       category: component.category,
+      keywords: component.keywords ?? undefined,
       path: `${config.public.baseUrl}${withTrailingSlash(component.path)}`,
       url: `${config.public.canonicalUrl}${config.public.baseUrl}${withTrailingSlash(component.path)}`,
       links: component.links
     }))
 
-    if (search) {
-      const searchLower = search.toLowerCase()
-      results = results.filter(component =>
-        component.name?.toLowerCase().includes(searchLower)
-        || component.title?.toLowerCase().includes(searchLower)
-        || component.description?.toLowerCase().includes(searchLower)
-      )
+    if (search?.trim()) {
+      results = results
+        .map(component => ({ component, score: scoreComponent(component, search) }))
+        .filter(({ score }) => score > 0)
+        .sort((a, b) => b.score - a.score || (a.component.name || '').localeCompare(b.component.name || ''))
+        .map(({ component }) => component)
+    } else {
+      results.sort((a, b) => (a.name || '').localeCompare(b.name || ''))
     }
 
     return {
-      components: results.sort((a, b) => (a.name || '').localeCompare(b.name || '')),
+      components: results,
       total: results.length,
       filters: { category, search }
     }
