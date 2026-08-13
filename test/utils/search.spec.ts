@@ -154,10 +154,28 @@ describe('highlight', () => {
       expect(highlight(item, 'alpha', 'label')).toBe('<mark>alpha</mark> team')
     })
 
-    it('skips the omitted keys — the three calls `CommandPalette` makes per item', () => {
+    it('resolves the three calls `CommandPalette` makes per item to three different fields', () => {
       expect(highlight(item, 'alpha', 'label', undefined)).toBe('<mark>alpha</mark> team')
       expect(highlight(item, 'alpha', 'suffix', ['label'])).toBe('<mark>alpha</mark> squad')
       expect(highlight(item, 'alpha', 'description', ['label', 'suffix'])).toBe('<mark>alpha</mark> unit')
+    })
+
+    it('skips an omitted key and keeps looking', () => {
+      // The case above pins the real call shapes, but it cannot pin `omitKeys`:
+      // every one of its calls sets `forceKey` too, and that narrows the loop to
+      // a single candidate before the omit check can matter. Deleting the
+      // `omitKeys` guard alone leaves all three of its assertions green.
+      //
+      // Here nothing is forced, so the omit is the only thing standing between
+      // the cursor and the first entry — and the loop has to carry on past it
+      // rather than give up, which `returns undefined when every match is
+      // omitted` cannot show either.
+      expect(highlight(item, 'alpha', undefined, ['suffix'])).toBe('<mark>alpha</mark> unit')
+      expect(highlight(item, 'alpha', undefined, ['suffix', 'description'])).toBe('<mark>alpha</mark> team')
+    })
+
+    it('honours an omitted key that is also the forced one', () => {
+      expect(highlight(item, 'alpha', 'label', ['label'])).toBeUndefined()
     })
 
     it('takes the first match when nothing is forced or omitted', () => {
@@ -532,7 +550,7 @@ describe('highlight', () => {
         // private-use character for `LOW_SURROGATE_END`.
         //
         // Each probe sits one code point outside the bound it pins, so a widen
-        // of one is caught. Two of them used to sit 0x100 away \u2014 far enough that
+        // of one is caught. Two of them used to sit 0x100 away — far enough that
         // an off-by-one widen of either `_START` constant reached nothing and
         // survived the suite, while the comment above claimed otherwise.
         const unpaired = ['\uDC00\uDC01', '\uD800\uDBFF', '\uD7FF\uDC00', '\uD800\uE000']
@@ -652,21 +670,33 @@ describe('highlight', () => {
       // query, and the budget counts the tag characters of *all* of them, so the
       // retained prefix grows by 13 per mark rather than staying at 13. Nothing
       // asserted this, and the comment above used to claim the figure was fixed.
+      const COUNTS = [1, 2, 3, 4]
+
+      // The prefix has to outlast the largest budget, or truncation stops
+      // happening and the test quietly measures the whole prefix instead of the
+      // budget — passing for counts that fit and reporting a flat line for the
+      // rest. Derived rather than written as a literal for that reason.
+      const prefixLength = RETAINED * Math.max(...COUNTS) + 1
+
       const marked = (count: number) => {
         const words = Array.from({ length: count }, () => 'match').join(' ')
-        const value = 'a'.repeat(60) + words
+        const value = 'a'.repeat(prefixLength) + words
         const indices: [number, number][] = []
 
-        for (let index = 0, at = 60; index < count; index++, at += 6) {
+        for (let index = 0, at = prefixLength; index < count; index++, at += 6) {
           indices.push([at, at + 4])
         }
 
         const result = highlight({ label: value, matches: [{ key: 'label', value, indices }] }, 'match', 'label') ?? ''
 
+        // An untruncated result would have no ellipsis and would return the full
+        // prefix, which is what the guard above exists to prevent.
+        expect(result.startsWith('...')).toBe(true)
+
         return result.replace(/^\.\.\./, '').split('<mark>')[0]!.length
       }
 
-      expect([1, 2, 3, 4].map(marked)).toEqual([1, 2, 3, 4].map(count => RETAINED * count))
+      expect(COUNTS.map(marked)).toEqual(COUNTS.map(count => RETAINED * count))
     })
 
     it('measures the budget in code points when astral content follows the match', () => {
