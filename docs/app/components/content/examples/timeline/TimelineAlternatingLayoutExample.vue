@@ -32,7 +32,7 @@ const items: TimelineItem[] = [{
   <B24Timeline
     :items="items"
     :default-value="2"
-    :b24ui="{ item: 'even:flex-row-reverse even:-translate-x-[calc(100%-2rem)] even:text-right' }"
-    class="translate-x-[calc(50%-1rem)]"
+    :b24ui="{ item: 'even:flex-row-reverse even:-translate-x-[calc(100%-2rem)] rtl:even:translate-x-[calc(100%-2rem)] even:text-end' }"
+    class="translate-x-[calc(50%-1rem)] rtl:-translate-x-[calc(50%-1rem)]"
   />
 </template>
