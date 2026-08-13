@@ -2,6 +2,9 @@
 title: Alert
 description: An alert designed to capture the user's attention.
 category: element
+keywords:
+  - notice
+  - inline notification
 links:
   - label: GitHub
     iconName: GitHubIcon

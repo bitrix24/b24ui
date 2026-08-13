@@ -2,6 +2,8 @@
 title: Input
 description: An input box designed for text entry.
 category: form
+keywords:
+  - text field
 links:
   - label: GitHub
     iconName: GitHubIcon

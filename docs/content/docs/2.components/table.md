@@ -2,6 +2,10 @@
 title: Table
 description: A responsive data table component.
 category: data
+keywords:
+  - data table
+  - datagrid
+  - data grid
 links:
   - label: GitHub
     iconName: GitHubIcon

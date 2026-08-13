@@ -2,6 +2,8 @@
 title: Tooltip
 description: A small window that shows details when you move your mouse over an item.
 category: overlay
+keywords:
+  - hint
 links:
   - label: GitHub
     iconName: GitHubIcon

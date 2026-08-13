@@ -2,6 +2,9 @@
 title: Pagination
 description: A navigation component with buttons or links for pagination.
 category: navigation
+keywords:
+  - pager
+  - page navigation
 links:
   - label: GitHub
     iconName: GitHubIcon

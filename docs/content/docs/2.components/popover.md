@@ -2,6 +2,9 @@
 title: Popover
 description: A non-modal popup window for showing messages or gathering user input.
 category: overlay
+keywords:
+  - hover card
+  - flyout
 links:
   - label: GitHub
     iconName: GitHubIcon

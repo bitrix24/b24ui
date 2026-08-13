@@ -2,6 +2,8 @@
 title: Textarea
 description: A textarea for entering multi-line text.
 category: form
+keywords:
+  - multiline
 links:
   - label: GitHub
     iconName: GitHubIcon

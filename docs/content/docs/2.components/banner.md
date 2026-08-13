@@ -2,6 +2,9 @@
 title: Banner
 description: 'Top banner for important user messages.'
 category: element
+keywords:
+  - announcement bar
+  - top bar
 links:
   - label: GitHub
     iconName: GitHubIcon

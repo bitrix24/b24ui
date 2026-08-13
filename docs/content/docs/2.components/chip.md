@@ -2,6 +2,9 @@
 title: Chip
 description: An indicator that shows either a number or a state.
 category: element
+keywords:
+  - notification dot
+  - status dot
 links:
   - label: GitHub
     iconName: GitHubIcon
