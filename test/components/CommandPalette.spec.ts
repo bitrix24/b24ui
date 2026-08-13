@@ -317,4 +317,43 @@ describe('CommandPalette', () => {
       window.HTMLElement.prototype.scrollIntoView = original
     }
   })
+
+  describe('highlighting through fuse', () => {
+    // Everything above sets `labelHtml`/`suffixHtml`/`descriptionHtml` by hand,
+    // which is exactly the path that skips `highlight()`. These mount the real
+    // wiring instead: `processGroupItems` forwards
+    // `fuse.fuseOptions.useTokenSearch` as the fifth argument, and Fuse only
+    // populates `matches` when `includeMatches` is set — which this component
+    // leaves to the caller, so no other case in this file reaches `highlight()`
+    // at all.
+    function paletteWith(label: string, searchTerm: string, useTokenSearch?: boolean, threshold = 0.1) {
+      return mountSuspended(CommandPalette, {
+        props: {
+          groups: [{ id: 'g', items: [{ label }] }],
+          searchTerm,
+          fuse: { fuseOptions: { includeMatches: true, useTokenSearch, threshold, ignoreLocation: true } }
+        } as any
+      })
+    }
+
+    it('marks the match', async () => {
+      const wrapper = await paletteWith('alpha beta', 'alpha')
+
+      expect(wrapper.find('mark').exists()).toBe(true)
+      expect(wrapper.find('mark').text()).toContain('alpha')
+    })
+
+    it('marks each word of a multi-word query only when token search is on', async () => {
+      // Fuse returns the two words as separate regions, six and four characters
+      // long. Off, the threshold is the whole query — ten — and neither reaches
+      // it, so nothing is marked; on, it drops to the shortest word and both do.
+      // An exact-match fixture would not show the difference: Fuse then returns
+      // one region as long as the query, which clears either threshold.
+      const off = await paletteWith('alpha xxxx beta', 'alpha beta', false, 0.4)
+      const on = await paletteWith('alpha xxxx beta', 'alpha beta', true, 0.4)
+
+      expect(off.find('mark').exists()).toBe(false)
+      expect(on.find('mark').exists()).toBe(true)
+    })
+  })
 })
