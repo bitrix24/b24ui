@@ -186,6 +186,29 @@ describe('highlight', () => {
       }
     })
 
+    it('drops a region lying past the end of the value instead of emitting an empty mark', () => {
+      // `highlight()` is a published export and `CommandPaletteGroup.postFilter`
+      // lets a caller supply its own matches, so offsets computed against an
+      // older revision of the text can point past its end. `substring` clamps
+      // its arguments, so such a region sliced to nothing and emitted a bare
+      // `<mark></mark>` — and pushed the next-region cursor past the end,
+      // collapsing every legitimate region after it.
+      const value = 'The quarterly revenue report is available'
+      const outOfRange = highlight({ label: value, matches: [{ key: 'label', value, indices: [[126, 132]] }] }, 'report', 'label')
+
+      expect(outOfRange).toBe(value)
+
+      const afterValid = highlight({ label: value, matches: [{ key: 'label', value, indices: [[4, 12], [126, 132]] }] }, 'quarterly', 'label')
+
+      expect(afterValid).toBe('The <mark>quarterly</mark> revenue report is available')
+
+      // A region straddling the end keeps its in-range half; the usual
+      // 13-character retained window applies in front of the mark.
+      const straddling = highlight({ label: value, matches: [{ key: 'label', value, indices: [[32, 132]] }] }, 'available', 'label')
+
+      expect(straddling).toBe('...ue report is <mark>available</mark>')
+    })
+
     it('does not split characters at the boundaries fuse reports (repro from #362)', () => {
       // Real fuse.js at ContentSearch's shipped defaults, with well-formed input
       // on both sides: the user searched with the wrong emoji.

@@ -110,7 +110,12 @@ export function highlight<T>(item: T & { matches?: FuseResult<T>['matches'] }, s
 
       // A widened start must not reach back into a region that has already been
       // emitted — `substring` swaps reversed arguments and would duplicate it.
-      start = Math.max(start, nextUnhighlightedRegionStartingIndex)
+      // Both boundaries are also clamped to the value: `end - start` is compared
+      // below on the raw numbers while `substring` clamps its own arguments, so
+      // a region lying past the end of the value would otherwise compare as
+      // non-empty, slice to nothing and emit a bare `<mark></mark>`.
+      start = Math.min(Math.max(start, nextUnhighlightedRegionStartingIndex), value.length)
+      end = Math.min(end, value.length)
 
       // skip if region is a single character — one code point, so a lone astral
       // character (two code units) is skipped the same as a lone BMP one
