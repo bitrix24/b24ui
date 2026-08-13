@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { kebabCase, camelCase, upperFirst } from 'scule'
+import { kebabCase } from 'scule'
 import { queryCollection } from '@nuxt/content/server'
 import { normalizeComponentName } from '~~/server/utils/normalizeComponentName'
 import { withTrailingSlash, withoutTrailingSlash } from 'ufo'
@@ -43,17 +43,6 @@ export default defineMcpPrompt({
 
     const documentation = await $fetch<string>(`/raw${withoutTrailingSlash(page.path)}.md`) // @memo in ory docs this not set
 
-    // Get component metadata
-    const camelName = camelCase(normalizedName)
-    const componentMetaName = `B24${upperFirst(camelName)}`
-
-    let metadata = null
-    try {
-      metadata = await $fetch<any>(`/api/component-meta/${componentMetaName}.json`)
-    } catch {
-      // Metadata not available
-    }
-
     const config = useRuntimeConfig()
 
     const component = {
@@ -63,15 +52,7 @@ export default defineMcpPrompt({
       category: page.category,
       documentation, // @memo in ory docs this not set
       documentation_url: `${config.public.canonicalUrl}${config.public.baseUrl}${withTrailingSlash(page.path)}`,
-      metadata: metadata
-        ? {
-            pascalName: metadata.pascalName,
-            kebabName: metadata.kebabName,
-            props: metadata.meta.props,
-            slots: metadata.meta.slots,
-            emits: metadata.meta.emits
-          }
-        : null
+      metadata: await fetchComponentMetadata(normalizedName)
     }
 
     return {

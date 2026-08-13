@@ -2,6 +2,9 @@
 title: Avatar
 description: An img element that includes fallback and supports Nuxt Image.
 category: element
+keywords:
+  - profile picture
+  - user image
 links:
   - label: GitHub
     iconName: GitHubIcon

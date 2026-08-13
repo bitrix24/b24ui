@@ -2,6 +2,10 @@
 title: Separator
 description: Divides content in a horizontal or vertical manner.
 category: element
+keywords:
+  - divider
+  - hr
+  - horizontal rule
 links:
   - label: GitHub
     iconName: GitHubIcon

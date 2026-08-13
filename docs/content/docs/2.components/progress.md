@@ -2,6 +2,10 @@
 title: Progress
 description: A progress bar displaying task completion status.
 category: element
+keywords:
+  - progress bar
+  - loading bar
+  - meter
 links:
   - label: GitHub
     iconName: GitHubIcon

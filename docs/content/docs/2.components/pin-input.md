@@ -2,6 +2,10 @@
 title: PinInput
 description: A PIN code input component.
 category: form
+keywords:
+  - otp
+  - one-time password
+  - verification code
 links:
   - label: GitHub
     iconName: GitHubIcon

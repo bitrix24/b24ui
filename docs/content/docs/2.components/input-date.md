@@ -2,6 +2,10 @@
 title: InputDate
 description: 'A date selection input field.'
 category: form
+keywords:
+  - date picker
+  - datepicker
+  - calendar input
 links:
   - label: GitHub
     iconName: GitHubIcon

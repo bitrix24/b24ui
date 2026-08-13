@@ -2,6 +2,9 @@
 title: Switch
 description: A toggle control for switching between two states.
 category: form
+keywords:
+  - toggle
+  - toggle switch
 links:
   - label: GitHub
     iconName: GitHubIcon

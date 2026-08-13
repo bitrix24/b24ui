@@ -2,6 +2,10 @@
 title: SelectMenu
 description: A refined and searchable selection component.
 category: form
+keywords:
+  - combobox
+  - multi select
+  - filterable select
 links:
   - label: GitHub
     iconName: GitHubIcon

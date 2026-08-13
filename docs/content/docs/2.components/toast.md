@@ -2,6 +2,10 @@
 title: Toast
 description: A short message to offer information or feedback to the user.
 category: overlay
+keywords:
+  - notification
+  - snackbar
+  - flash message
 links:
   - label: GitHub
     iconName: GitHubIcon

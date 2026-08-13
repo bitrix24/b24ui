@@ -2,6 +2,11 @@
 title: Modal
 description: A popup window for showing messages or gathering user input.
 category: overlay
+keywords:
+  - dialog
+  - popup
+  - confirm
+  - alert dialog
 links:
   - label: GitHub
     iconName: GitHubIcon
