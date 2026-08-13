@@ -61,6 +61,52 @@ describe('highlight', () => {
     expect(highlight({ label: 'foo' }, 'foo', 'label')).toBeUndefined()
   })
 
+  describe('useTokenSearch', () => {
+    // b24ui-only fifth argument (see `.sync/PORTING.md` §2). It only moves
+    // `minTokenLength`, the threshold a region must reach to be marked at all:
+    // off, that is the length of the whole search term; on, the length of the
+    // shortest word in it — so multi-word queries highlight each word instead of
+    // nothing.
+    function highlightWith(value: string, indices: [number, number][], searchTerm: string, useTokenSearch?: boolean) {
+      return highlight({ label: value, matches: [{ key: 'label', value, indices }] }, searchTerm, 'label', undefined, useTokenSearch)
+    }
+
+    it('marks a region shorter than the whole term', () => {
+      // The region is 5 long. `alpha beta` is 10, so the full-term threshold
+      // rejects it; the shortest token, `beta`, is 4, so token search accepts it.
+      expect(highlightWith('alpha beta', [[0, 4]], 'alpha beta', true)).toBe('<mark>alpha</mark> beta')
+    })
+
+    it('leaves that same region unmarked when off', () => {
+      expect(highlightWith('alpha beta', [[0, 4]], 'alpha beta', false)).toBe('alpha beta')
+    })
+
+    it('is off by default — the path `CommandPalette` takes unless `fuseOptions` opts in', () => {
+      expect(highlightWith('alpha beta', [[0, 4]], 'alpha beta')).toBe('alpha beta')
+    })
+
+    it('still refuses a region shorter than the shortest token', () => {
+      // `be` is 2; the shortest token `beta` is 4. Token search lowers the bar,
+      // it does not remove it.
+      expect(highlightWith('alpha beta', [[6, 7]], 'alpha beta', true)).toBe('alpha beta')
+    })
+
+    it('falls back to the whole term when the tokenizer matches nothing', () => {
+      // `/[\p{L}\p{M}\p{N}_]+/gu` finds no token in an emoji-only query, so
+      // `tokens` is empty and the threshold stays `searchTerm.length` — 2 code
+      // units for one emoji — rather than collapsing to zero and marking
+      // everything.
+      expect(highlightWith('\u{1F600}\u{1F600}\u{1F600}', [[0, 1]], '\u{1F600}', true))
+        .toBe('<mark>\u{1F600}</mark>\u{1F600}\u{1F600}')
+    })
+
+    it('takes the shortest token, not the first or the longest', () => {
+      // Tokens are `considerable` (12) and `ab` (2); only a 2-long threshold
+      // admits this region.
+      expect(highlightWith('xy considerable', [[0, 1]], 'considerable ab', true)).toBe('<mark>xy</mark> considerable')
+    })
+  })
+
   describe('truncation from the start', () => {
     // Matches a high surrogate not followed by a low one, or a low surrogate not
     // preceded by a high one — i.e. half of an astral character.
