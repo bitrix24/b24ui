@@ -354,14 +354,17 @@ describe('highlight', () => {
     // that anything was lost.
     const CLUSTERS: [string, string][] = [
       ['a flag', '\u{1F1FA}\u{1F1F8}'],
-      ['a ZWJ family', '\u{1F468}‍\u{1F469}‍\u{1F467}'],
+      ['a ZWJ family', '\u{1F468}\u200D\u{1F469}\u200D\u{1F467}'],
       ['an emoji with a skin-tone modifier', '\u{1F44D}\u{1F3FF}'],
       ['a Devanagari consonant with a vowel sign', 'कि'],
-      // Escaped rather than written as a glyph: a literal combining mark is
-      // exactly what NFC collapses into one precomposed code point, and an IDE
-      // reformat doing that silently turns this into a single-code-point fixture
-      // that passes whatever `CLUSTER_CONTINUATION_FLOOR` is set to. Every other
-      // multi-code-point fixture here already uses escapes.
+      // Escaped rather than written as a glyph. Two hazards, and only the
+      // first applies here: NFC collapses a literal combining mark into one
+      // precomposed code point, so an IDE reformat would silently turn this
+      // into a single-code-point fixture that passes whatever the floor is set
+      // to. The ZWJ family above is escaped for the second reason instead —
+      // its joiners are invisible, so one could be deleted without anyone
+      // seeing. The Devanagari pair needs neither: it is visible, and
+      // `'कि'.normalize('NFC')` round-trips unchanged.
       ['a combining accent', 'e\u0301'],
       // U+0300 sits *at* the floor, U+0301 one above it, and only the former
       // pins it: `0x301 < 0x300` and `0x301 < 0x301` are both false, so raising
