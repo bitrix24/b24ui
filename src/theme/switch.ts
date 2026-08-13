@@ -31,7 +31,7 @@ export default {
       'bg-(--ui-color-base-white-fixed)',
       'shadow-lg',
       'ring-0',
-      'transition-transform duration-200',
+      'transition-transform duration-200 motion-reduce:transition-none',
       'data-[state=unchecked]:translate-x-0 data-[state=unchecked]:rtl:-translate-x-0'
     ].join(' '),
     icon: [

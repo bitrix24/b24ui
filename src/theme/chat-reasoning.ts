@@ -21,9 +21,9 @@ export default {
     ].join(' '),
     leading: 'relative size-5 shrink-0',
     leadingIcon: 'size-5 shrink-0',
-    chevronIcon: 'size-4 shrink-0 group-data-[state=open]:rotate-180 transition-transform duration-200',
+    chevronIcon: 'size-4 shrink-0 group-data-[state=open]:rotate-180 transition-transform duration-200 motion-reduce:transition-none',
     label: 'truncate',
-    trailingIcon: 'size-4 shrink-0 group-data-[state=open]:rotate-180 transition-transform duration-200',
+    trailingIcon: 'size-4 shrink-0 group-data-[state=open]:rotate-180 transition-transform duration-200 motion-reduce:transition-none',
     content: 'motion-safe:data-[state=open]:animate-[collapsible-down_200ms_var(--ease-out)] motion-safe:data-[state=closed]:animate-[collapsible-up_200ms_var(--ease-out)] overflow-hidden',
     body: 'max-h-[200px] pt-2 overflow-y-auto text-sm text-dimmed whitespace-pre-wrap'
   },
@@ -42,7 +42,7 @@ export default {
         ].join(' '),
         chevronIcon: [
           'absolute inset-0 opacity-0 group-hover:opacity-100 group-data-[state=open]:opacity-100',
-          'transition-[rotate,opacity] duration-200'
+          'transition-[rotate,opacity] duration-200 motion-reduce:transition-none'
         ].join(' ')
       }
     }

@@ -22,7 +22,7 @@ export default {
       'left-0 inset-y-2',
       'w-(--reka-tabs-indicator-size)',
       'translate-x-(--reka-tabs-indicator-position)',
-      'transition-[translate,width]',
+      'transition-[translate,width] motion-reduce:transition-none',
       'duration-200',
       'bg-(--ui-color-design-selection-bg)',
       'rounded-md',

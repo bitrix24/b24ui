@@ -32,7 +32,7 @@ export default {
     trailing: 'ms-auto inline-flex gap-[6px] items-center',
     trailingIcon: [
       'size-[20px]',
-      'transform transition-transform duration-200',
+      'transform transition-transform duration-200 motion-reduce:transition-none',
       'shrink-0',
       'group-data-[state=open]:rotate-180',
       'lg:hidden'
