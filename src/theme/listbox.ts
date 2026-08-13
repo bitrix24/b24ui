@@ -164,7 +164,6 @@ export default {
     },
     highlight: { true: 'ring ring-inset ring-(--b24ui-border-color)' }
   },
-  compoundVariants: [],
   defaultVariants: {
     color: 'air-primary',
     size: 'md'

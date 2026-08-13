@@ -157,7 +157,7 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.modal || {
   overlayBlur: props.overlayBlur,
   overlay: props.overlay,
   scrollable: props.scrollable
-} as any))
+}))
 </script>
 
 <!-- eslint-disable vue/no-template-shadow -->
