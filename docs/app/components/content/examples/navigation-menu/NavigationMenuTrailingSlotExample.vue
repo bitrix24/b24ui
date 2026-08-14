@@ -68,7 +68,7 @@ const dropdownItems: DropdownMenuItem[][] = [
     </template>
 
     <template #item-trailing>
-      <div class="flex -mr-1.5 -my-0.5 translate-x-full group-hover:translate-x-0 has-data-[state=open]:translate-x-0 transition-transform">
+      <div class="flex -me-1.5 -my-0.5 translate-x-full group-hover:translate-x-0 has-data-[state=open]:translate-x-0 transition-transform">
         <B24DropdownMenu
           :items="dropdownItems"
           :content="{ align: 'start' }"
@@ -80,7 +80,7 @@ const dropdownItems: DropdownMenuItem[][] = [
             :icon="MoreMIcon"
             color="air-tertiary"
             size="xs"
-            class="text-description hover:text-label hover:bg-(--ui-color-accent-soft-element-blue)/40 data-[state=open]:bg-(--ui-color-accent-soft-element-blue)/30 mr-1.5"
+            class="text-description hover:text-label hover:bg-(--ui-color-accent-soft-element-blue)/40 data-[state=open]:bg-(--ui-color-accent-soft-element-blue)/30 me-1.5"
           />
         </B24DropdownMenu>
       </div>

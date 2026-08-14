@@ -10,7 +10,7 @@ const domain = ref(domains[0])
       v-model="value"
       placeholder="bitrix24"
       :b24ui="{
-        base: 'pl-[48px]',
+        base: 'ps-[48px]',
         leading: 'pointer-events-none'
       }"
     >

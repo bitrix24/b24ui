@@ -38,7 +38,7 @@ const stopDictation = async () => {
 </script>
 
 <template>
-  <div class="w-full relative flex items-end gap-2 bg-(--ui-color-bg-content-secondary) rounded-xs ring-1 ring-ai-250 hover:ring-ai-350 pr-2 pb-2">
+  <div class="w-full relative flex items-end gap-2 bg-(--ui-color-bg-content-secondary) rounded-xs ring-1 ring-ai-250 hover:ring-ai-350 pe-2 pb-2">
     <B24Textarea
       v-model="input"
       :rows="2"

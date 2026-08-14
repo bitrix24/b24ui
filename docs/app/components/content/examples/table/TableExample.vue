@@ -373,7 +373,7 @@ async function sleepAction(timeout: number = 1000): Promise<void> {
             label="Columns"
             color="air-secondary-accent-1"
             use-dropdown
-            class="ml-auto"
+            class="ms-auto"
             aria-label="Columns select dropdown"
           />
         </B24DropdownMenu>
