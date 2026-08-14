@@ -63,7 +63,7 @@ import { useComponentProps } from '../composables/useComponentProps'
 import { formFieldInjectionKey, inputIdInjectionKey, formErrorsInjectionKey, formInputsInjectionKey } from '../composables/useFormField'
 import { tv } from '../utils/tv'
 import type { FormError, FormFieldInjectedOptions } from '../types/form'
-import WarningIcon from '@bitrix24/b24icons-vue/main/WarningIcon'
+import icons from '../dictionary/icons'
 
 const _props = withDefaults(defineProps<FormFieldProps>(), {
   error: undefined,
@@ -145,7 +145,7 @@ provide(formFieldInjectionKey, computed(() => ({
       <div v-if="props.error !== false && ((typeof error === 'string' && error) || !!slots.error)" :id="`${ariaId}-error`" data-slot="error" :class="b24ui.error({ class: props.b24ui?.error })">
         <slot name="error" :error="error">
           <div data-slot="errorWrapper" :class="b24ui.errorWrapper({ class: props.b24ui?.errorWrapper })">
-            <WarningIcon data-slot="errorIcon" :class="b24ui.errorIcon()" />
+            <Component :is="icons.warning" data-slot="errorIcon" :class="b24ui.errorIcon()" />
             <div>{{ error }}</div>
           </div>
         </slot>

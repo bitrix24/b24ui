@@ -57,9 +57,8 @@ export interface ButtonProps extends Omit<UseComponentIconsProps, 'trailing' | '
    */
   useClock?: boolean
   /**
-   * Shows a small dropdown chevron (`outline/ChevronDownSIcon`) on the right
-   * side. Sized for a button rather than taken from the dictionary's
-   * `chevronDown` role, which is the standalone size — see #380.
+   * Shows a dropdown chevron on the right side, from the dictionary's
+   * `chevronDown` role, so an `app.config` override reaches it.
    * @defaultValue false
    */
   useDropdown?: boolean
@@ -97,10 +96,14 @@ import { formLoadingInjectionKey } from '../composables/useFormField'
 import { omit, mergeClasses } from '../utils'
 import { tv } from '../utils/tv'
 import { pickLinkProps } from '../utils/link'
+import icons from '../dictionary/icons'
 import B24Avatar from './Avatar.vue'
 import B24Link from './Link.vue'
 import B24LinkBase from './LinkBase.vue'
-import ChevronDownSIcon from '@bitrix24/b24icons-vue/outline/ChevronDownSIcon'
+// The three loading glyphs are picked by `useWait` / `useClock` / neither, so
+// they are a set of three rather than one overridable role. Recorded as a
+// deliberate exception in `.sync/PORTING.md` §2; do not route them through
+// the dictionary's `loading` role, which would collapse the choice to one.
 import LoaderWaitIcon from '@bitrix24/b24icons-vue/animated/LoaderWaitIcon'
 import LoaderClockIcon from '@bitrix24/b24icons-vue/animated/LoaderClockIcon'
 import SpinnerIcon from '@bitrix24/b24icons-vue/specialized/SpinnerIcon'
@@ -254,7 +257,8 @@ const b24ui = computed(() => tv({
         </slot>
 
         <slot name="trailing" :b24ui="b24ui">
-          <ChevronDownSIcon
+          <Component
+            :is="icons.chevronDown"
             v-if="props.useDropdown"
             data-slot="trailingIcon"
             :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"

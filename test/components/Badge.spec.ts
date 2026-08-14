@@ -21,6 +21,9 @@ describe('Badge', () => {
     ['with avatar and leadingIcon', { props: { avatar: { src: 'https://github.com/bitrix24.png' }, leadingIcon: SignIcon } }],
     ['with avatar and trailingIcon', { props: { avatar: { src: 'https://github.com/bitrix24.png' }, trailingIcon: SignIcon } }],
     ['with square', { props: { label: 'Badge', square: true } }],
+    // The close cross comes from the dictionary's `close` role (#380); nothing
+    // else in this file renders it, so without this case the glyph is unpinned.
+    ['with useClose', { props: { label: 'Badge', useClose: true } }],
     ['with as', { props: { label: 'Badge', as: 'div' } }],
     ['with class', { props: { label: 'Badge', class: 'rounded-full font-bold' } }],
     ['with b24ui', { props: { label: 'Badge', b24ui: { label: 'font-bold' } } }],

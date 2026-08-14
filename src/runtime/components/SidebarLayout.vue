@@ -75,8 +75,10 @@ import B24Slideover from './Slideover.vue'
 import B24Sidebar from './Sidebar.vue'
 import B24ModalDialogClose from './ModalDialogClose.vue'
 import B24Navbar from './Navbar.vue'
-import HamburgerMenuIcon from '@bitrix24/b24icons-vue/outline/HamburgerMenuIcon'
-import Cross50Icon from '@bitrix24/b24icons-vue/actions/Cross50Icon'
+import icons from '../dictionary/icons'
+// `BtnSpinnerIcon` is the button-sized spinner and has no dictionary role —
+// `loading` is the standalone `animated/LoaderWaitIcon`. Recorded as a
+// deliberate exception in `.sync/PORTING.md` §2.
 import BtnSpinnerIcon from '@bitrix24/b24icons-vue/button-specialized/BtnSpinnerIcon'
 
 const _props = withDefaults(defineProps<SidebarLayoutProps>(), {
@@ -193,7 +195,7 @@ const handleNavigationClick = () => {
             <B24Button
               color="air-tertiary"
               size="md"
-              :icon="HamburgerMenuIcon"
+              :icon="icons.menu"
               :aria-label="t('sidebarLayout.open')"
             />
 
@@ -205,7 +207,7 @@ const handleNavigationClick = () => {
                       <B24Button
                         color="air-tertiary"
                         size="lg"
-                        :icon="Cross50Icon"
+                        :icon="icons.close"
                         :aria-label="t('sidebarLayout.close')"
                       />
                     </B24ModalDialogClose>

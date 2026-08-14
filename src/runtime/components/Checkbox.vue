@@ -58,8 +58,7 @@ import { useComponentProps } from '../composables/useComponentProps'
 import { useForwardProps } from '../composables/useForwardProps'
 import { useFormField } from '../composables/useFormField'
 import { tv } from '../utils/tv'
-import Minus20Icon from '@bitrix24/b24icons-vue/actions/Minus20Icon'
-import CheckIcon from '@bitrix24/b24icons-vue/main/CheckIcon'
+import icons from '../dictionary/icons'
 
 defineOptions({ inheritAttrs: false })
 
@@ -127,8 +126,8 @@ function onUpdate(value: any) {
       >
         <template #default="{ state }">
           <CheckboxIndicator data-slot="indicator" :class="b24ui.indicator({ class: props.b24ui?.indicator })">
-            <Minus20Icon v-if="state === 'indeterminate'" data-slot="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
-            <CheckIcon v-else data-slot="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
+            <Component :is="icons.minus" v-if="state === 'indeterminate'" data-slot="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
+            <Component :is="icons.check" v-else data-slot="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
           </CheckboxIndicator>
         </template>
       </CheckboxRoot>

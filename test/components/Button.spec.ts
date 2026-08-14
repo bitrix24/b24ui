@@ -25,6 +25,9 @@ describe('Button', () => {
     ['with leading and icon', { props: { leading: true, icon: Shining2Icon } }],
     ['with leadingIcon', { props: { leadingIcon: Shining2Icon } }],
     ['with trailingIcon', { props: { trailingIcon: Search2Icon } }],
+    // The dropdown chevron comes from the dictionary's `chevronDown` role
+    // (#380); nothing else in this file renders it.
+    ['with useDropdown', { props: { label: 'Button', useDropdown: true } }],
     ['with avatar', { props: { avatar: { src: 'https://github.com/bitrix24.png' } } }],
     ['with avatar and leadingIcon', { props: { avatar: { src: 'https://github.com/bitrix24.png' }, leadingIcon: Search2Icon } }],
     ['with avatar and trailingIcon', { props: { avatar: { src: 'https://github.com/bitrix24.png' }, trailingIcon: Shining2Icon } }],
