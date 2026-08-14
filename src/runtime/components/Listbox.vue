@@ -211,7 +211,14 @@ const virtualizerProps = toRef(() => {
 const inputProps = toRef(() => defu(typeof props.filter === 'object' ? props.filter : {}, { placeholder: t('listbox.search'), variant: 'none' }) as Omit<InputProps, 'modelValue' | 'defaultValue'>)
 
 // @todo error ts: fix this -> this for input ?? color
-const { emitFormChange, emitFormInput, name, size, id, highlight, disabled, ariaAttrs } = useFormField<InputProps>(_props, { bind: false })
+const { emitFormChange, emitFormInput, name, size: formFieldSize, id, highlight: formFieldHighlight, disabled: formFieldDisabled, ariaAttrs } = useFormField<InputProps>(_props, { bind: false })
+
+// eslint-disable-next-line vue/no-dupe-keys
+const size = computed(() => formFieldSize.value ?? props.size)
+// eslint-disable-next-line vue/no-dupe-keys
+const highlight = computed(() => formFieldHighlight.value ?? props.highlight)
+
+const disabled = computed(() => formFieldDisabled.value ?? props.disabled)
 
 const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: ListboxItem, index: number }>({
   props: {
@@ -231,8 +238,8 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.listbox ||
   // @todo error ts: fix this -> this for input ?? color
   // color: color.value ?? props.color,
   color: props.color,
-  size: size.value ?? props.size,
-  highlight: highlight.value ?? props.highlight,
+  size: size.value,
+  highlight: highlight.value,
   disabled: disabled.value,
   virtualize: !!props.virtualize
 }))

@@ -69,8 +69,15 @@ const props = useComponentProps<RangeProps>('range', _props)
 const appConfig = useAppConfig() as Range['AppConfig']
 
 const rootProps = useForwardProps(reactivePick(props, 'as', 'orientation', 'min', 'max', 'step', 'minStepsBetweenThumbs', 'inverted'), emits)
+
+const { id, emitFormChange, emitFormInput, size: formFieldSize, color: formFieldColor, name, disabled: formFieldDisabled, ariaAttrs } = useFormField<RangeProps>(props)
+
 // eslint-disable-next-line vue/no-dupe-keys
-const { id, emitFormChange, emitFormInput, size, color, name, disabled, ariaAttrs } = useFormField<RangeProps>(props)
+const size = computed(() => formFieldSize.value ?? props.size)
+// eslint-disable-next-line vue/no-dupe-keys
+const color = computed(() => formFieldColor.value ?? props.color)
+
+const disabled = computed(() => formFieldDisabled.value ?? props.disabled)
 
 const defaultRangeValue = computed(() => {
   if (typeof props.defaultValue === 'number') {
@@ -95,8 +102,8 @@ const thumbs = computed(() => rangeValue.value?.length ?? 1)
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.range || {}) })({
   disabled: disabled.value,
-  size: size.value ?? props.size,
-  color: color.value ?? props.color,
+  size: size.value,
+  color: color.value,
   orientation: props.orientation
 }))
 

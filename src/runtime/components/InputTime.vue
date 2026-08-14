@@ -135,11 +135,18 @@ const appConfig = useAppConfig() as InputTime['AppConfig']
 /** @memo we not use `variant`, `leading`, `leadingIcon`, `trailing` and `loadingIcon` */
 const rootProps = useForwardProps(reactiveOmit(props, 'id', 'name', 'range', 'modelValue', 'defaultValue', 'color', 'size', 'highlight', 'fixed', 'disabled', 'autofocus', 'autofocusDelay', 'icon', 'avatar', 'trailing', 'trailingIcon', 'loading', 'separatorIcon', 'class', 'b24ui'), emits)
 
-const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, id, color, size: formFieldSize, name, highlight, disabled, ariaAttrs } = useFormField<InputTimeProps<R>>(_props)
+const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, id, color: formFieldColor, size: formFieldSize, name, highlight: formFieldHighlight, disabled: formFieldDisabled, ariaAttrs } = useFormField<InputTimeProps<R>>(_props)
 const { orientation, size: fieldGroupSize } = useFieldGroup<InputTimeProps<R>>(_props)
+
+// eslint-disable-next-line vue/no-dupe-keys
+const color = computed(() => formFieldColor.value ?? props.color)
+// eslint-disable-next-line vue/no-dupe-keys
+const highlight = computed(() => formFieldHighlight.value ?? props.highlight)
+
+const disabled = computed(() => formFieldDisabled.value ?? props.disabled)
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(props)
 
-const inputSize = computed(() => fieldGroupSize.value || formFieldSize.value)
+const inputSize = computed(() => fieldGroupSize.value ?? formFieldSize.value ?? props.size)
 
 const isTag = computed(() => {
   return props.tag
@@ -147,10 +154,10 @@ const isTag = computed(() => {
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.inputTime || {}) })({
-  color: color.value ?? props.color,
-  size: inputSize.value ?? props.size,
+  color: color.value,
+  size: inputSize.value,
   loading: props.loading,
-  highlight: highlight.value ?? props.highlight,
+  highlight: highlight.value,
   fixed: props.fixed,
   rounded: Boolean(props.rounded),
   noPadding: Boolean(props.noPadding),

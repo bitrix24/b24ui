@@ -319,8 +319,15 @@ const virtualizerProps = toRef(() => {
   })
 })
 
-const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, size: formFieldSize, color, id, name, highlight, disabled, ariaAttrs } = useFormField<InputProps>(_props)
+const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, size: formFieldSize, color: formFieldColor, id, name, highlight: formFieldHighlight, disabled: formFieldDisabled, ariaAttrs } = useFormField<InputProps>(_props)
 const { orientation, size: fieldGroupSize } = useFieldGroup<InputProps>(_props)
+
+// eslint-disable-next-line vue/no-dupe-keys
+const color = computed(() => formFieldColor.value ?? props.color)
+// eslint-disable-next-line vue/no-dupe-keys
+const highlight = computed(() => formFieldHighlight.value ?? props.highlight)
+
+const disabled = computed(() => formFieldDisabled.value ?? props.disabled)
 // Pass only the props the composable reads: `defu(props, ...)` copied every prop
 // through the `useComponentProps` proxy and subscribed this computed (and `b24ui`,
 // which reads `isLeading`/`isTrailing`) to all of them, re-running the whole tv
@@ -333,7 +340,7 @@ const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponen
   loading: props.loading
 })))
 
-const inputSize = computed(() => fieldGroupSize.value || formFieldSize.value)
+const inputSize = computed(() => fieldGroupSize.value ?? formFieldSize.value ?? props.size)
 
 const isTag = computed(() => {
   return props.tag
@@ -355,10 +362,10 @@ const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: I
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.inputMenu || {}) })({
-  color: color.value ?? props.color,
-  size: inputSize?.value ?? props.size,
+  color: color.value,
+  size: inputSize.value,
   loading: props.loading,
-  highlight: highlight.value ?? props.highlight,
+  highlight: highlight.value,
   fixed: props.fixed,
   rounded: Boolean(props.rounded),
   noBorder: Boolean(props.noBorder),

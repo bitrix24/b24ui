@@ -119,7 +119,14 @@ const modelValue = useVModel<TextareaProps<T, Mod>, 'modelValue', 'update:modelV
 const appConfig = useAppConfig() as Textarea['AppConfig']
 
 // @memo we remove size
-const { emitFormFocus, emitFormBlur, emitFormInput, emitFormChange, color, id, name, highlight, disabled, ariaAttrs } = useFormField<TextareaProps<T>>(_props, { deferInputValidation: true })
+const { emitFormFocus, emitFormBlur, emitFormInput, emitFormChange, color: formFieldColor, id, name, highlight: formFieldHighlight, disabled: formFieldDisabled, ariaAttrs } = useFormField<TextareaProps<T>>(_props, { deferInputValidation: true })
+
+// eslint-disable-next-line vue/no-dupe-keys
+const color = computed(() => formFieldColor.value ?? props.color)
+// eslint-disable-next-line vue/no-dupe-keys
+const highlight = computed(() => formFieldHighlight.value ?? props.highlight)
+// eslint-disable-next-line vue/no-dupe-keys
+const disabled = computed(() => formFieldDisabled.value ?? props.disabled)
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(props)
 
 const isTag = computed(() => {
@@ -128,10 +135,10 @@ const isTag = computed(() => {
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.textarea || {}) })({
-  color: color.value ?? props.color,
+  color: color.value,
   // size: size?.value ?? props.size,
   loading: props.loading,
-  highlight: highlight.value ?? props.highlight,
+  highlight: highlight.value,
   fixed: props.fixed,
   autoresize: Boolean(props.autoresize),
   rounded: Boolean(props.rounded),
