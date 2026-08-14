@@ -12,7 +12,7 @@ const { copy, copied } = useClipboard()
 <template>
   <B24Input
     v-model="value"
-    :b24ui="{ trailing: 'pr-0.5' }"
+    :b24ui="{ trailing: 'pe-0.5' }"
   >
     <template v-if="value?.length" #trailing>
       <B24Tooltip text="Copy to clipboard" :content="{ side: 'right' }">

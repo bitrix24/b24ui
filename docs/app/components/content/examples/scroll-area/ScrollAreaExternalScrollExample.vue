@@ -53,7 +53,7 @@ function scrollToStart() {
         ref="title"
         class="z-10 flex gap-4 bg-elevated/50 backdrop-blur"
         :class="isHorizontal
-          ? 'sticky left-0 w-72 shrink-0 flex-col justify-center p-6 border-r border-muted'
+          ? 'sticky start-0 w-72 shrink-0 flex-col justify-center p-6 border-e border-muted'
           : 'sticky top-0 items-end justify-between px-6 py-4 border-b border-muted'"
       >
         <div>

@@ -1,7 +1,7 @@
 <template>
   <div class="w-full flex flex-col flex-nowrap p-4 bg-base-50 dark:bg-base-dark">
     <div class="mb-4 flex flex-row flex-nowrap items-center justify-between gap-2 ">
-      <B24Skeleton class="ml-xs2 h-xs2 w-[38%] rounded-3xs" />
+      <B24Skeleton class="ms-xs2 h-xs2 w-[38%] rounded-3xs" />
       <div class="flex flex-row flex-nowrap items-center justify-between gap-4">
         <div class="border-2 border-gray-200 dark:border-gray-800 size-[40px] rounded-2xs flex items-center justify-center">
           <B24Skeleton class="h-xs2 w-[10px] rounded-3xs" />
