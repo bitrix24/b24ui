@@ -37,9 +37,8 @@ export interface BadgeProps extends Omit<UseComponentIconsProps, 'loading' | 'lo
    */
   useLink?: boolean
   /**
-   * Shows a small close cross (`actions/Cross20Icon`) on the right side.
-   * Sized for a badge rather than taken from the dictionary's `close` role,
-   * which is the standalone size — see #380.
+   * Shows a close cross on the right side, from the dictionary's `close`
+   * role, so an `app.config` override reaches it.
    * @defaultValue false
    */
   useClose?: boolean
@@ -63,7 +62,7 @@ import { useComponentProps } from '../composables/useComponentProps'
 import { useFieldGroup } from '../composables/useFieldGroup'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { tv } from '../utils/tv'
-import Cross20Icon from '@bitrix24/b24icons-vue/actions/Cross20Icon'
+import icons from '../dictionary/icons'
 import B24Avatar from './Avatar.vue'
 
 const _props = withDefaults(defineProps<BadgeProps>(), {
@@ -134,7 +133,8 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.badge || {
       </slot>
     </Primitive>
     <slot name="trailing" :b24ui="b24ui">
-      <Cross20Icon
+      <Component
+        :is="icons.close"
         v-if="props.useClose"
         data-slot="trailingIcon"
         :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"

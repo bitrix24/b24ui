@@ -51,7 +51,6 @@ import JsIcon from '@bitrix24/b24icons-vue/file-type/JsIcon'
 import TypescriptIcon from '@bitrix24/b24icons-vue/file-type/TypescriptIcon'
 import VueIcon from '@bitrix24/b24icons-vue/file-type/VueIcon'
 import TailwindIcon from '@bitrix24/b24icons-vue/file-type/TailwindIcon'
-import NuxtIcon from '@bitrix24/b24icons-vue/file-type/NuxtIcon'
 import VscodeIcon from '@bitrix24/b24icons-vue/file-type/VscodeIcon'
 import DotenvIcon from '@bitrix24/b24icons-vue/file-type/DotenvIcon'
 import GitIcon from '@bitrix24/b24icons-vue/file-type/GitIcon'
@@ -59,6 +58,10 @@ import EslintIcon from '@bitrix24/b24icons-vue/file-type/EslintIcon'
 import EditorconfigIcon from '@bitrix24/b24icons-vue/file-type/EditorconfigIcon'
 import TsconfigIcon from '@bitrix24/b24icons-vue/file-type/TsconfigIcon'
 import NodeIcon from '@bitrix24/b24icons-vue/file-type/NodeIcon'
+// Named `dictionary` rather than `icons`: the local `icons` below is the
+// filename-to-name map from `app.config`, and shadowing it here would be a
+// silent swap of two different things.
+import dictionary from '../../dictionary/icons'
 
 const props = defineProps<ProseCodeIconProps>()
 
@@ -101,7 +104,10 @@ const iconFromIconName = (iconName?: string) => {
     case 'GitIcon': return GitIcon
     case 'DotenvIcon': return DotenvIcon
     case 'VscodeIcon': return VscodeIcon
-    case 'NuxtIcon': return NuxtIcon
+    // The only name in this switch that the dictionary also owns; the other
+    // forty are file-type glyphs with no semantic role, and are a recorded
+    // exception in `.sync/PORTING.md` §2.
+    case 'NuxtIcon': return dictionary.NuxtIcon
     case 'TailwindIcon': return TailwindIcon
     case 'VueIcon': return VueIcon
     case 'TypescriptIcon': return TypescriptIcon
