@@ -24,9 +24,9 @@
 
     /* Aliases */
     "paths": {
-      "#build/b24ui": [
+      "#build/b24ui/*": [
         "./node_modules/.b24ui-nuxt/b24ui/*"
-      ],
+      ]
     }
   },
   "include": [
