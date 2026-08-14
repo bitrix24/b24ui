@@ -118,11 +118,14 @@ const dictionaryRoles = new Map(
 
 /**
  * Every icon path any file under `src/` references — the dictionary's, plus the
- * ones components hardcode instead (roughly half; see #380). The wider set is
- * the honest authority for "an icon this library actually uses": a value
- * outside it would have a port introduce a glyph that appears nowhere else in
- * the codebase. Narrowing this to the dictionary would reject correct entries —
- * `i-lucide-terminal` is answered by `prose/CodeIcon.vue`, not by the dictionary.
+ * ones components still import directly. Since #380 that second set is 46
+ * glyphs with no semantic role (41 of them the file-type icons in
+ * `prose/CodeIcon.vue`, the rest loading spinners) plus exactly three that do
+ * have one and are recorded exceptions in `test/utils/icon-dictionary.spec.ts`.
+ * The wider set is the honest authority for "an icon this library actually
+ * uses": a value outside it would have a port introduce a glyph that appears
+ * nowhere else in the codebase. Narrowing this to the dictionary would reject
+ * correct entries — `i-lucide-terminal` is answered by `prose/CodeIcon.vue`.
  */
 const usedInSrc = new Set(
   (await glob(['**/*.ts', '**/*.vue'], { cwd: resolve(process.cwd(), 'src'), absolute: true }))
