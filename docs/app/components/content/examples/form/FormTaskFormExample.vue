@@ -78,7 +78,7 @@ const actionButtons: { label: string, icon: IconComponent, active?: boolean }[] 
         <div class="flex items-center gap-1 px-2 py-1.5 border-b border-(--ui-color-divider-default)">
           <B24Button :icon="FileUploadIcon" color="air-tertiary" variant="ghost" size="sm" aria-label="Attach file" />
           <B24EditorToolbar :editor="editor" :items="toolbarItems" />
-          <div class="ml-auto">
+          <div class="ms-auto">
             <B24Button :icon="GoToLIcon" color="air-tertiary" variant="ghost" size="sm" aria-label="Expand editor" />
           </div>
         </div>

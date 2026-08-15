@@ -216,8 +216,15 @@ const position = computed(() => props.content?.position ?? appConfig.b24ui?.sele
 const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffset: 8, collisionPadding: 8, position: position.value }) as SelectContentProps)
 const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10 }) as SelectArrowProps)
 
-const { emitFormChange, emitFormInput, emitFormBlur, emitFormFocus, size: formFieldSize, color, id, name, highlight, disabled, ariaAttrs } = useFormField<InputProps>(_props)
+const { emitFormChange, emitFormInput, emitFormBlur, emitFormFocus, size: formFieldSize, color: formFieldColor, id, name, highlight: formFieldHighlight, disabled: formFieldDisabled, ariaAttrs } = useFormField<InputProps>(_props)
 const { orientation, size: fieldGroupSize } = useFieldGroup<InputProps>(_props)
+
+// eslint-disable-next-line vue/no-dupe-keys
+const color = computed(() => formFieldColor.value ?? props.color)
+// eslint-disable-next-line vue/no-dupe-keys
+const highlight = computed(() => formFieldHighlight.value ?? props.highlight)
+
+const disabled = computed(() => formFieldDisabled.value ?? props.disabled)
 // Pass only the props the composable reads: `defu(props, ...)` copied every prop
 // through the `useComponentProps` proxy and subscribed this computed (and `b24ui`,
 // which reads `isLeading`/`isTrailing`) to all of them, re-running the whole tv
@@ -230,7 +237,7 @@ const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponen
   loading: props.loading
 })))
 
-const selectSize = computed(() => fieldGroupSize.value || formFieldSize.value)
+const selectSize = computed(() => fieldGroupSize.value ?? formFieldSize.value ?? props.size)
 
 const isItemAligned = computed(() => position.value === 'item-aligned')
 
@@ -240,14 +247,14 @@ const isTag = computed(() => {
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.select || {}) })({
-  color: color.value ?? props.color,
-  size: selectSize?.value ?? props.size,
+  color: color.value,
+  size: selectSize.value,
   loading: props.loading,
   rounded: Boolean(props.rounded),
   noPadding: Boolean(props.noPadding),
   noBorder: Boolean(props.noBorder),
   underline: Boolean(props.underline),
-  highlight: highlight.value ?? props.highlight,
+  highlight: highlight.value,
   leading: Boolean(isLeading.value || !!props.avatar || !!slots.leading),
   trailing: Boolean(isTrailing.value || !!slots.trailing),
   fieldGroup: orientation.value,

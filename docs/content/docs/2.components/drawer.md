@@ -2,6 +2,10 @@
 title: Drawer
 description: A toggleable drawer with fluid enter/exit transitions.
 category: overlay
+keywords:
+  - bottom sheet
+  - action sheet
+  - mobile sheet
 links:
   - label: GitHub
     iconName: GitHubIcon

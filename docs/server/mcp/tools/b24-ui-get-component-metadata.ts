@@ -1,12 +1,12 @@
 import { z } from 'zod'
-import { camelCase, upperFirst, kebabCase } from 'scule'
+import { kebabCase } from 'scule'
 import { queryCollection } from '@nuxt/content/server'
 import { normalizeComponentName } from '~~/server/utils/normalizeComponentName'
 import { withTrailingSlash } from 'ufo'
 
 export default defineMcpTool({
   title: 'Get Component Metadata',
-  description: 'Retrieves detailed metadata for a Bitrix24 UI component including props, slots, and events',
+  description: 'Retrieves metadata for a Bitrix24 UI component including props, slots, and events. Props are compact by default, pass `full: true` to get the raw recursive prop schemas (very large)',
   annotations: {
     readOnlyHint: true,
     destructiveHint: false,
@@ -14,14 +14,16 @@ export default defineMcpTool({
     openWorldHint: false
   },
   inputSchema: {
-    componentName: z.string().describe('The name of the component (PascalCase)')
+    componentName: z.string().describe('The name of the component (PascalCase)'),
+    full: z.boolean().optional().describe('Return raw metadata with recursive prop schemas (very large). Defaults to false (compact props)')
   },
   inputExamples: [
     { componentName: 'Button' },
-    { componentName: 'B24Table' }
+    { componentName: 'B24Table' },
+    { componentName: 'Tabs', full: true }
   ],
   cache: '30m',
-  async handler({ componentName }) {
+  async handler({ componentName, full }) {
     const event = useEvent()
     const config = useRuntimeConfig()
 
@@ -42,14 +44,8 @@ export default defineMcpTool({
       throw createError({ status: 404, message: `Component '${componentName}' not found in documentation` })
     }
 
-    // Use the same approach as the docs components for metadata
-    const camelName = camelCase(normalizedName)
-    const componentMetaName = `B24${upperFirst(camelName)}`
-
-    let metadata
-    try {
-      metadata = await $fetch<Record<string, any>>(`/api/component-meta/${componentMetaName}.json`)
-    } catch {
+    const metadata = await fetchComponentMetadata(normalizedName, { full })
+    if (!metadata) {
       throw createError({ status: 404, message: `Metadata for component '${componentName}' not available` })
     }
 
@@ -59,13 +55,7 @@ export default defineMcpTool({
       description: page.description,
       category: page.category,
       documentation_url: `${config.public.canonicalUrl}${config.public.baseUrl}${withTrailingSlash(page.path)}`,
-      metadata: {
-        pascalName: metadata.pascalName,
-        kebabName: metadata.kebabName,
-        props: metadata.meta.props,
-        slots: metadata.meta.slots,
-        emits: metadata.meta.emits
-      }
+      metadata
     }
   }
 })

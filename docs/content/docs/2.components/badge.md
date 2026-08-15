@@ -2,6 +2,10 @@
 title: Badge
 description: A short descriptor for a status or category.
 category: element
+keywords:
+  - tag
+  - pill
+  - label
 links:
   - label: GitHub
     iconName: GitHubIcon

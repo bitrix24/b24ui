@@ -2,6 +2,8 @@
 title: Stepper
 description: A stepper component to visualize progress in a multistep workflow.
 category: navigation
+keywords:
+  - wizard
 links:
   - label: GitHub
     iconName: GitHubIcon

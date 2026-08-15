@@ -61,7 +61,7 @@ defineShortcuts({
 <template>
   <canvas
     ref="myCanvas"
-    class="absolute top-0 left-0 right-0 bottom-0 z-0 w-full h-full"
+    class="absolute top-0 start-0 end-0 bottom-0 z-0 w-full h-full"
   />
   <div class="h-[200px] flex flex-col items-center justify-center">
     <B24Advice

@@ -2,6 +2,10 @@
 title: InputMenu
 description: An input field with live autocomplete suggestions.
 category: form
+keywords:
+  - combobox
+  - typeahead
+  - autosuggest
 links:
   - label: GitHub
     iconName: GitHubIcon

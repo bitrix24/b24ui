@@ -2,6 +2,11 @@
 title: CommandPalette
 description: A searchable command palette powered by Fuse.js for fast, fuzzy text search.
 category: navigation
+keywords:
+  - command menu
+  - cmdk
+  - spotlight
+  - global search
 links:
   - label: GitHub
     iconName: GitHubIcon

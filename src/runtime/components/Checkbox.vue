@@ -58,8 +58,7 @@ import { useComponentProps } from '../composables/useComponentProps'
 import { useForwardProps } from '../composables/useForwardProps'
 import { useFormField } from '../composables/useFormField'
 import { tv } from '../utils/tv'
-import Minus20Icon from '@bitrix24/b24icons-vue/actions/Minus20Icon'
-import CheckIcon from '@bitrix24/b24icons-vue/main/CheckIcon'
+import icons from '../dictionary/icons'
 
 defineOptions({ inheritAttrs: false })
 
@@ -73,8 +72,17 @@ const appConfig = useAppConfig() as Checkbox['AppConfig']
 
 const rootProps = useForwardProps(reactivePick(props, 'required', 'value', 'defaultValue', 'modelValue', 'trueValue', 'falseValue'), emits)
 
-const { id: _id, emitFormChange, emitFormInput, size, color, highlight, name, disabled, ariaAttrs } = useFormField<CheckboxProps<T>>(_props)
+const { id: _id, emitFormChange, emitFormInput, size: formFieldSize, color: formFieldColor, highlight: formFieldHighlight, name, disabled: formFieldDisabled, ariaAttrs } = useFormField<CheckboxProps<T>>(_props)
 const id = _id.value ?? useId()
+
+// eslint-disable-next-line vue/no-dupe-keys
+const size = computed(() => formFieldSize.value ?? props.size)
+// eslint-disable-next-line vue/no-dupe-keys
+const color = computed(() => formFieldColor.value ?? props.color)
+// eslint-disable-next-line vue/no-dupe-keys
+const highlight = computed(() => formFieldHighlight.value ?? props.highlight)
+
+const disabled = computed(() => formFieldDisabled.value ?? props.disabled)
 
 const attrs = useAttrs()
 // Omit `data-state` to prevent conflicts with parent components (e.g. TooltipTrigger)
@@ -85,11 +93,11 @@ const forwardedAttrs = computed(() => {
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.checkbox || {}) })({
-  size: size.value ?? props.size,
-  color: color.value ?? props.color,
+  size: size.value,
+  color: color.value,
   variant: props.variant,
   indicator: props.indicator,
-  highlight: highlight.value ?? props.highlight,
+  highlight: highlight.value,
   required: props.required,
   disabled: disabled.value
 }))
@@ -118,8 +126,8 @@ function onUpdate(value: any) {
       >
         <template #default="{ state }">
           <CheckboxIndicator data-slot="indicator" :class="b24ui.indicator({ class: props.b24ui?.indicator })">
-            <Minus20Icon v-if="state === 'indeterminate'" data-slot="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
-            <CheckIcon v-else data-slot="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
+            <Component :is="icons.minus" v-if="state === 'indeterminate'" data-slot="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
+            <Component :is="icons.check" v-else data-slot="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
           </CheckboxIndicator>
         </template>
       </CheckboxRoot>

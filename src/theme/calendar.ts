@@ -7,17 +7,17 @@
  */
 
 const daySizes = {
-  xs: 'size-7',
+  xs: 'size-6',
   sm: 'size-7',
   md: 'size-8',
-  lg: 'size-9 text-(length:--ui-font-size-lg)'
+  lg: 'size-9'
 }
 
 const pickerSizes = {
-  xs: 'h-7 px-2',
+  xs: 'h-6 px-2',
   sm: 'h-7 px-2',
   md: 'h-8 px-3',
-  lg: 'h-9 px-4 text-md'
+  lg: 'h-9 px-4'
 }
 
 export default {

@@ -33,7 +33,7 @@ export default {
           'peer-focus-visible:text-(--ui-color-design-selection-content)',
           'transition-colors'
         ].join(' '),
-        avatar: 'transform transition-transform duration-200 group-hover/user:scale-115 group-has-focus-visible/user:scale-115'
+        avatar: 'transform transition-transform duration-200 motion-reduce:transition-none group-hover/user:scale-115 group-has-focus-visible/user:scale-115'
       },
       false: {
         name: 'text-label',

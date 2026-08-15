@@ -2,6 +2,9 @@
 title: Skeleton
 description: A toggle control for switching between two states.
 category: element
+keywords:
+  - shimmer
+  - ghost loader
 links:
   - label: GitHub
     iconName: GitHubIcon

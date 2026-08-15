@@ -116,7 +116,7 @@ function handleKeyDown(event: KeyboardEvent) {
         placeholder="Paste a link..."
         @keydown="handleKeyDown"
       >
-        <div class="flex items-center mr-0.5">
+        <div class="flex items-center me-0.5">
           <B24Button
             :icon="LowerRightArrowIcon"
             color="air-tertiary-accent"

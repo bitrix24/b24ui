@@ -186,7 +186,7 @@ const grouping_options = ref<GroupingOptions>({
         />
 
         <B24Button
-          class="mr-2"
+          class="me-2"
           size="xs"
           :icon="row.getIsExpanded() ? MinusLIcon : PlusLIcon"
           @click="row.toggleExpanded()"

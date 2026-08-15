@@ -2,6 +2,9 @@
 title: InputTags
 description: A tags input component with interactive tag elements.
 category: form
+keywords:
+  - chips input
+  - multi value
 links:
   - label: GitHub
     iconName: GitHubIcon

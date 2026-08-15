@@ -278,6 +278,39 @@ describe('CommandPalette', () => {
       expect(wrapper.html()).not.toContain('�')
       expect(wrapper.find('mark').text()).not.toMatch(/[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/)
     })
+
+    it('marks each field from its own match, not from whichever fuse returned first', async () => {
+      // The component calls `highlight()` three times per item against one shared
+      // `matches` array, and `forceKey`/`omitKeys` are what make each call pick
+      // its own field. Every other item in this file has a `label` and nothing
+      // else, so fuse returns a single match and the selection is trivially
+      // right whatever those arguments do — deleting both guards used to leave
+      // this whole file green.
+      //
+      // Here the term hits all three fields, so fuse returns three matches and a
+      // mis-selection renders one field's text inside another's element.
+      const wrapper = await mountSuspended(CommandPalette, {
+        props: {
+          groups: [{ id: 'g', items: [{ label: 'orbit alpha', suffix: 'orbit bravo', description: 'orbit charlie' }] }],
+          searchTerm: 'orbit',
+          fuse: { fuseOptions: { includeMatches: true, threshold: 0.1, ignoreLocation: true, keys: ['label', 'suffix', 'description'] } }
+        } as any
+      })
+
+      const marks = wrapper.findAll('mark')
+
+      expect(marks.length).toBeGreaterThan(1)
+
+      // Each mark must sit inside the field it came from: the surrounding text
+      // is what betrays a swap, since the marked word itself is the same in all
+      // three.
+      for (const field of ['alpha', 'bravo', 'charlie']) {
+        const owner = marks.find(mark => mark.element.parentElement?.textContent?.includes(field))
+
+        expect(owner, `no mark rendered beside "${field}"`).toBeDefined()
+        expect(owner!.text()).toBe('orbit')
+      }
+    })
   })
 
   it('renders an `item-description` slot for an item that has no description', async () => {

@@ -2,6 +2,9 @@
 title: Collapsible
 description: A collapsible component for showing or hiding its content.
 category: element
+keywords:
+  - disclosure
+  - expand
 links:
   - label: GitHub
     iconName: GitHubIcon

@@ -2,6 +2,10 @@
 title: InputNumber
 description: Provide numerical input with a flexible range setting.
 category: form
+keywords:
+  - number field
+  - spinbutton
+  - counter
 links:
   - label: GitHub
     iconName: GitHubIcon

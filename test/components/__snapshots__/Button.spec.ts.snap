@@ -1050,3 +1050,14 @@ exports[`Button > renders with trailingIcon correctly 1`] = `
   </div>
 </button>"
 `;
+
+exports[`Button > renders with useDropdown correctly 1`] = `
+"<button type="button" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-outline-no-accent ui-btn-md rounded-(--ui-btn-radius) normal-case --air">
+  <!--v-if-->
+  <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-(--ui-btn-padding-left) h-(--ui-btn-height) pe-[calc(var(--ui-btn-padding-right)_-_var(--ui-btn-icon-compensation))]">
+    <!--v-if--><span data-slot="label" class="h-(--ui-btn-height) max-w-full inline-flex flex-row items-center tracking-(--ui-btn-letter-spacing) overflow-visible text-clip"><span data-slot="labelInner" class="truncate inline-block max-w-full mt-(--ui-btn-title-compensation)">Button</span></span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size) mt-(--ui-btn-title-compensation)">
+      <path fill="currentColor" fill-rule="evenodd" d="M5.505 9.505a.7.7 0 0 1 .99 0L12 15.01l5.505-5.505a.7.7 0 0 1 .99.99l-6 6a.7.7 0 0 1-.99 0l-6-6a.7.7 0 0 1 0-.99" clip-rule="evenodd"></path>
+    </svg>
+  </div>
+</button>"
+`;

@@ -2,6 +2,10 @@
 title: NavigationMenu
 description: A link list that can be arranged in horizontal or vertical orientation.
 category: navigation
+keywords:
+  - navbar
+  - menubar
+  - sidebar navigation
 links:
   - label: GitHub
     iconName: GitHubIcon

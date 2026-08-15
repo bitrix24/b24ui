@@ -2,6 +2,10 @@
 title: Empty
 description: 'An empty state component.'
 category: data
+keywords:
+  - no data
+  - placeholder
+  - zero state
 links:
   - label: GitHub
     iconName: GitHubIcon

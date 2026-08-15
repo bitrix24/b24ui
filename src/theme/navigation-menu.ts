@@ -99,7 +99,7 @@ export default {
       'rtl:left-auto rtl:right-[calc(100%-var(--reka-navigation-menu-viewport-left)-var(--reka-navigation-menu-viewport-width))]',
       'rounded-(--ui-border-radius-xl) will-change-[opacity]',
       // '[&:has(>[data-viewport=rtl])]:left-auto [&:has(>[data-viewport=rtl])]:-right-[calc(100%-var(--reka-navigation-menu-viewport-width))]',
-      'transition-[width,height,left,right] duration-200 origin-[top_center]', // left,right
+      'transition-[width,height,left,right] duration-200 motion-reduce:transition-none origin-[top_center]', // left,right
       // @memo see components/popup.css
       // 'border border-(--popup-window-border)'
       'z-1',
@@ -165,7 +165,7 @@ export default {
           'data-[state=open]:text-(length:--ui-font-size-sm) data-[state=open]:opacity-70'
         ].join(' '),
         linkLeadingIcon: '', // group-data-[state=open]:size-5.5
-        linkTrailingIcon: 'size-5 group-data-[state=open]:rotate-180 transition-transform duration-200',
+        linkTrailingIcon: 'size-5 group-data-[state=open]:rotate-180 transition-transform duration-200 motion-reduce:transition-none',
         linkLeadingBadge: '-top-2 left-6 -translate-x-1/2',
         linkLabelWrapper: 'relative h-5.5 w-full',
         childList: '',

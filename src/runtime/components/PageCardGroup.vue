@@ -164,7 +164,10 @@ const appConfig = useAppConfig() as PageCardGroup['AppConfig']
 
 // Pass raw `_props` so a wrapping `<B24FormField>` keeps precedence over
 // `<B24Theme :props>` / `withDefaults` / `app.config` defaults.
-const { emitFormChange, emitFormInput, name, id: _id, disabled, ariaAttrs } = useFormField<PageCardGroupProps>(_props, { bind: false })
+const { emitFormChange, emitFormInput, name, id: _id, disabled: formFieldDisabled, ariaAttrs } = useFormField<PageCardGroupProps>(_props, { bind: false })
+
+// eslint-disable-next-line vue/no-dupe-keys
+const disabled = computed(() => formFieldDisabled.value ?? props.disabled)
 const groupId = _id.value ?? useId()
 
 const localValue = ref<PageCardGroupValue | PageCardGroupValue[] | undefined>(

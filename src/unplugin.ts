@@ -1,6 +1,6 @@
 import { fileURLToPath } from 'node:url'
 
-import { normalize } from 'pathe'
+import { join, normalize } from 'pathe'
 import type { UnpluginOptions } from 'unplugin'
 import { createUnplugin } from 'unplugin'
 import type { Options as AutoImportOptions } from 'unplugin-auto-import/types'
@@ -29,7 +29,7 @@ type AppConfigB24UI = {
   prefix?: string
 } & TVConfig<typeof b24ui>
 
-export interface Bitrix24UIOptions extends Omit<ModuleOptions, 'colorMode' | 'content' | 'experimental'> {
+export interface Bitrix24UIOptions extends Omit<ModuleOptions, 'colorMode' | 'content'> {
   /** Whether to generate declaration files for auto-imported components. */
   dts?: boolean
   b24ui?: AppConfigB24UI
@@ -114,7 +114,7 @@ export const Bitrix24UIPlugin = createUnplugin<Bitrix24UIOptions | undefined>((_
     AutoImportPlugin(options, meta),
     tailwind(),
     PluginsPlugin(options),
-    TemplatePlugin(options),
+    TemplatePlugin(options, join(runtimeDir, 'components')),
     AppConfigPlugin(options, appConfig),
     <UnpluginOptions>{
       name: 'bitrix24:b24ui:plugins-duplication-detection',

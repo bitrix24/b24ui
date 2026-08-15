@@ -1,18 +1,80 @@
+import { existsSync } from 'node:fs'
 import { readFile } from 'node:fs/promises'
-import { join } from 'pathe'
+import { consola } from 'consola'
+import { dirname, join, normalize, resolve } from 'pathe'
 import { globSync } from 'tinyglobby'
-import { pascalCase } from 'scule'
+import { kebabCase, pascalCase } from 'scule'
+import { resolvePathSync } from 'mlly'
 
 /**
- * Build a dependency graph of components by scanning their source files
+ * Source extensions component detection scans.
+ *
+ * Shared because two places have to agree on it and neither can tell when they
+ * stop: this glob, and the `builder:watch` filter that re-runs detection during
+ * `nuxt dev` (`COMPONENT_DETECTION_WATCH_RE` in `../templates`). Upstream keeps
+ * a literal in each and had to edit both when `.mts`/`.mjs`/`.cjs` were added;
+ * an extension in one and not the other means a file that changes the answer
+ * never triggers a refresh, which produces no error and no signal.
  */
-async function buildComponentDependencyGraph(componentDir: string, componentPattern: RegExp): Promise<Map<string, Set<string>>> {
+export const COMPONENT_DETECTION_EXTENSIONS = ['vue', 'ts', 'mts', 'js', 'mjs', 'cjs', 'tsx', 'jsx'] as const
+
+/**
+ * Pattern to match:
+ * - <B24Button in templates
+ * - <b24-button in templates (kebab-case, mandatory for in-DOM templates)
+ * - B24Button in script (imports, usage)
+ * - <LazyB24Button / <lazy-b24-button (lazy components)
+ * - LazyB24Button in script
+ *
+ * The kebab form only matches as a tag: bare kebab identifiers in scripts and
+ * prose would match far too much ordinary text.
+ *
+ * The prefix is escaped even though this fork's is the literal `B24` and not a
+ * user-facing option (upstream's `prefix` is configurable). Keeping the escape
+ * costs nothing and keeps the function identical to the one it is ported from.
+ */
+function createComponentPattern(prefix: string): RegExp {
+  const escapedPrefix = prefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  const kebabPrefix = kebabCase(prefix).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+
+  return new RegExp(`<(?:Lazy)?${escapedPrefix}([A-Z][a-zA-Z]+)|<(?:lazy-)?${kebabPrefix}-([a-z][a-z0-9-]*)|\\b(?:Lazy)?${escapedPrefix}([A-Z][a-zA-Z]+)\\b`, 'g')
+}
+
+/**
+ * The component name a pattern match refers to, normalised to prefix-less
+ * PascalCase (`match[2]` is the kebab-case tag capture).
+ */
+function getMatchedComponent(match: RegExpMatchArray): string | undefined {
+  if (match[2]) {
+    return pascalCase(match[2])
+  }
+
+  return match[1] || match[3]
+}
+
+/**
+ * Build a dependency graph of components by scanning their source files.
+ *
+ * b24ui's own components always reference each other with the `B24` prefix, so
+ * the graph pattern is fixed and does not follow the scan prefix.
+ */
+async function buildComponentDependencyGraph(componentDir: string): Promise<Map<string, Set<string>>> {
   const dependencyGraph = new Map<string, Set<string>>()
+  const componentPattern = createComponentPattern('B24')
 
   const componentFiles = globSync(['**/*.vue'], {
     cwd: componentDir,
-    absolute: true
+    absolute: true,
+    // Prose components share file basenames with eight regular components
+    // (`prose/Tabs.vue` vs `Tabs.vue`), and the graph is keyed by basename:
+    // letting them in overwrites the regular component's dependency set. They
+    // don't need nodes anyway, they are never used with the `B24` prefix.
+    ignore: ['prose/**']
   })
+
+  // The pattern also matches ordinary identifiers, so an edge only counts when
+  // it points at a real component file.
+  const componentNames = new Set(componentFiles.map(file => pascalCase(file.split('/').pop()!.replace('.vue', ''))))
 
   for (const componentFile of componentFiles) {
     try {
@@ -22,8 +84,8 @@ async function buildComponentDependencyGraph(componentDir: string, componentPatt
 
       const matches = content.matchAll(componentPattern)
       for (const match of matches) {
-        const depName = match[1] || match[2]
-        if (depName && depName !== componentName) {
+        const depName = getMatchedComponent(match)
+        if (depName && depName !== componentName && componentNames.has(depName)) {
           dependencies.add(depName)
         }
       }
@@ -62,6 +124,49 @@ function resolveComponentDependencies(
 }
 
 /**
+ * Resolve additional directories component detection should scan besides the root:
+ * packages from `scanPackages` (they live in `node_modules`, which the root scan
+ * skips) and user component dirs pointing outside the root.
+ */
+export function resolveExtraScanDirs(root: string, scanPackages?: string[], componentDirs?: string | string[]): string[] {
+  const dirs = new Set<string>()
+
+  for (const pkg of scanPackages || []) {
+    try {
+      // `<pkg>/package.json` resolves to the package root in every layout,
+      // including pnpm's `.pnpm` store and workspace links (whose entry files
+      // resolve to a realpath outside `node_modules`, where an entry-based
+      // lookup would land on the build output directory instead).
+      dirs.add(dirname(normalize(resolvePathSync(`${pkg}/package.json`, { url: join(root, '_index.mjs') }))))
+    } catch {
+      try {
+        // Fallback for packages whose `exports` don't expose `./package.json`:
+        // resolve the entry and slice at the last `node_modules/<pkg>/`.
+        const entry = normalize(resolvePathSync(pkg, { url: join(root, '_index.mjs') }))
+        const marker = `node_modules/${pkg}`
+        const index = entry.lastIndexOf(`${marker}/`)
+        dirs.add(index === -1 ? dirname(entry) : entry.slice(0, index + marker.length))
+      } catch {
+        consola.warn(`Bitrix24 UI could not resolve \`${pkg}\` from \`scanPackages\`: it will not be scanned for component detection`)
+      }
+    }
+  }
+
+  const rootDir = normalize(root)
+  const userDirs = Array.isArray(componentDirs) ? componentDirs : componentDirs ? [componentDirs] : []
+  for (const dir of userDirs) {
+    // `dirs` entries can be globs: scan from the static prefix.
+    const resolved = resolve(root, dir.split(/[*{]/)[0]!)
+    // Dirs inside the root are already covered by the root scan.
+    if (resolved !== rootDir && !resolved.startsWith(`${rootDir}/`) && existsSync(resolved)) {
+      dirs.add(resolved)
+    }
+  }
+
+  return [...dirs]
+}
+
+/**
  * Detect components used in the project by scanning source files
  */
 export async function detectUsedComponents(
@@ -79,18 +184,24 @@ export async function detectUsedComponents(
     }
   }
 
-  // Pattern to match:
-  // - <B24Button in templates
-  // - B24Button in script (imports, usage)
-  // - <LazyB24Button (lazy components)
-  // - LazyB24Button in script
-  const componentPattern = new RegExp(`<(?:Lazy)?${prefix}([A-Z][a-zA-Z]+)|\\b(?:Lazy)?${prefix}([A-Z][a-zA-Z]+)\\b`, 'g')
+  const componentPattern = createComponentPattern(prefix)
 
   // Scan all source files for component usage across all layers
   for (const dir of dirs) {
-    const appFiles = globSync(['**/*.{vue,ts,js,tsx,jsx}'], {
+    // `scanPackages` directories ship their code in `dist/` (and as
+    // `.mjs`/`.cjs`), so the build-output ignores only apply to project dirs.
+    const isPackageDir = normalize(dir).includes('node_modules/')
+
+    const appFiles = globSync([`**/*.{${COMPONENT_DETECTION_EXTENSIONS.join(',')}}`], {
       cwd: dir,
-      ignore: ['node_modules/**', '.nuxt/**', 'dist/**']
+      // `**/` prefixes so nested dirs are skipped too: the Vue integration
+      // scans the whole Vite root, not just Nuxt layer `app/` directories.
+      // Declaration files can't render components, and the generated
+      // `components.d.ts` declares every component ever rendered, which would
+      // keep anything used once detected forever.
+      ignore: isPackageDir
+        ? ['**/node_modules/**', '**/*.d.ts']
+        : ['**/node_modules/**', '**/.nuxt/**', '**/dist/**', '**/*.d.ts']
     })
 
     for (const file of appFiles) {
@@ -100,7 +211,7 @@ export async function detectUsedComponents(
         const matches = content.matchAll(componentPattern)
 
         for (const match of matches) {
-          const componentName = match[1] || match[2]
+          const componentName = getMatchedComponent(match)
           if (componentName) {
             detectedComponents.add(componentName)
           }
@@ -116,15 +227,27 @@ export async function detectUsedComponents(
   }
 
   // Build dependency graph of components
-  const dependencyGraph = await buildComponentDependencyGraph(componentDir, componentPattern)
+  const dependencyGraph = await buildComponentDependencyGraph(componentDir)
+
+  // The pattern also matches ordinary identifiers, and `includeComponents`
+  // names arrive unvalidated: filter against the real component files so junk
+  // can't defeat the include-everything fallback below (blanking every theme in
+  // the Vue integration), and so a typo in `componentDetection: [...]` surfaces
+  // instead of silently doing nothing.
+  const unknownComponents = includeComponents?.filter(component => !dependencyGraph.has(component))
+  if (unknownComponents?.length) {
+    consola.warn(`Bitrix24 UI \`componentDetection\` includes unknown components: ${unknownComponents.join(', ')}`)
+  }
+
+  const validComponents = Array.from(detectedComponents).filter(component => dependencyGraph.has(component))
+  if (validComponents.length === 0) {
+    return undefined
+  }
 
   // Resolve all dependencies for detected components
   const allComponents = new Set<string>()
-  for (const component of detectedComponents) {
-    const resolved = resolveComponentDependencies(component, dependencyGraph)
-    for (const resolvedComponent of resolved) {
-      allComponents.add(resolvedComponent)
-    }
+  for (const component of validComponents) {
+    resolveComponentDependencies(component, dependencyGraph, allComponents)
   }
 
   return allComponents
