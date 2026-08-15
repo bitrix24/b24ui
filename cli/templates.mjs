@@ -86,7 +86,7 @@ const props = useComponentProps('${componentKey}', _props)
 const appConfig = useAppConfig() as ${upperName}['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(${appConfigLookup} || {}) })())
+const b24ui = computed(() => tv({ extend: theme, ...(${appConfigLookup} || {}) })())
 [[/script]]
 
 [[template]]
@@ -139,7 +139,7 @@ const appConfig = useAppConfig() as ${upperName}['AppConfig']
 const rootProps = useForwardProps(reactivePick(props, 'as'), emits)
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(${appConfigLookup} || {}) })())
+const b24ui = computed(() => tv({ extend: theme, ...(${appConfigLookup} || {}) })())
 [[/script]]
 
 [[template]]
