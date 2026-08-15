@@ -264,7 +264,9 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   line, which asserted it as fact until #390 found six mutations that survived.
   Three were constants named here; the other three were `highlight()`'s key
   dispatch, its `value` fallback, and an assertion that an empty string satisfied
-  for free.
+  for free. The first two are pinned by `describe('key selection')`, which guards
+  no constant in this bullet and is named here only so the trail from that list
+  of survivors does not stop.
 
   Two of those fixtures look pointless and are not: the CRLF pair is the only
   cluster rule `Intl.Segmenter` never sees, since the fast-path screen answers it
