@@ -225,20 +225,26 @@ function truncateHTMLFromStart(html: string, maxLength: number, fieldTextLength:
  * parameter would let a caller pass any tag through to the `v-html` that renders
  * the result.
  *
+ * Splitting on the tag is what makes that hold. The previous version swapped the
+ * tags for `\0markO\0`/`\0markC\0`, escaped, then swapped back — and NUL is an
+ * ordinary character a snippet can carry, so what decided whether markup was
+ * emitted was a string the input could supply (#391).
+ *
+ * A whole sentinel in the input forged a tag outright. Worse, and easier: six of
+ * its seven bytes immediately before a *real* tag were enough, because the
+ * placeholder this function inserted for that tag completed the prefix. So
+ * `\0markO<mark>` came back as `<mark>markO\0` — the genuine highlight moved to
+ * the front of the text it was meant to mark. No crafted sequence, one stray
+ * fragment ahead of any highlight.
+ *
  * @param snippet Snippet from the search index, with `<mark>` marking the hits.
  * @returns HTML safe to render, with the highlight tags intact.
  */
 export function sanitizeSnippet(snippet: string): string {
-  const tagOpen = '\0markO\0'
-  const tagClose = '\0markC\0'
-
-  return escapeHTML(
-    snippet
-      .replaceAll('<mark>', tagOpen)
-      .replaceAll('</mark>', tagClose)
-  )
-    .replaceAll(tagOpen, '<mark>')
-    .replaceAll(tagClose, '</mark>')
+  return snippet
+    .split(/(<mark>|<\/mark>)/)
+    .map(part => (part === '<mark>' || part === '</mark>') ? part : escapeHTML(part))
+    .join('')
 }
 
 /**

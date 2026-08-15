@@ -28,6 +28,65 @@ describe('sanitizeSnippet', () => {
   it('handles empty input', () => {
     expect(sanitizeSnippet('')).toBe('')
   })
+
+  it('does not let the snippet supply the placeholder', () => {
+    // The escape/restore round trip used to key on `\0markO\0`/`\0markC\0`. NUL
+    // is an ordinary character, so a snippet carrying those bytes came back out
+    // as markup — a `<mark>` in the output with none in the input (#391).
+    expect(sanitizeSnippet('before \0markO\0 after')).toBe('before \0markO\0 after')
+    expect(sanitizeSnippet('x \0markO\0INJECTED\0markC\0 y')).toBe('x \0markO\0INJECTED\0markC\0 y')
+
+    // Carrying something that must be escaped as well, so this case cannot be
+    // satisfied by a function that returns its argument untouched. The two
+    // above can: their expected value is the input verbatim, which is exactly
+    // what a no-op produces.
+    expect(sanitizeSnippet('\0markO\0<b>x</b>')).toBe('\0markO\0&lt;b&gt;x&lt;/b&gt;')
+  })
+
+  it('does not let a partial placeholder capture a real tag', () => {
+    // The lower bar, and the worse outcome. None of these carries a whole
+    // sentinel — only six of its seven bytes, sitting immediately before a real
+    // tag. That was enough, because the placeholder the function inserted *for
+    // that tag* completed the prefix, and the restore step then found a sentinel
+    // spanning the two. The genuine highlight moved:
+    //
+    //   '\0markO<mark>'  →  '<mark>markO\0'
+    //
+    // and with text on both sides, it moved onto text it was never meant to
+    // mark. One stray fragment ahead of any highlight, not a crafted sequence.
+    expect(sanitizeSnippet('\0markO<mark>')).toBe('\0markO<mark>')
+    expect(sanitizeSnippet('a\0markO<mark>hit</mark>b')).toBe('a\0markO<mark>hit</mark>b')
+    expect(sanitizeSnippet('\0markC</mark>tail')).toBe('\0markC</mark>tail')
+  })
+
+  it('does not let a forged tag unbalance the real ones', () => {
+    // Not only spurious emphasis: the closing tag was forgeable too, and could
+    // be placed ahead of its opener, so the markup reaching `v-html` came out
+    // unbalanced.
+    expect(sanitizeSnippet('\0markC\0\0markO\0')).toBe('\0markC\0\0markO\0')
+    expect(sanitizeSnippet('\0markO\0<mark>real</mark>')).toBe('\0markO\0<mark>real</mark>')
+  })
+
+  it('escapes an attribute a forged tag would have carried', () => {
+    // The bound on the old flaw, kept as a fixture rather than left implicit:
+    // escaping ran before the swap back, so even a forged tag could never take
+    // an attribute. A future rewrite must not quietly widen that.
+    expect(sanitizeSnippet('\0markO\0 onload=alert(1)')).toBe('\0markO\0 onload=alert(1)')
+    expect(sanitizeSnippet('<mark onload=alert(1)>x</mark>')).toBe('&lt;mark onload=alert(1)&gt;x</mark>')
+
+    // The mirror. Neither case above holds a real *opening* tag, so both survive
+    // a break in that half of the condition — the malformed opener was never
+    // going to match as a delimiter either way. Here the opener is genuine and
+    // must be kept while the malformed closer is escaped.
+    expect(sanitizeSnippet('<mark>x</mark onload=alert(1)>')).toBe('<mark>x&lt;/mark onload=alert(1)&gt;')
+  })
+
+  it('leaves a tag that only resembles the real one escaped', () => {
+    // Unchanged by the fix, but nothing asserted it: the split matches the exact
+    // tag, so case and stray whitespace stay escaped.
+    expect(sanitizeSnippet('<MARK>x</MARK>')).toBe('&lt;MARK&gt;x&lt;/MARK&gt;')
+    expect(sanitizeSnippet('<mark >x</mark >')).toBe('&lt;mark &gt;x&lt;/mark &gt;')
+  })
 })
 
 describe('highlight', () => {
