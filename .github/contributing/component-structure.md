@@ -68,7 +68,7 @@ const props = useComponentProps('componentName', _props)
 // 10. Computed UI - always computed for reactivity
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ 
-  extend: tv(theme),
+  extend: theme,
   ...(appConfig.b24ui?.componentName || {})
 })({
   color: props.color,
@@ -139,7 +139,7 @@ const appConfig = useAppConfig() as Collapsible['AppConfig']
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'defaultOpen', 'open', 'disabled', 'unmountOnHide'), emits)
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.collapsible || {}) })())
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.collapsible || {}) })())
 </script>
 
 <template>
@@ -218,7 +218,7 @@ const inputSize = computed(() => fieldGroupSize.value || formFieldSize.value)
 // Final precedence: explicit > closer-context (form/group) > <B24Theme :props>
 //                   > withDefaults > app.config > tv defaults
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.input || {}) })({
+const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.input || {}) })({
   color: color.value ?? props.color,
   size: inputSize.value ?? props.size,
   highlight: highlight.value ?? props.highlight
