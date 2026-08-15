@@ -164,13 +164,18 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   the tokenizer behind it. Both shipped in v2.8.0. Immediately before
   `c502157b` the function took four parameters and computed no `minTokenLength`
   at all — *that*, not the absence of an `Upstream:` trailer, is what marks the
-  divergence as locally authored: only 16 of ~3200 commits carry that trailer,
+  divergence as locally authored: only 52 of ~3200 commits carry that trailer,
   and `559a5cdb`, this file's own most recent port, is not one of them. The port
   `557a5178` then renamed `fuse.ts` to `search.ts` and carried the divergence
   across, so anyone auditing the current path is actively misdirected —
-  `git log -S useTokenSearch -- src/runtime/utils/search.ts` returns exactly one
-  commit, `557a5178`, which *is* a genuine upstream port. Pass `--follow` to see
-  the two that introduced it. The last recorded port of this file scoped its
+  `git log -S useTokenSearch -- src/runtime/utils/search.ts` attributes the
+  parameter to `557a5178`, which *is* a genuine upstream port, and `--follow`
+  traces it back to `6743f793`, which actually added it.
+
+  Not a commit *count*: a pickaxe counts occurrences of the string, so any commit
+  that merely names the parameter in a comment joins the list — `54b93e33` did,
+  which is what falsified the exact number this paragraph used to quote.
+  The last recorded port of this file scoped its
   equivalence claim accordingly:
   `.sync/log/2a172ef187763c74d437a85fda3168e3f80ff00a.md` reads *"b24ui's
   `highlight` matches upstream's behavior 1:1 (`minTokenLength =
@@ -197,10 +202,12 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   code points, so either boundary can land inside a character the reader sees as
   one. Two failure modes, and the second is worse: splitting a surrogate pair
   orphans both halves and renders as `�` (#362 — reproduced with real fuse.js at
-  `ContentSearch`'s options, 8 of 66 live matches over emoji-bearing labels),
-  while splitting a *cluster* yields a **different** character with nothing to
-  signal the loss (#364 — 🇺🇸 cut by one code point re-pairs into 🇸🇺, a
-  different country). `createClusterSnapper(value)` moves each boundary off the
+  `ContentSearch`'s options; the reproduction was a one-off measurement and is
+  not captured as a fixture, so treat the rate quoted in that issue as
+  indicative rather than reproducible), while splitting a *cluster* yields a
+  **different** character with nothing to signal the loss (#364 — 🇺🇸 cut by one
+  code point re-pairs into 🇸🇺, a different country).
+  `createClusterSnapper(value, fieldTextLength)` moves each boundary off the
   straddled cluster before the slice: `generateHighlightedText` uses both ends of
   it, `truncateHTMLFromStart` only `.toEnd()`, since a cut has one side. Four
   details are load-bearing and easy to drop as noise:
@@ -223,23 +230,22 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   - **The `< U+0300` screen.** Nothing below it can continue a cluster (CRLF
     aside, handled explicitly), so ASCII and Latin-1 boundaries never reach
     `Intl.Segmenter`. It buys nothing above the floor, which includes Cyrillic
-    (U+0430) and CJK — measured at 979 characters, ASCII is +1% against the
-    pre-fix cost while both of those are +2.5-2.9 µs. For a product localised
-    into Russian, treat the screen as covering markup and Latin identifiers, not
-    the body text.
-  - **One segmenter view per value.** Building `segment(value)` per boundary
-    instead of once made a value carrying many match regions linear in the
-    number of regions rather than paid once: 8.1 ms against 0.6 ms over 1600
-    boundaries.
-  - **The 8192-character guard.** `Segments.containing()` scans: a few µs up to
-    ~8k, two orders of magnitude worse at 100k. Past the guard only the
-    surrogate snap applies: `�` is still prevented, but **every** multi-code-point
-    cluster loses protection, not just flags — the same degradation as a runtime
-    without `Intl.Segmenter`. What the guard measures is the value, at both call
-    sites — `createClusterSnapper` takes the length to weigh separately from the
-    string to segment, because truncation segments the escaped, marked-up copy.
-    Weighing that copy instead is #387: escaping expands `&` five-fold and `"`
-    six-fold, so the guard fired for values a fraction of its length, silently.
+    and CJK — so for a product localised into Russian, treat the screen as
+    covering markup and Latin identifiers, not the body text.
+  - **Two separate caches, and both matter.** `createClusterSnapper` builds one
+    `segment(value)` view per value rather than per boundary; `Intl.Segmenter`
+    itself is memoized at module scope by `getGraphemeSegmenter()`. Collapsing
+    either into per-call construction costs a search box every keystroke, and
+    nothing fails — no test covers the module-level one at all.
+  - **The 8192-character guard.** `Segments.containing()` scans, so past the
+    guard only the surrogate snap applies: `�` is still prevented, but **every**
+    multi-code-point cluster loses protection, not just flags — the same
+    degradation as a runtime without `Intl.Segmenter`. What the guard measures is
+    the value, at both call sites: `createClusterSnapper` takes the length to
+    weigh separately from the string to segment, because truncation segments the
+    escaped, marked-up copy, and escaping expands it without bound. Weighing that
+    copy instead is #387. The numbers behind all three live in the code comments
+    and `test/bench/search.bench.ts`, deliberately not duplicated here.
 
   Upstream has no equivalent — inferred from this file's history, not
   re-inspected — so replaying upstream's `generateHighlightedText` or
@@ -247,19 +253,47 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   output stays well-formed HTML and only the glyph changes. Note this sits
   directly below the `useTokenSearch` divergence and shares the same
   `indices.forEach` body; one careless port reverts both. Guarded by
-  `describe('mark insertion')`, `describe('grapheme clusters')` and
-  `describe('degraded paths')` in `test/utils/search.spec.ts` — every constant
-  and every branch above was verified by removing it and watching a named test
-  fail. Two of those fixtures look pointless and are not: the CRLF pair is the
-  only cluster rule `Intl.Segmenter` never sees, since the fast-path screen
-  answers it first; and the unpaired-surrogate strings are the only input that
-  can catch a surrogate range constant being *widened* — every other fixture
-  holds a real pair, which only pins the narrowing direction.
+  `describe('mark insertion')`, `describe('grapheme clusters')`,
+  `describe('degraded paths')` and `describe('truncation from the start')` in
+  `test/utils/search.spec.ts` — the last of those pins the surrogate safety of
+  `truncateHTMLFromStart`, which this bullet names and the list used to omit.
+
+  Every constant and every branch above is *meant* to fail a named test when
+  removed. Re-run that check — delete the constant or the branch, run
+  `pnpm test`, confirm a named test goes red, revert — rather than trusting this
+  line, which asserted it as fact until #390 found six mutations that survived.
+  Three were constants named here; the other three were `highlight()`'s key
+  dispatch, its `value` fallback, and an assertion that an empty string satisfied
+  for free.
+
+  Two of those fixtures look pointless and are not: the CRLF pair is the only
+  cluster rule `Intl.Segmenter` never sees, since the fast-path screen answers it
+  first; and the unpaired-surrogate strings are the only input that can catch a
+  surrogate range constant being *widened* — every other fixture holds a real
+  pair, which only pins the narrowing direction. Each probe has to sit **one code
+  point** outside the bound it pins; two of the four sat `0x100` away and caught
+  nothing — half the probe set, found by #390.
   `test/bench/search.bench.ts` covers the two constants no unit test can observe
   — advisory only, it asserts nothing and CI does not run it. Beware the fixture
   trap those tests document: a run of bare emoji modifiers is **one** cluster,
   not many, so counting characters with `'\u{1F3FF}'.repeat(n)` asserts the wrong
   thing.
+- **`sanitizeSnippet` splits on the tag; it must never go back to a
+  placeholder.** Upstream's version — which is what this file was ported from,
+  unchanged — swaps `<mark>` for `\0markO\0`, escapes, then swaps back. The
+  sentinel is a string the input can carry, so a snippet supplying it came out
+  as markup, and six of its seven bytes ahead of a *real* tag were enough,
+  because the placeholder inserted for that tag completed the prefix: a genuine
+  highlight then moved onto text it was never meant to mark (#391). Replaying
+  upstream here reverts that. The rule generalises past this function: never
+  decide whether to emit markup by matching a string the input could also
+  contain. The function's jsDoc carries the sibling rule — the tag is hardcoded,
+  never a parameter — and a port that generalises the signature breaks that half
+  instead. Guarded by
+  `describe('sanitizeSnippet')` in `test/utils/search.spec.ts`, whose forgery
+  cases fail against the upstream shape. Not reported upstream, so expect their
+  version to keep the defect and expect the conflict on every port that touches
+  it.
 - **`skills/` is b24ui-authored — never replay upstream skill or doc prose into
   it.** The package was seeded from nuxt/ui's skill, and every defect the #93
   audit found was an inherited upstream idiom rather than an ordinary typo:
@@ -448,10 +482,11 @@ forward, since every commit between the two would then never be judged.
 - 2026-08-09 — fix of #93 (PR #343): added the §2 **`skills/` is b24ui-authored** invariant. The AI skill package was seeded from nuxt/ui's and had drifted from both the codebase and its own manifest; notably, *every* defect found was an upstream idiom rather than a typo — dead routing targets, `UFieldGroup`, `variant="ghost"`, `color="neutral"`, `i-lucide-*` string icons, a fabricated `mode="drawer"`, and `.nuxt/ui/` for our `.nuxt/b24ui/`. Also fabricated icon imports (`LayoutGridIcon` and friends) in a recipe that had only just started shipping. Guarded by `test/utils/skill-manifest.spec.ts` — ten checks over names, icons, links, manifest parity and routing in both directions — but that guard covers identifiers, not props or paths, so the invariant still has to be read. No `src/` change, so nothing here is a runtime deviation. Last reviewed: 2026-08-09.
 - 2026-08-09 — follow-up to #93 (PR #346, refs #344): `skills/index.json` is now generated by `pnpm run skill:sync` (`scripts/lib/skill-manifest.mjs`), so the §2 **`skills/` is b24ui-authored** invariant gains one line: never hand-edit the manifest. The generator validates its own output — no traversal segment, no backslash in a name, no symlink, no entry that collides with another once installed on a case-insensitive filesystem, and no invisible character — because that file is what `npx skills add` reads as instructions for where to write. Generating the `components.md` table was measured and declined: four of twelve sections mix docs `category` values on purpose, since the skill groups by task and the docs by kind (recorded on #344). Still no `src/` change, so still not a runtime deviation. Last reviewed: 2026-08-09.
 - 2026-08-10 — fix of #99 §2/§3 (PR #351): added the §2 **`vue` is a peer dependency here** invariant and recorded that the `reka-ui` / `vaul-vue` exact pins are upstream's rather than ours. Upstream declares `tailwindcss` and `typescript` as required peers but not `vue`, which reads as an oversight rather than a decision — `reka-ui` declares it, and our own floor is higher than `reka-ui`'s, so the graph currently permits an install that cannot run. Guarded by `test/utils/peer-dependencies.spec.ts`, which derives the floor from the Vue APIs `src/` imports, so raising it cannot be forgotten and lowering it cannot be quiet. Adding a root peer needs no lockfile change — verified `pnpm install --frozen-lockfile` still passes untouched. Last reviewed: 2026-08-10.
-- 2026-08-11 — review of PR #347 (issue #339): added the §2 **`highlight()` takes a fifth `useTokenSearch` argument** invariant, and corrected the `.sync/nuxt-ui.json` summary for `2a172ef` that asserted "highlight signature matches 1:1". The divergence has been in the tree since v2.8.0 and was never recorded: `c502157b` added `tokens`/`minTokenLength` and `6743f793` the parameter itself, both to `src/runtime/utils/fuse.ts`, and the port in `557a5178` renamed the file to `search.ts` — so a pickaxe on the current path returns only `557a5178`, a genuine upstream port, unless you pass `--follow`. That rename, not the trailer convention, is what hid it; `Upstream:` trailers are too rare (16 of ~3200 commits) to carry an inference either way. It has no test coverage; #363 tracks that. Worth recording how the error was found: the "byte-identical with upstream" premise originated **here**, in `595923b9` (PR #338), was repeated in #339, and was inherited in good faith by the external contributor whose PR prompted the check — nuxt/ui itself has still not been inspected, so the divergence is established from b24ui's history alone. Last reviewed: 2026-08-11.
+- 2026-08-11 — review of PR #347 (issue #339): added the §2 **`highlight()` takes a fifth `useTokenSearch` argument** invariant, and corrected the `.sync/nuxt-ui.json` summary for `2a172ef` that asserted "highlight signature matches 1:1". The divergence has been in the tree since v2.8.0 and was never recorded: `c502157b` added `tokens`/`minTokenLength` and `6743f793` the parameter itself, both to `src/runtime/utils/fuse.ts`, and the port in `557a5178` renamed the file to `search.ts` — so a pickaxe on the current path attributes it to `557a5178`, a genuine upstream port, unless you pass `--follow`. That rename, not the trailer convention, is what hid it; `Upstream:` trailers are too rare (52 of ~3200 commits) to carry an inference either way. It has no test coverage; #363 tracks that. Worth recording how the error was found: the "byte-identical with upstream" premise originated **here**, in `595923b9` (PR #338), was repeated in #339, and was inherited in good faith by the external contributor whose PR prompted the check — nuxt/ui itself has still not been inspected, so the divergence is established from b24ui's history alone. Last reviewed: 2026-08-11.
 - 2026-08-12 — the sync is manual by decision; the automation is removed. Deleted `.sync/PLAN.md` (the dispatcher/porter/on-merge design, its phase plan and its cron) and `.sync/RUNBOOK.md` (an incident playbook whose every row diagnosed one of those workflows). Dropped `sync_enabled` from the ledger — a kill-switch for a dispatcher that will not exist reads as "the sync is off" to anyone who finds it, which was already misleading while this file's own procedure ran twelve ports past it — and `stats`, Phase-4 telemetry that was never written to (`noop_ratio: 0` against an actual 47/226). Folded the one runbook row that survives manual work into §6: a cursor SHA that vanishes under an upstream force-push must be moved to the nearest surviving ancestor with a tracking issue, never skipped forward. §6 now spells out the procedure that was previously only implied by the workflows — parent-order reconstruction, verbatim diffs, the gate order with `docs:generate` and `deploy.yml`'s env, ledger reconciliation including the last-entry case, and the `behind` rebase. Also corrected `color-map.json`: `warning` mapped to `air-primary-alert`, the same token as `error`, so the table said the two upstream colors were interchangeable; `air-primary-warning` exists and is used 50 times in `src/theme/`. Last reviewed: 2026-08-12.
 - 2026-08-12 — rebuilt `icon-map.json` and gave it a guard (the content of the closed PR #67, verified rather than imported). The map is now *derived*: for every icon key both sides define — `src/theme/icons.ts` upstream, `src/runtime/dictionary/icons.ts` here — the row is (upstream's lucide name → whatever our dictionary maps that key to), 37 pairs from a 43×39 key intersection at cursor `3dbca02`. Beware the obvious shortcut when re-checking this: the installed `@nuxt/ui@4.8.2` in `node_modules` (pulled in transitively by `nuxtseo-layer-devtools`) is **older than the sync cursor** and is missing keys — three separate reviewers read it and concluded `star` was fabricated and the intersection was 36. Read the raw file at the cursor SHA instead. The derivation turned up three errors in the values #67 proposed, each of which resolves to a real icon and so would have failed no import: `i-lucide-rotate-cw` for what upstream calls `i-lucide-rotate-ccw` (`reload`), `i-lucide-circle-check` for `copyCheck`'s `i-lucide-copy-check`, and `i-lucide-refresh-cw`, which no upstream key uses. It also surfaced seven derivable pairs #67 missed — `drag`, `panelClose`, `panelOpen`, `star`, `stop`, `copyCheck`, `reload` — and, separately, `i-lucide-terminal`, the **only** `i-lucide-*` literal upstream hardcodes under `src/` (`src/theme/prose/code-icon.ts`), which neither the old map nor #67 had even though `prose/CodeIcon.vue` has answered it all along. `error` and `success` gained judgement rows rather than staying unmapped: our `caution` carries a `// this for error` comment, and `copyCheck` already owns the glyph `success` would want. The five entries #67 dropped (`activity`, `arrow-up-to-line`, `house`, `settings`, `user`) are kept — they match no key on either side, which is the hardcoded-literal case the map exists for. **Correcting the record on the five values #67 changed** (`check`, `chevronDown`, `chevronUp`, `minus`, `x`): they are wrong because the map must agree with the dictionary, *not* — as an earlier draft of this entry claimed — because the library never renders them. It does. `Checkbox.vue` renders `main/CheckIcon` and `actions/Minus20Icon`, `Badge.vue` renders `actions/Cross20Icon`, `Button.vue` renders `outline/ChevronDownSIcon`; roughly half of the icon paths under `src/` are hardcoded in components that never read the dictionary, which is #380. That discovery also reshaped the guard: `test/utils/icon-map.spec.ts` allows any icon used anywhere in `src/` rather than only the dictionary's — the narrower rule rejected `terminal`, a correct row — while separately requiring every *derived* row to equal what its semantic key resolves to. That last check is the one with teeth: without it, pointing `i-lucide-check` at another icon the dictionary genuinely uses passed every other assertion. It guards wrong rows, not stale ones; nothing here notices if upstream renames a default. No `.sync/log/` or ledger entry, since this is not a port of an upstream commit — same as #343, #346, #351 and #377. Last reviewed: 2026-08-12.
-- 2026-08-12 — coverage for #363: gave the §2 **`highlight()` takes a fifth `useTokenSearch` argument** invariant a guard. It was recorded during the review of #347 but left untested, and the bullet said so. The parameter and the token-search logic around it are b24ui-only — `c502157b` added `tokens`/`minTokenLength` and `6743f793` the parameter itself, both against the file's old name `src/runtime/utils/fuse.ts`, both shipped in v2.8.0. Immediately before `c502157b` the function took four parameters and computed no `minTokenLength` at all, which is what marks it as locally authored; the `Upstream:` trailer convention is too sparse (16 of ~3200 commits) to carry an inference either way. The later port `557a5178` renamed `fuse.ts` to `search.ts` and carried the divergence across, so a pickaxe on the current path returns only that port — pass `--follow` to see the two commits that introduced it. Until now it had no test at all, so replaying upstream's four-parameter signature would have dropped a shipped feature with nothing going red. Upstream itself has not been re-inspected; treat "upstream has no such parameter" as an inference from b24ui's own history. Last reviewed: 2026-08-12.
+- 2026-08-12 — coverage for #363: gave the §2 **`highlight()` takes a fifth `useTokenSearch` argument** invariant a guard. It was recorded during the review of #347 but left untested, and the bullet said so. The parameter and the token-search logic around it are b24ui-only — `c502157b` added `tokens`/`minTokenLength` and `6743f793` the parameter itself, both against the file's old name `src/runtime/utils/fuse.ts`, both shipped in v2.8.0. Immediately before `c502157b` the function took four parameters and computed no `minTokenLength` at all, which is what marks it as locally authored; the `Upstream:` trailer convention is too sparse (52 of ~3200 commits) to carry an inference either way. The later port `557a5178` renamed `fuse.ts` to `search.ts` and carried the divergence across, so a pickaxe on the current path attributes it to that port — pass `--follow` to trace it back. Until now it had no test at all, so replaying upstream's four-parameter signature would have dropped a shipped feature with nothing going red. Upstream itself has not been re-inspected; treat "upstream has no such parameter" as an inference from b24ui's own history. Last reviewed: 2026-08-12.
 - 2026-08-13 — fix of #364: the §2 **`utils/search.ts` cuts on grapheme clusters** invariant. Cutting by code point is not enough — a flag is two regional indicators, a family emoji several joined by ZWJ — and slicing inside one yields a *different* character rather than a broken one, with nothing to signal the loss. `Intl.Segmenter`'s `containing()` was chosen on measurement: segmenting the whole string costs 455 µs at 979 characters and 52 ms at 100k, and a fixed ±64 window is constant-time but wrong — a run of flags is longer than the window, so it starts mid-run and re-pairs the indicators, reproducing the very bug (28 disagreements in 1044 probes). Worth recording that the *snap* was the easy half: every defect review turned up was in the bookkeeping around it, and each one reached the user as duplicated or vanished text rather than as an error, because `substring()` swaps a reversed range and clamps an out-of-range one instead of throwing. Four, in the order they were found — a region the clamps left empty emitted a bare `<mark></mark>` with the highlight lost; a region past the end of the value bypassed that guard, since the comparison did not clamp where `substring()` did; a region nested inside an earlier one ended behind the cursor and had its overlap emitted three times; and a non-integer bound (`NaN` in particular, which compares false against every guard including `end > start`) landed in the cursor, where `substring(NaN)` reads as `substring(0)` and repeats the whole value. All four are guarded, each by a test verified to fail when its guard is removed. That verification is worth repeating whenever this code is touched: it is what showed the CRLF carve-out and the widening direction of all four surrogate range constants to be uncovered — nine mutations passing the whole file — and both are now fixtured. `indices` are sorted before use — a no-op for Fuse, which sorts, merges and integer-bounds them itself, but `highlight()` is a published export and `postFilter` lets a caller supply its own; the tie-break puts the longest of an equal-start pair first so the outer region is marked whole rather than split across two `<mark>`s. One clamp went the other way: mutation testing showed `Math.min(…, value.length)` on `start` was unreachable — `start` can only exceed the value by exceeding `end`, which is checked — so it was removed rather than left as an untested guard. Last reviewed: 2026-08-13.
 - 2026-08-13 — ports of `4fdccd3`…`7c74269` (PRs #389, #393–#397): two §2 invariants, both about defaults that look inert and are not. **`withDefaults` defeats `useFormField`'s proxy chain**: the composable receives the raw `_props`, so any non-`undefined` default short-circuits `formFieldX.value ?? props.X` before `<B24Theme :props>` is read. Found because upstream's own new test failed here — `CheckboxGroup` had carried `color: 'air-primary'` in `withDefaults` since it was written, making the theme layer unreachable for that colour both before and after the port. It is the only form control in the fork with such a default; `Checkbox`, `RadioGroup`, `Switch`, `Range`, `InputRating` and `Listbox` were all checked. The second is the paired lint rule, ported from the same commit. **Procedure worth repeating: when upstream pairs a mechanical fix with an enforcement rule, port the rule first and let it enumerate this fork's sites.** It found 69 reads across 19 files, and the list is not upstream's — `PageCardGroup` and `Range` have no upstream counterpart, and `InputRating` names its ref differently. Replaying twenty diffs by hand would have matched upstream's file list, not ours. Also from this batch, without needing rules of their own: `inputExamples` and tool descriptions on the MCP server are advertised to clients and nothing checked them (three were false, including two upstream also shipped); the docs `category` enum omitted four values in active use; `Calendar`'s `xs` was byte-identical to `sm`, so the prop was inert; and `playgrounds/vue/tsconfig.app.json` mapped `#build/b24ui` with a wildcard on the value and none on the key, so nothing resolved through it. Each is now guarded by a spec whose guard was verified by mutation. One trap to record for next time: a fixture name chosen to be obviously fake, `B24Theme`, turned out to be a real component here — check `src/runtime/components/` before assuming a name is unused. Last reviewed: 2026-08-13.
 - 2026-08-14 — closed #380 (PR #399): decided the icon-dictionary question and replaced the §2 invariant that had been holding it open. The old rule said the five size-variant sites were deliberate and must not be "fixed"; the decision went the other way — `Badge`, `SidebarLayout`, `Checkbox` and `Button` now read `close`/`check`/`minus`/`chevronDown` from the dictionary, and the glyphs visibly change (60 Checkbox/CheckboxGroup snapshots, plus two `renderEach` cases added because `useClose` and `useDropdown` had none, so those two swaps were previously unpinned by any test). The quieter half of #380 — components importing the *same* glyph directly, where nothing looks wrong but the override still does not reach them — was fixed in `FormField`, `SidebarLayout`, `prose/Card` and `prose/CodeIcon`, and left in three places with reasons recorded in the guard's `ALLOWED` table. Worth correcting the issue's framing while closing it: it reported "49 hardcoded paths, half the library", which is arithmetically right and misleading — **41 of the 49 are file-type glyphs in `prose/CodeIcon.vue`** for syntax highlighting, which no dictionary should own. Outside that file the real surface was 8 paths in 5 components. `test/utils/icon-dictionary.spec.ts` now enforces the decision in both directions and fails on a stale exception as well as a new bypass; three mutations verified. One recurrence to note: writing `icons.loading` inside a comment explaining why `Button` does *not* use it tripped `icon-claims.spec.ts`, which cannot tell a comment from a promise — the same mistake made earlier in this file's history, and the reason the §2 bullet now says so explicitly. Last reviewed: 2026-08-14.
+- 2026-08-15 — corrections after #390 and #405, plus one new §2 invariant. Three claims in the `utils/search.ts` bullets were false, and each was falsifiable, which is how each was caught: that every constant and branch had been mutation-verified (#390 found six survivors), that the unpaired-surrogate fixtures catch a *widened* bound (only where the probe sits one code point outside it — two of four sat `0x100` away), and that a pickaxe on `useTokenSearch` returns exactly one commit (it counts occurrences, so `54b93e33`'s jsDoc line joined the list). The first is now stated as intent with an instruction to re-run the check, because a prose claim about test coverage decays silently — nothing fails when it stops being true. Also softened the unreproducible `8 of 66` figure and updated `createClusterSnapper`'s signature after #388. New invariant: **`sanitizeSnippet` splits on the tag** (#391, PR #405) — upstream's placeholder round-trip lets a snippet forge `<mark>` from its own input, and six of the sentinel's seven bytes ahead of a real tag suffice, so a port that replays upstream reverts the fix. Not reported upstream. Last reviewed: 2026-08-15.
