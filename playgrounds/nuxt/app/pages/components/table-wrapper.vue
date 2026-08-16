@@ -68,7 +68,7 @@ const isUseBg = ref(true)
               </tbody>
               <tfoot>
                 <tr>
-                  <th colspan="3" class="text-right">
+                  <th colspan="3" class="text-end">
                     Total:
                   </th>
                   <td>
@@ -141,7 +141,7 @@ const isUseBg = ref(true)
           </tbody>
           <tfoot>
             <tr>
-              <th colspan="3" class="text-right">
+              <th colspan="3" class="text-end">
                 Total:
               </th>
               <td>
@@ -207,7 +207,7 @@ const isUseBg = ref(true)
           </tbody>
           <tfoot>
             <tr>
-              <th colspan="3" class="text-right">
+              <th colspan="3" class="text-end">
                 Total:
               </th>
               <td>
@@ -274,7 +274,7 @@ const isUseBg = ref(true)
             </tbody>
             <tfoot>
               <tr>
-                <th colspan="3" class="text-right">
+                <th colspan="3" class="text-end">
                   Total:
                 </th>
                 <td>
@@ -343,7 +343,7 @@ const isUseBg = ref(true)
           </tbody>
           <tfoot>
             <tr>
-              <th colspan="3" class="text-right">
+              <th colspan="3" class="text-end">
                 Total:
               </th>
               <td>
@@ -1173,7 +1173,7 @@ const isUseBg = ref(true)
           </tbody>
           <tfoot>
             <tr>
-              <th colspan="4" class="text-right">
+              <th colspan="4" class="text-end">
                 Total:
               </th>
               <td>9,825,000</td>

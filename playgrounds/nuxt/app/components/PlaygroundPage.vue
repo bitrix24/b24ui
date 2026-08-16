@@ -30,7 +30,7 @@ const { cardVariant, cardBorderClass } = usePlaygroundCardStyles(playgroundConte
       <B24Switch v-model="playgroundContext.isUseBg.value" label="isUseBg" size="xs" />
     </template>
     <template v-if="slots.controls">
-      <div class="items-center flex-wrap gap-2 py-2 pr-3 max-w-full hidden lg:flex">
+      <div class="items-center flex-wrap gap-2 py-2 pe-3 max-w-full hidden lg:flex">
         <slot name="controls" :playground="playgroundContext" />
       </div>
     </template>

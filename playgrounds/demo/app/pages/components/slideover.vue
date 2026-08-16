@@ -230,7 +230,7 @@ const openSliderTopAndBottomVer2 = async () => {
         content: [
           'light',
           'top-[58px] sm:top-[58px]',
-          'right-[22px] sm:right-[22px]',
+          'end-[22px] sm:end-[22px]',
           'max-h-[calc(100%-58px)] sm:max-h-[calc(100%-58px)]',
           'w-[calc(100%-60px-22px)] sm:w-[calc(100%-60px-22px)]'
         ].join(' '),
@@ -293,7 +293,7 @@ const openSliderTopAndBottomVer2 = async () => {
         content: [
           'light',
           'top-[58px] sm:top-[58px]',
-          'right-[22px] sm:right-[22px]',
+          'end-[22px] sm:end-[22px]',
           'max-h-[calc(100%-58px)] sm:max-h-[calc(100%-58px)]',
           'w-[calc(100%-60px-22px)] sm:w-[calc(100%-60px-22px)]',
           'p-0!'
@@ -502,7 +502,7 @@ const openSliderTopAndBottomVer2 = async () => {
               </tbody>
               <tfoot>
                 <tr>
-                  <th colspan="3" class="text-right">
+                  <th colspan="3" class="text-end">
                     Total:
                   </th>
                   <td>

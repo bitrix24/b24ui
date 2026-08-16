@@ -36,7 +36,7 @@ defineShortcuts({
 </script>
 
 <template>
-  <div class="flex flex-row items-center justify-start pr-2">
+  <div class="flex flex-row items-center justify-start pe-2">
     <B24FieldGroup size="sm">
       <B24Button
         :icon="ChevronLeftLIcon"
@@ -52,7 +52,7 @@ defineShortcuts({
       />
     </B24FieldGroup>
 
-    <ProseH1 class="text-label leading-7 font-(--ui-font-weight-semi-bold) mb-0 ml-3 max-lg:text-(length:--ui-font-size-4xl)">
+    <ProseH1 class="text-label leading-7 font-(--ui-font-weight-semi-bold) mb-0 ms-3 max-lg:text-(length:--ui-font-size-4xl)">
       {{ title }}
     </ProseH1>
 

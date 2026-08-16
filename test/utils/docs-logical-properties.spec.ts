@@ -54,6 +54,21 @@ const PHYSICAL = [
 
 const files = await glob('**/*.vue', { cwd: examplesDir })
 
+/**
+ * Offenders of one pattern across labelled sources.
+ *
+ * Named rather than counted: the failure has to say which file and which
+ * utility, or the next person re-runs the audit by hand. Deduped per source,
+ * so a file with twenty `text-right` reports once — the fix is the same edit.
+ */
+function offendersIn(units: Array<{ label: string, source: string }>, pattern: RegExp, use: string) {
+  return units
+    .flatMap(({ label, source }) =>
+      [...new Set(source.match(pattern) ?? [])].map(hit => `${label}: ${hit}… — use ${use}`)
+    )
+    .sort()
+}
+
 /** The theme's own spelling, used below to prove these utilities still exist. */
 const themeSource = (await glob('**/*.ts', { cwd: resolve(process.cwd(), 'src/theme') }))
   .map(file => readFileSync(resolve(process.cwd(), 'src/theme', file), 'utf-8'))
@@ -87,15 +102,12 @@ describe('docs examples position with logical properties', () => {
   })
 
   it.each(PHYSICAL)('uses $use rather than $label', ({ pattern, use }) => {
-    const offenders = files
-      .flatMap((file) => {
-        const source = readFileSync(resolve(examplesDir, file), 'utf-8')
-        return [...new Set(source.match(pattern) ?? [])].map(hit => `${file}: ${hit}… — use ${use}`)
-      })
-      .sort()
+    const offenders = offendersIn(
+      files.map(file => ({ label: file, source: readFileSync(resolve(examplesDir, file), 'utf-8') })),
+      pattern,
+      use
+    )
 
-    // Named rather than counted: the failure has to say which file and which
-    // utility, or the next person re-runs the audit by hand.
     expect(offenders).toEqual([])
   })
 })
@@ -137,11 +149,44 @@ describe('skill recipes position with logical properties', () => {
   })
 
   it.each(PHYSICAL)('uses $use rather than $label', ({ pattern, use }) => {
-    const offenders = skillCode
-      .flatMap(({ file, line, code }) =>
-        [...new Set(code.match(pattern) ?? [])].map(hit => `${file}:${line}: ${hit}… — use ${use}`)
-      )
-      .sort()
+    const offenders = offendersIn(
+      skillCode.map(({ file, line, code }) => ({ label: `${file}:${line}`, source: code })),
+      pattern,
+      use
+    )
+
+    expect(offenders).toEqual([])
+  })
+})
+
+/**
+ * The playgrounds are the weakest of the three cases — not authoring material,
+ * not shipped to a consumer — but they are where a component gets tried out, so
+ * a physical utility here is a pattern someone copies with the file already
+ * open in front of them. Same line, same reason.
+ *
+ * Not extended to `translate-x`: the playgrounds contain none, so the scan
+ * would have nothing to anchor on, and a threshold of zero cannot tell a clean
+ * tree from a broken tokeniser. If one appears, guard it then.
+ */
+const playgroundsDir = resolve(process.cwd(), 'playgrounds')
+
+const playgroundFiles = await glob('*/app/**/*.vue', { cwd: playgroundsDir })
+
+describe('playgrounds position with logical properties', () => {
+  it('finds the playground sources to check', () => {
+    // The glob is shaped to skip `node_modules` and `.nuxt`, so getting the
+    // depth wrong shows up here as an empty scan rather than as silent success.
+    expect(playgroundFiles.length).toBeGreaterThan(50)
+    expect(new Set(playgroundFiles.map(file => file.split('/')[0])).size).toBeGreaterThan(1)
+  })
+
+  it.each(PHYSICAL)('uses $use rather than $label', ({ pattern, use }) => {
+    const offenders = offendersIn(
+      playgroundFiles.map(file => ({ label: file, source: readFileSync(resolve(playgroundsDir, file), 'utf-8') })),
+      pattern,
+      use
+    )
 
     expect(offenders).toEqual([])
   })
