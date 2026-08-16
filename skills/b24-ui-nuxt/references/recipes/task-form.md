@@ -18,7 +18,7 @@ div.flex.flex-col.gap-4.p-4.w-full
 │       └── slot: div.flex.items-center.gap-1 (toolbar row)
 │           ├── B24Button (FileUploadIcon, ghost, sm — attach file)
 │           ├── B24EditorToolbar (mention, bulletList, orderedList)
-│           └── B24Button (GoToLIcon, ghost, sm, ml-auto — expand)
+│           └── B24Button (GoToLIcon, ghost, sm, ms-auto — expand)
 ├── B24Card (b24ui.body='p-0') — responsible persons
 │   └── div.divide-y
 │       ├── row: Creator — B24Avatar + name
@@ -123,7 +123,7 @@ const actionButtons: { label: string, icon: IconComponent, active?: boolean }[] 
         <div class="flex items-center gap-1 px-2 py-1.5 border-b border-(--ui-color-divider-default)">
           <B24Button :icon="FileUploadIcon" color="air-tertiary" size="sm" aria-label="Attach file" />
           <B24EditorToolbar :editor="editor" :items="toolbarItems" />
-          <div class="ml-auto">
+          <div class="ms-auto">
             <B24Button :icon="GoToLIcon" color="air-tertiary" size="sm" aria-label="Expand editor" />
           </div>
         </div>
@@ -213,7 +213,7 @@ Place a `div` as the first child of `B24Editor`'s default slot to render a persi
   <div class="flex items-center gap-1 px-2 py-1.5 border-b border-(--ui-color-divider-default)">
     <B24Button :icon="FileUploadIcon" color="air-tertiary" size="sm" aria-label="Attach file" />
     <B24EditorToolbar :editor="editor" :items="toolbarItems" />
-    <div class="ml-auto">
+    <div class="ms-auto">
       <B24Button :icon="GoToLIcon" color="air-tertiary" size="sm" aria-label="Expand editor" />
     </div>
   </div>
