@@ -421,15 +421,24 @@ describe('highlight', () => {
 
     it('does not treat a malformed region as degenerate just because its first two bounds match', () => {
       // The skip is guarded on `region.length === 2` as well as on the bounds
-      // being equal, and that half had no fixture: every region reaching it from
-      // a well-typed caller is a real 2-tuple, so dropping the length check
-      // changed nothing observable (#411).
+      // being equal, and that half had no fixture: every region the suite builds
+      // is a real 2-tuple, so dropping the length check changed nothing (#411).
       //
-      // `RangeTuple` is what the type says; `CommandPaletteGroup.postFilter`
-      // takes whatever the application hands it, which is the same reason the
-      // integer filter below exists. A longer array is not a one-character
-      // region and must not be skipped as one — the cast is how a loosely-typed
-      // caller reaches this, deliberately.
+      // Reachable without any cast from application code: `postFilter` is typed
+      // `(term, items: T[]) => T[]`, and `CommandPaletteItem` carries a
+      // `[key: string]: any` index signature, so `items[i].matches` is `any`
+      // inside that callback. `unknown` appears here only because this test
+      // calls `highlight()` directly, against its stricter signature.
+      //
+      // Worth being exact about what the guard is and is not. It does not
+      // sanitize: nothing downstream reads past `region[1]`, so a three-element
+      // region slices identically either way. It decides one thing only —
+      // whether a malformed region gets the one-character skip. It should not,
+      // because a longer array is out of contract rather than degenerate, and
+      // silently treating it as a single character drops a highlight the caller
+      // asked for. That is a smaller claim than the integer filter above, which
+      // removes a region whose `NaN` would otherwise reach the cursor and repeat
+      // the whole value.
       const value = 'alpha beta'
       const malformed = [[2, 2, 999]] as unknown as [number, number][]
 
@@ -560,22 +569,38 @@ describe('highlight', () => {
       expect(result).toBe('<mark>a\r\n</mark>b')
     })
 
-    it('keeps a lone CR or LF apart — the carve-out is the pair, not either half', () => {
-      // The case above cannot tell `previous === CR && current === LF` from
-      // `previous === CR || current === LF`: on a real pair both are true. So
-      // the conjunction went unpinned while its two constants were guarded, and
-      // widening it to `||` made a mark swallow the character after a lone CR,
-      // or the LF after any character (#410).
+    it('joins CR and LF in that order only, never either one alone', () => {
+      // Every pair here is one the segmenter breaks, so a correct
+      // implementation snaps none of them. That is the point: the case above
+      // holds the only pair the carve-out *does* join, and on a real CR+LF
+      // `previous === CR && current === LF` and `previous === CR || current
+      // === LF` agree. So the conjunction went unpinned while both its
+      // constants were guarded (#410).
       //
-      // Both fixtures sit entirely below the fast-path floor, which is what
-      // routes them into the carve-out rather than to the segmenter.
-      const afterLoneCR = 'a\rXb'
-      const beforeLoneLF = 'aX\nb'
+      // Two shapes of over-joining, and the second is why one fixture is not
+      // enough: `||` fires when either side matches, `(CR|LF) && (CR|LF)` fires
+      // when both sides are line breaks in any order. The first is caught by a
+      // lone CR or LF beside a letter; the second survives that and needs a
+      // reversed or doubled pair.
+      //
+      // Under-joining — failing to keep a real CR+LF together — is what the
+      // case above pins. These add nothing there, deliberately; do not read
+      // them as covering it.
+      //
+      // Every fixture sits entirely below the fast-path floor, which is what
+      // routes it into the carve-out rather than to the segmenter.
+      const pairs: [string, string][] = [
+        ['a\rXb', '<mark>a\r</mark>Xb'],
+        ['aX\nb', '<mark>aX</mark>\nb'],
+        ['a\n\rb', '<mark>a\n</mark>\rb'],
+        ['a\r\rb', '<mark>a\r</mark>\rb'],
+        ['a\n\nb', '<mark>a\n</mark>\nb']
+      ]
 
-      expect(highlight({ label: afterLoneCR, matches: [{ key: 'label', value: afterLoneCR, indices: [[0, 1]] }] }, 'x', 'label'))
-        .toBe('<mark>a\r</mark>Xb')
-      expect(highlight({ label: beforeLoneLF, matches: [{ key: 'label', value: beforeLoneLF, indices: [[0, 1]] }] }, 'x', 'label'))
-        .toBe('<mark>aX</mark>\nb')
+      for (const [value, expected] of pairs) {
+        expect(highlight({ label: value, matches: [{ key: 'label', value, indices: [[0, 1]] }] }, 'x', 'label'))
+          .toBe(expected)
+      }
     })
 
     it('leaves a bare run of emoji modifiers whole — UAX #29 makes it one cluster', () => {
