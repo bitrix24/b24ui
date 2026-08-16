@@ -419,6 +419,24 @@ describe('highlight', () => {
       expect(highlight({ label: value, matches: [{ key: 'label', value, indices: [[2, 2]] }] }, 'a', 'label')).toBe(value)
     })
 
+    it('does not treat a malformed region as degenerate just because its first two bounds match', () => {
+      // The skip is guarded on `region.length === 2` as well as on the bounds
+      // being equal, and that half had no fixture: every region reaching it from
+      // a well-typed caller is a real 2-tuple, so dropping the length check
+      // changed nothing observable (#411).
+      //
+      // `RangeTuple` is what the type says; `CommandPaletteGroup.postFilter`
+      // takes whatever the application hands it, which is the same reason the
+      // integer filter below exists. A longer array is not a one-character
+      // region and must not be skipped as one — the cast is how a loosely-typed
+      // caller reaches this, deliberately.
+      const value = 'alpha beta'
+      const malformed = [[2, 2, 999]] as unknown as [number, number][]
+
+      expect(highlight({ label: value, matches: [{ key: 'label', value, indices: malformed }] }, 'a', 'label'))
+        .toBe('al<mark>p</mark>ha beta')
+    })
+
     it.each(ASTRAL)('wraps %s wholly, wherever the region boundary falls', (astral) => {
       const value = `${astral.repeat(3)}tail`
 
@@ -540,6 +558,24 @@ describe('highlight', () => {
       const result = highlight({ label: value, matches: [{ key: 'label', value, indices: [[0, 1]] }] }, 'x', 'label')
 
       expect(result).toBe('<mark>a\r\n</mark>b')
+    })
+
+    it('keeps a lone CR or LF apart — the carve-out is the pair, not either half', () => {
+      // The case above cannot tell `previous === CR && current === LF` from
+      // `previous === CR || current === LF`: on a real pair both are true. So
+      // the conjunction went unpinned while its two constants were guarded, and
+      // widening it to `||` made a mark swallow the character after a lone CR,
+      // or the LF after any character (#410).
+      //
+      // Both fixtures sit entirely below the fast-path floor, which is what
+      // routes them into the carve-out rather than to the segmenter.
+      const afterLoneCR = 'a\rXb'
+      const beforeLoneLF = 'aX\nb'
+
+      expect(highlight({ label: afterLoneCR, matches: [{ key: 'label', value: afterLoneCR, indices: [[0, 1]] }] }, 'x', 'label'))
+        .toBe('<mark>a\r</mark>Xb')
+      expect(highlight({ label: beforeLoneLF, matches: [{ key: 'label', value: beforeLoneLF, indices: [[0, 1]] }] }, 'x', 'label'))
+        .toBe('<mark>aX</mark>\nb')
     })
 
     it('leaves a bare run of emoji modifiers whole — UAX #29 makes it one cluster', () => {
