@@ -146,9 +146,13 @@ function _useContentSearch() {
         label: result.title,
         labelHtml: result.snippets?.title ? sanitizeSnippet(result.snippets.title) : undefined,
         prefix,
-        // Raw — see `mapFile`. The escaping that matters happens at the sink:
-        // `{{ }}` for this field, `escapeHTML()` inside `highlight()` for
-        // `descriptionHtml` beside it.
+        // Raw — see `mapFile`. This is the fallback of the two: the line below
+        // populates `descriptionHtml` whenever the backend honours the snippet
+        // request `ContentSearch` sends, and the template prefers it. So this
+        // field renders when there are no snippets, through `{{ }}`, which
+        // escapes on its own — while `descriptionHtml` is escaped by
+        // `sanitizeSnippet`. Two producers, two sinks, neither needing help
+        // here.
         description: result.content,
         descriptionHtml: result.snippets?.content ? sanitizeSnippet(result.snippets.content) : undefined,
         to: result.id,
