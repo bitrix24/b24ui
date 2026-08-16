@@ -82,7 +82,7 @@ const items = [
             :icon="Refresh5Icon"
             color="air-secondary-accent-2"
             label="Some text"
-            class="ml-2"
+            class="ms-2"
           />
         </template>
       </B24Tabs>

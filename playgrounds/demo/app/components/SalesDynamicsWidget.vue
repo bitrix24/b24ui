@@ -78,8 +78,8 @@ const emit = defineEmits<{
     <div class="flex flex-col gap-2">
       <div class="grid grid-cols-[1fr_auto_auto] gap-x-6 px-3 py-1 text-(length:--ui-font-size-sm) opacity-80">
         <span />
-        <span class="text-right min-w-20">{{ countHeader }}</span>
-        <span class="text-right min-w-24">{{ amountHeader }}</span>
+        <span class="text-end min-w-20">{{ countHeader }}</span>
+        <span class="text-end min-w-24">{{ amountHeader }}</span>
       </div>
 
       <div
@@ -88,8 +88,8 @@ const emit = defineEmits<{
         class="grid grid-cols-[1fr_auto_auto] gap-x-6 items-center px-3 py-3 rounded-xl bg-white/5"
       >
         <span class="font-(--ui-font-weight-medium)">{{ row.label }}</span>
-        <span class="text-right min-w-20">{{ row.count }}</span>
-        <span class="text-right min-w-24">{{ row.amount }}</span>
+        <span class="text-end min-w-20">{{ row.count }}</span>
+        <span class="text-end min-w-24">{{ row.amount }}</span>
       </div>
 
       <div
@@ -102,8 +102,8 @@ const emit = defineEmits<{
             <Info1Icon class="size-4 opacity-80" />
           </B24Tooltip>
         </span>
-        <span class="text-right min-w-20">{{ highlight.count }}</span>
-        <span class="text-right min-w-24 font-(--ui-font-weight-semi-bold)">{{ highlight.amount }}</span>
+        <span class="text-end min-w-20">{{ highlight.count }}</span>
+        <span class="text-end min-w-24 font-(--ui-font-weight-semi-bold)">{{ highlight.amount }}</span>
       </div>
     </div>
 

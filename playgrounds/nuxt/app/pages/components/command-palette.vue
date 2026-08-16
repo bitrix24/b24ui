@@ -202,7 +202,7 @@ defineShortcuts({
     >
       <template #footer>
         <div class="flex items-center justify-between gap-2">
-          <Bitrix24Icon class="size-5 text-(--b24ui-typography-label-color) ml-1" />
+          <Bitrix24Icon class="size-5 text-(--b24ui-typography-label-color) ms-1" />
           <div class="flex items-center gap-1">
             <B24Button label="Open" size="sm">
               <template #trailing>

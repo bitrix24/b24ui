@@ -148,7 +148,7 @@ const columns: TableColumn<Payment>[] = [
     },
     enableHiding: false,
     cell: ({ row }) => {
-      return h('div', { class: 'text-right' }, h(B24DropdownMenu, {
+      return h('div', { class: 'text-end' }, h(B24DropdownMenu, {
         'content': {
           align: 'center',
           side: 'right',
@@ -179,7 +179,7 @@ const columns: TableColumn<Payment>[] = [
     meta: {
       class: {
         td: 'text-center font-(--ui-font-weight-semi-bold)',
-        th: 'text-right text-(--ui-color-accent-main-success) w-[192px]'
+        th: 'text-end text-(--ui-color-accent-main-success) w-[192px]'
       }
     },
     cell: ({ row }) => {
@@ -242,7 +242,7 @@ const columns: TableColumn<Payment>[] = [
   },
   {
     accessorKey: 'amount',
-    header: ({ column }) => h('div', { class: 'text-right' }, getPinnedHeader(column, 'Amount', 'right')),
+    header: ({ column }) => h('div', { class: 'text-end' }, getPinnedHeader(column, 'Amount', 'right')),
     footer: ({ column }) => {
       const total = column.getFacetedRowModel().rows.reduce((acc: number, row: TableRow<Payment>) => acc + Number.parseFloat(row.getValue('amount')), 0)
 
@@ -251,7 +251,7 @@ const columns: TableColumn<Payment>[] = [
         currency: 'EUR'
       }).format(total)
 
-      return h('div', { class: 'text-right font-(--ui-font-weight-medium)' }, `Total: ${formatted}`)
+      return h('div', { class: 'text-end font-(--ui-font-weight-medium)' }, `Total: ${formatted}`)
     },
     cell: ({ row }) => {
       const amount = Number.parseFloat(row.getValue('amount'))
@@ -261,7 +261,7 @@ const columns: TableColumn<Payment>[] = [
         currency: 'EUR'
       }).format(amount)
 
-      return h('div', { class: 'text-right font-(--ui-font-weight-medium)' }, formatted)
+      return h('div', { class: 'text-end font-(--ui-font-weight-medium)' }, formatted)
     },
     size: 117
   }
