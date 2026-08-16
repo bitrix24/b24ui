@@ -101,6 +101,53 @@ describe('docs examples position with logical properties', () => {
 })
 
 /**
+ * The skills are authoring material: an assistant reads a recipe and emits the
+ * markup in it verbatim. A physical utility there does not just sit in a doc,
+ * it gets generated into consumer code — so the recipes are held to the same
+ * line as the examples.
+ *
+ * Only fenced code is scanned. The prose genuinely discusses alignment
+ * ("the two numeric columns stay end-aligned"), and matching a class pattern
+ * against English is how a guard earns its ignore-comments: `right-aligned`
+ * matches `right-` followed by a word character, which is why this is worth
+ * saying rather than leaving to a reader to notice.
+ */
+const skillsDir = resolve(process.cwd(), 'skills')
+
+const skillFiles = await glob('**/*.md', { cwd: skillsDir })
+
+/** Fenced blocks only, keyed by file, with the fence's start line for the message. */
+const skillCode = skillFiles.flatMap((file) => {
+  const source = readFileSync(resolve(skillsDir, file), 'utf-8')
+
+  return [...source.matchAll(/^```[^\n]*\n([\s\S]*?)^```/gm)].map(match => ({
+    file,
+    line: source.slice(0, match.index).split('\n').length,
+    code: match[1]!
+  }))
+})
+
+describe('skill recipes position with logical properties', () => {
+  it('finds the fenced code to check', () => {
+    // Vacuous against a fence regex that stopped matching, which is the whole
+    // scan — so anchor on both the file count and the blocks found in them.
+    expect(skillFiles.length).toBeGreaterThan(10)
+    expect(skillCode.length).toBeGreaterThan(40)
+    expect(skillCode.some(block => block.code.includes('B24Card'))).toBe(true)
+  })
+
+  it.each(PHYSICAL)('uses $use rather than $label', ({ pattern, use }) => {
+    const offenders = skillCode
+      .flatMap(({ file, line, code }) =>
+        [...new Set(code.match(pattern) ?? [])].map(hit => `${file}:${line}: ${hit}… — use ${use}`)
+      )
+      .sort()
+
+    expect(offenders).toEqual([])
+  })
+})
+
+/**
  * `translate-x` is a physical axis with no logical counterpart, so mirroring it
  * means a paired `rtl:` utility with the *opposite sign* — what nuxt/ui@592d5b5
  * did for the alternating timeline.
