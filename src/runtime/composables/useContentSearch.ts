@@ -26,7 +26,13 @@ function _useContentSearch() {
     return {
       prefix: prefix?.length ? (prefix.join(' > ') + ' >') : undefined,
       label: file.id === link.path ? link.title : file.title,
-      suffix: file.content.replaceAll('<', '&lt;').replaceAll('>', '&gt;'),
+      // Raw, like `label` beside it. Escaping here is not belt-and-braces, it is
+      // a second escape on top of the one that renders: `CommandPalette` puts
+      // this through `{{ }}`, a text node, which never decodes entities — so a
+      // pre-escaped `&lt;` reaches the reader as those four characters. And when
+      // a match does land here, `highlight()` escapes it again into `&amp;lt;`,
+      // which `v-html` decodes one level back to the same wrong thing (#406).
+      suffix: file.content,
       to: file.id,
       icon: (link.icon || ancestorIcon || (file.level > 1 ? icons.hash : icons.file)) as IconComponent,
       level: file.level
@@ -140,7 +146,10 @@ function _useContentSearch() {
         label: result.title,
         labelHtml: result.snippets?.title ? sanitizeSnippet(result.snippets.title) : undefined,
         prefix,
-        description: result.content.replaceAll('<', '&lt;').replaceAll('>', '&gt;'),
+        // Raw — see `mapFile`. The escaping that matters happens at the sink:
+        // `{{ }}` for this field, `escapeHTML()` inside `highlight()` for
+        // `descriptionHtml` beside it.
+        description: result.content,
         descriptionHtml: result.snippets?.content ? sanitizeSnippet(result.snippets.content) : undefined,
         to: result.id,
         icon: (link?.icon || ancestorIcon || (result.level > 1 ? icons.hash : icons.file)) as IconComponent,
