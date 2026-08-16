@@ -406,8 +406,8 @@ const highlight = {
     <div class="flex flex-col gap-2">
       <div class="grid grid-cols-[1fr_auto_auto] gap-x-6 px-3 py-1 text-(length:--ui-font-size-sm) opacity-80">
         <span />
-        <span class="text-right min-w-20">Count</span>
-        <span class="text-right min-w-24">Amount</span>
+        <span class="text-end min-w-20">Count</span>
+        <span class="text-end min-w-24">Amount</span>
       </div>
 
       <div
@@ -416,8 +416,8 @@ const highlight = {
         class="grid grid-cols-[1fr_auto_auto] gap-x-6 items-center px-3 py-3 rounded-xl bg-white/5"
       >
         <span class="font-(--ui-font-weight-medium)">{{ row.label }}</span>
-        <span class="text-right min-w-20">{{ row.count }}</span>
-        <span class="text-right min-w-24">{{ row.amount }}</span>
+        <span class="text-end min-w-20">{{ row.count }}</span>
+        <span class="text-end min-w-24">{{ row.amount }}</span>
       </div>
 
       <div class="style-filled-boost grid grid-cols-[1fr_auto_auto] gap-x-6 items-center px-3 py-3 rounded-xl text-(--ui-color-design-filled-boost-content)">
@@ -427,8 +427,8 @@ const highlight = {
             <Info1Icon class="size-4 opacity-80" />
           </B24Tooltip>
         </span>
-        <span class="text-right min-w-20">{{ highlight.count }}</span>
-        <span class="text-right min-w-24 font-(--ui-font-weight-semi-bold)">{{ highlight.amount }}</span>
+        <span class="text-end min-w-20">{{ highlight.count }}</span>
+        <span class="text-end min-w-24 font-(--ui-font-weight-semi-bold)">{{ highlight.amount }}</span>
       </div>
     </div>
 
@@ -448,5 +448,5 @@ Notes on the layout:
 - The radial gradient on `b24ui.root` uses the same `110.42% 110.42% at -10.42% 31.25%` geometry as the boost gradient elsewhere in the design system, only with the purple `copilot-bg-content-{3,2,1}` stops (light → dark from top-left outward). Swap the stops for `--ui-color-design-filled-warning-bg-gradient-*` or another sibling trio to recolor the surface without changing the geometry.
 - The highlighted KPI row uses the global `.style-filled-boost` utility from `008_ui_global.css`. The class wires up the boost background gradient (orange → pink → purple), the boost stroke and the boost content (text/icon) CSS vars. Apply `text-(--ui-color-design-filled-boost-content)` explicitly so the row's text picks up the boost content colour (the `.style-filled-boost` class only declares the var, it doesn't apply `color`).
 - The non-highlighted rows sit on `bg-white/5` — a translucent overlay over the gradient. It keeps the rows readable without inventing new tokens.
-- The grid template `1fr_auto_auto` keeps the metric label flexible while the two numeric columns stay right-aligned and proportional. For more than ~4 rows, consider `B24Table` instead — this pattern is for compact summaries, not data lists.
+- The grid template `1fr_auto_auto` keeps the metric label flexible while the two numeric columns stay end-aligned and proportional — `text-end` rather than `text-right`, so the digits follow the reading direction and sit on the left under RTL. For more than ~4 rows, consider `B24Table` instead — this pattern is for compact summaries, not data lists.
 - The pill button in the header and the two footer buttons all use `color="air-secondary-accent"` for a consistent translucent action surface on the purple background. The pill picks up its rounded silhouette from `rounded`; pair `:trailing-icon` with a domain-appropriate icon (`RepeatIcon`, `Calendar1Icon`, `FlipchartIcon`).

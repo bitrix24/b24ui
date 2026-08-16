@@ -86,8 +86,8 @@ const columns: TableColumn<Payment>[] = [{
   header: ({ column }) => getHeader(column, 'Amount'),
   meta: {
     class: {
-      th: 'text-right',
-      td: 'text-right font-medium'
+      th: 'text-end',
+      td: 'text-end font-medium'
     }
   },
   cell: ({ row }) => {

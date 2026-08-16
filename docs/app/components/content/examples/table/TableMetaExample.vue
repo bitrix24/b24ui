@@ -99,8 +99,8 @@ const columns: TableColumn<Payment>[] = [
     header: 'Email',
     meta: {
       class: {
-        th: 'text-left',
-        td: 'text-left'
+        th: 'text-start',
+        td: 'text-start'
       }
     }
   },
@@ -109,8 +109,8 @@ const columns: TableColumn<Payment>[] = [
     header: 'Amount',
     meta: {
       class: {
-        th: 'text-right font-(--ui-font-weight-bold) text-(--ui-color-accent-main-primary)',
-        td: 'text-right font-[family-name:var(--ui-font-family-system-mono)]'
+        th: 'text-end font-(--ui-font-weight-bold) text-(--ui-color-accent-main-primary)',
+        td: 'text-end font-[family-name:var(--ui-font-family-system-mono)]'
       }
     },
     cell: ({ row }) => {

@@ -66,8 +66,8 @@ const columns: TableColumn<Product>[] = [{
   header: 'Price',
   meta: {
     class: {
-      th: 'text-right',
-      td: 'text-right'
+      th: 'text-end',
+      td: 'text-end'
     }
   },
   cell: ({ row }) => {
@@ -81,8 +81,8 @@ const columns: TableColumn<Product>[] = [{
   header: 'Stock',
   meta: {
     class: {
-      th: 'text-right',
-      td: 'text-right'
+      th: 'text-end',
+      td: 'text-end'
     }
   }
 }]
