@@ -419,6 +419,33 @@ describe('highlight', () => {
       expect(highlight({ label: value, matches: [{ key: 'label', value, indices: [[2, 2]] }] }, 'a', 'label')).toBe(value)
     })
 
+    it('does not treat a malformed region as degenerate just because its first two bounds match', () => {
+      // The skip is guarded on `region.length === 2` as well as on the bounds
+      // being equal, and that half had no fixture: every region the suite builds
+      // is a real 2-tuple, so dropping the length check changed nothing (#411).
+      //
+      // Reachable without any cast from application code: `postFilter` is typed
+      // `(term, items: T[]) => T[]`, and `CommandPaletteItem` carries a
+      // `[key: string]: any` index signature, so `items[i].matches` is `any`
+      // inside that callback. `unknown` appears here only because this test
+      // calls `highlight()` directly, against its stricter signature.
+      //
+      // Worth being exact about what the guard is and is not. It does not
+      // sanitize: nothing downstream reads past `region[1]`, so a three-element
+      // region slices identically either way. It decides one thing only —
+      // whether a malformed region gets the one-character skip. It should not,
+      // because a longer array is out of contract rather than degenerate, and
+      // silently treating it as a single character drops a highlight the caller
+      // asked for. That is a smaller claim than the integer filter above, which
+      // removes a region whose `NaN` would otherwise reach the cursor and repeat
+      // the whole value.
+      const value = 'alpha beta'
+      const malformed = [[2, 2, 999]] as unknown as [number, number][]
+
+      expect(highlight({ label: value, matches: [{ key: 'label', value, indices: malformed }] }, 'a', 'label'))
+        .toBe('al<mark>p</mark>ha beta')
+    })
+
     it.each(ASTRAL)('wraps %s wholly, wherever the region boundary falls', (astral) => {
       const value = `${astral.repeat(3)}tail`
 
@@ -540,6 +567,40 @@ describe('highlight', () => {
       const result = highlight({ label: value, matches: [{ key: 'label', value, indices: [[0, 1]] }] }, 'x', 'label')
 
       expect(result).toBe('<mark>a\r\n</mark>b')
+    })
+
+    it('joins CR and LF in that order only, never either one alone', () => {
+      // Every pair here is one the segmenter breaks, so a correct
+      // implementation snaps none of them. That is the point: the case above
+      // holds the only pair the carve-out *does* join, and on a real CR+LF
+      // `previous === CR && current === LF` and `previous === CR || current
+      // === LF` agree. So the conjunction went unpinned while both its
+      // constants were guarded (#410).
+      //
+      // Two shapes of over-joining, and the second is why one fixture is not
+      // enough: `||` fires when either side matches, `(CR|LF) && (CR|LF)` fires
+      // when both sides are line breaks in any order. The first is caught by a
+      // lone CR or LF beside a letter; the second survives that and needs a
+      // reversed or doubled pair.
+      //
+      // Under-joining — failing to keep a real CR+LF together — is what the
+      // case above pins. These add nothing there, deliberately; do not read
+      // them as covering it.
+      //
+      // Every fixture sits entirely below the fast-path floor, which is what
+      // routes it into the carve-out rather than to the segmenter.
+      const pairs: [string, string][] = [
+        ['a\rXb', '<mark>a\r</mark>Xb'],
+        ['aX\nb', '<mark>aX</mark>\nb'],
+        ['a\n\rb', '<mark>a\n</mark>\rb'],
+        ['a\r\rb', '<mark>a\r</mark>\rb'],
+        ['a\n\nb', '<mark>a\n</mark>\nb']
+      ]
+
+      for (const [value, expected] of pairs) {
+        expect(highlight({ label: value, matches: [{ key: 'label', value, indices: [[0, 1]] }] }, 'x', 'label'))
+          .toBe(expected)
+      }
     })
 
     it('leaves a bare run of emoji modifiers whole — UAX #29 makes it one cluster', () => {
