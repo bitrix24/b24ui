@@ -191,7 +191,7 @@ const columns: TableColumn<Payment>[] = [
     id: 'actions',
     meta: {
       class: {
-        td: 'text-right'
+        td: 'text-end'
       },
       style: {
         td: {
@@ -306,8 +306,8 @@ const columns: TableColumn<Payment>[] = [
     header: 'Amount',
     meta: {
       class: {
-        th: 'text-right',
-        td: 'text-right font-medium'
+        th: 'text-end',
+        td: 'text-end font-medium'
       }
     },
     cell: ({ row }) => {

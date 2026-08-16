@@ -264,7 +264,7 @@ const handleAction = async () => {
             </tbody>
             <tfoot>
               <tr>
-                <th colspan="3" class="text-right">
+                <th colspan="3" class="text-end">
                   Total:
                 </th>
                 <td>

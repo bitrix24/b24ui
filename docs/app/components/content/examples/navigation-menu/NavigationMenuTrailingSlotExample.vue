@@ -68,7 +68,7 @@ const dropdownItems: DropdownMenuItem[][] = [
     </template>
 
     <template #item-trailing>
-      <div class="flex -me-1.5 -my-0.5 translate-x-full group-hover:translate-x-0 has-data-[state=open]:translate-x-0 transition-transform">
+      <div class="flex -me-1.5 -my-0.5 translate-x-full rtl:-translate-x-full group-hover:translate-x-0 has-data-[state=open]:translate-x-0 transition-transform">
         <B24DropdownMenu
           :items="dropdownItems"
           :content="{ align: 'start' }"
