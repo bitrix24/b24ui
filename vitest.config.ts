@@ -6,6 +6,29 @@ import bitrix24UIPluginVite from './src/vite'
 import { glob } from 'tinyglobby'
 import { nuxtInclude, vueInclude, vueExclude } from './test/vitest-include'
 
+/**
+ * Pin the suite's timezone.
+ *
+ * The date specs freeze "now" at `new Date('2025-01-01')`, which parses as UTC
+ * midnight — in any negative-offset zone that is still 2024-12-31 locally, so
+ * the calendar's `data-today` lands a day early and every snapshot carrying it
+ * fails: 69 tests per project, in both, on a clean clone. CI runners are UTC,
+ * so nothing here ever goes red; the failure is reserved for contributors west
+ * of Greenwich, who get a red checkout and no hint why.
+ *
+ * This is an assignment on `process.env` rather than vitest's `test.env`
+ * because the two are not interchangeable. `test.env` is handed to the worker
+ * as a JavaScript object: under the default `forks` pool that becomes the
+ * child process's real environment and V8 reads `TZ` from it, but under
+ * `--pool=threads` it is only a per-worker `process.env` copy — ICU keeps
+ * reading the OS environment, and the pin silently does nothing while
+ * `process.env.TZ` still reads `'UTC'`. Assigning here calls `setenv` in the
+ * parent before any pool starts, so both pools inherit a genuinely UTC
+ * environment. Asserted by `test/utils/timezone-determinism.spec.ts`, which
+ * checks observed `Date` behaviour and not just the variable.
+ */
+process.env.TZ = 'UTC'
+
 const components = await glob('./src/runtime/components/*.vue', { absolute: true })
 const vueComponents = await glob('./src/runtime/vue/components/*.vue', { absolute: true })
 const vueRouterOverrides = await glob('./src/runtime/vue/overrides/vue-router/*.vue', { absolute: true })
@@ -15,14 +38,8 @@ export default defineConfig({
     testTimeout: 5000,
     globals: true,
     silent: true,
-    // Pin the suite's timezone. The date specs freeze "now" at
-    // `new Date('2025-01-01')`, which is UTC midnight — in any negative-offset
-    // zone that is still 2024-12-31 locally, so the calendar's `data-today`
-    // lands a day early and 69 snapshots come back with yesterday's date. CI
-    // runners are UTC, so nothing here ever goes red: the failure is reserved
-    // for contributors west of Greenwich, who get a red clean clone and no
-    // hint why. Asserted by `test/utils/timezone-determinism.spec.ts`.
-    env: { TZ: 'UTC' },
+    // The timezone is pinned above, before this config object — see the note
+    // on the `process.env.TZ` assignment for why it cannot live here.
     resolveSnapshotPath(path, extension, { config }) {
       if (config.name === 'vue') {
         return path.replace(/\/([^/]+)\.spec\.ts$/, `/__snapshots__/$1-vue.spec.ts${extension}`)
