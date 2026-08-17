@@ -15,6 +15,14 @@ export default defineConfig({
     testTimeout: 5000,
     globals: true,
     silent: true,
+    // Pin the suite's timezone. The date specs freeze "now" at
+    // `new Date('2025-01-01')`, which is UTC midnight — in any negative-offset
+    // zone that is still 2024-12-31 locally, so the calendar's `data-today`
+    // lands a day early and 69 snapshots come back with yesterday's date. CI
+    // runners are UTC, so nothing here ever goes red: the failure is reserved
+    // for contributors west of Greenwich, who get a red clean clone and no
+    // hint why. Asserted by `test/utils/timezone-determinism.spec.ts`.
+    env: { TZ: 'UTC' },
     resolveSnapshotPath(path, extension, { config }) {
       if (config.name === 'vue') {
         return path.replace(/\/([^/]+)\.spec\.ts$/, `/__snapshots__/$1-vue.spec.ts${extension}`)
