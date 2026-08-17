@@ -1,5 +1,14 @@
-@import "tailwindcss" theme(static) source("../../../../..");
+@import "tailwindcss" theme(static) source(none);
 @import "@bitrix24/b24ui-nuxt";
+
+/*
+ * Scoped to this playground, the Nuxt playground's `app` that `vite.config.ts`
+ * borrows components and composables from, and the library source, which the
+ * plugin resolves components and theme from.
+ */
+@source "../../..";
+@source "../../../../nuxt/app";
+@source "../../../../../src";
 
 /*
  * Custom bg

@@ -1,5 +1,13 @@
-@import "tailwindcss" theme(static) source("../../../../..");
+@import "tailwindcss" theme(static) source(none);
 @import "@bitrix24/b24ui-nuxt";
+
+/*
+ * Scoped to this playground and the library source, which the module resolves
+ * components and theme from. A repo-root source also put `docs`, `test` and the
+ * sibling playgrounds on the CSS watcher.
+ */
+@source "../../..";
+@source "../../../../../src";
 
 /*
  * Custom bg

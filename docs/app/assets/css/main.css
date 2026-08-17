@@ -1,14 +1,21 @@
-@import "tailwindcss" theme(static) source("../../../..");
+@import "tailwindcss" theme(static) source(none);
 @import "@bitrix24/b24ui-nuxt";
 
-@source "../../../content/**/*";
 /*
- * Exclude the upstream-sync notes from Tailwind's class scanning. The root
- * `source("../../../..")` above scans the whole repo, and `.sync/log/*.md`
- * contains illustrative class strings with placeholders (e.g.
+ * Scoped to what the docs render: the site itself, and the library source that
+ * `nuxt.config.ts` resolves `../src/module` from. A repo-root source also put
+ * `test`, `playgrounds`, `skills` and `.sync` on the CSS watcher.
+ *
+ * `.sync` in particular needed an explicit `@source not` before this, because
+ * `.sync/log/*.md` quotes illustrative class strings with placeholders (e.g.
  * `--reka-*-content-available-height`) that produce invalid CSS during build.
+ * Naming what is in scope rather than what is out of it makes that exclusion
+ * unnecessary — and `skills/`, served raw at `/.well-known/skills`, never
+ * needed scanning either.
  */
-@source not "../../../../.sync";
+@source "../../..";
+@source "../../../../src";
+@source "../../../content/**/*";
 
 @theme static {
 
