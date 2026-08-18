@@ -33,6 +33,47 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
 | iconify name `i-lucide-x` etc. | `b24-icons` component — see [`icon-map.json`](./icon-map.json) |
 | color token (`primary`, `neutral`, …) | `air-*` system — see [`color-map.json`](./color-map.json) |
 | theme object | corresponding `src/theme/<component>.ts` |
+| component `Slider` | `Range` — the one renamed component; see below |
+
+> **Component names — one rename, and it is not discoverable by searching.**
+> Upstream's `Slider` is `Range` here: same `Pick<SliderRootProps, 'name' |
+> 'disabled' | 'inverted' | 'min' | 'max' | 'step' | 'minStepsBetweenThumbs'>`,
+> same `root`/`track`/`range`/`thumb` slots, theme at `src/theme/range.ts`,
+> docs at `range.md`. Everything reka-ui exports still carries its own name
+> inside the file — `SliderRoot`, `SliderThumb` — so **only the b24ui wrapper is
+> renamed**, and a diff touching `SliderThumb` needs no rewriting at all.
+>
+> This is worth a rule because of how it fails. Grepping the tree for an
+> upstream component name returns nothing and reads as "the fork does not have
+> this component", which is a decision, not an absence — a `fix(Slider)` commit
+> was nearly filed as a no-op on exactly that reasoning. **Search the wrapped
+> primitive or the props, not the wrapper's name.**
+>
+> Every other name matches. Both trees hold 180 components; 19 exist only
+> upstream and 19 only here, and none of those 38 is a rename — checked pairwise
+> rather than assumed:
+>
+> - **upstream only** — `AuthForm`, `BlogPost`, `BlogPosts`, `Carousel`,
+>   `ChangelogVersion`, `ChangelogVersions`, `Icon`, `Marquee`, `PageAnchors`,
+>   `PageCTA`, `PageHero`, `PageLogos`, `PricingPlan`, `PricingPlans`,
+>   `PricingTable`, `Tree`, `content/ContentNavigation`, `prose/CodeTree`,
+>   `prose/Icon`
+> - **b24ui only** — `Advice`, `Countdown`, `DescriptionList`,
+>   `ModalDialogClose`, `Navbar`, `NavbarDivider`, `NavbarSection`,
+>   `NavbarSpacer`, `PageCardGroup`, `SidebarBody`, `SidebarFooter`,
+>   `SidebarHeader`, `SidebarHeading`, `SidebarLayout`, `SidebarSection`,
+>   `SidebarSpacer`, `TableWrapper`, `prose/H5`, `prose/H6`
+>
+> Re-derive both lists before trusting them — this table is a snapshot, and
+> nothing tests it, because a test here could only check our own side:
+>
+> ```sh
+> git -C <mirror> ls-tree -r --name-only origin/v4 -- src/runtime/components \
+>   | grep '\.vue$' | sed 's|^src/runtime/components/||; s|\.vue$||' | sort > /tmp/up.txt
+> find src/runtime/components -name '*.vue' \
+>   | sed 's|^src/runtime/components/||; s|\.vue$||' | sort > /tmp/our.txt
+> comm -3 /tmp/up.txt /tmp/our.txt
+> ```
 
 > **Icons — read this before reaching for the map.** b24ui uses the *same
 > semantic icon keys* as nuxt/ui: `src/runtime/dictionary/icons.ts` here and
@@ -514,3 +555,4 @@ forward, since every commit between the two would then never be judged.
 - 2026-08-15 — ports of `731ff26`…`a4ab81a` (PRs #403, #404, #407): added §6 step **4b**, that a PR may batch commits only when they are **contiguous**. Learned by breaking it in this run. The four upstream commits interleave two subjects — `731ff26` (Theme `class` merge), `4a3168f` (calendar template), `0fabbe5` (slot-class replacer), `a4ab81a` (calendar lists) — and batching the two calendar no-ops into one PR skipped over `0fabbe5`, which sits between them. The cursor went to `a4ab81a`, then processing `0fabbe5` moved it **backwards**, leaving the ledger one commit behind upstream HEAD with all four entries present and correct. Nothing failed and nothing was lost; the next sync check simply reported a commit that was already done. Fixed in the closing bookkeeping PR by restoring the topological key order and setting `cursor` to `a4ab81a`. Worth distinguishing from the batch in #395, which was fine: `9b08a84` and `edf73d3` are adjacent. Also from this run, without needing a rule: `0fabbe5`'s patch would not apply as a patch — this fork's `twMergeConfig` shifts `tv.ts` by 54 lines and the context carries `b24ui` — but diffing our file against upstream's **pre-image** with `b24ui` rewritten to `ui` showed the replacer machinery is line-for-line identical, which is what made hand-applying the hunks safe rather than hopeful. That diff-against-the-pre-image check is the cheap way to tell a real divergence from a cosmetic one before touching anything. Last reviewed: 2026-08-15.
 - 2026-08-15 — corrections after #390 and #405, plus one new §2 invariant. Four claims in the `utils/search.ts` bullets were false, and each was falsifiable, which is how each was caught: that every constant and branch had been mutation-verified (#390 found six survivors), that the unpaired-surrogate fixtures catch a *widened* bound (only where the probe sits one code point outside it — two of four sat `0x100` away), that a pickaxe on `useTokenSearch` returns exactly one commit (it counts occurrences, so `54b93e33`'s jsDoc line joined the list), and that only 16 of ~3200 commits carry an `Upstream:` trailer — 52 do, and 52 of 3179 did when the sentence was written, so it was never right. That last one is load-bearing: it is the stated reason the trailer cannot support a provenance inference, and the conclusion survives the correction while the number does not. The first claim is now stated as intent with the procedure spelled out, because a prose claim about test coverage decays silently — nothing fails when it stops being true. Also softened the unreproducible `8 of 66` figure, updated `createClusterSnapper`'s signature after #388, added the missing `describe('truncation from the start')` guard, and named `getGraphemeSegmenter()`'s module-level memo — a second cache, distinct from the per-value view, documented nowhere and covered by no test. New invariant: **`sanitizeSnippet` splits on the tag** (#391, PR #405) — upstream's placeholder round-trip lets a snippet forge `<mark>` from its own input, so a port that replays upstream reverts the fix. Not reported upstream. Last reviewed: 2026-08-15.
 - 2026-08-16 — fix of #406 (PR #414): added the §2 **`useContentSearch` hands `suffix` and `description` over raw** invariant. Upstream escapes `<` and `>` on both by hand and still does — checked their `v4` at `6add5fb7` — and our port log for `a1bef8ba` shows the lines arriving verbatim, so a faithful replay reverts the fix. It is a second escape on top of the one that renders: `{{ }}` builds a text node, which never decodes entities, so `&lt;` reached the reader as four characters; the `v-html` sibling doubles it into `&amp;lt;` and decodes one level back to the same place. Guarded by `test/composables/useContentSearch.spec.ts`, the composable's first tests. Worth recording how the guard nearly failed to guard: its rendering cases first built palette items by hand, never touching `mapFile`, so re-adding the escaping passed them — they now mount what the mapper actually returns. Last reviewed: 2026-08-16.
+- 2026-08-18 — added the §1 **component names** rule after answering a sync check wrongly. Upstream's `Slider` is this fork's `Range`, and the queue's `fix(Slider): bind form aria attributes on thumbs instead of root` was reported as a no-op on the grounds that "there is no Slider component anywhere, and 249 ledger entries never mention one". Both statements were true and the conclusion was wrong: the search was by name, and the name is the one thing that changed. `Range.vue` wraps the same `SliderRoot`/`SliderThumb` and repeats upstream's `Pick<SliderRootProps, …>` line verbatim, so the fix applies here in full. Caught by review, not by tooling. No component-name map existed in `.sync/` at all — `icon-map.json` and `color-map.json` cover tokens, nothing covered wrappers — so the note now carries the full 180-vs-180 comparison and the command to re-derive it. Deliberately untested: a guard could assert our side of a map exists, which would not have caught this, so the rule is documentation and says so. Last reviewed: 2026-08-18.
