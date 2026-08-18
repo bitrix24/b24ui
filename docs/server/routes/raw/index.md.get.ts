@@ -10,7 +10,7 @@ export default defineCachedEventHandler(async (event) => {
   const page = await queryCollection(event, 'index').first() as any
 
   const title = page?.title || 'Bitrix24 UI'
-  const description = page?.description || 'A comprehensive Vue UI component library (Nuxt optional) with 125+ accessible, Tailwind CSS components for building modern web applications.'
+  const description = page?.description || 'A comprehensive Vue UI component library (Nuxt optional) with 130+ accessible, Tailwind CSS components for building modern web applications.'
 
   const frontmatter = [
     '---',
@@ -33,7 +33,7 @@ ${description}
 
 Bitrix24 UI is a free and open source Vue UI library powered by [Reka UI](https://reka-ui.com/) and [Tailwind CSS](https://tailwindcss.com/). It works with both Nuxt and plain Vue applications.
 
-- 125+ accessible, production-ready components
+- 130+ accessible, production-ready components
 - Built on Reka UI (WAI-ARIA compliant primitives)
 - Tailwind CSS theming with CSS variables and Tailwind Variants
 - TypeScript support with full auto-completion

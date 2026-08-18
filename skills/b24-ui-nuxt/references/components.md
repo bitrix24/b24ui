@@ -1,6 +1,6 @@
 # Components
 
-Quick-reference index of 125+ components. For detailed API specifications (props, slots, events, and examples), please refer to the official documentation.
+Quick-reference index of 130+ components. The table below lists the ones you compose directly; compound sub-parts such as `B24SidebarSection` or `B24DropdownMenuContent` are covered on their parent component's page. For detailed API specifications (props, slots, events, and examples), please refer to the official documentation.
 
 ## Layout
 

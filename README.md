@@ -5,7 +5,7 @@
 [![License][license-src]][license-href]
 [![Bitrix24 UI][b24ui-src]][b24ui-href]
 
-Bitrix24 UI for developing web applications REST API for NUXT & VUE
+Bitrix24 UI Kit for building REST-API web applications with Nuxt & Vue
 
 Find more details in the [documentation](https://bitrix24.github.io/b24ui/)
 
@@ -28,7 +28,7 @@ npm install @bitrix24/b24ui-nuxt @bitrix24/b24icons-vue tailwindcss
 ```
 
 ```bash [bun]
-yarn add @bitrix24/b24ui-nuxt @bitrix24/b24icons-vue tailwindcss
+bun add @bitrix24/b24ui-nuxt @bitrix24/b24icons-vue tailwindcss
 ```
 
 ### Nuxt

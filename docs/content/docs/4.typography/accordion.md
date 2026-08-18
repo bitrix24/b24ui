@@ -25,7 +25,7 @@ defaultValue:
 ---
 
 ::accordion-item{label="Is Bitrix24 UI free to use?"}
-Yes! Bitrix24 UI is completely free and open source under the MIT license. All 100+ components are available to everyone.
+Yes! Bitrix24 UI is completely free and open source under the MIT license. All 130+ components are available to everyone.
 ::
 
 ::accordion-item{label="Can I use Bitrix24 UI with Vue without Nuxt?"}
@@ -48,7 +48,7 @@ defaultValue:
 ---
 
 ::accordion-item{label="Is Bitrix24 UI free to use?"}
-Yes! Bitrix24 UI is completely free and open source under the MIT license. All 100+ components are available to everyone.
+Yes! Bitrix24 UI is completely free and open source under the MIT license. All 130+ components are available to everyone.
 ::
 
 ::accordion-item{label="Can I use Bitrix24 UI with Vue without Nuxt?"}
