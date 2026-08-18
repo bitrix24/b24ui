@@ -538,6 +538,37 @@ For each commit:
    `mergeable_state: "behind"`, rebase onto `main` and force-push with
    `--force-with-lease`; branch protection requires the branch to be current.
 
+**Check dependency parity, not just the queue.** Every `chore(deps)` port
+bumps only the packages where this fork already sat on upstream's pre-image —
+correct, since a package deliberately held back must not be dragged along, and
+wrong as the *only* check, because it makes a one-time divergence permanent.
+Once a version leaves upstream's line no later batch mentions it again: the
+pre-image no longer matches, so the port skips it, every time, silently.
+
+`prettier` sat at `^3.8.4` against upstream's `^3.9.6` through four ported
+batches for exactly that reason. Nothing was wrong with any of those ports —
+`2a4218b8` (#295) says in its own ledger summary that it bumped "the subset
+where b24ui shares upstream's old range", and `^3.8.4` was not in that subset.
+The process simply had no step comparing absolute versions.
+
+That step is [`dep-parity.json`](./dep-parity.json): upstream's version for
+every dependency both trees declare **in the same section**, held by
+`test/utils/dep-parity.spec.ts`. Refresh it whenever a port touches a manifest —
+`node .sync/dep-parity.mjs <mirror> [cursor]` prints the new snapshot and
+preserves `exceptions` — and note that the spec pins the snapshot's `cursor` to
+the ledger's, so a stale snapshot fails rather than quietly checking old
+versions.
+
+A divergence is allowed as a written exception with a reason; an exception that
+no longer diverges fails too, since a stale one is a standing licence to drift. After
+editing a manifest, run `pnpm install` and then `pnpm install --frozen-lockfile`
+before pushing: the local gate never checks the lockfile against the manifests,
+so a version bumped by hand passes every step here and fails CI's install in
+under a minute.
+Comparison is per section on purpose: 18 packages are declared on both sides in
+different ones — the `@tiptap/*` family is a peer `^3` upstream and a dependency
+`^3.29.2` here — and a peer range against a dependency range compares nothing.
+
 **If the cursor SHA disappears** (upstream force-pushed `v4`, so
 `git cat-file -e <cursor>^{commit}` fails): pick the nearest surviving ancestor
 on `v4`, set `cursor` to it, and open a tracking issue — do not silently jump
@@ -582,3 +613,4 @@ forward, since every commit between the two would then never be judged.
 - 2026-08-16 — fix of #406 (PR #414): added the §2 **`useContentSearch` hands `suffix` and `description` over raw** invariant. Upstream escapes `<` and `>` on both by hand and still does — checked their `v4` at `6add5fb7` — and our port log for `a1bef8ba` shows the lines arriving verbatim, so a faithful replay reverts the fix. It is a second escape on top of the one that renders: `{{ }}` builds a text node, which never decodes entities, so `&lt;` reached the reader as four characters; the `v-html` sibling doubles it into `&amp;lt;` and decodes one level back to the same place. Guarded by `test/composables/useContentSearch.spec.ts`, the composable's first tests. Worth recording how the guard nearly failed to guard: its rendering cases first built palette items by hand, never touching `mapFile`, so re-adding the escaping passed them — they now mount what the mapper actually returns. Last reviewed: 2026-08-16.
 - 2026-08-18 — added the §1 **component names** rule after answering a sync check wrongly. Upstream's `Slider` is this fork's `Range`, and the queue's `fix(Slider): bind form aria attributes on thumbs instead of root` was reported as a no-op on the grounds that "there is no Slider component anywhere, and 249 ledger entries never mention one". Both statements were true and the conclusion was wrong: the search was by name, and the name is the one thing that changed. `Range.vue` wraps the same `SliderRoot`/`SliderThumb` and repeats upstream's `Pick<SliderRootProps, …>` line verbatim, so the fix applies here in full. Caught by review, not by tooling. No component-name map existed in `.sync/` at all — `icon-map.json` and `color-map.json` cover tokens, nothing covered wrappers — so the note now carries the full 180-vs-180 comparison and the command to re-derive it. Deliberately untested: a guard could assert our side of a map exists, which would not have caught this, so the rule is documentation and says so. Last reviewed: 2026-08-18.
 - 2026-08-18 — hardening of #92 (PR #424): added the §2 rule **`get()`/`set()` reject prototype keys and `set()` descends only through own properties**, and moved the shared logic into `utils/prototype-guard.ts`. The issue asked for a denylist of `__proto__`/`constructor`/`prototype`; review turned up three things a denylist alone does not cover. `acc[key] === undefined` reads through the prototype chain, so `set({}, 'toString.x', 1)` wrote onto a shared intrinsic through a path holding no reserved word. A key is coerced by `object[key]` after the guard has inspected it, so `new String('prototype')` and any object with a fitting `toString` walked straight past a `typeof key === 'string'` check — `get({}, [{ toString: () => '__proto__' }])` returned `Object.prototype` itself. And `utils/form.ts` held a second, independent copy of the same walk, reachable from `Form.vue` rather than only from the public entry. Reachability was audited rather than assumed: nothing in `src/` imports `set()` at all — its only consumers here are two docs-site components passing component-metadata prop names — whereas `setAtPath` is on a live in-library path. `get`/`set` and `setAtPath`/`getAtPath` had almost no tests before this; 38 were added across the two spec files, 20 of which fail against the previous implementation. Last reviewed: 2026-08-18.
+- 2026-08-18 — added the §6 **dependency parity** step, `.sync/dep-parity.json` and its guard, after the maintainer asked for a rule that checks pins against the parent repo. The gap was real and had already bitten: porting `6bcc97a6` turned up `@ai-sdk/vue` at 3.x here against upstream's 4.x and `ai` at 6.x against 7.x, found only because a comparison table happened to get printed. Writing the snapshot then turned up a third, `prettier` at ^3.8.4 against ^3.9.6, adrift through four ported batches. The mechanism is worth stating because each individual port was correct: a `chore(deps)` port bumps only where this fork matched upstream's pre-image, so a version that leaves the line is skipped by every later batch — the rule that keeps a deliberate hold from being dragged along is the same rule that makes an accidental divergence permanent. The snapshot is section-aware after the first draft compared upstream's peer ranges against our dependency ranges and reported `tailwindcss ^4.3.3` and `@internationalized/date ^3.12.3` as drift; 18 packages sit in different sections on the two sides, the whole `@tiptap/*` family among them, and are outside the file by construction. `nuxt-schema-org` is the one recorded exception, held at ^6.2.1 because anything newer drags `nuxt-site-config` to 4.2.3, which calls two `@nuxt/kit` functions no published 4.x exports. Guard verified by five mutations — drifting a version, dropping the exception, making the exception stale by aligning the version under it, staling the snapshot's cursor, and deleting a package from a manifest — each failing, and the guard was red on the real `reka-ui` drift before #428 landed and green after. Last reviewed: 2026-08-18.

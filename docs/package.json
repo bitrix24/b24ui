@@ -38,7 +38,7 @@
     "nuxt-component-meta": "^0.18.0",
     "nuxt-llms": "^0.2.0",
     "nuxt-schema-org": "^6.2.1",
-    "prettier": "^3.8.4",
+    "prettier": "^3.9.6",
     "shiki": "^4.4.3",
     "shiki-transformer-color-highlight": "^1.1.0",
     "@shikijs/core": "^4.4.2",
