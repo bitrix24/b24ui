@@ -553,11 +553,17 @@ The process simply had no step comparing absolute versions.
 
 That step is [`dep-parity.json`](./dep-parity.json): upstream's version for
 every dependency both trees declare **in the same section**, held by
-`test/utils/dep-parity.spec.ts`. Refresh it whenever a port touches a manifest —
-`node .sync/dep-parity.mjs <mirror> [cursor]` prints the new snapshot and
-preserves `exceptions` — and note that the spec pins the snapshot's `cursor` to
-the ledger's, so a stale snapshot fails rather than quietly checking old
-versions.
+`test/utils/dep-parity.spec.ts`. Refresh it on **every** port that advances the
+cursor, not only those touching a manifest — `node .sync/dep-parity.mjs <mirror>`
+prints the new snapshot and preserves `exceptions`.
+
+The spec pins the snapshot's `cursor` to the ledger's, which is what makes that
+step unskippable, and the strictness is the point rather than an oversight. A
+snapshot one commit behind is a snapshot that has not been compared against
+current upstream: if a bump landed in between, this fork still matches the stale
+file, the guard stays green, and the drift is real — the exact failure this whole
+mechanism exists to catch. When no manifest moved the refresh rewrites one line,
+and that one-line diff is itself the evidence that nothing drifted.
 
 A divergence is allowed as a written exception with a reason; an exception that
 no longer diverges fails too, since a stale one is a standing licence to drift. After
