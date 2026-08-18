@@ -3,6 +3,7 @@ import { withTrailingSlash, withLeadingSlash, joinURL } from 'ufo'
 import type { GetItemKeys } from '../types/utils'
 import type { IconComponent } from '../types/icons'
 import icons from '../dictionary/icons'
+import { assertNoPrototypeKeys, isPrototypeKey, ownContainer } from './prototype-guard'
 
 export function pick<Data extends object, Keys extends keyof Data>(data: Data, keys: Keys[]): Pick<Data, Keys> {
   const result = {} as Pick<Data, Keys>
@@ -25,19 +26,6 @@ export function omit<Data extends object, Keys extends keyof Data>(data: Data, k
   return result as Omit<Data, Keys>
 }
 
-/**
- * Keys that reach the prototype chain rather than the object itself.
- *
- * `set()` rejects them and `get()` refuses to follow them. Neither is reachable
- * from inside b24ui — nothing in `src/` calls `set()`, and every `get()` path
- * the components pass is a `labelKey` / `valueKey` the application author
- * wrote. Both are on the public `./utils` entry though, so the guard is for the
- * consumer who forwards a path that came from somewhere less trustworthy.
- */
-const PROTOTYPE_KEYS = new Set(['__proto__', 'constructor', 'prototype'])
-
-const isPrototypeKey = (key: string | number): boolean => typeof key === 'string' && PROTOTYPE_KEYS.has(key)
-
 function toPath(path: (string | number)[] | string): (string | number)[] {
   if (typeof path !== 'string') {
     return path
@@ -57,12 +45,14 @@ export function get(object: Record<string, any> | undefined, path: (string | num
       return defaultValue
     }
 
-    // Reading `__proto__` or `constructor` hands the caller a live prototype
-    // object, which is the first half of every pollution chain and is never
-    // what a `labelKey` meant. Treated as "not found" rather than thrown:
-    // reads are expected to be total, and a default is what every other
-    // missing path returns.
-    if (isPrototypeKey(key)) {
+    // Refused only when the key is *not* the object's own: a data model may
+    // legitimately carry a field named `constructor`, and blocking by name
+    // alone made it unreadable. What must never be handed back is the live
+    // prototype the caller reaches by inheritance — that is the first half of
+    // every pollution chain, and it is never what a `labelKey` meant. Treated
+    // as "not found" rather than thrown, because reads are expected to be
+    // total and a default is what every other missing path returns.
+    if (isPrototypeKey(key) && !Object.hasOwn(result, key)) {
       return defaultValue
     }
 
@@ -75,19 +65,23 @@ export function get(object: Record<string, any> | undefined, path: (string | num
 /**
  * Assigns `value` at a dotted `path`, creating intermediate objects as it goes.
  *
- * @throws {TypeError} if any path segment is `__proto__`, `constructor` or
+ * Neither this nor `get()` is reachable from inside b24ui — nothing in `src/`
+ * calls `set()`, and every `get()` path the components pass is an
+ * author-written `labelKey` / `valueKey`. Both are on the public `./utils`
+ * entry though, so the guard is for the consumer who forwards a path that came
+ * from somewhere less trustworthy. See `utils/prototype-guard.ts` for what is
+ * being defended against.
+ *
+ * @throws {TypeError} if any path segment names `__proto__`, `constructor` or
  * `prototype`. Such a path writes through to a shared prototype rather than to
- * `object`, so failing loudly is the only outcome that leaves the caller's data
- * model in the state they believe it is in.
+ * `object`, and unlike a read there is no sensible value to return instead: the
+ * caller's data model ends up in a state they do not believe it is in either
+ * way, and an exception is the outcome they can catch.
  */
 export function set(object: Record<string, any>, path: (string | number)[] | string, value: any): void {
   const keys = toPath(path)
 
-  for (const key of keys) {
-    if (isPrototypeKey(key)) {
-      throw new TypeError(`set(): refusing to write through the prototype key '${key}'`)
-    }
-  }
+  assertNoPrototypeKeys(keys, 'set()')
 
   keys.reduce((acc, key, i) => {
     if (i === keys.length - 1) {
@@ -95,17 +89,7 @@ export function set(object: Record<string, any>, path: (string | number)[] | str
       return acc[key]
     }
 
-    // `acc[key] === undefined` would consult the prototype chain, so any
-    // inherited member — `toString`, `valueOf`, `hasOwnProperty` — was walked
-    // into instead of shadowed, and the next segment landed on the shared
-    // intrinsic: `set({}, 'toString.x', 1)` assigned to `Object.prototype
-    // .toString`. That path holds no reserved word, so the check above cannot
-    // catch it; only descending exclusively through own properties can.
-    if (!Object.hasOwn(acc, key) || acc[key] === undefined) {
-      acc[key] = {}
-    }
-
-    return acc[key]
+    return ownContainer(acc, key)
   }, object)
 }
 

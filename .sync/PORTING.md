@@ -378,9 +378,19 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   the library — nothing in `src/` calls `set()`, and every `get()` path the
   components pass is an author-written `labelKey` / `valueKey` — but both are on
   the public `./utils` entry, so a consumer forwarding an untrusted path is the
-  surface being defended. Guarded by `describe('get')` and `describe('set')` in
-  `test/utils/index.spec.ts`; a port that restores upstream's walk fails ten of
-  them. Do not "simplify" the own-property check back to `=== undefined`.
+  surface being defended. `utils/form.ts`'s `setAtPath` / `getAtPath` are the
+  same walkers written independently and carried the same defect; they share
+  the guard through `utils/prototype-guard.ts`, and unlike `set()` they *are*
+  called from inside the library — `Form.vue` resolves nested validation
+  results through `setAtPath` with the path coming from a field's `name`.
+  Guarded by `describe('get')` / `describe('set')` in `test/utils/index.spec.ts`
+  and `describe('setAtPath / getAtPath prototype safety')` in
+  `test/utils/form.spec.ts`; a port that restores upstream's walk fails 20 of
+  them. Two further things not to "simplify" away: the own-property check must
+  not go back to `=== undefined`, and `isPrototypeKey` must keep comparing the
+  *coerced* key — `object[key]` runs ToPropertyKey, so a `typeof key ===
+  'string'` gate inspects a different value than the assignment that follows and
+  let a boxed `String('prototype')` through.
 - **Workflow actions stay pinned to commit SHAs.** Upstream bumps them by tag;
   b24ui pins the commit. You do not have to remember this — `ci.yml` fails the
   build on any unpinned `uses:` and tells you how to resolve the tag.
@@ -506,7 +516,7 @@ forward, since every commit between the two would then never be judged.
 
 ## Changelog of rules
 
-- 2026-08-17 — hardening of #92 (PR pending): added the §2 rule **`get()`/`set()` reject prototype keys and `set()` descends only through own properties**. The issue asked for a denylist of `__proto__`/`constructor`/`prototype`; a third vector turned up during the fix that a denylist cannot see, because `acc[key] === undefined` reads through the prototype chain and lets `set({}, 'toString.x', 1)` write onto a shared intrinsic through a path holding no reserved word. Reachability was audited rather than assumed: nothing in `src/` imports `set()` at all — the only consumers in this repository are two docs-site components, and they pass component-metadata prop names — so this is a guard on an exported primitive, not a live in-library exploit. `get()` and `set()` had no tests before this; they now have 39 covering behaviour as well as the three attacks. Last reviewed: 2026-08-17.
+- 2026-08-17 — hardening of #92 (PR #424): added the §2 rule **`get()`/`set()` reject prototype keys and `set()` descends only through own properties**, and moved the shared logic into `utils/prototype-guard.ts`. The issue asked for a denylist of `__proto__`/`constructor`/`prototype`; review turned up three things a denylist alone does not cover. `acc[key] === undefined` reads through the prototype chain, so `set({}, 'toString.x', 1)` wrote onto a shared intrinsic through a path holding no reserved word. A key is coerced by `object[key]` after the guard has inspected it, so `new String('prototype')` and any object with a fitting `toString` walked straight past a `typeof key === 'string'` check — `get({}, [{ toString: () => '__proto__' }])` returned `Object.prototype` itself. And `utils/form.ts` held a second, independent copy of the same walk, reachable from `Form.vue` rather than only from the public entry. Reachability was audited rather than assumed: nothing in `src/` imports `set()` at all — its only consumers here are two docs-site components passing component-metadata prop names — whereas `setAtPath` is on a live in-library path. `get`/`set` and `setAtPath`/`getAtPath` had almost no tests before this; 38 were added across the two spec files, 20 of which fail against the previous implementation. Last reviewed: 2026-08-17.
 - 2026-06-04 — _(seed)_ initial rules extracted from the review of `.sync/PLAN.md` (removed 2026-08-12; see the last entry). Last reviewed: 2026-06-04.
 - 2026-06-09 — port of `007b136a` (PR #72): added rule — match the reka **transform-origin / available-height CSS var namespace to the underlying primitive** (`--reka-combobox-*` for InputMenu/SelectMenu, `--reka-select-*` for Select, `--reka-dropdown-menu-*` / `--reka-context-menu-*` for menus); a `max-h` cap on `content` only takes effect when `content` is also `flex flex-col` (viewport scrolls via `flex-1`); do **not** add `overflow-hidden` to b24ui menu `content` — the arrow is rendered inside it and would be clipped. Last reviewed: 2026-06-09.
 - 2026-06-13 — port of `ca5accf3` (PR #126): added the **playground-manifest mirroring** invariant (§2). A `chore(deps)` port bumped `package.json`, `docs/package.json`, and `playgrounds/nuxt/package.json` but missed b24ui's extra `playgrounds/demo/package.json` (`ai`, `@ai-sdk/vue` drifted to old ranges); fixed in a follow-up. Always sweep `playgrounds/{nuxt,demo,vue,repl}` for shared deps before regenerating the lockfile. Last reviewed: 2026-06-13.

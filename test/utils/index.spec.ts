@@ -147,13 +147,30 @@ describe('get', () => {
     expect(get({ a: null }, 'a.b.c', 'fallback')).toBe('fallback')
   })
 
-  it.each(['__proto__', 'constructor', 'prototype'])('refuses to follow %s', (key) => {
+  it.each(['__proto__', 'constructor', 'prototype'])('refuses to follow the inherited %s', (key) => {
     expect(get({}, key, 'fallback')).toBe('fallback')
     expect(get({}, `${key}.polluted`, 'fallback')).toBe('fallback')
   })
 
+  // Blocking these by name alone made a field the object genuinely owns
+  // unreadable. `constructor` is a plausible column in real data; the thing
+  // that must never come back is the prototype reached by inheritance.
+  it.each(['constructor', 'prototype'])('still reads %s when the object owns it', (key) => {
+    expect(get({ [key]: 'mine' }, key, 'fallback')).toBe('mine')
+  })
+
   it('still reads a legitimate key that shadows an inherited one', () => {
     expect(get({ toString: 'mine' }, 'toString')).toBe('mine')
+  })
+
+  // `object[key]` runs ToPropertyKey on whatever it is handed, so a guard that
+  // inspects the key before coercion is looking at a different value than the
+  // access that follows it. This returned Object.prototype itself.
+  it('refuses a non-string key that coerces to a prototype key', () => {
+    const coercing = { toString: () => '__proto__' }
+
+    expect(get({}, [coercing as unknown as string], 'fallback')).toBe('fallback')
+    expect(get({}, [new String('constructor') as unknown as string], 'fallback')).toBe('fallback')
   })
 })
 
@@ -217,5 +234,48 @@ describe('set', () => {
 
     expect(target[key]).toEqual({ nested: 'yes' })
     expect((Object.prototype as Record<string, any>)[key]).not.toHaveProperty('nested')
+  })
+
+  // A boxed string is not `typeof 'string'`, but `acc[key]` coerces it anyway
+  // and `Object.hasOwn(fn, 'prototype')` is true — so this reached the real,
+  // shared prototype of every instance the function constructs.
+  it('refuses a non-string key that coerces to a prototype key', () => {
+    function Widget() {}
+
+    expect(() => set(Widget as any, [new String('prototype') as unknown as string, 'polluted'], 'yes')).toThrow(TypeError)
+    expect(() => set({}, [{ toString: () => '__proto__' } as unknown as string, 'polluted'], 'yes')).toThrow(TypeError)
+
+    expect(Widget.prototype).not.toHaveProperty('polluted')
+    expect(Object.prototype).not.toHaveProperty('polluted')
+  })
+
+  it('writes through an own key that is null rather than throwing', () => {
+    const target: Record<string, any> = { meta: null }
+    set(target, 'meta.tag', 'value')
+
+    expect(target).toEqual({ meta: { tag: 'value' } })
+  })
+
+  // Shadowing must not cost the caller the data they could still read. The old
+  // walk descended into the inherited object and mutated it for everyone;
+  // replacing it outright would be safe but would silently drop `color`.
+  it('copies an inherited object instead of descending into or discarding it', () => {
+    const shared = { theme: { color: 'red' } }
+    const config: Record<string, any> = Object.create(shared)
+
+    set(config, 'theme.size', 2)
+
+    expect(config.theme).toEqual({ color: 'red', size: 2 })
+    expect(shared.theme).toEqual({ color: 'red' })
+    expect(Object.hasOwn(config, 'theme')).toBe(true)
+  })
+
+  it('preserves array-ness when copying an inherited array', () => {
+    const config: Record<string, any> = Object.create({ items: ['a'] })
+
+    set(config, 'items.1', 'b')
+
+    expect(Array.isArray(config.items)).toBe(true)
+    expect(config.items).toEqual(['a', 'b'])
   })
 })
