@@ -40,8 +40,11 @@ export default defineNuxtModule((_, nuxt) => {
       console.log(`🧬 Generating screenshot for Template ${template.name} hitting ${url}...`)
       try {
         await captureWebsite.file(url, filename, {
-          ...(template.screenshotOptions || {}),
+          // Before the spread, not after: this is a fork default, and an entry
+          // that sets its own `delay` has to be able to win. Upstream has no
+          // default here at all.
           delay: 2,
+          ...(template.screenshotOptions || {}),
           launchOptions: { headless: true }
         })
 
