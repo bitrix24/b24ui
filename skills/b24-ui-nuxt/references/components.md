@@ -1,6 +1,6 @@
 # Components
 
-Quick-reference index of 125+ components. For detailed API specifications (props, slots, events, and examples), please refer to the official documentation.
+Quick-reference index of 130+ components. For detailed API specifications (props, slots, events, and examples), please refer to the official documentation.
 
 ## Layout
 
