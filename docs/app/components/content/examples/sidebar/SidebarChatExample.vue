@@ -20,7 +20,7 @@ const messages: UIMessage[] = [
   {
     id: '2',
     role: 'assistant',
-    parts: [{ type: 'text', text: 'Bitrix24 UI is a Vue component library built on Reka UI, Tailwind CSS, and Tailwind Variants. It provides 125+ accessible components for building modern web apps.' }]
+    parts: [{ type: 'text', text: 'Bitrix24 UI is a Vue component library built on Reka UI, Tailwind CSS, and Tailwind Variants. It provides 130+ accessible components for building modern web apps.' }]
   }
 ]
 

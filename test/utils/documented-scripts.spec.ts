@@ -12,9 +12,10 @@ import { describe, it, expect } from 'vitest'
  * one property that would have caught it — every `pnpm run <script>` quoted in
  * the contributor docs resolves to a script `package.json` actually defines.
  *
- * Deliberately not extended to `docs/`: the documentation site quotes commands
- * for the *consumer's* project (`pnpm add`, their own `dev`), which this
- * repository's `package.json` says nothing about.
+ * The docs site is included only where it quotes *this* repository's scripts —
+ * `4.contribution.md` is the published mirror of the contributor guide. The
+ * installation and usage pages are out, because there `pnpm add` and `pnpm dev`
+ * belong to the reader's project, which this `package.json` says nothing about.
  */
 const repoRoot = process.cwd()
 
@@ -24,17 +25,32 @@ const DOC_FILES = [
   '.github/contributing/documentation.md',
   '.github/contributing/component-structure.md',
   '.github/contributing/theme-structure.md',
-  '.github/contributing/releasing.md'
+  '.github/contributing/releasing.md',
+  'docs/content/docs/1.getting-started/4.contribution.md'
 ]
+
+/**
+ * pnpm's own subcommands, which look identical to a script invocation without
+ * `run` and are not defined in `package.json`.
+ */
+const PNPM_BUILTINS = new Set([
+  'add', 'install', 'i', 'remove', 'update', 'up', 'link', 'unlink', 'dlx', 'exec',
+  'create', 'init', 'publish', 'pack', 'store', 'why', 'list', 'ls', 'audit', 'outdated', 'rebuild'
+])
 
 const scripts = Object.keys(JSON.parse(readFileSync(join(repoRoot, 'package.json'), 'utf8')).scripts)
 
 /**
- * `pnpm run test run -u` is one script (`test`) plus arguments passed through to
- * vitest, so only the first word after `run` is a script name.
+ * Both `pnpm run lint` and the bare `pnpm build` form are invocations of a
+ * script, and the docs use both. Only the first word is a script name:
+ * `pnpm run test run -u` is the `test` script plus arguments passed through to
+ * vitest. pnpm's own subcommands are filtered out rather than matched, since
+ * `pnpm add` is not a script anyone should have to define.
  */
 const quotedScripts = (file: string): string[] =>
-  [...readFileSync(join(repoRoot, file), 'utf8').matchAll(/pnpm run ([a-z][\w:-]*)/g)].map(match => match[1]!)
+  [...readFileSync(join(repoRoot, file), 'utf8').matchAll(/pnpm (?:run )?([a-z][\w:-]*)/g)]
+    .map(match => match[1]!)
+    .filter(name => !PNPM_BUILTINS.has(name))
 
 describe('documented pnpm scripts', () => {
   // Anchors the extraction: if the regex ever stops matching, every assertion
