@@ -146,6 +146,24 @@ describe('FormField', () => {
       })
     }
 
+    if (name === 'Range') {
+      // Upstream calls this component `Slider`; see PORTING.md §1. `ariaAttrs`
+      // sat on `SliderRoot`, which renders no `role`, so a screen reader read
+      // an invalid field as valid — the thumb is the widget, and the thumb is
+      // what carries `role="slider"`.
+      test('binds aria attributes on the thumb', async () => {
+        const wrapper = await renderFormField({
+          props: { error: 'Error' },
+          inputComponent
+        })
+
+        const invalid = wrapper.findAll('[aria-invalid="true"]')
+        expect(invalid).toHaveLength(1)
+        expect(invalid[0]!.attributes('role')).toBe('slider')
+        expect(invalid[0]!.attributes('aria-describedby')).toBe('v-0-0-error')
+      })
+    }
+
     test('binds hints with aria-describedby', async () => {
       const wrapper = await renderFormField({
         props: { hint: 'somehint' },
