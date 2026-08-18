@@ -3,6 +3,7 @@ import { withTrailingSlash, withLeadingSlash, joinURL } from 'ufo'
 import type { GetItemKeys } from '../types/utils'
 import type { IconComponent } from '../types/icons'
 import icons from '../dictionary/icons'
+import { assertNoPrototypeKeys, isPrototypeKey, ownContainer } from './prototype-guard'
 
 export function pick<Data extends object, Keys extends keyof Data>(data: Data, keys: Keys[]): Pick<Data, Keys> {
   const result = {} as Pick<Data, Keys>
@@ -25,18 +26,33 @@ export function omit<Data extends object, Keys extends keyof Data>(data: Data, k
   return result as Omit<Data, Keys>
 }
 
-export function get(object: Record<string, any> | undefined, path: (string | number)[] | string, defaultValue?: any): any {
-  if (typeof path === 'string') {
-    path = path.split('.').map((key) => {
-      const numKey = Number(key)
-      return Number.isNaN(numKey) ? key : numKey
-    })
+function toPath(path: (string | number)[] | string): (string | number)[] {
+  if (typeof path !== 'string') {
+    return path
   }
 
+  return path.split('.').map((key) => {
+    const numKey = Number(key)
+    return Number.isNaN(numKey) ? key : numKey
+  })
+}
+
+export function get(object: Record<string, any> | undefined, path: (string | number)[] | string, defaultValue?: any): any {
   let result: any = object
 
-  for (const key of path) {
+  for (const key of toPath(path)) {
     if (result === undefined || result === null) {
+      return defaultValue
+    }
+
+    // Refused only when the key is *not* the object's own: a data model may
+    // legitimately carry a field named `constructor`, and blocking by name
+    // alone made it unreadable. What must never be handed back is the live
+    // prototype the caller reaches by inheritance — that is the first half of
+    // every pollution chain, and it is never what a `labelKey` meant. Treated
+    // as "not found" rather than thrown, because reads are expected to be
+    // total and a default is what every other missing path returns.
+    if (isPrototypeKey(key) && !Object.hasOwn(result, key)) {
       return defaultValue
     }
 
@@ -46,18 +62,34 @@ export function get(object: Record<string, any> | undefined, path: (string | num
   return result !== undefined ? result : defaultValue
 }
 
+/**
+ * Assigns `value` at a dotted `path`, creating intermediate objects as it goes.
+ *
+ * Neither this nor `get()` is reachable from inside b24ui — nothing in `src/`
+ * calls `set()`, and every `get()` path the components pass is an
+ * author-written `labelKey` / `valueKey`. Both are on the public `./utils`
+ * entry though, so the guard is for the consumer who forwards a path that came
+ * from somewhere less trustworthy. See `utils/prototype-guard.ts` for what is
+ * being defended against.
+ *
+ * @throws {TypeError} if any path segment names `__proto__`, `constructor` or
+ * `prototype`. Such a path writes through to a shared prototype rather than to
+ * `object`, and unlike a read there is no sensible value to return instead: the
+ * caller's data model ends up in a state they do not believe it is in either
+ * way, and an exception is the outcome they can catch.
+ */
 export function set(object: Record<string, any>, path: (string | number)[] | string, value: any): void {
-  if (typeof path === 'string') {
-    path = path.split('.').map((key) => {
-      const numKey = Number(key)
-      return Number.isNaN(numKey) ? key : numKey
-    })
-  }
+  const keys = toPath(path)
 
-  path.reduce((acc, key, i) => {
-    if (acc[key] === undefined) acc[key] = {}
-    if (i === path.length - 1) acc[key] = value
-    return acc[key]
+  assertNoPrototypeKeys(keys, 'set()')
+
+  keys.reduce((acc, key, i) => {
+    if (i === keys.length - 1) {
+      acc[key] = value
+      return acc[key]
+    }
+
+    return ownContainer(acc, key)
   }, object)
 }
 

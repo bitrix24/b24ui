@@ -1,6 +1,7 @@
 import type { StandardSchemaV1 } from '@standard-schema/spec'
 import type { Struct } from 'superstruct'
 import type { FormSchema, ValidateReturnSchema } from '../types/form'
+import { assertNoPrototypeKeys, isPrototypeKey, ownContainer } from './prototype-guard'
 
 export function isSuperStructSchema(schema: any): schema is Struct<any, any> {
   return (
@@ -75,13 +76,28 @@ export function getAtPath<T extends object>(
   const value = path
     .split('.')
     .reduce(
-      (value, key) => (value as any)?.[key],
+      // Refuses an inherited prototype key for the same reason `get()` in
+      // `utils/index.ts` does — a field the form owns and happens to have
+      // named `constructor` still reads.
+      (value, key) => (isPrototypeKey(key) && !(value !== null && value !== undefined && Object.hasOwn(value as object, key))
+        ? undefined
+        : (value as any)?.[key]),
       data as any
     )
 
   return value
 }
 
+/**
+ * Writes `value` at a dotted `path` inside `data`, creating what is missing.
+ *
+ * Unlike `set()` in `utils/index.ts`, this one *is* called from inside the
+ * library — `Form.vue` resolves nested validation results through it, with the
+ * path coming from a field's `name`. See `utils/prototype-guard.ts`.
+ *
+ * @throws {TypeError} if any path segment names `__proto__`, `constructor` or
+ * `prototype`.
+ */
 export function setAtPath<T extends object>(
   data: T,
   path: string,
@@ -91,21 +107,18 @@ export function setAtPath<T extends object>(
   if (!data) return data
 
   const keys = path.split('.')
+
+  assertNoPrototypeKeys(keys, 'setAtPath()')
+
   let current = data as Record<string, any>
 
   // Navigate to the parent of the target property
   for (let i = 0; i < keys.length - 1; i++) {
     const key = keys[i]!
-    if (current[key] === undefined || current[key] === null) {
-      // If the next key is a number, initialize as array
-      if (i + 1 < keys.length && !Number.isNaN(Number(keys[i + 1]))) {
-        current[key] = []
-      } else {
-        current[key] = {}
-      }
-    }
+    // If the next key is a number, initialize as array
+    const arrayHint = i + 1 < keys.length && !Number.isNaN(Number(keys[i + 1]))
 
-    current = current[key]
+    current = ownContainer(current, key, arrayHint)
   }
 
   // Set the final value

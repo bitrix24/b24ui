@@ -99,3 +99,47 @@ describe('form utils', () => {
     })
   })
 })
+
+/**
+ * `setAtPath` carried the same defect as `set()` in `utils/index.ts`, written
+ * independently — and unlike `set()` it is called from inside the library:
+ * `Form.vue` resolves nested validation results through it, with the path
+ * coming from a field's `name`. So this is the more reachable of the two.
+ */
+describe('setAtPath / getAtPath prototype safety', () => {
+  it.each(['__proto__', 'constructor', 'prototype'])('throws on %s in the path', (key) => {
+    expect(() => setAtPath({}, `${key}.polluted`, 'yes')).toThrow(TypeError)
+    expect(() => setAtPath({}, `nested.${key}.polluted`, 'yes')).toThrow(TypeError)
+  })
+
+  it('leaves Object.prototype untouched after a rejected write', () => {
+    expect(() => setAtPath({}, '__proto__.polluted', 'yes')).toThrow(TypeError)
+
+    expect(({} as Record<string, any>).polluted).toBeUndefined()
+    expect(Object.prototype).not.toHaveProperty('polluted')
+  })
+
+  it('shadows an inherited member instead of writing onto the shared intrinsic', () => {
+    const state: Record<string, any> = {}
+
+    setAtPath(state, 'toString.nested', 'yes')
+
+    expect(state.toString).toEqual({ nested: 'yes' })
+    expect(Object.prototype.toString).not.toHaveProperty('nested')
+  })
+
+  it('still creates an array when the next segment is numeric', () => {
+    const state: Record<string, any> = {}
+
+    setAtPath(state, 'items.0.name', 'first')
+
+    expect(Array.isArray(state.items)).toBe(true)
+    expect(state.items[0]).toEqual({ name: 'first' })
+  })
+
+  it('refuses to read an inherited prototype key but still reads an owned one', () => {
+    expect(getAtPath({}, '__proto__')).toBeUndefined()
+    expect(getAtPath({}, 'constructor.prototype')).toBeUndefined()
+    expect(getAtPath({ constructor: 'Toyota' }, 'constructor')).toBe('Toyota')
+  })
+})
