@@ -7,8 +7,10 @@
       "release-type": "node",
       "changelog-sections": [
         { "type": "feat", "section": "Features" },
+        { "type": "feature", "section": "Features" },
         { "type": "fix", "section": "Bug Fixes" },
         { "type": "perf", "section": "Performance" },
+        { "type": "revert", "section": "Reverts" },
         { "type": "docs", "section": "Docs" },
         { "type": "test", "section": "Tests" },
         { "type": "chore", "section": "Chore" },
