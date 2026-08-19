@@ -5,9 +5,12 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  # Dispatched by release-please.yml onto its release-PR branch: PRs opened
-  # with GITHUB_TOKEN fire no pull_request event, and a dispatched run on the
-  # same head SHA is what satisfies a required `ci` status check.
+  # Dispatched by release-please.yml onto its release-PR branch. The bot's PR
+  # does fire a pull_request event, but GitHub holds that run at
+  # `action_required` awaiting manual approval, so the dispatched run is the only
+  # `ci` that actually executes there. It does NOT satisfy the required check —
+  # branch protection waits on the held run, which a human has to approve. See
+  # .github/contributing/releasing.md#approving-the-release-prs-ci.
   workflow_dispatch:
 
 concurrency:

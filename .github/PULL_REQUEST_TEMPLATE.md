@@ -1,5 +1,10 @@
 <!---
 PR title should follow conventional commits (https://conventionalcommits.org)
+
+Reverting something? Retitle this PR `revert(Scope): what you undid`. GitHub
+fills the title with `Revert "..."`, which is not a conventional commit — it is
+dropped from the changelog silently. Check the subject in the squash-merge
+dialog too, not just here.
 -->
 
 ### Linked issue
@@ -15,6 +20,7 @@ PR title should follow conventional commits (https://conventionalcommits.org)
 - [ ] Enhancement (improving an existing functionality)
 - [ ] New feature (a non-breaking change that adds functionality)
 - [ ] Chore (updates to the build process or auxiliary tools and libraries)
+- [ ] Revert (undoing a merged change — retitle this PR `revert(Scope): ...`)
 - [ ] Breaking change (fix or feature that would cause existing functionality to change)
 
 ### Description

@@ -33,10 +33,14 @@ jobs:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
 
-      # A PR opened with GITHUB_TOKEN fires no pull_request event, so the
-      # release PR would sit with no `ci` check — unmergeable wherever that
-      # check is required. A dispatched run lands on the same head SHA, which
-      # is what status checks are keyed by.
+      # Gives the release PR a `ci` run that actually executes. Its own
+      # pull_request run is created and then held at `action_required`, so
+      # without this the PR carries no CI result at all.
+      #
+      # This does NOT make the PR mergeable: branch protection waits on the held
+      # run, and a human has to approve that one before merging. Documented in
+      # .github/contributing/releasing.md#approving-the-release-prs-ci — keep the
+      # two in sync.
       - name: Run CI on the release PR
         if: steps.release.outputs.prs_created == 'true'
         env:
