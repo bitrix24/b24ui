@@ -89,6 +89,7 @@ const components = [
   'skeleton',
   'slideover',
   'range',
+  'splitter',
   'stepper',
   'switch',
   'table',

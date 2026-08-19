@@ -13,6 +13,7 @@ Quick-reference index of 130+ components. The table below lists the ones you com
 | `B24Main` | Main content area | [main.md](https://bitrix24.github.io/b24ui/raw/docs/components/main.md) |
 | `B24Container` | Centered max-width container | [container.md](https://bitrix24.github.io/b24ui/raw/docs/components/container.md) |
 | `B24Link` | Enhanced link — NuxtLink/RouterLink with active states | [link.md](https://bitrix24.github.io/b24ui/raw/docs/components/link.md) |
+| `B24Splitter` | Resizable panel group with draggable handles | [splitter.md](https://bitrix24.github.io/b24ui/raw/docs/components/splitter.md) |
 
 ## Element
 
