@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "ae2bd5eb39164c4f991ac7a37b37071883fffa55",
+  "cursor": "a630c94366cb4904c53fac9aace31e59497b55d1",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -1549,10 +1549,22 @@
       "summary": "test(bench): scale tv benchmarks past codspeed's noise floor (nuxt/ui) — SKIP, the problem it solves does not exist here. Every bench body in test/bench/tv.bench.ts is wrapped in a 100-iteration loop because CodSpeed runs them under an instruction-counting simulator, GitHub's hosted runners alternate Intel and AMD, and glibc selects different string routines by cache size, so anything under ~1ms collects phantom regressions. We have that file and the change would apply cleanly, but this fork does not run CodSpeed: `bench` is a plain `vitest bench --project vue`, no workflow invokes it, and nothing compares runs across machines. The change would buy nothing and cost a hundredfold longer local run, and the comment it adds would be false here since it explains a CI setup we do not have. Take it the day benchmarks are wired into CI, and take the comment with it."
     },
     "ae2bd5eb39164c4f991ac7a37b37071883fffa55": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 441,
+      "b24ui_sha": "62a2acc83dea33baa63d55ab1e8a1ce1b2cb4f43",
       "decision": "port",
       "summary": "feat(Splitter): new component (nuxt/ui #6670) — PORT, adopted by maintainer decision and adapted. Resizable panels with draggable handles wrapping reka-ui SplitterGroup/SplitterPanel/SplitterResizeHandle; upstream shipped 19 files / 815 insertions. Adopting a whole component is not mechanical, so it was put to the maintainer with alternatives (adopt/skip/defer) — answer: adopt. Checked first that it duplicates nothing: we have DashboardPanel and DashboardResizeHandle, but those build on reka-ui's Primitive, not the splitter primitives. Adaptation: §1 mechanical ui -> b24ui throughout (prop, slot props, item key, appConfig.b24ui?.splitter), #build/b24ui/splitter; reka-ui imports keep their names so the template is upstream's. Theme adapted rather than copied — upstream's focus ring is focus-visible:outline-primary, ours follows button.ts/checkbox.ts with outline-transparent + outline-2 + outline-offset-2 and the --ui-color-accent-soft-element-blue token that table.ts uses for focusable rows. Registered in src/theme/index.ts, src/runtime/types/index.ts and src/runtime/types/theme.ts — the last has two blocks and the prose one closes at line 159, so the entry belongs in the outer block between slideover and stepper. Docs, four examples and the playground page were translated, not copied: bg-elevated/50 + border-default + text-muted become bg-(--ui-color-bg-content-secondary) + border-(--ui-color-divider-default) + text-description; color=neutral variant=subtle becomes color=air-secondary since b24ui's Button has no variant; and i-lucide-panel-left-{open,close} become the b24icons the dictionary maps panelOpen/panelClose to — outline/OpenChatIcon and outline/CloseChatIcon, not main/, which is where a first guess put them. NOT ported: docs/public/components/{light,dark}/splitter.png, which feed a preview grid this fork does not have (docs/public/components/ does not exist here and nothing references it). Tests are upstream's spec with ui -> b24ui and the bg-primary probe replaced by a token; 24 snapshots generated on our theme plus the axe pass. Verified the adaptation reached the output rather than only the source: the rendered handle carries our focus ring. dev:prepare across all four apps, lint, typecheck, test (6734 passed, 6 skipped, 296 files), build, docs:generate — all green, and docs:generate prerenders 1248 routes against 1240 before, so the page and its examples build."
+    },
+    "2beb2345af2b7f27147e9652a6f943f60d5f148c": {
+      "pr": "pending-merge",
+      "b24ui_sha": "pending-merge",
+      "decision": "no-op",
+      "summary": "docs(showcase): add volta.net (nuxt/ui) — NO-OP: two lines in docs/content/showcase.yml plus a screenshot asset, adding volta.net to the list of sites built with Nuxt UI. We have that file, but it lists projects built with Bitrix24 UI and its own description says so, so adding a nuxt/ui site would make the page assert something false. Content, not structure — nothing to port and nothing to adapt. Same call as cf5f15e3 and f6d188bd; recorded so the next porter does not re-derive it a fourth time."
+    },
+    "a630c94366cb4904c53fac9aace31e59497b55d1": {
+      "pr": "pending-merge",
+      "b24ui_sha": "pending-merge",
+      "decision": "no-op",
+      "summary": "docs(showcase): add triadtrainer.vercel.app (nuxt/ui) — NO-OP: two lines in docs/content/showcase.yml plus a screenshot asset, adding triadtrainer.vercel.app to the list of sites built with Nuxt UI. We have that file, but it lists projects built with Bitrix24 UI and its own description says so, so adding a nuxt/ui site would make the page assert something false. Content, not structure — nothing to port and nothing to adapt. Same call as cf5f15e3 and f6d188bd; recorded so the next porter does not re-derive it a fourth time."
     }
   }
 }
