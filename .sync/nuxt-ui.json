@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "f6d188bd785d40f2a2d721e3400091cc19cee236",
+  "cursor": "3d2129d2dc1123ebbc573ce4fca2b48fd6a895b4",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -1535,6 +1535,18 @@
       "b24ui_sha": "807d52efaf8a29cc23b97df3a047c082752bfad0",
       "decision": "port",
       "summary": "docs(showcase): add kleinezeitung.at (nuxt/ui) — PORT of the schema half; content half is a no-op for the same reason as cf5f15e3. Upstream's entry needed a wider viewport, a delay and an element removed before the screenshot was usable, so screenshotOptions gained width/cookies/removeElements and delay became optional. Ported because it is not decorative here: docs/modules/showcase.ts reads screenshotOptions and spreads it straight into capture-website, so the new keys reach the screenshotter as soon as the schema stops rejecting them, and the old schema REQUIRED delay so an entry wanting only width would have failed validation. DEVIATION recorded: while checking the widening would actually do something, found that delay was inert in this fork — our module hardcoded `delay: 2` AFTER the spread, overwriting any per-entry value, where upstream has no default there at all (which is why their schema could treat delay as the one real option). Porting the widening as-is would have shipped a schema advertising an option the module discards, the same shape of false claim as the MCP inputExamples that named non-existent examples. The fork's 2s default is worth keeping, so it moved BEFORE the spread: still a default, now overridable. One line, a deviation from the upstream commit rather than part of it. No showcase entry sets screenshotOptions today, so nothing changes behaviourally — the point is that schema and module now agree. Also refreshed .sync/dep-parity.json to this cursor; versions identical."
+    },
+    "6f82268bc26f16ade37aab67abdc6456e10d1793": {
+      "pr": "pending-merge",
+      "b24ui_sha": "pending-merge",
+      "decision": "skip",
+      "summary": "chore: add CLAUDE.md importing AGENTS.md (nuxt/ui #6852) — SKIP, this fork already decided the opposite deliberately. Three lines adding a tracked CLAUDE.md that imports AGENTS.md. We have AGENTS.md (156 lines) and no CLAUDE.md, so it would apply cleanly — and would still be wrong, because CLAUDE.md is in our .gitignore at line 51 under a `# AI` heading, alongside .claude/settings.local.json, .claude/channels/ and .claude/debug/. The company it keeps settles it: this fork classifies CLAUDE.md as per-developer Claude Code state, not tracked instructions. Porting would mean deleting that line and reversing a standing decision, which a sync port is not the place to do. Trade-off named rather than hidden: upstream's comment says Claude Code auto-loads only CLAUDE.md, so our tracked AGENTS.md is not auto-loaded and each developer supplies their own ignored copy; if that is a mistake it should be changed on its own merits, not carried in as a port. Traced with git log -S 'CLAUDE.md' -- .gitignore: the entry arrived in b55bd3e7, a deps port whose body never mentions it. That same body is where a larger finding surfaced — 'Skipped: ai + @ai-sdk/* (b24ui stays on the deferred v6 line)', echoed by five other entries, showing the ai v6 line was a deliberate repeatedly reaffirmed deferral rather than drift. #425 ended it on instruction and stands, but it broke the DeepSeek provider spec (fixed in #438) and the reasoning is now a §2 invariant."
+    },
+    "3d2129d2dc1123ebbc573ce4fca2b48fd6a895b4": {
+      "pr": "pending-merge",
+      "b24ui_sha": "pending-merge",
+      "decision": "skip",
+      "summary": "test(bench): scale tv benchmarks past codspeed's noise floor (nuxt/ui) — SKIP, the problem it solves does not exist here. Every bench body in test/bench/tv.bench.ts is wrapped in a 100-iteration loop because CodSpeed runs them under an instruction-counting simulator, GitHub's hosted runners alternate Intel and AMD, and glibc selects different string routines by cache size, so anything under ~1ms collects phantom regressions. We have that file and the change would apply cleanly, but this fork does not run CodSpeed: `bench` is a plain `vitest bench --project vue`, no workflow invokes it, and nothing compares runs across machines. The change would buy nothing and cost a hundredfold longer local run, and the comment it adds would be false here since it explains a CI setup we do not have. Take it the day benchmarks are wired into CI, and take the comment with it."
     }
   }
 }
