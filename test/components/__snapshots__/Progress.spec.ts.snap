@@ -92,7 +92,7 @@ exports[`Progress > renders with color success correctly 1`] = `
 
 exports[`Progress > renders with max correctly 1`] = `
 "<div data-orientation="horizontal" data-slot="root" class="gap-2 style-filled w-full flex flex-col">
-  <div data-slot="status" class="flex justify-end text-legend transition-[width] duration-200 ease-out motion-reduce:transition-none text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) flex-row" style="width: 50%;">50% </div>
+  <div data-slot="status" class="flex justify-end text-legend duration-200 ease-out motion-reduce:transition-none text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) flex-row w-(--percent) transition-[width]" style="--percent: 50%;">50% </div>
   <div aria-valuemax="4" aria-valuemin="0" aria-valuenow="2" aria-label="50%" role="progressbar" data-state="loading" data-value="2" data-max="4" data-slot="base" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-2" style="transform: translateZ(0);">
     <div data-state="loading" data-value="2" data-max="4" data-slot="indicator" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out motion-reduce:transition-none motion-reduce:data-[state=indeterminate]:animate-pulse bg-(--b24ui-background) motion-safe:data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]" style="transform: translateX(-50%);"></div>
   </div>
@@ -108,7 +108,7 @@ exports[`Progress > renders with max correctly 1`] = `
 
 exports[`Progress > renders with max inverted correctly 1`] = `
 "<div data-orientation="horizontal" data-slot="root" class="gap-2 style-filled w-full flex flex-col">
-  <div data-slot="status" class="flex justify-end text-legend transition-[width] duration-200 ease-out motion-reduce:transition-none text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) self-end flex-row-reverse" style="width: 50%;">50% </div>
+  <div data-slot="status" class="flex justify-end text-legend duration-200 ease-out motion-reduce:transition-none text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) w-(--percent) transition-[width] self-end flex-row-reverse" style="--percent: 50%;">50% </div>
   <div aria-valuemax="4" aria-valuemin="0" aria-valuenow="2" aria-label="50%" role="progressbar" data-state="loading" data-value="2" data-max="4" data-slot="base" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-2" style="transform: translateZ(0);">
     <div data-state="loading" data-value="2" data-max="4" data-slot="indicator" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out motion-reduce:transition-none motion-reduce:data-[state=indeterminate]:animate-pulse bg-(--b24ui-background) motion-safe:data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]" style="transform: translateX(50%);"></div>
   </div>
@@ -192,9 +192,19 @@ exports[`Progress > renders with size xs correctly 1`] = `
 </div>"
 `;
 
+exports[`Progress > renders with status at zero correctly 1`] = `
+"<div data-orientation="horizontal" data-slot="root" class="gap-2 style-filled w-full flex flex-col">
+  <div data-slot="status" class="flex justify-end text-legend duration-200 ease-out motion-reduce:transition-none text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) flex-row w-(--percent) transition-[width]" style="--percent: fit-content;">0% </div>
+  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" aria-label="0%" role="progressbar" data-state="loading" data-value="0" data-max="100" data-slot="base" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-2" style="transform: translateZ(0);">
+    <div data-state="loading" data-value="0" data-max="100" data-slot="indicator" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out motion-reduce:transition-none motion-reduce:data-[state=indeterminate]:animate-pulse bg-(--b24ui-background) motion-safe:data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]" style="transform: translateX(-100%);"></div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
 exports[`Progress > renders with status correctly 1`] = `
 "<div data-orientation="horizontal" data-slot="root" class="gap-2 style-filled w-full flex flex-col">
-  <div data-slot="status" class="flex justify-end text-legend transition-[width] duration-200 ease-out motion-reduce:transition-none text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) flex-row" style="width: 50%;">50% </div>
+  <div data-slot="status" class="flex justify-end text-legend duration-200 ease-out motion-reduce:transition-none text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) flex-row w-(--percent) transition-[width]" style="--percent: 50%;">50% </div>
   <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" aria-label="50%" role="progressbar" data-state="loading" data-value="50" data-max="100" data-slot="base" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-2" style="transform: translateZ(0);">
     <div data-state="loading" data-value="50" data-max="100" data-slot="indicator" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out motion-reduce:transition-none motion-reduce:data-[state=indeterminate]:animate-pulse bg-(--b24ui-background) motion-safe:data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]" style="transform: translateX(-50%);"></div>
   </div>
@@ -204,7 +214,7 @@ exports[`Progress > renders with status correctly 1`] = `
 
 exports[`Progress > renders with status inverted correctly 1`] = `
 "<div data-orientation="horizontal" data-slot="root" class="gap-2 style-filled w-full flex flex-col">
-  <div data-slot="status" class="flex justify-end text-legend transition-[width] duration-200 ease-out motion-reduce:transition-none text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) self-end flex-row-reverse" style="width: 50%;">50% </div>
+  <div data-slot="status" class="flex justify-end text-legend duration-200 ease-out motion-reduce:transition-none text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) w-(--percent) transition-[width] self-end flex-row-reverse" style="--percent: 50%;">50% </div>
   <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" aria-label="50%" role="progressbar" data-state="loading" data-value="50" data-max="100" data-slot="base" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-2" style="transform: translateZ(0);">
     <div data-state="loading" data-value="50" data-max="100" data-slot="indicator" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out motion-reduce:transition-none motion-reduce:data-[state=indeterminate]:animate-pulse bg-(--b24ui-background) motion-safe:data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]" style="transform: translateX(50%);"></div>
   </div>

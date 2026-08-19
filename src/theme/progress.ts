@@ -24,7 +24,7 @@ export default {
     status: [
       'flex justify-end',
       'text-legend', // text-base-500
-      'transition-[width] duration-200 ease-out motion-reduce:transition-none'
+      'duration-200 ease-out motion-reduce:transition-none'
     ].join(' '),
     steps: [
       'grid items-end',
@@ -93,12 +93,12 @@ export default {
       horizontal: {
         root: 'w-full flex flex-col',
         base: 'w-full',
-        status: 'flex-row'
+        status: 'flex-row w-(--percent) transition-[width]'
       },
       vertical: {
         root: 'h-full flex flex-row-reverse',
         base: 'h-full',
-        status: 'flex-col min-w-[32px]'
+        status: 'flex-col min-w-[32px] h-(--percent) transition-[height]'
       }
     },
     inverted: {

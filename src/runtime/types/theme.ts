@@ -127,6 +127,7 @@ export interface ThemeDefaults {
   // pricingPlans?: Partial<ComponentTypes.PricingPlansProps>
   // pricingTable?: Partial<ComponentTypes.PricingTableProps>
   progress?: Partial<ComponentTypes.ProgressProps>
+  progressGroup?: Partial<ComponentTypes.ProgressGroupProps>
   /**
    * Prose components that expose overridable props, under a `prose` namespace
    * (mirrors `app.config.b24ui.prose` and `useComponentProps('prose.<tag>', …)`).

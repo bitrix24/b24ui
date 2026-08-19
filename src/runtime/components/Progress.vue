@@ -132,11 +132,13 @@ const indicatorStyle = computed(() => {
   }
 })
 
-const statusStyle = computed(() => {
-  return {
-    [props.orientation === 'vertical' ? 'height' : 'width']: percent.value ? `${percent.value}%` : 'fit-content'
-  }
-})
+// The theme reads the size off `--percent` so `b24ui.status` can override it; an
+// inline `width` would beat any class a consumer passes. The `fit-content`
+// fallback is this fork's — upstream has none — and survives the move because
+// `w-(--percent)` emits `width: var(--percent)` whatever the value is.
+const statusStyle = computed(() => ({
+  '--percent': percent.value ? `${percent.value}%` : 'fit-content'
+}))
 
 function isActive(index: number) {
   return index === Number(props.modelValue)

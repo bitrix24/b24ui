@@ -35,6 +35,10 @@ props:
 ---
 ::
 
+::note
+Use the [`ProgressGroup`](/docs/components/progress-group) component to split a single bar into multiple segments that add up to a total.
+::
+
 ### Max
 
 Use the `max` prop to set the maximum value of the Progress.
@@ -81,6 +85,10 @@ props:
   modelValue: 24
   status: true
 ---
+::
+
+::tip
+The status tracks the end of the bar, use `:b24ui="{ status: 'w-full' }"` to make it span the full width instead.
 ::
 
 ### Indeterminate
