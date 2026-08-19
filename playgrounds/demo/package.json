@@ -11,7 +11,7 @@
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
-    "@ai-sdk/deepseek": "^2.0.38",
+    "@ai-sdk/deepseek": "^3.0.28",
     "@ai-sdk/vue": "^4.0.66",
     "@comark/vue": "^0.6.2",
     "@internationalized/date": "^3.12.3",
