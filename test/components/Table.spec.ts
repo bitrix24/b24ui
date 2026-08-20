@@ -20,35 +20,35 @@ describe('Table', () => {
       id: 'm5gr84i9',
       amount: 316,
       date: '2024-03-11T15:30:00',
-      status: 'success',
+      status: 'paid',
       email: 'ken99@yahoo.com'
     },
     {
       id: '3u1reuv4',
       amount: 242,
       date: '2024-03-11T10:10:00',
-      status: 'success',
+      status: 'failed',
       email: 'Abe45@gmail.com'
     },
     {
       id: 'derv1ws0',
       amount: 837,
       date: '2024-03-11T08:50:00',
-      status: 'processing',
+      status: 'refunded',
       email: 'Monserrat44@gmail.com'
     },
     {
       id: '5kma53ae',
       amount: 874,
       date: '2024-03-10T19:45:00',
-      status: 'success',
+      status: 'paid',
       email: 'Silas22@gmail.com'
     },
     {
       id: 'bhqecj4p',
       amount: 721,
       date: '2024-03-10T15:55:00',
-      status: 'failed',
+      status: 'paid',
       email: 'carmella@hotmail.com'
     }
   ]
@@ -120,6 +120,22 @@ describe('Table', () => {
       }
     },
     {
+      // The fixture's statuses are the map's keys, which they were not: it
+      // carried `success`/`processing` while the map handles
+      // `paid`/`failed`/`refunded`, so four of five rows resolved to
+      // `undefined` and rendered the badge's default and two of the three
+      // colour branches were unreachable (#450). The statuses and their
+      // vocabulary come from the docs example for this table, as the dates do —
+      // `id`, `email` and `amount` do not, they are the upstream fixture.
+      //
+      // One branch is still only half-covered, and it is worth knowing which.
+      // `refunded` maps to `air-primary`, which is `src/theme/badge.ts`'s own
+      // default, so its rendered bytes are indistinguishable from an unmapped
+      // status: changing that colour fails four tests, but *deleting* the
+      // `refunded` entry fails none. Closing it needs the fixture's `status`
+      // typed as the union so a dropped key is a compile error — `getValue`
+      // returns `unknown` and the `as string` erases the key set. Tracked with
+      // the rest of that family in #454.
       accessorKey: 'status',
       header: 'Status',
       cell: ({ row }) => {
