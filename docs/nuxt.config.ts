@@ -38,6 +38,7 @@ const pages = [
   '/docs/components/footer/',
   '/docs/components/header/',
   '/docs/components/main/',
+  '/docs/components/splitter/',
   // endregion ////
   // region Element ////
   '/docs/components/advice/',
@@ -55,6 +56,7 @@ const pages = [
   '/docs/components/field-group/',
   '/docs/components/kbd/',
   '/docs/components/progress/',
+  '/docs/components/progress-group/',
   '/docs/components/separator/',
   '/docs/components/sidebar/',
   '/docs/components/skeleton/',
@@ -85,6 +87,7 @@ const pages = [
   // region Data ////,
   '/docs/components/accordion/',
   '/docs/components/description-list/',
+  '/docs/components/empty/',
   '/docs/components/scroll-area/',
   '/docs/components/table/',
   '/docs/components/table-wrapper/',
@@ -116,6 +119,7 @@ const pages = [
   '/docs/components/page-aside/',
   '/docs/components/page-body/',
   '/docs/components/page-card/',
+  '/docs/components/page-card-group/',
   '/docs/components/page-feature/',
   '/docs/components/page-columns/',
   '/docs/components/page-grid/',
