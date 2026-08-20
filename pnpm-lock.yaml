@@ -211,9 +211,6 @@ importers:
       tinyglobby:
         specifier: ^0.2.17
         version: 0.2.17
-      typescript:
-        specifier: ^5.6.3 || ^6.0.0 || ^7.0.0
-        version: 6.0.3
       ufo:
         specifier: ^1.6.4
         version: 1.6.4
@@ -287,6 +284,9 @@ importers:
       nuxt:
         specifier: ^4.5.2
         version: 4.5.2(5eaa5debc483dd6b779810f76a647995)
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
       unbuild:
         specifier: ^3.6.1
         version: 3.6.1(typescript@6.0.3)(vue-sfc-transformer@0.2.3(@volar/typescript@2.4.28(typescript@6.0.3))(@vue/compiler-core@3.5.41)(@vue/language-core@3.3.10)(esbuild@0.27.7)(rolldown@1.2.3)(typescript@6.0.3)(vue@3.5.41(typescript@6.0.3)))(vue-tsc@3.3.10(typescript@6.0.3))(vue@3.5.41(typescript@6.0.3))
