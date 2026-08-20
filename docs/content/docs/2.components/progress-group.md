@@ -1,11 +1,19 @@
 ---
 title: ProgressGroup
-description: A progress bar split into segments, each with its own value and colour.
+description: One progress bar carrying several values at once, each drawn as its own coloured part.
 category: element
+keywords:
+  - meter group
+  - segmented progress
+  - stacked bar
+  - breakdown
 links:
   - label: GitHub
     iconName: GitHubIcon
     to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/ProgressGroup.vue
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/progress-group
   - label: Nuxt UI
     iconName: NuxtIcon
     to: https://ui.nuxt.com/docs/components/progress-group

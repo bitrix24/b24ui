@@ -599,6 +599,58 @@ Comparison is per section on purpose: 18 packages are declared on both sides in
 different ones — the `@tiptap/*` family is a peer `^3` upstream and a dependency
 `^3.29.2` here — and a peer range against a dependency range compares nothing.
 
+**Adopting a new component is not finished when the component compiles.**
+`src/` is only the first of eleven places a component has to appear, and the
+other ten used to fail quietly: nothing in `lint`, `typecheck`, `test`, `build`
+or `docs:generate` knew that a component exists but is missing from a registry.
+Splitter (#441) and ProgressGroup (#443) each landed with `src/`, tests, docs and
+one playground, and each was still missing four of the entries below — found by
+reading, not by a gate. `test/utils/docs-component-registries.spec.ts` now
+covers points 5 and the `links:` notes; the rest is still on you. Work the list
+top to bottom:
+
+1. `src/runtime/components/<Name>.vue` and `src/theme/<name>.ts`.
+2. `src/theme/index.ts` (`export { default as <name> } from './<name>'`),
+   `src/runtime/types/index.ts` (`export * from '../components/<Name>.vue'`)
+   and `src/runtime/types/theme.ts` (the `<name>?: Partial<…Props>` line).
+3. `test/components/<Name>.spec.ts` plus its snapshots.
+4. `docs/content/docs/2.components/<name>.md`, and `docs/app/components/content/examples/<name>/*.vue`
+   for anything the page renders with `::component-example`.
+5. **`docs/nuxt.config.ts` → `pages`**, in the region matching the page's
+   `category:` front matter. The crawler happens to reach a new page anyway, so
+   omitting it breaks nothing visible — but that array is the declared registry
+   the `/raw/<page>.md` prerender routes are built from (`@memo need add pages
+   for raw/***.md`), and the skills reference links to exactly those URLs. Both
+   new components were missing from it, and so were `empty` and
+   `page-card-group`, for longer. Guarded in both directions now.
+6. `playgrounds/nuxt/app/pages/components/<name>.vue` **and**
+   `playgrounds/demo/app/pages/components/<name>.vue`. The demo page is not
+   optional: its docs page links to `https://bitrix24.github.io/b24ui/demo/components/<name>`,
+   and it is a different exercise — the nuxt playground is a scratch page, the
+   demo one wraps `<PlaygroundPage>` with `#controls` and drives the theme's
+   variants through `<Matrix>`. The guard checks that a Demo link resolves to a
+   file; it cannot require the page to exist in the first place, since 33 docs
+   pages legitimately have no Demo link at all.
+7. The component name in `useNavigation.ts` for **both** playgrounds, in the
+   list's alphabetical position.
+8. A row in `skills/b24-ui-nuxt/references/components.md`.
+
+Front matter for the docs page, which upstream's file does not give you:
+
+- `description:` — **rewrite it.** Upstream's sentence is upstream's voice; ours
+  should say the same thing in different words. Splitter arrived carrying
+  "A set of resizable panels separated by draggable handles." verbatim.
+- `category:` — decides the sidebar group, and must agree with the region you
+  picked in `docs/nuxt.config.ts`.
+- `keywords:` — the docs search reads them; upstream's list is a good start.
+- `links:` — GitHub, then Demo (`iconName: DemonstrationOnIcon`, the URL from
+  point 6), then Nuxt UI, then the primitive. **The Reka link is an avatar, not
+  an icon**: `label: <Name>` with `avatar: {src: /b24ui/avatar/rekaui.svg}`, as
+  34 other pages have it. `iconName: RekaIcon` looks right and renders nothing —
+  `resolveIcon()` returns `undefined` for a name outside
+  `src/runtime/dictionary/icons.ts`, silently, and the link loses its icon. Every
+  `iconName:` on these pages is now checked against that dictionary.
+
 **If the cursor SHA disappears** (upstream force-pushed `v4`, so
 `git cat-file -e <cursor>^{commit}` fails): pick the nearest surviving ancestor
 on `v4`, set `cursor` to it, and open a tracking issue — do not silently jump
@@ -645,3 +697,4 @@ forward, since every commit between the two would then never be judged.
 - 2026-08-18 — hardening of #92 (PR #424): added the §2 rule **`get()`/`set()` reject prototype keys and `set()` descends only through own properties**, and moved the shared logic into `utils/prototype-guard.ts`. The issue asked for a denylist of `__proto__`/`constructor`/`prototype`; review turned up three things a denylist alone does not cover. `acc[key] === undefined` reads through the prototype chain, so `set({}, 'toString.x', 1)` wrote onto a shared intrinsic through a path holding no reserved word. A key is coerced by `object[key]` after the guard has inspected it, so `new String('prototype')` and any object with a fitting `toString` walked straight past a `typeof key === 'string'` check — `get({}, [{ toString: () => '__proto__' }])` returned `Object.prototype` itself. And `utils/form.ts` held a second, independent copy of the same walk, reachable from `Form.vue` rather than only from the public entry. Reachability was audited rather than assumed: nothing in `src/` imports `set()` at all — its only consumers here are two docs-site components passing component-metadata prop names — whereas `setAtPath` is on a live in-library path. `get`/`set` and `setAtPath`/`getAtPath` had almost no tests before this; 38 were added across the two spec files, 20 of which fail against the previous implementation. Last reviewed: 2026-08-18.
 - 2026-08-18 — added the §6 **dependency parity** step, `.sync/dep-parity.json` and its guard, after the maintainer asked for a rule that checks pins against the parent repo. The gap was real and had already bitten: porting `6bcc97a6` turned up `@ai-sdk/vue` at 3.x here against upstream's 4.x and `ai` at 6.x against 7.x, found only because a comparison table happened to get printed. Writing the snapshot then turned up a third, `prettier` at ^3.8.4 against ^3.9.6, adrift through four ported batches. The mechanism is worth stating because each individual port was correct: a `chore(deps)` port bumps only where this fork matched upstream's pre-image, so a version that leaves the line is skipped by every later batch — the rule that keeps a deliberate hold from being dragged along is the same rule that makes an accidental divergence permanent. The snapshot is section-aware after the first draft compared upstream's peer ranges against our dependency ranges and reported `tailwindcss ^4.3.3` and `@internationalized/date ^3.12.3` as drift; 18 packages sit in different sections on the two sides, the whole `@tiptap/*` family among them, and are outside the file by construction. `nuxt-schema-org` is the one recorded exception, held at ^6.2.1 because anything newer drags `nuxt-site-config` to 4.2.3, which calls two `@nuxt/kit` functions no published 4.x exports. Guard verified by five mutations — drifting a version, dropping the exception, making the exception stale by aligning the version under it, staling the snapshot's cursor, and deleting a package from a manifest — each failing, and the guard was red on the real `reka-ui` drift before #428 landed and green after. Last reviewed: 2026-08-18.
 - 2026-08-18 — added the §2 **AI provider packages are fork-only** invariant, after #425 broke the docs assistant and nothing noticed. That PR aligned dependencies to upstream on instruction, taking `ai` from ^6.0.214 to ^7.0.66. Its description called the gap accidental drift; it was not. Six ledger entries record the v6 line as a deliberate deferral — `c8e810ca` says "ai (v6 line, deferred v7), @ai-sdk/vue (v3)" and `229b64f6` says "ai+@ai-sdk/* (v6 line + DeepSeek)" — and the reason was precisely the coupling that then broke: `@ai-sdk/deepseek` had not caught up. The bump ended a considered deferral rather than correcting an oversight, and the record now says so. What actually broke: `ai@7` resolves `@ai-sdk/provider@4` while `@ai-sdk/deepseek@2.0.38` and `@ai-sdk/mcp@1.0.52` implement `@ai-sdk/provider@3`, so two majors of the provider spec sat in one tree. Every gate stayed green — the providers peer-depend on `zod` rather than `ai`, so pnpm was quiet, and the request path is disabled during `docs:generate` — which is the whole lesson: this class of break is invisible to a build and first appears to a user. Found while checking why upstream's `CLAUDE.md` commit did not apply, which turned up the `.gitignore` entry from `b55bd3e7` and, in that commit's body, the deferral note. Fixed by taking the providers to ^3.0.28 and 2.0.32 across `docs/` and both Nuxt playgrounds — the playgrounds carry them too, and bumping only `docs/` would have left the same mismatch behind. Verified by resolution rather than by a passing suite: one `@ai-sdk/provider@4.0.7` across the lockfile, down from two majors. Second finding along the way, now also a §2 note: reaching for `@ai-sdk/mcp@2.0.33`, published the previous day, made pnpm silently append it to `minimumReleaseAgeExclude` — a supply-chain policy waived by a line that reads as ordinary config. `2.0.32` carries the same `@ai-sdk/provider@4.0.7`, so the exclusion was unnecessary and the list is back to what it was. Last reviewed: 2026-08-18.
+- 2026-08-20 — added the §6 **new-component checklist** and `test/utils/docs-component-registries.spec.ts`, after the maintainer read the Splitter and ProgressGroup ports and found four gaps in each. Both were missing from `docs/nuxt.config.ts`'s `pages` array, from `playgrounds/demo` entirely, and from the demo `useNavigation.ts`; both carried a `description:` copied word for word from Nuxt UI; and Splitter's Reka link used `iconName: RekaIcon`, a name absent from `src/runtime/dictionary/icons.ts`, so `resolveIcon()` returned `undefined` and the link rendered without an icon. Every one of those is invisible to a build — the docs crawler follows the sidebar and prerenders an unregistered page anyway, a missing playground page is a page that does not exist, and an unresolved icon is a falsy value rendered as nothing — so the checklist names eleven places rather than stating a rule. The `pages` array is worth singling out: it is not what makes the page build, it is the declared list the `/raw/<page>.md` routes are generated from, and `skills/b24-ui-nuxt/references/components.md` links to exactly those URLs. Writing the guard turned up two older instances of the same omission, `empty` and `page-card-group`, both now registered. What is enforceable is enforced: page ↔ `pages` entry in both directions, every `iconName:` in a component page's front matter resolvable in the dictionary, every Demo link resolving to a `playgrounds/demo` file, every demo nav entry resolving to one. What is not: the guard cannot demand a demo page per component (33 of 120 pages carry no Demo link on purpose) or a nav entry per demo page (five are unlisted today), and it cannot tell a rewritten `description:` from a copied one — those stay checklist items. Verified by four mutations, each red: dropping the `splitter` route, adding a route with no page, restoring `iconName: RekaIcon`, and renaming the demo page away. Last reviewed: 2026-08-20.

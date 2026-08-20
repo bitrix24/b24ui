@@ -1,6 +1,6 @@
 /**
  * ProgressGroup
- * A progress bar split into segments, each with its own value and colour.
+ * One progress bar carrying several values at once, each drawn as its own coloured part.
  * ---
  * @see src/theme/progress.ts
  */

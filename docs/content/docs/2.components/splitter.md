@@ -1,17 +1,26 @@
 ---
 title: Splitter
-description: A set of resizable panels separated by draggable handles.
+description: Panels that share one area and are resized by dragging the divider between them.
 category: layout
+keywords:
+  - resizable
+  - panel group
+  - split view
+  - pane
 links:
   - label: GitHub
     iconName: GitHubIcon
     to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Splitter.vue
-  - label: Reka UI
-    iconName: RekaIcon
-    to: https://reka-ui.com/docs/components/splitter
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/splitter
   - label: Nuxt UI
     iconName: NuxtIcon
     to: https://ui.nuxt.com/docs/components/splitter
+  - label: Splitter
+    avatar:
+      src: /b24ui/avatar/rekaui.svg
+    to: https://reka-ui.com/docs/components/splitter
 ---
 
 ## Usage
