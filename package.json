@@ -210,6 +210,7 @@
     "vue-component-type-helpers": "^3.3.10"
   },
   "devDependencies": {
+    "@conventional-commits/parser": "0.4.1",
     "@nuxt/eslint-config": "^1.17.0",
     "@nuxt/module-builder": "^1.0.3",
     "@nuxt/test-utils": "^4.1.0",
