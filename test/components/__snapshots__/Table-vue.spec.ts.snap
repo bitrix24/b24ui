@@ -2108,7 +2108,7 @@ exports[`Table > renders with sticky correctly 1`] = `
 "<div data-slot="root" class="relative overflow-auto style-filled">
   <table data-slot="base" class="min-w-full font-[family-name:var(--ui-font-family-primary)] table-fixed border-separate border-spacing-0">
     <!--v-if-->
-    <thead data-slot="thead" class="[&amp;>tr]:[&amp;>th]:h-[45px] sticky top-0 inset-x-0 bg-(--ui-color-bg-content-primary) z-2 backdrop-blur">
+    <thead data-slot="thead" class="[&amp;>tr]:[&amp;>th]:h-[45px] sticky top-0 inset-x-0 bg-(--ui-color-bg-content-primary) z-2 backdrop-blur-sm">
       <tr data-slot="tr" class="data-[selected=true]:bg-(--ui-color-bg-content-tertiary) light:data-[selected=true]:bg-[#f4fcde]">
         <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-label whitespace-nowrap text-start font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Id</th>
         <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-label whitespace-nowrap text-start font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">Amount</th>
@@ -2169,7 +2169,7 @@ exports[`Table > renders with virtualize and sticky correctly 1`] = `
 "<div data-slot="root" class="relative overflow-auto style-filled">
   <table data-slot="base" class="min-w-full font-[family-name:var(--ui-font-family-primary)] table-fixed border-separate border-spacing-0">
     <!--v-if-->
-    <thead data-slot="thead" class="[&amp;>tr]:[&amp;>th]:h-[45px] sticky top-0 inset-x-0 bg-(--ui-color-bg-content-primary) z-2 backdrop-blur">
+    <thead data-slot="thead" class="[&amp;>tr]:[&amp;>th]:h-[45px] sticky top-0 inset-x-0 bg-(--ui-color-bg-content-primary) z-2 backdrop-blur-sm">
       <tr data-slot="tr" class="data-[selected=true]:bg-(--ui-color-bg-content-tertiary) light:data-[selected=true]:bg-[#f4fcde] relative before:absolute before:z-1 before:w-full before:border-b before:border-b-(--ui-color-divider-default)">
         <th data-pinned="false" scope="col" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-label whitespace-nowrap text-start font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">
           <div data-slot="root" class="relative flex items-start style-filled flex-row">
@@ -2205,7 +2205,7 @@ exports[`Table > renders with virtualize and sticky correctly 1`] = `
       <!--v-if-->
       <!--v-if-->
     </tbody>
-    <tfoot data-slot="tfoot" class="sticky bottom-0 inset-x-0 bg-(--ui-color-bg-content-primary) z-2 backdrop-blur">
+    <tfoot data-slot="tfoot" class="sticky bottom-0 inset-x-0 bg-(--ui-color-bg-content-primary) z-2 backdrop-blur-sm">
       <tr data-slot="separator" class="absolute z-1 start-0 w-full h-px bg-(--ui-color-design-tinted-na-stroke)"></tr>
       <tr data-slot="tr" class="data-[selected=true]:bg-(--ui-color-bg-content-tertiary) light:data-[selected=true]:bg-[#f4fcde] relative before:absolute before:z-1 before:w-full before:border-b before:border-b-(--ui-color-divider-default)">
         <th data-pinned="false" data-slot="th" class="px-4 py-2 text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-label whitespace-nowrap text-start font-(--ui-font-weight-normal) [&amp;:has([role=checkbox])]:pe-0 align-middle border-b border-(--ui-color-divider-default)">

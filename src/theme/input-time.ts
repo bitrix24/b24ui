@@ -20,7 +20,7 @@ export default () => {
         'style-blurred-bg-input'
       ].join(' '),
       segment: [
-        'rounded',
+        'rounded-2xs',
         'text-center',
         'outline-hidden',
         'text-(--ui-color-base-1)',
