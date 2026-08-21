@@ -24,7 +24,7 @@ export default {
     ].join(' '),
     viewport: [
       'relative',
-      'w-full max-h-[40vh] min-w-48 max-w-60',
+      'w-full max-h-[min(var(--max-height-popup-menu),100vh)] min-w-48 max-w-60',
       'overflow-x-hidden overflow-y-auto scrollbar-thin' // scrollbar-transparent
     ].join(' '),
     group: 'grid', // p-1 isolate

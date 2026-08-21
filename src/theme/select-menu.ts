@@ -21,7 +21,7 @@ export default () => {
         content,
         'flex flex-col',
         // single height cap on content (focusScope+viewport scroll via flex-1); 100vh fallback keeps it valid if reka doesn't set the var
-        'max-h-[min(40rem,var(--reka-combobox-content-available-height,100vh))]',
+        'max-h-[min(var(--max-height-popup-list),var(--reka-combobox-content-available-height,100vh))]',
         'origin-(--reka-combobox-content-transform-origin)'
       ],
       trailingClear: 'p-0'

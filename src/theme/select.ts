@@ -39,7 +39,7 @@ export default () => {
           'base-mode',
           'flex flex-col',
           // single height cap on content (viewport scrolls via flex-1); 100vh fallback keeps the cap valid for position="item-aligned" where reka does not set the var
-          'max-h-[min(40rem,var(--reka-select-content-available-height,100vh))]',
+          'max-h-[min(var(--max-height-popup-list),var(--reka-select-content-available-height,100vh))]',
           'bg-(--ui-color-bg-content-primary)',
           'shadow-(--popup-window-box-shadow)',
           'rounded-(--ui-border-radius-xl) will-change-[opacity]',

@@ -135,6 +135,23 @@ Customize Tailwind design tokens in `main.css`:
 }
 ```
 
+### Popup height
+
+| Variable | Default | Applies to |
+|---|---|---|
+| `--max-height-popup-list` | `40rem` | `B24Select`, `B24SelectMenu`, `B24InputMenu` result lists |
+| `--max-height-popup-menu` | `40vh` | `B24DropdownMenu`, `B24ContextMenu`, editor suggestion menus |
+
+Ceilings, not fixed heights — the popup still shrinks to the space the popper
+has. Separate on purpose: a list is bounded in absolute units, a menu against
+the viewport.
+
+```css
+@theme {
+  --max-height-popup-list: 56rem;
+}
+```
+
 ## CSS variables
 
 Bitrix24 UI exposes CSS variables you can override in `main.css`:

@@ -84,6 +84,22 @@
   --max-height-5xl: 64rem;
   --max-height-6xl: 72rem;
   --max-height-7xl: 80rem;
+  /*
+   * Popup content height caps.
+   *
+   * Not part of the scale above: 40rem sits between `xl` (36rem) and `2xl`
+   * (42rem) because it was tuned against real Bitrix24 lists, not picked off a
+   * ramp. Upstream nuxt/ui caps at 15rem — naming the value is what keeps a
+   * port from quietly restoring that.
+   *
+   * Two tokens rather than one, deliberately. The list cap bounds a long
+   * scrollable result list in absolute units; the menu cap bounds an action
+   * menu against the viewport. Different units, tuned independently — someone
+   * lengthening an autocomplete has no business resizing context menus.
+   */
+  --max-height-popup-list: 40rem;
+  --max-height-popup-menu: 40vh;
+
   --max-height-full: 100%;
   --max-height-screen: 100vh;
   --max-height-min: min-content;
