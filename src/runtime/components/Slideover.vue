@@ -124,6 +124,8 @@ const props = useComponentProps('slideover', _props)
 const { t } = useLocale()
 const appConfig = useAppConfig() as Slideover['AppConfig']
 
+// `useBlurOnOpen` wraps the emits as a workaround for reka-ui#1280; drop it and
+// restore the bare `emits` argument when that is fixed upstream. See #159.
 const rootProps = useForwardProps(reactivePick(props, 'open', 'defaultOpen', 'modal', 'unmountOnHide'), useBlurOnOpen(() => props.open, emits))
 const portalProps = usePortal(toRef(() => props.portal))
 const contentProps = toRef(() => props.content)

@@ -48,6 +48,7 @@ describe('Drawer', () => {
     expect(await axe(wrapper.element)).toHaveNoViolations()
   })
 
+  // Asserts the reka-ui#1280 workaround; delete with it when upstream is fixed (#159).
   it('blurs the active element when opening to avoid reka-ui aria-hidden focus warning', async () => {
     const trigger = document.createElement('button')
     document.body.appendChild(trigger)
@@ -60,6 +61,29 @@ describe('Drawer', () => {
     await wrapper.setProps({ open: true })
 
     expect(document.activeElement).not.toBe(trigger)
+    trigger.remove()
+  })
+
+  // Restoring focus is the other half of the reka-ui#1280 workaround, and the
+  // half the first version got wrong: with no trigger slot rendered, reka-ui
+  // falls back to capturing `document.activeElement` and skips when it is
+  // `<body>` — which the blur above had just made true — so focus was
+  // stranded. Delete with the workaround (#159).
+  it('returns focus to the pre-open element after closing', async () => {
+    const trigger = document.createElement('button')
+    document.body.appendChild(trigger)
+    trigger.focus()
+
+    const wrapper = await mountSuspended(Drawer, {
+      props: { open: false, portal: false, title: 'Title' }
+    })
+    await wrapper.setProps({ open: true })
+    await wrapper.setProps({ open: false })
+    // The restore waits a tick and then a macrotask, so the overlay it is
+    // handing focus back from has finished unmounting; outwait both.
+    await new Promise(resolve => setTimeout(resolve, 20))
+
+    expect(document.activeElement).toBe(trigger)
     trigger.remove()
   })
 })

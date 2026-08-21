@@ -126,6 +126,8 @@ const { t } = useLocale()
 
 const appConfig = useAppConfig() as Drawer['AppConfig']
 
+// `useBlurOnOpen` wraps the emits as a workaround for reka-ui#1280; drop it and
+// restore the bare `emits` argument when that is fixed upstream. See #159.
 const rootProps = useForwardProps(reactivePick(props, 'activeSnapPoint', 'closeThreshold', 'shouldScaleBackground', 'setBackgroundColorOnScale', 'scrollLockTimeout', 'fixed', 'dismissible', 'modal', 'open', 'defaultOpen', 'nested', 'direction', 'noBodyStyles', 'handleOnly', 'preventScrollRestoration', 'snapPoints'), useBlurOnOpen(() => props.open, emits))
 const portalProps = usePortal(toRef(() => props.portal))
 const contentProps = toRef(() => props.content)
