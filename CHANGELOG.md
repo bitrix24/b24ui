@@ -1,5 +1,110 @@
 # Changelog
 
+## [2.12.0](https://github.com/bitrix24/b24ui/compare/v2.11.0...v2.12.0) (2026-08-21)
+
+
+### Features
+
+* **ProgressGroup:** new component ([#443](https://github.com/bitrix24/b24ui/issues/443)) ([367cbf5](https://github.com/bitrix24/b24ui/commit/367cbf5ea17ecb8a1ceefb3da120eb3d5ea50e8c))
+* **Splitter:** new component ([#441](https://github.com/bitrix24/b24ui/issues/441)) ([62a2acc](https://github.com/bitrix24/b24ui/commit/62a2acc83dea33baa63d55ab1e8a1ce1b2cb4f43))
+* **theme:** tokenize the popup height caps ([#430](https://github.com/bitrix24/b24ui/issues/430)) ([648cd19](https://github.com/bitrix24/b24ui/commit/648cd19e627122875d37baa2c4952c7016874ae1)), closes [#73](https://github.com/bitrix24/b24ui/issues/73)
+* **vue:** support `experimental.componentDetection` ([#396](https://github.com/bitrix24/b24ui/issues/396)) ([530b961](https://github.com/bitrix24/b24ui/commit/530b96165b9bdf250f596fc7c599042f947d8c3f))
+
+
+### Bug Fixes
+
+* **Calendar:** correct the size scale ([#394](https://github.com/bitrix24/b24ui/issues/394)) ([7ca3e74](https://github.com/bitrix24/b24ui/commit/7ca3e745066a790bcf535f9a600a1d4ef1b56e62))
+* **CommandPalette:** cut search highlights on grapheme clusters, not code points ([#371](https://github.com/bitrix24/b24ui/issues/371)) ([54b93e3](https://github.com/bitrix24/b24ui/commit/54b93e33ec8cac5af65a1c8e505caebb7df26514))
+* **CommandPalette:** keep astral characters intact when truncating search results ([#365](https://github.com/bitrix24/b24ui/issues/365)) ([01252a6](https://github.com/bitrix24/b24ui/commit/01252a62cf991cb44a7495283564669336857234)), closes [#339](https://github.com/bitrix24/b24ui/issues/339)
+* **CommandPalette:** weigh the grapheme-snap ceiling against the value ([#388](https://github.com/bitrix24/b24ui/issues/388)) ([c909bc7](https://github.com/bitrix24/b24ui/commit/c909bc7df603b2ef462c0f84c9a98390effe66af))
+* **components:** resolve theme props consistently in form controls ([#397](https://github.com/bitrix24/b24ui/issues/397)) ([6b7920f](https://github.com/bitrix24/b24ui/commit/6b7920f97858d81083efe43183da1ddfa1072313))
+* **ContentSearch:** stop `sanitizeSnippet` rebuilding tags from its input ([#405](https://github.com/bitrix24/b24ui/issues/405)) ([fe4a466](https://github.com/bitrix24/b24ui/commit/fe4a466dc8341cce48159ecef151c30a1d84045a))
+* **ContentSearch:** stop escaping content that its sink escapes anyway ([#414](https://github.com/bitrix24/b24ui/issues/414)) ([9096fda](https://github.com/bitrix24/b24ui/commit/9096fda1be7a73c6d07b2d717889b7b41a08d79c))
+* **docs:** move the AI providers onto the provider spec ai@7 expects ([#438](https://github.com/bitrix24/b24ui/issues/438)) ([e3f48be](https://github.com/bitrix24/b24ui/commit/e3f48be59e6df70cd1fa7962abf251d3ffe46b0c))
+* **Editor:** ignore updates without document changes ([#355](https://github.com/bitrix24/b24ui/issues/355)) ([e198cf7](https://github.com/bitrix24/b24ui/commit/e198cf79c0294f1aa71aa5490b653fac92f991d9))
+* **icons:** make the dictionary's promises true, and enforce both of them ([#382](https://github.com/bitrix24/b24ui/issues/382)) ([924c3a8](https://github.com/bitrix24/b24ui/commit/924c3a83182ba640d1bf97970987bb6ef138e622))
+* **icons:** route components through the dictionary ([#399](https://github.com/bitrix24/b24ui/issues/399)) ([4295af8](https://github.com/bitrix24/b24ui/commit/4295af807ea3e03a07e074a0e4d5b4ed425de41d)), closes [#380](https://github.com/bitrix24/b24ui/issues/380)
+* **locale:** use the endonym for Hindi and close the Chinese bracket ([#367](https://github.com/bitrix24/b24ui/issues/367)) ([b084ccb](https://github.com/bitrix24/b24ui/commit/b084ccb74e62c6b68e90e492a61d3fdcaf28b092))
+* **Modal:** return focus to the trigger after closing ([#458](https://github.com/bitrix24/b24ui/issues/458)) ([3caa3c0](https://github.com/bitrix24/b24ui/commit/3caa3c040bfcef299c1adf16ccc7b7dadf4014ae)), closes [#159](https://github.com/bitrix24/b24ui/issues/159)
+* **Range:** bind form aria attributes on thumbs instead of root ([#431](https://github.com/bitrix24/b24ui/issues/431)) ([6ac1671](https://github.com/bitrix24/b24ui/commit/6ac16717fef4eb30cd9c4117ace32cdf89aeab50))
+* **theme:** blank top-level `base` in `applyUnstyled` ([#368](https://github.com/bitrix24/b24ui/issues/368)) ([c64c2b0](https://github.com/bitrix24/b24ui/commit/c64c2b08a85384e91256ddd02ae3c2643158e654))
+* **theme:** keep variants when replacing slot classes in app config ([#407](https://github.com/bitrix24/b24ui/issues/407)) ([65ff532](https://github.com/bitrix24/b24ui/commit/65ff5325e5d03a7404368e26f54cfca174199439))
+* **Theme:** merge `class` from `props` with the component class ([#403](https://github.com/bitrix24/b24ui/issues/403)) ([612b898](https://github.com/bitrix24/b24ui/commit/612b898344d48cc77ff58db55a1de82f67907876))
+* **theme:** replace deprecated bare tailwind aliases ([#455](https://github.com/bitrix24/b24ui/issues/455)) ([3b1b017](https://github.com/bitrix24/b24ui/commit/3b1b017e6e204274ca4eead3ae2fa9e03d05e879))
+* **theme:** respect reduced motion on movement transitions ([#384](https://github.com/bitrix24/b24ui/issues/384)) ([c10cfb3](https://github.com/bitrix24/b24ui/commit/c10cfb31c3471c608dc79dfb12df96371272cda8))
+* **utils:** stop dotted-path walkers writing through the prototype chain ([#424](https://github.com/bitrix24/b24ui/issues/424)) ([901bc8a](https://github.com/bitrix24/b24ui/commit/901bc8a429a86f30977830a61db7907cdcdb157d))
+
+
+### Docs
+
+* **ComponentCode:** fix number input after clearing ([#370](https://github.com/bitrix24/b24ui/issues/370)) ([0bf9ec4](https://github.com/bitrix24/b24ui/commit/0bf9ec44dbe95da5ec6ced5d880aaf4b86f4cea0))
+* **contributing:** add Telegram release post guidelines ([#460](https://github.com/bitrix24/b24ui/issues/460)) ([c7dbeb1](https://github.com/bitrix24/b24ui/commit/c7dbeb1b213cc1c00494e0429eee6497f1f59719))
+* correct commands, install tab, branding and component count ([#426](https://github.com/bitrix24/b24ui/issues/426)) ([de72464](https://github.com/bitrix24/b24ui/commit/de72464d032dc0ca4a4e8ee7af92b296960525fd)), closes [#94](https://github.com/bitrix24/b24ui/issues/94)
+* **FormField:** document the label slot ([#461](https://github.com/bitrix24/b24ui/issues/461)) ([32b76b1](https://github.com/bitrix24/b24ui/commit/32b76b19cbca5a7fabc1dd8148576ed85ac1fac2)), closes [#48](https://github.com/bitrix24/b24ui/issues/48)
+* **mcp:** add `x-mcp-tools` header to specify available tools ([#373](https://github.com/bitrix24/b24ui/issues/373)) ([28e4250](https://github.com/bitrix24/b24ui/commit/28e4250ac370cf85b663acad7f5705c57b148328))
+* **mcp:** rank component search by intent and compact the metadata ([#389](https://github.com/bitrix24/b24ui/issues/389)) ([e66d494](https://github.com/bitrix24/b24ui/commit/e66d4948c586a75fc759d9509195de1002b6001a))
+* **mcp:** resolve examples by their prerendered name ([#393](https://github.com/bitrix24/b24ui/issues/393)) ([1f4399f](https://github.com/bitrix24/b24ui/commit/1f4399f2be540813b1316c19f1ca173085a4c84b))
+* **playgrounds:** position markup with logical properties ([#416](https://github.com/bitrix24/b24ui/issues/416)) ([0ea7203](https://github.com/bitrix24/b24ui/commit/0ea7203a923ecdadeb087e67343f308ab032bef6))
+* **release:** document the CI approval and the `revert:` subject ([#440](https://github.com/bitrix24/b24ui/issues/440)) ([4211cab](https://github.com/bitrix24/b24ui/commit/4211cabb7d224f0eeebe011965f015e4c9375dbf))
+* **rtl:** align table examples to the end, mirror the trailing slot ([#413](https://github.com/bitrix24/b24ui/issues/413)) ([8d794ca](https://github.com/bitrix24/b24ui/commit/8d794ca2edf99147e9e5d0ebcf85412ed2321209))
+* **rtl:** position examples with logical properties ([#401](https://github.com/bitrix24/b24ui/issues/401)) ([47f8c9a](https://github.com/bitrix24/b24ui/commit/47f8c9acb331c9b6870379680e82f88cf86d9032)), closes [#400](https://github.com/bitrix24/b24ui/issues/400)
+* **showcase:** widen the screenshotOptions schema ([#432](https://github.com/bitrix24/b24ui/issues/432)) ([807d52e](https://github.com/bitrix24/b24ui/commit/807d52efaf8a29cc23b97df3a047c082752bfad0))
+* **skills:** position recipe markup with logical properties ([#415](https://github.com/bitrix24/b24ui/issues/415)) ([cc58a1e](https://github.com/bitrix24/b24ui/commit/cc58a1e73f49ffa69c2264f34575870f7621ee1c))
+* **sync:** check dependency parity with upstream, not just the queue ([#429](https://github.com/bitrix24/b24ui/issues/429)) ([848bc19](https://github.com/bitrix24/b24ui/commit/848bc1908c2ba78c9d079fbe129c31d5174254da))
+* **sync:** correct four false claims about `search.ts` and its coverage ([#409](https://github.com/bitrix24/b24ui/issues/409)) ([fe077e9](https://github.com/bitrix24/b24ui/commit/fe077e92d86b996ff0c0a91026425738eb0aa812))
+* **sync:** correct three claims left stale by closing [#380](https://github.com/bitrix24/b24ui/issues/380) ([#402](https://github.com/bitrix24/b24ui/issues/402)) ([bf3444d](https://github.com/bitrix24/b24ui/commit/bf3444d328051cc49b312e23cfddca55943c6adf))
+* **sync:** record that upstream's Slider is this fork's Range ([#423](https://github.com/bitrix24/b24ui/issues/423)) ([844830f](https://github.com/bitrix24/b24ui/commit/844830f24ddf6315952b99a953aa2a95a4f00479))
+* **sync:** record the b24ui-only `useTokenSearch` divergence as a porting invariant ([#366](https://github.com/bitrix24/b24ui/issues/366)) ([7ce6238](https://github.com/bitrix24/b24ui/commit/7ce6238cbaccdbb6c6569a50c87aaca5f429a5fc))
+* **sync:** register new components in every docs and playground registry ([#447](https://github.com/bitrix24/b24ui/issues/447)) ([a9d1b95](https://github.com/bitrix24/b24ui/commit/a9d1b952f4e1e2d1bcab87e5377c205dbda80a9a))
+* **table:** pin TanStack Table links to v8 ([#445](https://github.com/bitrix24/b24ui/issues/445)) ([fc562bc](https://github.com/bitrix24/b24ui/commit/fc562bcefd685fd8f5fe0ace4d99293a46359c16))
+* **tabs:** improve content section ([#383](https://github.com/bitrix24/b24ui/issues/383)) ([1c1a61a](https://github.com/bitrix24/b24ui/commit/1c1a61a8a88eec05d80cba90a0270c38d105b892))
+* use logical properties so the tree indent and timeline flip under RTL ([#386](https://github.com/bitrix24/b24ui/issues/386)) ([171dc14](https://github.com/bitrix24/b24ui/commit/171dc14a84f22b93b9925eb088812febb913c093))
+
+
+### Tests
+
+* **CommandPalette:** cover the b24ui-only `useTokenSearch` argument ([#369](https://github.com/bitrix24/b24ui/issues/369)) ([531921a](https://github.com/bitrix24/b24ui/commit/531921ad34504b118b9fcb455ffeb6049170e8ff))
+* **CommandPalette:** cover the gaps an independent review pass found ([#390](https://github.com/bitrix24/b24ui/issues/390)) ([18dc2ff](https://github.com/bitrix24/b24ui/commit/18dc2ff7658ddf15f049645e54a7484de0412528))
+* **CommandPalette:** drive real fuse.js at the mark-insertion boundary ([#385](https://github.com/bitrix24/b24ui/issues/385)) ([fc89b5f](https://github.com/bitrix24/b24ui/commit/fc89b5fe0d6abd070ad6ce2b50a8142c32f73602))
+* **CommandPalette:** pin the CRLF conjunction and the malformed-region guard ([#412](https://github.com/bitrix24/b24ui/issues/412)) ([73b9044](https://github.com/bitrix24/b24ui/commit/73b904462fbd145c7d46fb4e76ce0581d781ea2d))
+* **locale:** guard message keys, placeholders and codes across locales ([#372](https://github.com/bitrix24/b24ui/issues/372)) ([f958a55](https://github.com/bitrix24/b24ui/commit/f958a552a9db48cc2a47cb2fea757a3f1e3946eb))
+* pin the suite timezone to UTC ([#418](https://github.com/bitrix24/b24ui/issues/418)) ([24f17f9](https://github.com/bitrix24/b24ui/commit/24f17f991895f3a6ab372a1a28794c090793d852)), closes [#84](https://github.com/bitrix24/b24ui/issues/84)
+* **Table:** give the `date` column something to assert ([#448](https://github.com/bitrix24/b24ui/issues/448)) ([8163f55](https://github.com/bitrix24/b24ui/commit/8163f5552ca76f2f2e6ad331209361bd8186732a))
+* **Table:** make the `status` column's colour branches reachable ([#452](https://github.com/bitrix24/b24ui/issues/452)) ([2c8661b](https://github.com/bitrix24/b24ui/commit/2c8661b22e2ce5a24cf287073b7714fa3878e550))
+
+
+### Chore
+
+* **deps:** align dependencies with upstream, including two majors ([#425](https://github.com/bitrix24/b24ui/issues/425)) ([e5c7e65](https://github.com/bitrix24/b24ui/commit/e5c7e658bfcc87788c0aa02ff7d86779a3e4ed5b))
+* **deps:** declare TypeScript instead of deriving it ([#453](https://github.com/bitrix24/b24ui/issues/453)) ([5b7ae68](https://github.com/bitrix24/b24ui/commit/5b7ae688b5ba4e27565e8353ec57e1a008595a98))
+* **deps:** narrow tailwind source scope in docs and playgrounds ([#417](https://github.com/bitrix24/b24ui/issues/417)) ([72a5957](https://github.com/bitrix24/b24ui/commit/72a595726fb10827a1d62727c05c10330e504aa8))
+* **deps:** update `@nuxtjs/mdc` to ^0.23.1 ([#360](https://github.com/bitrix24/b24ui/issues/360)) ([27b4db3](https://github.com/bitrix24/b24ui/commit/27b4db3001e96605ffa6fdfb2ee242b80fe78c87))
+* **deps:** update all non-major dependencies ([#357](https://github.com/bitrix24/b24ui/issues/357)) ([575e44b](https://github.com/bitrix24/b24ui/commit/575e44bebf107a3061125b906ce4d47ec6efdafc))
+* **deps:** update dependency reka-ui to v2.10.3 ([#428](https://github.com/bitrix24/b24ui/issues/428)) ([c602ea0](https://github.com/bitrix24/b24ui/commit/c602ea0689c94dca3831ce313745271b039f8246))
+* **deps:** update nuxt framework to ^4.5.2 ([#359](https://github.com/bitrix24/b24ui/issues/359)) ([770b965](https://github.com/bitrix24/b24ui/commit/770b96525ceaa5ba4833668f3bd1a6ff49681b6a))
+* **deps:** update tiptap to ^3.29.2 ([#358](https://github.com/bitrix24/b24ui/issues/358)) ([b5355a5](https://github.com/bitrix24/b24ui/commit/b5355a54fcba4c9c1a95f14f9b7cd03da1c3c2f3))
+* remove dead code ([#395](https://github.com/bitrix24/b24ui/issues/395)) ([c4d291c](https://github.com/bitrix24/b24ui/commit/c4d291c9849dd8fb8e56086ae8af8cfc0cd6daf9))
+* **sync:** derive `icon-map.json` from the shared icon keys, and guard it ([#378](https://github.com/bitrix24/b24ui/issues/378)) ([af5dd57](https://github.com/bitrix24/b24ui/commit/af5dd5718b00f789a0fe9d06ae5e0bf9ad2b736c))
+* **sync:** make the manual sync the only sync ([#377](https://github.com/bitrix24/b24ui/issues/377)) ([c1cfa78](https://github.com/bitrix24/b24ui/commit/c1cfa78f3dbf0d8196a595b19bce6da433027022))
+* **sync:** reconcile 0fabbe5 and repair the cursor ([#408](https://github.com/bitrix24/b24ui/issues/408)) ([a56a173](https://github.com/bitrix24/b24ui/commit/a56a17357c3ef21b257913e61d14f84c375c5f5c))
+* **sync:** reconcile 3dbca02 with its merged PR ([#374](https://github.com/bitrix24/b24ui/issues/374)) ([e7f1774](https://github.com/bitrix24/b24ui/commit/e7f1774bab76f57a8e4afe25701c9330e3dcb601))
+* **sync:** reconcile 7c74269 with its merged PR ([#398](https://github.com/bitrix24/b24ui/issues/398)) ([b58b080](https://github.com/bitrix24/b24ui/commit/b58b080832c7070b78806c187d75329a27fc7cc2))
+* **sync:** reconcile the 14ac2438 entry with [#443](https://github.com/bitrix24/b24ui/issues/443) ([#444](https://github.com/bitrix24/b24ui/issues/444)) ([53613e9](https://github.com/bitrix24/b24ui/commit/53613e99dfbfa6bba3acb1c6f2223cc4564e9b34))
+* **sync:** reconcile the 545f9e37 and be58f3f5 entries with [#445](https://github.com/bitrix24/b24ui/issues/445) ([#446](https://github.com/bitrix24/b24ui/issues/446)) ([fa9cca4](https://github.com/bitrix24/b24ui/commit/fa9cca47d1e177ec9e080d6af2e5add6ce009098))
+* **sync:** reconcile the a4fe7d86 and 08e75317 entries with [#419](https://github.com/bitrix24/b24ui/issues/419) ([#422](https://github.com/bitrix24/b24ui/issues/422)) ([0fbc91c](https://github.com/bitrix24/b24ui/commit/0fbc91cf65a2bce6d333ff63b50333cbbf063156))
+* **sync:** reconcile the cf5f15e3 and f6d188bd entries with [#432](https://github.com/bitrix24/b24ui/issues/432) ([#433](https://github.com/bitrix24/b24ui/issues/433)) ([28677ed](https://github.com/bitrix24/b24ui/commit/28677edfa95c155173efeee5028208185cc5eeaf))
+* **sync:** reconcile the e2a253ec, d4f2ca02 and a7f26a32 entries with [#455](https://github.com/bitrix24/b24ui/issues/455) ([#456](https://github.com/bitrix24/b24ui/issues/456)) ([593911f](https://github.com/bitrix24/b24ui/commit/593911f6b114e1c1298ecaf2830b18b7a1fe1ed2))
+* **sync:** record CLAUDE.md and the bench scaling as skipped ([#439](https://github.com/bitrix24/b24ui/issues/439)) ([167cd6f](https://github.com/bitrix24/b24ui/commit/167cd6f3f42ee6c97a888f0953463d9c6545c6a2))
+* **sync:** record the two calendar-template commits as not applicable ([#404](https://github.com/bitrix24/b24ui/issues/404)) ([9ea693d](https://github.com/bitrix24/b24ui/commit/9ea693d4357b80a45fd65353b7914d3743745c90))
+* **sync:** record the volta.net and triadtrainer showcase entries as no-ops ([#442](https://github.com/bitrix24/b24ui/issues/442)) ([b6252d8](https://github.com/bitrix24/b24ui/commit/b6252d891521e7d8fe536bc69543b638f301404d))
+* **sync:** record three upstream commits that do not apply ([#361](https://github.com/bitrix24/b24ui/issues/361)) ([c31d250](https://github.com/bitrix24/b24ui/commit/c31d250d192732857ffaa2e77f1bed2b6e19bda5))
+* **theme:** sort the prose code icon map into upstream's order ([#419](https://github.com/bitrix24/b24ui/issues/419)) ([ef8ba7b](https://github.com/bitrix24/b24ui/commit/ef8ba7b8e429525b5c4c36065f34914d0941d24e))
+
+
+### CI
+
+* **release:** restore the `revert` and `feature` changelog sections ([#435](https://github.com/bitrix24/b24ui/issues/435)) ([cbd7c00](https://github.com/bitrix24/b24ui/commit/cbd7c0072ee8e60cb45614549a03214d821f8174))
+
 ## [2.11.0](https://github.com/bitrix24/b24ui/compare/v2.10.0...v2.11.0) (2026-08-10)
 
 
