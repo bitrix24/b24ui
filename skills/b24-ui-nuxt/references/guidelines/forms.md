@@ -56,6 +56,27 @@ function onSubmit(event: FormSubmitEvent<Schema>) {
 | `required` | Shows required indicator |
 | `size` | Inherits to child input |
 
+## Rich labels
+
+`label`, `description`, `hint`, `help` and `error` each have a matching slot for
+when a string is not enough. The field keeps its `for`/`id` association, so the
+control stays reachable by clicking the label.
+
+```vue
+<B24FormField label="Email" name="email">
+  <template #label="{ label }">
+    {{ label }}
+    <B24Badge label="Work" size="xs" />
+  </template>
+
+  <B24Input placeholder="Enter your email" />
+</B24FormField>
+```
+
+The slot receives the prop it replaces, so a wrapper can decorate the value
+rather than restate it — which matters when the text comes from a schema or a
+translation.
+
 ## Field layout patterns
 
 ### Vertical stack (default)

@@ -43,6 +43,10 @@ slots:
 The label `for` attribute and the form control are associated with a unique `id` if not provided.
 ::
 
+::tip{to="#label-slot"}
+For a label that is more than text, use the `#label` slot.
+::
+
 When using the `required` prop, an asterisk is added next to the label.
 
 ::component-code
@@ -61,6 +65,53 @@ slots:
 
 :b24-input{placeholder="Enter your email"}
 ::
+
+### Label slot
+
+Use the `#label` slot when the label needs more than a string — a badge, a
+counter, an inline link. The field keeps its `for`/`id` association either way,
+so the control stays reachable by clicking the label.
+
+::component-code
+---
+prettier: true
+props:
+  name: email
+slots:
+  label: |
+
+    Email
+    <B24Badge label="Work" size="xs" />
+
+  default: |
+
+    <B24Input placeholder="Enter your email" />
+---
+
+#label
+Email :b24-badge{label="Work" size="xs"}
+
+#default
+:b24-input{placeholder="Enter your email"}
+::
+
+The slot receives the `label` prop, so a wrapper can decorate the string
+instead of replacing it — useful when the text itself comes from a schema or a
+translation:
+
+```vue
+<B24FormField label="Email" name="email">
+  <template #label="{ label }">
+    {{ label }}
+    <B24Badge label="Work" size="xs" />
+  </template>
+
+  <B24Input placeholder="Enter your email" />
+</B24FormField>
+```
+
+`hint`, `description`, `help` and `error` work the same way — each has a prop
+for the plain case and a slot of the same name for the rich one.
 
 ### Description
 
