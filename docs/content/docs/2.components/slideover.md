@@ -549,6 +549,19 @@ Many examples can be found on the [`playground`](https://bitrix24.github.io/b24u
 
 :component-emits
 
+## Accessibility :badge{label="Soon" class="align-text-top"}
+
+On open, focus is moved off the trigger for one tick before the dialog's focus
+trap takes over. This works around a [reka-ui timing
+bug](https://github.com/unovue/reka-ui/issues/1280) that otherwise makes the
+browser refuse `aria-hidden` and log *"Blocked aria-hidden on an element
+because its descendant retained focus"*.
+
+Focus returns to whatever was focused before opening, including when you open
+the component programmatically rather than through its trigger slot. Screen
+readers that announce focus changes eagerly — VoiceOver in particular — may
+briefly announce the page title before the dialog title.
+
 ## Theme
 
 :component-theme

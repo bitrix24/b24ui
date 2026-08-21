@@ -45,10 +45,18 @@ describe('useBlurOnOpen workaround', () => {
       'reka-ui no longer ships dist/shared/useHideOthers.js — re-check unovue/reka-ui#1280 by hand and update this spec (#159)'
     ).toBeDefined()
 
+    // Matched as an import of that exact name and as a call, not as a bare
+    // substring: `import { inertOthers as hideOthers }` would keep a substring
+    // check passing while the behaviour underneath had changed completely.
     expect(
       source,
-      'reka-ui\'s useHideOthers no longer imports hideOthers — the upstream fix may have landed. Verify unovue/reka-ui#1280 and remove the useBlurOnOpen workaround per #159'
-    ).toContain('hideOthers')
+      'reka-ui\'s useHideOthers no longer imports hideOthers from aria-hidden — the upstream fix may have landed. Verify unovue/reka-ui#1280 and remove the useBlurOnOpen workaround per #159'
+    ).toMatch(/import\s*\{[^}]*\bhideOthers\b[^}]*\}\s*from\s*["']aria-hidden["']/)
+
+    expect(
+      source,
+      'reka-ui\'s useHideOthers imports hideOthers but no longer calls it — check what replaced the call before trusting this guard (#159)'
+    ).toMatch(/\bhideOthers\s*\(/)
   })
 
   it('keeps every site findable by the documented search', async () => {
@@ -64,15 +72,22 @@ describe('useBlurOnOpen workaround', () => {
       .filter(file => readFileSync(join(process.cwd(), file), 'utf8').includes('reka-ui#1280'))
       .sort()
 
-    expect(tagged).toEqual([
-      'src/runtime/components/Drawer.vue',
-      'src/runtime/components/Modal.vue',
-      'src/runtime/components/Slideover.vue',
-      'src/runtime/composables/useBlurOnOpen.ts',
-      'test/components/Drawer.spec.ts',
-      'test/components/Modal.spec.ts',
-      'test/components/Slideover.spec.ts',
-      'test/utils/blur-on-open-workaround.spec.ts'
-    ])
+    // Asserted as a subset, not an exact set: the property worth keeping is
+    // that no known site loses its tag, and a future component wrapping the
+    // same primitive should be able to add one without failing a spec that
+    // says "the upstream fix may have landed".
+    expect(tagged, 'a site lost its reka-ui#1280 tag — the search #159 documents no longer finds everything').toEqual(
+      expect.arrayContaining([
+        'src/runtime/components/Drawer.vue',
+        'src/runtime/components/Modal.vue',
+        'src/runtime/components/Slideover.vue',
+        'src/runtime/composables/useBlurOnOpen.ts',
+        'test/components/Drawer.spec.ts',
+        'test/components/Modal.spec.ts',
+        'test/components/Slideover.spec.ts',
+        'test/composables/useBlurOnOpen.spec.ts',
+        'test/utils/blur-on-open-workaround.spec.ts'
+      ])
+    )
   })
 })
