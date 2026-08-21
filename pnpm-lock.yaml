@@ -211,9 +211,6 @@ importers:
       tinyglobby:
         specifier: ^0.2.17
         version: 0.2.17
-      typescript:
-        specifier: ^5.6.3 || ^6.0.0 || ^7.0.0
-        version: 6.0.3
       ufo:
         specifier: ^1.6.4
         version: 1.6.4
@@ -245,6 +242,9 @@ importers:
         specifier: ^3.24.0 || ^4.0.0
         version: 4.4.3
     devDependencies:
+      '@conventional-commits/parser':
+        specifier: 0.4.1
+        version: 0.4.1
       '@nuxt/eslint-config':
         specifier: ^1.17.0
         version: 1.17.0(@typescript-eslint/utils@8.66.0(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(@vue/compiler-sfc@3.5.41)(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
@@ -284,6 +284,9 @@ importers:
       nuxt:
         specifier: ^4.5.2
         version: 4.5.2(5eaa5debc483dd6b779810f76a647995)
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
       unbuild:
         specifier: ^3.6.1
         version: 3.6.1(typescript@6.0.3)(vue-sfc-transformer@0.2.3(@volar/typescript@2.4.28(typescript@6.0.3))(@vue/compiler-core@3.5.41)(@vue/language-core@3.3.10)(esbuild@0.27.7)(rolldown@1.2.3)(typescript@6.0.3)(vue@3.5.41(typescript@6.0.3)))(vue-tsc@3.3.10(typescript@6.0.3))(vue@3.5.41(typescript@6.0.3))
@@ -321,11 +324,11 @@ importers:
   docs:
     dependencies:
       '@ai-sdk/deepseek':
-        specifier: ^2.0.38
-        version: 2.0.38(zod@4.4.3)
+        specifier: ^3.0.28
+        version: 3.0.28(zod@4.4.3)
       '@ai-sdk/mcp':
-        specifier: ^1.0.52
-        version: 1.0.52(zod@4.4.3)
+        specifier: 2.0.32
+        version: 2.0.32(zod@4.4.3)
       '@ai-sdk/vue':
         specifier: ^4.0.66
         version: 4.0.66(vue@3.5.41(typescript@6.0.3))(zod@4.4.3)
@@ -414,8 +417,8 @@ importers:
         specifier: ^6.2.1
         version: 6.2.1(d42a3af3351b29285a3d46123e99f7b5)
       prettier:
-        specifier: ^3.8.4
-        version: 3.8.4
+        specifier: ^3.9.6
+        version: 3.9.6
       shiki:
         specifier: ^4.4.3
         version: 4.4.3
@@ -463,8 +466,8 @@ importers:
   playgrounds/demo:
     dependencies:
       '@ai-sdk/deepseek':
-        specifier: ^2.0.38
-        version: 2.0.38(zod@4.4.3)
+        specifier: ^3.0.28
+        version: 3.0.28(zod@4.4.3)
       '@ai-sdk/vue':
         specifier: ^4.0.66
         version: 4.0.66(vue@3.5.41(typescript@6.0.3))(zod@4.4.3)
@@ -518,8 +521,8 @@ importers:
   playgrounds/nuxt:
     dependencies:
       '@ai-sdk/deepseek':
-        specifier: ^2.0.38
-        version: 2.0.38(zod@4.4.3)
+        specifier: ^3.0.28
+        version: 3.0.28(zod@4.4.3)
       '@ai-sdk/vue':
         specifier: ^4.0.66
         version: 4.0.66(vue@3.5.41(typescript@6.0.3))(zod@4.4.3)
@@ -640,9 +643,9 @@ importers:
 
 packages:
 
-  '@ai-sdk/deepseek@2.0.38':
-    resolution: {integrity: sha512-IkBQPEfRUbPEcWzigT76KttqoDqM4FR8H8cp5pgAw5RdDN++nUoJa0uZan3LuOp4IC8BKGZABJCqB97CMIYLdQ==}
-    engines: {node: '>=18'}
+  '@ai-sdk/deepseek@3.0.28':
+    resolution: {integrity: sha512-ySiafZL/1KQq8NF49eGWmVRYP4ezBjxAwAlMK+hhTV+9ee37LcCxlSIbURe4C4KFq8kYaTFKsTGI2poLFLOu0w==}
+    engines: {node: '>=22'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
 
@@ -652,21 +655,9 @@ packages:
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
 
-  '@ai-sdk/mcp@1.0.52':
-    resolution: {integrity: sha512-yudE3Mdl8fsbzjMepOPbikA6nIRWOez+5e/IvOv1jK6XMAtsZ4+Xz8vjRQHI77VMv2TdiaMfsKKFoW6dlZRT3g==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      zod: ^3.25.76 || ^4.1.8
-
-  '@ai-sdk/provider-utils@4.0.29':
-    resolution: {integrity: sha512-uhukHaCBvqkwBHkT8C2PrnqKTCoLn3pdHXqtcR9I8ErH+flbzgW4o7VHSNIup9LRu+WBvZIZDQLsx6rwl2tiOA==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      zod: ^3.25.76 || ^4.1.8
-
-  '@ai-sdk/provider-utils@4.0.30':
-    resolution: {integrity: sha512-VO7I+vPffqI5sMnPoUq5DCSqKIgQIk/naJWRdQVpz2ma2zoprC/lqiJiUEl2s6DfvTD76TbhD3q39ROjlA6rGw==}
-    engines: {node: '>=18'}
+  '@ai-sdk/mcp@2.0.32':
+    resolution: {integrity: sha512-NkXUnIEUmOmjD42LGpXGdHPULYvAV4SYUojutqw5YVNmQA7g64YRv3NLOaST21b2vIScUAah4qWchi62iUpQdA==}
+    engines: {node: '>=22'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
 
@@ -675,10 +666,6 @@ packages:
     engines: {node: '>=22'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
-
-  '@ai-sdk/provider@3.0.10':
-    resolution: {integrity: sha512-Q3BZ27qfpYqnCYGvE3vt+Qi6LGOF9R5Nmzn+9JoM1lCRsD9mYaIhfJLkSunN48nfGXJ6n+XNV0J/XVpqGQl7Dw==}
-    engines: {node: '>=18'}
 
   '@ai-sdk/provider@4.0.7':
     resolution: {integrity: sha512-6or44XprPzKbr8zkmzosowSE0pxkvJcoojBL+mCZvPUt3kvXp3XSNqeVun9golb1acEfSo6yaEBRT18h2VU+1Q==}
@@ -934,6 +921,9 @@ packages:
         optional: true
       shiki:
         optional: true
+
+  '@conventional-commits/parser@0.4.1':
+    resolution: {integrity: sha512-H2ZmUVt6q+KBccXfMBhbBF14NlANeqHTXL4qCL6QGbMzrc4HDXyzWuxPxPNbz71f/5UkR5DrycP5VO9u7crahg==}
 
   '@devframes/hub@0.7.14':
     resolution: {integrity: sha512-Ym3YHkBnpdwhPw7y4YgURZYntQPShb9raRfo60D1Yk4jb1OlnL2GGHw6pt4iLZqHL4vp1P4T6YpBFPPVx4G38A==}
@@ -7385,8 +7375,8 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
-  prettier@3.8.4:
-    resolution: {integrity: sha512-N2MylSdi48+5N/6S5j+maeHbUSIzzZ5uOcX5Hm4QpV8Dkb1HFjfAKTKX6yNPJQD9AhcT3ifHNB66tWTTJDi11Q==}
+  prettier@3.9.6:
+    resolution: {integrity: sha512-OpN0zzVdiaiAhxpuuj5efpIS4sY9j7bY6uR5mnj5yPzGkdkjNKSJeUThPb60Jw29QuAZgA4o+/iB49kFiaBX6g==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -8359,6 +8349,9 @@ packages:
   unist-util-find-after@5.0.0:
     resolution: {integrity: sha512-amQa0Ep2m6hE2g72AugUItjbuM8X8cGQnFoHk0pGfrFeT9GZhzN5SW8nRsiGKK7Aif4CrACPENkA6P/Lw6fHGQ==}
 
+  unist-util-is@4.1.0:
+    resolution: {integrity: sha512-ZOQSsnce92GrxSqlnEEseX0gi7GH9zTJZ0p9dtu87WRb/37mMPO2Ilx1s/t9vBHrFhbgweUwb+t7cIn5dxPhZg==}
+
   unist-util-is@6.0.1:
     resolution: {integrity: sha512-LsiILbtBETkDz8I9p1dQ0uyRUWuaQzd/cuEeS1hoRSyW5E5XGmTzlwY1OrNzzakGowI9Dr/I8HVaw4hTtnxy8g==}
 
@@ -8368,8 +8361,14 @@ packages:
   unist-util-stringify-position@4.0.0:
     resolution: {integrity: sha512-0ASV06AAoKCDkS2+xw5RXJywruurpbC4JZSm7nr7MOt1ojAzvyyaO+UxZf18j8FCF6kmzCZKcAgN/yu2gm2XgQ==}
 
+  unist-util-visit-parents@3.1.1:
+    resolution: {integrity: sha512-1KROIZWo6bcMrZEwiH2UrXDyalAa0uqzWCxCJj6lPOvTve2WkfgCytoDTPaMnodXh1WrXOq0haVYHj99ynJlsg==}
+
   unist-util-visit-parents@6.0.2:
     resolution: {integrity: sha512-goh1s1TBrqSqukSc8wrjwWhL0hiJxgA8m4kFxGlQ+8FYQ3C/m11FcTs4YYem7V664AhHVvgoQLk890Ssdsr2IQ==}
+
+  unist-util-visit@2.0.3:
+    resolution: {integrity: sha512-iJ4/RczbJMkD0712mGktuGpm/U4By4FfDonL7N/9tATGIF4imikjOuagyMY53tnZq3NP6BcmlrHhEKAfGWjh7Q==}
 
   unist-util-visit@5.1.0:
     resolution: {integrity: sha512-m+vIdyeCOpdr/QeQCu2EzxX/ohgS8KbnPDgFni4dQsfSCtpz8UqDyY5GjRru8PDKuYn7Fq19j1CQ+nJSsGKOzg==}
@@ -9073,10 +9072,10 @@ packages:
 
 snapshots:
 
-  '@ai-sdk/deepseek@2.0.38(zod@4.4.3)':
+  '@ai-sdk/deepseek@3.0.28(zod@4.4.3)':
     dependencies:
-      '@ai-sdk/provider': 3.0.10
-      '@ai-sdk/provider-utils': 4.0.29(zod@4.4.3)
+      '@ai-sdk/provider': 4.0.7
+      '@ai-sdk/provider-utils': 5.0.27(zod@4.4.3)
       zod: 4.4.3
 
   '@ai-sdk/gateway@4.0.52(zod@4.4.3)':
@@ -9086,25 +9085,11 @@ snapshots:
       '@vercel/oidc': 3.2.0
       zod: 4.4.3
 
-  '@ai-sdk/mcp@1.0.52(zod@4.4.3)':
+  '@ai-sdk/mcp@2.0.32(zod@4.4.3)':
     dependencies:
-      '@ai-sdk/provider': 3.0.10
-      '@ai-sdk/provider-utils': 4.0.30(zod@4.4.3)
+      '@ai-sdk/provider': 4.0.7
+      '@ai-sdk/provider-utils': 5.0.27(zod@4.4.3)
       pkce-challenge: 5.0.1
-      zod: 4.4.3
-
-  '@ai-sdk/provider-utils@4.0.29(zod@4.4.3)':
-    dependencies:
-      '@ai-sdk/provider': 3.0.10
-      '@standard-schema/spec': 1.1.0
-      eventsource-parser: 3.0.8
-      zod: 4.4.3
-
-  '@ai-sdk/provider-utils@4.0.30(zod@4.4.3)':
-    dependencies:
-      '@ai-sdk/provider': 3.0.10
-      '@standard-schema/spec': 1.1.0
-      eventsource-parser: 3.0.8
       zod: 4.4.3
 
   '@ai-sdk/provider-utils@5.0.27(zod@4.4.3)':
@@ -9115,10 +9100,6 @@ snapshots:
       eventsource-parser: 3.0.8
       undici: 7.29.0
       zod: 4.4.3
-
-  '@ai-sdk/provider@3.0.10':
-    dependencies:
-      json-schema: 0.4.0
 
   '@ai-sdk/provider@4.0.7':
     dependencies:
@@ -9438,6 +9419,11 @@ snapshots:
       shiki: 4.4.3
     transitivePeerDependencies:
       - rangi
+
+  '@conventional-commits/parser@0.4.1':
+    dependencies:
+      unist-util-visit: 2.0.3
+      unist-util-visit-parents: 3.1.1
 
   '@devframes/hub@0.7.14(devframe@0.7.14(@modelcontextprotocol/sdk@1.30.0(supports-color@10.2.2)(zod@4.4.3))(cac@6.7.14)(srvx@0.11.22)(typescript@6.0.3))':
     dependencies:
@@ -18320,7 +18306,7 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier@3.8.4: {}
+  prettier@3.9.6: {}
 
   pretty-bytes@7.1.0: {}
 
@@ -19652,6 +19638,8 @@ snapshots:
       '@types/unist': 3.0.3
       unist-util-is: 6.0.1
 
+  unist-util-is@4.1.0: {}
+
   unist-util-is@6.0.1:
     dependencies:
       '@types/unist': 3.0.3
@@ -19664,10 +19652,21 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
 
+  unist-util-visit-parents@3.1.1:
+    dependencies:
+      '@types/unist': 2.0.11
+      unist-util-is: 4.1.0
+
   unist-util-visit-parents@6.0.2:
     dependencies:
       '@types/unist': 3.0.3
       unist-util-is: 6.0.1
+
+  unist-util-visit@2.0.3:
+    dependencies:
+      '@types/unist': 2.0.11
+      unist-util-is: 4.1.0
+      unist-util-visit-parents: 3.1.1
 
   unist-util-visit@5.1.0:
     dependencies:

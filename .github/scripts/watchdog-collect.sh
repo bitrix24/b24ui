@@ -75,7 +75,7 @@ if [ -n "$pr" ]; then
   if [ "$age" -ge "$threshold" ]; then
     # Referenced by number, never by title: the title is attacker-supplied text
     # and this body tells a human to run the publish workflow.
-    printf -- '- **Release PR #%s has been open for %s days.** Everything in it is fixed on `main` and not on npm. Merging it tags, releases and publishes.\n' \
+    printf -- '- **Release PR #%s has been open for %s days.** Everything in it is fixed on `main` and not on npm. Approve its held `ci` run, then merge — see [releasing.md](../blob/main/.github/contributing/releasing.md#approving-the-release-prs-ci).\n' \
       "$number" "$age" >> findings.md
   fi
 elif [ "$pr_checked" = true ]; then

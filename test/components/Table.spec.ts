@@ -19,31 +19,36 @@ describe('Table', () => {
     {
       id: 'm5gr84i9',
       amount: 316,
-      status: 'success',
+      date: '2024-03-11T15:30:00',
+      status: 'paid',
       email: 'ken99@yahoo.com'
     },
     {
       id: '3u1reuv4',
       amount: 242,
-      status: 'success',
+      date: '2024-03-11T10:10:00',
+      status: 'failed',
       email: 'Abe45@gmail.com'
     },
     {
       id: 'derv1ws0',
       amount: 837,
-      status: 'processing',
+      date: '2024-03-11T08:50:00',
+      status: 'refunded',
       email: 'Monserrat44@gmail.com'
     },
     {
       id: '5kma53ae',
       amount: 874,
-      status: 'success',
+      date: '2024-03-10T19:45:00',
+      status: 'paid',
       email: 'Silas22@gmail.com'
     },
     {
       id: 'bhqecj4p',
       amount: 721,
-      status: 'failed',
+      date: '2024-03-10T15:55:00',
+      status: 'paid',
       email: 'carmella@hotmail.com'
     }
   ]
@@ -70,6 +75,38 @@ describe('Table', () => {
       cell: ({ row }) => `#${row.getValue('id')}`
     },
     {
+      // The fixture carries `date` because this cell formats it. Without the
+      // field `row.getValue('date')` was `undefined`, `new Date(undefined)` was
+      // an Invalid Date, and the snapshots recorded `Invalid Date` ten times as
+      // the expected output — the column asserted that a broken render stayed
+      // broken (#420). The values come from the docs example for this table.
+      //
+      // Why this is timezone-independent, which is not the obvious reason: the
+      // values carry no `Z`, so they parse as *local*, and the formatter names
+      // no `timeZone`, so it renders in *local*. The two cancel on wall-clock
+      // fields, and the rendered string is identical in all 418 IANA zones. The
+      // suite's `TZ=UTC` pin (#418) is a backstop here, not the mechanism —
+      // this spec passes with the pin removed.
+      //
+      // Two things that would break it, both easy to do by accident:
+      //
+      //   - **Do not add `timeZone: 'UTC'`** to match the docs example. Every
+      //     docs copy has it and this one deliberately does not: pinning the
+      //     format side without pinning the parse side stops the cancellation,
+      //     and four assertions diverge the moment the `TZ` pin is lifted —
+      //     `Mar 10, 19:45` becomes `Mar 11, 02:45`.
+      //   - **Keep new values out of hour `00`, and out of `00:00`–`02:59` on
+      //     2024-03-10.** Node 20 resolves `hour12: false` to `h24`, so a
+      //     midnight value renders `24:15` there and `00:15` on CI's node 24;
+      //     and that window is the spring-forward gap, where 52 of 418 zones
+      //     have no such wall time and the cancellation fails.
+      //
+      // What the five values actually pin: `month: 'short'` and the `en-US`
+      // locale (via `Mar` and the comma) and `hour12: false` (via the absent
+      // `AM`). Not pinned: `day: 'numeric'`, since every value is a two-digit
+      // day, and `hour`/`minute` `'2-digit'`, which ECMA-402 resolves to the
+      // same output as `'numeric'` whenever `hour12: false` is set — no fixture
+      // value can distinguish those.
       accessorKey: 'date',
       header: 'Date',
       cell: ({ row }) => {
@@ -83,6 +120,22 @@ describe('Table', () => {
       }
     },
     {
+      // The fixture's statuses are the map's keys, which they were not: it
+      // carried `success`/`processing` while the map handles
+      // `paid`/`failed`/`refunded`, so four of five rows resolved to
+      // `undefined` and rendered the badge's default and two of the three
+      // colour branches were unreachable (#450). The statuses and their
+      // vocabulary come from the docs example for this table, as the dates do —
+      // `id`, `email` and `amount` do not, they are the upstream fixture.
+      //
+      // One branch is still only half-covered, and it is worth knowing which.
+      // `refunded` maps to `air-primary`, which is `src/theme/badge.ts`'s own
+      // default, so its rendered bytes are indistinguishable from an unmapped
+      // status: changing that colour fails four tests, but *deleting* the
+      // `refunded` entry fails none. Closing it needs the fixture's `status`
+      // typed as the union so a dropped key is a compile error — `getValue`
+      // returns `unknown` and the `as string` erases the key set. Tracked with
+      // the rest of that family in #454.
       accessorKey: 'status',
       header: 'Status',
       cell: ({ row }) => {

@@ -80,16 +80,16 @@ export default {
     },
     pinRows: {
       true: [
-        '[&>table>thead>tr]:sticky [&>table>thead>tr]:top-0      [&>table>thead>tr]:z-1 [&>table>thead>tr]:bg-(--ui-color-bg-content-primary) [&>table>thead>tr>th]:backdrop-blur [&>table>thead>tr]:shadow-bottom-sm',
-        // '[&>table>tbody>tr]:sticky [&>table>tbody>tr]:bottom-0 [&>table>tbody>tr]:z-1 [&>table>tbody>tr]:bg-(--ui-color-bg-content-primary) [&>table>tbody>tr>th]:backdrop-blur [&>table>tbody>tr]:shadow-top-sm',
-        '[&>table>tfoot>tr]:sticky [&>table>tfoot>tr]:bottom-0   [&>table>tfoot>tr]:z-1 [&>table>tfoot>tr]:bg-(--ui-color-bg-content-primary) [&>table>tfoot>tr>th]:backdrop-blur [&>table>tfoot>tr]:shadow-top-sm'
+        '[&>table>thead>tr]:sticky [&>table>thead>tr]:top-0      [&>table>thead>tr]:z-1 [&>table>thead>tr]:bg-(--ui-color-bg-content-primary) [&>table>thead>tr>th]:backdrop-blur-sm [&>table>thead>tr]:shadow-bottom-sm',
+        // '[&>table>tbody>tr]:sticky [&>table>tbody>tr]:bottom-0 [&>table>tbody>tr]:z-1 [&>table>tbody>tr]:bg-(--ui-color-bg-content-primary) [&>table>tbody>tr>th]:backdrop-blur-sm [&>table>tbody>tr]:shadow-top-sm',
+        '[&>table>tfoot>tr]:sticky [&>table>tfoot>tr]:bottom-0   [&>table>tfoot>tr]:z-1 [&>table>tfoot>tr]:bg-(--ui-color-bg-content-primary) [&>table>tfoot>tr>th]:backdrop-blur-sm [&>table>tfoot>tr]:shadow-top-sm'
       ].join(' ')
     },
     pinCols: {
       true: [
-        '[&>table>thead>tr>th]:sticky [&>table>thead>tr>th]:right-0 [&>table>thead>tr>th]:left-0 [&>table>thead>tr>th]:bg-(--ui-color-bg-content-primary) [&>table>thead>tr>th]:backdrop-blur',
-        '[&>table>tbody>tr>th]:sticky [&>table>tbody>tr>th]:right-0 [&>table>tbody>tr>th]:left-0 [&>table>tbody>tr>th]:bg-(--ui-color-bg-content-primary) [&>table>tbody>tr>th]:backdrop-blur',
-        '[&>table>tfoot>tr>th]:sticky [&>table>tfoot>tr>th]:right-0 [&>table>tfoot>tr>th]:left-0 [&>table>tfoot>tr>th]:bg-(--ui-color-bg-content-primary) [&>table>tfoot>tr>th]:backdrop-blur'
+        '[&>table>thead>tr>th]:sticky [&>table>thead>tr>th]:right-0 [&>table>thead>tr>th]:left-0 [&>table>thead>tr>th]:bg-(--ui-color-bg-content-primary) [&>table>thead>tr>th]:backdrop-blur-sm',
+        '[&>table>tbody>tr>th]:sticky [&>table>tbody>tr>th]:right-0 [&>table>tbody>tr>th]:left-0 [&>table>tbody>tr>th]:bg-(--ui-color-bg-content-primary) [&>table>tbody>tr>th]:backdrop-blur-sm',
+        '[&>table>tfoot>tr>th]:sticky [&>table>tfoot>tr>th]:right-0 [&>table>tfoot>tr>th]:left-0 [&>table>tfoot>tr>th]:bg-(--ui-color-bg-content-primary) [&>table>tfoot>tr>th]:backdrop-blur-sm'
       ].join(' ')
     },
     rowHover: {

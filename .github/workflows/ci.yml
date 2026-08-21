@@ -5,9 +5,12 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  # Dispatched by release-please.yml onto its release-PR branch: PRs opened
-  # with GITHUB_TOKEN fire no pull_request event, and a dispatched run on the
-  # same head SHA is what satisfies a required `ci` status check.
+  # Dispatched by release-please.yml onto its release-PR branch. The bot's PR
+  # does fire a pull_request event, but GitHub holds that run at
+  # `action_required` awaiting manual approval, so the dispatched run is the only
+  # `ci` that actually executes there. It does NOT satisfy the required check —
+  # branch protection waits on the held run, which a human has to approve. See
+  # .github/contributing/releasing.md#approving-the-release-prs-ci.
   workflow_dispatch:
 
 concurrency:
@@ -81,6 +84,18 @@ jobs:
 
       - name: Prepare
         run: pnpm run dev:prepare
+
+      # release-please drops a commit it cannot parse and says so only at debug
+      # level, so a missing changelog entry has no red anywhere — dcb3bacf did
+      # exactly that to the 2.12.0 notes (#436).
+      #
+      # `push` only: ci.yml's push trigger is `branches: [main]`, so every push
+      # event here is the message that actually lands. A PR's commits are usually
+      # the same text, but the squash subject and body can be rewritten in the
+      # merge dialog, so only the message on `main` is certain.
+      - name: Assert the commit message will not be dropped from the changelog
+        if: github.event_name == 'push'
+        run: .github/scripts/assert-commit-parses.mjs
 
       - name: Lint
         run: pnpm run lint

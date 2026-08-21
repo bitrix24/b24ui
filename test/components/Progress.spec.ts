@@ -16,6 +16,9 @@ describe('Progress', () => {
     ['with modelValue', { props: { modelValue: 50 } }],
     ['with status', { props: { modelValue: 50, status: true } }],
     ['with status inverted', { props: { modelValue: 50, status: true, inverted: true } }],
+    // `--percent` falls back to `fit-content` at zero — a b24ui-only branch
+    // upstream does not have, and one no other case reaches.
+    ['with status at zero', { props: { modelValue: 0, status: true } }],
     ['with max', { props: { modelValue: 2, status: true, max } }],
     ['with max inverted', { props: { modelValue: 2, status: true, inverted: true, max } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { size } }]),

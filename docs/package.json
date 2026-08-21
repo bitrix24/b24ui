@@ -11,8 +11,8 @@
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
-    "@ai-sdk/deepseek": "^2.0.38",
-    "@ai-sdk/mcp": "^1.0.52",
+    "@ai-sdk/deepseek": "^3.0.28",
+    "@ai-sdk/mcp": "2.0.32",
     "@ai-sdk/vue": "^4.0.66",
     "@comark/vue": "^0.6.2",
     "@nuxt/content": "^3.15.2",
@@ -38,7 +38,7 @@
     "nuxt-component-meta": "^0.18.0",
     "nuxt-llms": "^0.2.0",
     "nuxt-schema-org": "^6.2.1",
-    "prettier": "^3.8.4",
+    "prettier": "^3.9.6",
     "shiki": "^4.4.3",
     "shiki-transformer-color-highlight": "^1.1.0",
     "@shikijs/core": "^4.4.2",

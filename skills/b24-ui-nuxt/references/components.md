@@ -13,6 +13,7 @@ Quick-reference index of 130+ components. The table below lists the ones you com
 | `B24Main` | Main content area | [main.md](https://bitrix24.github.io/b24ui/raw/docs/components/main.md) |
 | `B24Container` | Centered max-width container | [container.md](https://bitrix24.github.io/b24ui/raw/docs/components/container.md) |
 | `B24Link` | Enhanced link — NuxtLink/RouterLink with active states | [link.md](https://bitrix24.github.io/b24ui/raw/docs/components/link.md) |
+| `B24Splitter` | Resizable panel group with draggable handles | [splitter.md](https://bitrix24.github.io/b24ui/raw/docs/components/splitter.md) |
 
 ## Element
 
@@ -30,6 +31,7 @@ Quick-reference index of 130+ components. The table below lists the ones you com
 | `B24Separator` | Divider line with optional label | [separator.md](https://bitrix24.github.io/b24ui/raw/docs/components/separator.md) |
 | `B24Skeleton` | Loading placeholder | [skeleton.md](https://bitrix24.github.io/b24ui/raw/docs/components/skeleton.md) |
 | `B24Progress` | Progress bar | [progress.md](https://bitrix24.github.io/b24ui/raw/docs/components/progress.md) |
+| `B24ProgressGroup` | Progress bar split into coloured segments with a legend | [progress-group.md](https://bitrix24.github.io/b24ui/raw/docs/components/progress-group.md) |
 | `B24Toast` | Toast notification (shown via `useToast`) | [toast.md](https://bitrix24.github.io/b24ui/raw/docs/components/toast.md) |
 | `B24Calendar` | Date calendar (single, range, multiple) | [calendar.md](https://bitrix24.github.io/b24ui/raw/docs/components/calendar.md) |
 | `B24Collapsible` | Animated expand/collapse | [collapsible.md](https://bitrix24.github.io/b24ui/raw/docs/components/collapsible.md) |
