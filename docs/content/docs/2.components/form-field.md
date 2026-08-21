@@ -69,8 +69,16 @@ slots:
 ### Label slot
 
 Use the `#label` slot when the label needs more than a string — a badge, a
-counter, an inline link. The field keeps its `for`/`id` association either way,
-so the control stays reachable by clicking the label.
+counter, a short piece of state. The slot replaces the label's *content*, not
+the `<label>` element around it, so whatever association the field already had
+is unchanged.
+
+::warning
+Anything you put here becomes part of the control's accessible name: a badge
+reading `Work` makes a screen reader announce *"Email Work"*. Mark decorative
+content `aria-hidden="true"`, as below. Avoid interactive content — a link or
+button inside a `<label>` both activates itself and toggles the control.
+::
 
 ::component-code
 ---
@@ -81,7 +89,7 @@ slots:
   label: |
 
     Email
-    <B24Badge label="Work" size="xs" />
+    <B24Badge label="Work" size="xs" aria-hidden="true" />
 
   default: |
 
@@ -89,7 +97,7 @@ slots:
 ---
 
 #label
-Email :b24-badge{label="Work" size="xs"}
+Email :b24-badge{label="Work" size="xs" aria-hidden="true"}
 
 #default
 :b24-input{placeholder="Enter your email"}
@@ -103,15 +111,23 @@ translation:
 <B24FormField label="Email" name="email">
   <template #label="{ label }">
     {{ label }}
-    <B24Badge label="Work" size="xs" />
+    <B24Badge label="Work" size="xs" aria-hidden="true" />
   </template>
 
   <B24Input placeholder="Enter your email" />
 </B24FormField>
 ```
 
-`hint`, `description`, `help` and `error` work the same way — each has a prop
-for the plain case and a slot of the same name for the rich one.
+`hint` and `description` take a slot the same way. The `required` asterisk is
+drawn on the `<label>` element, so it survives a custom `#label` slot.
+
+::caution
+`#error` and `#help` are not interchangeable with their props. The error block
+renders whenever an `#error` slot exists — with or without an actual error —
+and `help` is the `v-else` of that same branch, so supplying `#error`
+permanently hides `help`. Use the `error` and `help` props unless you need
+markup in the error itself.
+::
 
 ### Description
 
