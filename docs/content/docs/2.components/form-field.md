@@ -43,6 +43,10 @@ slots:
 The label `for` attribute and the form control are associated with a unique `id` if not provided.
 ::
 
+::tip{to="#label-slot"}
+For a label that is more than text, use the `#label` slot.
+::
+
 When using the `required` prop, an asterisk is added next to the label.
 
 ::component-code
@@ -60,6 +64,69 @@ slots:
 ---
 
 :b24-input{placeholder="Enter your email"}
+::
+
+### Label slot
+
+Use the `#label` slot when the label needs more than a string — a badge, a
+counter, a short piece of state. The slot replaces the label's *content*, not
+the `<label>` element around it, so whatever association the field already had
+is unchanged.
+
+::warning
+Anything you put here becomes part of the control's accessible name: a badge
+reading `Work` makes a screen reader announce *"Email Work"*. Mark decorative
+content `aria-hidden="true"`, as below. Avoid interactive content — a link or
+button inside a `<label>` both activates itself and toggles the control.
+::
+
+::component-code
+---
+prettier: true
+props:
+  name: email
+slots:
+  label: |
+
+    Email
+    <B24Badge label="Work" size="xs" aria-hidden="true" />
+
+  default: |
+
+    <B24Input placeholder="Enter your email" />
+---
+
+#label
+Email :b24-badge{label="Work" size="xs" aria-hidden="true"}
+
+#default
+:b24-input{placeholder="Enter your email"}
+::
+
+The slot receives the `label` prop, so a wrapper can decorate the string
+instead of replacing it — useful when the text itself comes from a schema or a
+translation:
+
+```vue
+<B24FormField label="Email" name="email">
+  <template #label="{ label }">
+    {{ label }}
+    <B24Badge label="Work" size="xs" aria-hidden="true" />
+  </template>
+
+  <B24Input placeholder="Enter your email" />
+</B24FormField>
+```
+
+`hint` and `description` take a slot the same way. The `required` asterisk is
+drawn on the `<label>` element, so it survives a custom `#label` slot.
+
+::caution
+`#error` and `#help` are not interchangeable with their props. The error block
+renders whenever an `#error` slot exists — with or without an actual error —
+and `help` is the `v-else` of that same branch, so supplying `#error`
+permanently hides `help`. Use the `error` and `help` props unless you need
+markup in the error itself.
 ::
 
 ### Description

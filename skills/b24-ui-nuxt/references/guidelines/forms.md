@@ -56,6 +56,35 @@ function onSubmit(event: FormSubmitEvent<Schema>) {
 | `required` | Shows required indicator |
 | `size` | Inherits to child input |
 
+## Rich labels
+
+`label`, `description` and `hint` each have a matching slot for when a string is
+not enough. The slot replaces the content inside the `<label>`, not the element
+itself, so the field's existing association is unchanged.
+
+Anything in `#label` joins the control's accessible name — mark decorative
+content `aria-hidden="true"`, and keep links and buttons out of it, since a
+`<label>` toggles its control when activated.
+
+`#error` and `#help` are the exception: the error block renders whenever an
+`#error` slot exists, and `help` is the `v-else` of that branch, so supplying
+`#error` hides `help` entirely. Prefer the props there.
+
+```vue
+<B24FormField label="Email" name="email">
+  <template #label="{ label }">
+    {{ label }}
+    <B24Badge label="Work" size="xs" aria-hidden="true" />
+  </template>
+
+  <B24Input placeholder="Enter your email" />
+</B24FormField>
+```
+
+The slot receives the prop it replaces, so a wrapper can decorate the value
+rather than restate it — which matters when the text comes from a schema or a
+translation.
+
 ## Field layout patterns
 
 ### Vertical stack (default)

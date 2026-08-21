@@ -49,10 +49,13 @@ const inputComponents = [
 async function renderFormField(options: {
   props: Partial<FormFieldProps>
   inputComponent: typeof inputComponents[number]
+  /** Named slots to render alongside the control, e.g. a custom `label`. */
+  slots?: Record<string, (...args: any[]) => any>
 }) {
   return await mountSuspended(B24FormField, {
     props: options.props,
     slots: {
+      ...options.slots,
       default: {
         // @ts-expect-error - Object literal may only specify known properties, and setup does not exist in type
         setup: () => ({ inputComponent: options.inputComponent }),
@@ -143,6 +146,37 @@ describe('FormField', () => {
 
         const input = wrapper.find('[id=v-0-0]')
         expect(input.exists()).toBe(true)
+      })
+
+      // The docs tell people to reach for `#label` when a string is not
+      // enough, so the association has to survive the slot. The `with label
+      // slot` snapshot case cannot see this: it renders no control, so there
+      // is no `id` for `for` to point at, and a refactor that moved the
+      // `<Label :for>` outside the slotted branch would leave it green.
+      test('binds label for through the #label slot', async () => {
+        const wrapper = await renderFormField({
+          props: { label: 'Label' },
+          slots: { label: () => 'Custom label' },
+          inputComponent
+        })
+        const label = wrapper.find('label[for=v-0-0]')
+        expect(label.exists()).toBe(true)
+        expect(label.text()).toBe('Custom label')
+
+        const input = wrapper.find('[id=v-0-0]')
+        expect(input.exists()).toBe(true)
+      })
+
+      // Documented as `<template #label="{ label }">`, and until now nothing
+      // asserted the payload arrives — the snapshot case ignores its argument.
+      test('passes the label prop into the #label slot', async () => {
+        const wrapper = await renderFormField({
+          props: { label: 'Label' },
+          slots: { label: ({ label }: { label: string | undefined }) => `got ${label}` },
+          inputComponent
+        })
+
+        expect(wrapper.find('label').text()).toBe('got Label')
       })
     }
 
