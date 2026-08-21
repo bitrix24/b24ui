@@ -19,7 +19,7 @@ function fireAtPlace(): void {
     <div class="relative mt-sm2 mb-4 w-full">
       <canvas
         ref="myCanvas"
-        class="m-auto h-64 w-1/2 rounded backdrop-blur-md bg-(--ui-color-design-outline-na-bg) border-1 border-(--ui-color-design-outline-na-stroke)"
+        class="m-auto h-64 w-1/2 rounded-2xs backdrop-blur-md bg-(--ui-color-design-outline-na-bg) border-1 border-(--ui-color-design-outline-na-stroke)"
       />
     </div>
   </div>

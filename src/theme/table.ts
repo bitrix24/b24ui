@@ -91,13 +91,13 @@ export default {
           'sticky',
           'top-0 inset-x-0',
           'bg-(--ui-color-bg-content-primary)',
-          'z-2 backdrop-blur'
+          'z-2 backdrop-blur-sm'
         ].join(' '), // bg-default/75
         tfoot: [
           'sticky',
           'bottom-0 inset-x-0',
           'bg-(--ui-color-bg-content-primary)',
-          'z-2 backdrop-blur'
+          'z-2 backdrop-blur-sm'
         ].join(' ') // bg-default/75
       },
       header: {
@@ -105,7 +105,7 @@ export default {
           'sticky',
           'top-0 inset-x-0',
           'bg-(--ui-color-bg-content-primary)',
-          'z-2 backdrop-blur'
+          'z-2 backdrop-blur-sm'
         ].join(' ') // bg-default/75
       },
       footer: {
@@ -113,7 +113,7 @@ export default {
           'sticky',
           'bottom-0 inset-x-0',
           'bg-(--ui-color-bg-content-primary)',
-          'z-2 backdrop-blur'
+          'z-2 backdrop-blur-sm'
         ].join(' ') // bg-default/75
       }
     },

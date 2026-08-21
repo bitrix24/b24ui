@@ -5,7 +5,7 @@
  */
 export default {
   slots: {
-    root: 'bg-(--ui-color-bg-content-primary)/75 backdrop-blur border-b border-(--ui-color-divider-default) h-(--b24ui-header-height) sticky top-0 z-50',
+    root: 'bg-(--ui-color-bg-content-primary)/75 backdrop-blur-sm border-b border-(--ui-color-divider-default) h-(--b24ui-header-height) sticky top-0 z-50',
     container: 'flex items-center justify-between gap-3 h-full',
     left: 'lg:flex-1 flex items-center gap-1.5',
     center: 'hidden lg:flex',
