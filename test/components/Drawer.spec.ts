@@ -48,6 +48,7 @@ describe('Drawer', () => {
     expect(await axe(wrapper.element)).toHaveNoViolations()
   })
 
+  // Asserts the reka-ui#1280 workaround; delete with it when upstream is fixed (#159).
   it('blurs the active element when opening to avoid reka-ui aria-hidden focus warning', async () => {
     const trigger = document.createElement('button')
     document.body.appendChild(trigger)

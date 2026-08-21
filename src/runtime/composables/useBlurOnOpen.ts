@@ -40,7 +40,12 @@ import type { MaybeRefOrGetter } from 'vue'
  * Focus return on close is unaffected: reka-ui captures the trigger element
  * in its own ref (`triggerElement`), not via `document.activeElement`.
  *
- * @see https://github.com/unovue/reka-ui/issues/1280 — TODO: remove once fixed upstream
+ * Every site that has to be revisited when upstream fixes this is tagged
+ * `reka-ui#1280`, so `grep -rn 'reka-ui#1280' src/ test/` lists the whole set:
+ * this file, the three components that wrap it, and the three specs that
+ * assert it. #159 tracks the removal.
+ *
+ * @see https://github.com/unovue/reka-ui/issues/1280 — TODO: remove once fixed upstream (reka-ui#1280)
  */
 function blurActiveElement() {
   if (!import.meta.client) return
