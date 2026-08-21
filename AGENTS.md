@@ -150,6 +150,10 @@ PR Review:
 
 Multiple commits are fine — PRs are squash merged, so no need to rebase or force push.
 
+## Release Announcements
+
+When preparing a community release post for Telegram, follow the rules in [.github/contributing/telegram-release-post.md](.github/contributing/telegram-release-post.md). The message is delivered as ready-to-paste text — the agent never posts it, and the file specifies structure, tone, code-example requirements, and a pre-delivery checklist.
+
 ## Resources
 
 - [Contribution Guide](https://bitrix24.github.io/b24ui/raw/docs/getting-started/contribution.md)
