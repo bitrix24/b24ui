@@ -4,6 +4,7 @@ import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/checkbox'
 import type { ButtonHTMLAttributes } from '../types/html'
+import type { IconComponent } from '../types/icons'
 import type { ComponentConfig } from '../types/tv'
 
 type Checkbox = ComponentConfig<typeof theme, AppConfig, 'checkbox'>
@@ -33,6 +34,12 @@ export interface CheckboxProps<T = boolean> extends Pick<CheckboxRootProps<T>, '
    * @defaultValue 'start'
    */
   indicator?: Checkbox['variants']['indicator']
+  /**
+   * The icon displayed when checked, or above the label when `indicator` is `hidden`.
+   * @defaultValue icons.check
+   * @IconComponent
+   */
+  icon?: IconComponent
   /** Highlight the ring color like a focus state. */
   highlight?: boolean
   class?: any
@@ -84,6 +91,10 @@ const highlight = computed(() => formFieldHighlight.value ?? props.highlight)
 
 const disabled = computed(() => formFieldDisabled.value ?? props.disabled)
 
+// When the indicator is hidden the checked icon is never visible, so `icon` renders above the
+// label instead. No dictionary fallback here: an unset `icon` must render nothing.
+const labelIcon = computed(() => props.indicator === 'hidden' ? props.icon : undefined)
+
 const attrs = useAttrs()
 // Omit `data-state` to prevent conflicts with parent components (e.g. TooltipTrigger)
 const forwardedAttrs = computed(() => {
@@ -125,15 +136,16 @@ function onUpdate(value: any) {
         @update:model-value="onUpdate"
       >
         <template #default="{ state }">
-          <CheckboxIndicator data-slot="indicator" :class="b24ui.indicator({ class: props.b24ui?.indicator })">
+          <CheckboxIndicator v-if="props.indicator !== 'hidden'" data-slot="indicator" :class="b24ui.indicator({ class: props.b24ui?.indicator })">
             <Component :is="icons.minus" v-if="state === 'indeterminate'" data-slot="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
-            <Component :is="icons.check" v-else data-slot="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
+            <Component :is="props.icon || icons.check" v-else data-slot="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
           </CheckboxIndicator>
         </template>
       </CheckboxRoot>
     </div>
 
-    <div v-if="(props.label || !!slots.label) || (props.description || !!slots.description)" data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
+    <div v-if="labelIcon || (props.label || !!slots.label) || (props.description || !!slots.description)" data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
+      <Component :is="labelIcon" v-if="labelIcon" data-slot="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
       <component
         :is="props.variant === 'list' ? Label : 'span'"
         v-if="props.label || !!slots.label"

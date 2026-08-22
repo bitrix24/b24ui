@@ -3,6 +3,7 @@ import type { RadioGroupRootProps, RadioGroupRootEmits } from 'reka-ui'
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/radio-group'
+import type { IconComponent } from '../types/icons'
 import type { AcceptableValue, GetItemKeys, GetModelValue, GetModelValueEmits } from '../types/utils'
 import type { ComponentConfig } from '../types/tv'
 
@@ -15,8 +16,13 @@ export type RadioGroupItem = RadioGroupValue | {
   description?: string
   disabled?: boolean
   value?: RadioGroupValue
+  /**
+   * The icon displayed above the label when `indicator` is `hidden`.
+   * @IconComponent
+   */
+  icon?: IconComponent
   class?: any
-  b24ui?: Pick<RadioGroup['slots'], 'item' | 'container' | 'base' | 'indicator' | 'wrapper' | 'label' | 'description'>
+  b24ui?: Pick<RadioGroup['slots'], 'item' | 'container' | 'base' | 'indicator' | 'wrapper' | 'label' | 'icon' | 'description'>
   [key: string]: any
 }
 
@@ -178,6 +184,12 @@ const normalizedItems = computed(() => {
   return props.items.map(normalizeItem)
 })
 
+// Mirrors `Checkbox`'s `labelIcon`: a radio has no icon inside its indicator, so an item's
+// icon only has somewhere to go when the indicator is hidden — above the label.
+function labelIcon(item: any) {
+  return props.indicator === 'hidden' ? item.icon : undefined
+}
+
 function onUpdate(value: any) {
   // @ts-expect-error - 'target' does not exist in type 'EventInit'
   const event = new Event('change', { target: { value } })
@@ -227,10 +239,11 @@ function onUpdate(value: any) {
         </div>
 
         <div
-          v-if="(item.label || !!slots.label) || (item.description || !!slots.description)"
+          v-if="labelIcon(item) || (item.label || !!slots.label) || (item.description || !!slots.description)"
           data-slot="wrapper"
           :class="b24ui.wrapper({ class: [props.b24ui?.wrapper, item.b24ui?.wrapper] })"
         >
+          <Component :is="labelIcon(item)" v-if="labelIcon(item)" data-slot="icon" :class="b24ui.icon({ class: [props.b24ui?.icon, item.b24ui?.icon] })" />
           <component
             :is="props.variant === 'list' ? Label : 'span'"
             v-if="item.label || !!slots.label"

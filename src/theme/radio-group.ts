@@ -14,6 +14,7 @@ export default {
       'text-label'
     ].join(' '),
     item: 'flex items-start',
+    icon: 'shrink-0',
     base: [
       'cursor-pointer',
       'rounded-(--ui-border-radius-pill)',
@@ -102,7 +103,8 @@ export default {
       },
       hidden: {
         base: 'sr-only',
-        wrapper: 'text-center'
+        item: 'outline-(--ui-color-background-transparent) has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-background)',
+        wrapper: 'flex flex-col items-center gap-1 text-center'
       }
     },
     size: {
@@ -163,6 +165,13 @@ export default {
     }
   },
   compoundVariants: [
+    // region indicator.hidden ////
+    { indicator: 'hidden', class: { container: 'h-auto' } },
+    { size: 'xs', indicator: 'hidden', class: { icon: 'size-3' } },
+    { size: 'sm', indicator: 'hidden', class: { icon: 'size-3.5' } },
+    { size: 'md', indicator: 'hidden', class: { icon: 'size-4' } },
+    { size: 'lg', indicator: 'hidden', class: { icon: 'size-4.5' } },
+    // endregion ////
     // region card.size ////
     { size: 'xs', variant: 'card', class: { item: 'px-[13px] py-[7px] rounded-(--ui-border-radius-xs)' } }, // (28 - (1 + 1) - 12) / 2 = 7
     { size: 'sm', variant: 'card', class: { item: 'px-[13px] py-[9px] rounded-(--ui-border-radius-sm)' } }, // (34 - (1 + 1) - 14) / 2 = 9

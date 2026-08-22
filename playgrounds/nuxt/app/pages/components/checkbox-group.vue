@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import theme from '#build/b24ui/checkbox-group'
 import themeCheckbox from '#build/b24ui/checkbox'
+import ThemeIcon from '@bitrix24/b24icons-vue/outline/ThemeIcon'
+import SunIcon from '@bitrix24/b24icons-vue/outline/SunIcon'
+import MoonIcon from '@bitrix24/b24icons-vue/outline/MoonIcon'
 
 const colors = Object.keys(theme.variants.color)
 const sizes = Object.keys(theme.variants.size)
@@ -25,6 +28,11 @@ const items = [
   { value: '1', label: 'System' },
   { value: '2', label: 'Light' },
   { value: '3', label: 'Dark' }
+]
+const itemsWithIcon = [
+  { value: 'system', label: 'System', icon: ThemeIcon },
+  { value: 'light', label: 'Light', icon: SunIcon },
+  { value: 'dark', label: 'Dark', icon: MoonIcon }
 ]
 const itemsWithDesc = ref([
   {
@@ -116,6 +124,7 @@ const settingsLayoutItems: CapabilityItem[] = [
       <B24CheckboxGroup v-model="value" :items="items" v-bind="{ ...singleAttrs, ...props }" />
       <B24CheckboxGroup :items="items" :default-value="value" v-bind="{ ...singleAttrs, ...props }" />
       <B24CheckboxGroup :items="itemsWithDesc" v-bind="{ ...singleAttrs, ...props }" />
+      <B24CheckboxGroup :items="itemsWithIcon" v-bind="{ ...singleAttrs, ...props }" />
       <B24CheckboxGroup v-model="value" :items="items" legend="Legend" v-bind="{ ...singleAttrs, ...props }" required />
       <B24CheckboxGroup v-model="value" :items="items" v-bind="{ ...singleAttrs, ...props }">
         <template #legend>

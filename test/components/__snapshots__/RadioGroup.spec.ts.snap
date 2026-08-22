@@ -7,7 +7,8 @@ exports[`RadioGroup > renders with air-primary-primary variant card correctly 1`
       <div data-slot="container" class="flex items-center h-[16px]"><button id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" value="1" aria-label="1"><span data-state="checked" data-slot="indicator" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
@@ -16,7 +17,8 @@ exports[`RadioGroup > renders with air-primary-primary variant card correctly 1`
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
@@ -25,7 +27,8 @@ exports[`RadioGroup > renders with air-primary-primary variant card correctly 1`
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -42,7 +45,8 @@ exports[`RadioGroup > renders with air-primary-primary variant list correctly 1`
       <div data-slot="container" class="flex items-center h-[16px]"><button id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" value="1" aria-label="1"><span data-state="checked" data-slot="indicator" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:1" data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</label>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><label for="v-0-0:1" data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</label>
         <!--v-if-->
       </div>
     </div>
@@ -52,7 +56,8 @@ exports[`RadioGroup > renders with air-primary-primary variant list correctly 1`
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:2" data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</label>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><label for="v-0-0:2" data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</label>
         <!--v-if-->
       </div>
     </div>
@@ -62,7 +67,8 @@ exports[`RadioGroup > renders with air-primary-primary variant list correctly 1`
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:3" data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</label>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><label for="v-0-0:3" data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</label>
         <!--v-if-->
       </div>
     </div>
@@ -78,7 +84,8 @@ exports[`RadioGroup > renders with air-primary-primary variant table correctly 1
       <div data-slot="container" class="flex items-center h-[16px]"><button id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" value="1" aria-label="1"><span data-state="checked" data-slot="indicator" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
@@ -87,7 +94,8 @@ exports[`RadioGroup > renders with air-primary-primary variant table correctly 1
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
@@ -96,7 +104,8 @@ exports[`RadioGroup > renders with air-primary-primary variant table correctly 1
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -112,7 +121,8 @@ exports[`RadioGroup > renders with air-primary-success variant card correctly 1`
       <div data-slot="container" class="flex items-center h-[16px]"><button id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" value="1" aria-label="1"><span data-state="checked" data-slot="indicator" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
@@ -121,7 +131,8 @@ exports[`RadioGroup > renders with air-primary-success variant card correctly 1`
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
@@ -130,7 +141,8 @@ exports[`RadioGroup > renders with air-primary-success variant card correctly 1`
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -147,7 +159,8 @@ exports[`RadioGroup > renders with air-primary-success variant list correctly 1`
       <div data-slot="container" class="flex items-center h-[16px]"><button id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" value="1" aria-label="1"><span data-state="checked" data-slot="indicator" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:1" data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</label>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><label for="v-0-0:1" data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</label>
         <!--v-if-->
       </div>
     </div>
@@ -157,7 +170,8 @@ exports[`RadioGroup > renders with air-primary-success variant list correctly 1`
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:2" data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</label>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><label for="v-0-0:2" data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</label>
         <!--v-if-->
       </div>
     </div>
@@ -167,7 +181,8 @@ exports[`RadioGroup > renders with air-primary-success variant list correctly 1`
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:3" data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</label>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><label for="v-0-0:3" data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</label>
         <!--v-if-->
       </div>
     </div>
@@ -183,7 +198,8 @@ exports[`RadioGroup > renders with air-primary-success variant table correctly 1
       <div data-slot="container" class="flex items-center h-[16px]"><button id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" value="1" aria-label="1"><span data-state="checked" data-slot="indicator" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
@@ -192,7 +208,8 @@ exports[`RadioGroup > renders with air-primary-success variant table correctly 1
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
@@ -201,7 +218,8 @@ exports[`RadioGroup > renders with air-primary-success variant table correctly 1
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -219,7 +237,8 @@ exports[`RadioGroup > renders with ariaLabel correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -228,7 +247,8 @@ exports[`RadioGroup > renders with ariaLabel correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -237,7 +257,8 @@ exports[`RadioGroup > renders with ariaLabel correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -255,7 +276,8 @@ exports[`RadioGroup > renders with as correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -264,7 +286,8 @@ exports[`RadioGroup > renders with as correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -273,7 +296,8 @@ exports[`RadioGroup > renders with as correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -291,7 +315,8 @@ exports[`RadioGroup > renders with b24ui correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full ms-4"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full ms-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -300,7 +325,8 @@ exports[`RadioGroup > renders with b24ui correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full ms-4"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full ms-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -309,7 +335,8 @@ exports[`RadioGroup > renders with b24ui correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full ms-4"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full ms-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -327,7 +354,8 @@ exports[`RadioGroup > renders with class correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -336,7 +364,8 @@ exports[`RadioGroup > renders with class correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -345,7 +374,8 @@ exports[`RadioGroup > renders with class correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -361,7 +391,8 @@ exports[`RadioGroup > renders with defaultValue correctly 1`] = `
       <div data-slot="container" class="flex items-center h-[16px]"><button id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" value="1" aria-label="1"><span data-state="checked" data-slot="indicator" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -370,7 +401,8 @@ exports[`RadioGroup > renders with defaultValue correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -379,7 +411,8 @@ exports[`RadioGroup > renders with defaultValue correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -397,7 +430,8 @@ exports[`RadioGroup > renders with description correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
         <p data-slot="description" class="text-description">Description 0</p>
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -406,7 +440,8 @@ exports[`RadioGroup > renders with description correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
         <p data-slot="description" class="text-description">Description 1</p>
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -415,7 +450,8 @@ exports[`RadioGroup > renders with description correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
         <p data-slot="description" class="text-description">Description 2</p>
       </div>
     </label>
@@ -433,7 +469,8 @@ exports[`RadioGroup > renders with description slot correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Description slot</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Description slot</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -442,7 +479,8 @@ exports[`RadioGroup > renders with description slot correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Description slot</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Description slot</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -451,7 +489,8 @@ exports[`RadioGroup > renders with description slot correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Description slot</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Description slot</span>
         <!--v-if-->
       </div>
     </label>
@@ -469,7 +508,8 @@ exports[`RadioGroup > renders with descriptionKey correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
         <p data-slot="description" class="text-description">1</p>
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -478,7 +518,8 @@ exports[`RadioGroup > renders with descriptionKey correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
         <p data-slot="description" class="text-description">2</p>
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -487,7 +528,8 @@ exports[`RadioGroup > renders with descriptionKey correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
         <p data-slot="description" class="text-description">3</p>
       </div>
     </label>
@@ -505,7 +547,8 @@ exports[`RadioGroup > renders with disabled correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="block text-label leading-[15px] cursor-not-allowed">Option 1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="block text-label leading-[15px] cursor-not-allowed">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg) opacity-30">
@@ -514,7 +557,8 @@ exports[`RadioGroup > renders with disabled correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="block text-label leading-[15px] cursor-not-allowed">Option 2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="block text-label leading-[15px] cursor-not-allowed">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg) opacity-30">
@@ -523,7 +567,8 @@ exports[`RadioGroup > renders with disabled correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="block text-label leading-[15px] cursor-not-allowed">Option 3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="block text-label leading-[15px] cursor-not-allowed">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -539,7 +584,8 @@ exports[`RadioGroup > renders with highlight air-primary-success correctly 1`] =
       <div data-slot="container" class="flex items-center h-[16px]"><button id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px] ring ring-inset ring-(--b24ui-border-color)" value="1" aria-label="1"><span data-state="checked" data-slot="indicator" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -548,7 +594,8 @@ exports[`RadioGroup > renders with highlight air-primary-success correctly 1`] =
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -557,7 +604,8 @@ exports[`RadioGroup > renders with highlight air-primary-success correctly 1`] =
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -573,7 +621,8 @@ exports[`RadioGroup > renders with highlight correctly 1`] = `
       <div data-slot="container" class="flex items-center h-[16px]"><button id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px] ring ring-inset ring-(--b24ui-border-color)" value="1" aria-label="1"><span data-state="checked" data-slot="indicator" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -582,7 +631,8 @@ exports[`RadioGroup > renders with highlight correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -591,7 +641,8 @@ exports[`RadioGroup > renders with highlight correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -607,7 +658,8 @@ exports[`RadioGroup > renders with horizontal variant card correctly 1`] = `
       <div data-slot="container" class="flex items-center h-[16px]"><button id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="horizontal" data-active="" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" value="1" aria-label="1"><span data-state="checked" data-slot="indicator" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
@@ -616,7 +668,8 @@ exports[`RadioGroup > renders with horizontal variant card correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
@@ -625,7 +678,8 @@ exports[`RadioGroup > renders with horizontal variant card correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -642,7 +696,8 @@ exports[`RadioGroup > renders with horizontal variant list correctly 1`] = `
       <div data-slot="container" class="flex items-center h-[16px]"><button id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="horizontal" data-active="" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" value="1" aria-label="1"><span data-state="checked" data-slot="indicator" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:1" data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</label>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><label for="v-0-0:1" data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</label>
         <!--v-if-->
       </div>
     </div>
@@ -652,7 +707,8 @@ exports[`RadioGroup > renders with horizontal variant list correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:2" data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</label>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><label for="v-0-0:2" data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</label>
         <!--v-if-->
       </div>
     </div>
@@ -662,7 +718,8 @@ exports[`RadioGroup > renders with horizontal variant list correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:3" data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</label>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><label for="v-0-0:3" data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</label>
         <!--v-if-->
       </div>
     </div>
@@ -678,7 +735,8 @@ exports[`RadioGroup > renders with horizontal variant table correctly 1`] = `
       <div data-slot="container" class="flex items-center h-[16px]"><button id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="horizontal" data-active="" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" value="1" aria-label="1"><span data-state="checked" data-slot="indicator" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] first-of-type:rounded-s-(--ui-border-radius-md) last-of-type:rounded-e-(--ui-border-radius-md)">
@@ -687,7 +745,8 @@ exports[`RadioGroup > renders with horizontal variant table correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] first-of-type:rounded-s-(--ui-border-radius-md) last-of-type:rounded-e-(--ui-border-radius-md)">
@@ -696,7 +755,130 @@ exports[`RadioGroup > renders with horizontal variant table correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
+        <!--v-if-->
+      </div>
+    </label>
+  </fieldset>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`RadioGroup > renders with icon card correctly 1`] = `
+"<div id="v-0-0" data-slot="root" class="relative style-filled" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" role="radiogroup" aria-orientation="vertical" aria-required="false">
+  <fieldset data-slot="fieldset" class="flex flex-col gap-x-[16px] gap-y-2">
+    <!--v-if--><label data-slot="item" class="flex cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) outline-(--ui-color-background-transparent) has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-background) text-(length:--ui-font-size-lg) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
+      <div data-slot="container" class="flex items-center h-auto"><button id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) sr-only size-[16px]" value="1" aria-label="1"><span data-state="checked" data-slot="indicator" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span></button>
+        <!--v-if-->
+      </div>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full flex flex-col items-center gap-1 text-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4">
+          <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
+        </svg><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
+        <!--v-if-->
+      </div>
+    </label><label data-slot="item" class="flex cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) outline-(--ui-color-background-transparent) has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-background) text-(length:--ui-font-size-lg) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
+      <div data-slot="container" class="flex items-center h-auto"><button id="v-0-0:2" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) sr-only size-[16px]" value="2" aria-label="2">
+          <!---->
+        </button>
+        <!--v-if-->
+      </div>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full flex flex-col items-center gap-1 text-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4">
+          <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
+        </svg><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
+        <!--v-if-->
+      </div>
+    </label><label data-slot="item" class="flex cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) outline-(--ui-color-background-transparent) has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-background) text-(length:--ui-font-size-lg) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
+      <div data-slot="container" class="flex items-center h-auto"><button id="v-0-0:3" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) sr-only size-[16px]" value="3" aria-label="3">
+          <!---->
+        </button>
+        <!--v-if-->
+      </div>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full flex flex-col items-center gap-1 text-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4">
+          <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
+        </svg><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
+        <!--v-if-->
+      </div>
+    </label>
+  </fieldset>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`RadioGroup > renders with icon correctly 1`] = `
+"<div id="v-0-0" data-slot="root" class="relative style-filled" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" role="radiogroup" aria-orientation="vertical" aria-required="false">
+  <fieldset data-slot="fieldset" class="flex flex-col gap-x-[16px] gap-y-2">
+    <!--v-if--><label data-slot="item" class="flex items-start outline-(--ui-color-background-transparent) has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-background) text-(length:--ui-font-size-lg)">
+      <div data-slot="container" class="flex items-center h-auto"><button id="v-0-0:1" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) sr-only size-[16px]" value="1" aria-label="1">
+          <!---->
+        </button>
+        <!--v-if-->
+      </div>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full flex flex-col items-center gap-1 text-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4">
+          <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
+        </svg><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
+        <!--v-if-->
+      </div>
+    </label><label data-slot="item" class="flex items-start outline-(--ui-color-background-transparent) has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-background) text-(length:--ui-font-size-lg)">
+      <div data-slot="container" class="flex items-center h-auto"><button id="v-0-0:2" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) sr-only size-[16px]" value="2" aria-label="2">
+          <!---->
+        </button>
+        <!--v-if-->
+      </div>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full flex flex-col items-center gap-1 text-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4">
+          <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
+        </svg><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
+        <!--v-if-->
+      </div>
+    </label><label data-slot="item" class="flex items-start outline-(--ui-color-background-transparent) has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-background) text-(length:--ui-font-size-lg)">
+      <div data-slot="container" class="flex items-center h-auto"><button id="v-0-0:3" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) sr-only size-[16px]" value="3" aria-label="3">
+          <!---->
+        </button>
+        <!--v-if-->
+      </div>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full flex flex-col items-center gap-1 text-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4">
+          <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
+        </svg><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
+        <!--v-if-->
+      </div>
+    </label>
+  </fieldset>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`RadioGroup > renders with icon table correctly 1`] = `
+"<div id="v-0-0" data-slot="root" class="relative style-filled" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" role="radiogroup" aria-orientation="vertical" aria-required="false">
+  <fieldset data-slot="fieldset" class="flex flex-col gap-0 -space-y-px">
+    <!--v-if--><label data-slot="item" class="flex items-start cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] outline-(--ui-color-background-transparent) has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-background) text-(length:--ui-font-size-lg) px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
+      <div data-slot="container" class="flex items-center h-auto"><button id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) sr-only size-[16px]" value="1" aria-label="1"><span data-state="checked" data-slot="indicator" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span></button>
+        <!--v-if-->
+      </div>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full flex flex-col items-center gap-1 text-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4">
+          <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
+        </svg><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
+        <!--v-if-->
+      </div>
+    </label><label data-slot="item" class="flex items-start cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] outline-(--ui-color-background-transparent) has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-background) text-(length:--ui-font-size-lg) px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
+      <div data-slot="container" class="flex items-center h-auto"><button id="v-0-0:2" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) sr-only size-[16px]" value="2" aria-label="2">
+          <!---->
+        </button>
+        <!--v-if-->
+      </div>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full flex flex-col items-center gap-1 text-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4">
+          <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
+        </svg><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
+        <!--v-if-->
+      </div>
+    </label><label data-slot="item" class="flex items-start cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] outline-(--ui-color-background-transparent) has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-background) text-(length:--ui-font-size-lg) px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
+      <div data-slot="container" class="flex items-center h-auto"><button id="v-0-0:3" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) sr-only size-[16px]" value="3" aria-label="3">
+          <!---->
+        </button>
+        <!--v-if-->
+      </div>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full flex flex-col items-center gap-1 text-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4">
+          <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
+        </svg><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -712,7 +894,8 @@ exports[`RadioGroup > renders with indicator end correctly 1`] = `
       <div data-slot="container" class="flex items-center h-[16px]"><button id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) ms-2 size-[16px]" value="1" aria-label="1"><span data-state="checked" data-slot="indicator" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row-reverse text-(length:--ui-font-size-lg)">
@@ -721,7 +904,8 @@ exports[`RadioGroup > renders with indicator end correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row-reverse text-(length:--ui-font-size-lg)">
@@ -730,7 +914,8 @@ exports[`RadioGroup > renders with indicator end correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -742,29 +927,32 @@ exports[`RadioGroup > renders with indicator end correctly 1`] = `
 exports[`RadioGroup > renders with indicator hidden correctly 1`] = `
 "<div id="v-0-0" data-slot="root" class="relative style-filled" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" role="radiogroup" aria-orientation="vertical" aria-required="false">
   <fieldset data-slot="fieldset" class="flex flex-col gap-x-[16px] gap-y-2">
-    <!--v-if--><label data-slot="item" class="flex items-start text-(length:--ui-font-size-lg)">
-      <div data-slot="container" class="flex items-center h-[16px]"><button id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) sr-only size-[16px]" value="1" aria-label="1"><span data-state="checked" data-slot="indicator" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span></button>
+    <!--v-if--><label data-slot="item" class="flex items-start outline-(--ui-color-background-transparent) has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-background) text-(length:--ui-font-size-lg)">
+      <div data-slot="container" class="flex items-center h-auto"><button id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) sr-only size-[16px]" value="1" aria-label="1"><span data-state="checked" data-slot="indicator" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full text-center"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full flex flex-col items-center gap-1 text-center">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
         <!--v-if-->
       </div>
-    </label><label data-slot="item" class="flex items-start text-(length:--ui-font-size-lg)">
-      <div data-slot="container" class="flex items-center h-[16px]"><button id="v-0-0:2" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) sr-only size-[16px]" value="2" aria-label="2">
+    </label><label data-slot="item" class="flex items-start outline-(--ui-color-background-transparent) has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-background) text-(length:--ui-font-size-lg)">
+      <div data-slot="container" class="flex items-center h-auto"><button id="v-0-0:2" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) sr-only size-[16px]" value="2" aria-label="2">
           <!---->
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full text-center"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full flex flex-col items-center gap-1 text-center">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
         <!--v-if-->
       </div>
-    </label><label data-slot="item" class="flex items-start text-(length:--ui-font-size-lg)">
-      <div data-slot="container" class="flex items-center h-[16px]"><button id="v-0-0:3" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) sr-only size-[16px]" value="3" aria-label="3">
+    </label><label data-slot="item" class="flex items-start outline-(--ui-color-background-transparent) has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-background) text-(length:--ui-font-size-lg)">
+      <div data-slot="container" class="flex items-center h-auto"><button id="v-0-0:3" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) sr-only size-[16px]" value="3" aria-label="3">
           <!---->
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full text-center"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full flex flex-col items-center gap-1 text-center">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -780,7 +968,8 @@ exports[`RadioGroup > renders with indicator start correctly 1`] = `
       <div data-slot="container" class="flex items-center h-[16px]"><button id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" value="1" aria-label="1"><span data-state="checked" data-slot="indicator" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -789,7 +978,8 @@ exports[`RadioGroup > renders with indicator start correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -798,7 +988,8 @@ exports[`RadioGroup > renders with indicator start correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -816,7 +1007,8 @@ exports[`RadioGroup > renders with items correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -825,7 +1017,8 @@ exports[`RadioGroup > renders with items correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -834,7 +1027,8 @@ exports[`RadioGroup > renders with items correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -852,7 +1046,8 @@ exports[`RadioGroup > renders with label slot correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Label slot</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Label slot</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -861,7 +1056,8 @@ exports[`RadioGroup > renders with label slot correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Label slot</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Label slot</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -870,7 +1066,8 @@ exports[`RadioGroup > renders with label slot correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Label slot</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Label slot</span>
         <!--v-if-->
       </div>
     </label>
@@ -888,7 +1085,8 @@ exports[`RadioGroup > renders with labelKey correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -897,7 +1095,8 @@ exports[`RadioGroup > renders with labelKey correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -906,7 +1105,8 @@ exports[`RadioGroup > renders with labelKey correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">3</span>
         <!--v-if-->
       </div>
     </label>
@@ -924,7 +1124,8 @@ exports[`RadioGroup > renders with legend slot correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Legend slot</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Legend slot</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -933,7 +1134,8 @@ exports[`RadioGroup > renders with legend slot correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Legend slot</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Legend slot</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -942,7 +1144,8 @@ exports[`RadioGroup > renders with legend slot correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Legend slot</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Legend slot</span>
         <!--v-if-->
       </div>
     </label>
@@ -958,7 +1161,8 @@ exports[`RadioGroup > renders with modelValue correctly 1`] = `
       <div data-slot="container" class="flex items-center h-[16px]"><button id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" value="1" aria-label="1"><span data-state="checked" data-slot="indicator" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -967,7 +1171,8 @@ exports[`RadioGroup > renders with modelValue correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -976,7 +1181,8 @@ exports[`RadioGroup > renders with modelValue correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -994,7 +1200,8 @@ exports[`RadioGroup > renders with required correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px] after:content-['*'] after:ms-0.5 after:text-(--ui-color-accent-main-alert)">Option 1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px] after:content-['*'] after:ms-0.5 after:text-(--ui-color-accent-main-alert)">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -1003,7 +1210,8 @@ exports[`RadioGroup > renders with required correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px] after:content-['*'] after:ms-0.5 after:text-(--ui-color-accent-main-alert)">Option 2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px] after:content-['*'] after:ms-0.5 after:text-(--ui-color-accent-main-alert)">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -1012,7 +1220,8 @@ exports[`RadioGroup > renders with required correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px] after:content-['*'] after:ms-0.5 after:text-(--ui-color-accent-main-alert)">Option 3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px] after:content-['*'] after:ms-0.5 after:text-(--ui-color-accent-main-alert)">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -1030,7 +1239,8 @@ exports[`RadioGroup > renders with size lg correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-4.5">Option 1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-4.5">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-xl)">
@@ -1039,7 +1249,8 @@ exports[`RadioGroup > renders with size lg correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-4.5">Option 2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-4.5">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-xl)">
@@ -1048,7 +1259,8 @@ exports[`RadioGroup > renders with size lg correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-4.5">Option 3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-4.5">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -1066,7 +1278,8 @@ exports[`RadioGroup > renders with size md correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -1075,7 +1288,8 @@ exports[`RadioGroup > renders with size md correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -1084,7 +1298,8 @@ exports[`RadioGroup > renders with size md correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -1102,7 +1317,8 @@ exports[`RadioGroup > renders with size sm correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[14px]">Option 1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[14px]">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-sm)">
@@ -1111,7 +1327,8 @@ exports[`RadioGroup > renders with size sm correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[14px]">Option 2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[14px]">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-sm)">
@@ -1120,7 +1337,8 @@ exports[`RadioGroup > renders with size sm correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[14px]">Option 3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[14px]">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -1138,7 +1356,8 @@ exports[`RadioGroup > renders with size xs correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[11px]">Option 1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[11px]">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-xs)">
@@ -1147,7 +1366,8 @@ exports[`RadioGroup > renders with size xs correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[11px]">Option 2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[11px]">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-xs)">
@@ -1156,7 +1376,8 @@ exports[`RadioGroup > renders with size xs correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[11px]">Option 3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[11px]">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -1172,7 +1393,8 @@ exports[`RadioGroup > renders with valueKey correctly 1`] = `
       <div data-slot="container" class="flex items-center h-[16px]"><button id="v-0-0:Option 1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" value="Option 1" aria-label="Option 1"><span data-state="checked" data-slot="indicator" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -1181,7 +1403,8 @@ exports[`RadioGroup > renders with valueKey correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
@@ -1190,7 +1413,8 @@ exports[`RadioGroup > renders with valueKey correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label leading-[15px]">Option 3</span>
         <!--v-if-->
       </div>
     </label>

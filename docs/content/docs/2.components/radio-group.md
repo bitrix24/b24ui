@@ -68,8 +68,9 @@ You can also pass an array of objects with the following properties:
 - `description?: string`{lang="ts-type"}
 - [`value?: string`{lang="ts-type"}](#value-key)
 - `disabled?: boolean`{lang="ts-type"}
+- [`icon?: IconComponent`{lang="ts-type"}](#indicator)
 - `class?: any`{lang="ts-type"}
-- `b24ui?: { item?: ClassNameValue, container?: ClassNameValue, base?: ClassNameValue, 'indicator'?: ClassNameValue, wrapper?: ClassNameValue, label?: ClassNameValue, description?: ClassNameValue }`{lang="ts-type"}
+- `b24ui?: { item?: ClassNameValue, container?: ClassNameValue, base?: ClassNameValue, 'indicator'?: ClassNameValue, wrapper?: ClassNameValue, label?: ClassNameValue, icon?: ClassNameValue, description?: ClassNameValue }`{lang="ts-type"}
 
 ::component-code
 ---
@@ -256,6 +257,17 @@ props:
 ### Indicator
 
 Use the `indicator` prop to change the position or hide the indicator. Defaults to `start`.
+
+::note
+An item's `icon` is only displayed when `indicator` is `hidden`, above the label, since a radio has no icon inside its indicator.
+::
+
+::component-example
+---
+collapse: true
+name: 'radio-group-icon-example'
+---
+::
 
 ::component-code
 ---
