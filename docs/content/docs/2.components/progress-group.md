@@ -2,6 +2,7 @@
 title: ProgressGroup
 description: One progress bar carrying several values at once, each drawn as its own coloured part.
 category: element
+navigation.badge: New
 keywords:
   - meter group
   - segmented progress

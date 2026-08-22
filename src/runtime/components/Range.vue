@@ -51,6 +51,7 @@ import { useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
 import { useForwardProps } from '../composables/useForwardProps'
 import { useFormField } from '../composables/useFormField'
+import { pick, omit } from '../utils'
 import { tv } from '../utils/tv'
 import B24Tooltip from './Tooltip.vue'
 
@@ -61,6 +62,8 @@ const _props = withDefaults(defineProps<RangeProps>(), {
   orientation: 'horizontal'
 })
 const emits = defineEmits<RangeEmits>()
+
+defineOptions({ inheritAttrs: false })
 
 const modelValue = defineModel<T>()
 
@@ -99,6 +102,11 @@ const rangeValue = computed({
 })
 
 const thumbs = computed(() => rangeValue.value?.length ?? 1)
+
+// The thumb is the element with `role="slider"`, so these describe it rather than the root.
+// Multiple thumbs keep Reka UI's positional names and the caller's label groups them on the root.
+const thumbAttrs = ['aria-label', 'aria-labelledby', 'aria-describedby', 'aria-valuetext', 'aria-invalid', 'aria-errormessage']
+
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.range || {}) })({
   disabled: disabled.value,
@@ -117,12 +125,13 @@ function onChange(value: any) {
 
 <template>
   <SliderRoot
-    v-bind="rootProps"
     :id="id"
     v-model="rangeValue"
+    data-slot="root"
+    :role="thumbs > 1 && ($attrs['aria-label'] || $attrs['aria-labelledby']) ? 'group' : undefined"
+    v-bind="{ ...rootProps, ...(thumbs > 1 ? $attrs : omit($attrs, thumbAttrs)) }"
     :name="name"
     :disabled="disabled"
-    data-slot="root"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     :default-value="defaultRangeValue"
     @update:model-value="emitFormInput()"
@@ -139,9 +148,9 @@ function onChange(value: any) {
         disable-closing-trigger
         v-bind="(typeof props.tooltip === 'object' ? props.tooltip : {})"
       >
-        <SliderThumb data-slot="thumb" :class="b24ui.thumb({ class: props.b24ui?.thumb })" :aria-label="thumbs === 1 ? 'Thumb' : `Thumb ${thumb} of ${thumbs}`" v-bind="ariaAttrs" />
+        <SliderThumb data-slot="thumb" :class="b24ui.thumb({ class: props.b24ui?.thumb })" v-bind="{ ...(thumbs === 1 ? pick($attrs, thumbAttrs) : {}), ...ariaAttrs }" :aria-label="thumbs > 1 || $attrs['aria-labelledby'] ? undefined : ($attrs['aria-label'] ?? 'Thumb')" />
       </B24Tooltip>
-      <SliderThumb v-else data-slot="thumb" :class="b24ui.thumb({ class: props.b24ui?.thumb })" :aria-label="thumbs === 1 ? 'Thumb' : `Thumb ${thumb} of ${thumbs}`" v-bind="ariaAttrs" />
+      <SliderThumb v-else data-slot="thumb" :class="b24ui.thumb({ class: props.b24ui?.thumb })" v-bind="{ ...(thumbs === 1 ? pick($attrs, thumbAttrs) : {}), ...ariaAttrs }" :aria-label="thumbs > 1 || $attrs['aria-labelledby'] ? undefined : ($attrs['aria-label'] ?? 'Thumb')" />
     </template>
   </SliderRoot>
 </template>

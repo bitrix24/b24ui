@@ -16,7 +16,6 @@ links:
   - label: Nuxt UI
     iconName: NuxtIcon
     to: https://ui.nuxt.com/docs/components/listbox
-navigation.badge: New
 ---
 
 ## Usage

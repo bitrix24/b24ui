@@ -2,6 +2,7 @@
 title: Splitter
 description: Panels that share one area and are resized by dragging the divider between them.
 category: layout
+navigation.badge: New
 keywords:
   - resizable
   - panel group
