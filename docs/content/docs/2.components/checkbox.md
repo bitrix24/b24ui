@@ -160,14 +160,27 @@ props:
 
 Use the `indicator` prop to change the position or hide the indicator. Defaults to `start`.
 
+::note
+When `indicator` is `hidden`, the `icon` is displayed above the label instead.
+::
+
 ::component-code
 ---
 ignore:
   - label
+  - icon
   - defaultValue
+cast:
+  icon: 'RocketIcon'
+items:
+  indicator:
+    - start
+    - end
+    - hidden
 props:
-  indicator: 'end'
+  indicator: 'hidden'
   variant: 'card'
+  icon: 'RocketIcon'
   defaultValue: true
   label: All employees can post to Feed
 ---

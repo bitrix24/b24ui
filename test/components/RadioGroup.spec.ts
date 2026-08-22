@@ -3,6 +3,8 @@ import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { renderEach } from '../component-render'
 import RadioGroup from '../../src/runtime/components/RadioGroup.vue'
+import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
+import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
 import theme from '#build/b24ui/radio-group'
 import { flushPromises, mount } from '@vue/test-utils'
 import { renderForm } from '../utils/form'
@@ -30,6 +32,9 @@ describe('RadioGroup', () => {
     ['with descriptionKey', { props: { ...props, descriptionKey: 'value' } }],
     ['with disabled', { props: { ...props, disabled: true } }],
     ['with description', { props: { items: items.map((opt, count) => ({ ...opt, description: `Description ${count}` })) } }],
+    ['with icon', { props: { items: items.map(opt => ({ ...opt, icon: SignIcon })), indicator: 'hidden' } }],
+    ['with icon card', { props: { items: items.map(opt => ({ ...opt, icon: SignIcon })), indicator: 'hidden', variant: 'card', defaultValue: '1' } }],
+    ['with icon table', { props: { items: items.map(opt => ({ ...opt, icon: SignIcon })), indicator: 'hidden', variant: 'table', defaultValue: '1' } }],
     ['with required', { props: { ...props, legend: 'Legend', required: true } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { ...props, size } }]),
     ...variants.map((variant: string) => [`with air-primary-primary variant ${variant}`, { props: { ...props, variant, defaultValue: '1' } }]),
@@ -51,6 +56,36 @@ describe('RadioGroup', () => {
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(RadioGroup, {
       props
+    })
+    expect(await axe(wrapper.element)).toHaveNoViolations()
+  })
+
+  it('renders an item icon above the label only when the indicator is hidden', async () => {
+    const items = [{ value: '1', label: 'Option 1', icon: SignIcon }]
+
+    const wrapper = await mountSuspended(RadioGroup, { props: { items } })
+    expect(wrapper.find('[data-slot="wrapper"] [data-slot="icon"]').exists()).toBe(false)
+
+    const hidden = await mountSuspended(RadioGroup, { props: { items, indicator: 'hidden' } })
+    expect(hidden.find('[data-slot="wrapper"] [data-slot="icon"]').exists()).toBe(true)
+  })
+
+  it('renders an item icon without a label', async () => {
+    const wrapper = await mountSuspended(RadioGroup, {
+      props: { items: [{ value: 'table', icon: SignIcon }], indicator: 'hidden' }
+    })
+    expect(wrapper.find('[data-slot="wrapper"] [data-slot="icon"]').exists()).toBe(true)
+  })
+
+  it('passes accessibility tests with icon items', async () => {
+    const wrapper = await mountSuspended(RadioGroup, {
+      props: {
+        items: [{ value: 'system', label: 'System', icon: SignIcon }, { value: 'light', label: 'Light', icon: Search2Icon }],
+        variant: 'table',
+        indicator: 'hidden',
+        orientation: 'horizontal',
+        defaultValue: 'system'
+      }
     })
     expect(await axe(wrapper.element)).toHaveNoViolations()
   })

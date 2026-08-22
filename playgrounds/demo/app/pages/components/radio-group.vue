@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import theme from '#build/b24ui/radio-group'
 import type { RadioGroupItem } from '@bitrix24/b24ui-nuxt'
+import ThemeIcon from '@bitrix24/b24icons-vue/outline/ThemeIcon'
+import SunIcon from '@bitrix24/b24icons-vue/outline/SunIcon'
+import MoonIcon from '@bitrix24/b24icons-vue/outline/MoonIcon'
 
 const sizes = Object.keys(theme.variants.size)
 const colors = Object.keys(theme.variants.color)
@@ -33,6 +36,12 @@ const itemsWithDescription: RadioGroupItem[] = [
   { value: '2', label: 'Standard', description: 'includes 50 users' },
   { value: '3', label: 'Professional', description: 'includes 100 users' },
   { value: '4', label: 'Enterprise', description: 'includes 250 users' }
+]
+
+const itemsWithIcon: RadioGroupItem[] = [
+  { value: 'system', label: 'System', icon: ThemeIcon },
+  { value: 'light', label: 'Light', icon: SunIcon },
+  { value: 'dark', label: 'Dark', icon: MoonIcon }
 ]
 
 const value = ref<string | undefined>(undefined)
@@ -111,6 +120,7 @@ const settingsLayoutItems: LayoutItem[] = [
     <Matrix v-slot="props" :attrs="multipleAttrs" :b24ui="{ root: 'max-w-80' }">
       <B24RadioGroup v-model="value" :items="items" default-value="2" v-bind="{ ...singleAttrs, ...props } as any" />
       <B24RadioGroup v-model="value" legend="Items with description" :items="itemsWithDescription" v-bind="{ ...singleAttrs, ...props } as any" />
+      <B24RadioGroup legend="Items with icon" :items="itemsWithIcon" v-bind="{ ...singleAttrs, ...props } as any" />
       <B24RadioGroup v-model="value" :items="items" v-bind="{ ...singleAttrs, ...props } as any">
         <template #legend>
           <span class="italic font-(--ui-font-weight-bold)">

@@ -7,7 +7,8 @@ exports[`CheckboxGroup > renders with air-primary-success variant card correctly
       <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0:1" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M20.196 6.432a.7.7 0 0 1-.002.99L9.878 17.695a.7.7 0 0 1-.988 0L4.206 13.03a.7.7 0 0 1 .988-.992l4.19 4.172 9.822-9.781a.7.7 0 0 1 .99.002" clip-rule="evenodd"></path></svg></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="root" class="relative flex flex-row style-filled-success cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
@@ -16,7 +17,8 @@ exports[`CheckboxGroup > renders with air-primary-success variant card correctly
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="root" class="relative flex flex-row style-filled-success cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
@@ -25,7 +27,8 @@ exports[`CheckboxGroup > renders with air-primary-success variant card correctly
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -42,7 +45,8 @@ exports[`CheckboxGroup > renders with air-primary-success variant list correctly
       <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0:1" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M20.196 6.432a.7.7 0 0 1-.002.99L9.878 17.695a.7.7 0 0 1-.988 0L4.206 13.03a.7.7 0 0 1 .988-.992l4.19 4.172 9.822-9.781a.7.7 0 0 1 .99.002" clip-rule="evenodd"></path></svg></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><label for="v-0:1" data-slot="label" class="cursor-pointer block text-label">Option 1</label>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><label for="v-0:1" data-slot="label" class="cursor-pointer block text-label">Option 1</label>
         <!--v-if-->
       </div>
     </div>
@@ -52,7 +56,8 @@ exports[`CheckboxGroup > renders with air-primary-success variant list correctly
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><label for="v-0:2" data-slot="label" class="cursor-pointer block text-label">Option 2</label>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><label for="v-0:2" data-slot="label" class="cursor-pointer block text-label">Option 2</label>
         <!--v-if-->
       </div>
     </div>
@@ -62,7 +67,8 @@ exports[`CheckboxGroup > renders with air-primary-success variant list correctly
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><label for="v-0:3" data-slot="label" class="cursor-pointer block text-label">Option 3</label>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><label for="v-0:3" data-slot="label" class="cursor-pointer block text-label">Option 3</label>
         <!--v-if-->
       </div>
     </div>
@@ -78,7 +84,8 @@ exports[`CheckboxGroup > renders with air-primary-success variant table correctl
       <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0:1" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M20.196 6.432a.7.7 0 0 1-.002.99L9.878 17.695a.7.7 0 0 1-.988 0L4.206 13.03a.7.7 0 0 1 .988-.992l4.19 4.172 9.822-9.781a.7.7 0 0 1 .99.002" clip-rule="evenodd"></path></svg></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="root" class="relative flex items-start flex-row style-filled-success cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
@@ -87,7 +94,8 @@ exports[`CheckboxGroup > renders with air-primary-success variant table correctl
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="root" class="relative flex items-start flex-row style-filled-success cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
@@ -96,7 +104,8 @@ exports[`CheckboxGroup > renders with air-primary-success variant table correctl
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -115,7 +124,8 @@ exports[`CheckboxGroup > renders with ariaLabel correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <!--v-if-->
       </div>
     </div>
@@ -125,7 +135,8 @@ exports[`CheckboxGroup > renders with ariaLabel correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <!--v-if-->
       </div>
     </div>
@@ -135,7 +146,8 @@ exports[`CheckboxGroup > renders with ariaLabel correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
         <!--v-if-->
       </div>
     </div>
@@ -154,7 +166,8 @@ exports[`CheckboxGroup > renders with as correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <!--v-if-->
       </div>
     </div>
@@ -164,7 +177,8 @@ exports[`CheckboxGroup > renders with as correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <!--v-if-->
       </div>
     </div>
@@ -174,7 +188,8 @@ exports[`CheckboxGroup > renders with as correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
         <!--v-if-->
       </div>
     </div>
@@ -193,7 +208,8 @@ exports[`CheckboxGroup > renders with b24ui correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-red">Option 1</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-red">Option 1</span>
         <!--v-if-->
       </div>
     </div>
@@ -203,7 +219,8 @@ exports[`CheckboxGroup > renders with b24ui correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-red">Option 2</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-red">Option 2</span>
         <!--v-if-->
       </div>
     </div>
@@ -213,7 +230,8 @@ exports[`CheckboxGroup > renders with b24ui correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-red">Option 3</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-red">Option 3</span>
         <!--v-if-->
       </div>
     </div>
@@ -232,7 +250,8 @@ exports[`CheckboxGroup > renders with class correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <!--v-if-->
       </div>
     </div>
@@ -242,7 +261,8 @@ exports[`CheckboxGroup > renders with class correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <!--v-if-->
       </div>
     </div>
@@ -252,7 +272,8 @@ exports[`CheckboxGroup > renders with class correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
         <!--v-if-->
       </div>
     </div>
@@ -269,7 +290,8 @@ exports[`CheckboxGroup > renders with defaultValue correctly 1`] = `
       <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0:1" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M20.196 6.432a.7.7 0 0 1-.002.99L9.878 17.695a.7.7 0 0 1-.988 0L4.206 13.03a.7.7 0 0 1 .988-.992l4.19 4.172 9.822-9.781a.7.7 0 0 1 .99.002" clip-rule="evenodd"></path></svg></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <!--v-if-->
       </div>
     </div>
@@ -279,7 +301,8 @@ exports[`CheckboxGroup > renders with defaultValue correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <!--v-if-->
       </div>
     </div>
@@ -289,7 +312,8 @@ exports[`CheckboxGroup > renders with defaultValue correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
         <!--v-if-->
       </div>
     </div>
@@ -308,7 +332,8 @@ exports[`CheckboxGroup > renders with description correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <p data-slot="description" class="mt-[4px] text-description">Description 0</p>
       </div>
     </div>
@@ -318,7 +343,8 @@ exports[`CheckboxGroup > renders with description correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <p data-slot="description" class="mt-[4px] text-description">Description 1</p>
       </div>
     </div>
@@ -328,7 +354,8 @@ exports[`CheckboxGroup > renders with description correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
         <p data-slot="description" class="mt-[4px] text-description">Description 2</p>
       </div>
     </div>
@@ -347,7 +374,8 @@ exports[`CheckboxGroup > renders with description slot correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <p data-slot="description" class="mt-[4px] text-description">Description slot</p>
       </div>
     </div>
@@ -357,7 +385,8 @@ exports[`CheckboxGroup > renders with description slot correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <p data-slot="description" class="mt-[4px] text-description">Description slot</p>
       </div>
     </div>
@@ -367,7 +396,8 @@ exports[`CheckboxGroup > renders with description slot correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
         <p data-slot="description" class="mt-[4px] text-description">Description slot</p>
       </div>
     </div>
@@ -386,7 +416,8 @@ exports[`CheckboxGroup > renders with descriptionKey correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <p data-slot="description" class="mt-[4px] text-description">1</p>
       </div>
     </div>
@@ -396,7 +427,8 @@ exports[`CheckboxGroup > renders with descriptionKey correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <p data-slot="description" class="mt-[4px] text-description">2</p>
       </div>
     </div>
@@ -406,7 +438,8 @@ exports[`CheckboxGroup > renders with descriptionKey correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
         <p data-slot="description" class="mt-[4px] text-description">3</p>
       </div>
     </div>
@@ -425,7 +458,8 @@ exports[`CheckboxGroup > renders with disabled correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="block text-label cursor-not-allowed">Option 1</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="block text-label cursor-not-allowed">Option 1</span>
         <!--v-if-->
       </div>
     </div>
@@ -435,7 +469,8 @@ exports[`CheckboxGroup > renders with disabled correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="block text-label cursor-not-allowed">Option 2</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="block text-label cursor-not-allowed">Option 2</span>
         <!--v-if-->
       </div>
     </div>
@@ -445,7 +480,8 @@ exports[`CheckboxGroup > renders with disabled correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="block text-label cursor-not-allowed">Option 3</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="block text-label cursor-not-allowed">Option 3</span>
         <!--v-if-->
       </div>
     </div>
@@ -462,7 +498,8 @@ exports[`CheckboxGroup > renders with highlight air-primary-success correctly 1`
       <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4 ring ring-inset ring-(--b24ui-border-color)" id="v-0:1" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M20.196 6.432a.7.7 0 0 1-.002.99L9.878 17.695a.7.7 0 0 1-.988 0L4.206 13.03a.7.7 0 0 1 .988-.992l4.19 4.172 9.822-9.781a.7.7 0 0 1 .99.002" clip-rule="evenodd"></path></svg></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <!--v-if-->
       </div>
     </div>
@@ -472,7 +509,8 @@ exports[`CheckboxGroup > renders with highlight air-primary-success correctly 1`
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <!--v-if-->
       </div>
     </div>
@@ -482,7 +520,8 @@ exports[`CheckboxGroup > renders with highlight air-primary-success correctly 1`
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
         <!--v-if-->
       </div>
     </div>
@@ -499,7 +538,8 @@ exports[`CheckboxGroup > renders with highlight correctly 1`] = `
       <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4 ring ring-inset ring-(--b24ui-border-color)" id="v-0:1" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M20.196 6.432a.7.7 0 0 1-.002.99L9.878 17.695a.7.7 0 0 1-.988 0L4.206 13.03a.7.7 0 0 1 .988-.992l4.19 4.172 9.822-9.781a.7.7 0 0 1 .99.002" clip-rule="evenodd"></path></svg></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <!--v-if-->
       </div>
     </div>
@@ -509,7 +549,8 @@ exports[`CheckboxGroup > renders with highlight correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <!--v-if-->
       </div>
     </div>
@@ -519,7 +560,8 @@ exports[`CheckboxGroup > renders with highlight correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
         <!--v-if-->
       </div>
     </div>
@@ -535,7 +577,8 @@ exports[`CheckboxGroup > renders with horizontal variant card correctly 1`] = `
       <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0:1" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked" data-reka-collection-item="" tabindex="-1" data-orientation="horizontal"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M20.196 6.432a.7.7 0 0 1-.002.99L9.878 17.695a.7.7 0 0 1-.988 0L4.206 13.03a.7.7 0 0 1 .988-.992l4.19 4.172 9.822-9.781a.7.7 0 0 1 .99.002" clip-rule="evenodd"></path></svg></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="root" class="relative flex flex-row style-filled cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
@@ -544,7 +587,8 @@ exports[`CheckboxGroup > renders with horizontal variant card correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="root" class="relative flex flex-row style-filled cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
@@ -553,7 +597,8 @@ exports[`CheckboxGroup > renders with horizontal variant card correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -570,7 +615,8 @@ exports[`CheckboxGroup > renders with horizontal variant list correctly 1`] = `
       <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0:1" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked" data-reka-collection-item="" tabindex="-1" data-orientation="horizontal"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M20.196 6.432a.7.7 0 0 1-.002.99L9.878 17.695a.7.7 0 0 1-.988 0L4.206 13.03a.7.7 0 0 1 .988-.992l4.19 4.172 9.822-9.781a.7.7 0 0 1 .99.002" clip-rule="evenodd"></path></svg></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><label for="v-0:1" data-slot="label" class="cursor-pointer block text-label">Option 1</label>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><label for="v-0:1" data-slot="label" class="cursor-pointer block text-label">Option 1</label>
         <!--v-if-->
       </div>
     </div>
@@ -580,7 +626,8 @@ exports[`CheckboxGroup > renders with horizontal variant list correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><label for="v-0:2" data-slot="label" class="cursor-pointer block text-label">Option 2</label>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><label for="v-0:2" data-slot="label" class="cursor-pointer block text-label">Option 2</label>
         <!--v-if-->
       </div>
     </div>
@@ -590,7 +637,8 @@ exports[`CheckboxGroup > renders with horizontal variant list correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><label for="v-0:3" data-slot="label" class="cursor-pointer block text-label">Option 3</label>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><label for="v-0:3" data-slot="label" class="cursor-pointer block text-label">Option 3</label>
         <!--v-if-->
       </div>
     </div>
@@ -606,7 +654,8 @@ exports[`CheckboxGroup > renders with horizontal variant table correctly 1`] = `
       <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0:1" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked" data-reka-collection-item="" tabindex="-1" data-orientation="horizontal"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M20.196 6.432a.7.7 0 0 1-.002.99L9.878 17.695a.7.7 0 0 1-.988 0L4.206 13.03a.7.7 0 0 1 .988-.992l4.19 4.172 9.822-9.781a.7.7 0 0 1 .99.002" clip-rule="evenodd"></path></svg></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="root" class="relative flex items-start flex-row style-filled cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-s-(--ui-border-radius-md) last-of-type:rounded-e-(--ui-border-radius-md)">
@@ -615,7 +664,8 @@ exports[`CheckboxGroup > renders with horizontal variant table correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="root" class="relative flex items-start flex-row style-filled cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-s-(--ui-border-radius-md) last-of-type:rounded-e-(--ui-border-radius-md)">
@@ -624,7 +674,119 @@ exports[`CheckboxGroup > renders with horizontal variant table correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
+        <!--v-if-->
+      </div>
+    </label>
+  </fieldset>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`CheckboxGroup > renders with icon card correctly 1`] = `
+"<div id="v-0" data-slot="root" class="relative" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;">
+  <fieldset data-slot="fieldset" class="flex flex-col gap-x-[16px] gap-y-2">
+    <!--v-if--><label data-slot="root" class="relative flex outline-transparent has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-border-color) style-filled cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
+      <div data-slot="container" class="flex items-center h-auto"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 sr-only size-4" id="v-0:1" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"></button>
+        <!--v-if-->
+      </div>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) flex flex-col items-center gap-1 text-center text-(length:--ui-font-size-lg) leading-4"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4">
+          <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
+        </svg><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+        <!--v-if-->
+      </div>
+    </label><label data-slot="root" class="relative flex outline-transparent has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-border-color) style-filled cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
+      <div data-slot="container" class="flex items-center h-auto"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 sr-only size-4" id="v-0:2" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"></button>
+        <!--v-if-->
+      </div>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) flex flex-col items-center gap-1 text-center text-(length:--ui-font-size-lg) leading-4"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4">
+          <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
+        </svg><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
+        <!--v-if-->
+      </div>
+    </label><label data-slot="root" class="relative flex outline-transparent has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-border-color) style-filled cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
+      <div data-slot="container" class="flex items-center h-auto"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 sr-only size-4" id="v-0:3" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"></button>
+        <!--v-if-->
+      </div>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) flex flex-col items-center gap-1 text-center text-(length:--ui-font-size-lg) leading-4"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4">
+          <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
+        </svg><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
+        <!--v-if-->
+      </div>
+    </label>
+  </fieldset>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`CheckboxGroup > renders with icon correctly 1`] = `
+"<div id="v-0" data-slot="root" class="relative" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;">
+  <fieldset data-slot="fieldset" class="flex flex-col gap-x-[16px] gap-y-2">
+    <!--v-if-->
+    <div data-slot="root" class="relative flex items-start outline-transparent has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-border-color) style-filled">
+      <div data-slot="container" class="flex items-center h-auto"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 sr-only size-4" id="v-0:1" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"></button>
+        <!--v-if-->
+      </div>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) flex flex-col items-center gap-1 text-center text-(length:--ui-font-size-lg) leading-4"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4">
+          <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
+        </svg><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+        <!--v-if-->
+      </div>
+    </div>
+    <div data-slot="root" class="relative flex items-start outline-transparent has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-border-color) style-filled">
+      <div data-slot="container" class="flex items-center h-auto"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 sr-only size-4" id="v-0:2" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"></button>
+        <!--v-if-->
+      </div>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) flex flex-col items-center gap-1 text-center text-(length:--ui-font-size-lg) leading-4"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4">
+          <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
+        </svg><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
+        <!--v-if-->
+      </div>
+    </div>
+    <div data-slot="root" class="relative flex items-start outline-transparent has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-border-color) style-filled">
+      <div data-slot="container" class="flex items-center h-auto"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 sr-only size-4" id="v-0:3" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"></button>
+        <!--v-if-->
+      </div>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) flex flex-col items-center gap-1 text-center text-(length:--ui-font-size-lg) leading-4"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4">
+          <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
+        </svg><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
+        <!--v-if-->
+      </div>
+    </div>
+  </fieldset>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`CheckboxGroup > renders with icon table correctly 1`] = `
+"<div id="v-0" data-slot="root" class="relative" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;">
+  <fieldset data-slot="fieldset" class="flex flex-col gap-0 -space-y-px">
+    <!--v-if--><label data-slot="root" class="relative flex items-start outline-transparent has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-border-color) style-filled cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
+      <div data-slot="container" class="flex items-center h-auto"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 sr-only size-4" id="v-0:1" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"></button>
+        <!--v-if-->
+      </div>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) flex flex-col items-center gap-1 text-center text-(length:--ui-font-size-lg) leading-4"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4">
+          <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
+        </svg><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+        <!--v-if-->
+      </div>
+    </label><label data-slot="root" class="relative flex items-start outline-transparent has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-border-color) style-filled cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
+      <div data-slot="container" class="flex items-center h-auto"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 sr-only size-4" id="v-0:2" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"></button>
+        <!--v-if-->
+      </div>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) flex flex-col items-center gap-1 text-center text-(length:--ui-font-size-lg) leading-4"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4">
+          <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
+        </svg><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
+        <!--v-if-->
+      </div>
+    </label><label data-slot="root" class="relative flex items-start outline-transparent has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-border-color) style-filled cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
+      <div data-slot="container" class="flex items-center h-auto"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 sr-only size-4" id="v-0:3" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"></button>
+        <!--v-if-->
+      </div>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) flex flex-col items-center gap-1 text-center text-(length:--ui-font-size-lg) leading-4"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4">
+          <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
+        </svg><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -643,7 +805,8 @@ exports[`CheckboxGroup > renders with items correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <!--v-if-->
       </div>
     </div>
@@ -653,7 +816,8 @@ exports[`CheckboxGroup > renders with items correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <!--v-if-->
       </div>
     </div>
@@ -663,7 +827,8 @@ exports[`CheckboxGroup > renders with items correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
         <!--v-if-->
       </div>
     </div>
@@ -682,7 +847,8 @@ exports[`CheckboxGroup > renders with label slot correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Label slot</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Label slot</span>
         <!--v-if-->
       </div>
     </div>
@@ -692,7 +858,8 @@ exports[`CheckboxGroup > renders with label slot correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Label slot</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Label slot</span>
         <!--v-if-->
       </div>
     </div>
@@ -702,7 +869,8 @@ exports[`CheckboxGroup > renders with label slot correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Label slot</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Label slot</span>
         <!--v-if-->
       </div>
     </div>
@@ -721,7 +889,8 @@ exports[`CheckboxGroup > renders with labelKey correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">1</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">1</span>
         <!--v-if-->
       </div>
     </div>
@@ -731,7 +900,8 @@ exports[`CheckboxGroup > renders with labelKey correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">2</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">2</span>
         <!--v-if-->
       </div>
     </div>
@@ -741,7 +911,8 @@ exports[`CheckboxGroup > renders with labelKey correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">3</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">3</span>
         <!--v-if-->
       </div>
     </div>
@@ -760,7 +931,8 @@ exports[`CheckboxGroup > renders with legend slot correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <!--v-if-->
       </div>
     </div>
@@ -770,7 +942,8 @@ exports[`CheckboxGroup > renders with legend slot correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <!--v-if-->
       </div>
     </div>
@@ -780,7 +953,8 @@ exports[`CheckboxGroup > renders with legend slot correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
         <!--v-if-->
       </div>
     </div>
@@ -797,7 +971,8 @@ exports[`CheckboxGroup > renders with modelValue correctly 1`] = `
       <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0:1" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M20.196 6.432a.7.7 0 0 1-.002.99L9.878 17.695a.7.7 0 0 1-.988 0L4.206 13.03a.7.7 0 0 1 .988-.992l4.19 4.172 9.822-9.781a.7.7 0 0 1 .99.002" clip-rule="evenodd"></path></svg></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <!--v-if-->
       </div>
     </div>
@@ -807,7 +982,8 @@ exports[`CheckboxGroup > renders with modelValue correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <!--v-if-->
       </div>
     </div>
@@ -817,7 +993,8 @@ exports[`CheckboxGroup > renders with modelValue correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
         <!--v-if-->
       </div>
     </div>
@@ -836,7 +1013,8 @@ exports[`CheckboxGroup > renders with required correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <!--v-if-->
       </div>
     </div>
@@ -846,7 +1024,8 @@ exports[`CheckboxGroup > renders with required correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <!--v-if-->
       </div>
     </div>
@@ -856,7 +1035,8 @@ exports[`CheckboxGroup > renders with required correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
         <!--v-if-->
       </div>
     </div>
@@ -873,7 +1053,8 @@ exports[`CheckboxGroup > renders with size lg correctly 1`] = `
       <div data-slot="container" class="flex items-center h-5"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-5" id="v-0:1" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M20.196 6.432a.7.7 0 0 1-.002.99L9.878 17.695a.7.7 0 0 1-.988 0L4.206 13.03a.7.7 0 0 1 .988-.992l4.19 4.172 9.822-9.781a.7.7 0 0 1 .99.002" clip-rule="evenodd"></path></svg></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-xl) leading-4.5"><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-xl) leading-4.5">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <!--v-if-->
       </div>
     </div>
@@ -883,7 +1064,8 @@ exports[`CheckboxGroup > renders with size lg correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-xl) leading-4.5"><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-xl) leading-4.5">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <!--v-if-->
       </div>
     </div>
@@ -893,7 +1075,8 @@ exports[`CheckboxGroup > renders with size lg correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-xl) leading-4.5"><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-xl) leading-4.5">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
         <!--v-if-->
       </div>
     </div>
@@ -910,7 +1093,8 @@ exports[`CheckboxGroup > renders with size md correctly 1`] = `
       <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0:1" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M20.196 6.432a.7.7 0 0 1-.002.99L9.878 17.695a.7.7 0 0 1-.988 0L4.206 13.03a.7.7 0 0 1 .988-.992l4.19 4.172 9.822-9.781a.7.7 0 0 1 .99.002" clip-rule="evenodd"></path></svg></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <!--v-if-->
       </div>
     </div>
@@ -920,7 +1104,8 @@ exports[`CheckboxGroup > renders with size md correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <!--v-if-->
       </div>
     </div>
@@ -930,7 +1115,8 @@ exports[`CheckboxGroup > renders with size md correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
         <!--v-if-->
       </div>
     </div>
@@ -947,7 +1133,8 @@ exports[`CheckboxGroup > renders with size sm correctly 1`] = `
       <div data-slot="container" class="flex items-center h-3.5"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-3.5" id="v-0:1" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M20.196 6.432a.7.7 0 0 1-.002.99L9.878 17.695a.7.7 0 0 1-.988 0L4.206 13.03a.7.7 0 0 1 .988-.992l4.19 4.172 9.822-9.781a.7.7 0 0 1 .99.002" clip-rule="evenodd"></path></svg></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-sm) leading-3.5"><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-sm) leading-3.5">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <!--v-if-->
       </div>
     </div>
@@ -957,7 +1144,8 @@ exports[`CheckboxGroup > renders with size sm correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-sm) leading-3.5"><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-sm) leading-3.5">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <!--v-if-->
       </div>
     </div>
@@ -967,7 +1155,8 @@ exports[`CheckboxGroup > renders with size sm correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-sm) leading-3.5"><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-sm) leading-3.5">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
         <!--v-if-->
       </div>
     </div>
@@ -984,7 +1173,8 @@ exports[`CheckboxGroup > renders with size xs correctly 1`] = `
       <div data-slot="container" class="flex items-center h-3"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-3" id="v-0:1" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M20.196 6.432a.7.7 0 0 1-.002.99L9.878 17.695a.7.7 0 0 1-.988 0L4.206 13.03a.7.7 0 0 1 .988-.992l4.19 4.172 9.822-9.781a.7.7 0 0 1 .99.002" clip-rule="evenodd"></path></svg></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-xs) leading-[11px]"><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-xs) leading-[11px]">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <!--v-if-->
       </div>
     </div>
@@ -994,7 +1184,8 @@ exports[`CheckboxGroup > renders with size xs correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-xs) leading-[11px]"><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-xs) leading-[11px]">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <!--v-if-->
       </div>
     </div>
@@ -1004,7 +1195,8 @@ exports[`CheckboxGroup > renders with size xs correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-xs) leading-[11px]"><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-xs) leading-[11px]">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
         <!--v-if-->
       </div>
     </div>
@@ -1021,7 +1213,8 @@ exports[`CheckboxGroup > renders with valueKey correctly 1`] = `
       <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0:Option 1" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M20.196 6.432a.7.7 0 0 1-.002.99L9.878 17.695a.7.7 0 0 1-.988 0L4.206 13.03a.7.7 0 0 1 .988-.992l4.19 4.172 9.822-9.781a.7.7 0 0 1 .99.002" clip-rule="evenodd"></path></svg></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <!--v-if-->
       </div>
     </div>
@@ -1031,7 +1224,8 @@ exports[`CheckboxGroup > renders with valueKey correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <!--v-if-->
       </div>
     </div>
@@ -1041,7 +1235,8 @@ exports[`CheckboxGroup > renders with valueKey correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
         <!--v-if-->
       </div>
     </div>
@@ -1057,7 +1252,8 @@ exports[`CheckboxGroup > renders with variant card correctly 1`] = `
       <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0:1" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M20.196 6.432a.7.7 0 0 1-.002.99L9.878 17.695a.7.7 0 0 1-.988 0L4.206 13.03a.7.7 0 0 1 .988-.992l4.19 4.172 9.822-9.781a.7.7 0 0 1 .99.002" clip-rule="evenodd"></path></svg></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="root" class="relative flex flex-row style-filled cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
@@ -1066,7 +1262,8 @@ exports[`CheckboxGroup > renders with variant card correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="root" class="relative flex flex-row style-filled cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
@@ -1075,7 +1272,8 @@ exports[`CheckboxGroup > renders with variant card correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
         <!--v-if-->
       </div>
     </label>
@@ -1092,7 +1290,8 @@ exports[`CheckboxGroup > renders with variant list correctly 1`] = `
       <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0:1" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M20.196 6.432a.7.7 0 0 1-.002.99L9.878 17.695a.7.7 0 0 1-.988 0L4.206 13.03a.7.7 0 0 1 .988-.992l4.19 4.172 9.822-9.781a.7.7 0 0 1 .99.002" clip-rule="evenodd"></path></svg></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><label for="v-0:1" data-slot="label" class="cursor-pointer block text-label">Option 1</label>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><label for="v-0:1" data-slot="label" class="cursor-pointer block text-label">Option 1</label>
         <!--v-if-->
       </div>
     </div>
@@ -1102,7 +1301,8 @@ exports[`CheckboxGroup > renders with variant list correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><label for="v-0:2" data-slot="label" class="cursor-pointer block text-label">Option 2</label>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><label for="v-0:2" data-slot="label" class="cursor-pointer block text-label">Option 2</label>
         <!--v-if-->
       </div>
     </div>
@@ -1112,7 +1312,8 @@ exports[`CheckboxGroup > renders with variant list correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><label for="v-0:3" data-slot="label" class="cursor-pointer block text-label">Option 3</label>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><label for="v-0:3" data-slot="label" class="cursor-pointer block text-label">Option 3</label>
         <!--v-if-->
       </div>
     </div>
@@ -1128,7 +1329,8 @@ exports[`CheckboxGroup > renders with variant table correctly 1`] = `
       <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0:1" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M20.196 6.432a.7.7 0 0 1-.002.99L9.878 17.695a.7.7 0 0 1-.988 0L4.206 13.03a.7.7 0 0 1 .988-.992l4.19 4.172 9.822-9.781a.7.7 0 0 1 .99.002" clip-rule="evenodd"></path></svg></span></button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <!--v-if-->
       </div>
     </label><label data-slot="root" class="relative flex items-start flex-row style-filled cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
@@ -1137,7 +1339,8 @@ exports[`CheckboxGroup > renders with variant table correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <!--v-if-->
       </div>
     </label><label data-slot="root" class="relative flex items-start flex-row style-filled cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
@@ -1146,7 +1349,8 @@ exports[`CheckboxGroup > renders with variant table correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4"><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 3</span>
         <!--v-if-->
       </div>
     </label>

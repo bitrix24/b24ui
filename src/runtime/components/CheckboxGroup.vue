@@ -4,6 +4,7 @@ import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/checkbox-group'
 import type { CheckboxProps } from './Checkbox.vue'
+import type { IconComponent } from '../types/icons'
 import type { AcceptableValue, GetItemKeys, GetModelValue, GetModelValueEmits } from '../types/utils'
 import type { ComponentConfig } from '../types/tv'
 
@@ -16,12 +17,17 @@ export type CheckboxGroupItem = CheckboxGroupValue | {
   description?: string
   disabled?: boolean
   value?: string
+  /**
+   * The icon displayed when checked, or above the label when `indicator` is `hidden`.
+   * @IconComponent
+   */
+  icon?: IconComponent
   class?: any
   b24ui?: Pick<CheckboxGroup['slots'], 'item'> & Omit<Required<CheckboxProps>['b24ui'], 'root'>
   [key: string]: any
 }
 
-export interface CheckboxGroupProps<T extends CheckboxGroupItem[] = CheckboxGroupItem[], VK extends GetItemKeys<T> = 'value'> extends Pick<CheckboxGroupRootProps, 'disabled' | 'loop' | 'name' | 'required'>, Pick<CheckboxProps, 'color' | 'highlight' | 'indicator'> {
+export interface CheckboxGroupProps<T extends CheckboxGroupItem[] = CheckboxGroupItem[], VK extends GetItemKeys<T> = 'value'> extends Pick<CheckboxGroupRootProps, 'disabled' | 'loop' | 'name' | 'required'>, Pick<CheckboxProps, 'color' | 'highlight' | 'indicator' | 'icon'> {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'
@@ -199,6 +205,7 @@ function onUpdate(value: any) {
         v-for="item in normalizedItems"
         :key="item.value"
         v-bind="{ ...item, ...checkboxProps }"
+        :icon="item.icon ?? props.icon"
         :color="color"
         :highlight="highlight"
         :size="size"

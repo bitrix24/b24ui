@@ -1,7 +1,10 @@
 import { describe, it, expect, test } from 'vitest'
 import { axe } from 'vitest-axe'
-import { flushPromises, mount } from '@vue/test-utils'
+import { flushPromises, mount, type VueWrapper } from '@vue/test-utils'
 import CheckboxGroup from '../../src/runtime/components/CheckboxGroup.vue'
+import Checkbox from '../../src/runtime/components/Checkbox.vue'
+import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
+import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
 import type { FormInputEvents } from '../../src/module'
 import { renderForm } from '../utils/form'
 import theme from '#build/b24ui/checkbox-group'
@@ -30,6 +33,9 @@ describe('CheckboxGroup', () => {
     ['with descriptionKey', { props: { ...props, descriptionKey: 'value' } }],
     ['with disabled', { props: { ...props, disabled: true } }],
     ['with description', { props: { items: items.map((opt, count) => ({ ...opt, description: `Description ${count}` })) } }],
+    ['with icon', { props: { items: items.map(opt => ({ ...opt, icon: SignIcon })), indicator: 'hidden' } }],
+    ['with icon card', { props: { items: items.map(opt => ({ ...opt, icon: SignIcon })), indicator: 'hidden', variant: 'card', defaultValue: ['1'] } }],
+    ['with icon table', { props: { items: items.map(opt => ({ ...opt, icon: SignIcon })), indicator: 'hidden', variant: 'table', defaultValue: ['1'] } }],
     ['with required', { props: { ...props, legend: 'Legend', required: true } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { ...props, size, defaultValue: ['1'] } }]),
     ...variants.map((variant: string) => [`with variant ${variant}`, { props: { ...props, variant, defaultValue: ['1'] } }]),
@@ -66,6 +72,65 @@ describe('CheckboxGroup', () => {
         'button-name': { enabled: false }
       }
     })).toHaveNoViolations()
+  })
+
+  it('forwards an item icon to the checkbox icon prop', async () => {
+    const wrapper = await mountSuspended(CheckboxGroup, {
+      props: { items: [{ value: '1', label: 'Option 1', icon: SignIcon }] }
+    })
+    const checkbox = wrapper.findComponent(Checkbox) as unknown as VueWrapper<any>
+    expect(checkbox.props('icon')).toBe(SignIcon)
+  })
+
+  it('lets an item icon win over the group icon', async () => {
+    const wrapper = await mountSuspended(CheckboxGroup, {
+      props: {
+        icon: Search2Icon,
+        items: [{ value: '1', label: 'Option 1', icon: SignIcon }, { value: '2', label: 'Option 2' }]
+      }
+    })
+    const checkboxes = wrapper.findAllComponents(Checkbox) as unknown as VueWrapper<any>[]
+    expect(checkboxes[0]!.props('icon')).toBe(SignIcon)
+    expect(checkboxes[1]!.props('icon')).toBe(Search2Icon)
+  })
+
+  it('renders an item icon above the label only when the indicator is hidden', async () => {
+    const items = [{ value: '1', label: 'Option 1', icon: SignIcon }]
+
+    const wrapper = await mountSuspended(CheckboxGroup, { props: { items } })
+    expect(wrapper.find('[data-slot="wrapper"] [data-slot="icon"]').exists()).toBe(false)
+
+    const hidden = await mountSuspended(CheckboxGroup, { props: { items, indicator: 'hidden' } })
+    expect(hidden.find('[data-slot="wrapper"] [data-slot="icon"]').exists()).toBe(true)
+  })
+
+  it('replaces the check mark while the indicator is visible', async () => {
+    const wrapper = await mountSuspended(CheckboxGroup, {
+      props: { items: [{ value: '1', label: 'Option 1', icon: SignIcon }], defaultValue: ['1'] }
+    })
+    // The icon lives inside the indicator, never in the wrapper, until the indicator is hidden.
+    expect(wrapper.find('[data-slot="indicator"] [data-slot="icon"]').exists()).toBe(true)
+    expect(wrapper.find('[data-slot="wrapper"] [data-slot="icon"]').exists()).toBe(false)
+  })
+
+  it('renders an item icon without a label', async () => {
+    const wrapper = await mountSuspended(CheckboxGroup, {
+      props: { items: [{ value: 'table', icon: SignIcon }], indicator: 'hidden' }
+    })
+    expect(wrapper.find('[data-slot="wrapper"] [data-slot="icon"]').exists()).toBe(true)
+  })
+
+  it('passes accessibility tests with icon items', async () => {
+    const wrapper = await mountSuspended(CheckboxGroup, {
+      props: {
+        items: [{ value: 'system', label: 'System', icon: SignIcon }, { value: 'light', label: 'Light', icon: Search2Icon }],
+        variant: 'table',
+        indicator: 'hidden',
+        orientation: 'horizontal',
+        defaultValue: ['system']
+      }
+    })
+    expect(await axe(wrapper.element)).toHaveNoViolations()
   })
 
   describe('emits', () => {

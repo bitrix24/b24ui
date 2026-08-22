@@ -70,6 +70,7 @@ You can also pass an array of objects with the following properties:
 - `description?: string`{lang="ts-type"}
 - [`value?: string`{lang="ts-type"}](#value-key)
 - `disabled?: boolean`{lang="ts-type"}
+- [`icon?: IconComponent`{lang="ts-type"}](#indicator)
 - `class?: any`{lang="ts-type"}
 - `b24ui?: { item?: ClassNameValue, container?: ClassNameValue, base?: ClassNameValue, 'indicator'?: ClassNameValue, wrapper?: ClassNameValue, label?: ClassNameValue, description?: ClassNameValue }`{lang="ts-type"}
 
@@ -271,6 +272,17 @@ props:
 ### Indicator
 
 Use the `indicator` prop to change the position or hide the indicator. Defaults to `start`.
+
+::note
+An item's `icon` replaces the check mark while the indicator is visible, and is displayed above the label when it is `hidden`.
+::
+
+::component-example
+---
+collapse: true
+name: 'checkbox-group-icon-example'
+---
+::
 
 ::component-code
 ---
