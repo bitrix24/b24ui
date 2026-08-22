@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.13.0](https://github.com/bitrix24/b24ui/compare/v2.12.0...v2.13.0) (2026-08-22)
+
+
+### Features
+
+* **CheckboxGroup/RadioGroup:** support `icon` in items ([#464](https://github.com/bitrix24/b24ui/issues/464)) ([a2d9083](https://github.com/bitrix24/b24ui/commit/a2d9083d900e7c8832647da37d6bd4ff76a747d6))
+
+
+### Bug Fixes
+
+* **Range:** forward aria attributes to the thumb ([#466](https://github.com/bitrix24/b24ui/issues/466)) ([4e42a22](https://github.com/bitrix24/b24ui/commit/4e42a221295eff94dbabbbbeecb778ef09991c48))
+
+
+### Chore
+
+* **sync:** reconcile the last four entries with [#464](https://github.com/bitrix24/b24ui/issues/464) and [#466](https://github.com/bitrix24/b24ui/issues/466) ([#467](https://github.com/bitrix24/b24ui/issues/467)) ([30b4c1f](https://github.com/bitrix24/b24ui/commit/30b4c1fbdab6d289e47513f51ffca69547cf6080))
+
 ## [2.12.0](https://github.com/bitrix24/b24ui/compare/v2.11.0...v2.12.0) (2026-08-21)
 
 
