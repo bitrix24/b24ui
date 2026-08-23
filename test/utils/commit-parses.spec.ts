@@ -1,7 +1,9 @@
 import { describe, it, expect } from 'vitest'
 import { execFileSync } from 'node:child_process'
+import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { parser } from '@conventional-commits/parser'
+import config from '../../release-please-config.json'
 
 /**
  * Guards `.github/scripts/assert-commit-parses.mjs`, which fails CI when a
@@ -23,6 +25,9 @@ import { parser } from '@conventional-commits/parser'
 // `process.cwd()` rather than `import.meta.url`: vitest's transform does not
 // leave a `file:` URL there. `documented-scripts.spec.ts` resolves the same way.
 const SCRIPT = join(process.cwd(), '.github/scripts/assert-commit-parses.mjs')
+
+/** Derived, not listed: adding a section must not need an edit here either. */
+const configuredTypes = config.packages['.']['changelog-sections'].map(entry => entry.type)
 
 function accepts(message: string): boolean {
   try {
@@ -97,6 +102,68 @@ describe('commit messages release-please can read', () => {
       ['a leading list marker', '* fix(Button): resolve hover state']
     ])('rejects %s', (_name, message) => {
       expect(accepts(message)).toBe(false)
+    })
+  })
+
+  /**
+   * The second way a commit fails to reach the changelog correctly: it parses,
+   * but its type has no entry in `changelog-sections`.
+   *
+   * Reproduced against the real config before writing any of this, by running
+   * `conventional-changelog-conventionalcommits@6.1.0`'s writer over a
+   * `style(Theme)!` commit — the output puts `### style` above `### Features`,
+   * exactly as #437 predicted, because an unknown group title indexes to -1.
+   */
+  describe('types that have no changelog section', () => {
+    it('reads the type list from the config rather than restating it', () => {
+      // A guard that keeps its own copy of the list is a guard that will one day
+      // disagree with the file it guards, silently and in the permissive
+      // direction. Asserted here so a later "simplification" has to fail a test.
+      const script = readFileSync(SCRIPT, 'utf8')
+      expect(script).toContain('release-please-config.json')
+      expect(script).toContain('changelog-sections')
+    })
+
+    it.each(configuredTypes.map(type => [type]))('accepts the configured type `%s`', (type) => {
+      expect(guardExitCode(`${type}(Button): resolve hover state`)).toBe(0)
+    })
+
+    // The twelve types #437 found in this history with no entry. Every one of
+    // them is dropped when ordinary and mis-rendered when breaking.
+    it.each([
+      ['playground', 31], ['doc', 23], ['style', 22], ['playgrounds', 12],
+      ['cli', 6], ['demo', 2], ['core', 1], ['ai', 1]
+    ])('rejects `%s`, used %i times before anyone noticed', (type) => {
+      expect(guardExitCode(`${type}(Button): resolve hover state`)).toBe(1)
+    })
+
+    // No list of types can cover these, which is the argument for checking the
+    // type against the config instead of maintaining a denylist.
+    it.each([['feal(init) Init All'], ['ix: something'], ['hore(x): something'], ['eat(x): something']])(
+      'rejects the typo %s', (subject) => {
+        expect(guardExitCode(subject)).toBe(1)
+      })
+
+    it('rejects a breaking commit of an unconfigured type — the #437 case itself', () => {
+      expect(guardExitCode('style(Theme)!: drop the legacy palette\n\nBREAKING CHANGE: gone.')).toBe(1)
+    })
+
+    it('rejects a configured type in the wrong case', () => {
+      // release-please would not match `Fix` either, so accepting it here would
+      // hand back a raw `### Fix` heading.
+      expect(guardExitCode('Fix(Button): resolve hover state')).toBe(1)
+    })
+
+    it('says which types are configured, so the fix does not need a file hunt', () => {
+      let output = ''
+      try {
+        execFileSync('node', [SCRIPT, '--stdin'], { input: 'style(x): reindent', stdio: 'pipe' })
+      } catch (error) {
+        output = String((error as { stdout?: Buffer }).stdout ?? '')
+      }
+
+      expect(output).toContain('has no changelog section')
+      for (const type of configuredTypes) expect(output).toContain(type)
     })
   })
 

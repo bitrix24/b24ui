@@ -1,7 +1,8 @@
 #!/usr/bin/env node
-// Fails when a commit message is one release-please will silently drop from the
-// changelog.
+// Fails when a commit message is one release-please will not render correctly
+// in the changelog. Two ways that happens, both silent.
 //
+// **The parse throws.**
 // release-please parses every commit with `@conventional-commits/parser` and,
 // when the parse throws, catches it, writes two `logger.debug` lines and moves
 // on. Nothing turns red: CI stays green, the release PR renders normally, and
@@ -19,11 +20,36 @@
 // release-please's own `parseConventionalCommits` agree on every one: 67
 // rejected by both, zero disagreements in either direction.
 //
+// **The type has no section.** `changelog-sections` in
+// `release-please-config.json` replaces the preset's type list wholesale, so a
+// type absent from ours has no entry. For an ordinary commit that means it is
+// dropped. For a **breaking** one it means something worse: the breaking note
+// keeps the commit alive, but the section rewrite in
+// `conventional-changelog-conventionalcommits`'s `writer-opts.js` is guarded by
+// `if (entry)`, so `commit.type` stays the raw string and becomes the group
+// title — and `commitGroupOrder.indexOf(title)` returns -1 for an unknown one,
+// which sorts it *above* index 0. Reproduced against the real config: a
+// `style(Theme)!` commit renders `### style` above `### Features` (#437).
+//
+// Rejecting the type at the door rather than adding hidden entries per type is
+// the deliberate choice of the two the issue offered. Twelve types appear in
+// this history with no entry, most of them scopes misused as types, and the
+// list would never be finished — it cannot cover `feal(init)`, `ix` or `hore`,
+// which are the same failure arriving as a typo.
+//
 //   usage: assert-commit-parses.mjs            # reads git HEAD
 //          assert-commit-parses.mjs --stdin    # reads the message on stdin
 import { execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { parser } from '@conventional-commits/parser'
+
+// Read from the config rather than restating it: a type added there must not
+// need a second edit here, and a guard that disagrees with the thing it guards
+// is worse than none.
+const CONFIG = new URL('../../release-please-config.json', import.meta.url)
+const KNOWN_TYPES = new Set(
+  JSON.parse(readFileSync(CONFIG, 'utf8')).packages['.']['changelog-sections'].map(entry => entry.type)
+)
 
 const readingStdin = process.argv.includes('--stdin')
 
@@ -59,7 +85,29 @@ try {
 }
 
 if (!error) {
-  console.log(`commit message parses: ${subject}`)
+  // Case-insensitive on purpose, and the comparison below is not: `Fix(x):`
+  // is captured as `Fix`, misses the set, and is rejected — which is right,
+  // because release-please would treat it as an unknown type too.
+  const type = subject.match(/^([a-z]+)/i)?.[1]
+  // The parse succeeded, so a type is there; the optional chain is for the
+  // reader rather than for a case that can happen.
+  if (type && !KNOWN_TYPES.has(type)) {
+    console.log(`::error::This commit's type has no changelog section: ${subject}`)
+    console.log('')
+    console.log(`\`${type}\` is not in \`changelog-sections\` in release-please-config.json.`)
+    console.log('An ordinary commit of this type is dropped from the changelog. A breaking')
+    console.log('one is worse: it survives, but under a raw lowercase heading sorted above')
+    console.log('every real section, because an unknown group title indexes to -1 (#437).')
+    console.log('')
+    console.log(`Configured types: ${[...KNOWN_TYPES].join(', ')}`)
+    console.log('')
+    console.log('If this is a typo — `feal`, `ix`, `hore` have all happened — fix the subject.')
+    console.log('If the type is deliberate, either use one that has a section (`chore` covers')
+    console.log('most of what `style`, `playground` and `cli` were used for) or add an entry')
+    console.log('to release-please-config.json in the same change.')
+    process.exit(1)
+  }
+  console.log(`commit message parses, type \`${type}\` has a section: ${subject}`)
   process.exit(0)
 }
 
