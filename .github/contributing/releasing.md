@@ -42,13 +42,21 @@ workflow's filename (`npm-publish.yml`) and optionally an environment name.
 Renaming either breaks publishing with no signal from here — if you rename the
 file or the `npm-publish` environment, update npm to match in the same change.
 
-That binding is also what produces the release's **provenance attestation**, and
-the publish passes `--provenance` so its absence is an error rather than a
-quieter release. npm attaches an attestation on its own when the publish
-authenticates through OIDC, which is why 2.12.0 has one without the flag ever
-being set; the flag matters for the case where the binding is gone — token auth
-still publishes, just without provenance, and nothing else would notice. Check a
-shipped release with `npm view @bitrix24/b24ui-nuxt@<version> dist.attestations`.
+That binding is also what produces the release's **provenance attestation**.
+npm attaches one by itself when the publish authenticates through OIDC, which
+is why 2.12.0 has one although nothing here asked for it. Check a shipped
+release with `npm view @bitrix24/b24ui-nuxt@<version> dist.attestations`.
+
+The publish passes `--provenance` regardless, and it is worth being precise
+about what that does and does not buy, because the obvious reading is wrong.
+It is **not** a tripwire for the binding disappearing: this job holds no npm
+token at all, so without OIDC the publish fails at authentication and never
+reaches the question of attesting. What the flag guards is the *next* step
+someone would take in that situation — adding a `NODE_AUTH_TOKEN` to get
+publishing working again. Under token auth npm stops attesting silently, and
+with `--provenance` and the `id-token: write` this job already has, it keeps
+attesting instead. The flag is what makes provenance a property of this file
+rather than of a setting on npmjs.com.
 
 If a publish ever fails *on the flag itself* — npm rejecting `--provenance`
 rather than the package — the release is not lost and does not need the flag
