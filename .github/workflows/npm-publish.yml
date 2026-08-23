@@ -150,7 +150,10 @@ jobs:
           fi
           echo "skip=false" >> "$GITHUB_OUTPUT"
 
+      # `--provenance` is redundant today and deliberate anyway: it moves the
+      # attestation from being a property of a setting on npmjs.com to being a
+      # property of this file. releasing.md has the reasoning.
       - name: 'Publish 🚀'
         if: steps.version-check.outputs.skip == 'false'
         shell: bash
-        run: pnpm publish --no-git-checks
+        run: pnpm publish --no-git-checks --provenance

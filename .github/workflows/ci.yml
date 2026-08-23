@@ -52,6 +52,12 @@ jobs:
       - name: Assert every action is pinned to a commit SHA
         run: .github/scripts/assert-actions-pinned.py
 
+      # pnpm freezes the lockfile by itself under CI, so this asserts an
+      # intention rather than a behaviour: the flag stays written down, and
+      # `--no-frozen-lockfile` cannot be slipped in to get a red build green.
+      - name: Assert every workflow install is frozen
+        run: .github/scripts/assert-lockfile-frozen.py
+
       # The workflow scripts have no other coverage: they run on a schedule and
       # hold `issues: write`. Several of the bugs three rounds of review found in
       # them shared one shape — a failure inside an `if` condition, which bash
