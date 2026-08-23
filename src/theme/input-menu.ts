@@ -123,14 +123,23 @@ export default () => {
         'leading-(--main-ui-square-item-height)',
         'font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular)',
         'inline-flex items-center gap-1',
+        // A share of the field, not a length (#342): a constant ellipsised tags
+        // that had room to spare. `min-w-0` is what lets `truncate` engage —
+        // a flex child will not shrink below its content width without it.
+        // 70% over 50% is a deliberate call: two long tags then land on
+        // separate rows, and truncating sooner to avoid that is the worse
+        // trade. See .sync/PORTING.md §2, tag width caps.
+        'min-w-0 max-w-[70%]',
         'data-disabled:cursor-not-allowed data-disabled:opacity-30',
         'data-disabled:select-none',
         'text-(--ui-color-design-tinted-content)',
         'bg-(--ui-color-design-tinted-bg-alt)'
       ].join(' '),
-      tagsItemText: 'truncate max-w-[180px]',
+      tagsItemText: 'truncate min-w-0',
       tagsItemDelete: [
         'cursor-pointer',
+        // The tag is squeezable now; the close button must not be what gives way.
+        'shrink-0',
         'inline-flex items-center',
         'disabled:cursor-not-allowed',
         'disabled:pointer-events-auto',

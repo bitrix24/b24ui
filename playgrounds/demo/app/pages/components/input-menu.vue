@@ -35,6 +35,18 @@ const itemsSimple = ref(['Prospecting', 'Qualifying', 'Presenting', 'Negotiating
 const valueForAdd = ref('Prospecting')
 const valueMultiple = ref(['Prospecting', 'Presenting'])
 
+// #342 is only visible with labels long enough to want more room than the field
+// has. happy-dom does no layout, so no snapshot can show this — the check is a
+// person looking at the field: two tags should sit side by side and ellipsise
+// at the field's real edge, not at a fixed width with empty space beside them.
+const itemsLong = ref([
+  'Интеграции (Телефония, Почта, Мессенджеры)',
+  'Контакт-центр (Открытые линии)',
+  'Пользователи и структура компании',
+  'Автоматизация (роботы и триггеры)'
+])
+const valueMultipleLong = ref([itemsLong.value[0]!, itemsLong.value[1]!])
+
 function onCreate(item: string) {
   itemsSimple.value.unshift(item)
   valueForAdd.value = item
@@ -212,6 +224,15 @@ const itemsObj = ref([
         v-bind="{ ...singleAttrs, ...props }"
         class="w-full"
         @create="onCreateMultiple"
+      />
+      <B24InputMenu
+        v-model="valueMultipleLong"
+        :items="itemsLong"
+        multiple
+        aria-label="Multiple with long labels"
+        placeholder="Multiple, long labels"
+        v-bind="{ ...singleAttrs, ...props }"
+        class="w-full"
       />
       <B24InputMenu
         :icon="TaskListIcon"
