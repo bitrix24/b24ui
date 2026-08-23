@@ -25,6 +25,14 @@ const airColors = computed(() => {
 })
 
 const tags = ref(['Bitrix24', 'Crm'])
+
+// See input-menu.vue: #342 only shows with labels long enough to want more room
+// than the field has, and no snapshot can show it. The check is visual — tags
+// ellipsise at the field's real edge, not at a constant.
+const tagsLong = ref([
+  'Интеграции (Телефония, Почта, Мессенджеры)',
+  'Контакт-центр (Открытые линии)'
+])
 </script>
 
 <template>
@@ -70,6 +78,7 @@ const tags = ref(['Bitrix24', 'Crm'])
       <B24InputTags v-model="tags" :icon="ALetterIcon" placeholder="Icon" v-bind="{ ...singleAttrs, ...props }" class="w-full" />
       <B24InputTags v-model="tags" :trailing-icon="Search2Icon" placeholder="Trailing icon" v-bind="{ ...singleAttrs, ...props }" class="w-full" />
       <B24InputTags v-model="tags" :avatar="{ src: '/b24ui/demo/avatar/employee.png' }" placeholder="Avatar" v-bind="{ ...singleAttrs, ...props }" class="w-full" />
+      <B24InputTags v-model="tagsLong" placeholder="Long labels" v-bind="{ ...singleAttrs, ...props }" class="w-full" />
     </Matrix>
   </PlaygroundPage>
 </template>
