@@ -64,8 +64,16 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
 
+      # Explicit, not load-bearing today: pnpm turns `--frozen-lockfile` on by
+      # itself whenever `CI` is set, and Actions always sets it, so the bare
+      # `pnpm install` this replaces was already frozen in practice. What the
+      # flag buys is that the guarantee stops depending on an environment
+      # variable nothing in this repository controls, and that the one real
+      # regression — someone reaching for `--no-frozen-lockfile` to get a red
+      # build green — has to be written down rather than inherited from a
+      # default. Asserted for every workflow by assert-lockfile-frozen.py.
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Prepare
         run: pnpm run dev:prepare

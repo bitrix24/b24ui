@@ -58,3 +58,7 @@ CLAUDE.md
 
 # VSC
 .history
+
+# Python bytecode from .github/scripts (py_compile, and any local run)
+__pycache__/
+*.pyc

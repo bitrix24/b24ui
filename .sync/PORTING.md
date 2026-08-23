@@ -588,6 +588,22 @@ For each commit:
    `mergeable_state: "behind"`, rebase onto `main` and force-push with
    `--force-with-lease`; branch protection requires the branch to be current.
 
+**Carry upstream's breaking marker into our subject.** Versions are derived,
+not chosen: release-please reads the squashed subject and footer, and `!` or a
+`BREAKING CHANGE:` footer is the only thing that makes the next release a major
+(`.github/contributing/releasing.md`). A port that drops the marker therefore
+ships a breaking change as a minor, and nothing in `lint`, `typecheck`, `test`
+or `build` can notice — the code is correct, only the version is wrong, and it
+is wrong for every consumer who trusted the range.
+
+So when the upstream commit is breaking, the PR title is too. Restate the break
+in our own terms rather than copying upstream's wording, since what breaks *here*
+can differ: a divergence recorded in §2 may absorb the change, in which case say
+so in the ledger entry and drop the marker deliberately. The reverse also
+happens — a faithful port can break b24ui where it did not break upstream,
+because this fork's prop or slot surface is not the same. Decide it, write it
+down, do not inherit it by accident.
+
 **Check dependency parity, not just the queue.** Every `chore(deps)` port
 bumps only the packages where this fork already sat on upstream's pre-image —
 correct, since a package deliberately held back must not be dragged along, and
@@ -688,10 +704,16 @@ forward, since every commit between the two would then never be judged.
 2. Confirm: jsDoc intact, types not weakened, new props have `renderEach` cases,
    snapshots updated, no unexpected files changed, any new `v-html`/`innerHTML`
    justified (§5).
-3. **Merge** (squash). If a commit must be skipped, close the PR and record the
+3. Check the breaking marker against §6. If the upstream commit is breaking and
+   our subject is not, the ledger entry has to say why — a §2 divergence that
+   absorbs it — and if it says nothing, that is the finding. The reverse counts
+   too: a port that changes this fork's prop or slot surface needs the marker
+   even when upstream's commit carried none. Nothing downstream re-checks this;
+   release-please takes the subject at its word.
+4. **Merge** (squash). If a commit must be skipped, close the PR and record the
    reason in `.sync/log/<sha>.md`, then advance the cursor by hand — closing
    does not advance it.
-4. If a fix corrects a recurring mistake, add a rule here and append a dated
+5. If a fix corrects a recurring mistake, add a rule here and append a dated
    line to the changelog below.
 
 ## Changelog of rules
@@ -726,3 +748,4 @@ forward, since every commit between the two would then never be judged.
 - 2026-08-20 — added the §6 **new-component checklist** and `test/utils/docs-component-registries.spec.ts`, after the maintainer read the Splitter and ProgressGroup ports and found four gaps in each. Both were missing from `docs/nuxt.config.ts`'s `pages` array, from `playgrounds/demo` entirely, and from the demo `useNavigation.ts`; both carried a `description:` copied word for word from Nuxt UI; and Splitter's Reka link used `iconName: RekaIcon`, a name absent from `src/runtime/dictionary/icons.ts`, so `resolveIcon()` returned `undefined` and the link rendered without an icon. Every one of those is invisible to a build — the docs crawler follows the sidebar and prerenders an unregistered page anyway, a missing playground page is a page that does not exist, and an unresolved icon is a falsy value rendered as nothing — so the checklist names eleven places rather than stating a rule. The `pages` array is worth singling out: it is not what makes the page build, it is the declared list the `/raw/<page>.md` routes are generated from, and `skills/b24-ui-nuxt/references/components.md` links to exactly those URLs. Writing the guard turned up two older instances of the same omission, `empty` and `page-card-group`, both now registered. What is enforceable is enforced: page ↔ `pages` entry in both directions, every `iconName:` in a component page's front matter resolvable in the dictionary, every Demo link resolving to a `playgrounds/demo` file, every demo nav entry resolving to one. What is not: the guard cannot demand a demo page per component (33 of 120 pages carry no Demo link on purpose) or a nav entry per demo page (five are unlisted today), and it cannot tell a rewritten `description:` from a copied one — those stay checklist items. Verified by four mutations, each red: dropping the `splitter` route, adding a route with no page, restoring `iconName: RekaIcon`, and renaming the demo page away. Last reviewed: 2026-08-20.
 - 2026-08-21 — fix of #73 (PR #430): added the §2 rule **popup height caps are tokens, and `40rem` is ours**. The value was hardcoded in six theme files — three at `40rem` for combobox/select lists, two at `40vh` for menus, and one more in `editor-suggestion-menu.ts` that review caught, which the editor's slash, mention and emoji menus all extend — which made it unthemeable and, more to the point, indistinguishable from an upstream literal during a port. Kept as two tokens rather than one: the units differ and nobody lengthening an autocomplete should be resizing context menus. Regenerating 350 snapshots was the whole cost; every changed line is the cap class and nothing else, checked rather than assumed. Last reviewed: 2026-08-21.
 - 2026-08-21 — checked #159 and added the §2 **`Modal`/`Slideover`/`Drawer` wrap `emits` with `useBlurOnOpen`** invariant. Upstream is not fixed: unovue/reka-ui#1280 has been open since 2024-08-23 with no assignee or PR, and `reka-ui@2.10.3` still calls `hideOthers`, so nothing was removed. Two defects turned up around the workaround instead. The issue documents `grep -rn 'reka-ui#1280' src/ test/` as the way to find every site to revisit, and it matched nothing — only the composable was annotated, as a URL. And the workaround stranded focus on `<body>` after close for any overlay opened without the built-in trigger slot, because reka-ui's fallback capture of `document.activeElement` skips `<body>` and the blur had just produced it; confirmed by A/B, fixed by restoring focus on close, and now covered at the component and composable level. `test/utils/blur-on-open-workaround.spec.ts` turns the manual re-check into a build signal. Last reviewed: 2026-08-21.
+- 2026-08-23 — closed #98 (PR #468) by adding the §6 rule **carry upstream's breaking marker into our subject**, and the matching §7 reviewer check. The issue's other two actions were already done and are recorded elsewhere: the version arithmetic table in `releasing.md` maps any `BREAKING CHANGE` or `!` to a major, with no v2-line exception, and release automation landed as release-please. What was missing is the one step automation cannot supply. release-please derives the bump from the squashed subject, so the marker is now load-bearing in a way it was not when the CHANGELOG was hand-written and a human read the diff — a dropped `!` used to be a cosmetic slip and is now a semver violation that every gate passes. The rule is stated in both directions on purpose, because a port is not a copy: a §2 divergence can absorb a break that upstream had, and this fork's own prop surface can break where upstream's did not. Last reviewed: 2026-08-23.
