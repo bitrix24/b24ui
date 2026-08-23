@@ -739,8 +739,11 @@ forward, since every commit between the two would then never be judged.
    snapshots updated, no unexpected files changed, any new `v-html`/`innerHTML`
    justified (§5).
 3. Check the subject names the upstream commit — `(nuxt/ui@<sha>)` — and that
-   the SHA is one this PR actually ported. CI checks that a reference is
-   present; only a reader checks that it points at the right commit.
+   the SHA is one this PR actually ported. **Both halves are yours.** CI does
+   check that a reference is present, but only on `push` to `main`, after the
+   squash: the PR-title job works from a title alone, which cannot say what a
+   commit touches. So a missing reference is something you catch here or find
+   out about when `main` is already red.
 4. Check the breaking marker against §6. If the upstream commit is breaking and
    our subject is not, the ledger entry has to say why — a §2 divergence that
    absorbs it — and if it says nothing, that is the finding. The reverse counts

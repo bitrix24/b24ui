@@ -10,11 +10,15 @@
 // path expectations with pathe, not node:path (#427)` — went missing from the
 // 2.12.0 notes, which had seven `test:` commits in range and listed six (#436).
 //
-// Runs on `push` to `main`, not on pull requests. A PR's own commits are often
-// the same text that lands, but not always: the squash subject and body can be
-// rewritten in the merge dialog, and #440 was. Only the message on `main` is
-// certain to be the one release-please reads. Checking HEAD after the merge also
-// needs no history, so the default `fetch-depth: 1` suffices.
+// `ci.yml` runs it on `push` to `main`, which is the check that counts: a PR's
+// own commits are often the text that lands, but not always — the squash
+// subject and body can be rewritten in the merge dialog, and #440 was.
+// `pr-title.yml` also runs it over the PR title with `--stdin`, as early
+// feedback rather than as the guarantee.
+//
+// The parse and type checks work on the message alone. The upstream-reference
+// check needs `HEAD^` to see what the commit added to the ledger, so it runs in
+// HEAD mode only and `ci.yml` fetches depth 2 for it.
 //
 // Fidelity is not assumed. Run over all 3240 commits on `main`, this oracle and
 // release-please's own `parseConventionalCommits` agree on every one: 67
@@ -69,17 +73,21 @@ function isMergeCommit() {
  *
  * Only the subject reaches CHANGELOG.md, so this is the one place a reader of
  * the release notes can be given a way back to upstream. The trigger is a new
- * key in `processed` rather than the file being touched at all: a bookkeeping
- * commit reconciling earlier entries — #467 was one — edits the same file and
- * ports nothing, and demanding a reference there would be wrong.
+ * `decision: "port"` entry in `processed`, which is narrower than it looks and has to be. Keying on the file being touched would
+ * catch the reconciliation commits §6 step 4 requires — #467 is one. Keying on
+ * any new key would still be wrong: 70 of the ledger's entries are `no-op`,
+ * `noop`, `skip` or `n/a`, and a commit recording one of those has nothing
+ * upstream to point a changelog reader at. Review caught that — the first draft
+ * flagged #442, #439 and #361, all correct as they stand, none fixable once on
+ * `main`.
  *
- * A batched port (§6 4b) adds several keys and can only name one; naming any of
- * them is enough, since the ledger carries the rest.
+ * A batched port (§6 4b) adds several entries and can only name one; naming any
+ * of them is enough, since the ledger carries the rest.
  *
- * Returns an empty array when the commit is not a port, when there is no
- * previous revision to compare against, or when reading either side fails —
- * this is a changelog-quality check, not a reason to redden `main` because git
- * was unavailable.
+ * Returns an empty array when the commit ports nothing or when either side is
+ * unreadable — this is a changelog-quality check, not a reason to redden `main`
+ * because git was unavailable. Both unreadable sides warn: a check that is
+ * inert and silent about it reads exactly like a check that passed.
  */
 function portWithoutUpstreamRef(subject) {
   if (readingStdin) return []
@@ -87,30 +95,55 @@ function portWithoutUpstreamRef(subject) {
   const at = (revision) => {
     try {
       const raw = execFileSync('git', ['show', `${revision}:.sync/nuxt-ui.json`], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] })
-      return Object.keys(JSON.parse(raw).processed ?? {})
+      return JSON.parse(raw).processed ?? {}
     } catch {
       return null
     }
   }
 
   const now = at('HEAD')
-  if (now === null) return []
+  if (now === null) {
+    console.log('::warning::cannot read .sync/nuxt-ui.json at HEAD — the upstream-reference check did not run')
+    return []
+  }
 
   const before = at('HEAD^')
   if (before === null) {
-    // Depth 1, or the file is new. Say so rather than passing quietly: a check
-    // that is inert in some checkouts and silent about it reads as a green
-    // check, which is the failure mode this repository has already been bitten
-    // by once. ci.yml fetches depth 2 for exactly this comparison.
+    // Depth 1, or the file is new. ci.yml fetches depth 2 for this comparison.
     console.log('::warning::cannot read .sync/nuxt-ui.json at HEAD^ — the upstream-reference check did not run (fetch-depth?)')
     return []
   }
 
-  const added = now.filter(sha => !before.includes(sha))
-  if (added.length === 0) return []
-  // Any prefix long enough to be unambiguous; the house form is seven.
-  if (added.some(sha => new RegExp(`nuxt/ui@${sha.slice(0, 7)}`, 'i').test(subject))) return []
-  return added
+  const ported = Object.keys(now).filter(sha => !(sha in before) && now[sha]?.decision === 'port')
+  if (ported.length === 0) return []
+
+  // A substring test against a key checked to be a SHA, not a pattern. This
+  // used to build a `new RegExp` from the key, which a ledger entry keyed
+  // `(a+)+$` turns into a hang — a file is not a place to accept a regular
+  // expression from. Seven characters is the house form; a longer prefix in
+  // the subject still contains it, so it matches too.
+  const unnamed = ported.filter((sha) => {
+    if (!/^[0-9a-f]{7,40}$/i.test(sha)) {
+      console.log(`::warning::ledger key is not a SHA, skipping the reference check for it: ${sha}`)
+      return false
+    }
+    return !subject.toLowerCase().includes(`nuxt/ui@${sha.slice(0, 7).toLowerCase()}`)
+  })
+  // Any one is enough. A batch (§6 4b) adds several entries and a subject has
+  // room for one reference; the ledger carries the rest, and demanding all of
+  // them would make the rule unfollowable for exactly the case it anticipates.
+  return unnamed.length === ported.length ? unnamed : []
+}
+
+/** The `type` token as the parser sees it: everything before `(`, `!` or `:`. */
+function commitType(node) {
+  if (node === null || typeof node !== 'object') return undefined
+  if (node.type === 'type' && typeof node.value === 'string') return node.value
+  for (const child of node.children ?? []) {
+    const found = commitType(child)
+    if (found !== undefined) return found
+  }
+  return undefined
 }
 
 function readMessage() {
@@ -127,20 +160,25 @@ const message = readMessage()
 const subject = message.split('\n')[0]
 
 let error = null
+let ast = null
 try {
-  parser(message)
+  ast = parser(message)
 } catch (thrown) {
   error = thrown instanceof Error ? thrown.message : String(thrown)
 }
 
 if (!error) {
-  // Case-insensitive on purpose, and the comparison below is not: `Fix(x):`
-  // is captured as `Fix`, misses the set, and is rejected — which is right,
-  // because release-please would treat it as an unknown type too.
-  const type = subject.match(/^([a-z]+)/i)?.[1]
-  // The parse succeeded, so a type is there; the optional chain is for the
-  // reader rather than for a case that can happen.
-  if (type && !KNOWN_TYPES.has(type)) {
+  // From the AST the parse above already produced, not re-derived. A second
+  // regex was the first attempt and it was wrong in both directions: the
+  // parser's type token runs to the first `(`, `!`, `:` or space, so
+  // `/^([a-z]+)/i` read `fix2(x):` as `fix` and accepted it, while `2fix(x):`
+  // captured nothing, skipped the check and printed "type `undefined` has a
+  // section". Both are types release-please would not match — the exact bypass
+  // this file exists to close. The grammar has one implementation already.
+  const type = commitType(ast)
+  // Case-sensitive: `Fix(x):` misses the set and is rejected, which is right,
+  // because release-please would not match it either.
+  if (type !== undefined && !KNOWN_TYPES.has(type)) {
     console.log(`::error::This commit's type has no changelog section: ${subject}`)
     console.log('')
     console.log(`\`${type}\` is not in \`changelog-sections\` in release-please-config.json.`)

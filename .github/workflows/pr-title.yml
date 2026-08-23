@@ -9,6 +9,12 @@ name: PR title 🏷️
 #
 # `edited` is in the list on purpose: a title fixed after a red run has to turn
 # the check green without an empty push.
+#
+# It checks the parse and the type, and not the `(nuxt/ui@<sha>)` reference a
+# port has to carry: that one needs to see what the commit changed in the
+# ledger, and a title on its own cannot. Green here does not mean every rule in
+# assert-commit-parses.mjs is satisfied — PORTING.md §7 puts the reference on
+# the reviewer for exactly this reason.
 on:
   pull_request:
     branches: [ main ]

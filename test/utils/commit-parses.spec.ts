@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { execFileSync } from 'node:child_process'
-import { mkdtempSync, readFileSync, rmSync } from 'node:fs'
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, symlinkSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { parser } from '@conventional-commits/parser'
@@ -117,12 +117,36 @@ describe('commit messages release-please can read', () => {
    */
   describe('types that have no changelog section', () => {
     it('reads the type list from the config rather than restating it', () => {
-      // A guard that keeps its own copy of the list is a guard that will one day
-      // disagree with the file it guards, silently and in the permissive
-      // direction. Asserted here so a later "simplification" has to fail a test.
-      const script = readFileSync(SCRIPT, 'utf8')
-      expect(script).toContain('release-please-config.json')
-      expect(script).toContain('changelog-sections')
+      // Asserted by behaviour, not by grep. The first version checked that the
+      // script mentioned the config file — which a hardcoded copy of the list
+      // passes with the comment still in place, as review demonstrated. So:
+      // stand the script beside a config naming a type this repository does
+      // not configure, and require it to accept that type.
+      const dir = mkdtempSync(join(tmpdir(), 'b24ui-config-'))
+      try {
+        mkdirSync(join(dir, '.github/scripts'), { recursive: true })
+        writeFileSync(join(dir, '.github/scripts/guard.mjs'), readFileSync(SCRIPT, 'utf8'))
+        writeFileSync(join(dir, 'release-please-config.json'), JSON.stringify({
+          packages: { '.': { 'changelog-sections': [{ type: 'invented', section: 'Invented' }] } }
+        }))
+        // The copy still imports `@conventional-commits/parser`, resolved by
+        // walking up from its own directory — so it needs one to walk up to.
+        symlinkSync(join(process.cwd(), 'node_modules'), join(dir, 'node_modules'), 'dir')
+
+        const run = (subject: string) => {
+          try {
+            execFileSync('node', [join(dir, '.github/scripts/guard.mjs'), '--stdin'], { input: subject, stdio: 'pipe' })
+            return 0
+          } catch (error) {
+            return (error as { status?: number }).status ?? -1
+          }
+        }
+
+        expect(run('invented(x): a type only that config knows'), 'the config was not read').toBe(0)
+        expect(run('fix(x): a type only this repository knows'), 'the list is hardcoded').toBe(1)
+      } finally {
+        rmSync(dir, { recursive: true, force: true })
+      }
     })
 
     it.each(configuredTypes.map(type => [type]))('accepts the configured type `%s`', (type) => {
@@ -144,6 +168,22 @@ describe('commit messages release-please can read', () => {
       'rejects the typo %s', (subject) => {
         expect(guardExitCode(subject)).toBe(1)
       })
+
+    // The type token runs to the first `(`, `!`, `:` or space — it is not
+    // letters. Deriving it with `/^([a-z]+)/i` read `fix2(x):` as `fix` and
+    // accepted it, and captured nothing at all from `2fix(x):`, printing
+    // "type `undefined` has a section" and skipping the check. Both are types
+    // release-please would not match, so both were silent bypasses of the one
+    // thing this check exists to do. Found by review; the type now comes from
+    // the parser's own AST, and these cases are what hold it there.
+    it.each([
+      ['a digit inside the type', 'fix2(Button): resolve hover state'],
+      ['a type starting with a digit', '2fix(Button): resolve hover state'],
+      ['a hyphen inside the type', 'fix-perf(Button): resolve hover state'],
+      ['an underscore inside the type', 'fix_button(Button): resolve hover state']
+    ])('rejects %s', (_name, subject) => {
+      expect(guardExitCode(subject)).toBe(1)
+    })
 
     it('rejects a breaking commit of an unconfigured type — the #437 case itself', () => {
       expect(guardExitCode('style(Theme)!: drop the legacy palette\n\nBREAKING CHANGE: gone.')).toBe(1)
@@ -172,79 +212,167 @@ describe('commit messages release-please can read', () => {
    * Ports have to be traceable from the changelog, and the subject is the only
    * line that gets there.
    *
-   * The check keys on a new entry appearing in `processed` rather than on
-   * `.sync/nuxt-ui.json` being edited at all — a reconciliation commit touches
-   * the same file and ports nothing. That distinction is the whole design, so
-   * it is exercised against real commits below rather than fixtures.
+   * Built against a synthetic repository rather than against this one's
+   * history. The first version worktree'd onto real SHAs — 30b4c1fb, 4e42a221,
+   * 1db360ac — and review found two things wrong with that. The same PR sets
+   * ci.yml to `fetch-depth: 2`, so those objects are simply absent on CI and
+   * all four cases fail every run; and creating worktrees in the repository
+   * under test races with anything else touching it, which is not theoretical
+   * — a concurrent run left a mutated script in the working tree while this
+   * very branch was being reviewed.
+   *
+   * A fixture also states the cases plainly. "The commit at 30b4c1fb passes"
+   * requires the reader to go and find out what that commit is; "a ledger entry
+   * recording a no-op does not need an upstream reference" does not.
    */
   describe('ports naming the upstream commit', () => {
     /**
-     * Runs the guard at a given revision, in a throwaway worktree.
-     *
-     * `title` switches it to the `--stdin` path while keeping the same git
-     * context, which is what makes the "not on a bare title" case below mean
-     * anything: run from the repository root it would pass either way, because
-     * HEAD there ports nothing.
+     * A two-commit repository: a ledger, then a change to it. Returns the
+     * guard's exit code and output for the second commit.
      */
-    function guardAt(revision: string, title?: string): { code: number, output: string } {
-      const dir = mkdtempSync(join(tmpdir(), 'b24ui-port-'))
-      const args = title === undefined ? [SCRIPT] : [SCRIPT, '--stdin']
+    function guardOnLedgerChange(before: object, after: object, subject: string) {
+      const dir = mkdtempSync(join(tmpdir(), 'b24ui-ledger-'))
+      const git = (...args: string[]) => execFileSync('git', args, { cwd: dir, stdio: 'pipe' })
       try {
-        execFileSync('git', ['worktree', 'add', '-q', '--detach', dir, revision], { stdio: 'pipe' })
+        mkdirSync(join(dir, '.sync'), { recursive: true })
+        git('init', '-q', '-b', 'main')
+        git('config', 'user.email', 'spec@example.com')
+        git('config', 'user.name', 'spec')
+
+        const ledger = join(dir, '.sync/nuxt-ui.json')
+        writeFileSync(ledger, JSON.stringify({ processed: before }, null, 2))
+        git('add', '-A')
+        git('commit', '-q', '-m', 'chore(sync): the ledger before')
+
+        writeFileSync(ledger, JSON.stringify({ processed: after }, null, 2))
+        git('add', '-A')
+        // `--allow-empty`: the "nothing changed in the ledger" case has no diff
+        // to commit, and that is exactly the case worth asserting.
+        git('commit', '-q', '--allow-empty', '-m', subject)
+
         try {
-          const output = execFileSync('node', args, { cwd: dir, encoding: 'utf8', stdio: 'pipe', input: title })
-          return { code: 0, output }
+          return { code: 0, output: execFileSync('node', [SCRIPT], { cwd: dir, encoding: 'utf8', stdio: 'pipe' }) }
         } catch (error) {
           const e = error as { status?: number, stdout?: Buffer }
           return { code: e.status ?? -1, output: String(e.stdout ?? '') }
         }
       } finally {
-        execFileSync('git', ['worktree', 'remove', '--force', dir], { stdio: 'pipe' })
         rmSync(dir, { recursive: true, force: true })
       }
     }
 
-    // #467 reconciled four ledger entries and ported nothing. Requiring an
-    // upstream reference there would be wrong, and this is the case that makes
-    // "new key in `processed`" the trigger instead of "file changed".
-    it('leaves a bookkeeping commit alone', () => {
-      expect(guardAt('30b4c1fb').code).toBe(0)
-    })
+    const PORT = { decision: 'port', pr: 1 }
+    const SHA_A = 'd6c3802a12ecdc549d605ca8459fc3fbc99af63b'
+    const SHA_B = 'aa5f4af0b1c2d3e4f5061728394a5b6c7d8e9f01'
 
-    // A real port from before the rule existed. Flagged, which is the point:
-    // the guard runs forward from here, and this is what it will catch.
     it('flags a port whose subject does not name upstream', () => {
-      const { code, output } = guardAt('4e42a221')
+      const { code, output } = guardOnLedgerChange({}, { [SHA_A]: PORT }, 'fix(Range): forward aria attributes')
       expect(code).toBe(1)
       expect(output).toContain('does not name the upstream commit')
-      // The message has to hand back the exact line to use, or the fix is a
-      // hunt through the ledger for a SHA.
-      expect(output).toContain('nuxt/ui@')
+      // The message has to hand back the line to use, or fixing it means a hunt
+      // through the ledger for a SHA.
+      expect(output).toContain(`nuxt/ui@${SHA_A.slice(0, 7)}`)
     })
 
-    it('leaves ordinary local work alone', () => {
-      expect(guardAt('1db360ac').code).toBe(0)
+    it('accepts a port that names upstream', () => {
+      const subject = `fix(Range): forward aria attributes (nuxt/ui@${SHA_A.slice(0, 7)})`
+      expect(guardOnLedgerChange({}, { [SHA_A]: PORT }, subject).code).toBe(0)
     })
 
-    it('is skipped, loudly, when it cannot see the previous revision', () => {
-      // The check is inert without HEAD^, and silence there would read exactly
-      // like a pass. ci.yml fetches depth 2 so this warning stays theoretical.
+    it('accepts a longer prefix than seven', () => {
+      const subject = `fix(Range): forward aria attributes (nuxt/ui@${SHA_A.slice(0, 12)})`
+      expect(guardOnLedgerChange({}, { [SHA_A]: PORT }, subject).code).toBe(0)
+    })
+
+    it('accepts the reference in any case', () => {
+      const subject = `fix(Range): forward aria attributes (NUXT/UI@${SHA_A.slice(0, 7).toUpperCase()})`
+      expect(guardOnLedgerChange({}, { [SHA_A]: PORT }, subject).code).toBe(0)
+    })
+
+    // §6 4b: a batched port adds several entries and can name only one.
+    it('accepts a batch that names any one of its ports', () => {
+      const subject = `fix(Range): port two commits (nuxt/ui@${SHA_B.slice(0, 7)})`
+      expect(guardOnLedgerChange({}, { [SHA_A]: PORT, [SHA_B]: PORT }, subject).code).toBe(0)
+    })
+
+    // 70 of the ledger's entries are not ports. A commit recording one has
+    // nothing upstream to point a changelog reader at, and requiring a
+    // reference would redden `main` for a correct message — #442, #439 and
+    // #361 are real examples the first draft flagged.
+    it.each([['no-op'], ['noop'], ['skip'], ['n/a']])(
+      'leaves a `%s` entry alone', (decision) => {
+        const entry = { decision, pr: 1 }
+        expect(guardOnLedgerChange({}, { [SHA_A]: entry }, 'chore(sync): record a skip').code).toBe(0)
+      })
+
+    it('leaves a commit that only edits existing entries alone', () => {
+      // The reconciliation §6 step 4 requires: same keys, new values.
+      const before = { [SHA_A]: { decision: 'port', b24ui_sha: 'pending-merge' } }
+      const after = { [SHA_A]: { decision: 'port', b24ui_sha: 'abc1234' } }
+      expect(guardOnLedgerChange(before, after, 'chore(sync): reconcile the last entry').code).toBe(0)
+    })
+
+    it('leaves ordinary work with no ledger change alone', () => {
+      const same = { [SHA_A]: PORT }
+      expect(guardOnLedgerChange(same, same, 'fix(Button): resolve hover state').code).toBe(0)
+    })
+
+    // A ledger key is data from a file. Building a `RegExp` from it turned an
+    // entry keyed `(a+)+$` into a hang; it is a substring test against a key
+    // checked to be a SHA now, and a key that is not one is reported.
+    it('does not execute a ledger key as a pattern', () => {
+      const { code, output } = guardOnLedgerChange({}, { '(a+)+$': PORT }, 'fix(x): nuxt/ui@aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa!X')
+      expect(code).toBe(0)
+      expect(output).toContain('not a SHA')
+    })
+
+    it('warns rather than passing quietly when it cannot read a side', () => {
       const script = readFileSync(SCRIPT, 'utf8')
+      expect(script).toContain('::warning::cannot read .sync/nuxt-ui.json at HEAD —')
       expect(script).toContain('::warning::cannot read .sync/nuxt-ui.json at HEAD^')
     })
 
-    it('does not run on a bare title, even standing on a port', () => {
+    it('does not run on a bare title, even where the HEAD path would fire', () => {
       // `--stdin` is the PR-title path: a title alone cannot say what a commit
-      // touches, so the check must not guess. Asserted at 4e42a221, where the
-      // HEAD path does fire — from the repository root this would pass whether
-      // the guard respected `--stdin` or not, and prove nothing.
-      const title = 'fix(Range): forward aria attributes to the thumb'
-      expect(guardAt('4e42a221').code, 'the HEAD path must flag this revision').toBe(1)
-      expect(guardAt('4e42a221', title).code).toBe(0)
+      // touches, so the check must not guess. Paired with the first case above,
+      // which is the same subject and does fail through the HEAD path.
+      expect(guardExitCode('fix(Range): forward aria attributes')).toBe(0)
     })
   })
 
   describe('the script itself', () => {
+    it('skips a merge commit, which release-please drops by design', () => {
+      // Untested until review's mutation run: disabling `isMergeCommit()`
+      // entirely, or moving its parent threshold, killed nothing. A merge
+      // subject is `Merge pull request …`, which the parser rejects and
+      // release-please is right to drop — failing on it would redden `main`
+      // for correct behaviour.
+      const dir = mkdtempSync(join(tmpdir(), 'b24ui-merge-'))
+      const git = (...args: string[]) => execFileSync('git', args, { cwd: dir, stdio: 'pipe' })
+      try {
+        git('init', '-q', '-b', 'main')
+        git('config', 'user.email', 'spec@example.com')
+        git('config', 'user.name', 'spec')
+        writeFileSync(join(dir, 'f.txt'), 'a')
+        git('add', '-A')
+        git('commit', '-q', '-m', 'feat(x): base')
+        git('checkout', '-q', '-b', 'side')
+        writeFileSync(join(dir, 'g.txt'), 'b')
+        git('add', '-A')
+        git('commit', '-q', '-m', 'feat(x): side')
+        git('checkout', '-q', 'main')
+        writeFileSync(join(dir, 'h.txt'), 'c')
+        git('add', '-A')
+        git('commit', '-q', '-m', 'feat(x): main')
+        git('merge', '--no-ff', '-q', '-m', 'Merge pull request #1 from side', 'side')
+
+        const output = execFileSync('node', [SCRIPT], { cwd: dir, encoding: 'utf8', stdio: 'pipe' })
+        expect(output).toContain('merge commit')
+      } finally {
+        rmSync(dir, { recursive: true, force: true })
+      }
+    })
+
     it('exits 0 on a message release-please can read', () => {
       expect(guardExitCode('fix(Button): resolve hover state (#427)')).toBe(0)
     })
