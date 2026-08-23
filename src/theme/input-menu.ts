@@ -123,11 +123,12 @@ export default () => {
         'leading-(--main-ui-square-item-height)',
         'font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular)',
         'inline-flex items-center gap-1',
-        // `min-w-0` so the tag may shrink below its content width — without it
-        // `truncate` on the text has nothing to truncate into. The cap is a
-        // share of the field rather than a pixel count: a tag only ellipsises
-        // when it genuinely wants more than most of the row, instead of at a
-        // constant that knows nothing about how wide the field is.
+        // A share of the field, not a length (#342): a constant ellipsised tags
+        // that had room to spare. `min-w-0` is what lets `truncate` engage —
+        // a flex child will not shrink below its content width without it.
+        // 70% over 50% is a deliberate call: two long tags then land on
+        // separate rows, and truncating sooner to avoid that is the worse
+        // trade. See .sync/PORTING.md §2, tag width caps.
         'min-w-0 max-w-[70%]',
         'data-disabled:cursor-not-allowed data-disabled:opacity-30',
         'data-disabled:select-none',
@@ -137,8 +138,7 @@ export default () => {
       tagsItemText: 'truncate min-w-0',
       tagsItemDelete: [
         'cursor-pointer',
-        // The tag can now be squeezed to 70% of the field; the delete control
-        // must not be what gives way when it is.
+        // The tag is squeezable now; the close button must not be what gives way.
         'shrink-0',
         'inline-flex items-center',
         'disabled:cursor-not-allowed',

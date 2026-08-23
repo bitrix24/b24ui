@@ -40,11 +40,13 @@ const TAG_SLOTS: Record<string, { item: string, text: string, del: string }> = {
 }
 
 /**
- * Any `max-w-[<number><unit>]` where the unit is absolute. Percentages, `full`
- * and container-query units are the point of the fix, so they are not matched;
- * `rem`/`em` are, because they are just as blind to the field's width as `px`.
+ * Any `max-w-[<number><unit>]` where the unit cannot see the field. Percentages,
+ * `full` and container-query units are the point of the fix, so they are not
+ * matched. `rem`/`em` are, because they are just as blind to the field's width
+ * as `px`, and so are viewport units — a field in a sidebar knows nothing about
+ * the window.
  */
-const ABSOLUTE_CAP = /max-w-\[\d+(?:\.\d+)?(?:px|rem|em|pt|ch)\]/g
+const ABSOLUTE_CAP = /max-w-\[\d+(?:\.\d+)?(?:px|rem|em|pt|ch|vw|vh|vmin|vmax)\]/g
 
 function read(file: string): string {
   return readFileSync(join(themeDir, file), 'utf8')
@@ -59,10 +61,14 @@ function read(file: string): string {
  */
 function tagSlots(source: string): Array<[string, string]> {
   const found: Array<[string, string]> = []
-  // Slot keys sit at a known depth inside `slots: { ... }`; matching the key
-  // and taking the rest of its definition is enough, and avoids parsing TS.
-  for (const match of source.matchAll(/^\s{4,8}(\w*(?:[Tt]ag|[Ii]tem)\w*):/gm)) {
-    found.push([match[1]!, slotSource(source, match[1]!)])
+  // Any indent, not 4–8 spaces. A `size` variant redefines `tagsItem` at ten,
+  // and both capping themes already carry six such blocks — so the first draft
+  // swept only the top-level slot and a cap added to `variants.size.xss.item`
+  // passed every test. Review found that by adding one.
+  for (const match of source.matchAll(/^[ \t]+(\w*(?:[Tt]ag|[Ii]tem)\w*):/gm)) {
+    // The same slot name appears once per size variant, so collect every
+    // occurrence rather than looking the name up and getting the first.
+    found.push([match[1]!, slotSourceAt(source, match.index! + match[0].length)])
   }
   return found
 }
@@ -83,16 +89,35 @@ function tagSlots(source: string): Array<[string, string]> {
 function slotSource(source: string, slot: string): string {
   const start = source.search(new RegExp(`^\\s+${slot}:`, 'm'))
   expect(start, `slot \`${slot}\` not found — was it renamed?`).toBeGreaterThan(-1)
-  const rest = source.slice(start)
-  const array = rest.indexOf("].join(' '),")
-  const line = rest.indexOf('\n')
-  // An array definition runs to its terminator; a string one ends at its line.
-  // Whichever comes first is this slot's; anything past it is the next slot's.
-  if (array !== -1 && (line === -1 || array < rest.indexOf('\n', array))) {
-    const nextKey = rest.slice(0, array).search(/\n\s+\w+:\s/)
-    if (nextKey === -1) return stripComments(rest.slice(0, array))
+  return slotSourceAt(source, start + source.slice(start).indexOf(':') + 1)
+}
+
+/**
+ * The value that begins at `from`, ending where its brackets balance.
+ *
+ * The terminator is a comma at bracket depth zero, not a search for
+ * `].join(' '),`: that literal is how these two files happen to be written,
+ * and review showed a slot written as `(prev) => [prev, '…']` — a form already
+ * used by `input-tags.ts`'s own root — collapsing to its first line and hiding
+ * an absolute cap inside. Balancing brackets alone is not enough either: an
+ * arrow function's parameter list closes before its body opens, so a naive
+ * depth-zero stop returns `(prev: string)` and nothing else. Waiting for the
+ * comma covers a bare string, an array, and an arrow function alike.
+ */
+function slotSourceAt(source: string, from: number): string {
+  let depth = 0
+  for (let i = from; i < source.length; i++) {
+    const ch = source[i]!
+    if (ch === '[' || ch === '(' || ch === '{') depth++
+    else if (ch === ']' || ch === ')' || ch === '}') {
+      // Depth below zero is the enclosing object closing: the last slot in an
+      // object carries no trailing comma, so this is its only terminator.
+      if (--depth < 0) return stripComments(source.slice(from, i))
+    } else if (ch === ',' && depth === 0) {
+      return stripComments(source.slice(from, i))
+    }
   }
-  return stripComments(rest.slice(0, line === -1 ? undefined : line))
+  return stripComments(source.slice(from))
 }
 
 /** Line comments, gone: prose about a class is not the class. */
@@ -101,6 +126,16 @@ function stripComments(source: string): string {
 }
 
 describe('tag width caps', () => {
+  it('finds tag slots at all, before claiming none of them offend', () => {
+    // Without this the sweep is one reformat away from being vacuously green:
+    // if the key regex stops matching, "no offenders" becomes "nothing looked
+    // at" and reads identically.
+    const total = readdirSync(themeDir)
+      .filter(f => f.endsWith('.ts'))
+      .reduce((n, f) => n + tagSlots(read(f)).length, 0)
+    expect(total, 'the slot scanner matched nothing — did the theme files change shape?').toBeGreaterThan(20)
+  })
+
   it('no theme caps a tag slot at an absolute width', () => {
     const offenders: string[] = []
 

@@ -11,7 +11,10 @@ import { fieldGroupVariant } from './field-group'
 export default () => {
   return defuFn({
     slots: {
-      root: (prev: string) => [prev, 'flex-wrap'],
+      // `max-w-full`: this root is `inline-flex` with no width, so without it
+      // the field grows past its parent and the tag's percentage cap resolves
+      // against nothing. See .sync/PORTING.md §2, tag width caps.
+      root: (prev: string) => [prev, 'flex-wrap', 'max-w-full'],
       base: [
         'border-0 focus:outline-none',
         'disabled:cursor-not-allowed',
@@ -37,8 +40,7 @@ export default () => {
         'leading-(--main-ui-square-item-height)',
         'font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular)',
         'inline-flex items-center gap-1',
-        // See input-menu.ts: the cap is a share of the field, and `min-w-0` is
-        // what lets `truncate` on the text actually take effect.
+        // See input-menu.ts for why a share and not a length.
         'min-w-0 max-w-[70%]',
         'data-disabled:cursor-not-allowed',
         'data-disabled:opacity-30',
@@ -52,6 +54,7 @@ export default () => {
       ].join(' '),
       itemDelete: [
         'cursor-pointer',
+        // The tag is squeezable now; the close button must not be what gives way.
         'shrink-0',
         'inline-flex items-center',
         'disabled:cursor-not-allowed',
