@@ -37,6 +37,9 @@ export default () => {
         'leading-(--main-ui-square-item-height)',
         'font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular)',
         'inline-flex items-center gap-1',
+        // See input-menu.ts: the cap is a share of the field, and `min-w-0` is
+        // what lets `truncate` on the text actually take effect.
+        'min-w-0 max-w-[70%]',
         'data-disabled:cursor-not-allowed',
         'data-disabled:opacity-30',
         'data-disabled:pointer-events-auto',
@@ -45,10 +48,11 @@ export default () => {
         'bg-(--ui-color-design-tinted-bg-alt)'
       ].join(' '),
       itemText: [
-        'truncate max-w-[180px]'
+        'truncate min-w-0'
       ].join(' '),
       itemDelete: [
         'cursor-pointer',
+        'shrink-0',
         'inline-flex items-center',
         'disabled:cursor-not-allowed',
         'disabled:pointer-events-auto',

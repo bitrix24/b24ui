@@ -123,14 +123,23 @@ export default () => {
         'leading-(--main-ui-square-item-height)',
         'font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular)',
         'inline-flex items-center gap-1',
+        // `min-w-0` so the tag may shrink below its content width — without it
+        // `truncate` on the text has nothing to truncate into. The cap is a
+        // share of the field rather than a pixel count: a tag only ellipsises
+        // when it genuinely wants more than most of the row, instead of at a
+        // constant that knows nothing about how wide the field is.
+        'min-w-0 max-w-[70%]',
         'data-disabled:cursor-not-allowed data-disabled:opacity-30',
         'data-disabled:select-none',
         'text-(--ui-color-design-tinted-content)',
         'bg-(--ui-color-design-tinted-bg-alt)'
       ].join(' '),
-      tagsItemText: 'truncate max-w-[180px]',
+      tagsItemText: 'truncate min-w-0',
       tagsItemDelete: [
         'cursor-pointer',
+        // The tag can now be squeezed to 70% of the field; the delete control
+        // must not be what gives way when it is.
+        'shrink-0',
         'inline-flex items-center',
         'disabled:cursor-not-allowed',
         'disabled:pointer-events-auto',
