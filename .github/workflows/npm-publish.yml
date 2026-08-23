@@ -150,7 +150,15 @@ jobs:
           fi
           echo "skip=false" >> "$GITHUB_OUTPUT"
 
+      # `--provenance` is explicit rather than implied. npm attaches a
+      # provenance attestation on its own when the publish authenticates
+      # through trusted publishing, and 2.12.0 shipped with one — but that is
+      # a property of the OIDC binding on npmjs.com, not of anything in this
+      # repository. If the binding is ever removed the publish falls back to
+      # token auth and succeeds *without* an attestation, silently. With the
+      # flag the same situation fails the job instead, which is the outcome we
+      # want: no release should quietly lose its provenance.
       - name: 'Publish 🚀'
         if: steps.version-check.outputs.skip == 'false'
         shell: bash
-        run: pnpm publish --no-git-checks
+        run: pnpm publish --no-git-checks --provenance

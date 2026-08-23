@@ -42,6 +42,20 @@ workflow's filename (`npm-publish.yml`) and optionally an environment name.
 Renaming either breaks publishing with no signal from here — if you rename the
 file or the `npm-publish` environment, update npm to match in the same change.
 
+That binding is also what produces the release's **provenance attestation**, and
+the publish passes `--provenance` so its absence is an error rather than a
+quieter release. npm attaches an attestation on its own when the publish
+authenticates through OIDC, which is why 2.12.0 has one without the flag ever
+being set; the flag matters for the case where the binding is gone — token auth
+still publishes, just without provenance, and nothing else would notice. Check a
+shipped release with `npm view @bitrix24/b24ui-nuxt@<version> dist.attestations`.
+
+If a publish ever fails *on the flag itself* — npm rejecting `--provenance`
+rather than the package — the release is not lost and does not need the flag
+removed in a panic: the tag stays, and re-running `npm-publish.yml` against it
+publishes normally. Diagnose it before dropping the flag, because "npm refused
+to attest this publish" is exactly the condition it exists to report.
+
 So the only *decision* a human makes is **when to merge the release PR**. Its
 description is the changelog you are about to ship: read it, approve the held CI
 run, and merge.
