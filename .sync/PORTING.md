@@ -617,6 +617,27 @@ happens — a faithful port can break b24ui where it did not break upstream,
 because this fork's prop or slot surface is not the same. Decide it, write it
 down, do not inherit it by accident.
 
+**Name the upstream commit in the subject.** The port's subject ends with
+`(nuxt/ui@<7-char sha>)`, before the `(#NNN)` GitHub appends:
+
+    fix(Range): forward aria attributes to the thumb (nuxt/ui@d6c3802)
+
+Only the subject reaches `CHANGELOG.md` — the body is not rendered, notes
+aside — so this is the one place a reader of the release notes can be handed a
+way back to what was actually ported. Without it a port is indistinguishable
+from local work in the only artefact most consumers ever read.
+
+The subject stays **ours**. Upstream's own first line is not copied in, because
+the names do not survive the port: their `Slider` is this fork's `Range`, and
+§1 makes that class of rename mandatory, so their wording would put a component
+we do not ship into our changelog. The reference points at the commit; the
+sentence describes what changed here.
+
+`assert-commit-parses.mjs` enforces it, and only for real ports — the trigger is
+a new key in `processed`, not the ledger being touched, so a reconciliation
+commit like #467 is unaffected. A batched port (4b above) names any one of the
+SHAs it added; the ledger carries the rest.
+
 **Check dependency parity, not just the queue.** Every `chore(deps)` port
 bumps only the packages where this fork already sat on upstream's pre-image —
 correct, since a package deliberately held back must not be dragged along, and
@@ -717,16 +738,19 @@ forward, since every commit between the two would then never be judged.
 2. Confirm: jsDoc intact, types not weakened, new props have `renderEach` cases,
    snapshots updated, no unexpected files changed, any new `v-html`/`innerHTML`
    justified (§5).
-3. Check the breaking marker against §6. If the upstream commit is breaking and
+3. Check the subject names the upstream commit — `(nuxt/ui@<sha>)` — and that
+   the SHA is one this PR actually ported. CI checks that a reference is
+   present; only a reader checks that it points at the right commit.
+4. Check the breaking marker against §6. If the upstream commit is breaking and
    our subject is not, the ledger entry has to say why — a §2 divergence that
    absorbs it — and if it says nothing, that is the finding. The reverse counts
    too: a port that changes this fork's prop or slot surface needs the marker
    even when upstream's commit carried none. Nothing downstream re-checks this;
    release-please takes the subject at its word.
-4. **Merge** (squash). If a commit must be skipped, close the PR and record the
+5. **Merge** (squash). If a commit must be skipped, close the PR and record the
    reason in `.sync/log/<sha>.md`, then advance the cursor by hand — closing
    does not advance it.
-5. If a fix corrects a recurring mistake, add a rule here and append a dated
+6. If a fix corrects a recurring mistake, add a rule here and append a dated
    line to the changelog below.
 
 ## Changelog of rules
@@ -763,3 +787,4 @@ forward, since every commit between the two would then never be judged.
 - 2026-08-21 — checked #159 and added the §2 **`Modal`/`Slideover`/`Drawer` wrap `emits` with `useBlurOnOpen`** invariant. Upstream is not fixed: unovue/reka-ui#1280 has been open since 2024-08-23 with no assignee or PR, and `reka-ui@2.10.3` still calls `hideOthers`, so nothing was removed. Two defects turned up around the workaround instead. The issue documents `grep -rn 'reka-ui#1280' src/ test/` as the way to find every site to revisit, and it matched nothing — only the composable was annotated, as a URL. And the workaround stranded focus on `<body>` after close for any overlay opened without the built-in trigger slot, because reka-ui's fallback capture of `document.activeElement` skips `<body>` and the blur had just produced it; confirmed by A/B, fixed by restoring focus on close, and now covered at the component and composable level. `test/utils/blur-on-open-workaround.spec.ts` turns the manual re-check into a build signal. Last reviewed: 2026-08-21.
 - 2026-08-23 — closed #98 (PR #468) by adding the §6 rule **carry upstream's breaking marker into our subject**, and the matching §7 reviewer check. The issue's other two actions were already done and are recorded elsewhere: the version arithmetic table in `releasing.md` maps any `BREAKING CHANGE` or `!` to a major, with no v2-line exception, and release automation landed as release-please. What was missing is the one step automation cannot supply. release-please derives the bump from the squashed subject, so the marker is now load-bearing in a way it was not when the CHANGELOG was hand-written and a human read the diff — a dropped `!` used to be a cosmetic slip and is now a semver violation that every gate passes. The rule is stated in both directions on purpose, because a port is not a copy: a §2 divergence can absorb a break that upstream had, and this fork's own prop surface can break where upstream's did not. Last reviewed: 2026-08-23.
 - 2026-08-23 — fix of #342 (PR #470): added the §2 rule **tag width caps are relative to the field**. `max-w-[180px]` on the tag label was ours — upstream is plain `truncate` — and it ellipsised tags that had room to spare, because a constant knows nothing about the field's width or what shares its row. Settled by measuring in Chromium rather than by reading the spec, which was the only way to tell three plausible readings apart: in a 562px field a tag wanting 590px renders at 199px under the old cap, 412px under `max-w-[70%]` with both tags still on one row, and 562px uncapped with the second tag pushed to the next line. The same measurement caught what review had flagged and reading had not — `input-tags.ts`'s root is `inline-flex` with no width, so the percentage was circular there: the field grew to 590px, overflowing its 562px parent, and clipped the label anyway. `max-w-full` on that root fixes both and is now part of the invariant. The guard went through three drafts, each corrected by mutation rather than by review: it credited one slot with a neighbour's class, then passed on its own comment (which contains the string `min-w-0`), then missed both the six per-size `tagsItem` overrides at deeper indentation and the `(prev) => [...]` slot form — an arrow function's parameter list closes before its body opens, so balancing brackets returned `(prev: string)` and nothing else. It ends at a comma at depth zero, and a self-check asserts the scanner matched something before reporting no offenders. Last reviewed: 2026-08-23.
+- 2026-08-23 — added the §6 rule **name the upstream commit in the subject** and the §7 reviewer check, on the maintainer's request that ported commits be traceable from the changelog. Only the subject reaches `CHANGELOG.md`, so that is the only place the reference can go. Upstream's own first line was the request as originally put and is deliberately not what shipped: their `Slider` is this fork's `Range`, and §1 makes that rename mandatory, so copying their wording would name a component this library does not have — the reference points at the commit and the sentence stays about ours. Enforced by `assert-commit-parses.mjs`, which keys on a new entry appearing in `processed` rather than on the ledger being edited, so the reconciliation commits §6 step 4 requires are unaffected — verified against #467, which passes, and against #466 and #464, which are real ports and are flagged. The same pass extended that guard to reject a type with no `changelog-sections` entry (#437): a breaking commit of an unconfigured type keeps its raw lowercase type as the group title and sorts above every real section, reproduced by running the writer release-please uses. Both checks read `release-please-config.json` and the ledger rather than restating either. Last reviewed: 2026-08-23.

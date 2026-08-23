@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { execFileSync } from 'node:child_process'
-import { readFileSync } from 'node:fs'
+import { mkdtempSync, readFileSync, rmSync } from 'node:fs'
+import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { parser } from '@conventional-commits/parser'
 import config from '../../release-please-config.json'
@@ -164,6 +165,82 @@ describe('commit messages release-please can read', () => {
 
       expect(output).toContain('has no changelog section')
       for (const type of configuredTypes) expect(output).toContain(type)
+    })
+  })
+
+  /**
+   * Ports have to be traceable from the changelog, and the subject is the only
+   * line that gets there.
+   *
+   * The check keys on a new entry appearing in `processed` rather than on
+   * `.sync/nuxt-ui.json` being edited at all — a reconciliation commit touches
+   * the same file and ports nothing. That distinction is the whole design, so
+   * it is exercised against real commits below rather than fixtures.
+   */
+  describe('ports naming the upstream commit', () => {
+    /**
+     * Runs the guard at a given revision, in a throwaway worktree.
+     *
+     * `title` switches it to the `--stdin` path while keeping the same git
+     * context, which is what makes the "not on a bare title" case below mean
+     * anything: run from the repository root it would pass either way, because
+     * HEAD there ports nothing.
+     */
+    function guardAt(revision: string, title?: string): { code: number, output: string } {
+      const dir = mkdtempSync(join(tmpdir(), 'b24ui-port-'))
+      const args = title === undefined ? [SCRIPT] : [SCRIPT, '--stdin']
+      try {
+        execFileSync('git', ['worktree', 'add', '-q', '--detach', dir, revision], { stdio: 'pipe' })
+        try {
+          const output = execFileSync('node', args, { cwd: dir, encoding: 'utf8', stdio: 'pipe', input: title })
+          return { code: 0, output }
+        } catch (error) {
+          const e = error as { status?: number, stdout?: Buffer }
+          return { code: e.status ?? -1, output: String(e.stdout ?? '') }
+        }
+      } finally {
+        execFileSync('git', ['worktree', 'remove', '--force', dir], { stdio: 'pipe' })
+        rmSync(dir, { recursive: true, force: true })
+      }
+    }
+
+    // #467 reconciled four ledger entries and ported nothing. Requiring an
+    // upstream reference there would be wrong, and this is the case that makes
+    // "new key in `processed`" the trigger instead of "file changed".
+    it('leaves a bookkeeping commit alone', () => {
+      expect(guardAt('30b4c1fb').code).toBe(0)
+    })
+
+    // A real port from before the rule existed. Flagged, which is the point:
+    // the guard runs forward from here, and this is what it will catch.
+    it('flags a port whose subject does not name upstream', () => {
+      const { code, output } = guardAt('4e42a221')
+      expect(code).toBe(1)
+      expect(output).toContain('does not name the upstream commit')
+      // The message has to hand back the exact line to use, or the fix is a
+      // hunt through the ledger for a SHA.
+      expect(output).toContain('nuxt/ui@')
+    })
+
+    it('leaves ordinary local work alone', () => {
+      expect(guardAt('1db360ac').code).toBe(0)
+    })
+
+    it('is skipped, loudly, when it cannot see the previous revision', () => {
+      // The check is inert without HEAD^, and silence there would read exactly
+      // like a pass. ci.yml fetches depth 2 so this warning stays theoretical.
+      const script = readFileSync(SCRIPT, 'utf8')
+      expect(script).toContain('::warning::cannot read .sync/nuxt-ui.json at HEAD^')
+    })
+
+    it('does not run on a bare title, even standing on a port', () => {
+      // `--stdin` is the PR-title path: a title alone cannot say what a commit
+      // touches, so the check must not guess. Asserted at 4e42a221, where the
+      // HEAD path does fire — from the repository root this would pass whether
+      // the guard respected `--stdin` or not, and prove nothing.
+      const title = 'fix(Range): forward aria attributes to the thumb'
+      expect(guardAt('4e42a221').code, 'the HEAD path must flag this revision').toBe(1)
+      expect(guardAt('4e42a221', title).code).toBe(0)
     })
   })
 

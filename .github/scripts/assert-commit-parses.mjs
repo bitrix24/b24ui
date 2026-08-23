@@ -64,6 +64,55 @@ function isMergeCommit() {
   return parents.split(/\s+/).length > 2
 }
 
+/**
+ * The upstream SHAs a port adds to the ledger but does not name in its subject.
+ *
+ * Only the subject reaches CHANGELOG.md, so this is the one place a reader of
+ * the release notes can be given a way back to upstream. The trigger is a new
+ * key in `processed` rather than the file being touched at all: a bookkeeping
+ * commit reconciling earlier entries — #467 was one — edits the same file and
+ * ports nothing, and demanding a reference there would be wrong.
+ *
+ * A batched port (§6 4b) adds several keys and can only name one; naming any of
+ * them is enough, since the ledger carries the rest.
+ *
+ * Returns an empty array when the commit is not a port, when there is no
+ * previous revision to compare against, or when reading either side fails —
+ * this is a changelog-quality check, not a reason to redden `main` because git
+ * was unavailable.
+ */
+function portWithoutUpstreamRef(subject) {
+  if (readingStdin) return []
+
+  const at = (revision) => {
+    try {
+      const raw = execFileSync('git', ['show', `${revision}:.sync/nuxt-ui.json`], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] })
+      return Object.keys(JSON.parse(raw).processed ?? {})
+    } catch {
+      return null
+    }
+  }
+
+  const now = at('HEAD')
+  if (now === null) return []
+
+  const before = at('HEAD^')
+  if (before === null) {
+    // Depth 1, or the file is new. Say so rather than passing quietly: a check
+    // that is inert in some checkouts and silent about it reads as a green
+    // check, which is the failure mode this repository has already been bitten
+    // by once. ci.yml fetches depth 2 for exactly this comparison.
+    console.log('::warning::cannot read .sync/nuxt-ui.json at HEAD^ — the upstream-reference check did not run (fetch-depth?)')
+    return []
+  }
+
+  const added = now.filter(sha => !before.includes(sha))
+  if (added.length === 0) return []
+  // Any prefix long enough to be unambiguous; the house form is seven.
+  if (added.some(sha => new RegExp(`nuxt/ui@${sha.slice(0, 7)}`, 'i').test(subject))) return []
+  return added
+}
+
 function readMessage() {
   if (readingStdin) return readFileSync(0, 'utf8').trim()
   return execFileSync('git', ['log', '-1', '--format=%B'], { encoding: 'utf8' }).trim()
@@ -107,6 +156,25 @@ if (!error) {
     console.log('to release-please-config.json in the same change.')
     process.exit(1)
   }
+  const missingUpstream = portWithoutUpstreamRef(subject)
+  if (missingUpstream.length > 0) {
+    console.log(`::error::This port does not name the upstream commit: ${subject}`)
+    console.log('')
+    console.log('It adds these entries to `processed` in .sync/nuxt-ui.json:')
+    for (const sha of missingUpstream) console.log(`  ${sha}`)
+    console.log('')
+    console.log('Only the subject line reaches CHANGELOG.md — the body is not rendered —')
+    console.log('so a port that does not carry the reference there is a changelog entry no')
+    console.log('reader can trace back to upstream. Append it:')
+    console.log('')
+    console.log(`  ${subject.replace(/\s*\(#\d+\)\s*$/, '')} (nuxt/ui@${missingUpstream[0].slice(0, 7)})`)
+    console.log('')
+    console.log('Our own wording stays ours: upstream names components differently')
+    console.log('(their `Slider` is this fork\'s `Range`), so the link is the reference and')
+    console.log('the subject is still about our component. See .sync/PORTING.md §6.')
+    process.exit(1)
+  }
+
   console.log(`commit message parses, type \`${type}\` has a section: ${subject}`)
   process.exit(0)
 }
