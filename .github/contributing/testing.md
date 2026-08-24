@@ -11,6 +11,35 @@ plain bash, runs in about a second, and CI runs it before anything else.
 pnpm run test:workflows
 ```
 
+And a third, which is the only thing here that starts an application:
+
+```bash
+pnpm build && pnpm test:smoke
+```
+
+`test/smoke/run.mjs` builds a small Nuxt app and the Vue playground **against
+the built package**, serves both, loads them in Chromium and fails on anything
+the browser logs as an error. Everything else in this repository tests source;
+this is the step that would have caught #301, a client-only boot failure that
+shipped and left the unit suite green for five weeks.
+
+The `pnpm build` is not optional. `pnpm dev:prepare` leaves `dist/` as a jiti
+stub that re-exports `src/`, so a smoke run against it would boot the sources
+under a different name — the script detects that and refuses rather than
+passing quietly. It also needs a browser once: `npx playwright-core install
+chromium`.
+
+Two things it asserts that nothing else can:
+
+- **the `platform` plugin's SSR branch** — `useRequestHeader('user-agent')`
+  never runs under Vitest, because the Nuxt test environment is client-only.
+  The smoke run fetches the page with three user agents and checks the
+  `data-platform` / `data-version` attributes the Tailwind `bitrix-mobile:` and
+  `bitrix-desktop:` variants key on;
+- **that the page rendered anything at all** — a Vue app that throws in
+  `setup()` still answers 200 with an empty root, so `curl` cannot tell a
+  working app from a dead one and a browser can.
+
 ## File Location
 
 Tests live in `test/components/` matching the component name (e.g., `Button.spec.ts`).

@@ -6,6 +6,7 @@ packages:
   - playgrounds/vue
   - playgrounds/repl
   - playgrounds/demo
+  - test/smoke/fixture
 
 ignoreWorkspaceRootCheck: true
 

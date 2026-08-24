@@ -1,0 +1,13 @@
+{
+  "name": "b24ui-smoke-fixture",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build"
+  },
+  "dependencies": {
+    "@bitrix24/b24ui-nuxt": "workspace:*",
+    "nuxt": "^4.5.2"
+  }
+}
