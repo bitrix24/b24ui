@@ -46,6 +46,7 @@ describe('Tabs', () => {
     ['with as', { props: { ...props, as: 'section' } }],
     ['with class', { props: { ...props, class: 'w-96' } }],
     ['with b24ui', { props: { ...props, b24ui: { content: 'w-full ring ring-red-500' } } }],
+    ['with item color', { props: { items: [{ label: 'Engineer', avatar: { src: 'https://github.com/bitrix24.png' }, color: 'air-primary' as const, content: 'Engineer content' }, { label: 'Designer', avatar: { src: 'https://github.com/bitrix24.png' }, color: 'air-primary-success' as const, content: 'Designer content' }] } }],
     // Slots
     ['with leading slot', { props, slots: { leading: () => 'Leading slot' } }],
     ['with default slot', { props, slots: { default: () => 'Default slot' } }],
