@@ -21,6 +21,17 @@
  * Paths are relative to `test/` (`dir: './test'` in the vitest config).
  */
 
+/**
+ * Specs the plain-Node project runs.
+ *
+ * `module/` boots Nuxt itself with `loadNuxt` to exercise the module's
+ * `setup()`, so it can run in neither of the other two: the `nuxt` project is
+ * already inside a Nuxt instance, and the `vue` one is happy-dom.
+ */
+export const moduleInclude = [
+  'module/**/*.spec.ts'
+]
+
 /** Specs the Nuxt-environment project runs. */
 export const nuxtInclude = [
   'components/**/*.spec.ts',
@@ -33,7 +44,8 @@ export const nuxtInclude = [
  * Specs the plain-Vue project runs.
  *
  * `plugins/` is absent deliberately: those specs cover Nuxt plugins and have
- * no meaning in the unplugin distribution.
+ * no meaning in the unplugin distribution. `module/` is absent for the same
+ * kind of reason — see `moduleInclude`.
  */
 export const vueInclude = [
   'components/**/*.spec.ts',

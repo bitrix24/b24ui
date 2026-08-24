@@ -4,7 +4,7 @@ import { configDefaults, defineConfig } from 'vitest/config'
 import vue from '@vitejs/plugin-vue'
 import bitrix24UIPluginVite from './src/vite'
 import { glob } from 'tinyglobby'
-import { nuxtInclude, vueInclude, vueExclude } from './test/vitest-include'
+import { moduleInclude, nuxtInclude, vueInclude, vueExclude } from './test/vitest-include'
 
 /**
  * Pin the suite's timezone.
@@ -48,6 +48,21 @@ export default defineConfig({
       }
     },
     projects: [
+      {
+        // `loadNuxt` boots a real Nuxt instance, so this one cannot run inside
+        // the `nuxt` environment (already an instance) or happy-dom. Plain
+        // Node, and the only project whose specs are allowed to take seconds
+        // rather than milliseconds — each of them resolves a Nuxt config.
+        extends: true,
+        test: {
+          name: 'module',
+          environment: 'node',
+          dir: './test',
+          include: moduleInclude,
+          exclude: configDefaults.exclude,
+          benchmark: { include: [] }
+        }
+      },
       await defineVitestProject({
         extends: true,
         test: {
