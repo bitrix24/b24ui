@@ -17,7 +17,22 @@ import { describe, it, expect } from 'vitest'
  * `--ui-color-design-outline-focused-stroke` is the design system's own answer,
  * named as such in `design-tokens/app.json`, and it is the only one of the four
  * defined in all four theme contexts — which is why it adapts and the others do
- * not. It measures 4.21:1 light and 4.24:1 dark.
+ * not. Measured against `--ui-color-bg-content-primary`:
+ *
+ *   light        #0075ff   4.21:1     was #0154c8 at 6.77:1
+ *   dark         #1587fa   4.24:1     was #0056bf at 2.22:1
+ *   edge-light   #000000 at 35%       was #0056bf
+ *   edge-dark    #ffffff at 40%       was #0056bf
+ *
+ * Two things that table says and a single pair of numbers would not. In the
+ * light theme the contrast **falls**, 6.77:1 to 4.21:1 — still well past 3:1,
+ * and the price of one colour that works everywhere rather than one that is
+ * excellent in half the contexts and unusable in the others. And the edge
+ * contexts are where "adapts" stops being a figure of speech: both the surface
+ * and the token are translucent there, so no static ratio can be computed, but
+ * the token inverts — black at 35% over a light surface, white at 40% over a
+ * dark one — while `soft-element-blue` was the same opaque dark blue in all
+ * four.
  *
  * None of that is visible to a snapshot: happy-dom does not resolve custom
  * properties or compute contrast, so a port swapping the token back would
