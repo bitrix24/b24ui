@@ -38,13 +38,13 @@ describe('ChatMessages', () => {
     // Slots
     ['with default slot', { props, slots: { default: () => 'Default slot' } }],
     ['with indicator slot', { props: { ...props, status: 'submitted' }, slots: { indicator: () => 'Indicator slot' } }],
-    // No `with viewport slot` case. The slot lives inside
-    // `<Presence :present="showAutoScroll">`, and `showAutoScroll` is driven by
-    // how far the user has scrolled from the bottom — geometry happy-dom does
-    // not compute, so the slot cannot render here at all. The case that used to
-    // sit here was byte-identical to `with messages` (#454). This is the same
-    // shape as the Table virtualization cases: not a fixture to fix, an
-    // environment that cannot reach the branch.
+    // No `with viewport slot` case here. The slot lives inside
+    // `<Presence :present="showAutoScroll">`, and `showAutoScroll` is set by a
+    // `scroll` handler reading the container's geometry — nothing a declarative
+    // props-and-slots matrix can arrange, so the case that used to sit here
+    // rendered the closed state and was byte-identical to `with messages`
+    // (#454). It is covered by a test of its own below, which stubs the
+    // geometry and dispatches the event.
     ['with content slot', { props, slots: { content: () => 'Content slot' } }],
     // `files` renders only when a message carries a part of `type: 'file'`;
     // every fixture here has text parts only, so the slot never appeared.
@@ -63,6 +63,42 @@ describe('ChatMessages', () => {
       slots: { files: () => 'Files slot' }
     }]
   ])
+
+  /**
+   * The `viewport` slot is the auto-scroll button, shown only once the user has
+   * scrolled more than 100px from the bottom. happy-dom reports every scroll
+   * measurement as 0, so `checkScrollPosition` always concluded the user was at
+   * the bottom and the slot never rendered — which is why the `renderEach` case
+   * for it recorded the closed state and proved nothing (#454).
+   *
+   * Stubbing `scrollHeight` and dispatching a real `scroll` event runs the
+   * component's own handler rather than setting `showAutoScroll` directly, so
+   * the threshold arithmetic is under test too.
+   */
+  it('renders the viewport slot once the user has scrolled away from the bottom', async () => {
+    const wrapper = await mountSuspended(ChatMessages, {
+      props,
+      slots: { viewport: () => 'Viewport slot' }
+    })
+
+    // `getScrollParent` walks up looking for an `overflow-y` of `auto` or
+    // `scroll`, finds none in the test harness, and falls back to this.
+    const scrollParent = document.documentElement
+
+    expect(wrapper.text(), 'the button must stay hidden while the user is at the bottom').not.toContain('Viewport slot')
+
+    try {
+      Object.defineProperty(scrollParent, 'scrollHeight', { configurable: true, value: 1000 })
+      scrollParent.dispatchEvent(new Event('scroll'))
+      await nextTick()
+
+      expect(wrapper.text()).toContain('Viewport slot')
+    } finally {
+      // An own property shadowing the prototype getter; deleting it restores
+      // the real one for every test after this.
+      delete (scrollParent as any).scrollHeight
+    }
+  })
 
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(ChatMessages, {
