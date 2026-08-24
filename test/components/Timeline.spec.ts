@@ -46,6 +46,7 @@ describe('Timeline', () => {
     ['with defaultValue', { props: { ...props, defaultValue: 'design' } }],
     ['with valueKey', { props: { ...props, valueKey: 'title', defaultValue: 'Design Phase' } }],
     ['with air-primary color', { props: { ...props, color: 'air-primary' } }],
+    ['with color and avatar', { props: { ...props, color: 'air-primary-success' as const, items: items.map(item => ({ ...item, icon: undefined, avatar: { src: 'https://github.com/bitrix24.png' } })) } }],
     ...sizes.map((size: string) => [`with size ${size} horizontal`, { props: { ...props, size } }]),
     ...sizes.map((size: string) => [`with size ${size} vertical`, { props: { ...props, size, orientation: 'vertical' } }]),
     ['with as', { props: { ...props, as: 'section' } }],
