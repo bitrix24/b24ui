@@ -43,6 +43,11 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+          # Two, not the default one: assert-commit-parses.mjs compares
+          # `.sync/nuxt-ui.json` at HEAD against HEAD^ to tell a port from a
+          # bookkeeping commit. At depth 1 it warns and skips rather than
+          # passing quietly, but skipping is not what we want here.
+          fetch-depth: 2
 
       # Pinning actions to commit SHAs is a state; this is the control that keeps
       # it. The realistic way the pins get lost is not carelessness — it is a

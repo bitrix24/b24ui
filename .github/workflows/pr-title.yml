@@ -1,0 +1,67 @@
+name: PR title 🏷️
+
+# Early feedback, not the guarantee. `ci.yml` checks the message on `main` after
+# the merge, and that check stays: the squash subject and body can be rewritten
+# in the merge dialog — #440 was — so only what lands on `main` is certain to be
+# what release-please reads. This job exists because finding out afterwards is
+# finding out too late. Correcting a message already on `main` means either an
+# override block on the merged PR body or rewriting a protected branch.
+#
+# `edited` is in the list on purpose: a title fixed after a red run has to turn
+# the check green without an empty push.
+#
+# It checks the parse and the type, and not the `(nuxt/ui@<sha>)` reference a
+# port has to carry: that one needs to see what the commit changed in the
+# ledger, and a title on its own cannot. Green here does not mean every rule in
+# assert-commit-parses.mjs is satisfied — PORTING.md §7 puts the reference on
+# the reviewer for exactly this reason.
+on:
+  pull_request:
+    branches: [ main ]
+    types: [ opened, edited, reopened, synchronize ]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-title-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  title:
+    runs-on: ubuntu-latest
+    # `edited` fires for a body edit too, and GitHub does not offer a
+    # title-only trigger. Observed on this PR's own first run: updating the
+    # description re-ran the job for a title nothing had touched. `changes`
+    # names what actually moved, and it is absent on every other action, so
+    # `opened`, `reopened` and `synchronize` still run.
+    if: github.event.action != 'edited' || github.event.changes.title != null
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+
+      - name: Install node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          cache: pnpm
+
+      # `--ignore-scripts`: this job needs `@conventional-commits/parser` on disk
+      # and nothing else. The postinstall work — nuxt prepare, native builds —
+      # is the bulk of a normal install here and none of it is reachable from a
+      # title check.
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
+
+      # Through the environment, not the command line: a title is arbitrary text
+      # from whoever opened the PR, and interpolating it into a `run:` would let
+      # a backtick or `$(…)` execute on the runner.
+      - name: Assert the title is a subject release-please can use
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: printf '%s' "$PR_TITLE" | .github/scripts/assert-commit-parses.mjs --stdin
