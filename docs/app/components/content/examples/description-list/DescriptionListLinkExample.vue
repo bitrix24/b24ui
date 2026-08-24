@@ -3,14 +3,14 @@ import type { DescriptionListItem } from '@bitrix24/b24ui-nuxt'
 
 const items: DescriptionListItem[] = [
   {
-    label: 'Account manager',
-    description: 'Sample owner',
-    to: '/users/owner'
+    label: 'Documentation',
+    description: 'Getting started guide',
+    to: '/docs/getting-started'
   },
   {
     label: 'External profile',
     description: 'View on partner portal',
-    to: 'https://example.com',
+    to: 'https://bitrix24.com',
     target: '_blank'
   },
   {
