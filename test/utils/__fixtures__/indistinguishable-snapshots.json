@@ -1,13 +1,13 @@
 [
   {
-    "file": "Accordion-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Accordion-vue.spec.ts.snap",
     "names": [
       "Accordion > renders with as correctly 1",
       "Accordion > renders with as correctly 2"
     ]
   },
   {
-    "file": "Accordion-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Accordion-vue.spec.ts.snap",
     "names": [
       "Accordion > renders with collapsible correctly 1",
       "Accordion > renders with items correctly 1",
@@ -15,21 +15,21 @@
     ]
   },
   {
-    "file": "Accordion-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Accordion-vue.spec.ts.snap",
     "names": [
       "Accordion > renders with defaultValue correctly 1",
       "Accordion > renders with modelValue correctly 1"
     ]
   },
   {
-    "file": "Accordion.spec.ts.snap",
+    "file": "components/__snapshots__/Accordion.spec.ts.snap",
     "names": [
       "Accordion > renders with as correctly 1",
       "Accordion > renders with as correctly 2"
     ]
   },
   {
-    "file": "Accordion.spec.ts.snap",
+    "file": "components/__snapshots__/Accordion.spec.ts.snap",
     "names": [
       "Accordion > renders with collapsible correctly 1",
       "Accordion > renders with items correctly 1",
@@ -37,14 +37,14 @@
     ]
   },
   {
-    "file": "Accordion.spec.ts.snap",
+    "file": "components/__snapshots__/Accordion.spec.ts.snap",
     "names": [
       "Accordion > renders with defaultValue correctly 1",
       "Accordion > renders with modelValue correctly 1"
     ]
   },
   {
-    "file": "Advice-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Advice-vue.spec.ts.snap",
     "names": [
       "Advice > renders with as correctly 1",
       "Advice > renders with b24ui correctly 1",
@@ -52,7 +52,7 @@
     ]
   },
   {
-    "file": "Advice.spec.ts.snap",
+    "file": "components/__snapshots__/Advice.spec.ts.snap",
     "names": [
       "Advice > renders with as correctly 1",
       "Advice > renders with b24ui correctly 1",
@@ -60,91 +60,91 @@
     ]
   },
   {
-    "file": "Avatar-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Avatar-vue.spec.ts.snap",
     "names": [
       "Avatar > renders with alt correctly 1",
       "Avatar > renders with color air-secondary-no-accent correctly 1"
     ]
   },
   {
-    "file": "Avatar-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Avatar-vue.spec.ts.snap",
     "names": [
       "Avatar > renders with size md correctly 1",
       "Avatar > renders with src correctly 1"
     ]
   },
   {
-    "file": "Avatar.spec.ts.snap",
+    "file": "components/__snapshots__/Avatar.spec.ts.snap",
     "names": [
       "Avatar > renders with alt correctly 1",
       "Avatar > renders with color air-secondary-no-accent correctly 1"
     ]
   },
   {
-    "file": "Avatar.spec.ts.snap",
+    "file": "components/__snapshots__/Avatar.spec.ts.snap",
     "names": [
       "Avatar > renders with size md correctly 1",
       "Avatar > renders with src correctly 1"
     ]
   },
   {
-    "file": "AvatarGroup-vue.spec.ts.snap",
+    "file": "components/__snapshots__/AvatarGroup-vue.spec.ts.snap",
     "names": [
       "AvatarGroup > renders with default slot correctly 1",
       "AvatarGroup > renders with size md correctly 1"
     ]
   },
   {
-    "file": "AvatarGroup.spec.ts.snap",
+    "file": "components/__snapshots__/AvatarGroup.spec.ts.snap",
     "names": [
       "AvatarGroup > renders with default slot correctly 1",
       "AvatarGroup > renders with size md correctly 1"
     ]
   },
   {
-    "file": "Badge-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Badge-vue.spec.ts.snap",
     "names": [
       "Badge > renders with avatar and trailingIcon correctly 1",
       "Badge > renders with avatar correctly 1"
     ]
   },
   {
-    "file": "Badge-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Badge-vue.spec.ts.snap",
     "names": [
       "Badge > renders with label correctly 1",
       "Badge > renders with size md correctly 1"
     ]
   },
   {
-    "file": "Badge.spec.ts.snap",
+    "file": "components/__snapshots__/Badge.spec.ts.snap",
     "names": [
       "Badge > renders with avatar and trailingIcon correctly 1",
       "Badge > renders with avatar correctly 1"
     ]
   },
   {
-    "file": "Badge.spec.ts.snap",
+    "file": "components/__snapshots__/Badge.spec.ts.snap",
     "names": [
       "Badge > renders with label correctly 1",
       "Badge > renders with size md correctly 1"
     ]
   },
   {
-    "file": "Banner-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Banner-vue.spec.ts.snap",
     "names": [
       "Banner > renders with closeIcon correctly 1",
       "Banner > renders with id correctly 1"
     ]
   },
   {
-    "file": "Banner.spec.ts.snap",
+    "file": "components/__snapshots__/Banner.spec.ts.snap",
     "names": [
       "Banner > renders with closeIcon correctly 1",
       "Banner > renders with id correctly 1"
     ]
   },
   {
-    "file": "Button-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Button-vue.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-boost correctly 1",
       "Button > renders with light color air-boost correctly 1",
@@ -152,7 +152,7 @@
     ]
   },
   {
-    "file": "Button-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Button-vue.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-primary correctly 1",
       "Button > renders with light color air-primary correctly 1",
@@ -160,7 +160,7 @@
     ]
   },
   {
-    "file": "Button-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Button-vue.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-primary-alert correctly 1",
       "Button > renders with light color air-primary-alert correctly 1",
@@ -168,7 +168,7 @@
     ]
   },
   {
-    "file": "Button-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Button-vue.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-primary-copilot correctly 1",
       "Button > renders with light color air-primary-copilot correctly 1",
@@ -176,7 +176,7 @@
     ]
   },
   {
-    "file": "Button-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Button-vue.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-primary-success correctly 1",
       "Button > renders with light color air-primary-success correctly 1",
@@ -184,7 +184,7 @@
     ]
   },
   {
-    "file": "Button-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Button-vue.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-secondary correctly 1",
       "Button > renders with light color air-secondary correctly 1",
@@ -192,7 +192,7 @@
     ]
   },
   {
-    "file": "Button-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Button-vue.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-secondary-accent correctly 1",
       "Button > renders with light color air-secondary-accent correctly 1",
@@ -200,7 +200,7 @@
     ]
   },
   {
-    "file": "Button-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Button-vue.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-secondary-accent-1 correctly 1",
       "Button > renders with light color air-secondary-accent-1 correctly 1",
@@ -208,7 +208,7 @@
     ]
   },
   {
-    "file": "Button-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Button-vue.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-secondary-accent-2 correctly 1",
       "Button > renders with light color air-secondary-accent-2 correctly 1",
@@ -216,7 +216,7 @@
     ]
   },
   {
-    "file": "Button-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Button-vue.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-secondary-alert correctly 1",
       "Button > renders with light color air-secondary-alert correctly 1",
@@ -224,7 +224,7 @@
     ]
   },
   {
-    "file": "Button-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Button-vue.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-secondary-no-accent correctly 1",
       "Button > renders with label correctly 1",
@@ -234,7 +234,7 @@
     ]
   },
   {
-    "file": "Button-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Button-vue.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-selection correctly 1",
       "Button > renders with light color air-selection correctly 1",
@@ -242,7 +242,7 @@
     ]
   },
   {
-    "file": "Button-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Button-vue.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-tertiary correctly 1",
       "Button > renders with light color air-tertiary correctly 1",
@@ -250,7 +250,7 @@
     ]
   },
   {
-    "file": "Button-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Button-vue.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-tertiary-accent correctly 1",
       "Button > renders with light color air-tertiary-accent correctly 1",
@@ -258,7 +258,7 @@
     ]
   },
   {
-    "file": "Button-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Button-vue.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-tertiary-no-accent correctly 1",
       "Button > renders with light color air-tertiary-no-accent correctly 1",
@@ -266,7 +266,7 @@
     ]
   },
   {
-    "file": "Button.spec.ts.snap",
+    "file": "components/__snapshots__/Button.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-boost correctly 1",
       "Button > renders with light color air-boost correctly 1",
@@ -274,7 +274,7 @@
     ]
   },
   {
-    "file": "Button.spec.ts.snap",
+    "file": "components/__snapshots__/Button.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-primary correctly 1",
       "Button > renders with light color air-primary correctly 1",
@@ -282,7 +282,7 @@
     ]
   },
   {
-    "file": "Button.spec.ts.snap",
+    "file": "components/__snapshots__/Button.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-primary-alert correctly 1",
       "Button > renders with light color air-primary-alert correctly 1",
@@ -290,7 +290,7 @@
     ]
   },
   {
-    "file": "Button.spec.ts.snap",
+    "file": "components/__snapshots__/Button.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-primary-copilot correctly 1",
       "Button > renders with light color air-primary-copilot correctly 1",
@@ -298,7 +298,7 @@
     ]
   },
   {
-    "file": "Button.spec.ts.snap",
+    "file": "components/__snapshots__/Button.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-primary-success correctly 1",
       "Button > renders with light color air-primary-success correctly 1",
@@ -306,7 +306,7 @@
     ]
   },
   {
-    "file": "Button.spec.ts.snap",
+    "file": "components/__snapshots__/Button.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-secondary correctly 1",
       "Button > renders with light color air-secondary correctly 1",
@@ -314,7 +314,7 @@
     ]
   },
   {
-    "file": "Button.spec.ts.snap",
+    "file": "components/__snapshots__/Button.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-secondary-accent correctly 1",
       "Button > renders with light color air-secondary-accent correctly 1",
@@ -322,7 +322,7 @@
     ]
   },
   {
-    "file": "Button.spec.ts.snap",
+    "file": "components/__snapshots__/Button.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-secondary-accent-1 correctly 1",
       "Button > renders with light color air-secondary-accent-1 correctly 1",
@@ -330,7 +330,7 @@
     ]
   },
   {
-    "file": "Button.spec.ts.snap",
+    "file": "components/__snapshots__/Button.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-secondary-accent-2 correctly 1",
       "Button > renders with light color air-secondary-accent-2 correctly 1",
@@ -338,7 +338,7 @@
     ]
   },
   {
-    "file": "Button.spec.ts.snap",
+    "file": "components/__snapshots__/Button.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-secondary-alert correctly 1",
       "Button > renders with light color air-secondary-alert correctly 1",
@@ -346,7 +346,7 @@
     ]
   },
   {
-    "file": "Button.spec.ts.snap",
+    "file": "components/__snapshots__/Button.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-secondary-no-accent correctly 1",
       "Button > renders with label correctly 1",
@@ -356,7 +356,7 @@
     ]
   },
   {
-    "file": "Button.spec.ts.snap",
+    "file": "components/__snapshots__/Button.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-selection correctly 1",
       "Button > renders with light color air-selection correctly 1",
@@ -364,7 +364,7 @@
     ]
   },
   {
-    "file": "Button.spec.ts.snap",
+    "file": "components/__snapshots__/Button.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-tertiary correctly 1",
       "Button > renders with light color air-tertiary correctly 1",
@@ -372,7 +372,7 @@
     ]
   },
   {
-    "file": "Button.spec.ts.snap",
+    "file": "components/__snapshots__/Button.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-tertiary-accent correctly 1",
       "Button > renders with light color air-tertiary-accent correctly 1",
@@ -380,7 +380,7 @@
     ]
   },
   {
-    "file": "Button.spec.ts.snap",
+    "file": "components/__snapshots__/Button.spec.ts.snap",
     "names": [
       "Button > renders with dark color air-tertiary-no-accent correctly 1",
       "Button > renders with light color air-tertiary-no-accent correctly 1",
@@ -388,7 +388,7 @@
     ]
   },
   {
-    "file": "Calendar-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Calendar-vue.spec.ts.snap",
     "names": [
       "Calendar > renders with day slot correctly 1",
       "Calendar > renders with multiple correctly 1",
@@ -397,21 +397,21 @@
     ]
   },
   {
-    "file": "Calendar-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Calendar-vue.spec.ts.snap",
     "names": [
       "Calendar > renders with default value correctly 1",
       "Calendar > renders with modelValue correctly 1"
     ]
   },
   {
-    "file": "Calendar-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Calendar-vue.spec.ts.snap",
     "names": [
       "Calendar > renders with range and defaultValue correctly 1",
       "Calendar > renders with range and modelValue correctly 1"
     ]
   },
   {
-    "file": "Calendar.spec.ts.snap",
+    "file": "components/__snapshots__/Calendar.spec.ts.snap",
     "names": [
       "Calendar > renders with day slot correctly 1",
       "Calendar > renders with multiple correctly 1",
@@ -420,35 +420,35 @@
     ]
   },
   {
-    "file": "Calendar.spec.ts.snap",
+    "file": "components/__snapshots__/Calendar.spec.ts.snap",
     "names": [
       "Calendar > renders with default value correctly 1",
       "Calendar > renders with modelValue correctly 1"
     ]
   },
   {
-    "file": "Calendar.spec.ts.snap",
+    "file": "components/__snapshots__/Calendar.spec.ts.snap",
     "names": [
       "Calendar > renders with range and defaultValue correctly 1",
       "Calendar > renders with range and modelValue correctly 1"
     ]
   },
   {
-    "file": "Card-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Card-vue.spec.ts.snap",
     "names": [
       "Card > renders with b24ui correctly 1",
       "Card > renders with variant outline correctly 1"
     ]
   },
   {
-    "file": "Card.spec.ts.snap",
+    "file": "components/__snapshots__/Card.spec.ts.snap",
     "names": [
       "Card > renders with b24ui correctly 1",
       "Card > renders with variant outline correctly 1"
     ]
   },
   {
-    "file": "ChatMessage-vue.spec.ts.snap",
+    "file": "components/__snapshots__/ChatMessage-vue.spec.ts.snap",
     "names": [
       "ChatMessage > renders with b24ui correctly 1",
       "ChatMessage > renders with class correctly 1",
@@ -457,7 +457,7 @@
     ]
   },
   {
-    "file": "ChatMessage.spec.ts.snap",
+    "file": "components/__snapshots__/ChatMessage.spec.ts.snap",
     "names": [
       "ChatMessage > renders with b24ui correctly 1",
       "ChatMessage > renders with class correctly 1",
@@ -466,56 +466,56 @@
     ]
   },
   {
-    "file": "ChatMessages-vue.spec.ts.snap",
+    "file": "components/__snapshots__/ChatMessages-vue.spec.ts.snap",
     "names": [
       "ChatMessages > renders with b24ui correctly 1",
       "ChatMessages > renders with messages correctly 1"
     ]
   },
   {
-    "file": "ChatMessages.spec.ts.snap",
+    "file": "components/__snapshots__/ChatMessages.spec.ts.snap",
     "names": [
       "ChatMessages > renders with b24ui correctly 1",
       "ChatMessages > renders with messages correctly 1"
     ]
   },
   {
-    "file": "ChatPromptSubmit-vue.spec.ts.snap",
+    "file": "components/__snapshots__/ChatPromptSubmit-vue.spec.ts.snap",
     "names": [
       "ChatPromptSubmit > renders with class correctly 1",
       "ChatPromptSubmit > renders with status ready correctly 1"
     ]
   },
   {
-    "file": "ChatPromptSubmit.spec.ts.snap",
+    "file": "components/__snapshots__/ChatPromptSubmit.spec.ts.snap",
     "names": [
       "ChatPromptSubmit > renders with class correctly 1",
       "ChatPromptSubmit > renders with status ready correctly 1"
     ]
   },
   {
-    "file": "ChatShimmer-vue.spec.ts.snap",
+    "file": "components/__snapshots__/ChatShimmer-vue.spec.ts.snap",
     "names": [
       "ChatShimmer > renders with b24ui correctly 1",
       "ChatShimmer > renders with class correctly 1"
     ]
   },
   {
-    "file": "ChatShimmer.spec.ts.snap",
+    "file": "components/__snapshots__/ChatShimmer.spec.ts.snap",
     "names": [
       "ChatShimmer > renders with b24ui correctly 1",
       "ChatShimmer > renders with class correctly 1"
     ]
   },
   {
-    "file": "ChatTool-vue.spec.ts.snap",
+    "file": "components/__snapshots__/ChatTool-vue.spec.ts.snap",
     "names": [
       "ChatTool > renders with chevron leading and icon correctly 1",
       "ChatTool > renders with icon correctly 1"
     ]
   },
   {
-    "file": "ChatTool-vue.spec.ts.snap",
+    "file": "components/__snapshots__/ChatTool-vue.spec.ts.snap",
     "names": [
       "ChatTool > renders with chevron leading correctly 1",
       "ChatTool > renders with chevronIcon correctly 1",
@@ -524,14 +524,14 @@
     ]
   },
   {
-    "file": "ChatTool.spec.ts.snap",
+    "file": "components/__snapshots__/ChatTool.spec.ts.snap",
     "names": [
       "ChatTool > renders with chevron leading and icon correctly 1",
       "ChatTool > renders with icon correctly 1"
     ]
   },
   {
-    "file": "ChatTool.spec.ts.snap",
+    "file": "components/__snapshots__/ChatTool.spec.ts.snap",
     "names": [
       "ChatTool > renders with chevron leading correctly 1",
       "ChatTool > renders with chevronIcon correctly 1",
@@ -540,7 +540,7 @@
     ]
   },
   {
-    "file": "Checkbox-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Checkbox-vue.spec.ts.snap",
     "names": [
       "Checkbox > renders with b24ui correctly 1",
       "Checkbox > renders with name correctly 1",
@@ -549,7 +549,7 @@
     ]
   },
   {
-    "file": "Checkbox-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Checkbox-vue.spec.ts.snap",
     "names": [
       "Checkbox > renders with defaultValue correctly 1",
       "Checkbox > renders with modelValue correctly 1",
@@ -559,7 +559,7 @@
     ]
   },
   {
-    "file": "Checkbox.spec.ts.snap",
+    "file": "components/__snapshots__/Checkbox.spec.ts.snap",
     "names": [
       "Checkbox > renders with b24ui correctly 1",
       "Checkbox > renders with name correctly 1",
@@ -568,7 +568,7 @@
     ]
   },
   {
-    "file": "Checkbox.spec.ts.snap",
+    "file": "components/__snapshots__/Checkbox.spec.ts.snap",
     "names": [
       "Checkbox > renders with defaultValue correctly 1",
       "Checkbox > renders with modelValue correctly 1",
@@ -578,7 +578,7 @@
     ]
   },
   {
-    "file": "CheckboxGroup-vue.spec.ts.snap",
+    "file": "components/__snapshots__/CheckboxGroup-vue.spec.ts.snap",
     "names": [
       "CheckboxGroup > renders with defaultValue correctly 1",
       "CheckboxGroup > renders with modelValue correctly 1",
@@ -586,7 +586,7 @@
     ]
   },
   {
-    "file": "CheckboxGroup.spec.ts.snap",
+    "file": "components/__snapshots__/CheckboxGroup.spec.ts.snap",
     "names": [
       "CheckboxGroup > renders with defaultValue correctly 1",
       "CheckboxGroup > renders with modelValue correctly 1",
@@ -594,56 +594,56 @@
     ]
   },
   {
-    "file": "Chip-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Chip-vue.spec.ts.snap",
     "names": [
       "Chip > renders with position top-right correctly 1",
       "Chip > renders with size sm correctly 1"
     ]
   },
   {
-    "file": "Chip.spec.ts.snap",
+    "file": "components/__snapshots__/Chip.spec.ts.snap",
     "names": [
       "Chip > renders with position top-right correctly 1",
       "Chip > renders with size sm correctly 1"
     ]
   },
   {
-    "file": "Collapsible-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Collapsible-vue.spec.ts.snap",
     "names": [
       "Collapsible > renders with open correctly 1",
       "Collapsible > renders with unmountOnHide correctly 1"
     ]
   },
   {
-    "file": "Collapsible.spec.ts.snap",
+    "file": "components/__snapshots__/Collapsible.spec.ts.snap",
     "names": [
       "Collapsible > renders with open correctly 1",
       "Collapsible > renders with unmountOnHide correctly 1"
     ]
   },
   {
-    "file": "ColorPicker-vue.spec.ts.snap",
+    "file": "components/__snapshots__/ColorPicker-vue.spec.ts.snap",
     "names": [
       "ColorPicker > renders with format hex correctly 1",
       "ColorPicker > renders with format rgb correctly 1"
     ]
   },
   {
-    "file": "ColorPicker.spec.ts.snap",
+    "file": "components/__snapshots__/ColorPicker.spec.ts.snap",
     "names": [
       "ColorPicker > renders with format hex correctly 1",
       "ColorPicker > renders with format rgb correctly 1"
     ]
   },
   {
-    "file": "CommandPalette-vue.spec.ts.snap",
+    "file": "components/__snapshots__/CommandPalette-vue.spec.ts.snap",
     "names": [
       "CommandPalette > renders with by correctly 1",
       "CommandPalette > renders with valueKey correctly 1"
     ]
   },
   {
-    "file": "CommandPalette-vue.spec.ts.snap",
+    "file": "components/__snapshots__/CommandPalette-vue.spec.ts.snap",
     "names": [
       "CommandPalette > renders with childrenIcon correctly 1",
       "CommandPalette > renders with groups correctly 1",
@@ -651,21 +651,21 @@
     ]
   },
   {
-    "file": "CommandPalette-vue.spec.ts.snap",
+    "file": "components/__snapshots__/CommandPalette-vue.spec.ts.snap",
     "names": [
       "CommandPalette > renders with defaultValue correctly 1",
       "CommandPalette > renders with modelValue correctly 1"
     ]
   },
   {
-    "file": "CommandPalette.spec.ts.snap",
+    "file": "components/__snapshots__/CommandPalette.spec.ts.snap",
     "names": [
       "CommandPalette > renders with by correctly 1",
       "CommandPalette > renders with valueKey correctly 1"
     ]
   },
   {
-    "file": "CommandPalette.spec.ts.snap",
+    "file": "components/__snapshots__/CommandPalette.spec.ts.snap",
     "names": [
       "CommandPalette > renders with childrenIcon correctly 1",
       "CommandPalette > renders with groups correctly 1",
@@ -673,14 +673,14 @@
     ]
   },
   {
-    "file": "CommandPalette.spec.ts.snap",
+    "file": "components/__snapshots__/CommandPalette.spec.ts.snap",
     "names": [
       "CommandPalette > renders with defaultValue correctly 1",
       "CommandPalette > renders with modelValue correctly 1"
     ]
   },
   {
-    "file": "ContextMenu-vue.spec.ts.snap",
+    "file": "components/__snapshots__/ContextMenu-vue.spec.ts.snap",
     "names": [
       "ContextMenu > renders with b24ui correctly 1",
       "ContextMenu > renders with color air-primary correctly 1",
@@ -692,7 +692,7 @@
     ]
   },
   {
-    "file": "ContextMenu.spec.ts.snap",
+    "file": "components/__snapshots__/ContextMenu.spec.ts.snap",
     "names": [
       "ContextMenu > renders with b24ui correctly 1",
       "ContextMenu > renders with color air-primary correctly 1",
@@ -704,7 +704,7 @@
     ]
   },
   {
-    "file": "Countdown-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Countdown-vue.spec.ts.snap",
     "names": [
       "Countdown > renders with b24ui correctly 1",
       "Countdown > renders with class correctly 1",
@@ -715,7 +715,7 @@
     ]
   },
   {
-    "file": "Countdown.spec.ts.snap",
+    "file": "components/__snapshots__/Countdown.spec.ts.snap",
     "names": [
       "Countdown > renders with b24ui correctly 1",
       "Countdown > renders with class correctly 1",
@@ -726,28 +726,28 @@
     ]
   },
   {
-    "file": "DashboardPanel-vue.spec.ts.snap",
+    "file": "components/__snapshots__/DashboardPanel-vue.spec.ts.snap",
     "names": [
       "DashboardPanel > renders with maxSize correctly 1",
       "DashboardPanel > renders with minSize correctly 1"
     ]
   },
   {
-    "file": "DashboardPanel.spec.ts.snap",
+    "file": "components/__snapshots__/DashboardPanel.spec.ts.snap",
     "names": [
       "DashboardPanel > renders with maxSize correctly 1",
       "DashboardPanel > renders with minSize correctly 1"
     ]
   },
   {
-    "file": "DashboardSearch.spec.ts.snap",
+    "file": "components/__snapshots__/DashboardSearch.spec.ts.snap",
     "names": [
       "DashboardSearch > renders with size md correctly 1",
       "DashboardSearch > renders without colorMode correctly 1"
     ]
   },
   {
-    "file": "DashboardSidebar-vue.spec.ts.snap",
+    "file": "components/__snapshots__/DashboardSidebar-vue.spec.ts.snap",
     "names": [
       "DashboardSidebar > renders with collapsible correctly 1",
       "DashboardSidebar > renders with content slot correctly 1",
@@ -757,14 +757,14 @@
     ]
   },
   {
-    "file": "DashboardSidebar-vue.spec.ts.snap",
+    "file": "components/__snapshots__/DashboardSidebar-vue.spec.ts.snap",
     "names": [
       "DashboardSidebar > renders with toggle correctly 1",
       "DashboardSidebar > renders without toggle correctly 1"
     ]
   },
   {
-    "file": "DashboardSidebar.spec.ts.snap",
+    "file": "components/__snapshots__/DashboardSidebar.spec.ts.snap",
     "names": [
       "DashboardSidebar > renders with collapsible correctly 1",
       "DashboardSidebar > renders with content slot correctly 1",
@@ -774,42 +774,42 @@
     ]
   },
   {
-    "file": "DashboardSidebar.spec.ts.snap",
+    "file": "components/__snapshots__/DashboardSidebar.spec.ts.snap",
     "names": [
       "DashboardSidebar > renders with toggle correctly 1",
       "DashboardSidebar > renders without toggle correctly 1"
     ]
   },
   {
-    "file": "DescriptionList-vue.spec.ts.snap",
+    "file": "components/__snapshots__/DescriptionList-vue.spec.ts.snap",
     "names": [
       "DescriptionList > renders with b24ui correctly 1",
       "DescriptionList > renders with items correctly 1"
     ]
   },
   {
-    "file": "DescriptionList.spec.ts.snap",
+    "file": "components/__snapshots__/DescriptionList.spec.ts.snap",
     "names": [
       "DescriptionList > renders with b24ui correctly 1",
       "DescriptionList > renders with items correctly 1"
     ]
   },
   {
-    "file": "Drawer-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Drawer-vue.spec.ts.snap",
     "names": [
       "Drawer > renders with description correctly 1",
       "Drawer > renders with direction bottom correctly 1"
     ]
   },
   {
-    "file": "Drawer.spec.ts.snap",
+    "file": "components/__snapshots__/Drawer.spec.ts.snap",
     "names": [
       "Drawer > renders with description correctly 1",
       "Drawer > renders with direction bottom correctly 1"
     ]
   },
   {
-    "file": "DropdownMenu-vue.spec.ts.snap",
+    "file": "components/__snapshots__/DropdownMenu-vue.spec.ts.snap",
     "names": [
       "DropdownMenu > renders with color ai correctly 1",
       "DropdownMenu > renders with color air-primary correctly 1",
@@ -828,7 +828,7 @@
     ]
   },
   {
-    "file": "DropdownMenu.spec.ts.snap",
+    "file": "components/__snapshots__/DropdownMenu.spec.ts.snap",
     "names": [
       "DropdownMenu > renders with color ai correctly 1",
       "DropdownMenu > renders with color air-primary correctly 1",
@@ -847,21 +847,21 @@
     ]
   },
   {
-    "file": "EditorToolbar-vue.spec.ts.snap",
+    "file": "components/__snapshots__/EditorToolbar-vue.spec.ts.snap",
     "names": [
       "EditorToolbar > renders with layout bubble correctly 1",
       "EditorToolbar > renders with layout floating correctly 1"
     ]
   },
   {
-    "file": "EditorToolbar.spec.ts.snap",
+    "file": "components/__snapshots__/EditorToolbar.spec.ts.snap",
     "names": [
       "EditorToolbar > renders with layout bubble correctly 1",
       "EditorToolbar > renders with layout floating correctly 1"
     ]
   },
   {
-    "file": "Empty-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Empty-vue.spec.ts.snap",
     "names": [
       "Empty > renders with actions correctly 1",
       "Empty > renders with inverted primary color air-secondary-accent correctly 1",
@@ -870,42 +870,42 @@
     ]
   },
   {
-    "file": "Empty-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Empty-vue.spec.ts.snap",
     "names": [
       "Empty > renders with inverted primary color air-secondary correctly 1",
       "Empty > renders with primary color air-secondary correctly 1"
     ]
   },
   {
-    "file": "Empty-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Empty-vue.spec.ts.snap",
     "names": [
       "Empty > renders with inverted primary color air-secondary-accent-1 correctly 1",
       "Empty > renders with primary color air-secondary-accent-1 correctly 1"
     ]
   },
   {
-    "file": "Empty-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Empty-vue.spec.ts.snap",
     "names": [
       "Empty > renders with inverted primary color air-secondary-accent-2 correctly 1",
       "Empty > renders with primary color air-secondary-accent-2 correctly 1"
     ]
   },
   {
-    "file": "Empty-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Empty-vue.spec.ts.snap",
     "names": [
       "Empty > renders with inverted primary color air-secondary-alert correctly 1",
       "Empty > renders with primary color air-secondary-alert correctly 1"
     ]
   },
   {
-    "file": "Empty-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Empty-vue.spec.ts.snap",
     "names": [
       "Empty > renders with inverted primary color air-tertiary correctly 1",
       "Empty > renders with primary color air-tertiary correctly 1"
     ]
   },
   {
-    "file": "Empty.spec.ts.snap",
+    "file": "components/__snapshots__/Empty.spec.ts.snap",
     "names": [
       "Empty > renders with actions correctly 1",
       "Empty > renders with inverted primary color air-secondary-accent correctly 1",
@@ -914,42 +914,42 @@
     ]
   },
   {
-    "file": "Empty.spec.ts.snap",
+    "file": "components/__snapshots__/Empty.spec.ts.snap",
     "names": [
       "Empty > renders with inverted primary color air-secondary correctly 1",
       "Empty > renders with primary color air-secondary correctly 1"
     ]
   },
   {
-    "file": "Empty.spec.ts.snap",
+    "file": "components/__snapshots__/Empty.spec.ts.snap",
     "names": [
       "Empty > renders with inverted primary color air-secondary-accent-1 correctly 1",
       "Empty > renders with primary color air-secondary-accent-1 correctly 1"
     ]
   },
   {
-    "file": "Empty.spec.ts.snap",
+    "file": "components/__snapshots__/Empty.spec.ts.snap",
     "names": [
       "Empty > renders with inverted primary color air-secondary-accent-2 correctly 1",
       "Empty > renders with primary color air-secondary-accent-2 correctly 1"
     ]
   },
   {
-    "file": "Empty.spec.ts.snap",
+    "file": "components/__snapshots__/Empty.spec.ts.snap",
     "names": [
       "Empty > renders with inverted primary color air-secondary-alert correctly 1",
       "Empty > renders with primary color air-secondary-alert correctly 1"
     ]
   },
   {
-    "file": "Empty.spec.ts.snap",
+    "file": "components/__snapshots__/Empty.spec.ts.snap",
     "names": [
       "Empty > renders with inverted primary color air-tertiary correctly 1",
       "Empty > renders with primary color air-tertiary correctly 1"
     ]
   },
   {
-    "file": "Error-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Error-vue.spec.ts.snap",
     "names": [
       "Error > renders with default slot correctly 1",
       "Error > renders with error correctly 1",
@@ -957,7 +957,7 @@
     ]
   },
   {
-    "file": "Error.spec.ts.snap",
+    "file": "components/__snapshots__/Error.spec.ts.snap",
     "names": [
       "Error > renders with default slot correctly 1",
       "Error > renders with error correctly 1",
@@ -965,28 +965,28 @@
     ]
   },
   {
-    "file": "FieldGroup-vue.spec.ts.snap",
+    "file": "components/__snapshots__/FieldGroup-vue.spec.ts.snap",
     "names": [
       "FieldGroup > renders with default slot correctly 1",
       "FieldGroup > renders with size md correctly 1"
     ]
   },
   {
-    "file": "FieldGroup.spec.ts.snap",
+    "file": "components/__snapshots__/FieldGroup.spec.ts.snap",
     "names": [
       "FieldGroup > renders with default slot correctly 1",
       "FieldGroup > renders with size md correctly 1"
     ]
   },
   {
-    "file": "FileUpload-vue.spec.ts.snap",
+    "file": "components/__snapshots__/FileUpload-vue.spec.ts.snap",
     "names": [
       "FileUpload > renders with disabled correctly 1",
       "FileUpload > renders with disabled correctly 2"
     ]
   },
   {
-    "file": "FileUpload-vue.spec.ts.snap",
+    "file": "components/__snapshots__/FileUpload-vue.spec.ts.snap",
     "names": [
       "FileUpload > renders with fileIcon correctly 1",
       "FileUpload > renders with layout grid correctly 1",
@@ -997,7 +997,7 @@
     ]
   },
   {
-    "file": "FileUpload-vue.spec.ts.snap",
+    "file": "components/__snapshots__/FileUpload-vue.spec.ts.snap",
     "names": [
       "FileUpload > renders with layout grid multiple correctly 1",
       "FileUpload > renders with multiple correctly 1",
@@ -1006,28 +1006,28 @@
     ]
   },
   {
-    "file": "FileUpload-vue.spec.ts.snap",
+    "file": "components/__snapshots__/FileUpload-vue.spec.ts.snap",
     "names": [
       "FileUpload > renders with required correctly 1",
       "FileUpload > renders with required correctly 2"
     ]
   },
   {
-    "file": "FileUpload-vue.spec.ts.snap",
+    "file": "components/__snapshots__/FileUpload-vue.spec.ts.snap",
     "names": [
       "FileUpload > renders with size md variant button correctly 1",
       "FileUpload > renders with variant button correctly 1"
     ]
   },
   {
-    "file": "FileUpload.spec.ts.snap",
+    "file": "components/__snapshots__/FileUpload.spec.ts.snap",
     "names": [
       "FileUpload > renders with disabled correctly 1",
       "FileUpload > renders with disabled correctly 2"
     ]
   },
   {
-    "file": "FileUpload.spec.ts.snap",
+    "file": "components/__snapshots__/FileUpload.spec.ts.snap",
     "names": [
       "FileUpload > renders with fileIcon correctly 1",
       "FileUpload > renders with layout grid correctly 1",
@@ -1038,7 +1038,7 @@
     ]
   },
   {
-    "file": "FileUpload.spec.ts.snap",
+    "file": "components/__snapshots__/FileUpload.spec.ts.snap",
     "names": [
       "FileUpload > renders with layout grid multiple correctly 1",
       "FileUpload > renders with multiple correctly 1",
@@ -1047,21 +1047,21 @@
     ]
   },
   {
-    "file": "FileUpload.spec.ts.snap",
+    "file": "components/__snapshots__/FileUpload.spec.ts.snap",
     "names": [
       "FileUpload > renders with required correctly 1",
       "FileUpload > renders with required correctly 2"
     ]
   },
   {
-    "file": "FileUpload.spec.ts.snap",
+    "file": "components/__snapshots__/FileUpload.spec.ts.snap",
     "names": [
       "FileUpload > renders with size md variant button correctly 1",
       "FileUpload > renders with variant button correctly 1"
     ]
   },
   {
-    "file": "Form-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Form-vue.spec.ts.snap",
     "names": [
       "Form > custom validation works > with error 1",
       "Form > joi validation works > with error 1",
@@ -1072,7 +1072,7 @@
     ]
   },
   {
-    "file": "Form-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Form-vue.spec.ts.snap",
     "names": [
       "Form > custom validation works > without error 1",
       "Form > joi validation works > without error 1",
@@ -1083,7 +1083,7 @@
     ]
   },
   {
-    "file": "Form.spec.ts.snap",
+    "file": "components/__snapshots__/Form.spec.ts.snap",
     "names": [
       "Form > custom validation works > with error 1",
       "Form > joi validation works > with error 1",
@@ -1094,7 +1094,7 @@
     ]
   },
   {
-    "file": "Form.spec.ts.snap",
+    "file": "components/__snapshots__/Form.spec.ts.snap",
     "names": [
       "Form > custom validation works > without error 1",
       "Form > joi validation works > without error 1",
@@ -1105,7 +1105,7 @@
     ]
   },
   {
-    "file": "FormField-vue.spec.ts.snap",
+    "file": "components/__snapshots__/FormField-vue.spec.ts.snap",
     "names": [
       "FormField > renders with b24ui correctly 1",
       "FormField > renders with hint correctly 1",
@@ -1113,7 +1113,7 @@
     ]
   },
   {
-    "file": "FormField-vue.spec.ts.snap",
+    "file": "components/__snapshots__/FormField-vue.spec.ts.snap",
     "names": [
       "FormField > renders with label and description correctly 1",
       "FormField > renders with orientation vertical correctly 1",
@@ -1121,14 +1121,14 @@
     ]
   },
   {
-    "file": "FormField-vue.spec.ts.snap",
+    "file": "components/__snapshots__/FormField-vue.spec.ts.snap",
     "names": [
       "FormField > renders with size sm correctly 1",
       "FormField > renders with size xs correctly 1"
     ]
   },
   {
-    "file": "FormField.spec.ts.snap",
+    "file": "components/__snapshots__/FormField.spec.ts.snap",
     "names": [
       "FormField > renders with b24ui correctly 1",
       "FormField > renders with hint correctly 1",
@@ -1136,7 +1136,7 @@
     ]
   },
   {
-    "file": "FormField.spec.ts.snap",
+    "file": "components/__snapshots__/FormField.spec.ts.snap",
     "names": [
       "FormField > renders with label and description correctly 1",
       "FormField > renders with orientation vertical correctly 1",
@@ -1144,14 +1144,14 @@
     ]
   },
   {
-    "file": "FormField.spec.ts.snap",
+    "file": "components/__snapshots__/FormField.spec.ts.snap",
     "names": [
       "FormField > renders with size sm correctly 1",
       "FormField > renders with size xs correctly 1"
     ]
   },
   {
-    "file": "Header-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Header-vue.spec.ts.snap",
     "names": [
       "Header > renders with body slot correctly 1",
       "Header > renders with content slot correctly 1",
@@ -1159,7 +1159,7 @@
     ]
   },
   {
-    "file": "Header.spec.ts.snap",
+    "file": "components/__snapshots__/Header.spec.ts.snap",
     "names": [
       "Header > renders with body slot correctly 1",
       "Header > renders with content slot correctly 1",
@@ -1167,21 +1167,21 @@
     ]
   },
   {
-    "file": "Input-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Input-vue.spec.ts.snap",
     "names": [
       "Input > renders with loading and avatar correctly 1",
       "Input > renders with loading correctly 1"
     ]
   },
   {
-    "file": "Input.spec.ts.snap",
+    "file": "components/__snapshots__/Input.spec.ts.snap",
     "names": [
       "Input > renders with loading and avatar correctly 1",
       "Input > renders with loading correctly 1"
     ]
   },
   {
-    "file": "InputDate-vue.spec.ts.snap",
+    "file": "components/__snapshots__/InputDate-vue.spec.ts.snap",
     "names": [
       "InputDate > renders with as correctly 1",
       "InputDate > renders with b24ui correctly 1",
@@ -1191,21 +1191,21 @@
     ]
   },
   {
-    "file": "InputDate-vue.spec.ts.snap",
+    "file": "components/__snapshots__/InputDate-vue.spec.ts.snap",
     "names": [
       "InputDate > renders with default value correctly 1",
       "InputDate > renders with modelValue correctly 1"
     ]
   },
   {
-    "file": "InputDate-vue.spec.ts.snap",
+    "file": "components/__snapshots__/InputDate-vue.spec.ts.snap",
     "names": [
       "InputDate > renders with range and defaultValue correctly 1",
       "InputDate > renders with range and modelValue correctly 1"
     ]
   },
   {
-    "file": "InputDate.spec.ts.snap",
+    "file": "components/__snapshots__/InputDate.spec.ts.snap",
     "names": [
       "InputDate > renders with as correctly 1",
       "InputDate > renders with b24ui correctly 1",
@@ -1215,28 +1215,28 @@
     ]
   },
   {
-    "file": "InputDate.spec.ts.snap",
+    "file": "components/__snapshots__/InputDate.spec.ts.snap",
     "names": [
       "InputDate > renders with default value correctly 1",
       "InputDate > renders with modelValue correctly 1"
     ]
   },
   {
-    "file": "InputDate.spec.ts.snap",
+    "file": "components/__snapshots__/InputDate.spec.ts.snap",
     "names": [
       "InputDate > renders with range and defaultValue correctly 1",
       "InputDate > renders with range and modelValue correctly 1"
     ]
   },
   {
-    "file": "InputMenu-vue.spec.ts.snap",
+    "file": "components/__snapshots__/InputMenu-vue.spec.ts.snap",
     "names": [
       "InputMenu > renders with autocomplete and defaultValue correctly 1",
       "InputMenu > renders with autocomplete and modelValue correctly 1"
     ]
   },
   {
-    "file": "InputMenu-vue.spec.ts.snap",
+    "file": "components/__snapshots__/InputMenu-vue.spec.ts.snap",
     "names": [
       "InputMenu > renders with autocomplete correctly 1",
       "InputMenu > renders with create-item-label slot correctly 1",
@@ -1247,7 +1247,7 @@
     ]
   },
   {
-    "file": "InputMenu-vue.spec.ts.snap",
+    "file": "components/__snapshots__/InputMenu-vue.spec.ts.snap",
     "names": [
       "InputMenu > renders with by correctly 1",
       "InputMenu > renders with defaultValue correctly 1",
@@ -1256,21 +1256,21 @@
     ]
   },
   {
-    "file": "InputMenu-vue.spec.ts.snap",
+    "file": "components/__snapshots__/InputMenu-vue.spec.ts.snap",
     "names": [
       "InputMenu > renders with loading and avatar correctly 1",
       "InputMenu > renders with loading correctly 1"
     ]
   },
   {
-    "file": "InputMenu.spec.ts.snap",
+    "file": "components/__snapshots__/InputMenu.spec.ts.snap",
     "names": [
       "InputMenu > renders with autocomplete and defaultValue correctly 1",
       "InputMenu > renders with autocomplete and modelValue correctly 1"
     ]
   },
   {
-    "file": "InputMenu.spec.ts.snap",
+    "file": "components/__snapshots__/InputMenu.spec.ts.snap",
     "names": [
       "InputMenu > renders with autocomplete correctly 1",
       "InputMenu > renders with create-item-label slot correctly 1",
@@ -1281,7 +1281,7 @@
     ]
   },
   {
-    "file": "InputMenu.spec.ts.snap",
+    "file": "components/__snapshots__/InputMenu.spec.ts.snap",
     "names": [
       "InputMenu > renders with by correctly 1",
       "InputMenu > renders with defaultValue correctly 1",
@@ -1290,14 +1290,14 @@
     ]
   },
   {
-    "file": "InputMenu.spec.ts.snap",
+    "file": "components/__snapshots__/InputMenu.spec.ts.snap",
     "names": [
       "InputMenu > renders with loading and avatar correctly 1",
       "InputMenu > renders with loading correctly 1"
     ]
   },
   {
-    "file": "InputNumber-vue.spec.ts.snap",
+    "file": "components/__snapshots__/InputNumber-vue.spec.ts.snap",
     "names": [
       "InputNumber > renders with .optional modifier correctly 1",
       "InputNumber > renders with name correctly 1",
@@ -1305,7 +1305,7 @@
     ]
   },
   {
-    "file": "InputNumber.spec.ts.snap",
+    "file": "components/__snapshots__/InputNumber.spec.ts.snap",
     "names": [
       "InputNumber > renders with .optional modifier correctly 1",
       "InputNumber > renders with name correctly 1",
@@ -1313,7 +1313,7 @@
     ]
   },
   {
-    "file": "InputRating-vue.spec.ts.snap",
+    "file": "components/__snapshots__/InputRating-vue.spec.ts.snap",
     "names": [
       "InputRating > renders with clearable correctly 1",
       "InputRating > renders with color air-primary correctly 1",
@@ -1325,7 +1325,7 @@
     ]
   },
   {
-    "file": "InputRating.spec.ts.snap",
+    "file": "components/__snapshots__/InputRating.spec.ts.snap",
     "names": [
       "InputRating > renders with clearable correctly 1",
       "InputRating > renders with color air-primary correctly 1",
@@ -1337,7 +1337,7 @@
     ]
   },
   {
-    "file": "InputTags-vue.spec.ts.snap",
+    "file": "components/__snapshots__/InputTags-vue.spec.ts.snap",
     "names": [
       "InputTags > renders with b24ui correctly 1",
       "InputTags > renders with class correctly 1",
@@ -1349,14 +1349,14 @@
     ]
   },
   {
-    "file": "InputTags-vue.spec.ts.snap",
+    "file": "components/__snapshots__/InputTags-vue.spec.ts.snap",
     "names": [
       "InputTags > renders with defaultValue correctly 1",
       "InputTags > renders with modelValue correctly 1"
     ]
   },
   {
-    "file": "InputTags.spec.ts.snap",
+    "file": "components/__snapshots__/InputTags.spec.ts.snap",
     "names": [
       "InputTags > renders with b24ui correctly 1",
       "InputTags > renders with class correctly 1",
@@ -1368,14 +1368,14 @@
     ]
   },
   {
-    "file": "InputTags.spec.ts.snap",
+    "file": "components/__snapshots__/InputTags.spec.ts.snap",
     "names": [
       "InputTags > renders with defaultValue correctly 1",
       "InputTags > renders with modelValue correctly 1"
     ]
   },
   {
-    "file": "InputTime-vue.spec.ts.snap",
+    "file": "components/__snapshots__/InputTime-vue.spec.ts.snap",
     "names": [
       "InputTime > renders with as correctly 1",
       "InputTime > renders with granularity correctly 1",
@@ -1387,21 +1387,21 @@
     ]
   },
   {
-    "file": "InputTime-vue.spec.ts.snap",
+    "file": "components/__snapshots__/InputTime-vue.spec.ts.snap",
     "names": [
       "InputTime > renders with default value correctly 1",
       "InputTime > renders with modelValue correctly 1"
     ]
   },
   {
-    "file": "InputTime-vue.spec.ts.snap",
+    "file": "components/__snapshots__/InputTime-vue.spec.ts.snap",
     "names": [
       "InputTime > renders with range and defaultValue correctly 1",
       "InputTime > renders with range and modelValue correctly 1"
     ]
   },
   {
-    "file": "InputTime.spec.ts.snap",
+    "file": "components/__snapshots__/InputTime.spec.ts.snap",
     "names": [
       "InputTime > renders with as correctly 1",
       "InputTime > renders with granularity correctly 1",
@@ -1413,21 +1413,21 @@
     ]
   },
   {
-    "file": "InputTime.spec.ts.snap",
+    "file": "components/__snapshots__/InputTime.spec.ts.snap",
     "names": [
       "InputTime > renders with default value correctly 1",
       "InputTime > renders with modelValue correctly 1"
     ]
   },
   {
-    "file": "InputTime.spec.ts.snap",
+    "file": "components/__snapshots__/InputTime.spec.ts.snap",
     "names": [
       "InputTime > renders with range and defaultValue correctly 1",
       "InputTime > renders with range and modelValue correctly 1"
     ]
   },
   {
-    "file": "Kbd-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Kbd-vue.spec.ts.snap",
     "names": [
       "Kbd > renders with accent default correctly 1",
       "Kbd > renders with size md correctly 1",
@@ -1435,7 +1435,7 @@
     ]
   },
   {
-    "file": "Kbd.spec.ts.snap",
+    "file": "components/__snapshots__/Kbd.spec.ts.snap",
     "names": [
       "Kbd > renders with accent default correctly 1",
       "Kbd > renders with size md correctly 1",
@@ -1443,21 +1443,21 @@
     ]
   },
   {
-    "file": "Link-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Link-vue.spec.ts.snap",
     "names": [
       "Link > renders with internal to and target correctly 1",
       "Link > renders with internal to object and target correctly 1"
     ]
   },
   {
-    "file": "Link.spec.ts.snap",
+    "file": "components/__snapshots__/Link.spec.ts.snap",
     "names": [
       "Link > renders with internal to and target correctly 1",
       "Link > renders with internal to object and target correctly 1"
     ]
   },
   {
-    "file": "Listbox-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Listbox-vue.spec.ts.snap",
     "names": [
       "Listbox > renders with by correctly 1",
       "Listbox > renders with defaultValue correctly 1",
@@ -1466,7 +1466,7 @@
     ]
   },
   {
-    "file": "Listbox-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Listbox-vue.spec.ts.snap",
     "names": [
       "Listbox > renders with highlight correctly 1",
       "Listbox > renders with items correctly 1",
@@ -1477,7 +1477,7 @@
     ]
   },
   {
-    "file": "Listbox.spec.ts.snap",
+    "file": "components/__snapshots__/Listbox.spec.ts.snap",
     "names": [
       "Listbox > renders with by correctly 1",
       "Listbox > renders with defaultValue correctly 1",
@@ -1486,7 +1486,7 @@
     ]
   },
   {
-    "file": "Listbox.spec.ts.snap",
+    "file": "components/__snapshots__/Listbox.spec.ts.snap",
     "names": [
       "Listbox > renders with highlight correctly 1",
       "Listbox > renders with items correctly 1",
@@ -1497,7 +1497,7 @@
     ]
   },
   {
-    "file": "NavigationMenu-vue.spec.ts.snap",
+    "file": "components/__snapshots__/NavigationMenu-vue.spec.ts.snap",
     "names": [
       "NavigationMenu > renders with b24ui correctly 1",
       "NavigationMenu > renders with content orientation horizontal correctly 1",
@@ -1506,21 +1506,21 @@
     ]
   },
   {
-    "file": "NavigationMenu-vue.spec.ts.snap",
+    "file": "components/__snapshots__/NavigationMenu-vue.spec.ts.snap",
     "names": [
       "NavigationMenu > renders with content orientation vertical correctly 2",
       "NavigationMenu > renders with orientation vertical correctly 1"
     ]
   },
   {
-    "file": "NavigationMenu-vue.spec.ts.snap",
+    "file": "components/__snapshots__/NavigationMenu-vue.spec.ts.snap",
     "names": [
       "NavigationMenu > renders with defaultValue correctly 1",
       "NavigationMenu > renders with modelValue correctly 1"
     ]
   },
   {
-    "file": "NavigationMenu.spec.ts.snap",
+    "file": "components/__snapshots__/NavigationMenu.spec.ts.snap",
     "names": [
       "NavigationMenu > renders with b24ui correctly 1",
       "NavigationMenu > renders with content orientation horizontal correctly 1",
@@ -1529,21 +1529,21 @@
     ]
   },
   {
-    "file": "NavigationMenu.spec.ts.snap",
+    "file": "components/__snapshots__/NavigationMenu.spec.ts.snap",
     "names": [
       "NavigationMenu > renders with content orientation vertical correctly 2",
       "NavigationMenu > renders with orientation vertical correctly 1"
     ]
   },
   {
-    "file": "NavigationMenu.spec.ts.snap",
+    "file": "components/__snapshots__/NavigationMenu.spec.ts.snap",
     "names": [
       "NavigationMenu > renders with defaultValue correctly 1",
       "NavigationMenu > renders with modelValue correctly 1"
     ]
   },
   {
-    "file": "PageCard-vue.spec.ts.snap",
+    "file": "components/__snapshots__/PageCard-vue.spec.ts.snap",
     "names": [
       "PageCard > renders with highlight color air-primary correctly 1",
       "PageCard > renders with highlight color air-primary correctly 2",
@@ -1552,14 +1552,14 @@
     ]
   },
   {
-    "file": "PageCard-vue.spec.ts.snap",
+    "file": "components/__snapshots__/PageCard-vue.spec.ts.snap",
     "names": [
       "PageCard > renders with orientation vertical correctly 1",
       "PageCard > renders with variant outline correctly 1"
     ]
   },
   {
-    "file": "PageCard.spec.ts.snap",
+    "file": "components/__snapshots__/PageCard.spec.ts.snap",
     "names": [
       "PageCard > renders with highlight color air-primary correctly 1",
       "PageCard > renders with highlight color air-primary correctly 2",
@@ -1568,35 +1568,35 @@
     ]
   },
   {
-    "file": "PageCard.spec.ts.snap",
+    "file": "components/__snapshots__/PageCard.spec.ts.snap",
     "names": [
       "PageCard > renders with orientation vertical correctly 1",
       "PageCard > renders with variant outline correctly 1"
     ]
   },
   {
-    "file": "PageSection-vue.spec.ts.snap",
+    "file": "components/__snapshots__/PageSection-vue.spec.ts.snap",
     "names": [
       "PageSection > renders with orientation horizontal correctly 1",
       "PageSection > renders with orientation horizontal reverse correctly 1"
     ]
   },
   {
-    "file": "PageSection.spec.ts.snap",
+    "file": "components/__snapshots__/PageSection.spec.ts.snap",
     "names": [
       "PageSection > renders with orientation horizontal correctly 1",
       "PageSection > renders with orientation horizontal reverse correctly 1"
     ]
   },
   {
-    "file": "Pagination-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Pagination-vue.spec.ts.snap",
     "names": [
       "Pagination > renders with defaultPage correctly 1",
       "Pagination > renders with page correctly 1"
     ]
   },
   {
-    "file": "Pagination-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Pagination-vue.spec.ts.snap",
     "names": [
       "Pagination > renders with itemsPerPage correctly 1",
       "Pagination > renders with size md correctly 1",
@@ -1604,14 +1604,14 @@
     ]
   },
   {
-    "file": "Pagination.spec.ts.snap",
+    "file": "components/__snapshots__/Pagination.spec.ts.snap",
     "names": [
       "Pagination > renders with defaultPage correctly 1",
       "Pagination > renders with page correctly 1"
     ]
   },
   {
-    "file": "Pagination.spec.ts.snap",
+    "file": "components/__snapshots__/Pagination.spec.ts.snap",
     "names": [
       "Pagination > renders with itemsPerPage correctly 1",
       "Pagination > renders with size md correctly 1",
@@ -1619,63 +1619,63 @@
     ]
   },
   {
-    "file": "PinInput-vue.spec.ts.snap",
+    "file": "components/__snapshots__/PinInput-vue.spec.ts.snap",
     "names": [
       "PinInput > renders with as correctly 1",
       "PinInput > renders with size md correctly 1"
     ]
   },
   {
-    "file": "PinInput-vue.spec.ts.snap",
+    "file": "components/__snapshots__/PinInput-vue.spec.ts.snap",
     "names": [
       "PinInput > renders with defaultValue correctly 1",
       "PinInput > renders with modelValue correctly 1"
     ]
   },
   {
-    "file": "PinInput.spec.ts.snap",
+    "file": "components/__snapshots__/PinInput.spec.ts.snap",
     "names": [
       "PinInput > renders with as correctly 1",
       "PinInput > renders with size md correctly 1"
     ]
   },
   {
-    "file": "PinInput.spec.ts.snap",
+    "file": "components/__snapshots__/PinInput.spec.ts.snap",
     "names": [
       "PinInput > renders with defaultValue correctly 1",
       "PinInput > renders with modelValue correctly 1"
     ]
   },
   {
-    "file": "Popover-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Popover-vue.spec.ts.snap",
     "names": [
       "Popover > renders with b24ui correctly 1",
       "Popover > renders with class correctly 1"
     ]
   },
   {
-    "file": "Popover-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Popover-vue.spec.ts.snap",
     "names": [
       "Popover > renders with content slot correctly 1",
       "Popover > renders with reference correctly 1"
     ]
   },
   {
-    "file": "Popover.spec.ts.snap",
+    "file": "components/__snapshots__/Popover.spec.ts.snap",
     "names": [
       "Popover > renders with b24ui correctly 1",
       "Popover > renders with class correctly 1"
     ]
   },
   {
-    "file": "Popover.spec.ts.snap",
+    "file": "components/__snapshots__/Popover.spec.ts.snap",
     "names": [
       "Popover > renders with content slot correctly 1",
       "Popover > renders with reference correctly 1"
     ]
   },
   {
-    "file": "Progress-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Progress-vue.spec.ts.snap",
     "names": [
       "Progress > renders with animation loading correctly 1",
       "Progress > renders with orientation horizontal correctly 1",
@@ -1683,7 +1683,7 @@
     ]
   },
   {
-    "file": "Progress.spec.ts.snap",
+    "file": "components/__snapshots__/Progress.spec.ts.snap",
     "names": [
       "Progress > renders with animation loading correctly 1",
       "Progress > renders with orientation horizontal correctly 1",
@@ -1691,14 +1691,14 @@
     ]
   },
   {
-    "file": "ProgressGroup-vue.spec.ts.snap",
+    "file": "components/__snapshots__/ProgressGroup-vue.spec.ts.snap",
     "names": [
       "ProgressGroup > renders with invalid max correctly 1",
       "ProgressGroup > renders with items correctly 1"
     ]
   },
   {
-    "file": "ProgressGroup-vue.spec.ts.snap",
+    "file": "components/__snapshots__/ProgressGroup-vue.spec.ts.snap",
     "names": [
       "ProgressGroup > renders with orientation horizontal correctly 1",
       "ProgressGroup > renders with size md correctly 1",
@@ -1706,14 +1706,14 @@
     ]
   },
   {
-    "file": "ProgressGroup.spec.ts.snap",
+    "file": "components/__snapshots__/ProgressGroup.spec.ts.snap",
     "names": [
       "ProgressGroup > renders with invalid max correctly 1",
       "ProgressGroup > renders with items correctly 1"
     ]
   },
   {
-    "file": "ProgressGroup.spec.ts.snap",
+    "file": "components/__snapshots__/ProgressGroup.spec.ts.snap",
     "names": [
       "ProgressGroup > renders with orientation horizontal correctly 1",
       "ProgressGroup > renders with size md correctly 1",
@@ -1721,7 +1721,7 @@
     ]
   },
   {
-    "file": "RadioGroup-vue.spec.ts.snap",
+    "file": "components/__snapshots__/RadioGroup-vue.spec.ts.snap",
     "names": [
       "RadioGroup > renders with defaultValue correctly 1",
       "RadioGroup > renders with indicator start correctly 1",
@@ -1729,14 +1729,14 @@
     ]
   },
   {
-    "file": "RadioGroup-vue.spec.ts.snap",
+    "file": "components/__snapshots__/RadioGroup-vue.spec.ts.snap",
     "names": [
       "RadioGroup > renders with items correctly 1",
       "RadioGroup > renders with size md correctly 1"
     ]
   },
   {
-    "file": "RadioGroup.spec.ts.snap",
+    "file": "components/__snapshots__/RadioGroup.spec.ts.snap",
     "names": [
       "RadioGroup > renders with defaultValue correctly 1",
       "RadioGroup > renders with indicator start correctly 1",
@@ -1744,42 +1744,42 @@
     ]
   },
   {
-    "file": "RadioGroup.spec.ts.snap",
+    "file": "components/__snapshots__/RadioGroup.spec.ts.snap",
     "names": [
       "RadioGroup > renders with items correctly 1",
       "RadioGroup > renders with size md correctly 1"
     ]
   },
   {
-    "file": "Range-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Range-vue.spec.ts.snap",
     "names": [
       "Range > renders with defaultValue correctly 1",
       "Range > renders with modelValue correctly 1"
     ]
   },
   {
-    "file": "Range-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Range-vue.spec.ts.snap",
     "names": [
       "Range > renders with name correctly 1",
       "Range > renders with size md correctly 1"
     ]
   },
   {
-    "file": "Range.spec.ts.snap",
+    "file": "components/__snapshots__/Range.spec.ts.snap",
     "names": [
       "Range > renders with defaultValue correctly 1",
       "Range > renders with modelValue correctly 1"
     ]
   },
   {
-    "file": "Range.spec.ts.snap",
+    "file": "components/__snapshots__/Range.spec.ts.snap",
     "names": [
       "Range > renders with name correctly 1",
       "Range > renders with size md correctly 1"
     ]
   },
   {
-    "file": "ScrollArea-vue.spec.ts.snap",
+    "file": "components/__snapshots__/ScrollArea-vue.spec.ts.snap",
     "names": [
       "ScrollArea > renders with items correctly 1",
       "ScrollArea > renders with orientation vertical correctly 1",
@@ -1787,14 +1787,14 @@
     ]
   },
   {
-    "file": "ScrollArea-vue.spec.ts.snap",
+    "file": "components/__snapshots__/ScrollArea-vue.spec.ts.snap",
     "names": [
       "ScrollArea > renders with virtualize boolean correctly 1",
       "ScrollArea > renders with virtualize scrollMargin correctly 1"
     ]
   },
   {
-    "file": "ScrollArea.spec.ts.snap",
+    "file": "components/__snapshots__/ScrollArea.spec.ts.snap",
     "names": [
       "ScrollArea > renders with items correctly 1",
       "ScrollArea > renders with orientation vertical correctly 1",
@@ -1802,14 +1802,14 @@
     ]
   },
   {
-    "file": "ScrollArea.spec.ts.snap",
+    "file": "components/__snapshots__/ScrollArea.spec.ts.snap",
     "names": [
       "ScrollArea > renders with virtualize boolean correctly 1",
       "ScrollArea > renders with virtualize scrollMargin correctly 1"
     ]
   },
   {
-    "file": "Select-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Select-vue.spec.ts.snap",
     "names": [
       "Select > renders with defaultValue correctly 1",
       "Select > renders with modelValue correctly 1",
@@ -1817,14 +1817,14 @@
     ]
   },
   {
-    "file": "Select-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Select-vue.spec.ts.snap",
     "names": [
       "Select > renders with loading and avatar correctly 1",
       "Select > renders with loading correctly 1"
     ]
   },
   {
-    "file": "Select-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Select-vue.spec.ts.snap",
     "names": [
       "Select > renders with multiple correctly 1",
       "Select > renders with name correctly 1",
@@ -1833,7 +1833,7 @@
     ]
   },
   {
-    "file": "Select.spec.ts.snap",
+    "file": "components/__snapshots__/Select.spec.ts.snap",
     "names": [
       "Select > renders with defaultValue correctly 1",
       "Select > renders with modelValue correctly 1",
@@ -1841,14 +1841,14 @@
     ]
   },
   {
-    "file": "Select.spec.ts.snap",
+    "file": "components/__snapshots__/Select.spec.ts.snap",
     "names": [
       "Select > renders with loading and avatar correctly 1",
       "Select > renders with loading correctly 1"
     ]
   },
   {
-    "file": "Select.spec.ts.snap",
+    "file": "components/__snapshots__/Select.spec.ts.snap",
     "names": [
       "Select > renders with multiple correctly 1",
       "Select > renders with name correctly 1",
@@ -1857,7 +1857,7 @@
     ]
   },
   {
-    "file": "SelectMenu-vue.spec.ts.snap",
+    "file": "components/__snapshots__/SelectMenu-vue.spec.ts.snap",
     "names": [
       "SelectMenu > renders with by correctly 1",
       "SelectMenu > renders with defaultValue correctly 1",
@@ -1866,7 +1866,7 @@
     ]
   },
   {
-    "file": "SelectMenu-vue.spec.ts.snap",
+    "file": "components/__snapshots__/SelectMenu-vue.spec.ts.snap",
     "names": [
       "SelectMenu > renders with items correctly 1",
       "SelectMenu > renders with name correctly 1",
@@ -1876,14 +1876,14 @@
     ]
   },
   {
-    "file": "SelectMenu-vue.spec.ts.snap",
+    "file": "components/__snapshots__/SelectMenu-vue.spec.ts.snap",
     "names": [
       "SelectMenu > renders with loading and avatar correctly 1",
       "SelectMenu > renders with loading correctly 1"
     ]
   },
   {
-    "file": "SelectMenu.spec.ts.snap",
+    "file": "components/__snapshots__/SelectMenu.spec.ts.snap",
     "names": [
       "SelectMenu > renders with by correctly 1",
       "SelectMenu > renders with defaultValue correctly 1",
@@ -1892,7 +1892,7 @@
     ]
   },
   {
-    "file": "SelectMenu.spec.ts.snap",
+    "file": "components/__snapshots__/SelectMenu.spec.ts.snap",
     "names": [
       "SelectMenu > renders with items correctly 1",
       "SelectMenu > renders with name correctly 1",
@@ -1902,14 +1902,14 @@
     ]
   },
   {
-    "file": "SelectMenu.spec.ts.snap",
+    "file": "components/__snapshots__/SelectMenu.spec.ts.snap",
     "names": [
       "SelectMenu > renders with loading and avatar correctly 1",
       "SelectMenu > renders with loading correctly 1"
     ]
   },
   {
-    "file": "Separator-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Separator-vue.spec.ts.snap",
     "names": [
       "Separator > renders with b24ui correctly 1",
       "Separator > renders with size thin correctly 1",
@@ -1917,7 +1917,7 @@
     ]
   },
   {
-    "file": "Separator.spec.ts.snap",
+    "file": "components/__snapshots__/Separator.spec.ts.snap",
     "names": [
       "Separator > renders with b24ui correctly 1",
       "Separator > renders with size thin correctly 1",
@@ -1925,7 +1925,7 @@
     ]
   },
   {
-    "file": "Sidebar-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Sidebar-vue.spec.ts.snap",
     "names": [
       "Sidebar > renders with collapsible offcanvas correctly 1",
       "Sidebar > renders with content slot correctly 1",
@@ -1937,7 +1937,7 @@
     ]
   },
   {
-    "file": "Sidebar.spec.ts.snap",
+    "file": "components/__snapshots__/Sidebar.spec.ts.snap",
     "names": [
       "Sidebar > renders with collapsible offcanvas correctly 1",
       "Sidebar > renders with content slot correctly 1",
@@ -1949,21 +1949,21 @@
     ]
   },
   {
-    "file": "Slideover-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Slideover-vue.spec.ts.snap",
     "names": [
       "Slideover > renders with bottom side correctly 1",
       "Slideover > renders with description correctly 1"
     ]
   },
   {
-    "file": "Slideover.spec.ts.snap",
+    "file": "components/__snapshots__/Slideover.spec.ts.snap",
     "names": [
       "Slideover > renders with bottom side correctly 1",
       "Slideover > renders with description correctly 1"
     ]
   },
   {
-    "file": "Splitter-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Splitter-vue.spec.ts.snap",
     "names": [
       "Splitter > renders with autoSaveId correctly 1",
       "Splitter > renders with items correctly 1",
@@ -1971,7 +1971,7 @@
     ]
   },
   {
-    "file": "Splitter.spec.ts.snap",
+    "file": "components/__snapshots__/Splitter.spec.ts.snap",
     "names": [
       "Splitter > renders with autoSaveId correctly 1",
       "Splitter > renders with items correctly 1",
@@ -1979,7 +1979,7 @@
     ]
   },
   {
-    "file": "Stepper-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Stepper-vue.spec.ts.snap",
     "names": [
       "Stepper > renders with air-primary color correctly 1",
       "Stepper > renders with default slot correctly 1",
@@ -1988,7 +1988,7 @@
     ]
   },
   {
-    "file": "Stepper-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Stepper-vue.spec.ts.snap",
     "names": [
       "Stepper > renders with defaultValue correctly 1",
       "Stepper > renders with modelValue correctly 1",
@@ -1996,7 +1996,7 @@
     ]
   },
   {
-    "file": "Stepper.spec.ts.snap",
+    "file": "components/__snapshots__/Stepper.spec.ts.snap",
     "names": [
       "Stepper > renders with air-primary color correctly 1",
       "Stepper > renders with default slot correctly 1",
@@ -2005,7 +2005,7 @@
     ]
   },
   {
-    "file": "Stepper.spec.ts.snap",
+    "file": "components/__snapshots__/Stepper.spec.ts.snap",
     "names": [
       "Stepper > renders with defaultValue correctly 1",
       "Stepper > renders with modelValue correctly 1",
@@ -2013,7 +2013,7 @@
     ]
   },
   {
-    "file": "Switch-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Switch-vue.spec.ts.snap",
     "names": [
       "Switch > renders with b24ui correctly 1",
       "Switch > renders with name correctly 1",
@@ -2022,7 +2022,7 @@
     ]
   },
   {
-    "file": "Switch-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Switch-vue.spec.ts.snap",
     "names": [
       "Switch > renders with defaultValue correctly 1",
       "Switch > renders with modelValue correctly 1",
@@ -2031,7 +2031,7 @@
     ]
   },
   {
-    "file": "Switch.spec.ts.snap",
+    "file": "components/__snapshots__/Switch.spec.ts.snap",
     "names": [
       "Switch > renders with b24ui correctly 1",
       "Switch > renders with name correctly 1",
@@ -2040,7 +2040,7 @@
     ]
   },
   {
-    "file": "Switch.spec.ts.snap",
+    "file": "components/__snapshots__/Switch.spec.ts.snap",
     "names": [
       "Switch > renders with defaultValue correctly 1",
       "Switch > renders with modelValue correctly 1",
@@ -2049,7 +2049,7 @@
     ]
   },
   {
-    "file": "Table-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Table-vue.spec.ts.snap",
     "names": [
       "Table > renders with loading animation loading correctly 1",
       "Table > renders with loading color air-primary correctly 1",
@@ -2057,7 +2057,7 @@
     ]
   },
   {
-    "file": "Table.spec.ts.snap",
+    "file": "components/__snapshots__/Table.spec.ts.snap",
     "names": [
       "Table > renders with loading animation loading correctly 1",
       "Table > renders with loading color air-primary correctly 1",
@@ -2065,7 +2065,7 @@
     ]
   },
   {
-    "file": "Tabs-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Tabs-vue.spec.ts.snap",
     "names": [
       "Tabs > renders with default variant link correctly 1",
       "Tabs > renders with items correctly 1",
@@ -2073,14 +2073,14 @@
     ]
   },
   {
-    "file": "Tabs-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Tabs-vue.spec.ts.snap",
     "names": [
       "Tabs > renders with defaultValue correctly 1",
       "Tabs > renders with modelValue correctly 1"
     ]
   },
   {
-    "file": "Tabs.spec.ts.snap",
+    "file": "components/__snapshots__/Tabs.spec.ts.snap",
     "names": [
       "Tabs > renders with default variant link correctly 1",
       "Tabs > renders with items correctly 1",
@@ -2088,42 +2088,42 @@
     ]
   },
   {
-    "file": "Tabs.spec.ts.snap",
+    "file": "components/__snapshots__/Tabs.spec.ts.snap",
     "names": [
       "Tabs > renders with defaultValue correctly 1",
       "Tabs > renders with modelValue correctly 1"
     ]
   },
   {
-    "file": "Textarea-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Textarea-vue.spec.ts.snap",
     "names": [
       "Textarea > renders with loading and avatar correctly 1",
       "Textarea > renders with loading correctly 1"
     ]
   },
   {
-    "file": "Textarea.spec.ts.snap",
+    "file": "components/__snapshots__/Textarea.spec.ts.snap",
     "names": [
       "Textarea > renders with loading and avatar correctly 1",
       "Textarea > renders with loading correctly 1"
     ]
   },
   {
-    "file": "Theme-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Theme-vue.spec.ts.snap",
     "names": [
       "Theme > renders with empty b24ui correctly 1",
       "Theme > renders with theme not affecting unrelated component correctly 1"
     ]
   },
   {
-    "file": "Theme.spec.ts.snap",
+    "file": "components/__snapshots__/Theme.spec.ts.snap",
     "names": [
       "Theme > renders with empty b24ui correctly 1",
       "Theme > renders with theme not affecting unrelated component correctly 1"
     ]
   },
   {
-    "file": "Timeline-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Timeline-vue.spec.ts.snap",
     "names": [
       "Timeline > renders with air-primary color correctly 1",
       "Timeline > renders with items correctly 1",
@@ -2132,7 +2132,7 @@
     ]
   },
   {
-    "file": "Timeline-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Timeline-vue.spec.ts.snap",
     "names": [
       "Timeline > renders with defaultValue correctly 1",
       "Timeline > renders with modelValue correctly 1",
@@ -2140,63 +2140,63 @@
     ]
   },
   {
-    "file": "Timeline-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Timeline-vue.spec.ts.snap",
     "names": [
       "Timeline > renders with reverse and defaultValue correctly 1",
       "Timeline > renders with reverse and modelValue correctly 1"
     ]
   },
   {
-    "file": "Timeline-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Timeline-vue.spec.ts.snap",
     "names": [
       "Timeline > renders with size 2xl horizontal correctly 1",
       "Timeline > renders with size 2xl vertical correctly 1"
     ]
   },
   {
-    "file": "Timeline-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Timeline-vue.spec.ts.snap",
     "names": [
       "Timeline > renders with size 2xs horizontal correctly 1",
       "Timeline > renders with size 2xs vertical correctly 1"
     ]
   },
   {
-    "file": "Timeline-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Timeline-vue.spec.ts.snap",
     "names": [
       "Timeline > renders with size 3xs horizontal correctly 1",
       "Timeline > renders with size 3xs vertical correctly 1"
     ]
   },
   {
-    "file": "Timeline-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Timeline-vue.spec.ts.snap",
     "names": [
       "Timeline > renders with size lg horizontal correctly 1",
       "Timeline > renders with size lg vertical correctly 1"
     ]
   },
   {
-    "file": "Timeline-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Timeline-vue.spec.ts.snap",
     "names": [
       "Timeline > renders with size sm horizontal correctly 1",
       "Timeline > renders with size sm vertical correctly 1"
     ]
   },
   {
-    "file": "Timeline-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Timeline-vue.spec.ts.snap",
     "names": [
       "Timeline > renders with size xl horizontal correctly 1",
       "Timeline > renders with size xl vertical correctly 1"
     ]
   },
   {
-    "file": "Timeline-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Timeline-vue.spec.ts.snap",
     "names": [
       "Timeline > renders with size xs horizontal correctly 1",
       "Timeline > renders with size xs vertical correctly 1"
     ]
   },
   {
-    "file": "Timeline.spec.ts.snap",
+    "file": "components/__snapshots__/Timeline.spec.ts.snap",
     "names": [
       "Timeline > renders with air-primary color correctly 1",
       "Timeline > renders with items correctly 1",
@@ -2205,7 +2205,7 @@
     ]
   },
   {
-    "file": "Timeline.spec.ts.snap",
+    "file": "components/__snapshots__/Timeline.spec.ts.snap",
     "names": [
       "Timeline > renders with defaultValue correctly 1",
       "Timeline > renders with modelValue correctly 1",
@@ -2213,105 +2213,105 @@
     ]
   },
   {
-    "file": "Timeline.spec.ts.snap",
+    "file": "components/__snapshots__/Timeline.spec.ts.snap",
     "names": [
       "Timeline > renders with reverse and defaultValue correctly 1",
       "Timeline > renders with reverse and modelValue correctly 1"
     ]
   },
   {
-    "file": "Timeline.spec.ts.snap",
+    "file": "components/__snapshots__/Timeline.spec.ts.snap",
     "names": [
       "Timeline > renders with size 2xl horizontal correctly 1",
       "Timeline > renders with size 2xl vertical correctly 1"
     ]
   },
   {
-    "file": "Timeline.spec.ts.snap",
+    "file": "components/__snapshots__/Timeline.spec.ts.snap",
     "names": [
       "Timeline > renders with size 2xs horizontal correctly 1",
       "Timeline > renders with size 2xs vertical correctly 1"
     ]
   },
   {
-    "file": "Timeline.spec.ts.snap",
+    "file": "components/__snapshots__/Timeline.spec.ts.snap",
     "names": [
       "Timeline > renders with size 3xs horizontal correctly 1",
       "Timeline > renders with size 3xs vertical correctly 1"
     ]
   },
   {
-    "file": "Timeline.spec.ts.snap",
+    "file": "components/__snapshots__/Timeline.spec.ts.snap",
     "names": [
       "Timeline > renders with size lg horizontal correctly 1",
       "Timeline > renders with size lg vertical correctly 1"
     ]
   },
   {
-    "file": "Timeline.spec.ts.snap",
+    "file": "components/__snapshots__/Timeline.spec.ts.snap",
     "names": [
       "Timeline > renders with size sm horizontal correctly 1",
       "Timeline > renders with size sm vertical correctly 1"
     ]
   },
   {
-    "file": "Timeline.spec.ts.snap",
+    "file": "components/__snapshots__/Timeline.spec.ts.snap",
     "names": [
       "Timeline > renders with size xl horizontal correctly 1",
       "Timeline > renders with size xl vertical correctly 1"
     ]
   },
   {
-    "file": "Timeline.spec.ts.snap",
+    "file": "components/__snapshots__/Timeline.spec.ts.snap",
     "names": [
       "Timeline > renders with size xs horizontal correctly 1",
       "Timeline > renders with size xs vertical correctly 1"
     ]
   },
   {
-    "file": "Toast-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Toast-vue.spec.ts.snap",
     "names": [
       "Toast > renders with title correctly 1",
       "Toast > renders with type correctly 1"
     ]
   },
   {
-    "file": "Toast.spec.ts.snap",
+    "file": "components/__snapshots__/Toast.spec.ts.snap",
     "names": [
       "Toast > renders with title correctly 1",
       "Toast > renders with type correctly 1"
     ]
   },
   {
-    "file": "Tooltip-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Tooltip-vue.spec.ts.snap",
     "names": [
       "Tooltip > renders with arrow correctly 1",
       "Tooltip > renders with text correctly 1"
     ]
   },
   {
-    "file": "Tooltip-vue.spec.ts.snap",
+    "file": "components/__snapshots__/Tooltip-vue.spec.ts.snap",
     "names": [
       "Tooltip > renders with b24ui correctly 1",
       "Tooltip > renders with class correctly 1"
     ]
   },
   {
-    "file": "Tooltip.spec.ts.snap",
+    "file": "components/__snapshots__/Tooltip.spec.ts.snap",
     "names": [
       "Tooltip > renders with arrow correctly 1",
       "Tooltip > renders with text correctly 1"
     ]
   },
   {
-    "file": "Tooltip.spec.ts.snap",
+    "file": "components/__snapshots__/Tooltip.spec.ts.snap",
     "names": [
       "Tooltip > renders with b24ui correctly 1",
       "Tooltip > renders with class correctly 1"
     ]
   },
   {
-    "file": "User-vue.spec.ts.snap",
+    "file": "components/__snapshots__/User-vue.spec.ts.snap",
     "names": [
       "User > renders with avatar correctly 1",
       "User > renders with orientation horizontal correctly 1",
@@ -2319,11 +2319,25 @@
     ]
   },
   {
-    "file": "User.spec.ts.snap",
+    "file": "components/__snapshots__/User.spec.ts.snap",
     "names": [
       "User > renders with avatar correctly 1",
       "User > renders with orientation horizontal correctly 1",
       "User > renders with size md correctly 1"
+    ]
+  },
+  {
+    "file": "components/content/__snapshots__/ContentSearch.spec.ts.snap",
+    "names": [
+      "ContentSearch > renders with size md correctly 1",
+      "ContentSearch > renders without colorMode correctly 1"
+    ]
+  },
+  {
+    "file": "components/content/__snapshots__/ContentToc.spec.ts.snap",
+    "names": [
+      "ContentToc > renders with links correctly 1",
+      "ContentToc > renders with title correctly 1"
     ]
   }
 ]
