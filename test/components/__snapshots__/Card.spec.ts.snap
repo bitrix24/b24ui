@@ -34,7 +34,7 @@ exports[`Card > renders with default slot correctly 1`] = `
 
 exports[`Card > renders with description correctly 1`] = `
 "<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content)">
-  <div data-slot="header" class="p-[24px] sm:px-[22px] sm:py-[15px] border-(--ui-color-design-outline-content-divider) border-b-1">
+  <div data-slot="header" class="border-(--ui-color-design-outline-content-divider) border-b-1 p-[24px] sm:px-[22px] sm:py-[15px]">
     <!--v-if-->
     <div data-slot="description" class="mt-1 text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary)">Description</div>
   </div>
@@ -45,7 +45,7 @@ exports[`Card > renders with description correctly 1`] = `
 
 exports[`Card > renders with description slot correctly 1`] = `
 "<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content)">
-  <div data-slot="header" class="p-[24px] sm:px-[22px] sm:py-[15px] border-(--ui-color-design-outline-content-divider) border-b-1">
+  <div data-slot="header" class="border-(--ui-color-design-outline-content-divider) border-b-1 p-[24px] sm:px-[22px] sm:py-[15px]">
     <!--v-if-->
     <div data-slot="description" class="mt-1 text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary)">Description slot</div>
   </div>
@@ -58,13 +58,13 @@ exports[`Card > renders with footer slot correctly 1`] = `
 "<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content)">
   <!--v-if-->
   <!--v-if-->
-  <div data-slot="footer" class="p-[24px] sm:px-[22px] sm:py-[15px] border-(--ui-color-design-outline-content-divider) border-t-1">Footer slot</div>
+  <div data-slot="footer" class="border-(--ui-color-design-outline-content-divider) border-t-1 p-[24px] sm:px-[22px] sm:py-[15px]">Footer slot</div>
 </div>"
 `;
 
 exports[`Card > renders with header slot correctly 1`] = `
 "<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content)">
-  <div data-slot="header" class="p-[24px] sm:px-[22px] sm:py-[15px] border-(--ui-color-design-outline-content-divider) border-b-1">Header slot</div>
+  <div data-slot="header" class="border-(--ui-color-design-outline-content-divider) border-b-1 p-[24px] sm:px-[22px] sm:py-[15px]">Header slot</div>
   <!--v-if-->
   <!--v-if-->
 </div>"
@@ -72,7 +72,7 @@ exports[`Card > renders with header slot correctly 1`] = `
 
 exports[`Card > renders with title and description correctly 1`] = `
 "<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content)">
-  <div data-slot="header" class="p-[24px] sm:px-[22px] sm:py-[15px] border-(--ui-color-design-outline-content-divider) border-b-1">
+  <div data-slot="header" class="border-(--ui-color-design-outline-content-divider) border-b-1 p-[24px] sm:px-[22px] sm:py-[15px]">
     <div data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-semi-bold) mb-0 text-pretty text-(length:--ui-font-size-2xl)/[normal] text-(--ui-color-design-outline-content)">Title</div>
     <div data-slot="description" class="mt-1 text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary)">Description</div>
   </div>
@@ -83,7 +83,7 @@ exports[`Card > renders with title and description correctly 1`] = `
 
 exports[`Card > renders with title correctly 1`] = `
 "<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content)">
-  <div data-slot="header" class="p-[24px] sm:px-[22px] sm:py-[15px] border-(--ui-color-design-outline-content-divider) border-b-1">
+  <div data-slot="header" class="border-(--ui-color-design-outline-content-divider) border-b-1 p-[24px] sm:px-[22px] sm:py-[15px]">
     <div data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-semi-bold) mb-0 text-pretty text-(length:--ui-font-size-2xl)/[normal] text-(--ui-color-design-outline-content)">Title</div>
     <!--v-if-->
   </div>
@@ -94,7 +94,7 @@ exports[`Card > renders with title correctly 1`] = `
 
 exports[`Card > renders with title slot correctly 1`] = `
 "<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content)">
-  <div data-slot="header" class="p-[24px] sm:px-[22px] sm:py-[15px] border-(--ui-color-design-outline-content-divider) border-b-1">
+  <div data-slot="header" class="border-(--ui-color-design-outline-content-divider) border-b-1 p-[24px] sm:px-[22px] sm:py-[15px]">
     <div data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-semi-bold) mb-0 text-pretty text-(length:--ui-font-size-2xl)/[normal] text-(--ui-color-design-outline-content)">Title slot</div>
     <!--v-if-->
   </div>
