@@ -147,6 +147,7 @@ describe('CommandPalette', () => {
     ['with as', { props: { ...props, as: 'section' } }],
     ['with class', { props: { ...props, class: 'divide-(--ui-color-accent-main-success)' } }],
     ['with b24ui', { props: { ...props, b24ui: { input: '[&>input]:h-10' } } }],
+    ['with item color', { props: { groups: [{ id: 'team', label: 'Team', items: [{ label: 'Engineer', avatar: { src: 'https://github.com/bitrix24.png' }, color: 'air-primary' as const }, { label: 'Designer', avatar: { src: 'https://github.com/bitrix24.png' }, color: 'air-primary-success' as const }] }] } }],
     // Slots
     // A `searchTerm` nothing matches, without which there is no empty state
     // and the slot never renders (#454). Inherited from upstream, whose case
