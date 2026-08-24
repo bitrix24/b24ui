@@ -103,6 +103,7 @@ describe('NavigationMenu', () => {
     ...orientations.map((orientation: string) => [`with content orientation ${orientation}`, { props: { ...props, orientation } }]),
     [`with def`, { props: { ...props } }],
     ['with chip', { props: { items: [[{ label: 'Guide', icon: Cross30Icon, chip: true }, { label: 'Components', icon: SignIcon, chip: { color: 'air-primary' } }]] } }],
+    ['with item color', { props: { items: [[{ label: 'Engineer', avatar: { src: 'https://github.com/bitrix24.png' }, color: 'air-primary' as const }, { label: 'Designer', avatar: { src: 'https://github.com/bitrix24.png' }, color: 'air-primary-success' as const }]], orientation: 'vertical' as const } }],
     ['with trailingIcon', { props: { ...props, trailingIcon: SignIcon } }],
     ['with externalIcon', { props: { ...props, externalIcon: Cross30Icon } }],
     ['without externalIcon', { props: { ...props, externalIcon: false } }],
