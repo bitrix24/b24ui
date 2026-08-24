@@ -19,7 +19,11 @@ describe('Countdown', () => {
     ['with needStartImmediately false', { props: { needStartImmediately: false } }],
     ['with emitEvents false', { props: { emitEvents: false } }],
     ['with showMinutes false', { props: { showMinutes: false } }],
-    ...useCircle.map((circle: boolean) => [`with useCircle ${circle}`, { props: { useCircle: circle } }]),
+    // `seconds` is needed for the ring to compute at all — without it the
+    // default of 0 divides into nothing and the snapshot pinned
+    // `stroke-dasharray="NaN 283"`, the only dasharray value in either file
+    // (#454). 100 matches the unit test below that proves '283 283'.
+    ...useCircle.map((circle: boolean) => [`with useCircle ${circle}`, { props: { useCircle: circle, seconds: 100 } }]),
     ['with leading icon', { props: { leading: true } }],
     ['with default slot', { slots: { default: () => 'Default slot' } }],
     ['with leading slot', { slots: { leading: () => 'Leading slot' } }]
@@ -378,6 +382,36 @@ describe('Countdown', () => {
       })
       const vm = wrapper.vm as any
       expect(vm.fullDashArray).toBe('283 283')
+    })
+
+    /**
+     * Every one of these divided into nothing before #454. The zero case is
+     * the one that mattered: it is the **default** of `seconds`, so the
+     * minimal documented usage — `<B24Countdown use-circle />` — emitted
+     * `stroke-dasharray="NaN 283"`, an invalid SVG value that the snapshot had
+     * been recording as expected output. The string cases reach the same place
+     * by the other route, since `seconds` is typed `number | string`.
+     *
+     * There is deliberately no negative case. `seconds: -1` returns `283 283`
+     * whether the `total < 0` guard runs or not — the formula reaches 1 on its
+     * own for every input reachable here, confirmed by deleting the guard and
+     * watching nothing fail — so a case for it would pass against a component
+     * without it, which is the exact shape of test this issue is about. The
+     * guard stays as a statement of intent; it is currently decorative, and
+     * that is worth knowing rather than papering over.
+     */
+    it.each([
+      ['the default of 0', 0, '0 283'],
+      ['a non-numeric string', 'soon', '0 283'],
+      ['an empty string', '', '0 283'],
+      ['a numeric string', '100', '283 283']
+    ])('renders a valid dash array for %s', async (_name, seconds, expected) => {
+      const wrapper = await mountSuspended(Countdown, {
+        props: { seconds, useCircle: true, needStartImmediately: false }
+      })
+      const vm = wrapper.vm as any
+      expect(vm.fullDashArray).toBe(expected)
+      expect(vm.fullDashArray, 'an SVG length list must never contain NaN').not.toContain('NaN')
     })
   })
 })

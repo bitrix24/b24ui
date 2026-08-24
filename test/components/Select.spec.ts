@@ -50,7 +50,14 @@ describe('Select', () => {
     ['with defaultValue', { props: { ...props, defaultValue: items[0]?.value } }],
     ['with valueKey', { props: { ...props, valueKey: 'label', defaultValue: 'Backlog' } }],
     ['with labelKey', { props: { ...props, labelKey: 'value' } }],
-    ['with descriptionKey', { props: { ...props, descriptionKey: 'description' } }],
+    // `descriptionKey: 'description'` set the prop to the value it already has,
+    // on items that carry no such field — inert twice over, and byte-identical
+    // to `with items` in the snapshot (#454). Upstream's own spec has the same
+    // case, so this is not a porting slip; it is a fixture that improves on
+    // theirs. Reading the description out of `label` proves the *key* is what
+    // the component looks up, which passing items that happen to have a
+    // `description` field would not.
+    ['with descriptionKey', { props: { ...props, items: itemsWithDescription, descriptionKey: 'label' } }],
     ['with multiple', { props: { ...props, multiple: true } }],
     ['with multiple and modelValue', { props: { ...props, multiple: true, modelValue: [items[0], items[1]] } }],
     ['with id', { props: { ...props, id: 'id' } }],

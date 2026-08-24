@@ -122,7 +122,14 @@ describe('DropdownMenu', () => {
     ['with items', { props }],
     ['with items with description', { props: { ...props, items: itemsWithDescription } }],
     ['with labelKey', { props: { ...props, labelKey: 'icon' } }],
-    ['with descriptionKey', { props: { ...props, descriptionKey: 'description' } }],
+    // `descriptionKey: 'description'` set the prop to the value it already has,
+    // on items that carry no such field — inert twice over, and byte-identical
+    // to `with items` in the snapshot (#454). Upstream's own spec has the same
+    // case, so this is not a porting slip; it is a fixture that improves on
+    // theirs. Reading the description out of `label` proves the *key* is what
+    // the component looks up, which passing items that happen to have a
+    // `description` field would not.
+    ['with descriptionKey', { props: { ...props, items: itemsWithDescription, descriptionKey: 'label' } }],
     ['with disabled', { props: { ...props, disabled: true } }],
     ['with arrow', { props: { ...props, arrow: true } }],
     ...colors.map((color: string) => [`with color ${color}`, { props: { ...props, color } }]),
