@@ -22,6 +22,7 @@ describe('Alert', () => {
     ['with close', { props: { ...props, close: true } }],
     ['with closeIcon', { props: { ...props, close: true, closeIcon: Cross30Icon } }],
     [`with success`, { props: { ...props, color: 'air-primary-success' as const } }],
+    ['with color and avatar', { props: { ...props, color: 'air-primary-success' as const, avatar: { src: 'https://github.com/bitrix24.png' } } }],
     ['with as', { props: { ...props, as: 'article' } }],
     ['with class', { props: { ...props, class: 'w-48' } }],
     ['with b24ui', { props: { ...props, b24ui: { title: 'font-bold' } } }],
