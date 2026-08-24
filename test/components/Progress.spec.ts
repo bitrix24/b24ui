@@ -29,7 +29,9 @@ describe('Progress', () => {
     ['with class', { props: { class: 'w-48' } }],
     ['with b24ui', { props: { b24ui: { base: 'bg-red-200' } } }],
     // Slots
-    ['with status slot', { slots: { status: () => 'Status slot' } }]
+    // `status` and a `modelValue`, without which the slot never renders
+    // (#454). Inherited from upstream's spec, which omits both.
+    ['with status slot', { props: { status: true, modelValue: 50 }, slots: { status: () => 'Status slot' } }]
   ])
 
   it('passes accessibility tests', async () => {

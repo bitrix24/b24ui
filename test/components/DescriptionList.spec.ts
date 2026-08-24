@@ -80,7 +80,14 @@ describe('DescriptionList', () => {
     ['with text', { props: { items: baseItems, text: 'Some descriptive text' } }],
     ['with legend and text', { props: { legend: 'Legend', text: 'Text', items: baseItems } }],
     // Slots
-    ['with default slot', { slots: { default: () => 'Default slot content' } }],
+    // No `with default slot` case. `DescriptionListSlots` declares `legend`,
+    // `text`, `leading`, `label`, `description`, `actions`, `content-top`,
+    // `content`, `content-bottom` and `footer` — everything renders per item —
+    // and no `default`. The case that used to sit here passed one anyway, Vue
+    // dropped it silently, and the snapshot was byte-identical to
+    // `with empty items` (#454). This component is this fork's own, so there
+    // is no upstream to check against: the slot does not exist because the
+    // design has nowhere to put it, not because a port lost it.
     ['with custom slot', { props: { items: baseItems }, slots: { custom: () => 'Custom slot' } }]
   ])
 

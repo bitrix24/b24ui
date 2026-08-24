@@ -34,7 +34,11 @@ describe('Stepper', () => {
     ['with items', { props }],
     ['with defaultValue', { props: { ...props, defaultValue: 1 } }],
     ['with modelValue', { props: { ...props, modelValue: 1 } }],
-    ['with valueKey', { props: { ...props, valueKey: 'title', defaultValue: 'Address' } }],
+    // 'Shipping', not 'Address'. Address is index 0 and already active, so the
+    // case rendered whatever the default renders and proved nothing about
+    // `valueKey` (#454). Upstream's spec has the same value, so this is
+    // inherited rather than a porting slip.
+    ['with valueKey', { props: { ...props, valueKey: 'title', defaultValue: 'Shipping' } }],
     ['with air-primary color', { props: { ...props, color: 'air-primary' } }],
     ...sizes.map((size: string) => [`with size ${size} horizontal`, { props: { ...props, size } }]),
     ...sizes.map((size: string) => [`with size ${size} vertical`, { props: { ...props, size, orientation: 'vertical' } }]),

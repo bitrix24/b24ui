@@ -29,7 +29,10 @@ describe('Alert', () => {
     ['with leading slot', { props, slots: { title: () => 'Leading slot' } }],
     ['with title slot', { props, slots: { title: () => 'Title slot' } }],
     ['with description slot', { props, slots: { description: () => 'Description slot' } }],
-    ['with close slot', { props, slots: { close: () => 'Close slot' } }]
+    // `close: true`, without which the slot has no host element and the
+    // snapshot was byte-identical to a sibling (#454). Upstream's case omits
+    // it too.
+    ['with close slot', { props: { ...props, close: true }, slots: { close: () => 'Close slot' } }]
   ])
 
   it('passes accessibility tests', async () => {
