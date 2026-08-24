@@ -39,7 +39,11 @@ overrides:
   # component render, so the regression lands on consumers, not just on CI.
   # Pinned until upstream addresses the perf regression.
   tailwind-variants: 3.2.2
-  '@tiptap/pm': ^3.29.2
+  # Keeps a single prosemirror line: every @tiptap/* package peer-accepts a range
+  # of pm versions, so without this pnpm can resolve a second copy and ProseMirror
+  # state instances stop being `instanceof` across the boundary. Keep in step with
+  # the @tiptap/* family version in package.json.
+  '@tiptap/pm': ^3.30.2
   nitropack: ^2.13.0
   unplugin: ^3.3.0
   c12: ^3.3.4
