@@ -38,9 +38,30 @@ describe('ChatMessages', () => {
     // Slots
     ['with default slot', { props, slots: { default: () => 'Default slot' } }],
     ['with indicator slot', { props: { ...props, status: 'submitted' }, slots: { indicator: () => 'Indicator slot' } }],
-    ['with viewport slot', { props, slots: { viewport: () => 'Viewport slot' } }],
+    // No `with viewport slot` case. The slot lives inside
+    // `<Presence :present="showAutoScroll">`, and `showAutoScroll` is driven by
+    // how far the user has scrolled from the bottom — geometry happy-dom does
+    // not compute, so the slot cannot render here at all. The case that used to
+    // sit here was byte-identical to `with messages` (#454). This is the same
+    // shape as the Table virtualization cases: not a fixture to fix, an
+    // environment that cannot reach the branch.
     ['with content slot', { props, slots: { content: () => 'Content slot' } }],
-    ['with files slot', { props, slots: { files: () => 'Files slot' } }]
+    // `files` renders only when a message carries a part of `type: 'file'`;
+    // every fixture here has text parts only, so the slot never appeared.
+    ['with files slot', {
+      props: {
+        ...props,
+        messages: [{
+          id: 'with-file',
+          role: 'user' as const,
+          parts: [
+            { type: 'text' as const, text: 'see attached' },
+            { type: 'file' as const, mediaType: 'image/png', url: 'https://example.com/a.png', filename: 'a.png' }
+          ]
+        }]
+      },
+      slots: { files: () => 'Files slot' }
+    }]
   ])
 
   it('passes accessibility tests', async () => {
