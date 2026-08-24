@@ -32,7 +32,7 @@ export default {
       'relative group overflow-hidden',
       'rounded-[8px] p-4',
       'flex gap-4',
-      'focus-visible:outline-(length:--ui-design-outline-stroke-weight) focus-visible:outline-offset-2 focus-visible:outline-(--ui-color-design-outline-content-divider)',
+      'focus-visible:outline-(length:--ui-design-outline-stroke-weight) focus-visible:outline-offset-2 focus-visible:outline-(--ui-color-design-outline-focused-stroke)',
       'font-[family-name:var(--ui-font-family-primary)]',
       'bg-(--ui-color-base-black-fixed)/80',
       'text-(--ui-color-design-plain-na-focused-content)',

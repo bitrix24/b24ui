@@ -495,16 +495,29 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   exercises it; update snapshots with `pnpm run test run -u` when markup changes.
 - **A focus outline is coloured by `--ui-color-design-outline-focused-stroke`.**
   Upstream colours focus from whatever accent is at hand; this fork has one
-  token for it, and it is the only candidate defined in all four theme
-  contexts, which is why it adapts and the alternatives do not. Reapplying an
+  token for it. What makes it the right one is not that it is defined per
+  context — `accent-main-primary` and `accent-soft-element-blue` are too — but
+  that it *changes kind*: a saturated blue in the light and dark contexts, and
+  a translucent luminance shift in the edge ones, black at 35% over a light
+  surface and white at 40% over a dark one. `outline-primary` is the odd one
+  out for a different reason: it reads `--color-primary` from the Tailwind
+  theme block, which has no per-context override at all. Reapplying an
   upstream hunk that reintroduces `outline-primary`,
   `--ui-color-accent-soft-element-blue` or `--ui-color-accent-main-primary` on a
   `focus-visible:outline-*` reverts an accessibility fix, not a preference: those
-  measure 1.99:1 on white, 2.22:1 on the dark background, and WCAG 2.2 SC 1.4.11
-  asks 3:1 (#191). Guarded by `test/utils/focus-accent-token.spec.ts`. The
-  `ring-(--b24ui-border-color)` focus pattern on inputs is **not** in scope —
-  there the ring is the field's own border and follows the component's palette
-  by design.
+  measure 1.99:1 on white and 2.22:1 on the dark background, against the 3:1 WCAG
+  2.2 SC 1.4.11 asks (#191). In the **edge** contexts the token is weaker than
+  what it replaced — it reaches about 2.4:1 there and cannot do better, because
+  a translucent shift over a backdrop the portal chooses has no guaranteed
+  ratio. That is a property of the token, tracked in #475, not a reason to paint
+  focus from an accent again. Guarded by
+  `test/utils/focus-accent-token.spec.ts`.
+
+  Out of scope, and deliberately: focus that reads `--b24ui-border-color` or
+  `--b24ui-background`, whether as `ring-` (inputs) or `outline-`
+  (breadcrumb, checkbox, switch, listbox, input-rating, radio-group). There the
+  stroke is the control's own border following the component palette, not a
+  focus accent.
 
 - **Tag width caps are relative to the field, never an absolute length.**
   Upstream's `tagsItemText` / `itemText` are plain `truncate` with no cap;
