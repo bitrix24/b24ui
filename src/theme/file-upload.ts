@@ -141,7 +141,7 @@ export default {
   },
   compoundVariants: [
     {
-      class: 'focus-visible:outline-inverted'
+      class: 'focus-visible:outline-(--ui-color-design-outline-focused-stroke)'
     },
     {
       highlight: true,

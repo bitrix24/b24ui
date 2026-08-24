@@ -11,7 +11,7 @@ export default {
     panel: 'flex',
     handle: [
       'group relative shrink-0',
-      'outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--ui-color-accent-soft-element-blue)',
+      'outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--ui-color-design-outline-focused-stroke)',
       'data-[panel-resize-handle-enabled=false]:cursor-default'
     ].join(' ')
   },

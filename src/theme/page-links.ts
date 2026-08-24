@@ -18,7 +18,7 @@ export default {
       'group',
       'text-(length:--ui-font-size-sm)',
       'cursor-pointer',
-      'focus-visible:outline-(--ui-color-accent-main-primary)',
+      'focus-visible:outline-(--ui-color-design-outline-focused-stroke)',
       'focus-visible:outline-1',
       'focus-visible:rounded-[4px]',
       'text-start',
