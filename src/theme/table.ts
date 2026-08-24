@@ -19,10 +19,10 @@ export default {
       'isolate',
       '[&>tr]:data-[selectable=true]:hover:bg-(--ui-color-bg-content-secondary)',
       'light:[&>tr]:data-[selectable=true]:hover:bg-[#f6f8f9]',
-      '[&>tr]:data-[selectable=true]:focus-visible:outline-(--ui-color-accent-soft-element-blue)',
+      '[&>tr]:data-[selectable=true]:focus-visible:outline-(--ui-color-design-outline-focused-stroke)',
       '[&>tr]:data-[selected=true]:hover:bg-(--ui-color-bg-content-secondary)',
       'light:[&>tr]:data-[selected=true]:hover:bg-(#eff7d7)',
-      '[&>tr]:data-[selected=true]:focus-visible:outline-(--ui-color-accent-soft-element-blue)',
+      '[&>tr]:data-[selected=true]:focus-visible:outline-(--ui-color-design-outline-focused-stroke)',
       '[&>tr]:last:[&>td]:border-b-0',
       'divide-y divide-(--ui-color-divider-default)'
     ].join(' '),

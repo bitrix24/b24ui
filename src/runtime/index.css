@@ -13,6 +13,17 @@
 @variant web (&:where(html[data-platform="web"] *));
 
 @layer base {
+  /*
+   * From upstream. Browsers give a focused link's outline the default offset,
+   * which on an inline link is measured from the text box and lands the ring
+   * over the line above or below in tight copy. Zero keeps it on the link.
+   * Only the offset — the colour, width and style stay with whatever rule the
+   * component's theme sets.
+   */
+  a:focus-visible {
+    outline-offset: 0;
+  }
+
   body,
   .air-custom-bg,
   /* @deprecate This rule (.sidebar-layout.--inner (not body !)) is deprecated and will be removed in version 3.0.0 */

@@ -12,7 +12,7 @@ export default (options: Required<ModuleOptions>) => ({
   base: [
     'cursor-pointer',
     // 'focus-visible:outline-info-text' // fix
-    'focus-visible:outline-(--ui-color-accent-main-primary)',
+    'focus-visible:outline-(--ui-color-design-outline-focused-stroke)',
     'focus-visible:outline-1 focus-visible:rounded-[4px]',
     'text-start'
   ].join(' '),
@@ -37,7 +37,7 @@ export default (options: Required<ModuleOptions>) => ({
         'border border-x-0 border-t-0 border-dashed',
         'text-(--ui-color-design-outline-a1-content) border-b-(--ui-color-design-outline-a1-content)',
         'hover:not-disabled:not-aria-disabled:no-underline',
-        'hover:text(--ui-color-accent-soft-element-red) hover:not-disabled:not-aria-disabled:text-(--ui-color-accent-soft-element-red) hover:border-b-(--ui-color-accent-soft-element-red)',
+        'hover:not-disabled:not-aria-disabled:text-(--ui-color-accent-soft-element-red) hover:border-b-(--ui-color-accent-soft-element-red)',
         'focus-visible:outline-(--ui-color-accent-soft-element-red)'
       ].join(' ')
     }

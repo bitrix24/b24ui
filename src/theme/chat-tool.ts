@@ -19,7 +19,7 @@ export default {
       'disabled:cursor-default',
       'disabled:hover:text-muted',
       'hover:text-default',
-      'focus-visible:outline-offset-2 focus-visible:outline-primary',
+      'focus-visible:outline-offset-2 focus-visible:outline-(--ui-color-design-outline-focused-stroke)',
       'transition-colors'
     ].join(' '),
     leading: 'relative shrink-0 size-5',

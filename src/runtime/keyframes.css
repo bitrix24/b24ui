@@ -1,39 +1,54 @@
+/*
+ * `overflow: hidden` on every frame of the height animations, from upstream.
+ * Reka drives these by animating `height` from or to `0` while the content
+ * keeps its own height, so without it the content is drawn outside the
+ * collapsing box for the length of the animation — visible as a flash of text
+ * over whatever sits below the accordion.
+ */
 @keyframes accordion-up {
   from {
+    overflow: hidden;
     height: var(--reka-accordion-content-height);
   }
 
   to {
+    overflow: hidden;
     height: 0;
   }
 }
 
 @keyframes accordion-down {
   from {
+    overflow: hidden;
     height: 0;
   }
 
   to {
+    overflow: hidden;
     height: var(--reka-accordion-content-height);
   }
 }
 
 @keyframes collapsible-up {
   from {
+    overflow: hidden;
     height: var(--reka-collapsible-content-height);
   }
 
   to {
+    overflow: hidden;
     height: 0;
   }
 }
 
 @keyframes collapsible-down {
   from {
+    overflow: hidden;
     height: 0;
   }
 
   to {
+    overflow: hidden;
     height: var(--reka-collapsible-content-height);
   }
 }
