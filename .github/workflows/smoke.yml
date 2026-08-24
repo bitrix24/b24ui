@@ -1,0 +1,95 @@
+name: Smoke 🔥
+
+# Boots the built package in a real browser.
+#
+# ci.yml runs lint, typecheck, tests and build, and not one of those steps ever
+# starts an application. #301 was a client-only boot failure: the unit suite
+# stayed green for five weeks while the published package could not start an
+# SPA. This job is the missing step (#329) — build the package, put a Nuxt app
+# and a Vue SPA on top of it, load both in Chromium, fail on anything the
+# browser logs as an error.
+#
+# Nightly rather than per-PR, on the maintainer's call. The per-PR version
+# would catch a boot failure before it merges, but it puts a browser download
+# and two application builds on every typo fix; a library this size does not
+# change its runtime plugins often enough to pay that every time. The cost of
+# the choice is real and worth naming: a boot failure is found the morning
+# after it lands, not before, so `workflow_dispatch` is here for anyone who
+# touches a runtime plugin, the module's `setup()`, or a dependency that ends
+# up in the client bundle — run it on the branch before merging.
+#
+# An hour after the release watchdog, so a red morning has one obvious order to
+# read it in.
+on:
+  schedule:
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: smoke-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    env:
+      pnpm_config_strict_dep_builds: false
+      pnpm_config_verify_deps_before_run: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+
+      - name: Install node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Prepare
+        run: pnpm run dev:prepare
+
+      # Not optional, and asserted by the script rather than assumed:
+      # `dev:prepare` above leaves `dist/` as a jiti stub pointing back at
+      # `src/`, so a smoke run against it would boot the sources under a
+      # different name and report success for a package nobody built.
+      - name: Build
+        run: pnpm build
+
+      - name: Resolve the pinned Playwright version
+        id: playwright
+        run: echo "version=$(node -p "require('./package.json').devDependencies['playwright-core']")" >> "$GITHUB_OUTPUT"
+
+      # Keyed on the pinned version rather than the lockfile, so an unrelated
+      # dependency bump does not re-download 130 MB of browser. `install` still
+      # runs on a hit: it is a no-op for an already-present revision, and it is
+      # what installs the system packages, which are not cached.
+      - name: Restore the Playwright browser
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.playwright.outputs.version }}
+
+      # `pnpm exec`, not `npx`: `npx` fetches from the registry when it cannot
+      # resolve a binary locally, which would quietly undo the pinned
+      # `playwright-core` and the frozen lockfile ci.yml's guards assert.
+      #
+      # `--with-deps` runs apt through passwordless sudo, which every
+      # GitHub-hosted runner grants its own user. That is unrelated to
+      # `GITHUB_TOKEN` and does not widen the `permissions:` block above — it is
+      # the runner VM's own privileges, on a machine thrown away after the job.
+      - name: Install Chromium
+        run: pnpm exec playwright-core install --with-deps chromium
+
+      - name: Smoke test the built package
+        run: pnpm test:smoke

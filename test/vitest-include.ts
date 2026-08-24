@@ -22,11 +22,18 @@
  */
 
 /**
- * Specs the plain-Node project runs.
+ * Specs the plain-Node module suite runs — `vitest.module.config.ts`, a
+ * separate invocation rather than a third project here.
  *
  * `module/` boots Nuxt itself with `loadNuxt` to exercise the module's
  * `setup()`, so it can run in neither of the other two: the `nuxt` project is
- * already inside a Nuxt instance, and the `vue` one is happy-dom.
+ * already inside a Nuxt instance, and the `vue` one is happy-dom. Keeping it
+ * out of the shared fork pool is a separate decision, and the reason is in
+ * `vitest.module.config.ts`.
+ *
+ * The patterns still live here so `vitest-include.spec.ts` can hold every
+ * suite to the same rule: no spec in the tree goes uncollected, and none is
+ * collected twice.
  */
 export const moduleInclude = [
   'module/**/*.spec.ts'

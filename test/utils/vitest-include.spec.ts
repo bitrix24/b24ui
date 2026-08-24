@@ -64,7 +64,7 @@ describe('vitest include patterns', () => {
     expect({ nuxtOnly, vueOnly }).toEqual({ nuxtOnly: [], vueOnly: [] })
   })
 
-  it('keep the `module` project to itself', async () => {
+  it('keep the `module` suite to itself', async () => {
     const module = new Set(await glob(moduleInclude, { cwd: testDir, ignore: ['**/node_modules/**'] }))
     const others = new Set([
       ...await glob(nuxtInclude, { cwd: testDir, ignore: ['**/node_modules/**'] }),
@@ -72,10 +72,12 @@ describe('vitest include patterns', () => {
     ])
 
     // Each `module/` spec boots a Nuxt instance with `loadNuxt`, which takes
-    // seconds and cannot happen inside a Nuxt or happy-dom environment. A
-    // pattern that let one of them into another project would not fail — it
-    // would run there and be slow, or hang — so the separation is asserted
-    // rather than left to the patterns looking right.
+    // seconds, cannot happen inside a Nuxt or happy-dom environment, and is
+    // kept out of the shared fork pool on purpose (see
+    // `vitest.module.config.ts`). A pattern that let one of them into another
+    // project would not fail — it would run there and be slow, or hang — so
+    // the separation is asserted rather than left to the patterns looking
+    // right.
     expect([...module].filter(spec => others.has(spec)).sort()).toEqual([])
 
     // And the mirror: a `module/` spec that no project runs. `moduleInclude`

@@ -117,22 +117,14 @@ jobs:
       - name: Test
         run: pnpm run test run
 
+      # A separate invocation, not a third project in the run above. These
+      # specs boot Nuxt with `loadNuxt`, and the component suite already sits
+      # close to the fork heap limit — see the note in vitest.module.config.ts.
+      - name: Test the module
+        run: pnpm test:module
+
+      # Everything in this job tests source: `Test` mounts components out of
+      # `src/` and `Build` only proves the bundler is happy. Nothing here starts
+      # an application — that is smoke.yml, on a schedule (#329).
       - name: Build
         run: pnpm build
-
-      # Everything above this line tests source. `test` mounts components out
-      # of `src/`, `build` proves the bundler is happy, and neither of them
-      # ever starts an application — which is how #301, a client-only boot
-      # failure, shipped and stayed green for five weeks (#329). This step
-      # takes what `Build` just produced, puts a Nuxt app and a Vue SPA on top
-      # of it, loads both in Chromium and fails on anything the browser logs.
-      #
-      # It has to run after `Build`: `dev:prepare` leaves `dist/` as a jiti
-      # stub pointing back at `src/`, and a smoke run against that would prove
-      # nothing. The script checks for the stub and refuses rather than
-      # passing quietly.
-      - name: Install Chromium
-        run: npx playwright-core install --with-deps chromium
-
-      - name: Smoke test the built package
-        run: pnpm test:smoke

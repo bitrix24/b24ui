@@ -29,7 +29,7 @@ import { spawn } from 'node:child_process'
 import { createServer } from 'node:http'
 import { createServer as createSocketServer } from 'node:net'
 import { createReadStream, existsSync, readFileSync, statSync } from 'node:fs'
-import { extname, join } from 'node:path'
+import { extname, join, relative, isAbsolute } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { chromium } from 'playwright-core'
 
@@ -71,9 +71,25 @@ function run(command, args, cwd) {
   })
 }
 
-async function waitForServer(url, timeoutMs = 60_000) {
+/**
+ * Polls `url` until it answers — or until `child` dies, which is the case
+ * worth handling: a server that fails on startup would otherwise burn the full
+ * timeout and report "did not answer", hiding the exit code that says why.
+ */
+async function waitForServer(url, child, timeoutMs = 60_000) {
+  let exit = null
+  child.on('exit', (code, signal) => {
+    exit = signal ?? `code ${code}`
+  })
+  child.on('error', (error) => {
+    exit = error.message
+  })
+
   const deadline = Date.now() + timeoutMs
   while (Date.now() < deadline) {
+    if (exit !== null) {
+      throw new Error(`the server exited before answering (${exit}) — its output is above`)
+    }
     try {
       await fetch(url)
       return
@@ -91,18 +107,50 @@ const MIME = {
 }
 
 /**
+ * Resolves a request path inside `dir`, or returns `null` if it points out.
+ *
+ * `startsWith(dir)` is the tempting version and it is wrong: it has no
+ * separator boundary, so a sibling directory whose name merely begins with the
+ * root's — `dist-something` next to `dist` — passes it. `relative()` answers
+ * the question that was actually being asked.
+ */
+function resolveWithin(dir, url) {
+  let path
+  try {
+    path = decodeURIComponent(url.split('?')[0])
+  } catch {
+    // A malformed `%` escape throws here. Unhandled it takes down the whole
+    // run from inside a request handler, skipping every cleanup below.
+    return null
+  }
+
+  const file = join(dir, path)
+  const rel = relative(dir, file)
+  return rel === '' || (!rel.startsWith('..') && !isAbsolute(rel)) ? file : null
+}
+
+/**
  * Static files with an SPA fallback — the same shape as any host serving a
  * built Vite app, and enough for the router to hand out its own routes.
  */
 async function serveStatic(dir) {
   const port = await freePort()
   const server = createServer((req, res) => {
-    let file = join(dir, decodeURIComponent(req.url.split('?')[0]))
-    if (!file.startsWith(dir) || !existsSync(file) || statSync(file).isDirectory()) {
+    let file = resolveWithin(dir, req.url)
+    if (file === null || !existsSync(file) || statSync(file).isDirectory()) {
       file = join(dir, 'index.html')
     }
     res.setHeader('content-type', MIME[extname(file)] ?? 'application/octet-stream')
-    createReadStream(file).pipe(res)
+
+    // Without this listener a read error — a deleted `index.html`, a bad
+    // permission — is an unhandled `error` event, which is fatal. Failing the
+    // request instead lets the browser report it and the checks below say so.
+    const body = createReadStream(file)
+    body.on('error', () => {
+      res.statusCode = 500
+      res.end()
+    })
+    body.pipe(res)
   })
   await new Promise(resolve => server.listen(port, '127.0.0.1', resolve))
   return { url: `http://127.0.0.1:${port}`, close: () => new Promise(resolve => server.close(resolve)) }
@@ -130,10 +178,19 @@ async function boot(browser, url) {
   // would still look full.
   // eslint-disable-next-line unicorn/prefer-dom-node-text-content
   const text = (await page.locator('body').innerText()).trim()
+  const links = await page.locator('a[href]').count()
   await page.close()
 
-  return { problems: [...problems], text }
+  return { problems: [...problems], text, links }
 }
+
+/**
+ * How many links the playground's navigation renders when the router works.
+ * Well under the real count, so adding or removing a demo page does not fail
+ * the smoke run — but far above what survives a dead `RouterLink`, which is
+ * the case this number exists to separate.
+ */
+const SPA_MIN_LINKS = 20
 
 // endregion ////
 
@@ -148,22 +205,31 @@ check('dist/ holds a real build, not a `--stub`', built, 'run `pnpm build` first
 if (!built) process.exit(1)
 
 step('building the applications')
-await run('npx', ['nuxt', 'build'], fixture)
+// `pnpm exec`, not `npx`: `npx` falls back to fetching from the registry when
+// it cannot resolve a binary locally, which would quietly undo the pinned
+// `playwright-core` and the frozen lockfile this repository insists on.
+await run('pnpm', ['exec', 'nuxt', 'build'], fixture)
 await run('pnpm', ['dev:vue:build'], root)
 
-const browser = await chromium.launch()
-const fixturePort = await freePort()
-const fixtureUrl = `http://127.0.0.1:${fixturePort}`
-const server = spawn(process.execPath, [join(fixture, '.output/server/index.mjs')], {
-  cwd: fixture,
-  stdio: 'inherit',
-  env: { ...process.env, PORT: String(fixturePort), HOST: '127.0.0.1', NITRO_PORT: String(fixturePort) }
-})
-
+// Everything started below has to be stopped, including when the thing after
+// it fails to start. Declared first and torn down in one `finally`, each step
+// guarded so a failure in one does not strand the others.
+let browser
+let server
 let staticServer
 
 try {
-  await waitForServer(fixtureUrl)
+  browser = await chromium.launch()
+
+  const fixturePort = await freePort()
+  const fixtureUrl = `http://127.0.0.1:${fixturePort}`
+  server = spawn(process.execPath, [join(fixture, '.output/server/index.mjs')], {
+    cwd: fixture,
+    stdio: 'inherit',
+    env: { ...process.env, PORT: String(fixturePort), HOST: '127.0.0.1', NITRO_PORT: String(fixturePort) }
+  })
+
+  await waitForServer(fixtureUrl, server)
 
   step('platform detection on the server (the branch no unit test can reach)')
 
@@ -201,11 +267,20 @@ try {
   check('the Vue SPA logs nothing to the console', spaBoot.problems.length === 0, spaBoot.problems.join('\n        '))
   // A Vue app that dies during setup still serves a 200 and an empty `<div
   // id="app">`, so "no console errors" alone would pass on a blank page.
-  check('the Vue SPA rendered its content', spaBoot.text.length > 100, `body text was: ${JSON.stringify(spaBoot.text.slice(0, 200))}`)
+  //
+  // Counting the navigation's links rather than the length of the body text.
+  // The first version measured `text.length > 100` and was very nearly
+  // vacuous: the playground carries enough static copy that killing
+  // `RouterLink` outright — the bug this whole file found — left it green.
+  // Every one of those links is a `RouterLink`, so this is the assertion that
+  // was meant.
+  check(`the Vue SPA rendered its navigation (${spaBoot.links} links)`, spaBoot.links >= SPA_MIN_LINKS, `expected at least ${SPA_MIN_LINKS} rendered <a href>; body text was: ${JSON.stringify(spaBoot.text.slice(0, 200))}`)
 } finally {
-  await browser.close()
+  // Each one independently, oldest resource last: awaiting `browser.close()`
+  // first and letting it reject would strand the Nitro server on its port.
+  await browser?.close().catch(() => {})
   await staticServer?.close()
-  server.kill()
+  server?.kill()
 }
 
 console.log()
