@@ -115,7 +115,14 @@ describe('NavigationMenu', () => {
     ['with item-leading slot', { props, slots: { 'item-leading': () => 'Item leading slot' } }],
     ['with item-label slot', { props, slots: { 'item-label': () => 'Item label slot' } }],
     ['with item-trailing slot', { props, slots: { 'item-trailing': () => 'Item trailing slot' } }],
-    ['with custom slot', { props, slots: { custom: () => 'Custom slot' } }]
+    // The dynamic slot fires for an item carrying `slot: 'custom'`, and no
+    // fixture here had one — this was the only item-based spec with no `slot:`
+    // key at all, so the case was byte-identical to four siblings (#454).
+    // Upstream's spec has the same gap.
+    ['with custom slot', {
+      props: { ...props, items: [[{ label: 'Custom', slot: 'custom' as const }]] },
+      slots: { custom: () => 'Custom slot' }
+    }]
   ])
 
   it('passes accessibility tests', async () => {

@@ -782,6 +782,44 @@ forward, since every commit between the two would then never be judged.
 6. If a fix corrects a recurring mistake, add a rule here and append a dated
    line to the changelog below.
 
+**A test that asserts nothing is a diagnosis before it is a repair.** The shape
+is a spec case whose fixture never satisfies its precondition, so the snapshot
+records the fallback and the case reads as coverage while proving nothing
+(#454). On a component this fork wrote, that is a test to fix. On a ported one
+it is a question, because the same symptom has three causes and only one of
+them is the test's fault:
+
+1. **Compare against upstream at our cursor**, not at upstream's HEAD. Comparing
+   against HEAD imports whatever upstream has added since and presents it as a
+   port we dropped. `git -C <mirror> show <cursor>:src/runtime/components/X.vue`.
+2. **We match upstream** — the fixture is wrong, fix the fixture.
+3. **We differ and the divergence is recorded**, in §2 above or in a
+   `.sync/log/<sha>.md` entry — the case tests a feature this fork does not
+   have. Remove it, citing the record.
+4. **We differ and nothing records it** — *this is the finding*. The port lost
+   something, and the vacuous test is the only surviving trace of it. Fix the
+   port; the test comes back on its own.
+5. **We match upstream and upstream's case is vacuous too** — inherited
+   faithfully, wrong in both trees. Fix ours. Upstream is the control, not the
+   authority: matching it answers *where the mistake happened*, which is the
+   question worth asking, and settles nothing about whether it is a mistake.
+   The five `descriptionKey` cases are this — upstream's own spec passes the
+   prop's default value on items that lack the field.
+
+`Empty`'s `['with avatar', …]` case is the worked example of the branch, and it is case 3
+rather than case 4 only because somebody wrote it down: upstream's `Empty` does
+carry `avatar?: AvatarProps` and renders it through `UAvatar`, while the ledger
+entry for `86cd25c5` says "b24ui's `Empty` diverges … no `avatar`". Deleting the
+case without that check would have erased the only evidence of a missing
+feature, had it been one.
+
+Note the two edges this does not cover. A component absent from upstream is not
+automatically ours — §1 makes renames mandatory, so upstream's `Slider` is this
+fork's `Range`; compare by content, not by name or by whether the docs page
+links to nuxt.com. And the procedure finds what a port dropped, never what it
+added: a prop this fork has, upstream does not, and nothing exercises, is the
+same bug facing the other way and needs reading rather than diffing.
+
 ## Changelog of rules
 
 - 2026-06-04 — _(seed)_ initial rules extracted from the review of `.sync/PLAN.md` (removed 2026-08-12; see the last entry). Last reviewed: 2026-06-04.
@@ -818,3 +856,4 @@ forward, since every commit between the two would then never be judged.
 - 2026-08-23 — fix of #342 (PR #470): added the §2 rule **tag width caps are relative to the field**. `max-w-[180px]` on the tag label was ours — upstream is plain `truncate` — and it ellipsised tags that had room to spare, because a constant knows nothing about the field's width or what shares its row. Settled by measuring in Chromium rather than by reading the spec, which was the only way to tell three plausible readings apart: in a 562px field a tag wanting 590px renders at 199px under the old cap, 412px under `max-w-[70%]` with both tags still on one row, and 562px uncapped with the second tag pushed to the next line. The same measurement caught what review had flagged and reading had not — `input-tags.ts`'s root is `inline-flex` with no width, so the percentage was circular there: the field grew to 590px, overflowing its 562px parent, and clipped the label anyway. `max-w-full` on that root fixes both and is now part of the invariant. The guard went through three drafts, each corrected by mutation rather than by review: it credited one slot with a neighbour's class, then passed on its own comment (which contains the string `min-w-0`), then missed both the six per-size `tagsItem` overrides at deeper indentation and the `(prev) => [...]` slot form — an arrow function's parameter list closes before its body opens, so balancing brackets returned `(prev: string)` and nothing else. It ends at a comma at depth zero, and a self-check asserts the scanner matched something before reporting no offenders. Last reviewed: 2026-08-23.
 - 2026-08-23 — added the §6 rule **name the upstream commit in the subject** and the §7 reviewer check, on the maintainer's request that ported commits be traceable from the changelog. Only the subject reaches `CHANGELOG.md`, so that is the only place the reference can go. Upstream's own first line was the request as originally put and is deliberately not what shipped: their `Slider` is this fork's `Range`, and §1 makes that rename mandatory, so copying their wording would name a component this library does not have — the reference points at the commit and the sentence stays about ours. Enforced by `assert-commit-parses.mjs`, which keys on a new entry appearing in `processed` rather than on the ledger being edited, so the reconciliation commits §6 step 4 requires are unaffected — verified against #467, which passes, and against #466 and #464, which are real ports and are flagged. The same pass extended that guard to reject a type with no `changelog-sections` entry (#437): a breaking commit of an unconfigured type keeps its raw lowercase type as the group title and sorts above every real section, reproduced by running the writer release-please uses. Both checks read `release-please-config.json` and the ledger rather than restating either. Last reviewed: 2026-08-23.
 - 2026-08-23 — fix of #191 (PR pending): added the §2 rule **a focus outline is coloured by the focus token**, and took two design-agnostic fixes upstream had shipped alongside — `a:focus-visible { outline-offset: 0 }` in `index.css`, and `overflow: hidden` on every frame of the accordion and collapsible height animations. The issue read as an inconsistency, four colours doing one job across 46 theme files, and the maintainer scoped it to colour only: form stays per component, `ring-*` on inputs untouched. Measuring the four turned it into an accessibility fix. `outline-primary` is not a token at all — it resolves to `--color-primary`, a legacy Bitrix cyan at 1.99:1 against white — and `--ui-color-accent-soft-element-blue` is a dark blue in every context including the dark ones, 2.22:1 against `#262626`; WCAG 2.2 SC 1.4.11 asks 3:1, and seven of the nine outline-coloured sites failed it in at least one theme. `--ui-color-design-outline-focused-stroke` is the design system's own name for this and the only one of the four defined in all four contexts: 4.21:1 light, 4.24:1 dark. Two things were deliberately left: the `isAction` link's red focus, where the colour matches the hover state and the real defect is the token having no dark value (#473), and the fifteen `--b24ui-border-color` focus rings on inputs, where the ring is the field's border rather than a focus accent. A dead `hover:text(` — missing its dash, so Tailwind generated nothing — was removed from `link.ts` on the way past. Last reviewed: 2026-08-23.
+- 2026-08-24 — added the §7 rule **a test that asserts nothing is a diagnosis before it is a repair**, on the maintainer's instruction that ported components be checked against upstream rather than patched locally. #454 lists fourteen specs whose fixture never reaches the branch they claim to cover, and treating them uniformly as test bugs is what the rule prevents: the same symptom means a wrong fixture on our own components, a recorded divergence on ported ones, and a lost port when nothing records it — and only the third is worth finding. `Empty`'s `with avatar` case is the worked example. Upstream does carry `avatar?: AvatarProps`, so the case looked like a dropped prop; it is not, because the ledger entry for `86cd25c5` says so in as many words, and the difference between those two readings is one `git show` against the cursor. Measuring the corpus first was also worth it and changed the plan: 916 of 4361 snapshot entries — 21% — were byte-identical to a sibling, against the fourteen the issue names, so the fourteen are a hand-picked sample rather than the set. Comparing at the cursor rather than at upstream's HEAD is written into the rule because the two happened to be the same commit on the day it was written (`aa5f4af0`), which is exactly when the distinction is easiest to lose. Last reviewed: 2026-08-24.

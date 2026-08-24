@@ -497,12 +497,38 @@ const fullDashArray = computed((): string => {
   const fullDashArray = 283
 
   const calculateTimeFraction = (): number => {
-    if (Number(props.seconds) < 0) {
+    const total = Number(props.seconds)
+
+    // A negative duration has no meaning. The ring reads as full, which is
+    // what it did before this guard existed. The guard is load-bearing, not
+    // cosmetic: `totalSeconds` floors, so without it the fraction comes out as
+    // `Math.floor(total) / total`, which only lands on 1 when `total` is a
+    // whole number. `seconds="-0.5"` rendered an empty ring and `seconds="-0.2"`
+    // rendered `stroke-dasharray="-4245 283"` — fifteen negative circumferences.
+    if (total < 0) {
       return 1
     }
 
-    const rawTimeFraction = totalSeconds.value / Number(props.seconds)
-    return rawTimeFraction - (1 / Number(props.seconds)) * (1 - rawTimeFraction)
+    // Zero and NaN both divide into nothing. Zero is not an edge case here —
+    // it is the **default** of `seconds`, so `<B24Countdown use-circle />`
+    // computed `0 / 0` and rendered `stroke-dasharray="NaN 283"`, which is not
+    // a valid SVG value. NaN arrives the other way: `seconds` is typed
+    // `number | string`, so any non-numeric string lands here too. Nothing to
+    // count down means an empty ring (#454).
+    if (!Number.isFinite(total) || total === 0) {
+      return 0
+    }
+
+    const rawTimeFraction = totalSeconds.value / total
+
+    // The correction term keeps the ring in step with the ticking digits: it
+    // spends the last tick's worth of arc during that tick rather than after
+    // it. At the end of the countdown it overshoots by exactly that much —
+    // `totalSeconds` reaches 0 and the expression yields `-1 / total`, which
+    // rendered as `stroke-dasharray="-28 283"`. A dash length may not be
+    // negative, so clamp to the arc the ring can actually draw (#454).
+    const timeFraction = rawTimeFraction - (1 / total) * (1 - rawTimeFraction)
+    return Math.min(Math.max(timeFraction, 0), 1)
   }
 
   return [
