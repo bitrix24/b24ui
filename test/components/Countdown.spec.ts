@@ -392,26 +392,73 @@ describe('Countdown', () => {
      * been recording as expected output. The string cases reach the same place
      * by the other route, since `seconds` is typed `number | string`.
      *
-     * There is deliberately no negative case. `seconds: -1` returns `283 283`
-     * whether the `total < 0` guard runs or not — the formula reaches 1 on its
-     * own for every input reachable here, confirmed by deleting the guard and
-     * watching nothing fail — so a case for it would pass against a component
-     * without it, which is the exact shape of test this issue is about. The
-     * guard stays as a statement of intent; it is currently decorative, and
-     * that is worth knowing rather than papering over.
+     * The negative cases are here because the `total < 0` guard is
+     * load-bearing, which an earlier revision of this file got wrong by
+     * checking a single value. `-1` reaches 1 with or without the guard, and
+     * so does every other whole number — `totalSeconds` floors, so the
+     * fraction is `Math.floor(total) / total`. Fractions are where it comes
+     * apart: without the guard `-0.5` renders an empty ring and `-0.2` renders
+     * `-4245 283`. Deleting the guard must fail this test, which is why the
+     * cases below are fractional.
      */
     it.each([
       ['the default of 0', 0, '0 283'],
       ['a non-numeric string', 'soon', '0 283'],
       ['an empty string', '', '0 283'],
-      ['a numeric string', '100', '283 283']
+      ['a numeric string', '100', '283 283'],
+      ['a negative fraction of a second', -0.5, '283 283'],
+      ['a negative fifth of a second', -0.2, '283 283']
     ])('renders a valid dash array for %s', async (_name, seconds, expected) => {
       const wrapper = await mountSuspended(Countdown, {
         props: { seconds, useCircle: true, needStartImmediately: false }
       })
       const vm = wrapper.vm as any
       expect(vm.fullDashArray).toBe(expected)
-      expect(vm.fullDashArray, 'an SVG length list must never contain NaN').not.toContain('NaN')
+      expectValidDashArray(vm.fullDashArray)
+    })
+
+    /**
+     * The other half of the same bug, and the one that fires on the happy
+     * path. The formula subtracts a tick's worth of arc so the ring keeps step
+     * with the digits, which means it overshoots by exactly that much at zero:
+     * `totalSeconds` lands on 0, the expression yields `-1 / total`, and the
+     * ring rendered `stroke-dasharray="-28 283"` on its final frame. Reached
+     * through `start()`/`stop()` because that is the same state the tick loop
+     * arrives at — `update()` clamps the remaining time with `Math.max(0, …)`
+     * and `stop()` zeroes it outright.
+     */
+    it('never renders a negative dash length at the end of the countdown', async () => {
+      const wrapper = await mountSuspended(Countdown, {
+        props: { seconds: 10, useCircle: true, needStartImmediately: false }
+      })
+      const vm = wrapper.vm as any
+
+      // `start()` only has to flip `counting` so that `stop()` runs; the
+      // animation frame it would otherwise schedule outlives the test.
+      const requestAnimationFrameSpy = vi.spyOn(window, 'requestAnimationFrame').mockImplementation(() => 1)
+      vm.start()
+      vm.stop()
+      requestAnimationFrameSpy.mockRestore()
+      await nextTick()
+
+      expect(vm.totalSeconds).toBe(0)
+      expect(vm.fullDashArray).toBe('0 283')
+      expectValidDashArray(vm.fullDashArray)
     })
   })
 })
+
+/**
+ * `stroke-dasharray` takes a list of SVG lengths. Negative values are invalid
+ * and NaN is not a number at all; either one makes the browser drop the
+ * attribute, so the ring silently reverts to a full circle. Asserting the
+ * exact string is the real check — this only makes the failure message say
+ * what is wrong with it.
+ */
+function expectValidDashArray(value: string): void {
+  expect(value, 'an SVG length list must never contain NaN').not.toContain('NaN')
+
+  for (const length of value.split(' ')) {
+    expect(Number(length), `an SVG length must not be negative: '${value}'`).toBeGreaterThanOrEqual(0)
+  }
+}
