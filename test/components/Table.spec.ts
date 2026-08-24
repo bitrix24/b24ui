@@ -10,6 +10,7 @@ import type { TableColumn, TableRow } from '../../src/runtime/components/Table.v
 import theme from '#build/b24ui/table'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
+import SearchIcon from '@bitrix24/b24icons-vue/main/Search2Icon'
 
 describe('Table', () => {
   const loadingColors = Object.keys(theme.variants.loadingColor) as any
@@ -156,7 +157,10 @@ describe('Table', () => {
         return h(B24Button, {
           color: 'air-primary-copilot',
           label: 'Email',
-          icon: isSorted ? (isSorted === 'asc' ? SignIcon : Cross30Icon) : SignIcon,
+          // Three distinct icons for three states. The fixture used to give
+          // `asc` and unsorted the same one, so even a sorted case could only
+          // ever have distinguished `desc` (#454).
+          icon: isSorted ? (isSorted === 'asc' ? Cross30Icon : SearchIcon) : SignIcon,
           class: '-mx-2.5',
           onClick: () => column.toggleSorting(column.getIsSorted() === 'asc')
         })
@@ -218,6 +222,14 @@ describe('Table', () => {
         }]
 
         return h<any>(B24DropdownMenu, {
+          // `open` and `portal: false` so the menu renders inline and its items
+          // reach the snapshot. Without them every label in `items` above
+          // appeared zero times in the file — the whole array was dead (#454),
+          // which is how a column definition can look covered and prove
+          // nothing. This mirrors what DropdownMenu.spec.ts does for the same
+          // reason.
+          open: true,
+          portal: false,
           content: {
             align: 'end'
           },
@@ -246,18 +258,34 @@ describe('Table', () => {
     ...loadingAnimations.map((loadingAnimation: string) => [`with loading animation ${loadingAnimation}`, { props: { ...props, loading: true, loadingAnimation } }]),
     ['with meta prop', { props: { ...props, meta: { class: { tr: 'custom-row-class' }, style: { tr: { backgroundColor: 'lightgray' } } } } }],
     ['with meta field on columns', { props: { ...props, columns: columns.map(c => ({ ...c, meta: { class: { th: 'custom-heading-class', td: 'custom-cell-class' }, style: { th: { backgroundColor: 'black' }, td: { backgroundColor: 'lightgray' } } } })) } }],
+    // `sorting` is a v-model too. Before these two, `column.getIsSorted()`
+    // returned false in all 35 entries, so both branches of every sortable
+    // header were unreachable and `aria-sort` appeared zero times in the file
+    // (#454).
+    ['with sorting asc', { props: { ...props, columns, sorting: [{ id: 'email', desc: false }] } }],
+    ['with sorting desc', { props: { ...props, columns, sorting: [{ id: 'email', desc: true }] } }],
     ['with virtualize', { props: { ...props, virtualize: true } }],
     ['with virtualize and sticky', { props: { ...props, columns, virtualize: true, sticky: true } }],
     ['with virtualize external scroll element', { props: { ...props, virtualize: { getScrollElement: () => document.body, scrollMargin: 20 } } }],
     ['with row pinning', { props: { ...props, rowPinning: { top: ['2'], bottom: ['3'] } } }],
-    ['with row pinning and virtualization', { props: { ...props, virtualize: true, rowPinning: { top: ['2'], bottom: ['3'] } } }],
+    // No combined pinning-and-virtualization case. Virtualization under
+    // happy-dom renders a single row — the virtualiser sizes its window from
+    // scroll geometry the environment does not compute — so there is nothing
+    // for `rowPinning` to pin and the case was byte-identical to
+    // `with virtualize` (#454). `with row pinning` on its own does assert
+    // something and stays. Same shape as ChatMessages' viewport slot: not a
+    // fixture to fix, a branch this environment cannot reach.
     ['with as', { props: { ...props, as: 'section' } }],
     ['with class', { props: { ...props, class: 'absolute' } }],
     ['with b24ui', { props: { ...props, b24ui: { base: 'table-auto' } } }],
     // Slots
     ['with header slot', { props, slots: { 'id-header': () => 'ID Header slot' } }],
     ['with cell slot', { props, slots: { 'id-cell': () => 'ID Cell slot' } }],
-    ['with expanded slot', { props, slots: { expanded: () => 'Expanded slot' } }],
+    // `expanded` is a v-model, so the state can be handed in directly. The
+    // slot renders inside `v-if="row.getIsExpanded()"`, so without it the case
+    // was byte-identical to `with data` (#454). Upstream's spec has the same
+    // omission.
+    ['with expanded slot', { props: { ...props, expanded: { 0: true } }, slots: { expanded: () => 'Expanded slot' } }],
     ['with empty slot', { props: { columns }, slots: { empty: () => 'Empty slot' } }],
     ['with loading slot', { props: { columns, loading: true }, slots: { loading: () => 'Loading slot' } }],
     ['with caption slot', { props, slots: { caption: () => 'Caption slot' } }],

@@ -476,9 +476,7 @@
     "file": "ChatMessages.spec.ts.snap",
     "names": [
       "ChatMessages > renders with b24ui correctly 1",
-      "ChatMessages > renders with files slot correctly 1",
-      "ChatMessages > renders with messages correctly 1",
-      "ChatMessages > renders with viewport slot correctly 1"
+      "ChatMessages > renders with messages correctly 1"
     ]
   },
   {
@@ -1526,7 +1524,6 @@
     "names": [
       "NavigationMenu > renders with b24ui correctly 1",
       "NavigationMenu > renders with content orientation horizontal correctly 1",
-      "NavigationMenu > renders with custom slot correctly 1",
       "NavigationMenu > renders with def correctly 1",
       "NavigationMenu > renders with items correctly 1"
     ]
@@ -2054,35 +2051,6 @@
   {
     "file": "Table-vue.spec.ts.snap",
     "names": [
-      "Table > renders with data correctly 1",
-      "Table > renders with expanded slot correctly 1"
-    ]
-  },
-  {
-    "file": "Table-vue.spec.ts.snap",
-    "names": [
-      "Table > renders with loading animation loading correctly 1",
-      "Table > renders with loading color air-primary correctly 1",
-      "Table > renders with loading correctly 1"
-    ]
-  },
-  {
-    "file": "Table-vue.spec.ts.snap",
-    "names": [
-      "Table > renders with row pinning and virtualization correctly 1",
-      "Table > renders with virtualize correctly 1"
-    ]
-  },
-  {
-    "file": "Table.spec.ts.snap",
-    "names": [
-      "Table > renders with data correctly 1",
-      "Table > renders with expanded slot correctly 1"
-    ]
-  },
-  {
-    "file": "Table.spec.ts.snap",
-    "names": [
       "Table > renders with loading animation loading correctly 1",
       "Table > renders with loading color air-primary correctly 1",
       "Table > renders with loading correctly 1"
@@ -2091,8 +2059,9 @@
   {
     "file": "Table.spec.ts.snap",
     "names": [
-      "Table > renders with row pinning and virtualization correctly 1",
-      "Table > renders with virtualize correctly 1"
+      "Table > renders with loading animation loading correctly 1",
+      "Table > renders with loading color air-primary correctly 1",
+      "Table > renders with loading correctly 1"
     ]
   },
   {
