@@ -291,6 +291,47 @@ exports[`Toast > renders with closeIcon correctly 1`] = `
 <!--teleport end-->"
 `;
 
+exports[`Toast > renders with color and avatar correctly 1`] = `
+"<!--v-if-->
+<!--teleport start-->
+<!--teleport end-->
+<!--teleport start-->
+
+
+<div role="region" aria-label="Notifications (F8)" tabindex="-1"><span aria-hidden="true" tabindex="0" style="position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); white-space: nowrap; word-wrap: normal; top: -1px; left: -1px;"></span>
+  <ol tabindex="-1" data-expanded="true" data-slot="viewport" class="fixed flex flex-col w-[calc(100%-2rem)] sm:w-[384px] z-[100] data-[expanded=true]:h-(--height) focus:outline-none mr-(--scrollbar-width) right-4 top-4" style="--scale-factor: 0.05; --translate-factor: 1px; --gap: 16px; --front-height: 0px; --height: 0px;">
+    <li data-reka-collection-item="" tabindex="0" data-orientation="vertical" data-slot="root" class="dark relative group overflow-hidden rounded-[8px] p-4 flex gap-4 focus-visible:outline-(length:--ui-design-outline-stroke-weight) focus-visible:outline-offset-2 focus-visible:outline-(--ui-color-design-outline-content-divider) font-[family-name:var(--ui-font-family-primary)] bg-(--ui-color-base-black-fixed)/80 text-(--ui-color-design-plain-na-focused-content) text-(length:--ui-font-size-sm) font-(--ui-font-weight-normal) style-filled-success items-center" style="--height: 0; user-select: none; touch-action: none;" data-state="open" data-swipe-direction="right"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--b24ui-background) ring-(--b24ui-border-color) style-filled-success ring-2 size-12 text-(length:--ui-font-size-2xl)/(--ui-font-line-height-reset) shrink-0"><img src="https://github.com/bitrix24.png" width="48" height="48" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span>
+      <div data-slot="wrapper" class="w-0 flex-1 flex flex-col">
+        <div data-slot="title" class="font-(--ui-font-weight-medium)">Toast</div>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+      <div data-slot="actions" class="flex gap-1.5 shrink-0 items-center">
+        <!--v-if--><button type="button" data-reka-toast-announce-exclude="" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) p-0 absolute top-2 right-2">
+          <!--v-if-->
+          <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
+              <path fill="currentColor" d="M8.46 7.54a.65.65 0 0 0-.92.92L11.08 12l-3.54 3.54a.65.65 0 1 0 .92.92L12 12.918l3.54 3.54a.65.65 0 1 0 .919-.92L12.919 12l3.54-3.54a.65.65 0 0 0-.92-.919L12 11.08z"></path>
+            </svg>
+            <!--v-if-->
+            <!--v-if-->
+          </div>
+        </button>
+      </div>
+      <div data-orientation="horizontal" data-slot="progress" class="gap-2 style-filled-success w-full flex flex-col absolute inset-x-0 bottom-0">
+        <!--v-if-->
+        <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="100" aria-label="100%" role="progressbar" data-state="complete" data-value="100" data-max="100" data-slot="base" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[4px]" style="transform: translateZ(0);">
+          <div data-state="complete" data-value="100" data-max="100" data-slot="indicator" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]" style="transform: translateX(-0%);"></div>
+        </div>
+        <!--v-if-->
+      </div>
+    </li>
+  </ol><span aria-hidden="true" tabindex="0" style="position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); white-space: nowrap; word-wrap: normal; top: -1px; left: -1px;"></span>
+</div>
+
+
+<!--teleport end-->"
+`;
+
 exports[`Toast > renders with color success correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
