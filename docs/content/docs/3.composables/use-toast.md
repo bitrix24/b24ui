@@ -24,7 +24,7 @@ name: 'use-toast-example'
 ::
 
 - The `useToast` composable uses Nuxt's `useState` to manage the toast state, ensuring reactivity across your application.
-- A maximum of 5 toasts are displayed at a time. When adding a new toast that would exceed this limit, the oldest toast is automatically removed.
+- A maximum of 5 toasts are displayed at a time by default. When adding a new toast that would exceed this limit, the oldest toast is automatically removed. Change it with the `toaster.max` prop on the [`App`](/docs/components/app#props) component.
 - When removing a toast, there's a 200ms delay before it's actually removed from the state, allowing for exit animations.
 
 ::warning
@@ -58,18 +58,18 @@ Adds a new toast notification.
 
       ::field-group
         ::field{name="id" type="string | number"}
-        A unique identifier for the toast. If not provided, a timestamp will be used.
+        A unique identifier for the toast. If not provided, a unique id is generated. Reusing an existing id merges into that toast instead of adding a new one.
         ::
       
         ::field{name="open" type="boolean"}
         Whether the toast is open. Defaults to `true`.
         ::
   
-        ::field{name="title" type="string"}
+        ::field{name="title" type="string | VNode | (() => VNode)"}
         The title displayed in the toast.
         ::
   
-        ::field{name="description" type="string"}
+        ::field{name="description" type="string | VNode | (() => VNode)"}
         The description displayed in the toast.
         ::
   
@@ -82,14 +82,14 @@ Adds a new toast notification.
         ::
   
         ::field{name="color" type="string"}
-        The color of the toast.
+        The color of the toast. Defaults to `air-secondary`.
         ::
   
         ::field{name="orientation" type="'horizontal' | 'vertical'"}
         The orientation between the content and the actions. Defaults to `vertical`.
         ::
   
-        ::field{name="close" type="boolean | ButtonProps"}
+        ::field{name="close" type="boolean | Omit<ButtonProps, LinkPropsKeys>"}
         Customize or hide the close button (with `false` value). Defaults to `true`.
         ::
   
@@ -101,12 +101,12 @@ Adds a new toast notification.
         The actions displayed in the toast. See [Button](/docs/components/button/#props).
         ::
   
-        ::field{name="progress" type="boolean | ProgressProps"}
+        ::field{name="progress" type="boolean | Pick<ProgressProps, 'color' | 'b24ui'>"}
         Customize or hide the progress bar (with `false` value). Defaults to `true`.
         ::
   
         ::field{name="duration" type="number"}
-        The duration in milliseconds before the toast auto-closes. Can also be set globally on the [`App`](/docs/components/app/) component.
+        The duration in milliseconds before the toast auto-closes. Defaults to `5000`. Set to `0` to keep the toast open until it's manually closed. Can also be set globally on the [`App`](/docs/components/app/) component.
         ::
   
         ::field{name="onClick" type="(toast: Toast) => void"}
@@ -115,6 +115,14 @@ Adds a new toast notification.
   
         ::field{name="onUpdateOpen" type="(open: boolean) => void"}
         A callback function invoked when the toast open state changes. Useful to perform an action when the toast closes (expired or dismissed).
+        ::
+
+        ::field{name="type" type="'foreground' | 'background'"}
+        How assistive technologies announce the toast. Use `background` for toasts that aren't the result of a direct user action.
+        ::
+
+        ::field{name="as" type="any"}
+        The element or component the toast renders as. Defaults to `li`.
         ::
       ::
     ::
@@ -139,7 +147,7 @@ function showToast() {
 
 ### update()
 
-`update(id: string | number, toast: Partial<Toast>): void`{lang="ts-type"}
+`update(id: string | number, toast: Omit<Partial<Toast>, 'id'>): void`{lang="ts-type"}
 
 Updates an existing toast notification.
 
@@ -150,8 +158,8 @@ Updates an existing toast notification.
   The unique identifier of the toast to update.
   ::
 
-  ::field{name="toast" type="Partial<Toast>" required}
-  A partial `Toast` object with the properties to update.
+  ::field{name="toast" type="Omit<Partial<Toast>, 'id'>" required}
+  A partial `Toast` object with the properties to update. The `id` cannot be changed, the toast is reopened, and `duration` is reset unless you pass it again. The `id` cannot be changed, the toast is reopened, and `duration` is reset unless you pass it again.
   ::
 ::
 

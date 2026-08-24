@@ -2,6 +2,10 @@
 title: Calendar
 description: A calendar tool for choosing individual dates, multiple dates, or date spans.
 category: element
+keywords:
+  - date picker
+  - datepicker
+  - schedule
 links:
   - label: GitHub
     iconName: GitHubIcon
