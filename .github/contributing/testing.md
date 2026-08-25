@@ -11,6 +11,85 @@ plain bash, runs in about a second, and CI runs it before anything else.
 pnpm run test:workflows
 ```
 
+A third covers the module itself — `test/module/` boots Nuxt with `loadNuxt` so
+the module's real `setup()` runs. It has its own config and its own invocation
+rather than being a third project in `vitest.config.ts`; the reason is measured
+and written down in `vitest.module.config.ts`.
+
+```bash
+pnpm run test:module
+```
+
+And a fourth, which is the only thing here that starts an application:
+
+```bash
+pnpm build && pnpm test:smoke
+```
+
+`test/smoke/run.mjs` builds a small Nuxt app and the Vue playground **against
+the built package**, serves both, loads them in Chromium and fails on anything
+the browser logs as an error. Everything else in this repository tests source;
+this is the step that would have caught #301, a client-only boot failure that
+shipped and left the unit suite green for five weeks.
+
+The `pnpm build` is not optional. `pnpm dev:prepare` leaves `dist/` as a jiti
+stub that re-exports `src/`, so a smoke run against it would boot the sources
+under a different name — the script detects that and refuses rather than
+passing quietly. It also needs a browser once:
+
+```bash
+pnpm exec playwright-core install chromium
+```
+
+CI runs that same command with `--with-deps`, which installs the system
+libraries Chromium needs through apt. Locally that is usually unnecessary and
+wants sudo, so it is left off here — add it if the browser fails to launch.
+
+**It is not part of `ci.yml`.** `.github/workflows/smoke.yml` runs it nightly
+and on `workflow_dispatch`, so a boot failure is found the morning after it
+lands rather than before it merges. That is a deliberate trade against putting
+a browser download and two application builds on every pull request. Dispatch
+it on your branch by hand if you touched a runtime plugin, the module's
+`setup()`, or a dependency that ends up in the client bundle.
+
+Two things it asserts that nothing else can:
+
+- **the `platform` plugin's SSR branch** — `useRequestHeader('user-agent')`
+  never runs under Vitest, because the Nuxt test environment is client-only.
+  The smoke run fetches the page with three user agents and checks the
+  `data-platform` / `data-version` attributes the Tailwind `bitrix-mobile:` and
+  `bitrix-desktop:` variants key on;
+- **that the page rendered anything at all** — a Vue app that throws in
+  `setup()` still answers 200 with an empty root, so `curl` cannot tell a
+  working app from a dead one and a browser can.
+
+## When a worker dies instead of failing
+
+```
+FATAL ERROR: Ineffective mark-compacts near heap limit
+Error: [vitest-pool]: Worker forks emitted error.
+Caused by: Error: Worker exited unexpectedly
+```
+
+Vitest cannot name the file in this path — the process is gone — so the failure
+reads as a property of the whole suite. It usually is not. Halve the heap
+first, before doing anything else:
+
+```bash
+NODE_OPTIONS=--max-old-space-size=1024 pnpm run test --project vue
+```
+
+If the same number of files passes with an eight-times-smaller heap, nothing is
+accumulating across files and **exactly one file** is responsible. Name it by
+diffing what reported against what was collected:
+
+```bash
+NODE_OPTIONS=--max-old-space-size=1024 npx vitest run --project vue --reporter=verbose
+```
+
+That is how #485 was found — a snapshot guard whose directory walk descended
+into `node_modules` — after an afternoon spent believing it was a vitest leak.
+
 ## File Location
 
 Tests live in `test/components/` matching the component name (e.g., `Button.spec.ts`).
@@ -196,8 +275,14 @@ When component changes require snapshot updates:
 ## Running Tests
 
 ```bash
-# Run all tests
+# Run all component tests (the `nuxt` and `vue` projects)
 pnpm run test
+
+# The module's own setup(), in its own process
+pnpm run test:module
+
+# Boot the built package in a browser
+pnpm build && pnpm run test:smoke
 
 # Run specific test file
 pnpm run test Button

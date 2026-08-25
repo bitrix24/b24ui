@@ -117,5 +117,14 @@ jobs:
       - name: Test
         run: pnpm run test run
 
+      # A separate invocation, not a third project in the run above. These
+      # specs boot Nuxt with `loadNuxt`, and the component suite already sits
+      # close to the fork heap limit — see the note in vitest.module.config.ts.
+      - name: Test the module
+        run: pnpm test:module
+
+      # Everything in this job tests source: `Test` mounts components out of
+      # `src/` and `Build` only proves the bundler is happy. Nothing here starts
+      # an application — that is smoke.yml, on a schedule (#329).
       - name: Build
         run: pnpm build

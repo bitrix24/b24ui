@@ -1,7 +1,7 @@
 import { join } from 'node:path'
 import { describe, it, expect, beforeAll } from 'vitest'
 import { glob } from 'tinyglobby'
-import { nuxtInclude, vueInclude, vueExclude } from '../vitest-include'
+import { moduleInclude, nuxtInclude, vueInclude, vueExclude } from '../vitest-include'
 
 /**
  * A spec that no project collects cannot fail, so nothing about the suite ever
@@ -33,10 +33,11 @@ describe('vitest include patterns', () => {
 
   it('collect every spec file in the tree', async () => {
     const all = await listSpecs()
+    const module = await glob(moduleInclude, { cwd: testDir, ignore: ['**/node_modules/**'] })
     const nuxt = await glob(nuxtInclude, { cwd: testDir, ignore: ['**/node_modules/**'] })
     const vue = await glob(vueInclude, { cwd: testDir, ignore: ['**/node_modules/**', ...vueExclude] })
 
-    const collected = new Set([...nuxt, ...vue])
+    const collected = new Set([...module, ...nuxt, ...vue])
     const orphans = all.filter(spec => !collected.has(spec)).sort()
 
     // Named rather than counted: the failure message has to say which file is
@@ -61,6 +62,27 @@ describe('vitest include patterns', () => {
     const vueOnly = [...vue].filter(spec => !nuxt.has(spec)).sort()
 
     expect({ nuxtOnly, vueOnly }).toEqual({ nuxtOnly: [], vueOnly: [] })
+  })
+
+  it('keep the `module` suite to itself', async () => {
+    const module = new Set(await glob(moduleInclude, { cwd: testDir, ignore: ['**/node_modules/**'] }))
+    const others = new Set([
+      ...await glob(nuxtInclude, { cwd: testDir, ignore: ['**/node_modules/**'] }),
+      ...await glob(vueInclude, { cwd: testDir, ignore: ['**/node_modules/**', ...vueExclude] })
+    ])
+
+    // Each `module/` spec boots a Nuxt instance with `loadNuxt`, which takes
+    // seconds, cannot happen inside a Nuxt or happy-dom environment, and is
+    // kept out of the shared fork pool on purpose (see
+    // `vitest.module.config.ts`). A pattern that let one of them into another
+    // project would not fail — it would run there and be slow, or hang — so
+    // the separation is asserted rather than left to the patterns looking
+    // right.
+    expect([...module].filter(spec => others.has(spec)).sort()).toEqual([])
+
+    // And the mirror: a `module/` spec that no project runs. `moduleInclude`
+    // is the only pattern covering that directory, so a typo in it is silent.
+    expect([...module].sort()).toEqual((await listSpecs()).filter(spec => spec.startsWith('module/')).sort())
   })
 
   it('do not leave snapshots behind for specs that no longer exist', async () => {

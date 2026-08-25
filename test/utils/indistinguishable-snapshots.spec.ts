@@ -1,5 +1,6 @@
-import { readFileSync } from 'node:fs'
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
+import { tmpdir } from 'node:os'
 import { describe, it, expect } from 'vitest'
 // Shared with `scripts/regen-indistinguishable-baseline.mjs` — one
 // implementation, so the guard and the regenerator can never disagree.
@@ -134,6 +135,28 @@ describe('the guard itself', () => {
 
     expect(countEntries(source)).toBe(3)
     expect(groupsByBody(source).size).toBe(2)
+  })
+
+  it('does not descend into an installed dependency tree', () => {
+    // `{ recursive: true }` has no ignore option and materialises every path
+    // it finds. `test/` holds two `node_modules` trees, and enumerating them
+    // took the walk from milliseconds to minutes and then killed the vitest
+    // worker outright — reported as `Worker exited unexpectedly`, with no file
+    // name, which is a full afternoon to attribute. Pruning is what fixed it;
+    // this is what keeps it pruned.
+    const root = mkdtempSync(join(tmpdir(), 'b24ui-snapshot-walk-'))
+    try {
+      mkdirSync(join(root, 'kept'))
+      writeFileSync(join(root, 'kept/Real.spec.ts.snap'), '')
+      mkdirSync(join(root, 'node_modules/pkg/__snapshots__'), { recursive: true })
+      writeFileSync(join(root, 'node_modules/pkg/__snapshots__/Vendored.spec.ts.snap'), '')
+      mkdirSync(join(root, '.output/server'), { recursive: true })
+      writeFileSync(join(root, '.output/server/Built.spec.ts.snap'), '')
+
+      expect(snapshotFiles(root)).toEqual(['kept/Real.spec.ts.snap'])
+    } finally {
+      rmSync(root, { recursive: true, force: true })
+    }
   })
 
   it('finds snapshots in nested directories', () => {

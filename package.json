@@ -142,7 +142,9 @@
     "test:vue": "vitest --project vue",
     "test:nuxt": "vitest --project nuxt",
     "bench": "vitest bench --project vue",
-    "test:workflows": "test/workflows/run.sh"
+    "test:workflows": "test/workflows/run.sh",
+    "test:module": "vitest run --config vitest.module.config.ts",
+    "test:smoke": "node test/smoke/run.mjs"
   },
   "dependencies": {
     "@floating-ui/dom": "^1.8.0",
@@ -224,6 +226,7 @@
     "eslint": "^10.9.0",
     "happy-dom": "^20.11.6",
     "nuxt": "^4.5.2",
+    "playwright-core": "1.56.1",
     "unbuild": "^3.6.1",
     "vitest": "^4.1.11",
     "vitest-axe": "^0.1.0",
