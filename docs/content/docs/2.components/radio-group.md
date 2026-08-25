@@ -2,6 +2,9 @@
 title: RadioGroup
 description: A collection of radio buttons to pick a single choice from several options.
 category: form
+keywords:
+  - radio buttons
+  - single choice
 links:
   - label: GitHub
     iconName: GitHubIcon

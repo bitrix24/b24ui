@@ -2,6 +2,9 @@
 title: Select
 description: A selection field to pick from various options.
 category: form
+keywords:
+  - dropdown
+  - picker
 links:
   - label: GitHub
     iconName: GitHubIcon
