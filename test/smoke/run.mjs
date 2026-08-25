@@ -29,7 +29,7 @@ import { spawn } from 'node:child_process'
 import { createServer } from 'node:http'
 import { createServer as createSocketServer } from 'node:net'
 import { createReadStream, existsSync, readFileSync, statSync } from 'node:fs'
-import { extname, join, relative, isAbsolute } from 'node:path'
+import { extname, join, relative, isAbsolute, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { chromium } from 'playwright-core'
 
@@ -91,7 +91,11 @@ async function waitForServer(url, child, timeoutMs = 60_000) {
       throw new Error(`the server exited before answering (${exit}) — its output is above`)
     }
     try {
-      await fetch(url)
+      // The body is never read, so it has to be discarded explicitly —
+      // undici holds the socket open until it is, and this loop can run
+      // hundreds of times before the server answers.
+      const response = await fetch(url)
+      await response.body?.cancel()
       return
     } catch {
       await new Promise(resolve => setTimeout(resolve, 250))
@@ -109,10 +113,16 @@ const MIME = {
 /**
  * Resolves a request path inside `dir`, or returns `null` if it points out.
  *
- * `startsWith(dir)` is the tempting version and it is wrong: it has no
- * separator boundary, so a sibling directory whose name merely begins with the
- * root's — `dist-something` next to `dist` — passes it. `relative()` answers
- * the question that was actually being asked.
+ * Two versions of this were wrong before this one, both for the same reason.
+ * `file.startsWith(dir)` has no separator boundary, so a sibling directory
+ * whose name merely begins with the root's — `dist-something` next to `dist` —
+ * passes it. Its replacement, `relative(...).startsWith('..')`, has no
+ * separator boundary either, in the other direction: it rejects a perfectly
+ * ordinary file called `..hidden.js`, which then gets served as `index.html`
+ * and looks like a routing bug.
+ *
+ * The question is whether the relative path contains a `..` **segment**, so
+ * that is what is asked.
  */
 function resolveWithin(dir, url) {
   let path
@@ -126,7 +136,8 @@ function resolveWithin(dir, url) {
 
   const file = join(dir, path)
   const rel = relative(dir, file)
-  return rel === '' || (!rel.startsWith('..') && !isAbsolute(rel)) ? file : null
+  const inside = rel === '' || (!rel.split(sep).includes('..') && !isAbsolute(rel))
+  return inside ? file : null
 }
 
 /**
@@ -163,7 +174,7 @@ async function serveStatic(dir) {
  * Vue's own error handler reports — a failing `setup()` reaches the second and
  * not always the first, which is how a broken app can look fine from Node.
  */
-async function boot(browser, url) {
+async function boot(browser, url, probe) {
   const page = await browser.newPage()
   // A `Set`: Vue re-renders a broken component once per parent, so one defect
   // arrives as twenty identical lines and buries everything else.
@@ -171,7 +182,19 @@ async function boot(browser, url) {
   page.on('console', message => message.type() === 'error' && problems.add(`console.error: ${message.text().split('\n')[0]}`))
   page.on('pageerror', error => problems.add(`pageerror: ${error.message.split('\n')[0]}`))
 
-  await page.goto(url, { waitUntil: 'networkidle', timeout: 60_000 })
+  try {
+    await page.goto(url, { waitUntil: 'networkidle', timeout: 60_000 })
+
+    // `networkidle` says the network went quiet, not that the app finished.
+    // Anything logged from `onMounted`, a deferred plugin or a microtask after
+    // the last response lands after it — without a settle window this check
+    // passes or fails by how fast the runner is.
+    await page.waitForTimeout(SETTLE_MS)
+  } catch (error) {
+    await page.close()
+    throw error
+  }
+
   // Playwright's `Locator#innerText()`, not the DOM property the lint rule is
   // about — and the right one here: `textContent` would also return the text
   // of `<script>` and `<template>` nodes, so a page that rendered nothing
@@ -179,10 +202,23 @@ async function boot(browser, url) {
   // eslint-disable-next-line unicorn/prefer-dom-node-text-content
   const text = (await page.locator('body').innerText()).trim()
   const links = await page.locator('a[href]').count()
-  await page.close()
 
-  return { problems: [...problems], text, links }
+  let probed
+  try {
+    probed = await probe?.(page)
+  } finally {
+    await page.close()
+  }
+
+  return { problems: [...problems], text, links, probed }
 }
+
+/**
+ * How long to keep listening after the network goes quiet. Long enough for a
+ * deferred plugin or an `onMounted` to throw, short enough that two page loads
+ * cost a second between them.
+ */
+const SETTLE_MS = 750
 
 /**
  * How many links the playground's navigation renders when the router works.
@@ -258,9 +294,20 @@ try {
 
   step('booting the built package in a browser')
 
-  const nuxtBoot = await boot(browser, fixtureUrl)
+  // The click is the hydration check. Everything else on this page is in the
+  // server-rendered HTML before any client code runs, so a hydration that hangs
+  // quietly — a promise that never settles, no exception anywhere — would pass
+  // the console and content checks and still ship an app nobody can use.
+  const nuxtBoot = await boot(browser, fixtureUrl, async (page) => {
+    await page.getByTestId('press').click()
+    // Playwright's locator method, not the DOM property the rule is about.
+    // eslint-disable-next-line unicorn/prefer-dom-node-text-content
+    return (await page.getByTestId('counter').innerText()).trim()
+  })
+
   check('the Nuxt app logs nothing to the console', nuxtBoot.problems.length === 0, nuxtBoot.problems.join('\n        '))
   check('the Nuxt app rendered its content', nuxtBoot.text.includes('The package booted.'), `body text was: ${JSON.stringify(nuxtBoot.text.slice(0, 200))}`)
+  check('the Nuxt app hydrated — a click moves the counter', nuxtBoot.probed === '1', `the badge read ${JSON.stringify(nuxtBoot.probed)} after one click`)
 
   staticServer = await serveStatic(spa)
   const spaBoot = await boot(browser, staticServer.url)
@@ -276,11 +323,17 @@ try {
   // was meant.
   check(`the Vue SPA rendered its navigation (${spaBoot.links} links)`, spaBoot.links >= SPA_MIN_LINKS, `expected at least ${SPA_MIN_LINKS} rendered <a href>; body text was: ${JSON.stringify(spaBoot.text.slice(0, 200))}`)
 } finally {
-  // Each one independently, oldest resource last: awaiting `browser.close()`
-  // first and letting it reject would strand the Nitro server on its port.
-  await browser?.close().catch(() => {})
-  await staticServer?.close()
-  server?.kill()
+  // Each one independently and each one guarded. An earlier version awaited
+  // `browser.close()` first and let a rejection there skip the rest, which
+  // strands the Nitro server on its port and hangs the job — the comment said
+  // the steps were independent while only the first one was.
+  for (const stop of [() => browser?.close(), () => staticServer?.close(), () => server?.kill()]) {
+    try {
+      await stop()
+    } catch (error) {
+      console.error(`  (cleanup) ${error.message}`)
+    }
+  }
 }
 
 console.log()

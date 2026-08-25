@@ -9,21 +9,22 @@ import { moduleInclude } from './test/vitest-include'
  * itself a Nuxt instance and the `vue` one is happy-dom. Plain Node is what it
  * needs.
  *
- * A separate config rather than a third project in the same run, for a reason
- * measured rather than assumed. The component suite already sits close to the
- * fork heap limit — running the `vue` project on its own is enough to OOM a
- * worker on a 4-core machine, on `main`, with none of this branch's files in
- * it — and CI has been passing on the near side of that edge. Adding a Nuxt
- * instance to the same pool is not a risk worth taking for three specs, and
- * a fresh process costs about four seconds.
+ * A separate config rather than a third project in the same run. The reason
+ * given when this was written turned out to be wrong — the component suite
+ * looked like it was leaking memory, and that was #485, a directory walk in a
+ * spec of ours, fixed on this branch. The split survives its own bad argument:
+ * a `loadNuxt` instance has nothing to share with a pool of component files,
+ * three specs do not need one, and a fresh process costs about four seconds.
  *
  *     pnpm test:module
- *
- * The underlying growth is a real defect and is not this file's to fix; it is
- * filed separately.
  */
 export default defineConfig({
   test: {
+    // `vitest.config.ts` pins `process.env.TZ` before its config object,
+    // because the date specs there fail west of Greenwich without it. Not
+    // carried over deliberately: nothing here reads a clock. A spec added to
+    // `test/module/` that does will need the pin, and will not be told so by
+    // anything but this comment.
     globals: true,
     silent: true,
     name: 'module',

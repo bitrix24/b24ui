@@ -35,6 +35,10 @@ concurrency:
 jobs:
   smoke:
     runs-on: ubuntu-latest
+    # Nobody is watching a nightly run. Two application builds and two page
+    # loads take about five minutes; anything past twenty is hung, and the
+    # GitHub default would let it sit for six hours before saying so.
+    timeout-minutes: 20
     env:
       pnpm_config_strict_dep_builds: false
       pnpm_config_verify_deps_before_run: false
