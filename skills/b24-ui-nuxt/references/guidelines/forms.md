@@ -51,33 +51,63 @@ function onSubmit(event: FormSubmitEvent<Schema>) {
 |---|---|
 | `name` | Links to schema field for validation errors |
 | `label` | Visible label text |
-| `description` | Help text below the input |
-| `hint` | Right-aligned hint text (e.g., "Optional") — **needs a `label`**, see below |
-| `help` | Help text below the control; hidden while an error is showing |
-| `error` | Error text below the control; `false` disables the block entirely |
+| `description` | Explanatory text under the label, above the control |
+| `hint` | Right-aligned hint next to the label — **needs a `label`**, see below |
+| `help` | Text under the control; hidden while an error is showing |
+| `error` | Error text under the control; `false` disables the block entirely |
 | `required` | Shows required indicator |
 | `size` | Inherits to child input |
 
 ## Rich labels
 
-`label`, `description` and `hint` each have a matching slot for when a string is
-not enough. The slot replaces the content inside the `<label>`, not the element
-itself, so the field's existing association is unchanged.
+All five of `label`, `description`, `hint`, `help` and `error` have a matching
+slot for when a string is not enough. `#label` replaces the content inside the
+`<label>` element; the other four replace the content of their own block.
 
 Anything in `#label` joins the control's accessible name — mark decorative
 content `aria-hidden="true"`, and keep links and buttons out of it, since a
-`<label>` toggles its control when activated.
+`<label>` toggles its control when activated. A link inside `#description` is
+fine: that block sits outside the `<label>`.
 
-`hint` — prop or slot — renders inside the label row, and that row is only
-drawn when there is a label. A `hint` on a field with no `label` renders
-nothing, silently.
+```vue
+<B24FormField label="Email" name="email">
+  <template #label="{ label }">
+    {{ label }}
+    <B24Badge label="Work" size="xs" aria-hidden="true" />
+  </template>
 
-`#error` and `#help` are the exception. The error block renders whenever an
-`#error` slot exists, with or without an error, and `help` is the `v-else` of
-that branch, so supplying `#error` hides `help` entirely. The aria wiring is
-computed from the props and does not follow: the control keeps
-`aria-invalid="false"` and, if `help` is set, an `aria-describedby` pointing at
-an element that is no longer rendered.
+  <B24Input placeholder="Enter your email" />
+</B24FormField>
+```
+
+Each slot receives the prop it replaces, so a wrapper decorates the value
+rather than restating it — which matters when the text comes from a schema or
+a translation.
+
+## Set the prop, use the slot for markup
+
+Every block renders from `props.x || !!slots.x`. `aria-describedby` does not:
+it is assembled from the **props alone**, in `useFormField`, and never looks at
+what was slotted. The two disagree in both directions.
+
+| what you pass | block on screen | named in `aria-describedby` |
+|---|---|---|
+| `description` prop | yes | yes |
+| `#description` slot, no prop | **yes** | **no** |
+| `hint` prop, no `label` | **no** | **yes** |
+
+So always pass the prop alongside the slot. Upstream `nuxt/ui` behaves the same
+way — the component and the composable are line-for-line identical at our sync
+cursor — and it is tracked in b24ui#497.
+
+`hint` needs one more thing: it renders inside the label row, and that row is
+only drawn when there is a label. A `hint` on a field with no `label` renders
+nothing at all, while still being named in `aria-describedby`.
+
+`#error` goes further still. The error block renders whenever an `#error` slot
+exists, with or without an error, and `help` is the `v-else-if` of that branch,
+so supplying `#error` hides `help` entirely — while the control keeps
+`aria-invalid="false"`.
 
 Bind `error` to the message — or to `false` when there is none — and let the
 slot supply markup only:
@@ -101,21 +131,6 @@ Inside a `B24Form` the error comes from the schema and is a string or
 `undefined` — and `undefined` is not `false`, so an `#error` slot still renders
 permanently there. On form-driven fields, use the `error` prop and style the
 block through `b24ui.error`.
-
-```vue
-<B24FormField label="Email" name="email">
-  <template #label="{ label }">
-    {{ label }}
-    <B24Badge label="Work" size="xs" aria-hidden="true" />
-  </template>
-
-  <B24Input placeholder="Enter your email" />
-</B24FormField>
-```
-
-The slot receives the prop it replaces, so a wrapper can decorate the value
-rather than restate it — which matters when the text comes from a schema or a
-translation.
 
 ## Field layout patterns
 

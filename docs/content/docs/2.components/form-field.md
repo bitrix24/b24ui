@@ -118,13 +118,15 @@ translation:
 </B24FormField>
 ```
 
-`hint` and `description` take a slot the same way. The `required` asterisk is
-drawn on the `<label>` element, so it survives a custom `#label` slot.
+`hint`, `description`, `help` and `error` take a slot the same way — and, like
+`#label` above, each wants its prop set alongside it. [Slots do not replace
+their props](#slots-do-not-replace-their-props) is why. The `required` asterisk
+is drawn on the `<label>` element, so it survives a custom `#label` slot.
 
 ::caution
-`#error` and `#help` are not interchangeable with their props: the error block
-renders whenever an `#error` slot exists, with or without an actual error.
-[Error and help slots](#error-and-help-slots) has the working pattern.
+`#error` goes further than the others: the error block renders whenever an
+`#error` slot exists, with or without an actual error, and takes `help` with
+it. [Error and help slots](#error-and-help-slots) has the working pattern.
 ::
 
 ### Description
@@ -152,8 +154,12 @@ slots:
 
 Use the `#description` slot when the description needs markup — a link to the
 policy the field refers to, a piece of emphasis, an inline code sample. It
-replaces the content of the same `<p>` the prop fills, so the
-`aria-describedby` association the field already had is unchanged.
+replaces the content of the same `<p>` the prop fills.
+
+**Keep the prop.** The block renders from either the prop or the slot, but
+`aria-describedby` is built from the props alone — so a slot with no prop
+beside it is a description on screen that no screen reader is told about. See
+[Slots do not replace their props](#slots-do-not-replace-their-props).
 
 ::component-code
 ---
@@ -161,6 +167,7 @@ prettier: true
 props:
   name: email
   label: Email
+  description: We'll never share it.
 slots:
   description: |
 
@@ -181,8 +188,9 @@ We'll never share it. [How we use your data](/docs/components/form/)
 A link is safe here in a way it is not in `#label`: the description sits
 outside the `<label>` element, so clicking it does not toggle the control.
 
-The slot receives the `description` prop, so a wrapper can decorate a string
-that comes from a schema or a translation rather than replace it:
+The slot receives the `description` prop, so the wrapper decorates the string
+rather than restating it — which matters when the text comes from a schema or
+a translation, and is what keeps the prop and the visible text in step:
 
 ```vue
 <B24FormField label="Email" name="email" description="We'll never share it.">
@@ -224,12 +232,16 @@ Use the `#hint` slot when the hint carries state rather than a word — a
 character count, a badge, an icon. It renders inside the label row, next to
 the label itself.
 
+Pass `hint` as well as the slot, for the same reason as `#description`: the
+announcement follows the prop, not the slot.
+
 ::component-code
 ---
 prettier: true
 props:
   name: bio
   label: Bio
+  hint: 0 / 140
 slots:
   hint: |
 
@@ -249,14 +261,16 @@ slots:
 
 ::note
 The hint is a sibling of the `<label>`, not part of it, so its content does not
-join the control's accessible name — unlike `#label`. It is announced through
-`aria-describedby` instead.
+join the control's accessible name — unlike `#label`. With the `hint` prop set
+it is announced through `aria-describedby` instead.
 ::
 
 ::caution
-A hint needs a label. It renders inside the label row, and that row is only
-drawn when `label` or `#label` is present — so `hint` on its own renders
-nothing at all, silently.
+**A hint needs a label**, and failing that requirement is silent in both
+directions. The hint renders inside the label row, and that row is only drawn
+when `label` or `#label` is present — so a `hint` on a label-less field renders
+nothing at all. The control still advertises `aria-describedby="…-hint"`,
+pointing at an element that was never drawn.
 ::
 
 ### Help
@@ -303,26 +317,51 @@ slots:
 :b24-input{placeholder="Enter your email" class="w-full"}
 ::
 
+### Slots do not replace their props
+
+Every one of the five blocks renders from `props.x || !!slots.x` — the prop or
+the slot will do. The accessible wiring does not: `aria-describedby` is
+assembled from the **props alone**, in `useFormField`, and never looks at what
+was slotted.
+
+The two halves disagree in both directions:
+
+| what you pass | block on screen | named in `aria-describedby` |
+|---|---|---|
+| `description` prop | yes | yes |
+| `#description` slot, no prop | **yes** | **no** |
+| `hint` prop, no `label` | **no** | **yes** |
+
+So the rule for all five slots is the same, and it is the shape `#label` has
+had since it was documented: **set the prop, and use the slot for markup.**
+The slot receives the prop, so decorating it costs one interpolation and keeps
+the two in step.
+
+::note
+This is upstream `nuxt/ui` behaviour, not a divergence in this fork — the
+component and the composable are line-for-line identical at our sync cursor.
+Tracked in [#497](https://github.com/bitrix24/b24ui/issues/497).
+::
+
 ### Error and help slots
 
-`#hint` and `#description` are drop-in replacements for their props. `#error`
-and `#help` are not, and the difference is worth understanding before you reach
-for them.
+`#error` is where the rule above bites hardest, because the error block has a
+second condition on it:
 
-The error block renders when `error` is not `false` **and** either the error is
-a non-empty string *or* an `#error` slot exists. `help` is the `v-else-if` on
-that same branch. So supplying `#error` and leaving `error` alone renders the
-error block permanently and hides `help` entirely.
+```
+v-if="props.error !== false && ((typeof error === 'string' && error) || !!slots.error)"
+v-else-if="props.help || !!slots.help"
+```
 
-The accessible wiring does not follow, because it is computed from the props
-rather than from the slots. The control keeps `aria-invalid="false"`, and if
-`help` is set it keeps `aria-describedby="…-help"` — pointing at an element
-that is no longer in the document. A red message on screen, a dangling
-reference underneath it, and nothing announced:
+An `#error` slot alone satisfies that `v-if` **whether or not there is an
+error**. So the block renders permanently, `help` — the `v-else-if` of the same
+branch — never renders at all, and the control still reads
+`aria-invalid="false"`. If `help` was set, `aria-describedby` still names it,
+pointing at an element that is no longer in the document:
 
 ```vue
 <!-- Don't: the message is always visible, `help` never is, and a screen
-     reader is never told the field is invalid. -->
+     reader is told the field is valid. -->
 <B24FormField label="Email" name="email" help="We'll only use it to sign you in.">
   <template #error>
     <WarningIcon class="size-4" /> Please enter a valid email address.
@@ -367,10 +406,14 @@ const message = computed<string | false>(() =>
 </template>
 ```
 
-With `message` at `false` the help text shows and the control reads
-`aria-describedby="…-help"`. As soon as `message` holds a string the error
-appears in your markup, `help` steps aside, and the control reads
-`aria-invalid="true"` with `aria-describedby="…-error …-help"`.
+| `message` | error block | help block | `aria-invalid` | `aria-describedby` |
+|---|---|---|---|---|
+| `false` | — | shown | `false` | `…-help` |
+| `'Please enter…'` | your markup | — | `true` | `…-error …-help` |
+
+The second row still names `…-help` while the help block is not rendered —
+`help` and `error` are mutually exclusive on screen but not in the attribute.
+Same defect as the table above, and the same ticket.
 
 ::note
 Inside a [Form](/docs/components/form/) you do not set `error` at all — the
@@ -380,8 +423,9 @@ only on fields whose `error` you control, or use the prop and style the block
 through `b24ui.error`.
 ::
 
-`#help` has no such trap on its own — supply it when the help text needs a link
-or a code sample. It disappears whenever an error is showing, by design.
+`#help` follows the general rule: pass `help` alongside it, or the help text
+appears with nothing describing it. It disappears whenever an error is
+showing, by design.
 
 ### Error pattern
 

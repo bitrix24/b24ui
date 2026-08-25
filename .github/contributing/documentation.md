@@ -9,7 +9,7 @@ Docs live in `docs/content/docs/2.components/` with kebab-case naming (e.g., `bu
 ## Checking a page renders
 
 MDC fails at render time, not at lint time, so a malformed block is invisible
-until something builds the site:
+until something builds the site. After `pnpm dev:prepare`:
 
 ```bash
 NUXT_PUBLIC_USE_AI=false \
@@ -20,11 +20,18 @@ NUXT_PUBLIC_GIT_URL=https://github.com/bitrix24/b24ui \
 pnpm docs:generate
 ```
 
+A successful run ends with `Prerendered N routes`; find your page in the list.
+
 The environment is not optional and its absence does not say so. Without those
 variables the build dies during prerender with `ERROR completable is not
 defined` — a `@nuxtjs/mcp-toolkit` symbol, nothing to do with your page, and
-the same failure appears on a clean `main`. `deploy.yml` sets them, which is
-why CI is green while a bare `pnpm docs:build` is not.
+the same failure appears on a clean `main`. `deploy.yml` sets them at the job
+level, which is why CI is green while a bare `pnpm docs:build` is not.
+
+CI runs `pnpm docs:full:generate`, which is `pnpm build && pnpm docs:generate`.
+The extra build is there because the deploy publishes the package too;
+`docs/nuxt.config.ts` registers the module from `../src/module`, so the docs
+themselves render from source.
 
 ## Basic Structure
 
