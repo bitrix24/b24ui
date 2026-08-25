@@ -63,6 +63,33 @@ Two things it asserts that nothing else can:
   `setup()` still answers 200 with an empty root, so `curl` cannot tell a
   working app from a dead one and a browser can.
 
+## When a worker dies instead of failing
+
+```
+FATAL ERROR: Ineffective mark-compacts near heap limit
+Error: [vitest-pool]: Worker forks emitted error.
+Caused by: Error: Worker exited unexpectedly
+```
+
+Vitest cannot name the file in this path — the process is gone — so the failure
+reads as a property of the whole suite. It usually is not. Halve the heap
+first, before doing anything else:
+
+```bash
+NODE_OPTIONS=--max-old-space-size=1024 pnpm run test --project vue
+```
+
+If the same number of files passes with an eight-times-smaller heap, nothing is
+accumulating across files and **exactly one file** is responsible. Name it by
+diffing what reported against what was collected:
+
+```bash
+NODE_OPTIONS=--max-old-space-size=1024 npx vitest run --project vue --reporter=verbose
+```
+
+That is how #485 was found — a snapshot guard whose directory walk descended
+into `node_modules` — after an afternoon spent believing it was a vitest leak.
+
 ## File Location
 
 Tests live in `test/components/` matching the component name (e.g., `Button.spec.ts`).

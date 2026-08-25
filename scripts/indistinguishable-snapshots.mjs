@@ -7,7 +7,7 @@
 // with a non-recursive `readdirSync`, so every snapshot under
 // `test/components/content/` was outside the guard without saying so.
 import { readdirSync, readFileSync } from 'node:fs'
-import { join, sep } from 'node:path'
+import { join } from 'node:path'
 
 /** Everything below this is searched, so a new snapshot directory is covered. */
 export const SNAPSHOT_ROOT = 'test'
@@ -19,12 +19,41 @@ export const SNAPSHOT_ROOT = 'test'
  */
 const ENTRY = /^exports\[`([^`]+)`\] = `\n?([\s\S]*?)\n?`;$/gm
 
-/** Every `.snap` file under `root`, as `/`-separated relative paths, sorted. */
+/**
+ * Directories the walk below refuses to descend into.
+ *
+ * `readdirSync(root, { recursive: true })` has no ignore option and returns
+ * every path it finds in one array, so a single installed dependency tree is
+ * enough to make it hundreds of thousands of entries. `test/` holds two —
+ * `test/nuxt/` and the smoke fixture — and the array cost this spec the whole
+ * fork heap: it took minutes and then killed the worker, with vitest reporting
+ * only "Worker exited unexpectedly" and no file name.
+ *
+ * Snapshots never live in any of these, so pruning loses nothing.
+ */
+const PRUNED = new Set(['node_modules', '.nuxt', '.output', '.data', '.cache', 'dist'])
+
+/**
+ * Every `.snap` file under `root`, as `/`-separated relative paths, sorted.
+ *
+ * Hand-rolled rather than `{ recursive: true }` so the directories above can be
+ * pruned as the walk goes, instead of enumerated and then filtered.
+ */
 export function snapshotFiles(root = SNAPSHOT_ROOT) {
-  return readdirSync(root, { recursive: true, encoding: 'utf8' })
-    .filter(f => f.endsWith('.snap'))
-    .map(f => f.split(sep).join('/'))
-    .sort()
+  const found = []
+
+  const walk = (dir, prefix) => {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      if (entry.isDirectory()) {
+        if (!PRUNED.has(entry.name)) walk(join(dir, entry.name), `${prefix}${entry.name}/`)
+      } else if (entry.name.endsWith('.snap')) {
+        found.push(`${prefix}${entry.name}`)
+      }
+    }
+  }
+
+  walk(root, '')
+  return found.sort()
 }
 
 /** Entry names grouped by the body they rendered. */
