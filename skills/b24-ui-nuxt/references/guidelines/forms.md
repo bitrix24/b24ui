@@ -52,7 +52,9 @@ function onSubmit(event: FormSubmitEvent<Schema>) {
 | `name` | Links to schema field for validation errors |
 | `label` | Visible label text |
 | `description` | Help text below the input |
-| `hint` | Right-aligned hint text (e.g., "Optional") |
+| `hint` | Right-aligned hint text (e.g., "Optional") — **needs a `label`**, see below |
+| `help` | Help text below the control; hidden while an error is showing |
+| `error` | Error text below the control; `false` disables the block entirely |
 | `required` | Shows required indicator |
 | `size` | Inherits to child input |
 
@@ -66,9 +68,39 @@ Anything in `#label` joins the control's accessible name — mark decorative
 content `aria-hidden="true"`, and keep links and buttons out of it, since a
 `<label>` toggles its control when activated.
 
-`#error` and `#help` are the exception: the error block renders whenever an
-`#error` slot exists, and `help` is the `v-else` of that branch, so supplying
-`#error` hides `help` entirely. Prefer the props there.
+`hint` — prop or slot — renders inside the label row, and that row is only
+drawn when there is a label. A `hint` on a field with no `label` renders
+nothing, silently.
+
+`#error` and `#help` are the exception. The error block renders whenever an
+`#error` slot exists, with or without an error, and `help` is the `v-else` of
+that branch, so supplying `#error` hides `help` entirely. The aria wiring is
+computed from the props and does not follow: the control keeps
+`aria-invalid="false"` and, if `help` is set, an `aria-describedby` pointing at
+an element that is no longer rendered.
+
+Bind `error` to the message — or to `false` when there is none — and let the
+slot supply markup only:
+
+```vue
+<B24FormField
+  label="Email"
+  name="email"
+  :error="message"
+  help="We'll only use it to sign you in."
+>
+  <template #error="{ error }">
+    <WarningIcon class="size-4" aria-hidden="true" /> {{ error }}
+  </template>
+
+  <B24Input v-model="value" placeholder="Enter your email" />
+</B24FormField>
+```
+
+Inside a `B24Form` the error comes from the schema and is a string or
+`undefined` — and `undefined` is not `false`, so an `#error` slot still renders
+permanently there. On form-driven fields, use the `error` prop and style the
+block through `b24ui.error`.
 
 ```vue
 <B24FormField label="Email" name="email">

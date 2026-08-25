@@ -6,6 +6,26 @@ Component documentation uses MDC (Markdown Components) syntax.
 
 Docs live in `docs/content/docs/2.components/` with kebab-case naming (e.g., `button.md`).
 
+## Checking a page renders
+
+MDC fails at render time, not at lint time, so a malformed block is invisible
+until something builds the site:
+
+```bash
+NUXT_PUBLIC_USE_AI=false \
+NUXT_PUBLIC_SITE_URL=https://bitrix24.github.io \
+NUXT_PUBLIC_BASE_URL=/b24ui \
+NUXT_PUBLIC_CANONICAL_URL=https://bitrix24.github.io \
+NUXT_PUBLIC_GIT_URL=https://github.com/bitrix24/b24ui \
+pnpm docs:generate
+```
+
+The environment is not optional and its absence does not say so. Without those
+variables the build dies during prerender with `ERROR completable is not
+defined` — a `@nuxtjs/mcp-toolkit` symbol, nothing to do with your page, and
+the same failure appears on a clean `main`. `deploy.yml` sets them, which is
+why CI is green while a bare `pnpm docs:build` is not.
+
 ## Basic Structure
 
 ```md
