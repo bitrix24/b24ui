@@ -237,7 +237,11 @@ const pagesService = [
   '/api/locales.json',
   '/404.html',
   '/sitemap.xml',
-  '/sitemap.md'
+  '/sitemap.md',
+  // Advertised from `/` by the agent-discovery `Link` header below; prerendered
+  // so they exist on static hosting like the other endpoints that header names.
+  '/.well-known/api-catalog',
+  '/.well-known/mcp/server-card.json'
 ]
 
 const extraAllowedHosts = (process?.env.NUXT_ALLOWED_HOSTS?.split(',').map((s: string) => s.trim()).filter(Boolean)) ?? []
