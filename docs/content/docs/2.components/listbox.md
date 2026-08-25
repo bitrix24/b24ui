@@ -2,6 +2,10 @@
 title: Listbox
 description: A selectable list component with search, virtualization, and rich item rendering capabilities.
 category: form
+keywords:
+  - option list
+  - picker
+  - selection
 links:
   - label: GitHub
     iconName: GitHubIcon
@@ -463,7 +467,7 @@ props:
 ---
 ::
 
-### Control selected items
+### Control selected item(s)
 
 You can control the selected item by using the `default-value` prop or the `v-model` directive.
 

@@ -2,6 +2,10 @@
 title: Checkbox
 description: A toggle input for marking as checked or unchecked.
 category: form
+keywords:
+  - tickbox
+  - check
+  - boolean
 links:
   - label: GitHub
     iconName: GitHubIcon

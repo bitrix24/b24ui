@@ -348,7 +348,7 @@ In this example, leveraging [`defineShortcuts`](/docs/composables/define-shortcu
 ::
 
 ::tip
-This allows you to move the trigger outside of the Drawer or remove it entirely.
+This lets you move the trigger outside of the Drawer or remove it entirely.
 ::
 
 ### Responsive drawer

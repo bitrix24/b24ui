@@ -312,7 +312,7 @@ You could also add this action to the [`DropdownMenu`](/docs/components/dropdown
 
 You can group rows based on a given column value and show/hide sub rows via some button added to the cell using the TanStack Table [Grouping APIs](https://tanstack.com/table/v8/docs/api/features/grouping).
 
-#### Important parts:
+#### Important parts
 
 * Add `grouping` prop with an array of column ids you want to group by.
 * Add `grouping-options` prop. It must include `getGroupedRowModel`, you can import it from `@tanstack/vue-table` or implement your own.
@@ -708,7 +708,7 @@ class: '!p-0'
 ::
 
 ::note
-A height constraint is required on the table for virtualization to work properly (e.g., `class="h-[400px]"`).
+A height constraint is required on the table for virtualization to work properly (e.g. `class="h-[400px]"`).
 ::
 
 ### With external scroll element :badge{label="New" class="align-text-top"}

@@ -36,16 +36,16 @@ Learn how to display shortcuts in components in the **Kbd** component documentat
 
 ## API
 
-`defineShortcuts(config: ShortcutsConfig, options?: ShortcutsOptions): void`{lang="ts-type"}
+`defineShortcuts(config: MaybeRef<ShortcutsConfig>, options?: ShortcutsOptions): () => void`{lang="ts-type"}
 
-Define keyboard shortcuts for your application.
+Define keyboard shortcuts for your application. Returns a function that removes the listener, in case you need to stop the shortcuts before the component unmounts.
 
-#### Parameters
+### Parameters
 
 ::field-group
 
-  ::field{name="config" type="ShortcutsConfig" required}
-  An object where keys are shortcut definitions and values are either handler functions or shortcut configuration objects.
+  ::field{name="config" type="MaybeRef<ShortcutsConfig>" required}
+  An object where keys are shortcut definitions and values are either handler functions or shortcut configuration objects. Pass a `ref` to update the shortcuts reactively. A value of `false`, `null` or `undefined` skips that shortcut, which is how you enable one conditionally.
   ::
 
   ::field{name="options" type="ShortcutsOptions"}
@@ -54,7 +54,7 @@ Define keyboard shortcuts for your application.
     ::collapsible
   
       ::field{name="chainDelay" type="number"}
-      The delay between key presses to consider the shortcut as chained. Default is `800`.
+      The delay between key presses to consider the shortcut as chained. Defaults to `800`.
       ::
   
       ::field{name="layoutIndependent" type="boolean"}
@@ -71,26 +71,33 @@ Define keyboard shortcuts for your application.
 Shortcuts are defined using the following format:
 
 - Single key: `'a'`, `'b'`, `'1'`, `'?'`, etc.
-- Key combinations: Use `_` to separate keys, e.g., `'meta_k'`, `'ctrl_shift_f'`
-- Key sequences: Use `-` to define a sequence, e.g., `'g-d'`
+- Key combinations: Use `_` to separate keys, e.g. `'meta_k'`, `'ctrl_shift_f'`
+- Key sequences: Use `-` to define a sequence, e.g. `'g-d'`
 
 #### Modifiers
 
-- `meta`: Represents `⌘ Command` on macOS and `Ctrl` on other platforms
+- `meta` / `command`: Represents `⌘ Command` on macOS and `Ctrl` on other platforms
 - `ctrl`: Represents `Ctrl` on all platforms
 - `shift`: Used for alphabetic keys when Shift is required
+- `alt` / `option`: Represents `⌥ Option` on macOS and `Alt` on other platforms. Matched by physical key position, since Option rewrites the character on macOS
 
 #### Special keys
+
+Use these names to match special keys.
 
 - `escape`: Triggers on Esc key
 - `enter`: Triggers on Enter key
 - `arrowleft`, `arrowright`, `arrowup`, `arrowdown`: Trigger on respective arrow keys
+- `tab`: Triggers on Tab key
+- `backspace`: Triggers on Backspace key
+- `delete`: Triggers on Delete key
+- `space`: Triggers on the space bar. Requires `layoutIndependent` unless combined with `alt`
 
 #### Shortcut configuration
 
 Each shortcut can be defined as a function or an object with the following properties:
 
-`interface ShortcutConfig { handler: () => void; usingInput?: boolean | string }`{lang="ts-type"}
+`interface ShortcutConfig { handler: (e?: KeyboardEvent) => void; usingInput?: boolean | string }`{lang="ts-type"}
 
 #### Parameters
 
@@ -123,7 +130,7 @@ defineShortcuts({
 
 ### With input focus handling
 
-The `usingInput` option allows you to specify that a shortcut should only trigger when a specific input is focused.
+Use `usingInput` to trigger a shortcut only when a specific input is focused.
 
 ```vue
 <template>
