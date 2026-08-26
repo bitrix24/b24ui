@@ -64,8 +64,22 @@ export default defineConfig({
      * version of this block put functions at 69 against a measured 69.04,
      * which tolerated exactly **one** new uncovered function while statements
      * tolerated 38. That is not a baseline gate, it is a tripwire on one
-     * metric. A flat point of margin also absorbs the difference between a
-     * contributor's Node and CI's.
+     * metric.
+     *
+     * Baseline on Node 24, which is what CI pins — 71.89% statements
+     * (5265/7323), 69.86% branches, 71.04% functions, 71.45% lines. The margin
+     * that buys, in units of new uncovered code: 198 statements, 202 branches,
+     * 39 functions, 135 lines. A 190-statement file arriving with no tests at
+     * all is red on functions and lines.
+     *
+     * The margin also covers a wobble in the denominator, which is why it is a
+     * point and not a rounding. Three full runs of the same clean tree gave
+     * two different totals — 7323 and 7324 statements — and the split does not
+     * follow the Node version: both values came out of Node 24, with Node 22
+     * landing on the second. It is one fully-covered function in `Button.vue`
+     * appearing or not, worth about 0.01pp. Small, but it means the number is
+     * not reproducible to the digit and a threshold set at the baseline would
+     * eventually flap on nothing.
      *
      * The gate catches a large new area arriving untested. It does not catch a
      * component losing the tests it had — `describe.skip` on the whole Button
@@ -85,10 +99,10 @@ export default defineConfig({
       reporter: ['text-summary', 'json-summary', 'html'],
       reportOnFailure: true,
       thresholds: {
-        statements: 0,
-        branches: 0,
-        functions: 0,
-        lines: 0
+        statements: 70,
+        branches: 68,
+        functions: 70,
+        lines: 70
       }
     },
     // The timezone is pinned above, before this config object — see the note
