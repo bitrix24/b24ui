@@ -275,26 +275,42 @@ hand**.
 
 ### Regenerate with the full suite, not a targeted run
 
-`pnpm exec vitest run -u path/to/One.spec.ts path/to/Two.spec.ts` is the
-tempting shortcut and it produces false greens. Reproduced on the current
-vitest, after editing `src/theme/kbd.ts`:
+`pnpm exec vitest run -u path/to/One.spec.ts` is the tempting shortcut, and on
+the pinned vitest it does not do what it reads like. `-u` swallows the next
+token as its value, so the path stops being a filter and **the whole project
+runs** — one file named, 161 run, 77 snapshots rewritten:
 
 ```
-# 1. edit the theme, targeted -u  →  10 snapshots updated. Correct.
-# 2. revert the theme, targeted -u  →  "46 passed", no snapshots updated.
-#    The snapshot still held the edit, and so did the compiled theme the test
-#    rendered against, so the two agreed and there was nothing to update.
-# 3. plain run                      →  red.
+$ pnpm exec vitest run -u test/components/Kbd.spec.ts --project nuxt
+  Snapshots  77 updated
+ Test Files  161 passed (161)
+
+$ pnpm exec vitest run test/components/Kbd.spec.ts -u --project nuxt
+  Snapshots  10 updated
+ Test Files  1 passed (1)
 ```
 
-That is the shape #74 reported from the #72 ports: a green `-u` followed by a
-failing verify. The specs render against the compiled theme under
-`#build/b24ui/*`, and a targeted run can be serving a stale one — the sources
-are right, the tests are green, and the snapshot on disk is wrong.
+Both spellings then leave a way to commit a snapshot that asserts markup the
+source no longer produces. Reproduced end to end by adding a marker class to
+`src/theme/kbd.ts`, updating, then reverting the theme:
 
-A full `pnpm run test:update` fixed it in one pass. `test:update` exists so
-that the safe command is the short one; reach for a targeted `-u` only when
-nothing under `src/theme/` has moved.
+```
+# 1. marker in the theme, `-u` first  →  77 updated across 5 snapshot files,
+#    only one of which was named.
+# 2. revert the theme, targeted -u    →  Kbd's 10 snapshots come back clean.
+#    The four unnamed files are not re-rendered, so their marker stays.
+# 3. targeted verify                  →  11 passed. Green.
+# 4. pnpm run test run                →  5 failed, in a component the change
+#                                        never touched.
+```
+
+Step 3 is the false green #74 reported from the #72 ports: the sources are
+right, every command the author ran was green, and a snapshot on disk is
+wrong. It survives because the stale file is in a different directory — and
+often a different vitest project — from the one being re-rendered.
+
+A full `pnpm run test:update` fixes it in one pass. `test:update` exists so
+that the safe command is the short one, and it takes no path on purpose.
 
 ## Running Tests
 

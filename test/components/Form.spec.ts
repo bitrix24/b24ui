@@ -51,12 +51,20 @@ describe('Form', () => {
       fixture: 'FormA11y'
     })
 
-    const group = wrapper.find('[role=group]')
-    expect(group.exists()).toBe(true)
+    // `findAll` rather than `find`: `find` returns the first match, so a second
+    // `role="group"` arriving in the fixture later would silently move this
+    // assertion onto it instead of failing.
+    const groups = wrapper.findAll('[role=group]')
+    expect(groups).toHaveLength(1)
 
-    const labelledby = group.attributes('aria-labelledby')
+    const labelledby = groups[0]!.attributes('aria-labelledby')
     expect(labelledby).toBeTruthy()
-    expect(wrapper.find(`[id="${labelledby}"]`).text()).toBe('Client')
+
+    // Asserted before `.text()` so a dangling reference reads as "nothing has
+    // this id" rather than as `Cannot call text on an empty DOMWrapper`.
+    const heading = wrapper.find(`[id="${labelledby}"]`)
+    expect(heading.exists(), `nothing in the form has id="${labelledby}"`).toBe(true)
+    expect(heading.text()).toBe('Client')
   })
 
   renderEach(
