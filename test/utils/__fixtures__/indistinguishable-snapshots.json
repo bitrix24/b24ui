@@ -1107,14 +1107,6 @@
   {
     "file": "components/__snapshots__/FormField-vue.spec.ts.snap",
     "names": [
-      "FormField > renders with b24ui correctly 1",
-      "FormField > renders with hint correctly 1",
-      "FormField > renders with hint slot correctly 1"
-    ]
-  },
-  {
-    "file": "components/__snapshots__/FormField-vue.spec.ts.snap",
-    "names": [
       "FormField > renders with label and description correctly 1",
       "FormField > renders with orientation vertical correctly 1",
       "FormField > renders with size md correctly 1"
@@ -1125,14 +1117,6 @@
     "names": [
       "FormField > renders with size sm correctly 1",
       "FormField > renders with size xs correctly 1"
-    ]
-  },
-  {
-    "file": "components/__snapshots__/FormField.spec.ts.snap",
-    "names": [
-      "FormField > renders with b24ui correctly 1",
-      "FormField > renders with hint correctly 1",
-      "FormField > renders with hint slot correctly 1"
     ]
   },
   {
