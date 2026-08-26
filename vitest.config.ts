@@ -38,6 +38,38 @@ export default defineConfig({
     testTimeout: 5000,
     globals: true,
     silent: true,
+    /**
+     * Coverage of the published surface, gated at the measured baseline (#85).
+     *
+     * Off unless asked for: instrumenting every worker costs about 100s on top
+     * of a 240s suite, which is worth paying in CI and not on every local run.
+     * `pnpm run test:coverage` turns it on.
+     *
+     * `include` is `src/**` and not the repository, because that is what ships.
+     * It is spelled with extensions on purpose — a bare `src/**` pulls in the
+     * 36 design-token stylesheets and two token JSON files, which carry no
+     * statements, cannot be covered, and show up in the report as three dozen
+     * files sitting at 0%.
+     *
+     * The thresholds are the numbers this suite actually reaches, rounded down
+     * to the whole percent. They exist to catch erosion, not to demand a level
+     * nobody has reached: a change that lowers them goes red, and raising them
+     * is a deliberate edit to this file. `src/theme/**` is in scope for the
+     * same reason — a variant nothing renders is a variant nothing tested, and
+     * theme edits are the most common change in this fork.
+     */
+    coverage: {
+      provider: 'v8',
+      include: ['src/**/*.{ts,vue}'],
+      exclude: ['**/*.d.ts', 'src/runtime/types/**'],
+      reporter: ['text-summary', 'json-summary', 'html'],
+      thresholds: {
+        statements: 69,
+        branches: 67,
+        functions: 69,
+        lines: 68
+      }
+    },
     // The timezone is pinned above, before this config object — see the note
     // on the `process.env.TZ` assignment for why it cannot live here.
     resolveSnapshotPath(path, extension, { config }) {

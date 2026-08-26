@@ -145,12 +145,13 @@
     "test:workflows": "test/workflows/run.sh",
     "test:module": "vitest run --config vitest.module.config.ts",
     "test:update": "vitest run -u",
-    "test:smoke": "node test/smoke/run.mjs"
+    "test:smoke": "node test/smoke/run.mjs",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@floating-ui/dom": "^1.8.0",
     "@bitrix24/b24icons-nuxt": "^2.0.7",
     "@bitrix24/b24icons-vue": "^2.0.7",
+    "@floating-ui/dom": "^1.8.0",
     "@internationalized/date": "^3.12.3",
     "@internationalized/number": "^3.6.7",
     "@nuxt/kit": "^4.5.2",
@@ -214,13 +215,15 @@
     "vue-component-type-helpers": "^3.3.11"
   },
   "devDependencies": {
-    "typescript": "^6.0.3",
     "@conventional-commits/parser": "0.4.1",
     "@nuxt/eslint-config": "^1.17.0",
     "@nuxt/module-builder": "^1.0.3",
     "@nuxt/test-utils": "^4.1.0",
     "@tanstack/table-core": "^8.21.3",
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/node": "^25.3.0",
     "@vitejs/plugin-vue": "^6.0.8",
+    "@vitest/coverage-v8": "4.1.11",
     "@vue/test-utils": "^2.4.11",
     "ai": "^7.0.77",
     "embla-carousel": "^8.6.0",
@@ -228,14 +231,13 @@
     "happy-dom": "^20.11.6",
     "nuxt": "^4.5.2",
     "playwright-core": "1.56.1",
+    "typescript": "^6.0.3",
     "unbuild": "^3.6.1",
     "vitest": "^4.1.11",
     "vitest-axe": "^0.1.0",
     "vitest-environment-nuxt": "^2.0.0",
     "vue": "^3.5.41",
-    "vue-tsc": "^3.3.11",
-    "@types/canvas-confetti": "^1.9.0",
-    "@types/node": "^25.3.0"
+    "vue-tsc": "^3.3.11"
   },
   "peerDependencies": {
     "@inertiajs/vue3": "^2.0.7 || ^3.0.0",

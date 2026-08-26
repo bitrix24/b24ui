@@ -312,6 +312,63 @@ often a different vitest project — from the one being re-rendered.
 A full `pnpm run test:update` fixes it in one pass. `test:update` exists so
 that the safe command is the short one, and it takes no path on purpose.
 
+## Coverage
+
+```bash
+pnpm run test:coverage    # the whole suite, instrumented
+```
+
+Off by default. Instrumenting every worker costs about 100s on top of a 240s
+suite, which is worth paying once in CI and not on every local run. CI runs
+this instead of a plain `vitest run`, uploads `coverage/` as an artifact, and
+fails when the run drops below the thresholds in `vitest.config.ts`.
+
+The scope is `src/**/*.{ts,vue}` — what ships. The extensions are spelled out
+because a bare `src/**` pulls in the 36 design-token stylesheets and two token
+JSON files, which carry no statements, cannot be covered, and land in the
+report as three dozen files sitting at 0%.
+
+### What the gate catches, and what it does not
+
+The baseline as measured, twice, byte-identical between runs:
+
+```
+Statements   : 69.34% ( 5392/7776 )
+Branches     : 67.76% ( 5199/7672 )
+Functions    : 69.04% ( 1896/2746 )
+Lines        : 68.81% ( 4779/6945 )
+```
+
+Thresholds are those numbers rounded down to the whole percent. At 69%
+statements that is **38 uncovered statements of headroom** — arithmetic worth
+knowing, because it says exactly what trips the gate:
+
+| change | statements it adds | result |
+|---|---|---|
+| a median new component, untested (14) | 14 | passes |
+| a p75 component, untested (38) | 38 | on the line |
+| `InputMenu`-sized, untested (190) | 190 | red |
+
+So it catches a **large new area arriving with no tests**. It does not catch a
+component *losing* the tests it had — measured rather than assumed:
+
+```
+# describe.skip on the whole Button suite — 212 tests stop running
+Statements   : 69.34%   (unchanged)
+Functions    : 69.04%   (unchanged)
+Lines        : 68.81%   (unchanged)
+Branches     : 67.57%   (-0.19pp)
+```
+
+`Button.vue` is mounted by dozens of other specs — inside forms, menus,
+toolbars — so its code keeps executing whether or not anything asserts about
+it. Coverage measures execution, not assertion. A per-file threshold would
+close that gap and cannot be turned on yet: 106 files sit at 0% today, so
+`perFile` would be red on the first run.
+
+Treat the number as a floor under the published surface, not as evidence that
+a component is tested. For that, the component needs its own spec.
+
 ## Running Tests
 
 ```bash
@@ -327,8 +384,8 @@ pnpm build && pnpm run test:smoke
 # Run specific test file
 pnpm run test Button
 
-# Run with coverage
-pnpm run test -- --coverage
+# Run with coverage — see the Coverage section above
+pnpm run test:coverage
 
 # Watch mode
 pnpm run test -- --watch
