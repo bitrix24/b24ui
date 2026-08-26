@@ -64,4 +64,4 @@ __pycache__/
 *.pyc
 
 # Coverage reports (pnpm run test:coverage)
-coverage
+/coverage
