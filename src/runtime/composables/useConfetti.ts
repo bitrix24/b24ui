@@ -21,4 +21,18 @@ function _useConfetti() {
   }
 }
 
+/**
+ * `canvas-confetti`, shared so every caller fires onto one canvas.
+ *
+ * @returns `fire(options)` for the default canvas, and `create(canvas, options)`
+ *   for one of your own — a fixed-position canvas of your own is what you want
+ *   if the confetti has to sit above a modal.
+ *
+ * @example
+ * ```ts
+ * const { fire } = useConfetti()
+ *
+ * fire({ particleCount: 120, spread: 70 })
+ * ```
+ */
 export const useConfetti = createSharedComposable(_useConfetti)

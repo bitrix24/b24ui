@@ -2,6 +2,7 @@ import { inject, provide, computed } from 'vue'
 import type { ComputedRef, InjectionKey } from 'vue'
 import type { AvatarGroupProps } from '../components/AvatarGroup.vue'
 
+/** The `size` and `color` an `AvatarGroup` imposes on the avatars inside it. */
 export const avatarGroupInjectionKey: InjectionKey<ComputedRef<{ size: AvatarGroupProps['size'], color: AvatarGroupProps['color'] }>> = Symbol('bitrix24-ui.avatar-group')
 
 /**

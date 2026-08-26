@@ -15,13 +15,21 @@ type Props<T> = {
   disabled?: boolean
 }
 
+/** `Form`'s own settings — `disabled`, validation timing — read by every field under it. */
 export const formOptionsInjectionKey: InjectionKey<ComputedRef<FormInjectedOptions>> = Symbol('bitrix24-ui.form-options')
+/** The bus a `Form` and its fields talk over: blur, input, change, focus, and validation requests. */
 export const formBusInjectionKey: InjectionKey<UseEventBusReturn<FormEvent<any>, string>> = Symbol('bitrix24-ui.form-events')
+/** The `Form`'s `state` object, so a field can read the value it is bound to without a prop. */
 export const formStateInjectionKey: InjectionKey<ComputedRef<Record<string, any> | undefined>> = Symbol('bitrix24-ui.form-state')
+/** What a `FormField` tells the control inside it: `name`, `size`, `error`, and the ids for aria wiring. */
 export const formFieldInjectionKey: InjectionKey<ComputedRef<FormFieldInjectedOptions<FormFieldProps>> | undefined> = Symbol('bitrix24-ui.form-field')
+/** The id a `FormField` minted for its control, so `<label for>` and the control agree on one. */
 export const inputIdInjectionKey: InjectionKey<Ref<string | undefined>> = Symbol('bitrix24-ui.input-id')
+/** Every control registered with the `Form`, keyed by `name` — how `validate()` finds the field to focus. */
 export const formInputsInjectionKey: InjectionKey<Ref<Record<string, { id?: string, pattern?: RegExp }>>> = Symbol('bitrix24-ui.form-inputs')
+/** Whether the `Form`'s submit handler is still running; disables controls without each one being told. */
 export const formLoadingInjectionKey: InjectionKey<Readonly<Ref<boolean>>> = Symbol('bitrix24-ui.form-loading')
+/** The `Form`'s current validation errors, so a field can find its own by `name` or `errorPattern`. */
 export const formErrorsInjectionKey: InjectionKey<Readonly<Ref<FormErrorWithId[]>>> = Symbol('bitrix24-ui.form-errors')
 
 /**

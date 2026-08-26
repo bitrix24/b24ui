@@ -10,4 +10,14 @@ export interface DashboardContext extends Pick<UseResizableProps, 'storage' | 's
   collapseSidebar?: (collapsed: boolean) => void
 }
 
+/**
+ * The `DashboardGroup` context pair: `provideDashboardContext` is called by
+ * `DashboardGroup`, `useDashboard` reads it from `DashboardSidebar`,
+ * `DashboardPanel`, `DashboardResizeHandle` and the search toggle.
+ *
+ * `useDashboard` throws when there is no `DashboardGroup` above — unlike the
+ * theme context, which falls back. A dashboard part outside its group has no
+ * sensible default to render: it does not know its own storage key, its
+ * sidebar state, or which unit its neighbours size themselves in.
+ */
 export const [useDashboard, provideDashboardContext] = createContext<DashboardContext>('DashboardGroup')
