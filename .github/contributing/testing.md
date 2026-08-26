@@ -265,12 +265,36 @@ it('passes accessibility tests', async () => {
 
 When component changes require snapshot updates:
 
-1. Run tests: `pnpm run test`
-2. Review changes carefully
-3. Press `u` to update snapshots
-4. Commit updated snapshots
+```bash
+pnpm run test:update    # the whole suite, never a subset — see below
+pnpm run test run       # verify, without -u
+```
 
-**Never manually edit snapshot files.**
+Review the diff before committing it, and **never edit a snapshot file by
+hand**.
+
+### Regenerate with the full suite, not a targeted run
+
+`pnpm exec vitest run -u path/to/One.spec.ts path/to/Two.spec.ts` is the
+tempting shortcut and it produces false greens. Reproduced on the current
+vitest, after editing `src/theme/kbd.ts`:
+
+```
+# 1. edit the theme, targeted -u  →  10 snapshots updated. Correct.
+# 2. revert the theme, targeted -u  →  "46 passed", no snapshots updated.
+#    The snapshot still held the edit, and so did the compiled theme the test
+#    rendered against, so the two agreed and there was nothing to update.
+# 3. plain run                      →  red.
+```
+
+That is the shape #74 reported from the #72 ports: a green `-u` followed by a
+failing verify. The specs render against the compiled theme under
+`#build/b24ui/*`, and a targeted run can be serving a stale one — the sources
+are right, the tests are green, and the snapshot on disk is wrong.
+
+A full `pnpm run test:update` fixed it in one pass. `test:update` exists so
+that the safe command is the short one; reach for a targeted `-u` only when
+nothing under `src/theme/` has moved.
 
 ## Running Tests
 

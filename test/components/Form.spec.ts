@@ -36,6 +36,29 @@ describe('Form', () => {
     expect(await axe(wrapper.element)).toHaveNoViolations()
   })
 
+  // #50 asked for the labelled `role="group"` sub-section to be added to the
+  // fixture and expected the axe assertion above to cover it. Measured before
+  // trusting: it does not. Pointing `aria-labelledby` at an id that exists
+  // nowhere leaves the run green — axe's `aria-valid-attr-value` does not fire
+  // on a dangling reference here, so the fixture on its own guards nothing.
+  //
+  // The linkage is the whole point of the pattern (`FormExampleEditSection.vue`
+  // builds it by hand, since b24ui has no `fieldset` primitive), so it is
+  // asserted from both ends: the group names an id, and that id belongs to the
+  // heading a screen reader will read out.
+  it('resolves the labelled group to its heading', async () => {
+    const wrapper = await renderForm({
+      fixture: 'FormA11y'
+    })
+
+    const group = wrapper.find('[role=group]')
+    expect(group.exists()).toBe(true)
+
+    const labelledby = group.attributes('aria-labelledby')
+    expect(labelledby).toBeTruthy()
+    expect(wrapper.find(`[id="${labelledby}"]`).text()).toBe('Client')
+  })
+
   renderEach(
     B24Form,
     [

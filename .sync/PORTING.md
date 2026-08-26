@@ -492,7 +492,13 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   via `Component['slots']` / `Component['b24ui']`; mirror that shape.
 - **a11y** — keep the `axe` test case for the component green.
 - **Tests** — for every new/changed prop, add a `renderEach` case so a snapshot
-  exercises it; update snapshots with `pnpm run test run -u` when markup changes.
+  exercises it; update snapshots with `pnpm run test:update` when markup
+  changes. That is the whole suite on purpose: a targeted `vitest run -u` on
+  the few specs a port touched can render against a stale compiled theme under
+  `#build/b24ui/*`, report green, and leave the snapshot wrong — which is a
+  false green followed by a failing verify, and it hit ContextMenu and
+  InputMenu during #72. Reproduced and written up in
+  `.github/contributing/testing.md`.
 - **A focus outline is coloured by `--ui-color-design-outline-focused-stroke`.**
   Upstream colours focus from whatever accent is at hand; this fork has one
   token for it. What makes it the right one is not that it is defined per
