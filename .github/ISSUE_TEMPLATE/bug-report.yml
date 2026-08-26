@@ -1,6 +1,7 @@
 name: Bug report
 description: Something in Bitrix24 UI behaves differently from what it documents.
 title: "fix(Component): "
+labels: [bug]
 body:
   - type: markdown
     attributes:
@@ -11,13 +12,20 @@ body:
 
         Keep the title a [conventional commit](https://www.conventionalcommits.org/) subject
         if you can: `fix(Button): the loading icon keeps spinning after loading ends`.
-        It is not required to file, but it makes the fix's changelog entry write itself.
+        The scope is the component without its `B24` prefix — `Button`, not `B24Button` —
+        because that is what reaches the changelog. It is not required to file.
+
+        **Issues here are public.** Please redact tokens, API keys, portal URLs and
+        customer data from anything you paste — logs, screenshots and reproductions
+        included.
 
   - type: input
     id: component
     attributes:
       label: Component or composable
-      description: The name as it is exported — `B24Button`, `useOverlay`, `defineShortcuts`.
+      description: |
+        The name as it is exported — `B24Button`, `useOverlay`, `defineShortcuts`. The
+        `B24` prefix belongs here but not in the title; see above.
       placeholder: B24Button
     validations:
       required: true
@@ -30,7 +38,7 @@ body:
     validations:
       required: true
 
-  - type: input
+  - type: textarea
     id: reproduction
     attributes:
       label: Reproduction
@@ -42,9 +50,12 @@ body:
         around it — a Tailwind config, a competing plugin, a wrapper component — and a
         description alone cannot tell those apart from a real defect.
 
-        If you genuinely cannot produce one, say so in the field and explain what blocks it.
+        If you genuinely cannot produce one, say so here and explain what blocks it.
         A report with a reason is worth more than a report with an empty box.
-      placeholder: https://stackblitz.com/edit/...
+      placeholder: |
+        https://stackblitz.com/edit/...
+
+        Or: what you tried, and what stopped you from isolating it.
     validations:
       required: true
 
@@ -74,7 +85,8 @@ body:
       label: Versions around it
       description: |
         Nuxt or Vue, Node, and your package manager. `npx nuxi info` prints the lot for a
-        Nuxt project.
+        Nuxt project — check its output before pasting, it includes local paths and your
+        full module list.
       render: shell
     validations:
       required: false

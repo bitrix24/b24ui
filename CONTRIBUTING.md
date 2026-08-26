@@ -59,8 +59,11 @@ Then:
   `package.json`; `corepack enable` picks it up).
 - Run `pnpm run dev:prepare` after installing. Nothing typechecks before it.
 - `pnpm run lint`, `pnpm run typecheck` and `pnpm run test run` all have to
-  pass. CI runs the same commands, plus a coverage gate — see
-  [Testing → Coverage](.github/contributing/testing.md#coverage).
+  pass locally. CI runs more than that: `pnpm run test:coverage` in place of
+  the plain run, so a large new area arriving untested is red — see
+  [Testing → Coverage](.github/contributing/testing.md#coverage) — plus
+  `pnpm test:module` and `pnpm build`, both of which can fail on a branch where
+  the three commands above are green.
 - **The PR title is a [conventional commit](https://www.conventionalcommits.org/)**
   and it is load-bearing. The title of the squashed commit is what generates the
   changelog and decides the version bump, so a title that does not parse is
@@ -71,8 +74,19 @@ Then:
 The pull request template asks for a linked issue and a description. Both are
 read.
 
-## Code of conduct and security
+## Code of conduct
 
-Be decent to each other. A formal code of conduct and a security policy are
-being written; until they land, raise anything urgent with the maintainer
-through the repository.
+There is no formal one yet. Be decent to each other in the meantime — the
+usual reading applies: assume good faith, argue with the work rather than the
+person, and take the hint when someone asks you to drop it.
+
+## Security
+
+**Please do not open a public issue for a vulnerability.**
+
+This repository does not yet publish a private channel to send one to, which
+means there is currently nowhere good for a report to go — and a public issue
+is the one place it should not go, because it discloses the problem to
+everyone before there is a fix. If you have found something security-sensitive,
+hold it until this section names a channel. That is the next thing to land
+here.

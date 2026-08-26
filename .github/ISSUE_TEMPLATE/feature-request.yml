@@ -10,6 +10,9 @@ body:
         first, and the [documentation](https://bitrix24.github.io/b24ui/) — a fair number of
         requests turn out to be a prop that already exists under a different name.
 
+        **Issues here are public.** Please redact tokens, API keys, portal URLs and
+        customer data from any code you paste.
+
   - type: textarea
     id: problem
     attributes:
