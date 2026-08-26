@@ -144,6 +144,7 @@
     "bench": "vitest bench --project vue",
     "test:workflows": "test/workflows/run.sh",
     "test:module": "vitest run --config vitest.module.config.ts",
+    "test:update": "vitest run -u",
     "test:smoke": "node test/smoke/run.mjs"
   },
   "dependencies": {

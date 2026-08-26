@@ -265,12 +265,52 @@ it('passes accessibility tests', async () => {
 
 When component changes require snapshot updates:
 
-1. Run tests: `pnpm run test`
-2. Review changes carefully
-3. Press `u` to update snapshots
-4. Commit updated snapshots
+```bash
+pnpm run test:update    # the whole suite, never a subset — see below
+pnpm run test run       # verify, without -u
+```
 
-**Never manually edit snapshot files.**
+Review the diff before committing it, and **never edit a snapshot file by
+hand**.
+
+### Regenerate with the full suite, not a targeted run
+
+`pnpm exec vitest run -u path/to/One.spec.ts` is the tempting shortcut, and on
+the pinned vitest it does not do what it reads like. `-u` swallows the next
+token as its value, so the path stops being a filter and **the whole project
+runs** — one file named, 161 run, 77 snapshots rewritten:
+
+```
+$ pnpm exec vitest run -u test/components/Kbd.spec.ts --project nuxt
+  Snapshots  77 updated
+ Test Files  161 passed (161)
+
+$ pnpm exec vitest run test/components/Kbd.spec.ts -u --project nuxt
+  Snapshots  10 updated
+ Test Files  1 passed (1)
+```
+
+Both spellings then leave a way to commit a snapshot that asserts markup the
+source no longer produces. Reproduced end to end by adding a marker class to
+`src/theme/kbd.ts`, updating, then reverting the theme:
+
+```
+# 1. marker in the theme, `-u` first  →  77 updated across 5 snapshot files,
+#    only one of which was named.
+# 2. revert the theme, targeted -u    →  Kbd's 10 snapshots come back clean.
+#    The four unnamed files are not re-rendered, so their marker stays.
+# 3. targeted verify                  →  11 passed. Green.
+# 4. pnpm run test run                →  5 failed, in a component the change
+#                                        never touched.
+```
+
+Step 3 is the false green #74 reported from the #72 ports: the sources are
+right, every command the author ran was green, and a snapshot on disk is
+wrong. It survives because the stale file is in a different directory — and
+often a different vitest project — from the one being re-rendered.
+
+A full `pnpm run test:update` fixes it in one pass. `test:update` exists so
+that the safe command is the short one, and it takes no path on purpose.
 
 ## Running Tests
 
