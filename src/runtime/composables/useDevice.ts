@@ -75,4 +75,21 @@ const _useDevice = () => {
   }
 }
 
+/**
+ * Which Bitrix24 client the app is running inside, and how much room it has.
+ *
+ * The platform half comes from the `platform` plugin, which reads it from the
+ * user agent — on the server from the request header, so the first paint is
+ * already correct. The screen half is reactive to the viewport.
+ *
+ * In a template, prefer the `bitrix-mobile:` and `bitrix-desktop:` Tailwind
+ * variants; reach for this when the decision is in script — a different
+ * endpoint, a different default, an interaction that only makes sense with a
+ * mouse.
+ *
+ * @returns `platform` and `version`, the `isWeb` / `isBitrixMobile` /
+ *   `isBitrixDesktop` flags, and `screen` breakpoints.
+ *
+ * @see https://bitrix24.github.io/b24ui/docs/composables/use-device/
+ */
 export const useDevice = /* @__PURE__ */ createSharedComposable(_useDevice)

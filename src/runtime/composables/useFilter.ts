@@ -1,6 +1,17 @@
 import { useFilter as useRekaFilter } from 'reka-ui'
 import { get } from '../utils'
 
+/**
+ * The matcher behind the searchable menus — `CommandPalette`, `InputMenu`,
+ * `SelectMenu`.
+ *
+ * Ranks rather than filters: an exact match beats a prefix, which beats a
+ * substring, so typing `us` puts `User` above `Status`. Comparison is
+ * accent- and case-insensitive (`sensitivity: 'base'`), which is what makes
+ * `resume` find `Résumé`.
+ *
+ * @returns `filter` for the list, and the scoring predicates it is built from.
+ */
 export function useFilter() {
   const { contains, startsWith } = useRekaFilter({ sensitivity: 'base' })
 

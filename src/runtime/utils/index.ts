@@ -5,6 +5,10 @@ import type { IconComponent } from '../types/icons'
 import icons from '../dictionary/icons'
 import { assertNoPrototypeKeys, isPrototypeKey, ownContainer } from './prototype-guard'
 
+/**
+ * A new object with only `keys` copied across. Shallow; missing keys become
+ * `undefined` rather than being skipped.
+ */
 export function pick<Data extends object, Keys extends keyof Data>(data: Data, keys: Keys[]): Pick<Data, Keys> {
   const result = {} as Pick<Data, Keys>
 
@@ -15,6 +19,11 @@ export function pick<Data extends object, Keys extends keyof Data>(data: Data, k
   return result
 }
 
+/**
+ * A shallow copy of `data` without `keys`. Used throughout the components to
+ * split a props object into the part that is forwarded and the part that is
+ * consumed.
+ */
 export function omit<Data extends object, Keys extends keyof Data>(data: Data, keys: Keys[]): Omit<Data, Keys> {
   const result = { ...data }
 
@@ -37,6 +46,19 @@ function toPath(path: (string | number)[] | string): (string | number)[] {
   })
 }
 
+/**
+ * Reads a nested value by path — `'user.address.city'` or
+ * `['items', 0, 'label']` — returning `defaultValue` if any step is missing.
+ *
+ * Prototype-safe: a step that is not the object's **own** property is refused,
+ * so a path through `constructor` or `__proto__` cannot hand back a live
+ * intrinsic. A data model may legitimately carry a field named `constructor`,
+ * which is why the check is on ownership rather than on the name (#92).
+ *
+ * @param object The object to read from.
+ * @param path Dot-notation string, or an array of keys and indices.
+ * @param defaultValue Returned when the path does not resolve.
+ */
 export function get(object: Record<string, any> | undefined, path: (string | number)[] | string, defaultValue?: any): any {
   let result: any = object
 
@@ -78,6 +100,17 @@ export function get(object: Record<string, any> | undefined, path: (string | num
  * caller's data model ends up in a state they do not believe it is in either
  * way, and an exception is the outcome they can catch.
  */
+/**
+ * Writes a nested value by path, creating plain objects along the way.
+ *
+ * Prototype-safe on the same terms as `get`: it descends only through own
+ * properties, so `set({}, 'toString.x', 1)` cannot reach a shared intrinsic
+ * (#92).
+ *
+ * @param object The object to write into. Mutated.
+ * @param path Dot-notation string, or an array of keys and indices.
+ * @param value The value to write.
+ */
 export function set(object: Record<string, any>, path: (string | number)[] | string, value: any): void {
   const keys = toPath(path)
 
@@ -97,15 +130,38 @@ export function set(object: Record<string, any>, path: (string | number)[] | str
  * Index of the first item whose `valueKey` field strictly equals `value`.
  * Timeline and Stepper resolve their active item through this.
  */
+/**
+ * Index of the item whose `valueKey` equals `value`, or `-1`. Compared by
+ * identity, not by `compare` — this is the lookup for a `modelValue` that is
+ * already a primitive.
+ */
 export function itemValueIndex<T>(items: T[], value: unknown, valueKey: string): number {
   return items.findIndex(item => get(item as Record<string, any>, valueKey) === value)
 }
 
+/**
+ * `parseFloat`, but returns the input unchanged when it is not numeric — so an
+ * empty input stays `''` instead of becoming `NaN`, and a numeric string
+ * arrives as a number.
+ */
 export function looseToNumber(val: any): any {
   const n = Number.parseFloat(val)
   return Number.isNaN(n) ? val : n
 }
 
+/**
+ * Whether two selection values are the same, as the menus and selects mean it.
+ *
+ * Strings compare by identity. Objects compare deeply by default, which is
+ * what makes a `modelValue` rebuilt from JSON still match the item it came
+ * from. `comparator` narrows that: a key name compares by that field alone —
+ * `'id'` is the usual answer for records — and a function decides for itself.
+ * `undefined` on either side is never equal to anything.
+ *
+ * @param value The candidate.
+ * @param currentValue The current selection.
+ * @param comparator A key to compare by, or a predicate.
+ */
 export function compare<T>(value?: T, currentValue?: T, comparator?: string | ((a: T, b: T) => boolean)) {
   if (value === undefined || currentValue === undefined) {
     return false
@@ -126,6 +182,13 @@ export function compare<T>(value?: T, currentValue?: T, comparator?: string | ((
   return isEqual(value, currentValue)
 }
 
+/**
+ * Whether a value counts as "nothing selected".
+ *
+ * `false` and `0` are values, not emptiness — a checkbox bound to `false` is
+ * answered, and a quantity of `0` is a quantity. Empty strings, empty arrays,
+ * empty objects, `null` and `undefined` are empty.
+ */
 export function isEmpty(value: unknown): boolean {
   if (value == null) {
     return true
@@ -163,6 +226,22 @@ export function isEmpty(value: unknown): boolean {
   return false
 }
 
+/**
+ * The label to show for a selected value.
+ *
+ * Looks the value up in `items` and reads `labelKey` off what it finds. A
+ * value with no matching item is displayed as-is, so a free-typed entry in an
+ * `InputMenu` still reads back — that fallback is the reason this is not a
+ * one-line `find`.
+ *
+ * @param items The list to search.
+ * @param value The current selection.
+ * @param options Where to find an item's value and label.
+ * @param options.valueKey Field holding an item's value. Omit when items are
+ *   primitives.
+ * @param options.labelKey Field holding an item's label.
+ * @param options.by Passed to `compare` as its comparator.
+ */
 export function getDisplayValue<T extends Array<any>, V>(
   items: T,
   value: V | undefined | null,
@@ -202,6 +281,11 @@ export function getDisplayValue<T extends Array<any>, V>(
   return String(source)
 }
 
+/**
+ * Whether an items array is grouped (an array of arrays) rather than flat.
+ * A type guard, so the caller can branch without a cast — the menus accept
+ * both shapes and render a separator between groups.
+ */
 export function isArrayOfArray<
   A extends any[] | any[][]
 >(item: A): item is A extends Array<infer T>
@@ -212,6 +296,12 @@ export function isArrayOfArray<
   return Array.isArray(item[0])
 }
 
+/**
+ * Joins the class an `app.config` theme override contributes with the one
+ * passed as a prop, in that order — so the prop wins under `twMerge`. Returns
+ * `''` when neither is set, which keeps an empty `class` attribute out of the
+ * markup.
+ */
 export function mergeClasses(appConfigClass?: string | string[], propClass?: string) {
   if (!appConfigClass && !propClass) {
     return ''
@@ -223,6 +313,14 @@ export function mergeClasses(appConfigClass?: string | string[], propClass?: str
   ].filter(Boolean)
 }
 
+/**
+ * Flattens a slot's rendered children into plain text, descending through
+ * nested elements and default slots.
+ *
+ * Needed where a component has to know what its slot says rather than just
+ * render it — a `Kbd` reading its own key, a tooltip falling back to its
+ * trigger's label.
+ */
 export function getSlotChildrenText(children: any) {
   return children.map((node: any) => {
     if (!node.children || typeof node.children === 'string') return node.children || ''
@@ -268,6 +366,14 @@ function walkPromptElement(node: Node): string {
   return inner
 }
 
+/**
+ * Reads an element's visible text the way a chat prompt means it: block-level
+ * tags become line breaks, runs of blank lines collapse to one, and trailing
+ * whitespace goes.
+ *
+ * `textContent` would run the paragraphs together; `innerText` is not
+ * available server-side and depends on layout.
+ */
 export function extractPromptText(el: Element | null | undefined): string {
   if (!el) return ''
   return walkPromptElement(el)
@@ -289,6 +395,12 @@ export function resolveIcon(name?: string | null): IconComponent | undefined {
   return (icons as Record<string, IconComponent>)[name]
 }
 
+/**
+ * Resolves a `tailwind-variants` slot object into plain class strings,
+ * threading the caller's per-slot `b24ui` overrides through each slot function.
+ *
+ * What turns `b24ui.base({ class: … })` into something a template can bind.
+ */
 export function transformUI(ui: any, uiProp?: any) {
   return Object.entries(ui).reduce((acc, [key, value]) => {
     acc[key] = typeof value === 'function' ? value({ class: uiProp?.[key] }) : value
@@ -296,6 +408,14 @@ export function transformUI(ui: any, uiProp?: any) {
   }, { ...(uiProp || {}) })
 }
 
+/**
+ * Prefixes an absolute path with the app's `baseURL`, unless it already
+ * carries it.
+ *
+ * Protocol-relative (`//host/…`) and external URLs are left alone. Idempotent,
+ * so a path that has been through this once does not gain a second prefix —
+ * which is what happens when a link is resolved in both a parent and a child.
+ */
 export function resolveBaseURL(path?: string, baseURL?: string): string | undefined {
   if (path?.startsWith('/') && !path.startsWith('//')) {
     const _base = withLeadingSlash(withTrailingSlash(baseURL || '/'))

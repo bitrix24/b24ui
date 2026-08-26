@@ -36,6 +36,37 @@ function parseAcceptToDataTypes(accept: string): string[] {
     })
 }
 
+/**
+ * The file-picking half of `FileUpload`: a hidden `<input type="file">`, an
+ * optional drop zone, and the wiring that keeps the two agreeing on which
+ * types are allowed.
+ *
+ * `accept` is parsed once for both — the browser applies it to the dialog, and
+ * the same list is handed to the drop zone so a rejected drag is rejected
+ * before the drop rather than after.
+ *
+ * @param options How the picker behaves.
+ * @param options.accept Comma-separated MIME types or extensions, as the
+ *   `accept` attribute takes them. `'*'` allows everything. Defaults to `'*'`.
+ * @param options.reset Clear the selection before each dialog, so picking the
+ *   same file twice fires `onUpdate` twice. Defaults to `false`.
+ * @param options.multiple Allow more than one file. Defaults to `false`.
+ * @param options.dropzone Attach the drop zone to `dropzoneRef`. Defaults to
+ *   `true`.
+ * @param options.onUpdate Called with the chosen files, from the dialog and
+ *   from a drop alike.
+ * @returns `open()` to raise the dialog, `isDragging` for the hover state, and
+ *   `inputRef` / `dropzoneRef` to bind to the elements.
+ *
+ * @example
+ * ```ts
+ * const { open, isDragging, dropzoneRef } = useFileUpload({
+ *   accept: 'image/*',
+ *   multiple: true,
+ *   onUpdate: files => upload(files)
+ * })
+ * ```
+ */
 export function useFileUpload(options: UseFileUploadOptions) {
   const {
     accept = '*',

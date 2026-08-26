@@ -7,6 +7,13 @@ type KbdKeysSpecificMap = {
   ctrl: string
 }
 
+/**
+ * Modifier and special keys as the glyphs a keyboard shows: `meta` is `⌘` on
+ * Apple and `Ctrl` elsewhere, resolved at render time by `useKbd`.
+ *
+ * The keys of this map are what `Kbd`'s `value` prop and `defineShortcuts`
+ * bindings accept as names.
+ */
 export const kbdKeysMap = {
   meta: '',
   ctrl: '',
@@ -68,4 +75,14 @@ const _useKbd = () => {
   }
 }
 
+/**
+ * Turns a key name into the glyph this platform prints on it.
+ *
+ * `meta` is `⌘` on Apple and `Ctrl` everywhere else, and `alt` is `⌥` or
+ * `Alt` — which is why a shortcut hint cannot be a hard-coded string if it is
+ * meant to read correctly on both.
+ *
+ * @returns `macOS`, and `getKbdKey(value)` which maps a name from `kbdKeysMap`
+ *   and passes anything else through unchanged.
+ */
 export const useKbd = /* @__PURE__ */ createSharedComposable(_useKbd)

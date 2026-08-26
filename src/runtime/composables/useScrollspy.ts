@@ -1,5 +1,17 @@
 import { ref, watch, onBeforeMount, onBeforeUnmount } from 'vue'
 
+/**
+ * Tracks which headings are on screen, for a table of contents that follows
+ * the reader.
+ *
+ * Backed by an `IntersectionObserver` rather than scroll offsets, so it costs
+ * nothing while the page is still. `activeHeadings` is the answer a ToC wants:
+ * it keeps the last heading highlighted while the reader is between two, where
+ * `visibleHeadings` would go empty and the highlight would flicker.
+ *
+ * @returns `visibleHeadings` and `activeHeadings`, plus `updateHeadings()`
+ *   to (re)observe a set of elements after the content changes.
+ */
 export function useScrollspy() {
   const observer = ref<IntersectionObserver>()
   const visibleHeadings = ref<string[]>([])

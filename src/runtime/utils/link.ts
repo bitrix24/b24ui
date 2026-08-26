@@ -5,6 +5,12 @@ import { linkKeys } from './link-keys'
 
 export { linkKeys }
 
+/**
+ * Splits the link-shaped props out of a component's own, so `Button`, `Badge`
+ * and the rest can forward them to `Link` without listing them each time.
+ *
+ * Keyed on `linkKeys`, which is the single list those components share.
+ */
 export function pickLinkProps(link: LinkProps & { [key: string]: any }) {
   const keys = Object.keys(link)
 
@@ -20,6 +26,12 @@ export function pickLinkProps(link: LinkProps & { [key: string]: any }) {
   return reactivePick(link, ...propsToInclude)
 }
 
+/**
+ * Whether every key of `item2` matches the same key of `item1` — used to
+ * decide active state for a link whose `to` is a route object: the current
+ * route carries more than the link declares, and only what the link declares
+ * should have to match.
+ */
 export function isPartiallyEqual(item1: any, item2: any) {
   const diffedKeys = diff(item1, item2).reduce((filtered, q) => {
     if (q.type === 'added') {

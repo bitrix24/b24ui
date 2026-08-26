@@ -85,6 +85,21 @@ export interface EditorMenuOptions<T = any> {
   b24ui: ComputedRef<any>
 }
 
+/**
+ * The shared machinery behind the editor's `@mention` and `:emoji` menus: a
+ * TipTap Suggestion plugin, a floating-ui positioned popup, and the filtering
+ * between them.
+ *
+ * Both menus differ only in their trigger character and their item source, so
+ * they are one composable with two configurations rather than two
+ * near-identical files.
+ *
+ * @param options Trigger `char`, the `items` source, the popup `component` and
+ *   its floating-ui `options`, and where to `appendTo` when the editor's
+ *   parent clips or stacks badly.
+ * @returns `plugin` to register with TipTap, `destroy()`, and the live
+ *   `filteredItems` / `searchTerm` for a custom popup.
+ */
 export function useEditorMenu<T = any>(options: EditorMenuOptions<T>) {
   const filteredItems: Ref<T[]> = ref([])
   const selectedIndex = ref(0)
