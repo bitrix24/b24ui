@@ -3,6 +3,15 @@ import { isEqual, diff } from 'ohash/utils'
 import type { LinkProps } from '../components/Link.vue'
 import { linkKeys } from './link-keys'
 
+/**
+ * Re-exported from `./link-keys` so a consumer importing from `b24ui/utils`
+ * finds it beside `pickLinkProps`, which is the function that consumes it.
+ *
+ * The list itself lives in its own module so a reader of the names does not
+ * have to load `reactivePick` and `ohash` with them — which is why
+ * `link-passthrough.spec.ts` imports `./link-keys` directly rather than going
+ * through here.
+ */
 export { linkKeys }
 
 /**

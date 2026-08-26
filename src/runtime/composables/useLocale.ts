@@ -32,6 +32,6 @@ const _useLocale = (localeOverrides?: Ref<Locale<Messages> | undefined>) => {
  * @returns The locale context: `t()` for translation, plus `lang`, `code`,
  *   `dir` and the `locale` object itself.
  *
- * @see https://bitrix24.github.io/b24ui/docs/composables/define-locale/
+ * @see https://bitrix24.github.io/b24ui/docs/getting-started/integrations/i18n/vue/
  */
 export const useLocale = /* @__PURE__ */ import.meta.client ? createSharedComposable(_useLocale) : _useLocale

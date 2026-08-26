@@ -50,10 +50,15 @@ function toPath(path: (string | number)[] | string): (string | number)[] {
  * Reads a nested value by path — `'user.address.city'` or
  * `['items', 0, 'label']` — returning `defaultValue` if any step is missing.
  *
- * Prototype-safe: a step that is not the object's **own** property is refused,
- * so a path through `constructor` or `__proto__` cannot hand back a live
- * intrinsic. A data model may legitimately carry a field named `constructor`,
- * which is why the check is on ownership rather than on the name (#92).
+ * Prototype-safe against the reads that matter: a step naming `__proto__`,
+ * `constructor` or `prototype` is refused *unless the object owns it*, so a
+ * path cannot hand back a live intrinsic. A data model may legitimately carry
+ * a field called `constructor` — parsed from JSON, say — which is why the
+ * check is ownership on top of the name rather than the name alone (#92).
+ *
+ * Only those three names are checked. `get({}, 'toString')` still returns the
+ * inherited function; reads are total by contract and that one is harmless,
+ * while `set()` refuses the same path outright because a write is not.
  *
  * @param object The object to read from.
  * @param path Dot-notation string, or an array of keys and indices.
@@ -85,7 +90,7 @@ export function get(object: Record<string, any> | undefined, path: (string | num
 }
 
 /**
- * Assigns `value` at a dotted `path`, creating intermediate objects as it goes.
+ * Writes a nested value by path, creating plain objects along the way.
  *
  * Neither this nor `get()` is reachable from inside b24ui — nothing in `src/`
  * calls `set()`, and every `get()` path the components pass is an
@@ -94,22 +99,19 @@ export function get(object: Record<string, any> | undefined, path: (string | num
  * from somewhere less trustworthy. See `utils/prototype-guard.ts` for what is
  * being defended against.
  *
- * @throws {TypeError} if any path segment names `__proto__`, `constructor` or
- * `prototype`. Such a path writes through to a shared prototype rather than to
- * `object`, and unlike a read there is no sensible value to return instead: the
- * caller's data model ends up in a state they do not believe it is in either
- * way, and an exception is the outcome they can catch.
- */
-/**
- * Writes a nested value by path, creating plain objects along the way.
- *
- * Prototype-safe on the same terms as `get`: it descends only through own
- * properties, so `set({}, 'toString.x', 1)` cannot reach a shared intrinsic
- * (#92).
+ * Stricter than `get()` in both directions. The three prototype names are
+ * refused outright rather than only when inherited, and the walk descends only
+ * through *own* containers — copying an inherited one rather than writing
+ * through it — so `set({}, 'toString.x', 1)` cannot reach a shared intrinsic
+ * even though no segment of that path is a reserved word (#92).
  *
  * @param object The object to write into. Mutated.
  * @param path Dot-notation string, or an array of keys and indices.
  * @param value The value to write.
+ * @throws {TypeError} if any path segment names `__proto__`, `constructor` or
+ * `prototype`. Unlike a read there is no sensible value to return instead: the
+ * caller's data model ends up in a state they do not believe it is in either
+ * way, and an exception is the outcome they can catch.
  */
 export function set(object: Record<string, any>, path: (string | number)[] | string, value: any): void {
   const keys = toPath(path)
@@ -127,13 +129,11 @@ export function set(object: Record<string, any>, path: (string | number)[] | str
 }
 
 /**
- * Index of the first item whose `valueKey` field strictly equals `value`.
+ * Index of the first item whose `valueKey` field equals `value`, or `-1`.
  * Timeline and Stepper resolve their active item through this.
- */
-/**
- * Index of the item whose `valueKey` equals `value`, or `-1`. Compared by
- * identity, not by `compare` — this is the lookup for a `modelValue` that is
- * already a primitive.
+ *
+ * Compared by identity, not by `compare()` — this is the lookup for a
+ * `modelValue` that is already a primitive.
  */
 export function itemValueIndex<T>(items: T[], value: unknown, valueKey: string): number {
   return items.findIndex(item => get(item as Record<string, any>, valueKey) === value)
@@ -152,7 +152,9 @@ export function looseToNumber(val: any): any {
 /**
  * Whether two selection values are the same, as the menus and selects mean it.
  *
- * Strings compare by identity. Objects compare deeply by default, which is
+ * Strings compare by identity, and that check runs *first* — a `comparator`
+ * is not consulted for a string value, so a predicate meant to loosen string
+ * matching has no effect here. Objects compare deeply by default, which is
  * what makes a `modelValue` rebuilt from JSON still match the item it came
  * from. `comparator` narrows that: a key name compares by that field alone —
  * `'id'` is the usual answer for records — and a function decides for itself.

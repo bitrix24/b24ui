@@ -27,7 +27,9 @@ export interface UseScrollShadowOptions {
  * @param element The scroll container.
  * @param options Fade geometry.
  * @param options.orientation Which axis scrolls. Defaults to `'vertical'`.
- * @param options.size Fade length, as a CSS length.
+ * @param options.size Fade length in pixels, as a bare number. Defaults to
+ *   `24`. A string with its own unit does not work — `px` is appended, so
+ *   `'2rem'` builds `2rempx` and the mask stops rendering.
  * @returns `style` to bind, plus `isOverflowing` and `arrivedState` if the
  *   caller wants to decide for itself.
  */

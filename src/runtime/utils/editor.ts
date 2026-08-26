@@ -47,12 +47,16 @@ export function isExtensionAvailable(editor: Editor | null, extensionName: strin
 }
 
 /**
+ * Every `create*Handler` below returns the same shape, and it is the shape
+ * `EditorToolbar` binds a button to: `canExecute` decides whether to enable
+ * it, `execute` runs on click, `isActive` shows it pressed, and `isDisabled`
+ * greys it out where the command makes no sense — inside a code block, or with
+ * an image selected. Only the differences are documented on each one.
+ */
+
+/**
  * A handler for a command that toggles, by name — `blockquote` becomes
  * `toggleBlockquote`.
- *
- * Returns the `{ canExecute, execute, isActive }` triple `EditorToolbar` binds
- * a button to: whether to enable it, what to run, and whether to show it
- * pressed.
  */
 export function createToggleHandler(name: string) {
   const fnName = `toggle${name.charAt(0).toUpperCase()}${name.slice(1)}`
@@ -66,11 +70,9 @@ export function createToggleHandler(name: string) {
 
 /**
  * A handler for a command that sets rather than toggles — `paragraph` becomes
- * `setParagraph`. Never reports active, because setting is not a state.
- *
- * Returns the `{ canExecute, execute, isActive }` triple `EditorToolbar` binds
- * a button to: whether to enable it, what to run, and whether to show it
- * pressed.
+ * `setParagraph`. Still reports active, because the node it sets *is* a state
+ * the toolbar shows pressed; what differs from `createToggleHandler` is only
+ * that running it twice is idempotent instead of undoing itself.
  */
 export function createSetHandler(name: string) {
   const fnName = `set${name.charAt(0).toUpperCase()}${name.slice(1)}`
@@ -86,10 +88,6 @@ export function createSetHandler(name: string) {
  * A handler for a command called by its own name and carrying no state, such
  * as `undo` and `redo`. Does not focus the editor first: undo should not move
  * the caret.
- *
- * Returns the `{ canExecute, execute, isActive }` triple `EditorToolbar` binds
- * a button to: whether to enable it, what to run, and whether to show it
- * pressed.
  */
 export function createSimpleHandler(name: string) {
   return {
@@ -104,10 +102,6 @@ export function createSimpleHandler(name: string) {
  * A handler for any inline mark, taking the mark's name from the item rather
  * than from a closure — so bold, italic, code and strike are one handler
  * configured four ways.
- *
- * Returns the `{ canExecute, execute, isActive }` triple `EditorToolbar` binds
- * a button to: whether to enable it, what to run, and whether to show it
- * pressed.
  */
 export function createMarkHandler() {
   return {
@@ -120,10 +114,6 @@ export function createMarkHandler() {
 
 /**
  * A handler for text alignment, reading the target alignment from the item.
- *
- * Returns the `{ canExecute, execute, isActive }` triple `EditorToolbar` binds
- * a button to: whether to enable it, what to run, and whether to show it
- * pressed.
  */
 export function createTextAlignHandler() {
   return {
@@ -136,10 +126,6 @@ export function createTextAlignHandler() {
 
 /**
  * A handler for headings, reading the level from the item.
- *
- * Returns the `{ canExecute, execute, isActive }` triple `EditorToolbar` binds
- * a button to: whether to enable it, what to run, and whether to show it
- * pressed.
  */
 export function createHeadingHandler() {
   return {
@@ -154,10 +140,6 @@ export function createHeadingHandler() {
  * A handler for links. Enabled when the editor can either set or unset one,
  * so the button stays usable both to add a link and to remove the one under
  * the caret.
- *
- * Returns the `{ canExecute, execute, isActive }` triple `EditorToolbar` binds
- * a button to: whether to enable it, what to run, and whether to show it
- * pressed.
  */
 export function createLinkHandler() {
   return {
@@ -202,10 +184,6 @@ export function createLinkHandler() {
 
 /**
  * A handler for images.
- *
- * Returns the `{ canExecute, execute, isActive }` triple `EditorToolbar` binds
- * a button to: whether to enable it, what to run, and whether to show it
- * pressed.
  */
 export function createImageHandler() {
   return {
@@ -237,10 +215,6 @@ export function createImageHandler() {
 
 /**
  * A handler for one of the three list types.
- *
- * Returns the `{ canExecute, execute, isActive }` triple `EditorToolbar` binds
- * a button to: whether to enable it, what to run, and whether to show it
- * pressed.
  */
 export function createListHandler(listType: 'bulletList' | 'orderedList' | 'taskList') {
   const fnNameMap = {
@@ -319,10 +293,6 @@ export function createListHandler(listType: 'bulletList' | 'orderedList' | 'task
  * A handler that moves the block at `cmd.pos` up or down — what the drag
  * handle's menu binds to. Disabled when there is no node at that position, or
  * no sibling to swap with.
- *
- * Returns the `{ canExecute, execute, isActive }` triple `EditorToolbar` binds
- * a button to: whether to enable it, what to run, and whether to show it
- * pressed.
  */
 export function createMoveHandler(direction: 'up' | 'down') {
   return {

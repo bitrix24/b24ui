@@ -11,8 +11,9 @@ type KbdKeysSpecificMap = {
  * Modifier and special keys as the glyphs a keyboard shows: `meta` is `⌘` on
  * Apple and `Ctrl` elsewhere, resolved at render time by `useKbd`.
  *
- * The keys of this map are what `Kbd`'s `value` prop and `defineShortcuts`
- * bindings accept as names.
+ * These are the names `Kbd`'s `value` prop translates; anything else is
+ * rendered as given, so `value="F5"` prints `F5`. `defineShortcuts` does not
+ * read this map at all — it has its own `specialKeys` for matching events.
  */
 export const kbdKeysMap = {
   meta: '',

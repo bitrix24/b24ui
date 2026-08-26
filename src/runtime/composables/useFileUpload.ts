@@ -41,9 +41,11 @@ function parseAcceptToDataTypes(accept: string): string[] {
  * optional drop zone, and the wiring that keeps the two agreeing on which
  * types are allowed.
  *
- * `accept` is parsed once for both — the browser applies it to the dialog, and
- * the same list is handed to the drop zone so a rejected drag is rejected
- * before the drop rather than after.
+ * `accept` goes to the dialog verbatim. The drop zone gets the MIME half of
+ * it only: a drag exposes a type, not a filename, so extension entries are
+ * dropped from that list and an `accept` written purely as extensions
+ * (`'.pdf,.docx'`) leaves the drop zone accepting anything. Validate by name
+ * in `onUpdate` when extensions are the contract.
  *
  * @param options How the picker behaves.
  * @param options.accept Comma-separated MIME types or extensions, as the

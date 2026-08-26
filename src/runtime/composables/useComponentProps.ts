@@ -33,6 +33,15 @@ export function injectThemeContext(fallback: ThemeContext = defaultThemeContext)
   return _injectThemeContext(fallback)
 }
 
+/**
+ * Publishes a `ThemeContext` to everything below, so `useComponentProps` in a
+ * descendant resolves prop defaults from it.
+ *
+ * `<B24Theme>` is the only caller in this package; it is exported for an
+ * application that wants a second scope — a themed dialog, a preview pane —
+ * without nesting another `<B24Theme>`. Half of the `createContext` pair whose
+ * reading half is `injectThemeContext`.
+ */
 export { provideThemeContext }
 
 function camelCase(str: string): string {
