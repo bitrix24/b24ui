@@ -114,8 +114,21 @@ jobs:
       - name: Typecheck
         run: pnpm run typecheck
 
+      # Coverage rather than a plain `vitest run`: it is the same suite with the
+      # same assertions, plus a gate that goes red when coverage falls below
+      # the thresholds in `vitest.config.ts`. Instrumenting every worker costs
+      # about 100s on a 240s suite, which is why it is one run here and not a
+      # second job — and why it stays off for local runs unless asked for.
       - name: Test
-        run: pnpm run test run
+        run: pnpm run test:coverage
+
+      - name: Upload the coverage report
+        if: always()
+        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
+        with:
+          name: coverage
+          path: coverage/
+          retention-days: 14
 
       # A separate invocation, not a third project in the run above. These
       # specs boot Nuxt with `loadNuxt`, and the component suite already sits

@@ -312,6 +312,100 @@ often a different vitest project — from the one being re-rendered.
 A full `pnpm run test:update` fixes it in one pass. `test:update` exists so
 that the safe command is the short one, and it takes no path on purpose.
 
+## Coverage
+
+```bash
+pnpm run test:coverage    # the whole suite, instrumented
+```
+
+Off by default. Instrumenting every worker costs about 80s on top of a 240s
+suite, which is worth paying once in CI and not on every local run. CI runs
+this instead of a plain `vitest run`, uploads `coverage/` as an artifact, and
+fails when the run drops below the thresholds in `vitest.config.ts`.
+
+**It only works as a whole run.** `pnpm run test:coverage --project vue`, or
+with a path filter, still checks the thresholds against the whole of `src/` —
+so a partial run is red by construction, on code that never had a chance to
+execute. That is vitest's behaviour, not a regression in your branch. Use a
+plain `pnpm run test <name>` while iterating.
+
+### Scope
+
+`src/runtime` and `src/theme` — what a browser receives.
+
+The module half of `src/` (`module.ts`, `unplugin.ts`, `vite.ts`, `plugins/`,
+`templates.ts`) is deliberately out. It is exercised by `test/module`, which
+runs under its own config in its own process and is not instrumented, so
+counting it here reported about 175 statements as untested that are in fact
+tested — and no amount of module testing could ever have moved the number.
+
+The extensions are spelled out (`**/*.{ts,vue}`) because a bare `**` pulls in
+the 36 design-token stylesheets and two token JSON files, which carry no
+statements, cannot be covered, and land in the report as three dozen rows at
+0%.
+
+### The baseline and what the thresholds buy
+
+Measured on Node 24, which is what CI pins:
+
+```
+Statements   : 71.89% ( 5265/7323 )
+Branches     : 69.86% ( 5134/7348 )
+Functions    : 71.04% ( 1875/2639 )
+Lines        : 71.45% ( 4659/6520 )
+```
+
+Thresholds are that **minus one point, floored** — `70 / 68 / 70 / 70`. Not
+the baseline floored: rounding alone produces wildly uneven margins, and the
+first version of this gate proved it by putting functions at 69 against a
+measured 69.04, which tolerated exactly *one* new uncovered function while
+statements tolerated 38.
+
+A point of margin buys this much new uncovered code before the gate goes red:
+
+| metric | headroom |
+|---|---|
+| statements | 198 |
+| branches | 202 |
+| functions | 39 |
+| lines | 135 |
+
+Against the shape of this repository — 182 components, median 14 statements
+and 6 functions, p75 38 and 15, largest `InputMenu.vue` at 190 and 88 — that
+means a **large new area arriving with no tests is caught**, on functions and
+lines first. A single median component is not.
+
+The margin is a point rather than a rounding because the denominator wobbles.
+Three full runs of the same clean tree gave two different totals — 7323 and
+7324 statements — and it is not the Node version: both came out of Node 24,
+with Node 22 landing on the second. One fully-covered function in `Button.vue`
+appears or does not, worth about 0.01pp. Tiny, but it means the number is not
+reproducible to the digit, and a threshold set exactly at the baseline would
+eventually go red on nothing at all.
+
+### What it does not catch
+
+A component *losing* the tests it had. Measured rather than assumed —
+`describe.skip` on the whole `Button` suite stops 212 tests and leaves the
+numbers where they were:
+
+```
+Statements   : unchanged
+Functions    : unchanged
+Lines        : unchanged
+Branches     : -0.19pp
+```
+
+`Button.vue` is mounted by dozens of other specs — inside forms, menus,
+toolbars — so its code keeps executing whether or not anything asserts about
+it. **Coverage measures execution, not assertion.**
+
+A per-file threshold would close that gap and cannot be turned on yet: 93
+files sit at 0% today, so `perFile` would be red on the first run.
+
+Treat the number as a floor under the shipped surface, not as evidence that a
+component is tested. For that, the component needs its own spec.
+
 ## Running Tests
 
 ```bash
@@ -327,8 +421,8 @@ pnpm build && pnpm run test:smoke
 # Run specific test file
 pnpm run test Button
 
-# Run with coverage
-pnpm run test -- --coverage
+# Run with coverage — see the Coverage section above
+pnpm run test:coverage
 
 # Watch mode
 pnpm run test -- --watch
