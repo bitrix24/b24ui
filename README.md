@@ -104,8 +104,9 @@ Learn more in the [installation guide](https://bitrix24.github.io/b24ui/docs/get
 
 Thank you for considering contributing to Bitrix24 UI. Here are a few ways you can get involved:
 
-- Reporting Bugs: If you come across any bugs or issues, please check out the reporting bugs guide to learn how to submit a bug report.
-- Suggestions: Have any thoughts to enhance Bitrix24 UI? We'd love to hear them! Check out the [contribution guide](https://bitrix24.github.io/b24ui/docs/getting-started/contribution/) to share your suggestions.
+- **Reporting bugs**: [open a bug report](https://github.com/bitrix24/b24ui/issues/new?template=bug-report.yml). The form asks for a reproduction, and that is the field that decides whether the report can be acted on — see [reporting a bug](https://github.com/bitrix24/b24ui/blob/main/CONTRIBUTING.md#reporting-a-bug).
+- **Suggestions**: [open a feature request](https://github.com/bitrix24/b24ui/issues/new?template=feature-request.yml). Have any thoughts to enhance Bitrix24 UI? We'd love to hear them.
+- **Code**: [CONTRIBUTING.md](https://github.com/bitrix24/b24ui/blob/main/CONTRIBUTING.md) is the map — setup, the deep-dive guides, and what CI expects of a pull request. The [contribution guide](https://bitrix24.github.io/b24ui/docs/getting-started/contribution/) on the documentation site covers getting the repository running.
 
 > [!TIP]
 > We provide contributing guidelines through [`AGENTS.md`](https://github.com/bitrix24/b24ui/blob/main/AGENTS.md) for AI assistants to help you contribute to Bitrix24 UI. It is automatically picked up by all AI coding agents and guides through component structure, theming patterns, testing conventions, and documentation guidelines.

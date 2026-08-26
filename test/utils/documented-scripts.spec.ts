@@ -16,11 +16,16 @@ import { describe, it, expect } from 'vitest'
  * `4.contribution.md` is the published mirror of the contributor guide. The
  * installation and usage pages are out, because there `pnpm add` and `pnpm dev`
  * belong to the reader's project, which this `package.json` says nothing about.
+ *
+ * `README.md` is out for the same reason: its `pnpm` lines install this package
+ * into somebody else's application. `CONTRIBUTING.md` is in — it is the first
+ * file GitHub shows a contributor, and every command in it runs here.
  */
 const repoRoot = process.cwd()
 
 const DOC_FILES = [
   'AGENTS.md',
+  'CONTRIBUTING.md',
   '.github/contributing/testing.md',
   '.github/contributing/documentation.md',
   '.github/contributing/component-structure.md',
