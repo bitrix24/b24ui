@@ -1,0 +1,14 @@
+# Blank issues stay on: the maintainer files a lot of them, and an audit note or
+# a follow-up does not fit either form. The forms are for reports arriving from
+# outside, where the missing field is usually the reproduction.
+blank_issues_enabled: true
+contact_links:
+  - name: Documentation
+    url: https://bitrix24.github.io/b24ui/
+    about: Component reference, theming, and the getting-started guides.
+  - name: Contributing
+    url: https://github.com/bitrix24/b24ui/blob/main/CONTRIBUTING.md
+    about: How to set the repository up, and where each guide lives.
+  - name: Bitrix24 REST API
+    url: https://apidocs.bitrix24.com/
+    about: Questions about the Bitrix24 API itself rather than this UI library.

@@ -1,0 +1,72 @@
+name: Feature request
+description: Something Bitrix24 UI should be able to do and cannot.
+title: "feat(Component): "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please check the [open issues](https://github.com/bitrix24/b24ui/issues?q=is%3Aissue+label%3Aenhancement)
+        first, and the [documentation](https://bitrix24.github.io/b24ui/) — a fair number of
+        requests turn out to be a prop that already exists under a different name.
+
+        **Issues here are public.** Please redact tokens, API keys, portal URLs and
+        customer data from any code you paste.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do
+      description: |
+        The problem, not the solution. What are you building, and where does the library stop
+        being able to help?
+
+        This is asked first on purpose. A request phrased as a solution can usually only be
+        accepted or rejected; a request phrased as a problem can be answered with something
+        better than what was asked for.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you have in mind
+      description: The API you would want, if you have a shape in mind. Code is fine.
+      render: vue
+    validations:
+      required: false
+
+  - type: dropdown
+    id: upstream
+    attributes:
+      label: Does this exist in Nuxt UI?
+      description: |
+        Bitrix24 UI is a fork of [Nuxt UI](https://github.com/nuxt/ui), ported deliberately
+        rather than merged wholesale. If the thing already exists upstream, the work is
+        "port and reconcile" instead of "design and build" — a much shorter conversation,
+        and knowing which one this is changes where it lands in the queue.
+      options:
+        - "Yes — it exists upstream"
+        - "No — this would be new"
+        - "I do not know"
+    validations:
+      required: true
+
+  - type: input
+    id: upstream-link
+    attributes:
+      label: Link to it upstream
+      description: If you answered yes — the documentation page, the component, or the pull request.
+      placeholder: https://ui.nuxt.com/components/...
+    validations:
+      required: false
+
+  - type: textarea
+    id: workaround
+    attributes:
+      label: What you are doing instead today
+      description: |
+        The workaround, if there is one. It tells us how much this hurts, and it is often the
+        clearest statement of the problem — including whether a fix is needed at all.
+    validations:
+      required: false

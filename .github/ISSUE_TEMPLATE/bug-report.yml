@@ -1,0 +1,103 @@
+name: Bug report
+description: Something in Bitrix24 UI behaves differently from what it documents.
+title: "fix(Component): "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before filing, please check the [open issues](https://github.com/bitrix24/b24ui/issues?q=is%3Aissue) —
+        this library is a fork of [Nuxt UI](https://github.com/nuxt/ui) and ports land continuously,
+        so a bug reported a week ago may already be fixed on `main`.
+
+        Keep the title a [conventional commit](https://www.conventionalcommits.org/) subject
+        if you can: `fix(Button): the loading icon keeps spinning after loading ends`.
+        The scope is the component without its `B24` prefix — `Button`, not `B24Button` —
+        because that is what reaches the changelog. It is not required to file.
+
+        **Issues here are public.** Please redact tokens, API keys, portal URLs and
+        customer data from anything you paste — logs, screenshots and reproductions
+        included.
+
+  - type: input
+    id: component
+    attributes:
+      label: Component or composable
+      description: |
+        The name as it is exported — `B24Button`, `useOverlay`, `defineShortcuts`. The
+        `B24` prefix belongs here but not in the title; see above.
+      placeholder: B24Button
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happens
+    attributes:
+      label: What happens
+      description: What you see, and what you expected instead. Screenshots help for anything visual.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: |
+        A [StackBlitz](https://stackblitz.com/) or a small repository someone can open and see it in.
+
+        This is the field that decides whether the report can be acted on. Most reports that
+        look like a bug in this library turn out to depend on something in the application
+        around it — a Tailwind config, a competing plugin, a wrapper component — and a
+        description alone cannot tell those apart from a real defect.
+
+        If you genuinely cannot produce one, say so here and explain what blocks it.
+        A report with a reason is worth more than a report with an empty box.
+      placeholder: |
+        https://stackblitz.com/edit/...
+
+        Or: what you tried, and what stopped you from isolating it.
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: "`@bitrix24/b24ui-nuxt` version"
+      description: From your lockfile, not from memory — `pnpm why @bitrix24/b24ui-nuxt` prints it.
+      placeholder: 2.12.0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      options:
+        - Nuxt
+        - Vue (without Nuxt)
+        - Both
+    validations:
+      required: true
+
+  - type: textarea
+    id: versions
+    attributes:
+      label: Versions around it
+      description: |
+        Nuxt or Vue, Node, and your package manager. `npx nuxi info` prints the lot for a
+        Nuxt project — check its output before pasting, it includes local paths and your
+        full module list.
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else
+      description: |
+        Whether it also reproduces in [Nuxt UI](https://ui.nuxt.com/) is worth a line if you
+        know — this is a fork, and a bug present upstream is fixed differently from one that
+        arrived in the port.
+    validations:
+      required: false
