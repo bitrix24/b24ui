@@ -15,6 +15,24 @@ export interface UseScrollShadowOptions {
   orientation?: MaybeRefOrGetter<'vertical' | 'horizontal'>
 }
 
+/**
+ * Fades the edges of a scrollable box, so the reader can tell there is more
+ * content past the fold.
+ *
+ * The shadow is a `mask-image`, applied only at the ends that can still be
+ * scrolled towards: nothing at the top when the box is at the top, both when
+ * it is in the middle. `isOverflowing` is false when the content fits, which
+ * is what stops the mask appearing on a box that does not scroll at all.
+ *
+ * @param element The scroll container.
+ * @param options Fade geometry.
+ * @param options.orientation Which axis scrolls. Defaults to `'vertical'`.
+ * @param options.size Fade length in pixels, as a bare number. Defaults to
+ *   `24`. A string with its own unit does not work — `px` is appended, so
+ *   `'2rem'` builds `2rempx` and the mask stops rendering.
+ * @returns `style` to bind, plus `isOverflowing` and `arrivedState` if the
+ *   caller wants to decide for itself.
+ */
 export function useScrollShadow(element: MaybeRef<HTMLElement | null | undefined>, options: UseScrollShadowOptions = {}) {
   const { arrivedState } = useScroll(element)
 

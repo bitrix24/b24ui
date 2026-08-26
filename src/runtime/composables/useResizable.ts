@@ -82,6 +82,25 @@ export type UseResizableReturn = {
   collapse: (value?: boolean) => void
 }
 
+/**
+ * Drag-to-resize for the dashboard panels, with the size remembered per `key`.
+ *
+ * Sizes are in `options.unit`, which defaults to `'px'` here and in
+ * `DashboardGroup` alike — a panel keeps its width when the window changes,
+ * not its proportion. Pass `'%'` for proportional panels, or `'rem'` to have
+ * the panel follow the root font size. The stored value survives a reload — which is why `key` has to be stable and distinct:
+ * two panels sharing one key share one width.
+ *
+ * @param key Storage key for the remembered size. Stable and unique per panel.
+ * @param options Panel geometry — `side`, `minSize`, `maxSize`, `defaultSize`,
+ *   `collapsible`, `collapsedSize`, and `unit` (`'px'` by default, also `'%'`
+ *   and `'rem'`). A ref is re-read when it changes.
+ * @param context Externally-owned state.
+ * @param context.collapsed Two-way collapsed state, when the caller owns it.
+ * @returns `el` to bind, the live `size`, `isDragging` / `isCollapsed`, the
+ *   `onMouseDown` / `onTouchStart` / `onDoubleClick` handlers for the handle,
+ *   and `collapse()`.
+ */
 export function useResizable(key: string, options: Ref<UseResizableProps> | UseResizableProps = {}, { collapsed = ref(false) }: { collapsed?: Ref<boolean> } = {}): UseResizableReturn {
   const el = ref<HTMLElement | null>(null)
   const opts = computed(() => ({
