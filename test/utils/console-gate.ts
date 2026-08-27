@@ -20,7 +20,25 @@ import { afterEach, beforeEach } from 'vitest'
  *
  * A test that takes over `console.warn` itself — `vi.spyOn(console, 'warn')` —
  * replaces this collector for its duration and the gate sees nothing. That is
- * deliberate: a test asserting on a warning owns it.
+ * deliberate: a test asserting on a warning owns it. It has to happen *inside*
+ * the test body, though: a spy installed in `beforeAll` is overwritten by this
+ * collector's `beforeEach` and then discarded by its `afterEach`.
+ *
+ * What it does not see, stated so nobody has to discover it:
+ *
+ *  - anything logged at module scope, in `beforeAll` or in `afterAll` — the
+ *    window is one test;
+ *  - an async continuation that resolves after `afterEach` has run, which is
+ *    dropped or attributed to the next test;
+ *  - `console.info` / `debug` / `trace` and `process.emitWarning`, none of
+ *    which Vue uses for warnings;
+ *  - a later patcher of `console`, which would replace this one silently —
+ *    nothing else in `test/` patches it today;
+ *  - `test.concurrent`, because `captured` is one variable per file. There are
+ *    none in this repository; adding one would misattribute warnings.
+ *
+ * `installConsoleGate()` is not idempotent either: calling it twice in one
+ * setup file would leave the second collector reading an empty buffer.
  */
 const CHANNELS = ['warn', 'error'] as const
 
@@ -36,53 +54,92 @@ const CHANNELS = ['warn', 'error'] as const
  * if the warning it emits is one somebody has looked at and chosen to leave.
  */
 export const KNOWN_NOISY_SPECS = new Set([
-  // `Invalid prop: type check failed for prop "textValue"` — reka-ui receives a
-  // render function where it expects a string. Not ours to fix in `src/`.
-  'components/DropdownMenu.spec.ts',
-  'components/ContextMenu.spec.ts',
+  // ── Accessibility, in the dialog family ──────────────────────────────────
+  // `DialogContent requires a DialogTitle for the component to be accessible
+  // for screen reader users`, `Missing Description or aria-describedby`, and
+  // `console.error: aria-hidden` on focusable content. Real defects, the same
+  // class #50 was about, each needing its own fix.
+  'nuxt:components/Modal.spec.ts',
+  'vue:components/Modal.spec.ts',
+  'nuxt:components/Drawer.spec.ts',
+  'vue:components/Drawer.spec.ts',
+  'nuxt:components/Slideover.spec.ts',
+  'vue:components/Slideover.spec.ts',
+  'nuxt:components/Header.spec.ts',
+  'vue:components/Header.spec.ts',
+  'nuxt:components/DashboardSearch.spec.ts',
+  'vue:components/DashboardSearch.spec.ts',
+  'nuxt:components/DashboardSidebar.spec.ts',
+  'vue:components/DashboardSidebar.spec.ts',
+  'nuxt:components/content/ContentSearch.spec.ts',
+  'nuxt:components/Select.spec.ts',
+  'vue:components/Select.spec.ts',
+  'nuxt:components/Table.spec.ts',
+  'vue:components/Table.spec.ts',
 
-  // `DialogContent requires a DialogTitle` and `Missing Description or
-  // aria-describedby` — real accessibility defects, the same class #50 was
-  // about. Each needs its own fix.
-  'components/Slideover.spec.ts',
-  'components/Drawer.spec.ts',
-  'components/Modal.spec.ts',
-  'components/DashboardSearch.spec.ts',
-  'components/Select.spec.ts',
-  'components/content/ContentSearch.spec.ts',
-  'components/Table.spec.ts',
-  'components/DashboardSidebar.spec.ts',
-  'components/Header.spec.ts',
-  'components/FieldGroup.spec.ts',
-  'components/FileUpload.spec.ts',
+  // ── `Invalid prop: type check failed for prop "textValue"` ───────────────
+  // reka-ui receives a render function where it expects a string. The call
+  // site is inside reka-ui, not `src/`.
+  'nuxt:components/DropdownMenu.spec.ts',
+  'vue:components/DropdownMenu.spec.ts',
+  'nuxt:components/ContextMenu.spec.ts',
+  'vue:components/ContextMenu.spec.ts',
 
-  // `[Vue Router warn]: No match found for location` — fixtures navigating to
-  // routes the test router does not declare.
-  'components/NavigationMenu.spec.ts',
-  'components/Breadcrumb.spec.ts',
-  'components/PageLinks.spec.ts',
-  'components/Link.spec.ts',
-
-  'components/PageSection.spec.ts',
-  'components/Button.spec.ts',
-  'components/Banner.spec.ts',
-
-  // Lifecycle and emit declarations. These three are product defects rather
-  // than fixture noise, and the gate found all three on its first run — the
-  // hand-rolled measurement that preceded it had missed them:
-  //   InputMenu     emits `remove-tag` without declaring it
+  // ── Product defects the gate found on its first run ──────────────────────
+  //   FieldGroup    renders `B24Button` and `B24Input`, neither of which
+  //                 resolves — the components are not registered for it
+  //   InputMenu     emits `remove-tag` without declaring it in `emits`
   //   ChatMessages  invokes the `viewport` slot outside the render function,
   //                 so it tracks no dependencies
   //   useKbd        calls `onMounted` with no active component instance
-  'components/InputMenu.spec.ts',
-  'components/ChatMessages.spec.ts',
-  'composables/useKbd.spec.ts',
+  //   useToast,
+  //   useResizable  call `inject()` outside `setup()`
+  'nuxt:components/FieldGroup.spec.ts',
+  'vue:components/FieldGroup.spec.ts',
+  'nuxt:components/InputMenu.spec.ts',
+  'vue:components/InputMenu.spec.ts',
+  'nuxt:components/ChatMessages.spec.ts',
+  'vue:components/ChatMessages.spec.ts',
+  'nuxt:composables/useKbd.spec.ts',
+  'vue:composables/useKbd.spec.ts',
+  'nuxt:composables/useToast.spec.ts',
+  'vue:composables/useToast.spec.ts',
+  'nuxt:composables/useResizable.spec.ts',
+  'vue:composables/useResizable.spec.ts',
 
-  // `inject() can only be used inside setup()` and friends.
-  'composables/useToast.spec.ts',
-  'composables/useContentSearch.spec.ts',
-  'composables/useResizable.spec.ts'
+  // ── Test-router gaps, `vue` project only ────────────────────────────────
+  // `[Vue Router warn]: No match found for location` and
+  // `injection "Symbol(route location)" not found` — fixtures navigating to
+  // routes the plain-Vue test router does not declare. Fixture work, not
+  // product defects, and fixable in one pass over `test/utils/`.
+  'vue:components/Banner.spec.ts',
+  'vue:components/Breadcrumb.spec.ts',
+  'vue:components/Button.spec.ts',
+  'vue:components/Link.spec.ts',
+  'vue:components/NavigationMenu.spec.ts',
+  'vue:components/PageLinks.spec.ts',
+  'vue:components/PageSection.spec.ts',
+  'vue:components/FileUpload.spec.ts',
+  'vue:composables/useContentSearch.spec.ts'
 ])
+
+/**
+ * One readable line for the failure message.
+ *
+ * Vue always hands a prepared string, but `logError` can pass a raw `Error`
+ * and a third-party call can pass anything at all — where `String(value)`
+ * collapses to `[object Object]` and says nothing. The full arguments still go
+ * to the real console, which vitest prints for a failing test.
+ */
+function summarise(value: unknown): string {
+  if (typeof value === 'string') return value.split('\n')[0]!
+  if (value instanceof Error) return `${value.name}: ${value.message}`
+  try {
+    return JSON.stringify(value)?.slice(0, 200) ?? String(value)
+  } catch {
+    return String(value)
+  }
+}
 
 /** Installs the collector. Called from both projects' setup files. */
 export function installConsoleGate(): void {
@@ -93,7 +150,7 @@ export function installConsoleGate(): void {
     captured = []
     for (const channel of CHANNELS) {
       console[channel] = (...args: unknown[]) => {
-        captured.push(`${channel}: ${String(args[0]).split('\n')[0]}`)
+        captured.push(`${channel}: ${summarise(args[0])}`)
         original[channel](...args)
       }
     }
@@ -103,8 +160,15 @@ export function installConsoleGate(): void {
     for (const channel of CHANNELS) console[channel] = original[channel]
     if (captured.length === 0) return
 
-    // `test/` is stripped so an entry reads the same from either project.
-    const spec = (ctx.task.file?.name ?? '').replace(/^test\//, '')
+    // Keyed by project as well as path. The two projects mount different
+    // code — `#components` resolves `B24Link` to `vue/overrides/vue-router`
+    // under `vue` and to `runtime/components` under `nuxt` — so an entry
+    // earned by one of them must not cover the other. Measured while this
+    // was still path-only: 9 of the 26 paths were already clean under `nuxt`,
+    // and a Nuxt-side regression of exactly the kind #505 fixes would have
+    // stayed green.
+    const project = ctx.task.file?.projectName || 'nuxt'
+    const spec = `${project}:${(ctx.task.file?.name ?? '').replace(/^test\//, '')}`
     if (KNOWN_NOISY_SPECS.has(spec)) return
 
     const seen = [...new Set(captured)]

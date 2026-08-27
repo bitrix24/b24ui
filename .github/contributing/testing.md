@@ -312,6 +312,59 @@ often a different vitest project — from the one being re-rendered.
 A full `pnpm run test:update` fixes it in one pass. `test:update` exists so
 that the safe command is the short one, and it takes no path on purpose.
 
+## Console warnings fail the test
+
+A component that renders while logging a warning is a defect the suite already
+found. Since #87 it fails the test that found it.
+
+Nothing else surfaces those: `silent: true` throws away console output from
+passing tests, and turning it off does not help — vitest prints console output
+only for tests that *fail*. The output of a green test is unreachable by
+configuration, which is why the gate exists rather than a setting.
+
+### When it goes red
+
+The failure names the spec and up to five distinct messages. Three ways out,
+in order of preference:
+
+1. **Fix the component.** Usually right, and usually small. The first run of
+   this gate found `InputMenu` emitting `remove-tag` without declaring it,
+   `ChatMessages` invoking a slot outside the render function, and `FieldGroup`
+   rendering two components that do not resolve.
+2. **Take ownership of the warning**, if the test is asserting on it:
+
+   ```ts
+   const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+   try {
+     // …
+   } finally {
+     warn.mockRestore()
+   }
+   ```
+
+   It has to be inside the test body. A spy installed in `beforeAll` is
+   overwritten by the gate's own `beforeEach`.
+3. **Add an entry to `KNOWN_NOISY_SPECS`** in `test/utils/console-gate.ts`.
+   Last resort, and it needs a stated reason next to it — an entry is a debt
+   record, not a switch.
+
+### The register
+
+Keyed `project:path`, because the two projects mount different code —
+`#components` resolves `B24Link` to `vue/overrides/vue-router` under `vue` and
+to `runtime/components` under `nuxt`. An entry earned by one must not cover the
+other; while the key was the path alone, 9 of 26 paths were already clean under
+`nuxt` and a Nuxt-side regression would have stayed green.
+
+**Deleting an entry is how a fix is proved.** The warning coming back turns the
+file red, so a fix that did not work cannot be mistaken for one that did.
+
+Two limits worth knowing rather than discovering. Nothing enforces that the
+register is minimal, so an entry can outlive its cause. And the window is one
+test: anything logged at module scope, in `beforeAll`/`afterAll`, or from an
+async continuation resolving after the test, is not seen. The full list is in
+the file's own header.
+
 ## Coverage
 
 ```bash
