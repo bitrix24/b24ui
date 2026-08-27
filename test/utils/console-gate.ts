@@ -30,8 +30,10 @@ import { afterEach, beforeEach } from 'vitest'
  *    window is one test;
  *  - an async continuation that resolves after `afterEach` has run, which is
  *    dropped or attributed to the next test;
- *  - `console.info` / `debug` / `trace` and `process.emitWarning`, none of
- *    which Vue uses for warnings;
+ *  - `console.info`, `console.debug` and `process.emitWarning`, none of which
+ *    Vue uses for warnings. `console.trace` *is* caught, because Node routes
+ *    it through `console.error` — verified rather than assumed, after this
+ *    comment claimed the opposite;
  *  - a later patcher of `console`, which would replace this one silently —
  *    nothing else in `test/` patches it today;
  *  - `test.concurrent`, because `captured` is one variable per file. There are

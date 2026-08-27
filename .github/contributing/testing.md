@@ -362,8 +362,10 @@ file red, so a fix that did not work cannot be mistaken for one that did.
 Two limits worth knowing rather than discovering. Nothing enforces that the
 register is minimal, so an entry can outlive its cause. And the window is one
 test: anything logged at module scope, in `beforeAll`/`afterAll`, or from an
-async continuation resolving after the test, is not seen. The full list is in
-the file's own header.
+async continuation resolving after the test, is not seen.
+
+Only `warn` and `error` are watched — plus `console.trace`, which Node routes
+through `error`. The full list of blind spots is in the file's own header.
 
 ## Coverage
 
