@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { renderEach } from '../component-render'
@@ -28,6 +28,59 @@ describe('Link', () => {
     // Slots
     ['with default slot', { slots: { default: () => 'Default slot' } }]
   ])
+
+  it('does not forward its own styling props to NuxtLink', async () => {
+    // `nuxtLinkProps` omits everything that belongs to this component before
+    // handing the rest to `NuxtLink`, and a prop missing from that list is
+    // forwarded to a component that does not declare it. `RouterLink` renders
+    // a fragment, so Vue cannot place the stray attribute and warns instead of
+    // failing — which is why `isAction` did this 2825 times across the suite
+    // before anybody noticed (#87).
+    //
+    // Asserted on the warning rather than on the DOM: the attribute never
+    // reaches the DOM in either case, so a markup assertion would pass just as
+    // happily with the bug present.
+    // `custom` is what makes it observable, and it took measuring to find that
+    // out: with `custom` this renders a fragment, so Vue cannot place the stray
+    // attribute and warns. Without it the single root element absorbs the
+    // attribute quietly. The value of `isAction` is irrelevant — the default
+    // `false` is forwarded just as eagerly, which is why the warning fires on
+    // components that never set it. `Breadcrumb` mounts `B24Link` exactly this
+    // way and produced 28 of them.
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+    try {
+      await mountSuspended(Link, {
+        props: { to: '/', custom: true },
+        slots: { default: () => 'Home' }
+      })
+
+      const extraneous = warn.mock.calls
+        .map(call => String(call[0]))
+        .filter(message => message.includes('Extraneous non-props attributes'))
+
+      expect(extraneous).toEqual([])
+    } finally {
+      warn.mockRestore()
+    }
+  })
+
+  it('does not leak its own styling props into the markup', async () => {
+    // The assertion above is the `nuxt` half. `#components` resolves `B24Link`
+    // to `vue/overrides/vue-router/Link.vue` in the `vue` project, which is a
+    // separate implementation with its own omit list — so that test is a
+    // silent no-op there, and this one is the half that guards it.
+    //
+    // The two failure modes differ, which is why both assertions exist. Under
+    // Nuxt the stray prop only warns; under vue-router it reached the DOM as
+    // `isaction="false"`, 112 times across the committed `-vue` snapshots.
+    const wrapper = await mountSuspended(Link, {
+      props: { to: '/', isAction: true },
+      slots: { default: () => 'Home' }
+    })
+
+    expect(wrapper.html()).not.toContain('isaction')
+  })
 
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(Link, {
