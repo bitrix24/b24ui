@@ -24,7 +24,13 @@ Useful to include, in rough order of how much they help:
   reported there too — we will coordinate rather than leave it to you.
 
 We will acknowledge the report, investigate, and agree a disclosure timeline
-with you. Please give us a reasonable window before disclosing publicly.
+with you.
+
+This is a small project and there is no on-call rotation behind that sentence,
+so here is the number rather than "a reasonable window": **if you have heard
+nothing after 90 days, consider yourself free to disclose.** You should not
+have to guess how long to wait, and silence from us is not a reason for you to
+stay silent indefinitely.
 
 ## What counts as a vulnerability here
 
@@ -33,16 +39,20 @@ that hold a Bitrix24 portal's credentials, so the interesting failures are the
 ones that cross that boundary:
 
 - **Markup that escapes escaping.** A prop, slot or `items` value that reaches
-  the DOM unescaped — a label, a link `to`, a description rendered as HTML —
-  is script execution in a page holding a portal session.
+  the DOM unescaped is script execution in a page holding a portal session.
+
+  `CommandPalette`'s `labelHtml`, `suffixHtml` and `descriptionHtml` are the
+  exception: they render with `v-html` on purpose, their JSDoc says so, and
+  sanitising what you put in them is the caller's job. Unescaped output from
+  any *other* prop is a defect here.
 - **A `to` that becomes a `javascript:` URL**, or any link prop that can be
   steered somewhere the author did not intend.
 - **A secret reaching somewhere it should not** — a webhook path or an OAuth
   token surfacing in rendered output, in an error message, or in a value the
   component copies to the clipboard. A webhook URL is full access to a portal.
-- **Prototype pollution** through the dotted-path helpers on the public
-  `./utils` entry (`get`, `set`, `getAtPath`, `setAtPath`). These are guarded
-  and the guard is tested, so a way around it is worth reporting.
+- **Prototype pollution** through the dotted-path helpers — `get` and `set` on
+  `./utils`, `getAtPath` and `setAtPath` on `./utils/form`. All four share one
+  guard and the guard is tested, so a way around it is worth reporting.
 - **A dependency advisory that this package actually reaches.** Not every
   advisory in the tree is exploitable through this library; if you can show a
   path from our API to it, that is the part worth writing down.

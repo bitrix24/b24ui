@@ -107,43 +107,87 @@ describe('issue forms', () => {
  * The security policy names one channel, and it is the one place a dead link
  * costs something real: a reporter who cannot reach it either gives up or
  * files publicly, which is the outcome the whole file exists to prevent.
- *
- * The advisory URL is repository-specific — copy this file to another
- * repository, or rename this one, and it silently points at somebody else's
- * inbox. Checked against `package.json`'s own repository field rather than
- * against a second copy of the name.
  */
 describe('SECURITY.md', () => {
   const policy = readFileSync(join(repoRoot, 'SECURITY.md'), 'utf8')
   const pkg = JSON.parse(readFileSync(join(repoRoot, 'package.json'), 'utf8'))
-  const slug = pkg.repository.url.replace(/^git\+https:\/\/github\.com\//, '').replace(/\.git$/, '')
+
+  /**
+   * `owner/repo`, from whichever shape npm accepted for `repository`.
+   *
+   * Read inside the tests rather than in the `describe` body: the string
+   * shorthand leaves `repository.url` undefined, and a `.replace()` on that
+   * throws during collection, which takes down every test in this file with an
+   * error that blames the wrong thing.
+   */
+  function slug(): string {
+    const field = typeof pkg.repository === 'string' ? pkg.repository : pkg.repository?.url
+    const match = String(field).match(/(?:github\.com[:/])?([\w.-]+\/[\w.-]+?)(?:\.git)?$/)
+    expect(match, `package.json repository is not a shape this can read: ${field}`).not.toBeNull()
+    return match![1]!
+  }
 
   it('points at the private channel for this repository', () => {
-    expect(policy).toContain(`https://github.com/${slug}/security/advisories/new`)
+    expect(policy).toContain(`https://github.com/${slug()}/security/advisories/new`)
   })
 
   it('is reachable from CONTRIBUTING.md', () => {
     const contributing = readFileSync(join(repoRoot, 'CONTRIBUTING.md'), 'utf8')
-    expect(contributing).toContain(`https://github.com/${slug}/security/advisories/new`)
+    expect(contributing).toContain(`https://github.com/${slug()}/security/advisories/new`)
     expect(contributing).toContain('SECURITY.md')
   })
 
-  it('does not tell anyone to open an issue for a vulnerability', () => {
-    // The failure mode is not hypothetical: `bitrix24/b24phpsdk` publishes a
-    // SECURITY.md whose entire reporting section reads "Create issue with
-    // vulnerability details". A policy that says that is worse than none,
-    // because it looks official.
-    const reporting = policy.slice(0, policy.indexOf('## What counts')).toLowerCase()
-    expect(reporting).toContain('do not open a public issue')
+  /**
+   * Every mention of the public tracker, spelled out.
+   *
+   * The first version of this check hunted for harmful phrasings — a verb list
+   * near the word "issue", with negated sentences filtered out. Four reviewers
+   * defeated it independently and none of them had to try hard: "use the issue
+   * tracker to publish the details" carries no verb from the list, "rather than
+   * waiting, just open an issue" is exempted by its own opening words, and
+   * anything below the heading the scan stopped at was never read at all.
+   *
+   * A denylist of phrasings cannot work, because the space of ways to say
+   * "post it publicly" is the English language. So this is inverted: the word
+   * may appear only where this list says it may, anywhere in the file. Adding a
+   * sentence that mentions issues at all turns it red, and the author either
+   * rewrites the sentence or adds it here on purpose. That is the whole point —
+   * `bitrix24/b24phpsdk` publishes a SECURITY.md whose reporting section reads
+   * "Create issue with vulnerability details", and no amount of pattern
+   * matching would have caught it as reliably as noticing the word.
+   */
+  const PERMITTED_MENTIONS = [
+    'do not open a public issue',
+    'worth an ordinary issue rather than a security report'
+  ]
 
-    // Negated sentences are dropped first — the required sentence above is
-    // itself "do not open a public issue", and a naive scan flags it. What is
-    // being looked for is an *instruction* to use one.
-    const instructions = reporting
-      .split(/(?<=[.:])\s/)
-      .filter(sentence => !/\b(?:do not|don't|never|rather than|instead of)\b/.test(sentence))
+  it('mentions the public tracker only where it is meant to', () => {
+    expect(policy.toLowerCase()).toContain(PERMITTED_MENTIONS[0])
 
-    expect(instructions.filter(sentence => /\b(?:create|open|file)\b[^.]{1,40}\bissue\b/.test(sentence))).toEqual([])
+    let remaining = policy.toLowerCase()
+    for (const permitted of PERMITTED_MENTIONS) remaining = remaining.split(permitted).join(' ')
+
+    const stray = [...remaining.matchAll(/\b(?:issues?|tickets?|tracker)\b/g)].map((match) => {
+      const from = Math.max(0, match.index - 60)
+      return `…${remaining.slice(from, match.index + 60).replace(/\s+/g, ' ').trim()}…`
+    })
+
+    expect(stray, [
+      'SECURITY.md mentions the public issue tracker somewhere this file does',
+      'not expect. A security policy that points a reporter at a public issue is',
+      'worse than no policy, because it looks official.',
+      '',
+      'If the sentence is fine, add it to PERMITTED_MENTIONS above — deliberately,',
+      'not to make this green.'
+    ].join('\n')).toEqual([])
+  })
+
+  it('pins the versions it claims to support', () => {
+    // Prose the release process cannot see. A 3.0.0 leaves the table below
+    // saying 2.x is current, which is the kind of wrong that reads as fact.
+    const major = String(pkg.version).split('.')[0]
+    expect(policy, `package.json is at ${pkg.version}`).toContain(`| ${major}.x |`)
+    expect(policy, `package.json declares engines.node ${pkg.engines.node}`).toContain(pkg.engines.node)
   })
 })
 
