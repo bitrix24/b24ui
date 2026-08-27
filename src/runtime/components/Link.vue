@@ -145,7 +145,11 @@ const route = useRoute()
 const appConfig = useAppConfig() as Link['AppConfig']
 const nuxtApp = useNuxtApp()
 
-const nuxtLinkProps = useForwardProps(reactiveOmit(props, 'as', 'type', 'disabled', 'active', 'exact', 'exactQuery', 'exactHash', 'activeClass', 'inactiveClass', 'to', 'href', 'raw', 'custom', 'locale', 'class'))
+// Everything on this list is ours and means nothing to `NuxtLink`. Anything
+// missing from it is forwarded, and a prop `NuxtLink` does not declare becomes
+// an attribute it cannot place, because `RouterLink` renders a fragment —
+// `isAction` did exactly that, 2825 times across the suite, silently (#87).
+const nuxtLinkProps = useForwardProps(reactiveOmit(props, 'as', 'type', 'disabled', 'active', 'exact', 'exactQuery', 'exactHash', 'activeClass', 'inactiveClass', 'to', 'href', 'raw', 'custom', 'locale', 'class', 'isAction'))
 
 const b24ui = computed(() => tv({
   extend: theme,
