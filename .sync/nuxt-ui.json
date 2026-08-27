@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "b751eaef9701d1f772e8d3b02dd3167308c4b3b4",
+  "cursor": "9bdb89b0c7585a3a9189ca42c75561396789f927",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -1661,6 +1661,12 @@
       "b24ui_sha": "2e45e2579d5aa043d31838564dd4c769f2af6bba",
       "decision": "no-op",
       "summary": "docs(showcase): add tickserv.com (nuxt/ui #6869) — NO-OP: two lines in docs/content/showcase.yml plus a screenshot, adding a site built with Nuxt UI to their gallery. This fork keeps its own showcase.yml listing sites built with Bitrix24 UI, so the entry is content rather than code. Checked for the one thing that would make it more than content — it uses no field we lack: name and url are the two required keys of our own schema in docs/content.config.ts, which already carries screenshotUrl and the full screenshotOptions object (delay, width, cookies, removeElements) as well, so there is nothing structural to take. Same call as d0cfc2b1, 78cc1ce5, cf5f15e3, 2beb2345, a630c943 and a7f26a32. The one showcase commit that was NOT a no-op is f6d188bd, which introduced screenshotOptions — a schema change and therefore shared; this one introduces nothing."
+    },
+    "9bdb89b0c7585a3a9189ca42c75561396789f927": {
+      "pr": "pending-merge",
+      "b24ui_sha": "pending-merge",
+      "decision": "no-op",
+      "summary": "fix(Checkbox/RadioGroup): use `border-default` on `card` and `table` variants (nuxt/ui #6884) — NO-OP: the line it edits is written in different tokens here. Upstream swaps one token across five slots, border-muted -> border-default on the card and table variants of Checkbox, CheckboxGroup and RadioGroup, with 168 snapshot lines following. Neither token is on our side of that line: all five fork equivalents read `border border-(--ui-color-design-outline-na-stroke)`, the Air design system's outline stroke, annotated @memo style-outline-no-accent in checkbox.ts — checked individually at checkbox.ts:63, checkbox-group.ts:48,56 and radio-group.ts:69,77. There is no border-muted to replace and no border-default to replace it with. The ${hover}bg-elevated/50 fragment in the same string is not ours either: it arrived upstream in 07f3fe8d as part of the hover/checked/focus palette refresh, which this fork DECLINED by maintainer decision when that commit was ported (#464), our card and table carrying their own checked and hover treatment in air tokens. So this commit adjusts a line that on our side was already deliberately different. Stated precisely rather than as 'we don't use those tokens': we do use border-default elsewhere (dropdown-menu.ts and sidebar.ts x4) and border-muted in prose/prompt.ts — the tokens exist here, they are simply not what these five slots are written in. Nothing to port and nothing deferred: taking it would mean first adopting the palette refresh this fork chose not to."
     }
   }
 }
