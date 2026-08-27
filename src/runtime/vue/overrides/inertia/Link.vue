@@ -96,7 +96,12 @@ const page = usePage()
 
 const appConfig = useAppConfig() as Link['AppConfig']
 
-const routerLinkProps = useForwardProps(reactiveOmit(props, 'as', 'type', 'disabled', 'active', 'exact', 'activeClass', 'inactiveClass', 'to', 'href', 'raw', 'custom', 'class', 'target', 'rel', 'noRel'))
+// Everything on this list is ours and means nothing to the router's link.
+// `isAction` picks a styling variant and was missing, so it was forwarded and
+// landed in the DOM as `isaction="false"` — 112 times across the committed
+// `-vue` snapshots. The Nuxt copy of this component had the same gap, where it
+// only produced a console warning; here it shipped (#87).
+const routerLinkProps = useForwardProps(reactiveOmit(props, 'as', 'type', 'disabled', 'active', 'exact', 'activeClass', 'inactiveClass', 'to', 'href', 'raw', 'custom', 'class', 'target', 'rel', 'noRel', 'isAction'))
 
 const b24ui = computed(() => tv({
   extend: theme,

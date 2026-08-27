@@ -268,7 +268,7 @@ exports[`Banner > renders with title slot correctly 1`] = `
 `;
 
 exports[`Banner > renders with to correctly 1`] = `
-"<div class="banner relative z-50 w-full bg-(--b24ui-background) transition-colors style-filled-alert hover:bg-(--b24ui-background)/90" data-banner-id="banner-banner" data-slot="root"><a href="/getting-started" tabindex="-1" class="focus:outline-none" isaction="false"><span class="absolute inset-0" aria-hidden="true"></span></a>
+"<div class="banner relative z-50 w-full bg-(--b24ui-background) transition-colors style-filled-alert hover:bg-(--b24ui-background)/90" data-banner-id="banner-banner" data-slot="root"><a href="/getting-started" tabindex="-1" class="focus:outline-none"><span class="absolute inset-0" aria-hidden="true"></span></a>
   <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3 h-12" data-slot="container">
     <div data-slot="left" class="hidden lg:flex-1 lg:flex lg:items-center"></div>
     <div data-slot="center" class="flex items-center gap-1.5 min-w-0">
