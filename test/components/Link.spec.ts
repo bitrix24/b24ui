@@ -65,6 +65,23 @@ describe('Link', () => {
     }
   })
 
+  it('does not leak its own styling props into the markup', async () => {
+    // The assertion above is the `nuxt` half. `#components` resolves `B24Link`
+    // to `vue/overrides/vue-router/Link.vue` in the `vue` project, which is a
+    // separate implementation with its own omit list — so that test is a
+    // silent no-op there, and this one is the half that guards it.
+    //
+    // The two failure modes differ, which is why both assertions exist. Under
+    // Nuxt the stray prop only warns; under vue-router it reached the DOM as
+    // `isaction="false"`, 112 times across the committed `-vue` snapshots.
+    const wrapper = await mountSuspended(Link, {
+      props: { to: '/', isAction: true },
+      slots: { default: () => 'Home' }
+    })
+
+    expect(wrapper.html()).not.toContain('isaction')
+  })
+
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(Link, {
       props: {
