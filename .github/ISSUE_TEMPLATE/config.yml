@@ -3,6 +3,9 @@
 # outside, where the missing field is usually the reproduction.
 blank_issues_enabled: true
 contact_links:
+  - name: Report a security vulnerability
+    url: https://github.com/bitrix24/b24ui/security/advisories/new
+    about: Privately, not through these forms. Everything here is public.
   - name: Documentation
     url: https://bitrix24.github.io/b24ui/
     about: Component reference, theming, and the getting-started guides.

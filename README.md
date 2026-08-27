@@ -104,6 +104,7 @@ Learn more in the [installation guide](https://bitrix24.github.io/b24ui/docs/get
 
 Thank you for considering contributing to Bitrix24 UI. Here are a few ways you can get involved:
 
+- **Security**: found a vulnerability? [Report it privately](https://github.com/bitrix24/b24ui/security/advisories/new) — not through the forms below. [SECURITY.md](https://github.com/bitrix24/b24ui/blob/main/SECURITY.md) says what counts.
 - **Reporting bugs**: [open a bug report](https://github.com/bitrix24/b24ui/issues/new?template=bug-report.yml). The form asks for a reproduction, and that is the field that decides whether the report can be acted on — see [reporting a bug](https://github.com/bitrix24/b24ui/blob/main/CONTRIBUTING.md#reporting-a-bug).
 - **Suggestions**: [open a feature request](https://github.com/bitrix24/b24ui/issues/new?template=feature-request.yml). Have any thoughts to enhance Bitrix24 UI? We'd love to hear them.
 - **Code**: [CONTRIBUTING.md](https://github.com/bitrix24/b24ui/blob/main/CONTRIBUTING.md) is the map — setup, the deep-dive guides, and what CI expects of a pull request. The [contribution guide](https://bitrix24.github.io/b24ui/docs/getting-started/contribution/) on the documentation site covers getting the repository running.

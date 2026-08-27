@@ -82,11 +82,8 @@ person, and take the hint when someone asks you to drop it.
 
 ## Security
 
-**Please do not open a public issue for a vulnerability.**
+**Please do not open a public issue for a vulnerability.** Report it privately
+through [Security → Report a vulnerability](https://github.com/bitrix24/b24ui/security/advisories/new).
 
-This repository does not yet publish a private channel to send one to, which
-means there is currently nowhere good for a report to go — and a public issue
-is the one place it should not go, because it discloses the problem to
-everyone before there is a fix. If you have found something security-sensitive,
-hold it until this section names a channel. That is the next thing to land
-here.
+[SECURITY.md](SECURITY.md) covers what to include, what counts as a
+vulnerability in a component library, and which versions get fixes.
