@@ -3,6 +3,7 @@ import type { AxeMatchers } from 'vitest-axe/matchers'
 
 import { expect } from 'vitest'
 import { configureAxe } from 'vitest-axe'
+import { installConsoleGate } from '../utils/console-gate'
 import { patchWebStorage } from '../utils/patchWebStorage'
 
 // Replace Node's broken built-in `localStorage` (Node 24/25) with a working
@@ -25,3 +26,5 @@ configureAxe({
 })
 
 expect.extend(matchers)
+
+installConsoleGate()
