@@ -327,10 +327,12 @@ configuration, which is why the gate exists rather than a setting.
 The failure names the spec and up to five distinct messages. Three ways out,
 in order of preference:
 
-1. **Fix the component.** Usually right, and usually small. The first run of
-   this gate found `InputMenu` emitting `remove-tag` without declaring it,
-   `ChatMessages` invoking a slot outside the render function, and `FieldGroup`
-   rendering two components that do not resolve.
+1. **Fix whatever is warning** — and check which side that is before
+   assuming. The first run of this gate reported three findings that read like
+   component defects and were not: two were defects in the *tests* (a spec
+   emitting an event under a name reka-ui does not declare, and an axe case
+   that never registered the components it mounted), and one came from inside
+   reka-ui. A warning names a symptom, not an owner.
 2. **Take ownership of the warning**, if the test is asserting on it:
 
    ```ts
@@ -347,6 +349,31 @@ in order of preference:
 3. **Add an entry to `KNOWN_NOISY_SPECS`** in `test/utils/console-gate.ts`.
    Last resort, and it needs a stated reason next to it — an entry is a debt
    record, not a switch.
+
+### An inline template does not register components
+
+This is worth knowing before writing an axe case, because it fails silently:
+
+```ts
+// Renders <b24input></b24input> — an unknown element. axe finds nothing to
+// audit and reports zero violations.
+slots: { default: { template: `<B24Input />` } }
+
+// Renders a real input.
+global: { components: { B24Input } },
+slots: { default: { template: `<B24Input aria-label="Search" />` } }
+```
+
+A slot template is compiled at runtime with no access to the spec's imports.
+Without a registration the tag stays an unknown element, the component never
+mounts, and an axe assertion over it passes on nothing — the vacuous shape
+#454 is about. `FieldGroup`'s axe case did exactly this until the gate's
+`Failed to resolve component` warning surfaced it.
+
+Registering the components is half of it. The other half is that a fixture
+running through axe needs the accessible names a markup comparison does not: a
+bare `<input>` has none, which is why `Input`'s own axe case gives it a
+`placeholder`.
 
 ### The register
 

@@ -88,9 +88,11 @@ export const KNOWN_NOISY_SPECS = new Set([
   'vue:components/ContextMenu.spec.ts',
 
   // ── `Slot "viewport" invoked outside of the render function` ─────────────
-  // Traced to reka-ui's `<Presence present=false>`, not to our own slot use:
-  // this component renders `<slot name="viewport">` from its template, which
-  // *is* inside the render function. Third-party, like `textValue` above.
+  // Traced to reka-ui's `Presence`, which calls `slots.default()` from its
+  // `setup()` — before it returns a render function, which is exactly what the
+  // warning describes. Not our own slot use: this component renders
+  // `<slot name="viewport">` from its template, inside the render function.
+  // Third-party, like `textValue` above.
   'nuxt:components/ChatMessages.spec.ts',
   'vue:components/ChatMessages.spec.ts',
 

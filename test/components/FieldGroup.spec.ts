@@ -47,10 +47,12 @@ describe('FieldGroup', () => {
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(FieldGroup, {
       // Registered globally for this mount. The inline template below is
-      // compiled at runtime, so without a registration neither name resolves —
-      // which is what this case did, leaving axe to audit an empty group and
-      // pass on nothing. The vacuous shape #454 is about (#87). The
-      // `renderEach` cases above pass their own `components` and were fine.
+      // compiled at runtime with no access to this file's imports, so without
+      // a registration neither name resolves: the group rendered
+      // `<b24input></b24input>` and `<b24button></b24button>`, unknown elements
+      // with nothing inside them, and axe reported zero violations over that.
+      // The vacuous shape #454 is about (#87). The `renderEach` cases above
+      // pass their own `components` and were fine.
       global: { components: { B24Input, B24Button } },
       slots: {
         // The input needs an accessible name that the markup cases do not:
