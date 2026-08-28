@@ -175,7 +175,11 @@ describe('InputMenu', () => {
     test('remove-tag event', async () => {
       const wrapper = mount(InputMenu, { props: { modelValue: ['Option 1'], items: ['Option 1', 'Option 2'], multiple: true } })
       const input = wrapper.findComponent({ name: 'TagsInputRoot' })
-      await input.vm.$emit('remove-tag', 'Option 1')
+      // `removeTag`, not `remove-tag`: that is the name reka-ui's
+      // `TagsInputRoot` declares. Emitting the kebab spelling made Vue warn
+      // that the event is undeclared on every run — the assertion still
+      // passed, because Vue dispatches to `@remove-tag` regardless (#87).
+      await input.vm.$emit('removeTag', 'Option 1')
       expect(wrapper.emitted()).toMatchObject({ 'remove-tag': [['Option 1']] })
     })
 

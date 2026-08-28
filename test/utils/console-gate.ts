@@ -87,21 +87,17 @@ export const KNOWN_NOISY_SPECS = new Set([
   'nuxt:components/ContextMenu.spec.ts',
   'vue:components/ContextMenu.spec.ts',
 
-  // ── Product defects the gate found on its first run ──────────────────────
-  //   FieldGroup    renders `B24Button` and `B24Input`, neither of which
-  //                 resolves — the components are not registered for it
-  //   InputMenu     emits `remove-tag` without declaring it in `emits`
-  //   ChatMessages  invokes the `viewport` slot outside the render function,
-  //                 so it tracks no dependencies
+  // ── `Slot "viewport" invoked outside of the render function` ─────────────
+  // Traced to reka-ui's `<Presence present=false>`, not to our own slot use:
+  // this component renders `<slot name="viewport">` from its template, which
+  // *is* inside the render function. Third-party, like `textValue` above.
+  'nuxt:components/ChatMessages.spec.ts',
+  'vue:components/ChatMessages.spec.ts',
+
+  // ── Lifecycle, and ours ──────────────────────────────────────────────────
   //   useKbd        calls `onMounted` with no active component instance
   //   useToast,
   //   useResizable  call `inject()` outside `setup()`
-  'nuxt:components/FieldGroup.spec.ts',
-  'vue:components/FieldGroup.spec.ts',
-  'nuxt:components/InputMenu.spec.ts',
-  'vue:components/InputMenu.spec.ts',
-  'nuxt:components/ChatMessages.spec.ts',
-  'vue:components/ChatMessages.spec.ts',
   'nuxt:composables/useKbd.spec.ts',
   'vue:composables/useKbd.spec.ts',
   'nuxt:composables/useToast.spec.ts',
