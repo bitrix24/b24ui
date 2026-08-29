@@ -1,4 +1,5 @@
 import { defineNuxtPlugin, useState, useRequestHeader, useHead } from '#imports'
+import type { ObjectPlugin } from 'nuxt/app'
 
 /**
  * Plugin to detect the Bitrix24 application environment.
@@ -31,8 +32,13 @@ import { defineNuxtPlugin, useState, useRequestHeader, useHead } from '#imports'
  * if (platform.value.name === 'bitrix-desktop') { ... }
  *
  * @todo add docs
+ *
+ * Annotated rather than inferred: `nuxt-module-build`'s declaration emit cannot
+ * name `ObjectPlugin` through pnpm's hashed `nuxt@x.y.z_<peers>` path, and fails
+ * the build with TS2883. The annotation makes the emitted `.d.ts` independent of
+ * how the peer graph happens to resolve.
  */
-export default defineNuxtPlugin(() => {
+const plugin: ObjectPlugin = defineNuxtPlugin(() => {
   /**
    * Reactive platform state.
    * Prevents redundant User-Agent parsing during client-side navigation.
@@ -79,3 +85,5 @@ export default defineNuxtPlugin(() => {
     }
   })
 })
+
+export default plugin
