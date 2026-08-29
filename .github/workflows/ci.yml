@@ -114,6 +114,13 @@ jobs:
       - name: Typecheck
         run: pnpm run typecheck
 
+      # `typecheck` runs `vue-tsc --noEmit`; this runs the real declaration emit,
+      # which is a different thing and fails on its own (TS2883 on the runtime
+      # plugins, from #500's lockfile reshuffle, went unnoticed for three days
+      # because nothing here built the module).
+      - name: Build the module
+        run: pnpm run build
+
       # Coverage rather than a plain `vitest run`: it is the same suite with the
       # same assertions, plus a gate that goes red when coverage falls below
       # the thresholds in `vitest.config.ts`. Instrumenting every worker costs
