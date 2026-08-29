@@ -61,7 +61,9 @@ describe('EditorToolbar', () => {
     'icon': EncloseTextInCodeTagIcon,
     'aria-label': 'Code'
   }]]
-  const props = { editor: { registerPlugin: vi.fn() } as unknown as Editor, items }
+  // `unregisterPlugin` for the same reason as in EditorDragHandle: the wrapper
+  // is unmounted now, so tiptap's BubbleMenu reaches its teardown.
+  const props = { editor: { registerPlugin: vi.fn(), unregisterPlugin: vi.fn() } as unknown as Editor, items }
 
   renderEach(EditorToolbar, [
     // Props

@@ -824,7 +824,8 @@
       "DropdownMenu > renders with color secondary correctly 1",
       "DropdownMenu > renders with color success correctly 1",
       "DropdownMenu > renders with color warning correctly 1",
-      "DropdownMenu > renders with disabled correctly 1"
+      "DropdownMenu > renders with disabled correctly 1",
+      "DropdownMenu > renders with items correctly 1"
     ]
   },
   {
@@ -843,7 +844,8 @@
       "DropdownMenu > renders with color secondary correctly 1",
       "DropdownMenu > renders with color success correctly 1",
       "DropdownMenu > renders with color warning correctly 1",
-      "DropdownMenu > renders with disabled correctly 1"
+      "DropdownMenu > renders with disabled correctly 1",
+      "DropdownMenu > renders with items correctly 1"
     ]
   },
   {
@@ -1803,17 +1805,18 @@
   {
     "file": "components/__snapshots__/Select-vue.spec.ts.snap",
     "names": [
-      "Select > renders with loading and avatar correctly 1",
-      "Select > renders with loading correctly 1"
+      "Select > renders with items correctly 1",
+      "Select > renders with multiple correctly 1",
+      "Select > renders with name correctly 1",
+      "Select > renders with selectedIcon correctly 1",
+      "Select > renders with size md correctly 1"
     ]
   },
   {
     "file": "components/__snapshots__/Select-vue.spec.ts.snap",
     "names": [
-      "Select > renders with multiple correctly 1",
-      "Select > renders with name correctly 1",
-      "Select > renders with selectedIcon correctly 1",
-      "Select > renders with size md correctly 1"
+      "Select > renders with loading and avatar correctly 1",
+      "Select > renders with loading correctly 1"
     ]
   },
   {
@@ -1827,17 +1830,18 @@
   {
     "file": "components/__snapshots__/Select.spec.ts.snap",
     "names": [
-      "Select > renders with loading and avatar correctly 1",
-      "Select > renders with loading correctly 1"
+      "Select > renders with items correctly 1",
+      "Select > renders with multiple correctly 1",
+      "Select > renders with name correctly 1",
+      "Select > renders with selectedIcon correctly 1",
+      "Select > renders with size md correctly 1"
     ]
   },
   {
     "file": "components/__snapshots__/Select.spec.ts.snap",
     "names": [
-      "Select > renders with multiple correctly 1",
-      "Select > renders with name correctly 1",
-      "Select > renders with selectedIcon correctly 1",
-      "Select > renders with size md correctly 1"
+      "Select > renders with loading and avatar correctly 1",
+      "Select > renders with loading correctly 1"
     ]
   },
   {
@@ -2313,6 +2317,7 @@
   {
     "file": "components/content/__snapshots__/ContentSearch.spec.ts.snap",
     "names": [
+      "ContentSearch > renders with links correctly 1",
       "ContentSearch > renders with size md correctly 1",
       "ContentSearch > renders without colorMode correctly 1"
     ]

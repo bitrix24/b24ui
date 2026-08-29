@@ -56,7 +56,7 @@ const CHANNELS = ['warn', 'error'] as const
  * if the warning it emits is one somebody has looked at and chosen to leave.
  */
 export const KNOWN_NOISY_SPECS = new Set([
-  // ── The dialog family, and this one is the test harness ──────────────────
+  // ── The dialog family ────────────────────────────────────────────────────
   // `DialogContent requires a DialogTitle`, `Missing Description or
   // aria-describedby`, `console.error: aria-hidden`.
   //
@@ -67,20 +67,23 @@ export const KNOWN_NOISY_SPECS = new Set([
   // specs render with `portal: false`, which keeps the content inside that
   // detached wrapper instead of teleporting it to `document.body`.
   //
-  // Measured on `Modal`, one mount each: 2 warnings detached, 0 with
-  // `attachTo: document.body`, 0 with the portal left on.
+  // `componentRender` now mounts with `attachTo: document.body`, which fixes
+  // this for every case built by `renderEach` — the whole snapshot corpus.
+  // Measured with this register emptied, before and after: 623 messages across
+  // 62 tests, then 366 across 56. `nuxt:components/Header.spec.ts` is the one
+  // file that went quiet outright and is gone from the list below.
   //
-  // Attaching in `componentRender` fixes all of them and is not a small
-  // change: reka-ui's focus scoping then really runs, so overlays gain the
-  // `aria-hidden` a browser gives them, and 344 snapshots across 26 files
-  // move. Worth doing, and worth doing on its own.
+  // The rest stay because the register keys on files, and every file here also
+  // holds tests that call `mountSuspended` by hand — accessibility checks, SSR
+  // checks, focus-return checks — which do not go through `componentRender`
+  // and are still detached. Attaching those is 293 call sites across 112
+  // files; it wants its own change, not a rider on this one.
   'nuxt:components/Modal.spec.ts',
   'vue:components/Modal.spec.ts',
   'nuxt:components/Drawer.spec.ts',
   'vue:components/Drawer.spec.ts',
   'nuxt:components/Slideover.spec.ts',
   'vue:components/Slideover.spec.ts',
-  'nuxt:components/Header.spec.ts',
   'vue:components/Header.spec.ts',
   'nuxt:components/DashboardSearch.spec.ts',
   'vue:components/DashboardSearch.spec.ts',
