@@ -346,6 +346,7 @@ function continueProcess(): void {
   // uncaught `TypeError`s in `Countdown.spec.ts` — invisible until the harness
   // began unmounting wrappers, because nothing ever called `pause`.
   cancelAnimationFrame(requestId)
+  requestId = 0
 
   const delay = Math.min(totalMilliseconds.value, props.interval!)
 

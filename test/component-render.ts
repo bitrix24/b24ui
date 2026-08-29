@@ -5,37 +5,16 @@ import { it, expect } from 'vitest'
 type MountSuspendedOptions<T> = Parameters<typeof mountSuspended<T>>[1]
 
 /**
- * Mounted into the document, not beside it.
+ * Mounted into the document, and unmounted once the markup is taken.
  *
- * Vue Test Utils renders into a detached element by default. That is invisible
- * until something asks the document a question — and reka-ui's dialog family
- * does: it checks its own accessibility with `document.getElementById(titleId)`
- * in `onMounted`. A detached tree is not in the document, so the lookup failed
- * and every dialog spec rendering with `portal: false` warned that
- * `DialogContent` requires a `DialogTitle`, with the title sitting in the
- * markup it had just produced. The case named `renders with title correctly`
- * warned too.
+ * Vue Test Utils renders into a detached element, which is invisible to
+ * anything that asks the document a question — and reka-ui's dialogs do. Not
+ * unmounting left reka-ui's module-global layer stack holding every case ever
+ * mounted, so cases were not independent.
  *
- * Measured on `Modal`, one mount each: 2 warnings detached, 0 attached, 0 with
- * the portal left on. Across the suite, with `console-gate.ts`'s register
- * emptied on both sides: 623 messages from 62 tests before, 366 from 56 after.
- * Only one register entry could be removed, because the register keys on files
- * and the dialog specs also mount by hand — see the note on that list.
- *
- * Attaching also lets reka-ui reach the rest of the document, which is why this
- * moved 402 snapshot entries across 25 files: `Header` and `Table` gain the
- * `aria-hidden` a browser puts on everything behind an open dialog, and
- * `CheckboxGroup` and `RadioGroup` gain the `aria-label` reka-ui reads off the
- * associated `<label>` rather than the raw value. The snapshots are closer to a
- * browser than they were.
- *
- * The wrapper is unmounted as soon as its markup is taken, so nothing
- * accumulates in `document.body` between cases — and teardown now runs, which
- * is a second source of truth in its own right. Without it reka-ui's
- * module-global layer stack kept every layer any case had ever mounted, so
- * `DismissableLayer` rendered `pointer-events: auto` according to how many
- * earlier cases were still on the stack rather than to anything under test.
- * Four `#454` baseline groups were held apart by exactly that byte.
+ * Both halves changed what the corpus records, and unmounting surfaced three
+ * defects. `.github/contributing/testing.md` has the measurements and the
+ * consequences for writing mocks.
  */
 async function componentRender<T>(nameOrHtml: string, options: MountSuspendedOptions<T>, component: T) {
   let html: string

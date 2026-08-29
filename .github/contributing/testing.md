@@ -312,6 +312,44 @@ often a different vitest project — from the one being re-rendered.
 A full `pnpm run test:update` fixes it in one pass. `test:update` exists so
 that the safe command is the short one, and it takes no path on purpose.
 
+## Every case is mounted into the document, and unmounted after
+
+`componentRender` mounts with `attachTo: document.body` and calls `unmount()`
+as soon as it has the markup. Both halves matter, and neither is the default.
+
+Vue Test Utils renders into a detached element. That is invisible until
+something asks the document a question, and reka-ui's dialog family does: it
+checks its own accessibility with `document.getElementById(titleId)` in
+`onMounted`. Against a detached tree the lookup fails, so every dialog spec
+rendering with `portal: false` warned that `DialogContent` requires a
+`DialogTitle` — with the title sitting in the markup it had just produced.
+Measured across the suite, with the register in `test/utils/console-gate.ts`
+emptied on both sides: 623 console messages from 62 tests detached, 366 from 56
+attached.
+
+Attached, the snapshots also record what a browser would: `Header` and `Table`
+gain the `aria-hidden` reka-ui puts on everything behind an open dialog, and
+`CheckboxGroup`/`RadioGroup` gain the `aria-label` it reads off the associated
+`<label>` rather than the raw value.
+
+Unmounting is the half that keeps cases independent, and it had never run
+before. Without it reka-ui's **module-global** layer stack kept every layer any
+case had ever mounted, so `DismissableLayer` rendered `pointer-events: auto`
+according to how many earlier cases were still on the stack — not according to
+anything under test. Four `#454` baseline groups were held apart by exactly
+that byte.
+
+Teardown running for the first time is also why a mock that implements only the
+setup half now fails: `EditorDragHandle` and `EditorToolbar` mocked tiptap's
+`registerPlugin` without `unregisterPlugin`, which nothing reached until
+`beforeUnmount` did. If a component you are testing acquires something on
+mount, the mock owes you the release too.
+
+Tests that call `mountSuspended` by hand do not go through `componentRender`
+and are still detached — 293 call sites across 112 files. That is why the
+dialog specs stay in the register below even though their snapshot matrices
+went quiet.
+
 ## Console warnings fail the test
 
 A component that renders while logging a warning is a defect the suite already

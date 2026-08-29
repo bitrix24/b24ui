@@ -67,17 +67,11 @@ export const KNOWN_NOISY_SPECS = new Set([
   // specs render with `portal: false`, which keeps the content inside that
   // detached wrapper instead of teleporting it to `document.body`.
   //
-  // `componentRender` now mounts with `attachTo: document.body`, which fixes
-  // this for every case built by `renderEach` — the whole snapshot corpus.
-  // Measured with this register emptied, before and after: 623 messages across
-  // 62 tests, then 366 across 56. `nuxt:components/Header.spec.ts` is the one
-  // file that went quiet outright and is gone from the list below.
-  //
-  // The rest stay because the register keys on files, and every file here also
-  // holds tests that call `mountSuspended` by hand — accessibility checks, SSR
-  // checks, focus-return checks — which do not go through `componentRender`
-  // and are still detached. Attaching those is 293 call sites across 112
-  // files; it wants its own change, not a rider on this one.
+  // `componentRender` now attaches to the document, which fixes this for every
+  // case `renderEach` builds. The files stay listed anyway: the register keys
+  // on files, and each of these also holds tests that call `mountSuspended` by
+  // hand — accessibility, SSR, focus-return — which are still detached.
+  // `.github/contributing/testing.md` has the measurements.
   'nuxt:components/Modal.spec.ts',
   'vue:components/Modal.spec.ts',
   'nuxt:components/Drawer.spec.ts',
