@@ -56,11 +56,24 @@ const CHANNELS = ['warn', 'error'] as const
  * if the warning it emits is one somebody has looked at and chosen to leave.
  */
 export const KNOWN_NOISY_SPECS = new Set([
-  // ── Accessibility, in the dialog family ──────────────────────────────────
-  // `DialogContent requires a DialogTitle for the component to be accessible
-  // for screen reader users`, `Missing Description or aria-describedby`, and
-  // `console.error: aria-hidden` on focusable content. Real defects, the same
-  // class #50 was about, each needing its own fix.
+  // ── The dialog family, and this one is the test harness ──────────────────
+  // `DialogContent requires a DialogTitle`, `Missing Description or
+  // aria-describedby`, `console.error: aria-hidden`.
+  //
+  // Not defects. reka-ui checks its own accessibility with
+  // `document.getElementById(titleId)` in `onMounted`, and Vue Test Utils
+  // mounts into an element that is not in the document — so the lookup fails
+  // with the title present in the markup the component just produced. These
+  // specs render with `portal: false`, which keeps the content inside that
+  // detached wrapper instead of teleporting it to `document.body`.
+  //
+  // Measured on `Modal`, one mount each: 2 warnings detached, 0 with
+  // `attachTo: document.body`, 0 with the portal left on.
+  //
+  // Attaching in `componentRender` fixes all of them and is not a small
+  // change: reka-ui's focus scoping then really runs, so overlays gain the
+  // `aria-hidden` a browser gives them, and 344 snapshots across 26 files
+  // move. Worth doing, and worth doing on its own.
   'nuxt:components/Modal.spec.ts',
   'vue:components/Modal.spec.ts',
   'nuxt:components/Drawer.spec.ts',
