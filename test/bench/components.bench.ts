@@ -1,7 +1,19 @@
 import { bench, describe } from 'vitest'
+import { disableAutoUnmount } from '@vue/test-utils'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
+
+// The setup file turns on `enableAutoUnmount(afterEach)`, and `afterEach` never
+// fires in bench mode — so every wrapper an iteration makes would stay in Vue
+// Test Utils' tracking array for the whole run. Measured before this line: 711
+// iterations, 0 `afterEach` calls. These benches unmount their own wrappers.
+//
+// Note that mounts now go into `document.body`, which adds a constant to every
+// number here. Timings are comparable within a run, not against ones recorded
+// before that default changed.
 import Button from '../../src/runtime/components/Button.vue'
 import Table from '../../src/runtime/components/Table.vue'
+
+disableAutoUnmount()
 import type { TableColumn } from '../../src/runtime/components/Table.vue'
 
 // A toolbar of many buttons (the #6293 shape): each Button builds its own tv

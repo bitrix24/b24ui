@@ -1,3 +1,4 @@
+import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { defineVitestProject } from '@nuxt/test-utils/config'
 import { configDefaults, defineConfig } from 'vitest/config'
@@ -32,6 +33,9 @@ process.env.TZ = 'UTC'
 const components = await glob('./src/runtime/components/*.vue', { absolute: true })
 const vueComponents = await glob('./src/runtime/vue/components/*.vue', { absolute: true })
 const vueRouterOverrides = await glob('./src/runtime/vue/overrides/vue-router/*.vue', { absolute: true })
+
+/** Resolved once, so the plugin below can compare paths rather than suffixes. */
+const attachMount = fileURLToPath(new URL('test/utils/attach-mount.ts', import.meta.url))
 
 export default defineConfig({
   test: {
@@ -151,9 +155,13 @@ export default defineConfig({
             resolveId(id, importer) {
               if (id !== '@vue/test-utils') return
               // The wrapper imports the real thing; without this it resolves to
-              // itself and the module is its own dependency.
-              if (importer?.endsWith('test/utils/attach-mount.ts')) return
-              return fileURLToPath(new URL('test/utils/attach-mount.ts', import.meta.url))
+              // itself and the module is its own dependency. Compared as a
+              // resolved path rather than a `/`-flavoured suffix, because on
+              // Windows `importer` arrives with backslashes and a suffix test
+              // would never match — leaving the recursion in place for exactly
+              // the contributors who cannot reproduce it here.
+              if (importer && path.resolve(importer) === attachMount) return
+              return attachMount
             }
           }
         ]

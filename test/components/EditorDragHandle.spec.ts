@@ -7,7 +7,7 @@ import EditorDragHandle from '../../src/runtime/components/EditorDragHandle.vue'
 
 describe('EditorDragHandle', () => {
   // `unregisterPlugin` is the teardown half. It was missing for as long as
-  // nothing unmounted the wrapper — `componentRender` now does, so tiptap's
+  // nothing unmounted the wrapper — `enableAutoUnmount` now does, so tiptap's
   // `DragHandleVue` reaches its `beforeUnmount` and calls it. A mock that
   // implements only the setup half is a fixture that never sees teardown.
   const props = { editor: { registerPlugin: vi.fn(), unregisterPlugin: vi.fn() } as unknown as Editor }

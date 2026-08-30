@@ -13,6 +13,10 @@ import { mount as vtuMount } from '@vue/test-utils'
  * test: `.github/contributing/testing.md`.
  */
 export const mount: typeof vtuMount = ((component: any, options: any) =>
-  vtuMount(component, { attachTo: document.body, ...options })) as typeof vtuMount
+  // `?? document.body` rather than a plain spread, so an explicit
+  // `attachTo: undefined` means "no opinion" here as well as in the `vue`
+  // project's shim, where `defu` drops it. A plain spread would have made the
+  // same call mount attached in one project and detached in the other.
+  vtuMount(component, { ...options, attachTo: options?.attachTo ?? document.body })) as typeof vtuMount
 
 export * from '@vue/test-utils'

@@ -2,28 +2,17 @@ import { markRaw } from 'vue'
 
 // Keep `getComputedStyle()` results out of Vue's reactive proxies.
 //
-// Why this exists:
-//   reka-ui's `usePresence` holds the declaration in a `ref`, and `ref()`
-//   deep-wraps an object value in `reactive()`. Reading `stylesRef.value.display`
-//   then calls happy-dom's getter with the Proxy as its receiver, and happy-dom
-//   checks that receiver against the class — so it throws
-//   `TypeError: Receiver must be an instance of class CSSStyleDeclaration`.
+// reka-ui's `usePresence` holds the declaration in a `ref`, which deep-wraps an
+// object value. Reading `.display` back then calls happy-dom's getter with the
+// proxy as its receiver, and happy-dom checks that receiver against the class —
+// so `Drawer` threw `TypeError: Receiver must be an instance of class
+// CSSStyleDeclaration` four times per run, uncaught. It stayed invisible while
+// the harness mounted detached, because `getComputedStyle` on a node outside
+// the document returns an empty declaration and the branch is never reached.
 //
-//   It stayed invisible while the test harness mounted detached: `getComputedStyle`
-//   on a node that is not in the document returns an empty declaration and the
-//   branch reading `display` is never reached. Attaching to `document.body` (#513)
-//   made it reachable, and `Drawer.spec.ts` threw it four times per run — as an
-//   *uncaught* error, which fails the whole run without failing a test.
-//
-//   `markRaw` sets `__v_skip` on the declaration, so Vue hands it through
-//   untouched and the getter sees the real instance. Nothing else about the
-//   object changes, and reactivity is not something a computed style has to
-//   offer: it is a snapshot the caller re-reads.
-//
-// This belongs to the harness, not to `src/`: the same code in a browser never
-// throws, because a browser's `CSSStyleDeclaration` getters do not police their
-// receiver. Fixed upstream by making that `ref` a `shallowRef`; until then this
-// is the seam we own.
+// `markRaw` sets `__v_skip`, so Vue hands the declaration through untouched.
+// Values are unchanged; a computed style is a snapshot the caller re-reads, not
+// something reactivity has to track. Drop this once reka-ui uses a `shallowRef`.
 export function patchComputedStyle(): void {
   const original = window.getComputedStyle.bind(window)
 

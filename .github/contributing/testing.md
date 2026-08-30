@@ -314,8 +314,9 @@ that the safe command is the short one, and it takes no path on purpose.
 
 ## Every case is mounted into the document, and unmounted after
 
-`componentRender` mounts with `attachTo: document.body` and calls `unmount()`
-as soon as it has the markup. Both halves matter, and neither is the default.
+`componentRender` mounts with `attachTo: document.body`, and every wrapper is
+unmounted after the test that made it. Both halves matter, and neither is the
+default.
 
 Vue Test Utils renders into a detached element. That is invisible until
 something asks the document a question, and reka-ui's dialog family does: it
@@ -369,12 +370,16 @@ worth knowing about before writing a test that touches either:
   `TypeError: Receiver must be an instance of class CSSStyleDeclaration` four
   times per run, uncaught. `test/utils/patchComputedStyle.ts` hands the
   declaration back with `markRaw`.
-- reka-ui's `hideOthers` marks the trigger `aria-hidden` while a popup is open
-  and leaves it focusable, which axe reports as `aria-hidden-focus`. It is an
-  artefact of `portal: false`, which the specs pass so the popup lands inside
-  the wrapper: measured, the production default `portal: true` has no violation.
-  The rule is disabled in `Select` and `Table`'s accessibility cases, with that
-  measurement recorded there.
+- reka-ui's `hideOthers` puts the trigger inside an `aria-hidden` region while
+  a popup is open and leaves it focusable, which axe reports as
+  `aria-hidden-focus`. Measured on both configurations by reading the DOM: with
+  `portal: false` the attribute is on the trigger, with the production default
+  `portal: true` it is on the `[data-v-app]` ancestor and the trigger is still
+  focusable inside it. The rule is disabled in `Select` and `Table`'s
+  accessibility cases because `axe(wrapper.element)` cannot see an ancestor
+  above its own root — **not** because the condition goes away. Whether it is a
+  real defect for screen-reader users or the ordinary price of a focus-trapped
+  popup is still open — raised with the maintainer and deliberately left there.
 
 ## Console warnings fail the test
 

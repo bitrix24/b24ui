@@ -37,7 +37,7 @@ export async function mountSuspended(...args: Parameters<typeof mount>) {
   /**
    * The router is a module singleton, and vue-router's `install` replaces
    * `app.unmount` with one that resets `currentRoute` to `START_LOCATION` and
-   * clears `started`/`ready` once the last app goes. `componentRender` unmounts
+   * clears `started`/`ready` once the last app goes. The harness unmounts
    * every wrapper, so without this the next mount renders against an
    * un-navigated router: `RouterLink` reports `isActive: false` for `to="/"`
    * and `Link` loses its active styling. The initial navigation `install`

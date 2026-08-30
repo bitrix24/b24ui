@@ -37,15 +37,24 @@ configureAxe({
 expect.extend(matchers)
 
 /**
+ * Registered before the auto-unmount below, and the order is load-bearing.
+ *
+ * vitest runs same-level `afterEach` hooks last-registered-first, so the gate
+ * has to go on first to come off last — otherwise it restores `console` before
+ * teardown runs, and a `console.warn` from `onUnmounted` is never seen. Probed
+ * with a component that warns while unmounting: registered this way the test
+ * goes red, the other way round it passes.
+ */
+installConsoleGate()
+
+/**
  * Every wrapper is unmounted after the test that made it.
  *
  * Mounts go into `document.body` (see `.github/contributing/testing.md`), so
  * without this each case leaves its tree there for the next one to trip over:
  * reka-ui's focus scope from an earlier case steals the focus a later one just
- * set, and its module-global layer stack reports layers nobody can reach.
- * `mount` tracks every wrapper it creates, so this covers the hand-written
- * mounts and `componentRender` alike.
+ * set. Removing this call reddens 50 of `Modal`'s 60 tests. `mount` tracks
+ * every wrapper it creates, so this covers the hand-written mounts and
+ * `componentRender` alike.
  */
 enableAutoUnmount(afterEach)
-
-installConsoleGate()
