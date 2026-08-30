@@ -314,8 +314,9 @@ that the safe command is the short one, and it takes no path on purpose.
 
 ## Every case is mounted into the document, and unmounted after
 
-`componentRender` mounts with `attachTo: document.body` and calls `unmount()`
-as soon as it has the markup. Both halves matter, and neither is the default.
+`componentRender` mounts with `attachTo: document.body`, and every wrapper is
+unmounted after the test that made it. Both halves matter, and neither is the
+default.
 
 Vue Test Utils renders into a detached element. That is invisible until
 something asks the document a question, and reka-ui's dialog family does: it
@@ -345,10 +346,40 @@ setup half now fails: `EditorDragHandle` and `EditorToolbar` mocked tiptap's
 `beforeUnmount` did. If a component you are testing acquires something on
 mount, the mock owes you the release too.
 
-Tests that call `mountSuspended` by hand do not go through `componentRender`
-and are still detached — 293 call sites across 112 files. That is why the
-dialog specs stay in the register below even though their snapshot matrices
-went quiet.
+This applies to hand-written `mountSuspended` calls too, not only to the cases
+`renderEach` builds — 293 call sites across 112 files, none of which had to be
+edited. Both projects set the default in one place: the `vue` project in its
+shim, `test/utils/mount.ts`, and the `nuxt` project through a `resolveId` in
+`vitest.config.ts` that points `@vue/test-utils` at `test/utils/attach-mount.ts`.
+`@nuxt/test-utils/runtime` is deliberately left alone, because `mockNuxtImport`
+and `mockComponent` are macros keyed on that specifier and would stop being
+transpiled.
+
+Unmounting is not done by hand either. `enableAutoUnmount(afterEach)` in both
+setup files unmounts every wrapper `mount` created, so nothing accumulates in
+`document.body` between cases. Without it, attaching makes cases interfere:
+reka-ui's focus scope from an earlier case steals the focus a later one just
+set, which is how `Modal`'s two focus tests failed on the first attempt.
+
+Two things only became reachable once trees were in the document, and both are
+worth knowing about before writing a test that touches either:
+
+- `getComputedStyle` returns a real declaration rather than an empty one. reka-ui
+  keeps it in a `ref`, which deep-wraps it in a proxy, and happy-dom's getters
+  check their receiver — so `Drawer` threw
+  `TypeError: Receiver must be an instance of class CSSStyleDeclaration` four
+  times per run, uncaught. `test/utils/patchComputedStyle.ts` hands the
+  declaration back with `markRaw`.
+- reka-ui's `hideOthers` puts the trigger inside an `aria-hidden` region while
+  a popup is open and leaves it focusable, which axe reports as
+  `aria-hidden-focus`. Measured on both configurations by reading the DOM: with
+  `portal: false` the attribute is on the trigger, with the production default
+  `portal: true` it is on the `[data-v-app]` ancestor and the trigger is still
+  focusable inside it. The rule is disabled in `Select` and `Table`'s
+  accessibility cases because `axe(wrapper.element)` cannot see an ancestor
+  above its own root — **not** because the condition goes away. Whether it is a
+  real defect for screen-reader users or the ordinary price of a focus-trapped
+  popup is still open — raised with the maintainer and deliberately left there.
 
 ## Console warnings fail the test
 

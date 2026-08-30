@@ -688,7 +688,8 @@
       "ContextMenu > renders with color air-primary-copilot correctly 1",
       "ContextMenu > renders with color air-primary-success correctly 1",
       "ContextMenu > renders with color air-primary-warning correctly 1",
-      "ContextMenu > renders with custom slot correctly 1"
+      "ContextMenu > renders with custom slot correctly 1",
+      "ContextMenu > renders with items correctly 1"
     ]
   },
   {
@@ -700,7 +701,8 @@
       "ContextMenu > renders with color air-primary-copilot correctly 1",
       "ContextMenu > renders with color air-primary-success correctly 1",
       "ContextMenu > renders with color air-primary-warning correctly 1",
-      "ContextMenu > renders with custom slot correctly 1"
+      "ContextMenu > renders with custom slot correctly 1",
+      "ContextMenu > renders with items correctly 1"
     ]
   },
   {
@@ -740,8 +742,16 @@
     ]
   },
   {
+    "file": "components/__snapshots__/DashboardSearch-vue.spec.ts.snap",
+    "names": [
+      "DashboardSearch > renders with groups correctly 1",
+      "DashboardSearch > renders with size md correctly 1"
+    ]
+  },
+  {
     "file": "components/__snapshots__/DashboardSearch.spec.ts.snap",
     "names": [
+      "DashboardSearch > renders with groups correctly 1",
       "DashboardSearch > renders with size md correctly 1",
       "DashboardSearch > renders without colorMode correctly 1"
     ]

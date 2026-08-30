@@ -1,3 +1,4 @@
+import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { defineVitestProject } from '@nuxt/test-utils/config'
 import { configDefaults, defineConfig } from 'vitest/config'
@@ -32,6 +33,9 @@ process.env.TZ = 'UTC'
 const components = await glob('./src/runtime/components/*.vue', { absolute: true })
 const vueComponents = await glob('./src/runtime/vue/components/*.vue', { absolute: true })
 const vueRouterOverrides = await glob('./src/runtime/vue/overrides/vue-router/*.vue', { absolute: true })
+
+/** Resolved once, so the plugin below can compare paths rather than suffixes. */
+const attachMount = fileURLToPath(new URL('test/utils/attach-mount.ts', import.meta.url))
 
 export default defineConfig({
   test: {
@@ -136,7 +140,31 @@ export default defineConfig({
             }
           },
           setupFiles: fileURLToPath(new URL('test/nuxt/setup.ts', import.meta.url))
-        }
+        },
+        plugins: [
+          {
+            // The `nuxt` project reaches Vue Test Utils through
+            // `@nuxt/test-utils`, which offers no seam to set a mount default.
+            // The `vue` project already has one — `test/utils/mount.ts`, aliased
+            // below — so this gives the two projects the same default: a tree
+            // that is in the document. `@nuxt/test-utils/runtime` is deliberately
+            // not redirected, because `mockNuxtImport` and `mockComponent` are
+            // macros keyed on that specifier and would stop being transpiled.
+            name: 'bitrix24-ui-test:attach-mount',
+            enforce: 'pre',
+            resolveId(id, importer) {
+              if (id !== '@vue/test-utils') return
+              // The wrapper imports the real thing; without this it resolves to
+              // itself and the module is its own dependency. Compared as a
+              // resolved path rather than a `/`-flavoured suffix, because on
+              // Windows `importer` arrives with backslashes and a suffix test
+              // would never match — leaving the recursion in place for exactly
+              // the contributors who cannot reproduce it here.
+              if (importer && path.resolve(importer) === attachMount) return
+              return attachMount
+            }
+          }
+        ]
       }),
       {
         extends: true,

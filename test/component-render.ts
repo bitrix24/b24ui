@@ -5,16 +5,16 @@ import { it, expect } from 'vitest'
 type MountSuspendedOptions<T> = Parameters<typeof mountSuspended<T>>[1]
 
 /**
- * Mounted into the document, and unmounted once the markup is taken.
+ * Mounted into the document rather than beside it.
  *
  * Vue Test Utils renders into a detached element, which is invisible to
- * anything that asks the document a question — and reka-ui's dialogs do. Not
- * unmounting left reka-ui's module-global layer stack holding every case ever
- * mounted, so cases were not independent.
+ * anything that asks the document a question — and reka-ui's dialogs do.
+ * Teardown is not done here: `enableAutoUnmount` in the setup files unmounts
+ * every wrapper after the test that made it, which covers the hand-written
+ * mounts too.
  *
- * Both halves changed what the corpus records, and unmounting surfaced three
- * defects. `.github/contributing/testing.md` has the measurements and the
- * consequences for writing mocks.
+ * `.github/contributing/testing.md` has the measurements and the consequences
+ * for writing mocks.
  */
 async function componentRender<T>(nameOrHtml: string, options: MountSuspendedOptions<T>, component: T) {
   let html: string
@@ -26,13 +26,9 @@ async function componentRender<T>(nameOrHtml: string, options: MountSuspendedOpt
       template: nameOrHtml,
       components: { [`B24${name}`]: component }
     }
-    const result = await mountSuspended(app, { attachTo: document.body })
-    html = result.html()
-    result.unmount()
+    html = (await mountSuspended(app, { attachTo: document.body })).html()
   } else {
-    const cResult = await mountSuspended<T>(component, { ...options, attachTo: document.body })
-    html = cResult.html()
-    cResult.unmount()
+    html = (await mountSuspended<T>(component, { ...options, attachTo: document.body })).html()
   }
   return html
 }
