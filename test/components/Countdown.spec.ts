@@ -101,6 +101,10 @@ describe('Countdown', () => {
         props: { seconds: 10, needStartImmediately: false }
       })
       const vm = wrapper.vm as any
+      // `start()` first, because there is nothing to cancel otherwise. This
+      // used to pass without it: `pause` cancelled unconditionally, so the spy
+      // recorded a call that handed `cancelAnimationFrame` the initial `0`.
+      vm.start()
       vm.pause()
       expect(cancelAnimationFrameSpy).toHaveBeenCalled()
     })

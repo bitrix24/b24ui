@@ -221,7 +221,7 @@ const isBtnCloseExternal = computed(() => (!props.inset && ['left', 'right', 'bo
 
           <slot name="content" :close="close">
             <div
-              v-if="!!slots.header || (props.title || !!slots.title) || (props.description || !!slots.description) || (!isBtnCloseExternal && (props.close || !!slots.close))"
+              v-if="!!slots.header || (props.title || !!slots.title) || (props.description || !!slots.description) || (!isBtnCloseExternal && (props.close || !!slots.close)) || !!slots.actions"
               data-slot="header"
               :class="b24ui.header({ class: props.b24ui?.header })"
             >

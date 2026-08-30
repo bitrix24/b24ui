@@ -143,9 +143,20 @@ const endTime = ref<number>(0)
  */
 const totalMilliseconds = ref<number>(0)
 /**
- * The request ID of the requestAnimationFrame.
+ * The handle of the pending `requestAnimationFrame`, or `0` when none is
+ * scheduled.
+ *
+ * Deliberately not a `ref`. Nothing renders or watches it, and a `ref` deep-
+ * wraps an object value in `reactive()` — which is exactly what this holds
+ * outside a browser: a DOM spec says `requestAnimationFrame` returns a `long`,
+ * happy-dom returns the Node `Immediate` it scheduled. Stored in a `ref`, the
+ * handle came back out as a Proxy, and `clearImmediate` unlinked a node that
+ * was not identical to anything in Node's queue, leaving `processImmediate` to
+ * read `_idleNext` off `undefined`. Four uncaught `TypeError`s in
+ * `Countdown.spec.ts`, invisible until the harness began unmounting wrappers
+ * and `pause` ran for the first time.
  */
-const requestId = ref<number>(0)
+let requestId: number = 0
 // endregion ////
 
 // region events ////
@@ -323,9 +334,19 @@ function continueProcess(): void {
   // props watcher's `start()` and `onActivated`'s `resumeCounting()` both land
   // here. Measured: one extra uncancellable frame chain, and `progress` firing
   // twice for a single tick. Guarding here rather than at the two call sites
-  // covers any future third caller too. `cancelAnimationFrame` on a stale or
-  // already-fired handle is a no-op, so the recursive call from `step` is safe.
-  cancelAnimationFrame(requestId.value)
+  // covers any future third caller too.
+  //
+  // A spent handle never reaches here: `step` drops it as it fires, and `pause`
+  // drops it as it cancels, so `requestId` holds only a frame that is still
+  // pending. That used to rest on `cancelAnimationFrame` being a no-op for a
+  // handle that already ran, which is true of a browser and not of happy-dom:
+  // its handle is a Node `Immediate`, and `clearImmediate` on one that has
+  // already executed unlinks a node that is no longer in the queue, leaving
+  // Node's `processImmediate` to read `_idleNext` off `undefined`. Four
+  // uncaught `TypeError`s in `Countdown.spec.ts` — invisible until the harness
+  // began unmounting wrappers, because nothing ever called `pause`.
+  cancelAnimationFrame(requestId)
+  requestId = 0
 
   const delay = Math.min(totalMilliseconds.value, props.interval!)
 
@@ -333,6 +354,9 @@ function continueProcess(): void {
     let init: number
     let prev: number
     const step = (now: number) => {
+      // This frame has fired, so its handle is spent — see `pause`.
+      requestId = 0
+
       if (!init) {
         init = now
       }
@@ -350,13 +374,13 @@ function continueProcess(): void {
       ) {
         progress()
       } else {
-        requestId.value = requestAnimationFrame(step)
+        requestId = requestAnimationFrame(step)
       }
 
       prev = now
     }
 
-    requestId.value = requestAnimationFrame(step)
+    requestId = requestAnimationFrame(step)
   } else {
     stop()
   }
@@ -366,7 +390,12 @@ function continueProcess(): void {
  * Pauses the countdown.
  */
 function pause(): void {
-  cancelAnimationFrame(requestId.value)
+  if (!requestId) {
+    return
+  }
+
+  cancelAnimationFrame(requestId)
+  requestId = 0
 }
 
 /**

@@ -56,7 +56,7 @@ const CHANNELS = ['warn', 'error'] as const
  * if the warning it emits is one somebody has looked at and chosen to leave.
  */
 export const KNOWN_NOISY_SPECS = new Set([
-  // ── The dialog family, and this one is the test harness ──────────────────
+  // ── The dialog family ────────────────────────────────────────────────────
   // `DialogContent requires a DialogTitle`, `Missing Description or
   // aria-describedby`, `console.error: aria-hidden`.
   //
@@ -67,20 +67,17 @@ export const KNOWN_NOISY_SPECS = new Set([
   // specs render with `portal: false`, which keeps the content inside that
   // detached wrapper instead of teleporting it to `document.body`.
   //
-  // Measured on `Modal`, one mount each: 2 warnings detached, 0 with
-  // `attachTo: document.body`, 0 with the portal left on.
-  //
-  // Attaching in `componentRender` fixes all of them and is not a small
-  // change: reka-ui's focus scoping then really runs, so overlays gain the
-  // `aria-hidden` a browser gives them, and 344 snapshots across 26 files
-  // move. Worth doing, and worth doing on its own.
+  // `componentRender` now attaches to the document, which fixes this for every
+  // case `renderEach` builds. The files stay listed anyway: the register keys
+  // on files, and each of these also holds tests that call `mountSuspended` by
+  // hand — accessibility, SSR, focus-return — which are still detached.
+  // `.github/contributing/testing.md` has the measurements.
   'nuxt:components/Modal.spec.ts',
   'vue:components/Modal.spec.ts',
   'nuxt:components/Drawer.spec.ts',
   'vue:components/Drawer.spec.ts',
   'nuxt:components/Slideover.spec.ts',
   'vue:components/Slideover.spec.ts',
-  'nuxt:components/Header.spec.ts',
   'vue:components/Header.spec.ts',
   'nuxt:components/DashboardSearch.spec.ts',
   'vue:components/DashboardSearch.spec.ts',
