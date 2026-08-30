@@ -9,7 +9,7 @@ import type { ComponentConfig } from '../types/tv'
 
 type Button = ComponentConfig<typeof theme, AppConfig, 'button'>
 
-export interface ButtonProps extends Omit<UseComponentIconsProps, 'trailing' | 'trailingIcon'>, Omit<LinkProps, 'raw' | 'custom'> {
+export interface ButtonProps extends Omit<UseComponentIconsProps, 'trailing' | 'trailingIcon'>, Omit<LinkProps, 'raw' | 'custom' | 'isAction'> {
   label?: string
   /**
    * @defaultValue 'air-secondary-no-accent'
