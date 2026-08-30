@@ -26,7 +26,7 @@ export interface NavigationMenuChildItem extends Omit<NavigationMenuItem, 'type'
   [key: string]: any
 }
 
-export interface NavigationMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'custom'> {
+export interface NavigationMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'custom' | 'isAction'> {
   label?: string
   /**
    * Icon is only used when `orientation` is `vertical`
