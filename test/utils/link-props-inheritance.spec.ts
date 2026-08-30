@@ -2,6 +2,7 @@ import { describe, it, expect, expectTypeOf } from 'vitest'
 import type { LinkProps } from '../../src/runtime/components/Link.vue'
 import type { PageLink } from '../../src/runtime/components/PageLinks.vue'
 import type { FooterColumnLink } from '../../src/runtime/components/FooterColumns.vue'
+import type { ContentSearchLink } from '../../src/runtime/components/content/ContentSearch.vue'
 import Button from '../../src/runtime/components/Button.vue'
 import Link from '../../src/runtime/components/Link.vue'
 import { linkKeys } from '../../src/runtime/utils/link-keys'
@@ -24,8 +25,8 @@ type HasIsAction<T> = 'isAction' extends keyof T ? true : false
  *
  * What can and cannot be asserted here, because it is not uniform:
  *
- *   - `ButtonProps`, `PageLink` and `FooterColumnLink` have no index signature,
- *     so removing it from their `Omit` genuinely removes it.
+ *   - `ButtonProps`, `PageLink`, `FooterColumnLink` and `ContentSearchLink` have
+ *     no index signature, so removing it from their `Omit` genuinely removes it.
  *   - `BreadcrumbItem`, `DropdownMenuItem`, `NavigationMenuItem`,
  *     `ContextMenuItem` and `CommandPaletteItem` each declare
  *     `[key: string]: any` so an item can carry arbitrary attributes. `keyof`
@@ -55,5 +56,6 @@ describe('isAction is not inherited by components that cannot honour it', () => 
   it('the link-shaped item types that can be held to it do not declare it', () => {
     expectTypeOf<HasIsAction<PageLink>>().toEqualTypeOf<false>()
     expectTypeOf<HasIsAction<FooterColumnLink>>().toEqualTypeOf<false>()
+    expectTypeOf<HasIsAction<ContentSearchLink>>().toEqualTypeOf<false>()
   })
 })
