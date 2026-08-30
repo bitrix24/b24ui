@@ -56,42 +56,11 @@ const CHANNELS = ['warn', 'error'] as const
  * if the warning it emits is one somebody has looked at and chosen to leave.
  */
 export const KNOWN_NOISY_SPECS = new Set([
-  // ── The dialog family ────────────────────────────────────────────────────
-  // `DialogContent requires a DialogTitle`, `Missing Description or
-  // aria-describedby`, `console.error: aria-hidden`.
-  //
-  // Not defects. reka-ui checks its own accessibility with
-  // `document.getElementById(titleId)` in `onMounted`, and Vue Test Utils
-  // mounts into an element that is not in the document — so the lookup fails
-  // with the title present in the markup the component just produced. These
-  // specs render with `portal: false`, which keeps the content inside that
-  // detached wrapper instead of teleporting it to `document.body`.
-  //
-  // `componentRender` now attaches to the document, which fixes this for every
-  // case `renderEach` builds. The files stay listed anyway: the register keys
-  // on files, and each of these also holds tests that call `mountSuspended` by
-  // hand — accessibility, SSR, focus-return — which are still detached.
-  // `.github/contributing/testing.md` has the measurements.
-  'nuxt:components/Modal.spec.ts',
-  'vue:components/Modal.spec.ts',
-  'nuxt:components/Drawer.spec.ts',
-  'vue:components/Drawer.spec.ts',
-  'nuxt:components/Slideover.spec.ts',
-  'vue:components/Slideover.spec.ts',
-  'vue:components/Header.spec.ts',
-  'nuxt:components/DashboardSearch.spec.ts',
-  'vue:components/DashboardSearch.spec.ts',
-  'nuxt:components/DashboardSidebar.spec.ts',
-  'vue:components/DashboardSidebar.spec.ts',
-  'nuxt:components/content/ContentSearch.spec.ts',
-  'nuxt:components/Select.spec.ts',
-  'vue:components/Select.spec.ts',
-  'nuxt:components/Table.spec.ts',
-  'vue:components/Table.spec.ts',
-
   // ── `Invalid prop: type check failed for prop "textValue"` ───────────────
   // reka-ui receives a render function where it expects a string. The call
-  // site is inside reka-ui, not `src/`.
+  // site is inside reka-ui, not `src/`. These two are now the loudest files in
+  // the suite: attaching (#513) means the menu content really mounts, so the
+  // warning fires once per item instead of once per test.
   'nuxt:components/DropdownMenu.spec.ts',
   'vue:components/DropdownMenu.spec.ts',
   'nuxt:components/ContextMenu.spec.ts',
@@ -105,6 +74,13 @@ export const KNOWN_NOISY_SPECS = new Set([
   // Third-party, like `textValue` above.
   'nuxt:components/ChatMessages.spec.ts',
   'vue:components/ChatMessages.spec.ts',
+
+  // ── `console.error: aria-hidden` ────────────────────────────────────────
+  // From the `aria-hidden` package reka-ui uses to hide the rest of the
+  // document behind an open popup. The `nuxt` twin stopped logging it once
+  // mounts were attached; this one has not, and the difference has not been
+  // run down. Left registered rather than guessed at.
+  'vue:components/Select.spec.ts',
 
   // ── Lifecycle, and ours ──────────────────────────────────────────────────
   //   useKbd        calls `onMounted` with no active component instance
@@ -121,15 +97,20 @@ export const KNOWN_NOISY_SPECS = new Set([
   // `[Vue Router warn]: No match found for location` and
   // `injection "Symbol(route location)" not found` — fixtures navigating to
   // routes the plain-Vue test router does not declare. Fixture work, not
-  // product defects, and fixable in one pass over `test/utils/`.
+  // product defects, and fixable in one pass over `test/utils/`. This is now
+  // the whole of the `vue` half of the list: the dialog family is here for the
+  // router and nothing else.
   'vue:components/Banner.spec.ts',
   'vue:components/Breadcrumb.spec.ts',
   'vue:components/Button.spec.ts',
+  'vue:components/FileUpload.spec.ts',
+  'vue:components/Header.spec.ts',
   'vue:components/Link.spec.ts',
+  'vue:components/Modal.spec.ts',
   'vue:components/NavigationMenu.spec.ts',
   'vue:components/PageLinks.spec.ts',
   'vue:components/PageSection.spec.ts',
-  'vue:components/FileUpload.spec.ts',
+  'vue:components/Slideover.spec.ts',
   'vue:composables/useContentSearch.spec.ts'
 ])
 

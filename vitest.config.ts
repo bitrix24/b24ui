@@ -136,7 +136,27 @@ export default defineConfig({
             }
           },
           setupFiles: fileURLToPath(new URL('test/nuxt/setup.ts', import.meta.url))
-        }
+        },
+        plugins: [
+          {
+            // The `nuxt` project reaches Vue Test Utils through
+            // `@nuxt/test-utils`, which offers no seam to set a mount default.
+            // The `vue` project already has one — `test/utils/mount.ts`, aliased
+            // below — so this gives the two projects the same default: a tree
+            // that is in the document. `@nuxt/test-utils/runtime` is deliberately
+            // not redirected, because `mockNuxtImport` and `mockComponent` are
+            // macros keyed on that specifier and would stop being transpiled.
+            name: 'bitrix24-ui-test:attach-mount',
+            enforce: 'pre',
+            resolveId(id, importer) {
+              if (id !== '@vue/test-utils') return
+              // The wrapper imports the real thing; without this it resolves to
+              // itself and the module is its own dependency.
+              if (importer?.endsWith('test/utils/attach-mount.ts')) return
+              return fileURLToPath(new URL('test/utils/attach-mount.ts', import.meta.url))
+            }
+          }
+        ]
       }),
       {
         extends: true,

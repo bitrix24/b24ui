@@ -21,6 +21,11 @@ export async function mountSuspended(...args: Parameters<typeof mount>) {
     }
   }
   const wrapper = mount(args[0], defu({}, args[1], {
+    // Mounted into the document by default, for the reasons in
+    // `.github/contributing/testing.md`. A call site that needs a detached
+    // tree can still pass its own `attachTo`, because `defu` lets the
+    // caller's options win.
+    attachTo: document.body,
     global: {
       stubs: {
         ClientOnly: { template: '<slot />' }

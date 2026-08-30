@@ -345,10 +345,36 @@ setup half now fails: `EditorDragHandle` and `EditorToolbar` mocked tiptap's
 `beforeUnmount` did. If a component you are testing acquires something on
 mount, the mock owes you the release too.
 
-Tests that call `mountSuspended` by hand do not go through `componentRender`
-and are still detached — 293 call sites across 112 files. That is why the
-dialog specs stay in the register below even though their snapshot matrices
-went quiet.
+This applies to hand-written `mountSuspended` calls too, not only to the cases
+`renderEach` builds — 293 call sites across 112 files, none of which had to be
+edited. Both projects set the default in one place: the `vue` project in its
+shim, `test/utils/mount.ts`, and the `nuxt` project through a `resolveId` in
+`vitest.config.ts` that points `@vue/test-utils` at `test/utils/attach-mount.ts`.
+`@nuxt/test-utils/runtime` is deliberately left alone, because `mockNuxtImport`
+and `mockComponent` are macros keyed on that specifier and would stop being
+transpiled.
+
+Unmounting is not done by hand either. `enableAutoUnmount(afterEach)` in both
+setup files unmounts every wrapper `mount` created, so nothing accumulates in
+`document.body` between cases. Without it, attaching makes cases interfere:
+reka-ui's focus scope from an earlier case steals the focus a later one just
+set, which is how `Modal`'s two focus tests failed on the first attempt.
+
+Two things only became reachable once trees were in the document, and both are
+worth knowing about before writing a test that touches either:
+
+- `getComputedStyle` returns a real declaration rather than an empty one. reka-ui
+  keeps it in a `ref`, which deep-wraps it in a proxy, and happy-dom's getters
+  check their receiver — so `Drawer` threw
+  `TypeError: Receiver must be an instance of class CSSStyleDeclaration` four
+  times per run, uncaught. `test/utils/patchComputedStyle.ts` hands the
+  declaration back with `markRaw`.
+- reka-ui's `hideOthers` marks the trigger `aria-hidden` while a popup is open
+  and leaves it focusable, which axe reports as `aria-hidden-focus`. It is an
+  artefact of `portal: false`, which the specs pass so the popup lands inside
+  the wrapper: measured, the production default `portal: true` has no violation.
+  The rule is disabled in `Select` and `Table`'s accessibility cases, with that
+  measurement recorded there.
 
 ## Console warnings fail the test
 

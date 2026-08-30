@@ -26,13 +26,9 @@ async function componentRender<T>(nameOrHtml: string, options: MountSuspendedOpt
       template: nameOrHtml,
       components: { [`B24${name}`]: component }
     }
-    const result = await mountSuspended(app, { attachTo: document.body })
-    html = result.html()
-    result.unmount()
+    html = (await mountSuspended(app, { attachTo: document.body })).html()
   } else {
-    const cResult = await mountSuspended<T>(component, { ...options, attachTo: document.body })
-    html = cResult.html()
-    cResult.unmount()
+    html = (await mountSuspended<T>(component, { ...options, attachTo: document.body })).html()
   }
   return html
 }
