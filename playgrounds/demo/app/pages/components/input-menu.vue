@@ -34,6 +34,9 @@ const items = ref(['Prospecting', 'Qualifying', 'Presenting', 'Negotiating', 'Cl
 const itemsSimple = ref(['Prospecting', 'Qualifying', 'Presenting', 'Negotiating', 'Closed'])
 const valueForAdd = ref('Prospecting')
 const valueMultiple = ref(['Prospecting', 'Presenting'])
+// `mode="autocomplete"` makes modelValue the input text rather than a selected
+// item, so this one is a string where the rows above hold items.
+const valueAutocomplete = ref('')
 
 // #342 is only visible with labels long enough to want more room than the field
 // has. happy-dom does no layout, so no snapshot can show this — the check is a
@@ -231,6 +234,16 @@ const itemsObj = ref([
         multiple
         aria-label="Multiple with long labels"
         placeholder="Multiple, long labels"
+        v-bind="{ ...singleAttrs, ...props }"
+        class="w-full"
+      />
+      <B24InputMenu
+        v-model="valueAutocomplete"
+        :items="items"
+        mode="autocomplete"
+        name="some_value"
+        placeholder="Autocomplete"
+        aria-label="Autocomplete"
         v-bind="{ ...singleAttrs, ...props }"
         class="w-full"
       />
