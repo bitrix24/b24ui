@@ -1,3 +1,5 @@
+import { readdirSync, statSync } from 'node:fs'
+import { resolve } from 'node:path'
 import { describe, it, expect } from 'vitest'
 import ledger from '../../.sync/nuxt-ui.json'
 
@@ -37,6 +39,8 @@ const PENDING = 'pending-merge'
 type Entry = { pr: number | string, b24ui_sha: string, decision: string, summary: string }
 
 const processed = Object.entries(ledger.processed as unknown as Record<string, Entry>)
+
+const LOG_DIR = resolve(import.meta.dirname, '../../.sync/log')
 
 describe('the sync ledger', () => {
   it('reads a ledger worth checking', () => {
@@ -110,6 +114,47 @@ describe('the sync ledger', () => {
       .map(([sha, entry]) => `${sha} → ${JSON.stringify(entry.b24ui_sha)}`)
 
     expect(wrong).toEqual([])
+  })
+
+  it('pairs every entry with a log file, and every log file with an entry', () => {
+    // PORTING.md §6 step 2: a decision is written down whether it ported or not,
+    // because an unexplained skip is indistinguishable from an oversight. The
+    // `summary` above is the one-line version; `.sync/log/<sha>.md` is where the
+    // reasoning actually lives, and it is the half a reader reaches for.
+    //
+    // This ran red until 2026-08-30. Four entries at the very start — `2799fa6f`,
+    // `631f5dc5`, `6102a87b`, `007b136a` (#68–#72) — predated the convention by
+    // one commit and had no log; the guard was deferred rather than written
+    // against a known-failing state. Their logs are now backfilled from the
+    // commits themselves, so both directions can be asserted.
+    //
+    // Both directions matter. A missing log is the obvious failure; an orphaned
+    // log is the quieter one, and it is what a mistyped SHA in a filename looks
+    // like — the entry reads as undocumented while its reasoning sits one
+    // character away.
+    const logs = new Set(
+      readdirSync(LOG_DIR).filter(name => name.endsWith('.md')).map(name => name.slice(0, -3))
+    )
+    const shas = new Set(processed.map(([sha]) => sha))
+
+    expect({
+      entriesWithoutLog: processed.map(([sha]) => sha).filter(sha => !logs.has(sha)),
+      logsWithoutEntry: [...logs].filter(sha => !shas.has(sha))
+    }).toEqual({ entriesWithoutLog: [], logsWithoutEntry: [] })
+  })
+
+  it('gives every log file something to say', () => {
+    // An empty or stub log satisfies the pairing above while documenting
+    // nothing, which is the failure the pairing is meant to prevent. The
+    // threshold is deliberately low — it rejects a placeholder, not a terse
+    // no-op; the shortest real log in the tree is comfortably clear of it.
+    const thin = readdirSync(LOG_DIR)
+      .filter(name => name.endsWith('.md'))
+      .map(name => ({ name, size: statSync(resolve(LOG_DIR, name)).size }))
+      .filter(({ size }) => size < 200)
+      .map(({ name, size }) => `${name} (${size} B)`)
+
+    expect(thin).toEqual([])
   })
 
   it('gives every entry a non-empty summary', () => {
