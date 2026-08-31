@@ -138,7 +138,7 @@ const handleNavigationClick = () => {
   <Primitive
     ref="elLayout"
     v-bind="$attrs"
-    data-state="isLoading ? 'loading' : 'show'"
+    :data-state="isLoading ? 'loading' : 'show'"
     :as="props.as"
     data-slot="root"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
