@@ -72,14 +72,26 @@ describe('the sync ledger', () => {
     expect(wrong).toEqual([])
   })
 
-  it('leaves no entry unreconciled', () => {
-    // The reconciliation is a separate bookkeeping PR, and forgetting it is
-    // invisible — the entry looks complete and says nothing false.
-    const unreconciled = processed
-      .filter(([, entry]) => entry.pr === PENDING || entry.b24ui_sha === PENDING)
-      .map(([sha]) => sha)
+  it('leaves unreconciled entries only at the end', () => {
+    // Not "no entry is pending" — that was this assertion's first form, and it
+    // was wrong in a way worth recording: PORTING.md §6 step 4 *requires* the
+    // placeholder, because the entry is written in the same commit as the port,
+    // before its PR has a number or a squash SHA. The reconciliation is a later
+    // bookkeeping PR. As first written this went red on the very next port and
+    // would have blocked the documented process rather than guarding it.
+    //
+    // The real invariant is ordering. Reconciliation happens in sequence, so
+    // pending entries must form a *suffix*: one sitting behind a reconciled
+    // entry means a bookkeeping PR was skipped, and that is the failure that is
+    // otherwise invisible — the entry looks complete and says nothing false.
+    const pending = processed.map(([, entry]) => entry.pr === PENDING || entry.b24ui_sha === PENDING)
+    const firstPending = pending.indexOf(true)
 
-    expect(unreconciled).toEqual([])
+    const strandedAfter = firstPending === -1
+      ? []
+      : processed.slice(firstPending).filter(([, entry]) => entry.pr !== PENDING && entry.b24ui_sha !== PENDING).map(([sha]) => sha)
+
+    expect(strandedAfter).toEqual([])
   })
 
   it('records every reconciled `pr` as a number', () => {
