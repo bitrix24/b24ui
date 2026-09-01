@@ -133,6 +133,8 @@ export interface SelectProps<T extends ArrayOrNested<SelectItem> = ArrayOrNested
   multiple?: M & boolean
   /** Highlight the ring color like a focus state. */
   highlight?: boolean
+  /** Keep the mobile text size on all breakpoints. */
+  fixed?: boolean
   autofocus?: boolean
   autofocusDelay?: number
   class?: any
@@ -255,6 +257,7 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.select || 
   noBorder: Boolean(props.noBorder),
   underline: Boolean(props.underline),
   highlight: highlight.value,
+  fixed: props.fixed,
   leading: Boolean(isLeading.value || !!props.avatar || !!slots.leading),
   trailing: Boolean(isTrailing.value || !!slots.trailing),
   fieldGroup: orientation.value,
