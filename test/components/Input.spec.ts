@@ -50,6 +50,7 @@ describe('Input', () => {
     ['with noPadding', { props: { noPadding: true } }],
     ['with noBorder', { props: { noBorder: true } }],
     ['with underline', { props: { underline: true } }],
+    ['with rounded', { props: { rounded: true } }],
     ['with fixed', { props: { fixed: true } }],
     ['with autocomplete', { props: { autocomplete: 'email' } }],
     ['with tag', { props: { tag: 'Tag' } }],

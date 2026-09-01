@@ -30,11 +30,16 @@ describe('Countdown', () => {
     ['with leading slot', { slots: { leading: () => 'Leading slot' } }]
   ])
 
+  // The avatar is what makes this test a test. Ring plus digits alone matches
+  // no axe rule — the first version of this case reported zero rules run and
+  // was green by vacancy. The avatar renders an `<img>` and brings in
+  // `image-alt` / `nested-interactive`.
+  //
   // `needStartImmediately: false` so the frame loop never starts: an axe run
   // takes long enough that a live countdown would tick the DOM underneath it.
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(Countdown, {
-      props: { seconds: 100, useCircle: true, needStartImmediately: false }
+      props: { seconds: 100, useCircle: true, needStartImmediately: false, avatar: { src: 'https://github.com/bitrix24.png', alt: 'Bitrix24' } }
     })
 
     expect(await axe(wrapper.element)).toHaveNoViolations()

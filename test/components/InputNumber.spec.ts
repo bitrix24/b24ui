@@ -41,6 +41,7 @@ describe('InputNumber', () => {
     // are left out: they move focus and change no markup.
     ['with noBorder', { props: { noBorder: true } }],
     ['with underline', { props: { underline: true } }],
+    ['with rounded', { props: { rounded: true } }],
     ['with fixed', { props: { fixed: true } }],
     ['with tag', { props: { tag: 'Tag' } }],
     ['with tag and tagColor', { props: { tag: 'Tag', tagColor: 'air-primary-success' } }],

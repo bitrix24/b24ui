@@ -20,9 +20,12 @@ describe('Advice', () => {
     ['with leading slot', { slots: { leading: () => 'Leading slot' } }]
   ])
 
+  // The avatar rather than the icon: `icon` sets `isLeading`, which wins the
+  // `v-else-if` and drops the avatar, leaving axe one rule to run. The avatar
+  // renders an `<img>`, which brings in `image-alt` and `nested-interactive`.
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(Advice, {
-      props: { description: 'Description', icon: Search2Icon }
+      props: { description: 'Description', avatar: { src: 'https://github.com/bitrix24.png', alt: 'Bitrix24' } }
     })
 
     expect(await axe(wrapper.element)).toHaveNoViolations()

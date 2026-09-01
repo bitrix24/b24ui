@@ -89,6 +89,7 @@ describe('Select', () => {
     ['with noPadding', { props: { ...props, noPadding: true } }],
     ['with noBorder', { props: { ...props, noBorder: true } }],
     ['with underline', { props: { ...props, underline: true } }],
+    ['with rounded', { props: { ...props, rounded: true } }],
     ['with tag', { props: { ...props, tag: 'Tag' } }],
     ['with tag and tagColor', { props: { ...props, tag: 'Tag', tagColor: 'air-primary-success' } }],
     // Slots
