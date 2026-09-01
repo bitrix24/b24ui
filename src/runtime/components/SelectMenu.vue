@@ -56,6 +56,7 @@ export interface SelectMenuProps<T extends ArrayOrNested<SelectMenuItem> = Array
    * Whether to display the search input or not.
    * Can be an object to pass additional props to the input.
    * `{ placeholder: 'Search...', type: 'text', size: 'md' }`{lang="ts"}
+   * Set `autofocus: false` to prevent the search input from being focused when the menu opens (e.g. to avoid opening the virtual keyboard on touch devices).
    * @defaultValue true
    */
   searchInput?: boolean | Omit<InputProps, 'modelValue' | 'defaultValue'>
@@ -551,6 +552,13 @@ function onClear() {
   emits('clear')
 }
 
+function onMountAutoFocus(event: Event) {
+  // Prevent the `FocusScope` from focusing the search input on open when its autofocus is disabled.
+  if (searchInputProps.value.autofocus === false) {
+    event.preventDefault()
+  }
+}
+
 const viewportRef = useTemplateRef('viewportRef')
 
 const comboboxRootRef = useTemplateRef('comboboxRootRef')
@@ -784,7 +792,7 @@ defineExpose({
       <ComboboxPortal v-bind="portalProps">
         <FieldGroupReset>
           <ComboboxContent data-slot="content" :class="b24ui.content({ class: props.b24ui?.content })" v-bind="contentProps">
-            <FocusScope trapped data-slot="focusScope" :class="b24ui.focusScope({ class: props.b24ui?.focusScope })">
+            <FocusScope trapped data-slot="focusScope" :class="b24ui.focusScope({ class: props.b24ui?.focusScope })" @mount-auto-focus="onMountAutoFocus">
               <slot name="content-top" />
 
               <ComboboxInput
