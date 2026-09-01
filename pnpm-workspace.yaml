@@ -14,9 +14,20 @@ linkWorkspacePackages: true
 
 overrides:
   '@nuxt/kit': ^4.5.2
-  # `@nuxt/content` 3.15.2 caps `@nuxtjs/mdc` at ^0.22.2, so the docs bump to
-  # 0.23.1 installs a second copy and component-meta reads different components
-  # than the ones the module registers. Drop once content widens to ^0.23.0.
+  # `@nuxtjs/mdc` must stay single: two copies mean component-meta reads
+  # different components than the ones the module registers.
+  #
+  # Upstream dropped this override in `9c99bf16` once it moved to
+  # `@nuxt/content` 3.16.0, whose cap is `^0.23.1` rather than 3.15's `^0.22.2`.
+  # That reasoning does not transfer, and the check is empirical rather than
+  # inherited: removing it here and reinstalling brings 0.22.2 straight back
+  # alongside 0.23.1. The copy that pulls it is the ROOT peer `@nuxt/content:
+  # ^3.0.0` — deliberately wide, so consumers are not forced onto one content
+  # minor — which this lockfile resolves to 3.14.0. `docs`, `playgrounds/nuxt`
+  # and `playgrounds/demo` are all on 3.16.0 and are not the problem.
+  #
+  # A full lockfile regeneration might lift that peer and let the override go;
+  # that is a bigger change than a dependency port should make on its own.
   '@nuxt/content>@nuxtjs/mdc': ^0.23.1
   '@bitrix24/b24ui-nuxt': workspace:*
   # nuxt 4.5.x requires vite ^8, but several peers (unplugin, unhead, vite-plugin-*)
@@ -43,7 +54,7 @@ overrides:
   # of pm versions, so without this pnpm can resolve a second copy and ProseMirror
   # state instances stop being `instanceof` across the boundary. Keep in step with
   # the @tiptap/* family version in package.json.
-  '@tiptap/pm': ^3.30.2
+  '@tiptap/pm': ^3.30.5
   nitropack: ^2.13.0
   unplugin: ^3.3.0
   c12: ^3.3.4
@@ -80,5 +91,3 @@ allowBuilds:
   unrs-resolver: false
   vue-demi: false
 
-minimumReleaseAgeExclude:
-  - '@nuxtjs/mdc@0.23.1'
