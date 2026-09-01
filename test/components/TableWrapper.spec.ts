@@ -1,4 +1,6 @@
-import { describe } from 'vitest'
+import { describe, it, expect } from 'vitest'
+import { axe } from 'vitest-axe'
+import { mountSuspended } from '@nuxt/test-utils/runtime'
 import TableWrapper from '../../src/runtime/components/TableWrapper.vue'
 import { renderEach } from '../component-render'
 
@@ -21,4 +23,14 @@ describe('TableWrapper', () => {
     // Slots
     ['with default slot', { slots: { default: () => '<table><tbody><tr><th>1</th><td>2</td></tr></tbody></table>' } }]
   ])
+
+  it('passes accessibility tests', async () => {
+    const wrapper = await mountSuspended(TableWrapper, {
+      slots: {
+        default: () => '<table><caption>Deals</caption><thead><tr><th scope="col">Name</th><th scope="col">Sum</th></tr></thead><tbody><tr><th scope="row">First</th><td>100</td></tr></tbody></table>'
+      }
+    })
+
+    expect(await axe(wrapper.element)).toHaveNoViolations()
+  })
 })

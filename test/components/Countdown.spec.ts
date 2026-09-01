@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
+import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { defineComponent, h, ref, nextTick, KeepAlive } from 'vue'
 import Countdown from '../../src/runtime/components/Countdown.vue'
@@ -28,6 +29,16 @@ describe('Countdown', () => {
     ['with default slot', { slots: { default: () => 'Default slot' } }],
     ['with leading slot', { slots: { leading: () => 'Leading slot' } }]
   ])
+
+  // `needStartImmediately: false` so the frame loop never starts: an axe run
+  // takes long enough that a live countdown would tick the DOM underneath it.
+  it('passes accessibility tests', async () => {
+    const wrapper = await mountSuspended(Countdown, {
+      props: { seconds: 100, useCircle: true, needStartImmediately: false }
+    })
+
+    expect(await axe(wrapper.element)).toHaveNoViolations()
+  })
 
   describe('computed values', () => {
     it('calculates time units correctly', async () => {
