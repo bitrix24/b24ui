@@ -37,7 +37,8 @@ export type UseResizableProps = {
   resizable?: boolean
   /**
    * Whether to allow the user to collapse the panel.
-   * @defaultValue true
+   * `collapse()` and `isCollapsed` do nothing while this is off.
+   * @defaultValue false
    */
   collapsible?: boolean
   /**
