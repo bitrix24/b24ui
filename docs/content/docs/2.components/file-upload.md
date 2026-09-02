@@ -286,7 +286,11 @@ name: 'file-upload-form-validation-example'
 You can use the default slot to make your own FileUpload component.
 
 ::note
-If you need the file picking without the component around it, the `useFileUpload` composable is what FileUpload itself is built on: `const { open, isDragging, inputRef, dropzoneRef } = useFileUpload({ accept: 'image/*', multiple: true, onUpdate: files => {} })`{lang="ts"}. It gives you the hidden `<input type="file">`, the drop zone and the `accept` wiring; the markup is yours.
+If you need the file picking without the component around it, the `useFileUpload` composable is what FileUpload itself is built on: `const { open, isDragging, inputRef, dropzoneRef } = useFileUpload({ accept: 'image/*', multiple: true, onUpdate: files => {} })`{lang="ts"}. Call `open()`{lang="ts"} to raise the file dialog, bind `dropzoneRef` to the element that accepts drops, and read `isDragging` for the hover state. The markup is yours — the composable renders nothing.
+::
+
+::warning
+`inputRef` is only needed if you also want a real `<input type="file">` in the DOM, for native form submission or validation. It expects a **component**, not an element: it is read as `inputRef.value.$el`{lang="ts"}, and FileUpload binds it to a `VisuallyHidden as="input"`. Bound to a plain `<input>`{lang="html"} it silently does nothing — `$el` is undefined, so dropped files are never synced onto the input. Leave it unbound if you do not need one.
 ::
 
 ::warning

@@ -63,7 +63,25 @@ Most of the time, you will use the [`DashboardNavbar`](/docs/components/dashboar
 Use the `resizable` prop to make the panel resizable.
 
 ::note
-The dragging, the size persistence and the collapse behaviour all come from the `useResizable` composable, which is exported if you need a resizable region of your own: `const { el, size, isDragging, isCollapsed, onMouseDown, onTouchStart, onDoubleClick, collapse } = useResizable('my-panel', { side: 'left', minSize: 10, maxSize: 50 })`{lang="ts"}. Bind `el` to the element being sized and the handlers to your handle. The first argument is the storage key the size is remembered under, so give each region its own.
+The dragging, the remembered size and the collapse behaviour all come from the `useResizable` composable, which is exported if you need a resizable region of your own:
+
+```ts
+const { el, size, isDragging, isCollapsed, onMouseDown, onTouchStart, onDoubleClick, collapse } = useResizable('my-panel', {
+  side: 'left',
+  unit: '%',
+  defaultSize: 25,
+  minSize: 10,
+  maxSize: 50,
+  collapsible: true,
+  storage: 'local'
+})
+```
+
+Bind `el` to the element being sized and the handlers to your handle. The first argument is the storage key, so give each region its own — two regions sharing a key share a width.
+::
+
+::warning
+Four defaults are worth setting explicitly, because they are not what the prop names suggest. `unit` is `'px'`{lang="ts-type"}, so bare `minSize`/`maxSize` numbers are pixels, not percentages. `defaultSize` is `0`{lang="ts-type"}. `collapsible` is `false`{lang="ts-type"} in the composable, so `collapse()`{lang="ts"} and `isCollapsed` do nothing until you turn it on. And `storage` is `'cookie'`{lang="ts-type"}, which relies on `useCookie` — outside Nuxt that is a stub and nothing persists, so use `'local'`{lang="ts-type"} in a plain Vue app.
 ::
 
 ::component-code
