@@ -62,6 +62,10 @@ Most of the time, you will use the [`DashboardNavbar`](/docs/components/dashboar
 
 Use the `resizable` prop to make the panel resizable.
 
+::note
+The dragging, the size persistence and the collapse behaviour all come from the `useResizable` composable, which is exported if you need a resizable region of your own: `const { el, size, isDragging, isCollapsed, onMouseDown, onTouchStart, onDoubleClick, collapse } = useResizable('my-panel', { side: 'left', minSize: 10, maxSize: 50 })`{lang="ts"}. Bind `el` to the element being sized and the handlers to your handle. The first argument is the storage key the size is remembered under, so give each region its own.
+::
+
 ::component-code
 ---
 prettier: true

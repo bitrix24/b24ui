@@ -285,6 +285,14 @@ name: 'file-upload-form-validation-example'
 
 You can use the default slot to make your own FileUpload component.
 
+::note
+If you need the file picking without the component around it, the `useFileUpload` composable is what FileUpload itself is built on: `const { open, isDragging, inputRef, dropzoneRef } = useFileUpload({ accept: 'image/*', multiple: true, onUpdate: files => {} })`{lang="ts"}. It gives you the hidden `<input type="file">`, the drop zone and the `accept` wiring; the markup is yours.
+::
+
+::warning
+`accept` reaches the dialog verbatim, but the drop zone only gets the MIME half of it — a drag exposes a type, not a filename. An `accept` written purely as extensions (`'.pdf,.docx'`{lang="ts"}) therefore leaves the drop zone accepting anything, so validate by name in `onUpdate` when extensions are the contract.
+::
+
 ::component-example
 ---
 prettier: true

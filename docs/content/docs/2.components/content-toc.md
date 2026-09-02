@@ -20,6 +20,10 @@ This component is only available when the `@nuxt/content` module is installed.
 
 Use the `links` prop with the `page?.body?.toc?.links`{lang="ts-type"} you get when fetching a page.
 
+::note
+Highlighting the reader's position is handled for you. The `useScrollspy` composable behind it is exported too, if you are building your own table of contents: `const { activeHeadings, updateHeadings } = useScrollspy()`{lang="ts"}. Call `updateHeadings()`{lang="ts"} with the heading elements to observe after the content changes. Prefer `activeHeadings` over `visibleHeadings` — it keeps the last heading lit while the reader is between two, where `visibleHeadings` goes empty and the highlight flickers.
+::
+
 ::component-example
 ---
 name: 'content-toc-example'
