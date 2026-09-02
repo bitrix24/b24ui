@@ -69,7 +69,9 @@ export interface TextareaProps<T extends TextareaValue = TextareaValue, Mod exte
    * Keep the mobile text size on all breakpoints. (Left for backward compatibility.)
    * @deprecated Does nothing. It works through `fixed` x `size` compound
    *   variants, and `Textarea` deliberately has no `size`, so no variant ever
-   *   matches. Will be removed in version `3.0.0`.
+   *   matches.
+   *
+   * @removed 3.0.0
    */
   fixed?: boolean
   defaultValue?: ApplyModifiers<T, Mod>
