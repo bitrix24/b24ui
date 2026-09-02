@@ -75,7 +75,9 @@ describe('Button', () => {
 
     // On a legacy colour name, because `depth` has compound variants only for
     // those — on the `air-*` default the prop renders nothing either way, so
-    // the assertion would hold for the wrong reason.
+    // the assertion would hold for the wrong reason. That gap is why both
+    // `depth` and `activeDepth` are `@deprecated`; the test stays, so the
+    // behaviour is pinned until they go in `3.0.0`.
     it('applies activeDepth only while active', async () => {
       const inactive = await render({ color: 'primary', activeDepth: 'dark' })
       const active = await render({ color: 'primary', active: true, activeDepth: 'dark' })
