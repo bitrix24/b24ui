@@ -164,7 +164,7 @@ You can use the `useFormField` composable to implement this inside your own comp
 ::warning
 The `change` event these inputs emit is a **synthetic** `Event`, and its `target` is `null`{lang="ts-type"} — it carries no value. `@change="e => e.target.value"`{lang="ts"} throws.
 
-It is emitted so the Form can react to a commit, not to deliver the value. Read the value from `@update:model-value`{lang="ts"} instead, or from `v-model`:
+It exists so you can react to a commit; it is not how the value travels, and it is not how the Form learns about it either — validation is driven by a separate internal call. Read the value from `@update:model-value`{lang="ts"} instead, or from `v-model`:
 
 ```vue
 <template>

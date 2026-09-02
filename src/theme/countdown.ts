@@ -7,8 +7,6 @@
  * @see bitrix/js/ui/countdown/src
  */
 
-/**
- */
 export default {
   slots: {
     base: [
