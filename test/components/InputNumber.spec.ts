@@ -37,6 +37,17 @@ describe('InputNumber', () => {
     ['with as', { props: { as: 'section' } }],
     ['with class', { props: { class: 'absolute' } }],
     ['with b24ui', { props: { b24ui: { base: 'rounded-full' } } }],
+    // Bitrix24-only props, absent from `nuxt/ui`. `autofocus`/`autofocusDelay`
+    // are left out: they move focus and change no markup.
+    ['with noBorder', { props: { noBorder: true } }],
+    ['with underline', { props: { underline: true } }],
+    ['with rounded', { props: { rounded: true } }],
+    ['with fixed', { props: { fixed: true } }],
+    ['with tag', { props: { tag: 'Tag' } }],
+    ['with tag and tagColor', { props: { tag: 'Tag', tagColor: 'air-primary-success' } }],
+    ['with incrementDisabled', { props: { incrementDisabled: true } }],
+    ['with decrementDisabled', { props: { decrementDisabled: true } }],
+    ['with defaultValue', { props: { defaultValue: 7 } }],
     // Slots
     ['with increment slot', { slots: { increment: () => '+' } }],
     ['with decrement slot', { slots: { decrement: () => '-' } }]

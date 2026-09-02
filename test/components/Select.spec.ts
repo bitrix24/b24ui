@@ -83,6 +83,15 @@ describe('Select', () => {
     ['with ariaLabel', { props, attrs: { 'aria-label': 'Aria label' } }],
     ['with class', { props: { ...props, class: 'rounded-full' } }],
     ['with b24ui', { props: { ...props, b24ui: { group: 'p-2' } } }],
+    // Bitrix24-only props, absent from `nuxt/ui`. `content` and `autofocus*`
+    // are left out: the first only applies to the open popover, the second two
+    // move focus without changing markup.
+    ['with noPadding', { props: { ...props, noPadding: true } }],
+    ['with noBorder', { props: { ...props, noBorder: true } }],
+    ['with underline', { props: { ...props, underline: true } }],
+    ['with rounded', { props: { ...props, rounded: true } }],
+    ['with tag', { props: { ...props, tag: 'Tag' } }],
+    ['with tag and tagColor', { props: { ...props, tag: 'Tag', tagColor: 'air-primary-success' } }],
     // Slots
     ['with leading slot', { props, slots: { leading: () => 'Leading slot' } }],
     ['with trailing slot', { props, slots: { trailing: () => 'Trailing slot' } }],

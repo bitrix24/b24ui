@@ -198,13 +198,6 @@ function propItemHandler(propValue: any): string {
   let propType: string = propValue.type
 
   /**
-   * @memo remove depricate props
-   * @see docs/app/components/content/ComponentProps.vue
-   */
-  if (['depth', 'activeDepth'].includes(propName)) {
-    return ''
-  }
-  /**
    * @memo customize color property
    * @todo test all colors
    * @see docs/app/components/content/HighlightInlineType.vue
@@ -242,8 +235,13 @@ function propItemHandler(propValue: any): string {
   const isRequired = propValue.required || false
   const hasDescription = propValue.description && propValue.description.trim().length > 0
   const hasDefault = propValue.default !== undefined
+  // Carried through rather than dropped: this output is what the `/raw/` pages
+  // and `llms.txt` serve, so a consumer reading it needs to know a prop is on
+  // its way out. `depth`/`activeDepth` used to be removed here by name.
+  const deprecated = propValue.tags?.find((tag: any) => tag.name === 'deprecated')
+  const removed = propValue.tags?.find((tag: any) => tag.name === 'removed')?.text?.trim()
   let result = ''
-  if (hasDescription || hasDefault) {
+  if (hasDescription || hasDefault || deprecated) {
     result += `  /**\n`
     if (hasDescription) {
       const descLines = propValue.description.split(/\r?\n/)
@@ -254,6 +252,16 @@ function propItemHandler(propValue: any): string {
     if (hasDefault) {
       const defaultValue = propValue.default
       result += `   * @default ${typeof defaultValue === 'string' ? defaultValue : JSON.stringify(defaultValue)}\n`
+    }
+    if (deprecated) {
+      const deprecatedLines = (deprecated.text ?? '').split(/\r?\n/)
+      result += `   * @deprecated${deprecatedLines[0] ? ` ${deprecatedLines[0]}` : ''}\n`
+      deprecatedLines.slice(1).forEach((line: string) => {
+        result += `   *   ${line.trim()}\n`
+      })
+      if (removed) {
+        result += `   * @removed ${removed}\n`
+      }
     }
     result += `   */\n`
   }

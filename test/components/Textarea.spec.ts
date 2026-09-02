@@ -38,6 +38,18 @@ describe('Textarea', () => {
     ['with class', { props: { class: 'w-48' } }],
     // @memo wrapper not exist at theme ////
     ['with b24ui', { props: { b24ui: { root: 'ms-4' } } }],
+    // Bitrix24-only props, absent from `nuxt/ui`. Left out on purpose:
+    // `autofocus`/`autofocusDelay` only move focus; `maxrows`/`autoresizeDelay`
+    // need real layout, which happy-dom does not do; and `fixed` is inert and
+    // now `@deprecated` on the component. Not pinned here: a snapshot of a
+    // no-op would read as certifying it.
+    ['with noPadding', { props: { noPadding: true } }],
+    ['with noBorder', { props: { noBorder: true } }],
+    ['with underline', { props: { underline: true } }],
+    ['with rounded', { props: { rounded: true } }],
+    ['with tag', { props: { tag: 'Tag' } }],
+    ['with tag and tagColor', { props: { tag: 'Tag', tagColor: 'air-primary-success' } }],
+    ['with defaultValue', { props: { defaultValue: 'preset' } }],
     // Slots
     ['with default slot', { slots: { default: () => 'Default slot' } }],
     ['with leading slot', { slots: { leading: () => 'Leading slot' } }],
