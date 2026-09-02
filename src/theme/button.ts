@@ -359,7 +359,6 @@ export default {
     },
     // endregion ////
     // region size && useDropdown ////
-    // @todo ////
     {
       leading: false,
       useLabel: true,

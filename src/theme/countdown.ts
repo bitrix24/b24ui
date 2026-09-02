@@ -8,8 +8,6 @@
  */
 
 /**
- * @todo add tests
- * @todo add docs
  */
 export default {
   slots: {

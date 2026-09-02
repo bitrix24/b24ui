@@ -2,8 +2,8 @@
  * ChatTool
  * An expandable section that indicates whether an AI tool has been called and its execution state.
  * ---
- * @todo: make refactor for `--leftmenu-group-stroke`
- * @todo: make ChatTool.variant.card === NavigationMenu.orientation.vertical.item
+ * @todo make refactor for `--leftmenu-group-stroke`
+ * @todo make ChatTool.variant.card === NavigationMenu.orientation.vertical.item
  * A link
  */
 
