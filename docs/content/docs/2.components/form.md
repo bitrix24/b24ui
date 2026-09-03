@@ -161,6 +161,20 @@ options:
 You can use the `useFormField` composable to implement this inside your own components.
 ::
 
+::warning
+The `change` event these inputs emit is a **synthetic** `Event`, and its `target` is `null`{lang="ts-type"} — it carries no value. `@change="e => e.target.value"`{lang="ts"} throws.
+
+It exists so you can react to a commit; it is not how the value travels, and it is not how the Form learns about it either — validation is driven by a separate internal call. Read the value from `@update:model-value`{lang="ts"} instead, or from `v-model`:
+
+```vue
+<template>
+  <B24Select v-model="value" :items="items" @update:model-value="onCommit" />
+</template>
+```
+
+This applies to every input that emits `change` without a native event behind it — `Select`, `SelectMenu`, `InputMenu`, `InputDate`, `InputTime`, `InputTags`, `InputNumber`, `InputRating`, `PinInput`, `Listbox`, `Range`, `Checkbox`, `CheckboxGroup`, `RadioGroup`, `Switch` and `FileUpload`. `Input` and `Textarea` forward the browser's own `change` event, so their `target` is the real element.
+::
+
 ### Error event
 
 You can listen to the `@error` event to handle errors. This event is triggered when the form is submitted and contains an array of `FormError` objects with the following fields:

@@ -1,11 +1,7 @@
 /**
  * NavbarSection
  * ---
- * @todo: docs
- * @todo: test
- * @todo: playground
- * @todo: demo
- * @todo: color
+ * @deprecated This component is deprecated and will be removed in version `3.0.0`
  */
 
 export default {

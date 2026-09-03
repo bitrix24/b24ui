@@ -2,8 +2,6 @@
  * Pagination
  * A navigation component with buttons or links for pagination.
  * ---
- * @todo add docs
- * @todo add demo
  * @todo add color
  */
 export default {

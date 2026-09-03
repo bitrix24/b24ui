@@ -1,6 +1,6 @@
 /**
  * InputRating
- * @todo this this `A component to display and collect ratings from users.`
+ * A component to display and collect ratings from users.
  * ---
  */
 
