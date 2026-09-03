@@ -90,13 +90,17 @@ const COMPONENT_NAME = /\b(?:B24|Prose)[A-Z][A-Za-z0-9]*/g
  * entries) and a flat scan would pick up slot names from inside them.
  */
 const colourKeys = (source: string): Set<string> | undefined => {
-  const start = source.indexOf('    color: {')
-  if (start === -1) {
+  // The indent is derived, not assumed: a factory theme nests the map one
+  // level deeper (`input-number.ts` declares it at six spaces), and a
+  // hardcoded four-space key pattern found the map there but read zero keys
+  // out of it — silently dropping that component from the check.
+  const header = /^([ \t]*)color: \{/m.exec(source)
+  if (!header) {
     return undefined
   }
 
   let depth = 0
-  let i = source.indexOf('{', start)
+  let i = source.indexOf('{', header.index)
   const open = i
   for (; i < source.length; i++) {
     if (source[i] === '{') {
@@ -109,7 +113,9 @@ const colourKeys = (source: string): Set<string> | undefined => {
     }
   }
 
-  return new Set([...source.slice(open, i).matchAll(/^\s{6}'?([a-z0-9-]+)'?\s*:/gim)].map(match => match[1]!))
+  const keyIndent = header[1]!.length + 2
+  const key = new RegExp(`^[ \\t]{${keyIndent}}'?([a-z0-9-]+)'?\\s*:`, 'gim')
+  return new Set([...source.slice(open, i).matchAll(key)].map(match => match[1]!))
 }
 
 /** `B24SelectMenu` -> `select-menu`, the theme file that names its colours. */
@@ -493,22 +499,27 @@ describe('skill package', () => {
     const unknown: string[] = []
     for (const doc of await listDocs()) {
       const body = await readFile(join(skillDir, doc), 'utf8')
-      for (const [, name, attrs] of body.matchAll(/<((?:B24|Prose)[A-Za-z0-9]+)\b([^>]*)>/g)) {
+      // Quoted attribute values are skipped over rather than treated as tag
+      // ends, so a `v-if="a > b"` no longer truncates the tag and hides every
+      // attribute after it.
+      for (const [, name, attrs] of body.matchAll(/<((?:B24|Prose)[A-Za-z0-9]+)\b((?:"[^"]*"|'[^']*'|[^>])*)>/g)) {
         const theme = themes.get(themeFileFor(name!))
         if (!theme) {
           continue
         }
-        // A static attribute is a literal. The leading boundary keeps `:color`
-        // and `active-color` out — those are expressions and other props.
-        for (const [, , value] of attrs!.matchAll(/(^|\s)color="([^"]+)"/g)) {
+        // `activeColor` takes the same map (`Button['variants']['color']`), so
+        // both attributes are checked; the boundary keeps `:`-bound forms out,
+        // they are handled below.
+        for (const [, , attribute, value] of attrs!.matchAll(/(^|\s)(active-color|color)="([^"]+)"/g)) {
           if (!theme.has(value!)) {
-            unknown.push(`${doc}: <${name} color="${value}">`)
+            unknown.push(`${doc}: <${name} ${attribute}="${value}">`)
           }
         }
-        // Quoted literals inside a bound expression are still checkable, and
-        // that is where the Badge defect lived — a ternary, not an attribute.
-        for (const [, expression] of attrs!.matchAll(/:color="([^"]+)"/g)) {
-          for (const [, literal] of expression!.matchAll(/'([a-z][a-z0-9-]*)'/g)) {
+        // Only the branches of a ternary, not every quoted string in the
+        // expression: a comparison operand (`row.status === 'active'`) is not
+        // a colour, and flagging it would fail a perfectly good example.
+        for (const [, expression] of attrs!.matchAll(/:(?:active-)?color="([^"]+)"/g)) {
+          for (const [, literal] of expression!.matchAll(/[?:]\s*'([a-z][a-z0-9-]*)'/g)) {
             if (!theme.has(literal!)) {
               unknown.push(`${doc}: <${name} :color="… '${literal}' …">`)
             }
@@ -537,17 +548,33 @@ describe('skill package', () => {
 
     expect(declared.has('--ui-color-base-5')).toBe(true)
     expect(declared.has('--ui-color-typography-secondary')).toBe(false)
+    expect(declared.has('--b24ui-header-height')).toBe(true)
+    expect(declared.has('--b24ui-header-heights')).toBe(false)
 
     const unknown: string[] = []
     for (const doc of await listDocs()) {
       const body = await readFile(join(skillDir, doc), 'utf8')
-      // Only tokens being *used*: `var(--x)` or Tailwind's `text-(--x)`. The
-      // closing paren is what separates a real reference from the placeholders
-      // the prose writes — `--ui-color-base-N`, `…-bg-gradient-{1,2,3}`,
-      // `…-bg-content-*` — which would otherwise all read as phantom tokens.
-      for (const [, token] of body.matchAll(/\((--(?:b24ui|ui)-[a-z0-9-]+)\)/g)) {
+
+      // Every shape the skill actually writes: `var(--x)`, `var(--x, fb)`,
+      // and Tailwind's arbitrary properties both bare — `text-(--x)` — and
+      // typed, `text-(length:--x)` / `font-(family-name:--x)`. An earlier
+      // draft matched only the bare form and so missed 27 of the references
+      // in this package, including the untouched half of the very line the
+      // phantom token above was found on.
+      for (const [, token] of body.matchAll(/\((?:[a-z-]+:)?(--(?:b24ui|ui)-[a-z0-9-]+)\s*[),]/g)) {
         if (!declared.has(token!)) {
           unknown.push(`${doc}: ${token}`)
+        }
+      }
+
+      // Declarations too, which is the form the original defect took:
+      // `design-system.md` told readers to set `--b24ui-header-heights` in
+      // their own CSS. Only the library's own namespaces are matched, so a
+      // reader defining `--my-thing` is left alone; writing `--b24ui-*` is a
+      // claim that the library reads it.
+      for (const [, token] of body.matchAll(/^\s*(--(?:b24ui|ui)-[a-z0-9-]+)\s*:/gm)) {
+        if (!declared.has(token!)) {
+          unknown.push(`${doc}: ${token} (declared, but the library has no such token)`)
         }
       }
     }
