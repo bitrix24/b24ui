@@ -26,6 +26,26 @@ The Theme component doesn't render any HTML element, it only provides theme over
 
 Use the `b24ui` prop to override slot classes of descendant components. Keys are component names (camelCase) and values are their slot class overrides.
 
+Classes are merged onto the component defaults. To **replace** them instead, set the slot to a function — it receives the resolved defaults, so you can keep part of them:
+
+```vue
+<template>
+  <B24Theme :b24ui="{ button: { label: () => 'text-base font-bold' } }">
+    <B24Button label="Replaced" />
+  </B24Theme>
+</template>
+```
+
+::warning
+Slot names go **directly** under the component name here — `{ button: { label: … } }`{lang="ts"}. This is not the theme-object shape used in [global config](/docs/getting-started/theme/components/#global-config), which nests them under `slots`.
+
+TypeScript rejects the wrong one (`TS2353: 'slots' does not exist in type …`), so keep the prop typed. At runtime it is simply ignored — no error, no warning, the defaults stay — which is what you get if the object reaches the prop untyped.
+::
+
+::note{to="/docs/getting-started/theme/components/#global-config"}
+Theme resolves at the same point as the `b24ui` prop, so a replacer here replaces the resolved classes, variants included. In global config it replaces only the slot's own classes and variants still apply on top.
+::
+
 ::component-example
 ---
 name: 'theme-ui-example'
