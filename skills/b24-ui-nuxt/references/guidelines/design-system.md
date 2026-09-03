@@ -159,7 +159,7 @@ Override theme for a section of the component tree without affecting the rest of
 </B24Theme>
 ```
 
-Slot names go **directly** under the component name here — `{ button: { base: … } }`. This is *not* the global-config shape, which nests them under `slots`. Writing `{ button: { slots: { base: … } } }` on `B24Theme` is silently ignored — no error, the defaults just stay.
+Slot names go **directly** under the component name here — `{ button: { base: … } }`. This is *not* the global-config shape, which nests them under `slots`. TypeScript rejects the wrong one (`TS2353`); at runtime it is ignored with no error, so an untyped object loses the override silently.
 
 ### Tree-shaking with `experimental.componentDetection`
 

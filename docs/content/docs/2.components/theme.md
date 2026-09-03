@@ -37,7 +37,9 @@ Classes are merged onto the component defaults. To **replace** them instead, set
 ```
 
 ::warning
-Slot names go **directly** under the component name here — `{ button: { label: … } }`{lang="ts"}. This is not the theme-object shape used in [global config](/docs/getting-started/theme/components/#global-config), which nests them under `slots`. Writing `{ button: { slots: { label: … } } }`{lang="ts"} on this component is silently ignored: no error, no warning, the defaults simply stay.
+Slot names go **directly** under the component name here — `{ button: { label: … } }`{lang="ts"}. This is not the theme-object shape used in [global config](/docs/getting-started/theme/components/#global-config), which nests them under `slots`.
+
+TypeScript rejects the wrong one (`TS2353: 'slots' does not exist in type …`), so keep the prop typed. At runtime it is simply ignored — no error, no warning, the defaults stay — which is what you get if the object reaches the prop untyped.
 ::
 
 ::note{to="/docs/getting-started/theme/components/#global-config"}
