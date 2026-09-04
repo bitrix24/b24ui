@@ -329,7 +329,7 @@ const scheduledAtInput = useTemplateRef('scheduledAtInput') // anchors the date 
 
   <!-- Nested sub-section: label outside + bordered container. clientGroupId = useId() so the label/group link stays unique if the form is rendered more than once. -->
   <div class="space-y-1.5">
-    <span :id="clientGroupId" class="block text-(length:--ui-font-size-sm) text-(--ui-color-typography-secondary)">Client</span>
+    <span :id="clientGroupId" class="block text-(length:--ui-font-size-sm) text-legend">Client</span>
     <div role="group" :aria-labelledby="clientGroupId" class="rounded-md border border-(--ui-color-design-outline-stroke) p-3 sm:p-4 space-y-4">
       <B24FormField label="Company" name="company">
         <B24Input v-model="state.company" :icon="UserCompanyIcon" placeholder="Company name, phone or email" class="w-full" />
