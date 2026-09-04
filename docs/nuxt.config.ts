@@ -682,14 +682,31 @@ export default defineNuxtConfig({
         title: 'Components',
         contentCollection: 'docs',
         contentFilters: [
-          { field: 'path', operator: 'LIKE', value: '/docs/components/%' }
+          // No trailing slash before the wildcard, so the section's own index
+          // page is matched alongside the pages under it. `0.index.md` inside
+          // the directory resolves to `/docs/components`, which `/docs/components/%`
+          // excludes: the section listed all 120 component pages and not the
+          // page introducing them. The two filters above were already written
+          // this way; the four disagreeing was the oversight.
+          { field: 'path', operator: 'LIKE', value: '/docs/components%' }
         ]
       },
       {
         title: 'Composables',
         contentCollection: 'docs',
         contentFilters: [
-          { field: 'path', operator: 'LIKE', value: '/docs/composables/%' }
+          { field: 'path', operator: 'LIKE', value: '/docs/composables%' }
+        ]
+      },
+      {
+        // 20 pages under `docs/content/docs/4.typography/` reached none of the
+        // sections above, so the prose components were absent from `llms.txt`
+        // entirely — the only occurrence of the word was inside another page's
+        // description.
+        title: 'Typography',
+        contentCollection: 'docs',
+        contentFilters: [
+          { field: 'path', operator: 'LIKE', value: '/docs/typography%' }
         ]
       }
     ],
