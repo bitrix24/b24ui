@@ -1,4 +1,5 @@
 import type { H3Event } from 'h3'
+import { fencedBlock, pipeTable } from './markdown'
 import json5 from 'json5'
 import { camelCase, kebabCase, upperFirst } from 'scule'
 import { visit } from '@nuxt/content/runtime'
@@ -101,6 +102,15 @@ function replaceNodeWithPre(node: any[], language: string, code: string, filenam
   node[0] = 'pre'
   node[1] = { language, code }
   if (filename) node[1].filename = filename
+}
+
+// A paragraph holding ready-made markdown: the stringifier writes a string
+// child as is, so this is how a block it has no handler for gets through.
+function replaceNodeWithMarkdown(node: any[], markdown: string) {
+  node[0] = 'p'
+  node[1] = {}
+  node[2] = markdown
+  node.length = 3
 }
 
 function visitAndReplace(doc: Document, type: string, handler: (node: any[]) => void) {
@@ -1190,6 +1200,31 @@ export async function transformMDC(event: H3Event, doc: Document): Promise<Docum
   })
 
   processLinks(doc.body.value, baseUrl)
+
+  // Both passes run *after* `processLinks`, and the order is load-bearing here
+  // in a way it is not upstream. Upstream absolutises links in the stringified
+  // document, so its table pass can run anywhere; ours rewrites `a.href` on the
+  // tree, and `pipeTable` flattens an `a` node into `[text](href)` text. Render
+  // the table first and the hrefs inside its cells are strings by the time
+  // `processLinks` looks for nodes to rewrite — relative, and pointing nowhere
+  // from a raw markdown file served to an agent.
+
+  // minimark has no pipe-table handler and writes every table as HTML, so the
+  // rows are rendered here, each cell reduced to inline markdown.
+  visitAndReplace(doc, 'table', (node) => {
+    replaceNodeWithMarkdown(node, pipeTable(node))
+  })
+
+  // minimark always opens a three-backtick fence, which code holding fences of
+  // its own breaks out of — the typography pages documenting code blocks write
+  // exactly that.
+  visitAndReplace(doc, 'pre', (node) => {
+    const attrs = node[1] || {}
+    const code = String(attrs.code ?? '')
+    if (code.includes('```')) {
+      replaceNodeWithMarkdown(node, fencedBlock(code, attrs.language, attrs.filename, attrs.meta))
+    }
+  })
 
   // Flatten __flatten markers by splicing their children into parents
   if (Array.isArray(doc.body)) {
