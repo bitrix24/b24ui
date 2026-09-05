@@ -51,12 +51,12 @@ export interface ChatMessagesProps<T extends UIMessage[] = UIMessage[]> {
    * The `user` messages props.
    * `{ side: 'right', variant: 'message' }`{lang="ts-type"}
    */
-  user?: Pick<PropsBase<T>, 'icon' | 'avatar' | 'variant' | 'side' | 'actions' | 'b24ui'>
+  user?: Pick<PropsBase<T>, 'icon' | 'avatar' | 'variant' | 'side' | 'actions' | 'b24ui' | 'color'>
   /**
    * The `assistant` messages props.
    * `{ side: 'left', variant: 'message' }`{lang="ts-type"}
    */
-  assistant?: Pick<PropsBase<T>, 'icon' | 'avatar' | 'variant' | 'side' | 'actions' | 'b24ui'>
+  assistant?: Pick<PropsBase<T>, 'icon' | 'avatar' | 'variant' | 'side' | 'actions' | 'b24ui' | 'color'>
   /**
    * Render the messages in a compact style.
    * This is done automatically when used inside a `UChatPalette`{lang="ts-type"}.

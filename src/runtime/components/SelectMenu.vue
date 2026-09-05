@@ -56,6 +56,7 @@ export interface SelectMenuProps<T extends ArrayOrNested<SelectMenuItem> = Array
    * Whether to display the search input or not.
    * Can be an object to pass additional props to the input.
    * `{ placeholder: 'Search...', type: 'text', size: 'md' }`{lang="ts"}
+   * Set `autofocus: false` to prevent the search input from being focused when the menu opens (e.g. to avoid opening the virtual keyboard on touch devices).
    * @defaultValue true
    */
   searchInput?: boolean | Omit<InputProps, 'modelValue' | 'defaultValue'>
@@ -177,6 +178,8 @@ export interface SelectMenuProps<T extends ArrayOrNested<SelectMenuItem> = Array
   multiple?: M & boolean
   /** Highlight the ring color like a focus state. */
   highlight?: boolean
+  /** Keep the mobile text size on all breakpoints. */
+  fixed?: boolean
   /**
    * Determines if custom user input that does not exist in options can be added.
    * @defaultValue false
@@ -316,7 +319,7 @@ const virtualizerProps = toRef(() => {
     estimateSize: getEstimateSize(filteredItems.value, selectSize.value || 'md', props.descriptionKey as string, !!slots['item-description'])
   })
 })
-const searchInputProps = toRef(() => defu(props.searchInput, { placeholder: t('selectMenu.search'), type: 'text', size: 'md' }) as Omit<InputProps, 'modelValue' | 'defaultValue'>)
+const searchInputProps = toRef(() => defu(props.searchInput, { placeholder: t('selectMenu.search'), type: 'text', size: 'md', fixed: props.fixed }) as Omit<InputProps, 'modelValue' | 'defaultValue'>)
 
 const { emitFormBlur, emitFormFocus, emitFormInput, emitFormChange, size: formFieldSize, color: formFieldColor, id, name, highlight: formFieldHighlight, disabled: formFieldDisabled, ariaAttrs } = useFormField<InputProps>(_props)
 const { orientation, size: fieldGroupSize } = useFieldGroup<InputProps>(_props)
@@ -369,6 +372,7 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.selectMenu
   noBorder: Boolean(props.noBorder),
   underline: Boolean(props.underline),
   highlight: highlight.value,
+  fixed: props.fixed,
   leading: Boolean(isLeading.value || !!props.avatar || !!slots.leading),
   trailing: Boolean(isTrailing.value || !!slots.trailing),
   fieldGroup: orientation.value,
@@ -546,6 +550,13 @@ function isModelValueEmpty(modelValue: ApplyModifiers<GetModelValue<T, VK, M, Ex
 
 function onClear() {
   emits('clear')
+}
+
+function onMountAutoFocus(event: Event) {
+  // Prevent the `FocusScope` from focusing the search input on open when its autofocus is disabled.
+  if (searchInputProps.value.autofocus === false) {
+    event.preventDefault()
+  }
 }
 
 const viewportRef = useTemplateRef('viewportRef')
@@ -781,7 +792,7 @@ defineExpose({
       <ComboboxPortal v-bind="portalProps">
         <FieldGroupReset>
           <ComboboxContent data-slot="content" :class="b24ui.content({ class: props.b24ui?.content })" v-bind="contentProps">
-            <FocusScope trapped data-slot="focusScope" :class="b24ui.focusScope({ class: props.b24ui?.focusScope })">
+            <FocusScope trapped data-slot="focusScope" :class="b24ui.focusScope({ class: props.b24ui?.focusScope })" @mount-auto-focus="onMountAutoFocus">
               <slot name="content-top" />
 
               <ComboboxInput

@@ -17,10 +17,19 @@ export interface ButtonProps extends Omit<UseComponentIconsProps, 'trailing' | '
   color?: Button['variants']['color']
   activeColor?: Button['variants']['color']
   /**
-   * @depricate
+   * @deprecated Renders nothing on the `air-*` colours, the default among
+   *   them: the `depth` compound variants are keyed on the legacy colour
+   *   names only.
+   *
+   * @removed 3.0.0
    * @defaultValue 'normal'
    */
   depth?: Button['variants']['depth']
+  /**
+   * @deprecated Same as `depth` — no effect on the `air-*` colours.
+   *
+   * @removed 3.0.0
+   */
   activeDepth?: Button['variants']['depth']
   /**
    * @defaultValue 'md'

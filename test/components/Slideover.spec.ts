@@ -35,7 +35,12 @@ describe('Slideover', () => {
     ['with actions slot', { props, slots: { actions: () => 'Actions slot' } }],
     ['with close slot', { props, slots: { close: () => 'Close slot' } }],
     ['with body slot', { props, slots: { body: () => 'Body slot' } }],
-    ['with footer slot', { props, slots: { footer: () => 'Footer slot' } }]
+    ['with footer slot', { props, slots: { footer: () => 'Footer slot' } }],
+    // `side` x `inset` x `useFooter` (which the component derives from the
+    // presence of the `footer` slot). These five combinations each had their
+    // own compound variant in the theme, and the matrix reached none of them.
+    ...sides.map((side: string) => [`with ${side} side inset and footer slot`, { props: { ...props, side, inset: true, title: 'Title' }, slots: { footer: () => 'Footer slot' } }]),
+    ['with bottom side and footer slot', { props: { ...props, side: 'bottom', title: 'Title' }, slots: { footer: () => 'Footer slot' } }]
   ])
 
   it('passes accessibility tests', async () => {

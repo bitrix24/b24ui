@@ -12,4 +12,25 @@ links:
 This component is `deprecated` and will be removed in version `3.0.0`
 ::
 
-Use [DashboardSidebar](https://github.com/bitrix24/b24ui/blob/6b3f7b039883c96274a92dc2f15a35826901cd6f/playgrounds/nuxt/app/pages/components/slideover.vue#L314) components to build a `layout`. 
+Build layouts with the [DashboardSidebar](/docs/components/dashboard-sidebar/), [DashboardPanel](/docs/components/dashboard-panel/) and [DashboardGroup](/docs/components/dashboard-group/) components instead. For a standalone collapsible sidebar without the dashboard shell, use [Sidebar](/docs/components/sidebar/).
+
+## Deprecated sub-components
+
+`SidebarLayout` came with a set of building blocks. They are all still exported and still work, and they are all being removed in `3.0.0` together with it. None of them has its own documentation page — this section exists so that code using them leads somewhere.
+
+| Deprecated | Replacement |
+| ---------- | ----------- |
+| `B24Navbar` | [DashboardNavbar](/docs/components/dashboard-navbar/) |
+| `B24NavbarSection` | [DashboardNavbar](/docs/components/dashboard-navbar/) slots (`#left`, `#right`, `#trailing`) |
+| `B24NavbarDivider` | [Separator](/docs/components/separator/) |
+| `B24NavbarSpacer` | a flex spacer of your own, or the DashboardNavbar slots |
+| `B24SidebarHeader` | [DashboardSidebar](/docs/components/dashboard-sidebar/) `#header` slot |
+| `B24SidebarBody` | [DashboardSidebar](/docs/components/dashboard-sidebar/) `#default` slot |
+| `B24SidebarFooter` | [DashboardSidebar](/docs/components/dashboard-sidebar/) `#footer` slot |
+| `B24SidebarSection` | [NavigationMenu](/docs/components/navigation-menu/) with `orientation="vertical"` |
+| `B24SidebarHeading` | [NavigationMenu](/docs/components/navigation-menu/) item labels |
+| `B24SidebarSpacer` | a flex spacer of your own |
+
+::note
+Nothing here changes before `3.0.0` — this is a heads-up, not a break. If you are starting something new, start on the Dashboard components.
+::

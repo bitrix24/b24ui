@@ -83,6 +83,15 @@ describe('Select', () => {
     ['with ariaLabel', { props, attrs: { 'aria-label': 'Aria label' } }],
     ['with class', { props: { ...props, class: 'rounded-full' } }],
     ['with b24ui', { props: { ...props, b24ui: { group: 'p-2' } } }],
+    // Bitrix24-only props, absent from `nuxt/ui`. `content` and `autofocus*`
+    // are left out: the first only applies to the open popover, the second two
+    // move focus without changing markup.
+    ['with noPadding', { props: { ...props, noPadding: true } }],
+    ['with noBorder', { props: { ...props, noBorder: true } }],
+    ['with underline', { props: { ...props, underline: true } }],
+    ['with rounded', { props: { ...props, rounded: true } }],
+    ['with tag', { props: { ...props, tag: 'Tag' } }],
+    ['with tag and tagColor', { props: { ...props, tag: 'Tag', tagColor: 'air-primary-success' } }],
     // Slots
     ['with leading slot', { props, slots: { leading: () => 'Leading slot' } }],
     ['with trailing slot', { props, slots: { trailing: () => 'Trailing slot' } }],
@@ -166,6 +175,41 @@ describe('Select', () => {
         'aria-hidden-focus': { enabled: false }
       }
     })).toHaveNoViolations()
+  })
+
+  describe('fixed', () => {
+    // The prop's whole effect is a class that is *absent*, which is why it needs
+    // an assertion rather than a snapshot case: a snapshot of `fixed: true`
+    // would pin the classes without stating what the prop is for, and would go
+    // on passing if the responsive rule stopped applying to Select entirely.
+    //
+    // The mechanism sits in `theme/input.ts`, which `theme/select.ts` extends:
+    // compound variants pair `fixed: false` with each size to add a `md:text-…`
+    // override, so the base class is the mobile size and the `md:` one takes
+    // over above the breakpoint. Setting `fixed` drops the override and the
+    // mobile size holds everywhere — which is the point, since a text input
+    // below 16px makes iOS Safari zoom on focus.
+    const baseClass = async (props_: Record<string, unknown>) => {
+      const wrapper = await mountSuspended(Select, { props: { ...props, ...props_ } })
+      return wrapper.find('[data-slot="base"]').attributes('class') ?? ''
+    }
+
+    it('applies the responsive override by default', async () => {
+      expect(await baseClass({})).toMatch(/\bmd:text-\(length:/)
+    })
+
+    it('drops the responsive override when fixed', async () => {
+      expect(await baseClass({ fixed: true })).not.toMatch(/\bmd:text-\(length:/)
+    })
+
+    it('keeps the mobile size itself either way', async () => {
+      // Guards the obvious wrong fix: dropping the *base* size instead of the
+      // override would also satisfy the assertion above, and would leave the
+      // control with no size at all.
+      for (const props_ of [{}, { fixed: true }]) {
+        expect(await baseClass(props_)).toMatch(/(?<!md:)\btext-\(length:/)
+      }
+    })
   })
 
   describe('it should display correct label', () => {

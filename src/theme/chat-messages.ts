@@ -5,7 +5,6 @@
  * @todo add variant
  * @todo fix animation
  * @todo add demo
- * @todo add docs
  */
 
 export default {

@@ -43,6 +43,19 @@ describe('Input', () => {
     ['with as', { props: { as: 'section' } }],
     ['with class', { props: { class: 'absolute' } }],
     ['with b24ui', { props: { b24ui: { base: 'rounded-full' } } }],
+    // Bitrix24-only props, absent from `nuxt/ui` — so nothing that arrives with
+    // an upstream sync covers them. `autofocus`/`autofocusDelay` are left out
+    // on purpose: they move focus and change no markup, so a snapshot pins
+    // nothing.
+    ['with noPadding', { props: { noPadding: true } }],
+    ['with noBorder', { props: { noBorder: true } }],
+    ['with underline', { props: { underline: true } }],
+    ['with rounded', { props: { rounded: true } }],
+    ['with fixed', { props: { fixed: true } }],
+    ['with autocomplete', { props: { autocomplete: 'email' } }],
+    ['with tag', { props: { tag: 'Tag' } }],
+    ['with tag and tagColor', { props: { tag: 'Tag', tagColor: 'air-primary-success' } }],
+    ['with defaultValue', { props: { defaultValue: 'preset' } }],
     // Slots
     ['with default slot', { slots: { default: () => 'Default slot' } }],
     ['with leading slot', { slots: { leading: () => 'Leading slot' } }],

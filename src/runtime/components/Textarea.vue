@@ -65,7 +65,14 @@ export interface TextareaProps<T extends TextareaValue = TextareaValue, Mod exte
   tagColor?: BadgeProps['color']
   /** Highlight the ring color like a focus state. */
   highlight?: boolean
-  /** Keep the mobile text size on all breakpoints. (Left for backward compatibility.) */
+  /**
+   * Keep the mobile text size on all breakpoints. (Left for backward compatibility.)
+   * @deprecated Does nothing. It works through `fixed` x `size` compound
+   *   variants, and `Textarea` deliberately has no `size`, so no variant ever
+   *   matches.
+   *
+   * @removed 3.0.0
+   */
   fixed?: boolean
   defaultValue?: ApplyModifiers<T, Mod>
   modelValue?: ApplyModifiers<T, Mod>

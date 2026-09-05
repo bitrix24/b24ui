@@ -13,9 +13,9 @@
   "dependencies": {
     "@ai-sdk/deepseek": "^3.0.28",
     "@ai-sdk/mcp": "2.0.32",
-    "@ai-sdk/vue": "^4.0.77",
+    "@ai-sdk/vue": "^4.0.85",
     "@comark/vue": "^0.6.2",
-    "@nuxt/content": "^3.15.2",
+    "@nuxt/content": "^3.16.0",
     "@nuxt/image": "^2.0.0",
     "@bitrix24/b24ui-nuxt": "workspace:*",
     "@nuxtjs/mcp-toolkit": "^0.19.0",
@@ -23,10 +23,10 @@
     "@octokit/rest": "^22.0.1",
     "@regle/core": "^1.29.1",
     "@regle/rules": "^1.29.1",
-    "@tiptap/extension-emoji": "^3.30.2",
-    "@tiptap/extension-text-align": "^3.30.2",
+    "@tiptap/extension-emoji": "^3.30.5",
+    "@tiptap/extension-text-align": "^3.30.5",
     "@vueuse/integrations": "^14.4.0",
-    "ai": "^7.0.77",
+    "ai": "^7.0.85",
     "capture-website": "^5.1.0",
     "fflate": "^0.8.3",
     "joi": "^18.2.5",
@@ -54,7 +54,7 @@
     "valibot": "^1.4.2",
     "vue-component-meta": "^3.3.11",
     "yup": "^1.7.1",
-    "zod": "^4.4.3"
+    "zod": "^4.5.4"
   },
   "devDependencies": {
     "@shikijs/types": "^4.4.3",

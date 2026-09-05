@@ -81,6 +81,47 @@ const listComponentNames = async () => {
 /** Matches both registered prefixes, so neither direction of misnaming hides. */
 const COMPONENT_NAME = /\b(?:B24|Prose)[A-Z][A-Za-z0-9]*/g
 
+/**
+ * The `color` variant keys a component's theme actually declares.
+ *
+ * Read from `src/theme/<component>.ts` rather than from a list here, for the
+ * same reason as the component and icon checks: a second list drifts. Brace
+ * matching rather than a line regex because the map nests (`{ base: '…' }`
+ * entries) and a flat scan would pick up slot names from inside them.
+ */
+const colourKeys = (source: string): Set<string> | undefined => {
+  // The indent is derived, not assumed: a factory theme nests the map one
+  // level deeper (`input-number.ts` declares it at six spaces), and a
+  // hardcoded four-space key pattern found the map there but read zero keys
+  // out of it — silently dropping that component from the check.
+  const header = /^([ \t]*)color: \{/m.exec(source)
+  if (!header) {
+    return undefined
+  }
+
+  let depth = 0
+  let i = source.indexOf('{', header.index)
+  const open = i
+  for (; i < source.length; i++) {
+    if (source[i] === '{') {
+      depth++
+    } else if (source[i] === '}') {
+      depth--
+      if (depth === 0) {
+        break
+      }
+    }
+  }
+
+  const keyIndent = header[1]!.length + 2
+  const key = new RegExp(`^[ \\t]{${keyIndent}}'?([a-z0-9-]+)'?\\s*:`, 'gim')
+  return new Set([...source.slice(open, i).matchAll(key)].map(match => match[1]!))
+}
+
+/** `B24SelectMenu` -> `select-menu`, the theme file that names its colours. */
+const themeFileFor = (component: string) =>
+  component.replace(/^(?:B24|Prose)/, '').replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()
+
 const readManifest = async () =>
   JSON.parse(await readFile(join(skillsDir, 'index.json'), 'utf8')) as {
     skills: Array<{ name: string, description: string, files: string[] }>
@@ -434,6 +475,111 @@ describe('skill package', () => {
     }
 
     expect(phantom.sort()).toEqual([])
+  })
+
+  it('passes only colours the component theme declares', async () => {
+    // The third defect class in #345, and the one that proves the guard is
+    // worth having: `data-tables.md` shipped `color="neutral"` on `B24Badge`,
+    // that was fixed by hand to `air-secondary-no-accent` — which `Badge` does
+    // not declare either, only `Button` does — and it sat wrong for another
+    // month. Rendering it produces no `style-*` class at all, so the Inactive
+    // badge is simply uncoloured. Nothing throws, nothing warns.
+    const themes = new Map<string, Set<string>>()
+    for (const file of await glob('*.ts', { cwd: join(repoRoot, 'src/theme'), ...GLOB })) {
+      const keys = colourKeys(await readFile(join(repoRoot, 'src/theme', file), 'utf8'))
+      if (keys?.size) {
+        themes.set(file.replace(/\.ts$/, ''), keys)
+      }
+    }
+
+    expect(themes.get('button')?.has('air-secondary-no-accent')).toBe(true)
+    expect(themes.get('badge')?.has('air-secondary-no-accent')).toBe(false)
+    expect(themes.get('badge')?.has('air-tertiary')).toBe(true)
+
+    const unknown: string[] = []
+    for (const doc of await listDocs()) {
+      const body = await readFile(join(skillDir, doc), 'utf8')
+      // Quoted attribute values are skipped over rather than treated as tag
+      // ends, so a `v-if="a > b"` no longer truncates the tag and hides every
+      // attribute after it.
+      for (const [, name, attrs] of body.matchAll(/<((?:B24|Prose)[A-Za-z0-9]+)\b((?:"[^"]*"|'[^']*'|[^>])*)>/g)) {
+        const theme = themes.get(themeFileFor(name!))
+        if (!theme) {
+          continue
+        }
+        // `activeColor` takes the same map (`Button['variants']['color']`), so
+        // both attributes are checked; the boundary keeps `:`-bound forms out,
+        // they are handled below.
+        for (const [, , attribute, value] of attrs!.matchAll(/(^|\s)(active-color|color)="([^"]+)"/g)) {
+          if (!theme.has(value!)) {
+            unknown.push(`${doc}: <${name} ${attribute}="${value}">`)
+          }
+        }
+        // Only the branches of a ternary, not every quoted string in the
+        // expression: a comparison operand (`row.status === 'active'`) is not
+        // a colour, and flagging it would fail a perfectly good example.
+        for (const [, expression] of attrs!.matchAll(/:(?:active-)?color="([^"]+)"/g)) {
+          for (const [, literal] of expression!.matchAll(/[?:]\s*'([a-z][a-z0-9-]*)'/g)) {
+            if (!theme.has(literal!)) {
+              unknown.push(`${doc}: <${name} :color="… '${literal}' …">`)
+            }
+          }
+        }
+      }
+    }
+
+    expect(unknown.sort()).toEqual([])
+  })
+
+  it('references only CSS custom properties that exist', async () => {
+    // Same shape one layer down, and the cheapest sibling of the colour check:
+    // `design-system.md` told readers to set `--b24ui-header-heights`, plural,
+    // which is declared nowhere — the singular is what every declaration uses.
+    // `forms.md` reached for `--ui-color-typography-secondary`, and there is no
+    // `--ui-color-typography-*` family at all. Both resolve to nothing and
+    // style nothing, silently.
+    const declared = new Set<string>()
+    for (const file of await glob('**/*.{css,ts,vue}', { cwd: join(repoRoot, 'src'), ...GLOB })) {
+      const body = await readFile(join(repoRoot, 'src', file), 'utf8')
+      for (const [, token] of body.matchAll(/(--(?:b24ui|ui)-[a-z0-9-]+)\s*:/g)) {
+        declared.add(token!)
+      }
+    }
+
+    expect(declared.has('--ui-color-base-5')).toBe(true)
+    expect(declared.has('--ui-color-typography-secondary')).toBe(false)
+    expect(declared.has('--b24ui-header-height')).toBe(true)
+    expect(declared.has('--b24ui-header-heights')).toBe(false)
+
+    const unknown: string[] = []
+    for (const doc of await listDocs()) {
+      const body = await readFile(join(skillDir, doc), 'utf8')
+
+      // Every shape the skill actually writes: `var(--x)`, `var(--x, fb)`,
+      // and Tailwind's arbitrary properties both bare — `text-(--x)` — and
+      // typed, `text-(length:--x)` / `font-(family-name:--x)`. An earlier
+      // draft matched only the bare form and so missed 27 of the references
+      // in this package, including the untouched half of the very line the
+      // phantom token above was found on.
+      for (const [, token] of body.matchAll(/\((?:[a-z-]+:)?(--(?:b24ui|ui)-[a-z0-9-]+)\s*[),]/g)) {
+        if (!declared.has(token!)) {
+          unknown.push(`${doc}: ${token}`)
+        }
+      }
+
+      // Declarations too, which is the form the original defect took:
+      // `design-system.md` told readers to set `--b24ui-header-heights` in
+      // their own CSS. Only the library's own namespaces are matched, so a
+      // reader defining `--my-thing` is left alone; writing `--b24ui-*` is a
+      // claim that the library reads it.
+      for (const [, token] of body.matchAll(/^\s*(--(?:b24ui|ui)-[a-z0-9-]+)\s*:/gm)) {
+        if (!declared.has(token!)) {
+          unknown.push(`${doc}: ${token} (declared, but the library has no such token)`)
+        }
+      }
+    }
+
+    expect([...new Set(unknown)].sort()).toEqual([])
   })
 
   it('keeps example code free of the mistakes agents copy verbatim', async () => {

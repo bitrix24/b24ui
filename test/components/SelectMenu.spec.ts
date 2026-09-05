@@ -173,6 +173,61 @@ describe('SelectMenu', () => {
     })
   })
 
+  describe('search input', () => {
+    // Focus, not markup: nothing rendered differs, so no snapshot can show this.
+    // These read `document.activeElement`, hence `attachTo: document.body`.
+    //
+    // What they cover, stated exactly, because it is less than it looks.
+    // They pin the observable contract — `searchInput: { autofocus: false }`
+    // leaves the search input unfocused on open — and they reach it through
+    // `Input.vue`'s own autofocus, which runs on a macrotask. That much is real:
+    // rewriting `props.autofocus` to `true` in Input.vue turns the second one
+    // red.
+    //
+    // They do NOT cover the `@mount-auto-focus` handler ported alongside them.
+    // That was measured rather than assumed: instrumenting `onMountAutoFocus`
+    // shows it called **zero** times here, because reka's `FocusScope` does not
+    // emit `mountAutoFocus` under happy-dom. Removing the handler, inverting its
+    // condition, or making it `preventDefault()` unconditionally all leave these
+    // green. The handler guards the browser path, where `FocusScope` does focus
+    // the first focusable descendant — which is this input — and that path has
+    // no test here at all.
+    //
+    // The selector is `input[data-slot="input"]`, not upstream's
+    // `[data-slot="input"] input`: this fork puts the slot attribute on the
+    // control itself rather than on a wrapper, so the descendant form matches
+    // nothing and the assertion would fail on an empty wrapper rather than on
+    // the behaviour.
+    const openWith = async (searchInput?: Record<string, unknown>) => {
+      const wrapper = mount(SelectMenu, {
+        attachTo: document.body,
+        props: { open: true, portal: false, items: ['Option 1', 'Option 2'], ...(searchInput ? { searchInput } : {}) }
+      })
+
+      await flushPromises()
+      // Input.vue's autofocus runs on a macrotask
+      await new Promise(resolve => setTimeout(resolve))
+
+      return wrapper
+    }
+
+    test('focuses the search input when the menu opens by default', async () => {
+      const wrapper = await openWith()
+
+      expect(document.activeElement).toBe(wrapper.find('input[data-slot="input"]').element)
+
+      wrapper.unmount()
+    })
+
+    test('does not focus the search input with searchInput autofocus disabled', async () => {
+      const wrapper = await openWith({ autofocus: false })
+
+      expect(document.activeElement).not.toBe(wrapper.find('input[data-slot="input"]').element)
+
+      wrapper.unmount()
+    })
+  })
+
   describe('create-item', () => {
     // With `create-item`, the create item is always registered so reka-ui's collection
     // never goes from empty to non-empty, leaving the highlight stale when async items load.
@@ -207,6 +262,41 @@ describe('SelectMenu', () => {
       expect(highlighted.text()).toContain('Option 1')
 
       wrapper.unmount()
+    })
+  })
+
+  describe('fixed', () => {
+    // The prop's whole effect is a class that is *absent*, which is why it needs
+    // an assertion rather than a snapshot case: a snapshot of `fixed: true`
+    // would pin the classes without stating what the prop is for, and would go
+    // on passing if the responsive rule stopped applying to Select entirely.
+    //
+    // The mechanism sits in `theme/input.ts`, which `theme/select.ts` extends:
+    // compound variants pair `fixed: false` with each size to add a `md:text-…`
+    // override, so the base class is the mobile size and the `md:` one takes
+    // over above the breakpoint. Setting `fixed` drops the override and the
+    // mobile size holds everywhere — which is the point, since a text input
+    // below 16px makes iOS Safari zoom on focus.
+    const baseClass = async (props_: Record<string, unknown>) => {
+      const wrapper = await mountSuspended(SelectMenu, { props: { ...props, ...props_ } })
+      return wrapper.find('[data-slot="base"]').attributes('class') ?? ''
+    }
+
+    it('applies the responsive override by default', async () => {
+      expect(await baseClass({})).toMatch(/\bmd:text-\(length:/)
+    })
+
+    it('drops the responsive override when fixed', async () => {
+      expect(await baseClass({ fixed: true })).not.toMatch(/\bmd:text-\(length:/)
+    })
+
+    it('keeps the mobile size itself either way', async () => {
+      // Guards the obvious wrong fix: dropping the *base* size instead of the
+      // override would also satisfy the assertion above, and would leave the
+      // control with no size at all.
+      for (const props_ of [{}, { fixed: true }]) {
+        expect(await baseClass(props_)).toMatch(/(?<!md:)\btext-\(length:/)
+      }
     })
   })
 

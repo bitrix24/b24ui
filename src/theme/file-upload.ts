@@ -1,8 +1,6 @@
 /**
  * FileUpload
  * ---
- * @todo add demo
- * @todo add docs
  * @todo fix color
  */
 export default {
