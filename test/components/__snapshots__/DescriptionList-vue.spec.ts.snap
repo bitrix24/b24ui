@@ -353,6 +353,38 @@ exports[`DescriptionList > renders with legend correctly 1`] = `
 </div>"
 `;
 
+exports[`DescriptionList > renders with link description and target correctly 1`] = `
+"<div data-slot="root" class="w-full shrink-0">
+  <!--v-if-->
+  <!--v-if-->
+  <dl data-slot="container" class="grid grid-cols-1 sm:grid-cols-[min(50%,theme(spacing.80))_auto] mt-3 text-(length:--ui-font-size-lg)">
+    <dt data-slot="labelWrapper" class="col-start-1 border-t first:border-none sm:border-t flex flex-nowrap flex-row items-center justify-start gap-1.5 border-(--ui-color-divider-vibrant-default) sm:border-(--ui-color-divider-vibrant-default) text-description pt-3 sm:py-3">
+      <!--v-if--><span data-slot="label" class="">Test Item</span>
+    </dt>
+    <dd data-orientation="vertical" data-slot="descriptionWrapper" class="sm:border-t sm:[&amp;:nth-child(2)]:border-none sm:border-(--ui-color-divider-vibrant-default) text-label pb-3 pt-1 sm:py-3"><span data-slot="description" class=""><a href="https://bitrix24.com" rel="noopener noreferrer" target="_blank" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start text-(--ui-color-design-selection-content) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt-2) hover:underline">Bitrix24</a></span>
+      <!--v-if-->
+    </dd>
+  </dl>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`DescriptionList > renders with link description correctly 1`] = `
+"<div data-slot="root" class="w-full shrink-0">
+  <!--v-if-->
+  <!--v-if-->
+  <dl data-slot="container" class="grid grid-cols-1 sm:grid-cols-[min(50%,theme(spacing.80))_auto] mt-3 text-(length:--ui-font-size-lg)">
+    <dt data-slot="labelWrapper" class="col-start-1 border-t first:border-none sm:border-t flex flex-nowrap flex-row items-center justify-start gap-1.5 border-(--ui-color-divider-vibrant-default) sm:border-(--ui-color-divider-vibrant-default) text-description pt-3 sm:py-3">
+      <!--v-if--><span data-slot="label" class="">Test Item</span>
+    </dt>
+    <dd data-orientation="vertical" data-slot="descriptionWrapper" class="sm:border-t sm:[&amp;:nth-child(2)]:border-none sm:border-(--ui-color-divider-vibrant-default) text-label pb-3 pt-1 sm:py-3"><span data-slot="description" class=""><a href="/docs" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start text-(--ui-color-design-selection-content) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt-2) hover:underline" isaction="false">Documentation</a></span>
+      <!--v-if-->
+    </dd>
+  </dl>
+  <!--v-if-->
+</div>"
+`;
+
 exports[`DescriptionList > renders with multiple actions correctly 1`] = `
 "<div data-slot="root" class="w-full shrink-0">
   <!--v-if-->

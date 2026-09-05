@@ -53,6 +53,8 @@ describe('DescriptionList', () => {
     ['with class', { props: { items: baseItems, class: 'custom-class' } }],
     ['with b24ui', { props: { items: baseItems, b24ui: { text: 'font-(--ui-font-weight-bold)' } } }],
     ['with empty items', { props: { items: [] } }],
+    ['with link description', { props: { items: [createItem({ to: '/docs', description: 'Documentation' })] } }],
+    ['with link description and target', { props: { items: [createItem({ to: 'https://bitrix24.com', target: '_blank', description: 'Bitrix24' })] } }],
     // Custom keys
     ['with labelKey and descriptionKey', {
       props: {
@@ -92,6 +94,29 @@ describe('DescriptionList', () => {
   ])
 
   describe('accessibility', () => {
+    it('renders the description as a link only when `to` is set', async () => {
+      const plain = await mountSuspended(DescriptionList, {
+        props: { items: [createItem({ description: 'Documentation' })] }
+      })
+      expect(plain.find('[data-slot="text"] a').exists()).toBe(false)
+      expect(plain.text()).toContain('Documentation')
+
+      const linked = await mountSuspended(DescriptionList, {
+        props: { items: [createItem({ to: '/docs', description: 'Documentation' })] }
+      })
+      const link = linked.find('a')
+      expect(link.exists()).toBe(true)
+      expect(link.attributes('href')).toBe('/docs')
+      expect(link.text()).toBe('Documentation')
+    })
+
+    it('forwards `target` to the link', async () => {
+      const wrapper = await mountSuspended(DescriptionList, {
+        props: { items: [createItem({ to: 'https://bitrix24.com', target: '_blank', description: 'Bitrix24' })] }
+      })
+      expect(wrapper.find('a').attributes('target')).toBe('_blank')
+    })
+
     it('passes accessibility tests with basic items', async () => {
       const wrapper = await mountSuspended(DescriptionList, {
         props: {
