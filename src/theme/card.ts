@@ -10,7 +10,7 @@ export default {
       'overflow-hidden',
       'rounded-(--ui-border-radius-md)'
     ].join(' '),
-    header: 'p-[24px] sm:px-[22px] sm:py-[15px]',
+    header: '',
     title: [
       'font-[family-name:var(--ui-font-family-primary)]',
       'font-(--ui-font-weight-semi-bold)',
@@ -22,8 +22,8 @@ export default {
       'mt-1  text-pretty',
       'text-(length:--ui-font-size-lg)/[normal] text-pretty'
     ].join(' '),
-    body: 'p-[24px] sm:px-[22px] sm:py-[15px]',
-    footer: 'p-[24px] sm:px-[22px] sm:py-[15px]'
+    body: '',
+    footer: ''
   },
   variants: {
     variant: {
@@ -324,9 +324,32 @@ export default {
         title: 'text-(--ui-color-design-selection-content)',
         description: 'text-(--ui-color-design-selection-content)'
       }
+    },
+    size: {
+      xs: {
+        header: 'p-[12px] sm:px-[10px] sm:py-[8px]',
+        body: 'p-[12px] sm:px-[10px] sm:py-[8px]',
+        footer: 'p-[12px] sm:px-[10px] sm:py-[8px]'
+      },
+      sm: {
+        header: 'p-[16px] sm:px-[14px] sm:py-[10px]',
+        body: 'p-[16px] sm:px-[14px] sm:py-[10px]',
+        footer: 'p-[16px] sm:px-[14px] sm:py-[10px]'
+      },
+      md: {
+        header: 'p-[24px] sm:px-[22px] sm:py-[15px]',
+        body: 'p-[24px] sm:px-[22px] sm:py-[15px]',
+        footer: 'p-[24px] sm:px-[22px] sm:py-[15px]'
+      },
+      lg: {
+        header: 'p-[32px] sm:px-[30px] sm:py-[20px]',
+        body: 'p-[32px] sm:px-[30px] sm:py-[20px]',
+        footer: 'p-[32px] sm:px-[30px] sm:py-[20px]'
+      }
     }
   },
   defaultVariants: {
-    variant: 'outline'
+    variant: 'outline',
+    size: 'md'
   }
 }
