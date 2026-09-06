@@ -127,7 +127,7 @@ import { useForwardProps, Slot } from 'reka-ui'
 import { defu } from 'defu'
 import { hasProtocol } from 'ufo'
 import { reactiveOmit } from '@vueuse/core'
-import { useRoute, useAppConfig, useNuxtApp } from '#imports'
+import { useRoute, useAppConfig, useNuxtApp, onNuxtReady } from '#imports'
 import { mergeClasses } from '../utils'
 import { tv } from '../utils/tv'
 import { isPartiallyEqual } from '../utils/link'
@@ -311,6 +311,7 @@ function getPrefetchListeners({ prefetch, shouldPrefetch }: NuxtLinkDefaultSlotP
 
 let idleId: ReturnType<typeof requestIdleCallback>
 let unobserve: (() => void) | null = null
+let unmounted = false
 
 onMounted(() => {
   if (!prefetchApi?.shouldPrefetch?.('visibility')) {
@@ -326,16 +327,27 @@ onMounted(() => {
     return
   }
 
-  idleId = requestIdleCallback(() => {
-    unobserve = observeIntersection(el, () => {
-      unobserve?.()
-      unobserve = null
-      onPrefetch()
+  // Like NuxtLink, wait for hydration: the payload plugin only registers its
+  // `link:prefetch` listener `onNuxtReady`, and `prefetch` marks the link as
+  // prefetched even when nobody listens — so firing early is not merely early,
+  // it retires the link without ever fetching anything.
+  onNuxtReady(() => {
+    if (unmounted) {
+      return
+    }
+
+    idleId = requestIdleCallback(() => {
+      unobserve = observeIntersection(el, () => {
+        unobserve?.()
+        unobserve = null
+        onPrefetch()
+      })
     })
   })
 })
 
 onBeforeUnmount(() => {
+  unmounted = true
   cancelIdleCallback(idleId)
   unobserve?.()
   unobserve = null
