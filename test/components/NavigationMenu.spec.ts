@@ -129,6 +129,43 @@ describe('NavigationMenu', () => {
     }]
   ])
 
+  // A vertical item with children but no `to` renders its whole link as the
+  // AccordionTrigger, so making the trailing span a trigger too produced a
+  // second element carrying the same `id` — invalid HTML, and it is the `id`
+  // the content's `aria-labelledby` points at, so a screen reader following the
+  // reference lands on whichever the browser resolves first.
+  it('renders a single accordion trigger for a vertical item without `to`', async () => {
+    const wrapper = await mountSuspended(NavigationMenu, {
+      props: {
+        orientation: 'vertical',
+        items: [{ label: 'Group', children: [{ label: 'Child', to: '/child' }] }]
+      }
+    })
+
+    const link = wrapper.find('[data-slot="link"]')
+    expect(wrapper.findAll(`[id="${link.attributes('id')}"]`)).toHaveLength(1)
+
+    await wrapper.find('[data-slot="linkTrailing"]').trigger('click')
+    expect(wrapper.find('[data-slot="link"]').attributes('data-state')).toBe('open')
+  })
+
+  // The other side of the same gate, and the reason it is a gate rather than a
+  // removal: with `to` the link is a real anchor and navigates, so the trailing
+  // span has to stay the trigger or the group can never be opened.
+  it('keeps the trailing accordion trigger for a vertical item with `to`', async () => {
+    const wrapper = await mountSuspended(NavigationMenu, {
+      props: {
+        orientation: 'vertical',
+        items: [{ label: 'Group', to: '/group', children: [{ label: 'Child', to: '/child' }] }]
+      }
+    })
+
+    expect(wrapper.find('[data-slot="link"]').element.tagName).toBe('A')
+
+    await wrapper.find('[data-slot="linkTrailing"]').trigger('click')
+    expect(wrapper.find('[data-slot="content"]').attributes('data-state')).toBe('open')
+  })
+
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(NavigationMenu, {
       props: {
