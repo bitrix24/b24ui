@@ -129,6 +129,10 @@ describe('DropdownMenu', () => {
     ['with descriptionKey', { props: { ...props, items: itemsWithDescription, descriptionKey: 'label' } }],
     ['with disabled', { props: { ...props, disabled: true } }],
     ['with arrow', { props: { ...props, arrow: true } }],
+    // The object form takes a different branch of `arrowProps` than the boolean one;
+    // it is here because that branch was the only way `arrow` reached the DOM as
+    // `arrow="[object Object]"`, and nothing exercised it.
+    ['with arrow object', { props: { ...props, arrow: { width: 12, height: 8 } } }],
     ...colors.map((color: string) => [`with color ${color}`, { props: { ...props, color } }]),
     ['with externalIcon', { props: { ...props, externalIcon: SignIcon } }],
     ['without externalIcon', { props: { ...props, externalIcon: false } }],

@@ -96,7 +96,11 @@ describe('NavigationMenu', () => {
     ['with defaultValue', { props: { ...props, defaultValue: 'item-0' } }],
     ['with valueKey', { props: { ...props, valueKey: 'label', defaultValue: 'Documentation' } }],
     ['with labelKey', { props: { ...props, labelKey: 'icon' } }],
-    ['with arrow', { props: { ...props, arrow: true, modelValue: 'item-0' } }],
+    // No `with arrow` here on purpose. Upstream has one, and an `arrow` prop
+    // rendering a NavigationMenuIndicator; we dropped the prop and kept the case,
+    // which left it passing an undeclared prop that Vue put on `<nav>` as
+    // `arrow="true"`. Without it the case was byte-identical to `with modelValue`.
+    // If the indicator is ever ported, the case comes back with it.
     ['with orientation vertical', { props: { ...props, orientation: 'vertical', modelValue: 'item-0' } }],
     ['with orientation vertical and collapsed', { props: { ...props, orientation: 'vertical', modelValue: 'item-0', collapsed: true } }],
     ['with content orientation vertical', { props: { ...props, contentOrientation: 'vertical', modelValue: 'item-0' } }],

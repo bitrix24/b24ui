@@ -106,7 +106,12 @@ const inputProps = toRef(() => defu(props.filter, { placeholder: t('dropdownMenu
 
 const portalProps = usePortal(toRef(() => props.portal))
 // @memo we not use^ loadingIcon, size
-const contentProps = useForwardProps(reactiveOmit(props, 'sub', 'items', 'portal', 'labelKey', 'descriptionKey', 'checkedIcon', 'externalIcon', 'filter', 'filterFields', 'ignoreFilter', 'searchTerm', 'class', 'b24ui', 'b24uiOverride'), emits)
+// `arrow` is ours, not reka's: no interface in the `DropdownMenuContent` ->
+// `MenuContentProps` -> `PopperContentProps` chain declares it (only `arrowPadding`
+// and `hideShiftedArrow`). Left in, it reached the content root as an attribute --
+// `arrow="true"` for the boolean form, `arrow="[object Object]"` for the object one.
+// The arrow itself reads `props.arrow` directly, so omitting it here changes nothing.
+const contentProps = useForwardProps(reactiveOmit(props, 'arrow', 'sub', 'items', 'portal', 'labelKey', 'descriptionKey', 'checkedIcon', 'externalIcon', 'filter', 'filterFields', 'ignoreFilter', 'searchTerm', 'class', 'b24ui', 'b24uiOverride'), emits)
 const getProxySlots = () => omit(slots, ['default'])
 const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10 }) as DropdownMenuArrowProps)
 

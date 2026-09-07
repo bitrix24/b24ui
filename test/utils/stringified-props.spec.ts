@@ -19,9 +19,17 @@ import { SNAPSHOT_ROOT, snapshotFiles } from '../../scripts/indistinguishable-sn
  * being in the list is the tell — the class of bug was known and one of five
  * was covered.
  *
- * The corpus held exactly these four, all in `Calendar`, and only `Calendar`
- * pairs `omittedProps` with `useForwardProps`, so this asserts an empty list
- * rather than pinning a baseline.
+ * What this does NOT catch: the same leak with a scalar value. `arrow="true"`
+ * is a prop reaching the root exactly the same way, and it is indistinguishable
+ * from an intentional attribute by any text pattern. Two such leaks were in the
+ * corpus when this guard was written (`DropdownMenuContent`'s `arrow`, and a
+ * `NavigationMenu` case passing a prop the component does not declare) and this
+ * pattern saw neither — they were found by reading the components, not by
+ * running this. Both are fixed, but the blind spot is real: a green run here
+ * means no object-valued leak, not no leak.
+ *
+ * It asserts an empty list rather than pinning a baseline because the corpus
+ * holds none — every case that would produce one is fixed.
  */
 describe('object props stringified into the DOM', () => {
   const hits = () => {
@@ -42,7 +50,7 @@ describe('object props stringified into the DOM', () => {
     expect(snapshotFiles().length).toBeGreaterThan(100)
   })
 
-  it('leaks no object-valued prop as an attribute', () => {
+  it('leaks no object-valued prop into the corpus as an attribute', () => {
     expect(hits()).toEqual([])
   })
 })
