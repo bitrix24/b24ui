@@ -591,7 +591,7 @@ defineExpose({
     </tr>
 
     <tr v-if="row.getIsExpanded()" data-slot="tr" :class="b24ui.tr({ class: [props.b24ui?.tr] })">
-      <td :colspan="row.getAllCells().length" data-slot="td" :class="b24ui.td({ class: [props.b24ui?.td] })">
+      <td :colspan="row.getVisibleCells().length" data-slot="td" :class="b24ui.td({ class: [props.b24ui?.td] })">
         <slot name="expanded" :row="row" />
       </td>
     </tr>
@@ -644,7 +644,7 @@ defineExpose({
 
           <template v-if="virtualizer">
             <tr v-if="virtualPaddingTop > 0" :style="{ height: `${virtualPaddingTop}px` }" aria-hidden="true">
-              <td :colspan="tableApi.getAllLeafColumns().length" />
+              <td :colspan="tableApi.getVisibleLeafColumns().length" />
             </tr>
             <template v-for="virtualRow in virtualItems" :key="centerRows[virtualRow.index]?.id ?? `virtual-${virtualRow.index}`">
               <ReuseRowTemplate
@@ -654,7 +654,7 @@ defineExpose({
               />
             </template>
             <tr v-if="virtualPaddingBottom > 0" :style="{ height: `${virtualPaddingBottom}px` }" aria-hidden="true">
-              <td :colspan="tableApi.getAllLeafColumns().length" />
+              <td :colspan="tableApi.getVisibleLeafColumns().length" />
             </tr>
           </template>
 
@@ -666,13 +666,13 @@ defineExpose({
         </template>
 
         <tr v-else-if="props.loading && !!slots['loading']">
-          <td :colspan="tableApi.getAllLeafColumns().length" data-slot="loading" :class="b24ui.loading({ class: props.b24ui?.loading })">
+          <td :colspan="tableApi.getVisibleLeafColumns().length" data-slot="loading" :class="b24ui.loading({ class: props.b24ui?.loading })">
             <slot name="loading" />
           </td>
         </tr>
 
         <tr v-else>
-          <td :colspan="tableApi.getAllLeafColumns().length" data-slot="empty" :class="b24ui.empty({ class: props.b24ui?.empty })">
+          <td :colspan="tableApi.getVisibleLeafColumns().length" data-slot="empty" :class="b24ui.empty({ class: props.b24ui?.empty })">
             <slot name="empty">
               {{ props.empty || t('table.noData') }}
             </slot>
