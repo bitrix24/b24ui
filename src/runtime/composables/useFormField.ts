@@ -132,9 +132,14 @@ export function useFormField<T>(props?: Props<T>, opts?: { bind?: boolean, defer
     ariaAttrs: computed(() => {
       if (!formField?.value) return
 
-      const descriptiveAttrs = ['error' as const, 'hint' as const, 'description' as const, 'help' as const]
-        .filter(type => formField?.value?.[type])
-        .map(type => `${formField?.value.ariaId}-${type}`) || []
+      // What the FormField drew. The props-derived list is the fallback for a
+      // context provided by hand — `formFieldInjectionKey` and
+      // `FormFieldInjectedOptions` are both published, so a custom control can
+      // supply one without `describedBy`.
+      const descriptiveAttrs = formField.value.describedBy
+        ?? ['error' as const, 'hint' as const, 'description' as const, 'help' as const]
+          .filter(type => formField?.value?.[type])
+          .map(type => `${formField?.value.ariaId}-${type}`)
 
       const attrs: Record<string, any> = {
         'aria-invalid': !!formField?.value.error

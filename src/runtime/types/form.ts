@@ -96,6 +96,12 @@ export interface FormFieldInjectedOptions<T> {
   hint?: string
   description?: string
   help?: string
+  /**
+   * Ids of the descriptive blocks the FormField actually rendered, in reading
+   * order. `useFormField` builds `aria-describedby` from this: the four fields
+   * above say what was asked for, which is not the same thing (#497).
+   */
+  describedBy?: string[]
   ariaId: string
 }
 
