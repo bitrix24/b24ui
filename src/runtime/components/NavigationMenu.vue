@@ -291,7 +291,7 @@ const contentProps = toRef(() => props.content)
 const tooltipProps = toRef(() => defu(typeof props.tooltip === 'boolean' ? {} : props.tooltip, { ...(props.orientation === 'vertical' && { delayDuration: 0, content: { side: 'right' } }) }) as TooltipProps)
 const popoverProps = toRef(() => defu(typeof props.popover === 'boolean' ? {} : props.popover, { arrow: true, mode: 'hover', content: { side: 'right', align: 'center', alignOffset: 2 } }) as PopoverProps)
 
-const [DefineLinkTemplate, ReuseLinkTemplate] = createReusableTemplate<{ item: NavigationMenuItem, index: number, active?: boolean }>()
+const [DefineLinkTemplate, ReuseLinkTemplate] = createReusableTemplate<{ item: NavigationMenuItem, index: number, active?: boolean, trailingTrigger?: boolean }>()
 const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: NavigationMenuItem, index: number, level?: number, listIndex?: number }>({
   props: {
     item: Object,
@@ -377,14 +377,14 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0, listInd
   return props.type === 'single' ? indexes[0] : indexes
 }
 
-function onLinkTrailingClick(e: Event, item: NavigationMenuItem) {
+function onLinkTrailingClick(e: Event, item: NavigationMenuItem, trailingTrigger?: boolean) {
   if (!item.children?.length) {
     return
   }
 
   if (props.orientation === 'horizontal') {
     e.preventDefault()
-  } else if (props.orientation === 'vertical' && !props.collapsed) {
+  } else if (props.orientation === 'vertical' && !props.collapsed && trailingTrigger) {
     e.preventDefault()
     e.stopPropagation()
   }
@@ -392,7 +392,7 @@ function onLinkTrailingClick(e: Event, item: NavigationMenuItem) {
 </script>
 
 <template>
-  <DefineLinkTemplate v-slot="{ item, active, index }">
+  <DefineLinkTemplate v-slot="{ item, active, index, trailingTrigger }">
     <slot :name="((item.slot || 'item') as keyof NavigationMenuSlots<T>)" :item="item" :index="index" :active="active" :b24ui="b24ui">
       <span data-slot="linkLabelWrapper" :class="b24ui.linkLabelWrapper({ class: props.b24ui?.linkLabelWrapper, active })">
         <slot
@@ -465,12 +465,12 @@ function onLinkTrailingClick(e: Event, item: NavigationMenuItem) {
       </span>
 
       <component
-        :is="props.orientation === 'vertical' && item.children?.length && !props.collapsed ? AccordionTrigger : 'span'"
+        :is="props.orientation === 'vertical' && item.children?.length && !props.collapsed && trailingTrigger ? AccordionTrigger : 'span'"
         v-if="/* (item.badge || item.badge === 0) || */(props.orientation === 'horizontal' && (item.children?.length || !!slots[(item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>])) || (props.orientation === 'vertical' && item.children?.length) || item.trailingIcon || !!slots[(item.slot ? `${item.slot}-trailing` : 'item-trailing') as keyof NavigationMenuSlots<T>]"
-        :as="props.orientation === 'vertical' && item.children?.length && !props.collapsed ? 'span' : undefined"
+        :as="props.orientation === 'vertical' && item.children?.length && !props.collapsed && trailingTrigger ? 'span' : undefined"
         data-slot="linkTrailing"
         :class="b24ui.linkTrailing({ class: [props.b24ui?.linkTrailing, item.b24ui?.linkTrailing] })"
-        @click="(e: Event) => onLinkTrailingClick(e, item)"
+        @click="(e: Event) => onLinkTrailingClick(e, item, trailingTrigger)"
       >
         <slot
           :name="((item.slot ? `${item.slot}-trailing` : 'item-trailing') as keyof NavigationMenuSlots<T>)"
@@ -508,7 +508,7 @@ function onLinkTrailingClick(e: Event, item: NavigationMenuItem) {
         data-slot="label"
         :class="b24ui.label({ class: [props.b24ui?.label, item.b24ui?.label, item.class] })"
       >
-        <ReuseLinkTemplate :item="item" :index="index" />
+        <ReuseLinkTemplate :item="item" :index="index" :trailing-trigger="true" />
       </div>
       <B24Link
         v-else-if="item.type !== 'label'"
@@ -545,7 +545,7 @@ function onLinkTrailingClick(e: Event, item: NavigationMenuItem) {
                 level: level > 0
               })"
             >
-              <ReuseLinkTemplate :item="item" :active="active || item.active" :index="index" />
+              <ReuseLinkTemplate :item="item" :active="active || item.active" :index="index" :trailing-trigger="!!(slotProps as any).href" />
             </B24LinkBase>
 
             <template #content="{ close }">
@@ -637,7 +637,7 @@ function onLinkTrailingClick(e: Event, item: NavigationMenuItem) {
                 level: level > 0
               })"
             >
-              <ReuseLinkTemplate :item="item" :active="active || item.active" :index="index" />
+              <ReuseLinkTemplate :item="item" :active="active || item.active" :index="index" :trailing-trigger="!!(slotProps as any).href" />
             </B24LinkBase>
           </B24Tooltip>
           <B24LinkBase
@@ -651,7 +651,7 @@ function onLinkTrailingClick(e: Event, item: NavigationMenuItem) {
               level: props.orientation === 'horizontal' || level > 0
             })"
           >
-            <ReuseLinkTemplate :item="item" :active="active || item.active" :index="index" />
+            <ReuseLinkTemplate :item="item" :active="active || item.active" :index="index" :trailing-trigger="!!(slotProps as any).href" />
           </B24LinkBase>
         </component>
 
