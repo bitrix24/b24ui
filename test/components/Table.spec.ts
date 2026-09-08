@@ -293,6 +293,43 @@ describe('Table', () => {
     ['with body-bottom slot', { props, slots: { 'body-bottom': () => 'Body bottom slot' } }]
   ])
 
+  // The body already rendered `getVisibleCells()`, so a hidden column left every
+  // full-width cell one column too wide — the `<td>` overhung the row it was
+  // meant to span. Both spots are checked because they read the count from
+  // different objects: the row for `expanded`, the table for `empty`.
+  it('excludes hidden columns from colspan', async () => {
+    const columnVisibility = { email: false }
+    const visibleColumns = String(columns.length - 1)
+
+    const empty = await mountSuspended(Table, {
+      props: { columns: columns as any, columnVisibility }
+    })
+
+    expect(empty.find('[data-slot="empty"]').attributes('colspan')).toBe(visibleColumns)
+
+    const expanded = await mountSuspended(Table, {
+      props: { ...props, columns: columns as any, columnVisibility, expanded: { 0: true } },
+      slots: { expanded: () => 'Expanded slot' }
+    })
+
+    expect(expanded.findAll('td').find(td => td.text() === 'Expanded slot')?.attributes('colspan')).toBe(visibleColumns)
+
+    // Not upstream's — added because mutating this site alone left their two
+    // assertions green. It reads the count from the same object as `empty` but
+    // through a different branch, so a fix applied to one and not the other
+    // would still pass above.
+    //
+    // No `data`: the loading row is a sibling `v-else-if` of the rows, so it
+    // renders only when there are none. Passing `props` here mounted the rows
+    // instead and the query came back empty — which is how this comment exists.
+    const loading = await mountSuspended(Table, {
+      props: { columns: columns as any, columnVisibility, loading: true },
+      slots: { loading: () => 'Loading slot' }
+    })
+
+    expect(loading.find('[data-slot="loading"]').attributes('colspan')).toBe(visibleColumns)
+  })
+
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(Table, {
       props: {
