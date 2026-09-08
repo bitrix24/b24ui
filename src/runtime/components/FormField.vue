@@ -93,6 +93,30 @@ const id = ref(useId())
 // This is required for the RadioGroup component which unsets the id value.
 const ariaId = id.value
 
+// The template drew its blocks from prop-or-slot while `aria-describedby` was
+// built from the props alone, so the two disagreed in both directions (#497):
+// a slot with no prop rendered a block nobody was told about, and a prop whose
+// block never drew — `hint` without a label, `help` behind a rendered error —
+// left the attribute naming an id that was not in the document. Both now come
+// from these, and the template binds them, so they cannot drift apart again.
+const hasLabel = computed(() => !!props.label || !!slots.label)
+const hasError = computed(() => props.error !== false && ((typeof error.value === 'string' && error.value) || !!slots.error))
+
+// Ordered as the props-derived list was, so an existing `aria-describedby`
+// keeps its reading order.
+const describedBy = computed(() => {
+  const ids: string[] = []
+
+  if (hasError.value) ids.push(`${ariaId}-error`)
+  // The hint lives in the label row, which is only drawn when there is a label.
+  if (hasLabel.value && (props.hint || !!slots.hint)) ids.push(`${ariaId}-hint`)
+  if (props.description || !!slots.description) ids.push(`${ariaId}-description`)
+  // `help` is the `v-else-if` of the error branch.
+  if (!hasError.value && (props.help || !!slots.help)) ids.push(`${ariaId}-help`)
+
+  return ids
+})
+
 const formInputs = inject(formInputsInjectionKey, undefined)
 watch(id, () => {
   if (formInputs && props.name) {
@@ -112,6 +136,7 @@ provide(formFieldInjectionKey, computed(() => ({
   hint: props.hint,
   description: props.description,
   help: props.help,
+  describedBy: describedBy.value,
   ariaId
 }) as FormFieldInjectedOptions<FormFieldProps>))
 </script>
@@ -119,7 +144,7 @@ provide(formFieldInjectionKey, computed(() => ({
 <template>
   <Primitive :as="props.as" :data-orientation="props.orientation" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <div data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
-      <div v-if="props.label || !!slots.label" data-slot="root" :class="b24ui.labelWrapper({ class: props.b24ui?.labelWrapper })">
+      <div v-if="hasLabel" data-slot="root" :class="b24ui.labelWrapper({ class: props.b24ui?.labelWrapper })">
         <Label :for="id" data-slot="label" :class="b24ui.label({ class: props.b24ui?.label })">
           <slot name="label" :label="props.label">
             {{ props.label }}
@@ -142,7 +167,7 @@ provide(formFieldInjectionKey, computed(() => ({
     <div data-slot="container" :class="[(props.label || !!slots.label || props.description || !!slots.description) && b24ui.container({ class: props.b24ui?.container })]">
       <slot :error="error" />
 
-      <div v-if="props.error !== false && ((typeof error === 'string' && error) || !!slots.error)" :id="`${ariaId}-error`" data-slot="error" :class="b24ui.error({ class: props.b24ui?.error })">
+      <div v-if="hasError" :id="`${ariaId}-error`" data-slot="error" :class="b24ui.error({ class: props.b24ui?.error })">
         <slot name="error" :error="error">
           <div data-slot="errorWrapper" :class="b24ui.errorWrapper({ class: props.b24ui?.errorWrapper })">
             <Component :is="icons.warning" data-slot="errorIcon" :class="b24ui.errorIcon()" />

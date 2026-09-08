@@ -118,10 +118,12 @@ translation:
 </B24FormField>
 ```
 
-`hint`, `description`, `help` and `error` take a slot the same way — and, like
-`#label` above, each wants its prop set alongside it. [Slots do not replace
-their props](#slots-do-not-replace-their-props) is why. The `required` asterisk
-is drawn on the `<label>` element, so it survives a custom `#label` slot.
+`hint`, `description`, `help` and `error` take a slot the same way, and each
+receives the prop it replaces — so setting the prop alongside the slot keeps
+the text in one place. [What is announced is what was
+drawn](#what-is-announced-is-what-was-drawn) covers what each block contributes
+to the control's accessible description. The `required` asterisk is drawn on
+the `<label>` element, so it survives a custom `#label` slot.
 
 ::caution
 `#error` goes further than the others: the error block renders whenever an
@@ -156,10 +158,11 @@ Use the `#description` slot when the description needs markup — a link to the
 policy the field refers to, a piece of emphasis, an inline code sample. It
 replaces the content of the same `<p>` the prop fills.
 
-**Keep the prop.** The block renders from either the prop or the slot, but
-`aria-describedby` is built from the props alone — so a slot with no prop
-beside it is a description on screen that no screen reader is told about. See
-[Slots do not replace their props](#slots-do-not-replace-their-props).
+The slot on its own is enough to be announced — `aria-describedby` names the
+blocks that were actually drawn, whichever of the two drew them. Setting the
+prop as well is still worth it: the slot receives it, so decorating the value
+costs one interpolation instead of restating it. See [What is announced is what
+was drawn](#what-is-announced-is-what-was-drawn).
 
 ::component-code
 ---
@@ -261,16 +264,18 @@ slots:
 
 ::note
 The hint is a sibling of the `<label>`, not part of it, so its content does not
-join the control's accessible name — unlike `#label`. With the `hint` prop set
-it is announced through `aria-describedby` instead.
+join the control's accessible name — unlike `#label`. It is announced through
+`aria-describedby` instead.
 ::
 
 ::caution
-**A hint needs a label**, and failing that requirement is silent in both
-directions. The hint renders inside the label row, and that row is only drawn
-when `label` or `#label` is present — so a `hint` on a label-less field renders
-nothing at all. The control still advertises `aria-describedby="…-hint"`,
-pointing at an element that was never drawn.
+**A hint needs a label.** The hint renders inside the label row, and that row
+is only drawn when `label` or `#label` is present — so a `hint` on a label-less
+field renders nothing at all, and nothing is announced either. Silent, but at
+least consistent: until
+[#497](https://github.com/bitrix24/b24ui/issues/497) the control also
+advertised `aria-describedby="…-hint"`, pointing at an element that was never
+drawn.
 ::
 
 ### Help
@@ -317,30 +322,30 @@ slots:
 :b24-input{placeholder="Enter your email" class="w-full"}
 ::
 
-### Slots do not replace their props
+### What is announced is what was drawn
 
 Every one of the five blocks renders from `props.x || !!slots.x` — the prop or
-the slot will do. The accessible wiring does not: `aria-describedby` is
-assembled from the **props alone**, in `useFormField`, and never looks at what
-was slotted.
-
-The two halves disagree in both directions:
+the slot will do. `aria-describedby` follows the same rule: it names the blocks
+that ended up in the document, and only those.
 
 | what you pass | block on screen | named in `aria-describedby` |
 |---|---|---|
 | `description` prop | yes | yes |
-| `#description` slot, no prop | **yes** | **no** |
-| `hint` prop, no `label` | **no** | **yes** |
+| `#description` slot, no prop | yes | yes |
+| `hint` prop, no `label` | no | no |
+| `error` and `help` together | error only | error only |
 
-So the rule for all five slots is the same, and it is the shape `#label` has
-had since it was documented: **set the prop, and use the slot for markup.**
-The slot receives the prop, so decorating it costs one interpolation and keeps
-the two in step.
+Two conditions are worth knowing, because both hide a block you asked for:
+`hint` lives in the label row and needs a `label` or `#label` to exist at all,
+and `help` is the `v-else-if` of the error branch, so a rendered error takes
+its place. In both cases nothing is drawn and nothing is announced.
 
 ::note
-This is upstream `nuxt/ui` behaviour, not a divergence in this fork — the
-component and the composable are line-for-line identical at our sync cursor.
-Tracked in [#497](https://github.com/bitrix24/b24ui/issues/497).
+This is a deliberate divergence from `nuxt/ui`, which builds the attribute from
+the props alone — so a slot with no prop went unannounced, and a prop whose
+block never drew left the attribute naming an id that was not in the document.
+Fixed here in [#497](https://github.com/bitrix24/b24ui/issues/497) and recorded
+as an invariant in `.sync/PORTING.md` §2, so a later port does not revert it.
 ::
 
 ### Error and help slots
@@ -356,8 +361,9 @@ v-else-if="props.help || !!slots.help"
 An `#error` slot alone satisfies that `v-if` **whether or not there is an
 error**. So the block renders permanently, `help` — the `v-else-if` of the same
 branch — never renders at all, and the control still reads
-`aria-invalid="false"`. If `help` was set, `aria-describedby` still names it,
-pointing at an element that is no longer in the document:
+`aria-invalid="false"`: that attribute reports the field's error state, and
+there is none. The block is described, since it was drawn, but nothing tells
+assistive technology the field is invalid:
 
 ```vue
 <!-- Don't: the message is always visible, `help` never is, and a screen
@@ -409,11 +415,10 @@ const message = computed<string | false>(() =>
 | `message` | error block | help block | `aria-invalid` | `aria-describedby` |
 |---|---|---|---|---|
 | `false` | — | shown | `false` | `…-help` |
-| `'Please enter…'` | your markup | — | `true` | `…-error …-help` |
+| `'Please enter…'` | your markup | — | `true` | `…-error` |
 
-The second row still names `…-help` while the help block is not rendered —
-`help` and `error` are mutually exclusive on screen but not in the attribute.
-Same defect as the table above, and the same ticket.
+`help` and `error` are mutually exclusive on screen and in the attribute
+alike — whichever block drew is the one named.
 
 ::note
 Inside a [Form](/docs/components/form/) you do not set `error` at all — the

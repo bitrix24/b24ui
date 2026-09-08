@@ -84,30 +84,36 @@ Each slot receives the prop it replaces, so a wrapper decorates the value
 rather than restating it — which matters when the text comes from a schema or
 a translation.
 
-## Set the prop, use the slot for markup
+## What is announced is what was drawn
 
-Every block renders from `props.x || !!slots.x`. `aria-describedby` does not:
-it is assembled from the **props alone**, in `useFormField`, and never looks at
-what was slotted. The two disagree in both directions.
+Every block renders from `props.x || !!slots.x`, and `aria-describedby` follows
+the same rule: it names the blocks that ended up in the document, and only
+those.
 
 | what you pass | block on screen | named in `aria-describedby` |
 |---|---|---|
 | `description` prop | yes | yes |
-| `#description` slot, no prop | **yes** | **no** |
-| `hint` prop, no `label` | **no** | **yes** |
+| `#description` slot, no prop | yes | yes |
+| `hint` prop, no `label` | no | no |
+| `error` and `help` together | error only | error only |
 
-So always pass the prop alongside the slot. Upstream `nuxt/ui` behaves the same
-way — the component and the composable are line-for-line identical at our sync
-cursor — and it is tracked in b24ui#497.
+Passing the prop alongside the slot is still the better habit — the slot
+receives it, so a wrapper decorates the value instead of restating it — but it
+is no longer what makes the block announced.
 
-`hint` needs one more thing: it renders inside the label row, and that row is
-only drawn when there is a label. A `hint` on a field with no `label` renders
-nothing at all, while still being named in `aria-describedby`.
+Two conditions hide a block you asked for. `hint` renders inside the label row,
+which is only drawn when there is a label, so a `hint` on a field with no
+`label` renders nothing at all. And `help` is the `v-else-if` of the error
+branch, so a rendered error takes its place. In both cases nothing is drawn and
+nothing is announced.
 
-`#error` goes further still. The error block renders whenever an `#error` slot
-exists, with or without an error, and `help` is the `v-else-if` of that branch,
-so supplying `#error` hides `help` entirely — while the control keeps
-`aria-invalid="false"`.
+`#error` needs care for a different reason. The error block renders whenever an
+`#error` slot exists, with or without an error, so supplying `#error` hides
+`help` entirely — while the control keeps `aria-invalid="false"`, because that
+attribute reports the field's error state and there is none.
+
+This is a deliberate divergence from `nuxt/ui`, which still builds the
+attribute from the props alone; fixed in b24ui#497.
 
 Bind `error` to the message — or to `false` when there is none — and let the
 slot supply markup only:

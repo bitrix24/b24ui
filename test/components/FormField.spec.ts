@@ -211,20 +211,15 @@ describe('FormField', () => {
 
       // The counterpart, and the one the first version of these tests was
       // missing. Setting prop *and* slot passes on the strength of the prop —
-      // it cannot see that the slot contributes nothing to `aria-describedby`,
-      // which is exactly the shape the docs used to teach. `useFormField`
-      // builds the attribute from `formField.value[type]`, the props handed
-      // down through `provide`; slots are not in there at all.
-      //
-      // Pinned, not fixed: the component is line-for-line identical to
-      // upstream at our sync cursor, so this is theirs to decide. Tracked in
-      // #497 — when it is fixed, this test fails and points at the docs that
-      // have to change with it.
+      // it cannot see whether the slot contributes anything to
+      // `aria-describedby`. Until #497 it did not: the attribute was built
+      // from the props handed down through `provide`, and slots were not in
+      // there at all, so slotted text sat on screen undescribed.
       test.each([
         ['hint', 'v-0-0-hint'],
         ['description', 'v-0-0-description'],
         ['help', 'v-0-0-help']
-      ])('renders the #%s slot with no prop, and announces nothing', async (slot, blockId) => {
+      ])('renders the #%s slot with no prop, and announces it', async (slot, blockId) => {
         const wrapper = await renderFormField({
           // `label` only so the hint row exists at all; it is not what is
           // under test here.
@@ -236,22 +231,22 @@ describe('FormField', () => {
         expect(wrapper.find(`[id=${blockId}]`).text()).toBe('From the slot')
 
         const control = wrapper.find('[aria-invalid]')
-        expect(control.attributes('aria-describedby')).toBeUndefined()
+        expect(control.attributes('aria-describedby')).toBe(blockId)
       })
 
-      // The mirror image: the prop is set, so the attribute names the block —
-      // but the block needs a label to exist and there is none, so the id
-      // points at nothing. The pre-existing `binds hints with aria-describedby`
-      // spec below asserts the attribute is on the control and stops there,
-      // which is why this went unnoticed.
-      test('names the hint in aria-describedby even when no hint was drawn', async () => {
+      // The mirror image, and the direction that produced a dangling
+      // reference: the prop is set, but the hint needs a label row to live in
+      // and there is none, so nothing is drawn. The pre-existing `binds hints
+      // with aria-describedby` spec below asserts the attribute is on the
+      // control and stops there, which is why this went unnoticed until #497.
+      test('omits the hint from aria-describedby when no hint was drawn', async () => {
         const wrapper = await renderFormField({
           props: { hint: 'From the prop' },
           inputComponent
         })
 
         expect(wrapper.find('[id=v-0-0-hint]').exists()).toBe(false)
-        expect(wrapper.find('[aria-invalid]').attributes('aria-describedby')).toBe('v-0-0-hint')
+        expect(wrapper.find('[aria-invalid]').attributes('aria-describedby')).toBeUndefined()
       })
 
       test.each(['hint', 'description'])('passes the %s prop into its slot', async (slot) => {
@@ -264,18 +259,24 @@ describe('FormField', () => {
         expect(wrapper.text()).toContain('got From the prop')
       })
 
-      // `#error` is not a drop-in replacement for the prop, and the docs now
-      // say so with a recommended pattern. These pin the two halves of that
-      // claim, because getting either wrong is silent: the page still renders,
-      // it is only the announcement that goes missing.
+      // `#error` is not a drop-in replacement for the prop, and the docs say so
+      // with a recommended pattern. These pin the two halves of that claim,
+      // because getting either wrong is silent: the page still renders, it is
+      // only the announcement that goes missing.
       //
-      // First half — the trap, and it is worse than "the styling is off". An
-      // `#error` slot with no error value renders the block anyway and takes
-      // `help` with it, but the aria wiring is computed from the *props*: the
-      // control still advertises `aria-describedby="…-help"`, pointing at an
-      // element that is no longer in the document, while the error nobody
-      // described sits on screen in red.
-      test('renders #error with no error, and leaves aria pointing at nothing', async () => {
+      // First half — the trap. An `#error` slot with no error value renders the
+      // block anyway and takes `help` with it. Before #497 the aria wiring was
+      // computed from the props, so the control advertised
+      // `aria-describedby="…-help"` — an element no longer in the document —
+      // while the error nobody described sat on screen in red. Now the
+      // attribute names the block that actually drew.
+      //
+      // `aria-invalid` stays `false` on purpose: it reports the field's error
+      // state, and there is none. The `#error` slot's `v-if` is satisfied by
+      // the slot merely existing, so keying invalidity off it would mark every
+      // field invalid for anyone who supplies the slot as markup. The
+      // recommended pattern below is what sets it.
+      test('renders #error with no error, and describes the block it drew', async () => {
         const wrapper = await renderFormField({
           props: { help: 'Help text' },
           slots: { error: () => 'Slotted error' },
@@ -287,8 +288,7 @@ describe('FormField', () => {
 
         const control = wrapper.find('[aria-invalid]')
         expect(control.attributes('aria-invalid')).toBe('false')
-        // A dangling reference: the id it names was just asserted absent.
-        expect(control.attributes('aria-describedby')).toBe('v-0-0-help')
+        expect(control.attributes('aria-describedby')).toBe('v-0-0-error')
       })
 
       // Second half — the pattern the docs recommend. `error` bound to `false`
@@ -321,7 +321,30 @@ describe('FormField', () => {
 
         const control = wrapper.find('[aria-invalid]')
         expect(control.attributes('aria-invalid')).toBe('true')
-        expect(control.attributes('aria-describedby')).toBe('v-0-0-error v-0-0-help')
+        // `help` is the `v-else-if` of the error branch, so it did not draw and
+        // is not named — before #497 the attribute read `…-error …-help`.
+        expect(control.attributes('aria-describedby')).toBe('v-0-0-error')
+      })
+
+      // The third direction of #497, and the one no test covered. `error` is
+      // `boolean | string`; `true` marks the field invalid without a message,
+      // so the error block — which needs a string — never draws. The attribute
+      // used to name it anyway, because the props-derived list only asked
+      // whether `error` was truthy.
+      test('marks the field invalid without describing an error that has no message', async () => {
+        const wrapper = await renderFormField({
+          props: { error: true, help: 'Help text' },
+          inputComponent
+        })
+
+        expect(wrapper.find('[id=v-0-0-error]').exists()).toBe(false)
+
+        const control = wrapper.find('[aria-invalid]')
+        expect(control.attributes('aria-invalid')).toBe('true')
+        // `help` still draws: `hasError` is false, so it is not behind the
+        // error branch.
+        expect(wrapper.find('[id=v-0-0-help]').text()).toBe('Help text')
+        expect(control.attributes('aria-describedby')).toBe('v-0-0-help')
       })
 
       test('passes the help prop into the #help slot', async () => {
