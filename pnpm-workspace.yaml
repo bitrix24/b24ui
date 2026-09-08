@@ -54,7 +54,15 @@ overrides:
   # of pm versions, so without this pnpm can resolve a second copy and ProseMirror
   # state instances stop being `instanceof` across the boundary. Keep in step with
   # the @tiptap/* family version in package.json.
-  '@tiptap/pm': ^3.30.5
+  '@tiptap/pm': ^3.31.3
+  # The same failure one level down, and the comment above predicted it. Pinning
+  # `@tiptap/pm` keeps one *tiptap* wrapper, not one prosemirror-view: the
+  # sibling prosemirror packages (dropcursor, gapcursor, history, state, tables)
+  # peer-accept a range and resolved to 1.42.0, while @tiptap/pm@3.31.3 asks for
+  # 1.42.3. Two copies means `DecorationSet` from one and `DecorationSource` from
+  # the other, which `typecheck` catches in the editor completion extension and
+  # nothing else would. Keep in step with what @tiptap/pm resolves.
+  prosemirror-view: ^1.42.3
   nitropack: ^2.13.0
   unplugin: ^3.3.0
   c12: ^3.3.4
