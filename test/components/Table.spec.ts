@@ -330,6 +330,74 @@ describe('Table', () => {
     expect(loading.find('[data-slot="loading"]').attributes('colspan')).toBe(visibleColumns)
   })
 
+  // Sorting a column flips the header's icon and, before #479, told a screen
+  // reader nothing — `aria-sort` appeared zero times in `Table.vue`. That is
+  // also true of upstream, so a later port must not take it back out.
+  //
+  // The snapshot cases cover all three values, but only as text in a blob; these
+  // assert the two halves the issue asks for, which a snapshot cannot state:
+  // that the attribute tracks the state, and that it is absent exactly where the
+  // column does not sort.
+  describe('aria-sort', () => {
+    const headers = async (sorting?: { id: string, desc: boolean }[]) => {
+      const wrapper = await mountSuspended(Table, {
+        props: { ...props, columns: columns as any, ...(sorting ? { sorting } : {}) }
+      })
+
+      return wrapper.findAll('thead th').map(th => ({
+        // `select` renders a checkbox and `actions` renders nothing, so neither
+        // has text to key on; the column id is not in the DOM either.
+        text: th.text(),
+        sort: th.attributes('aria-sort')
+      }))
+    }
+
+    // `none` carries as much weight as the directions: without it a screen
+    // reader cannot separate "sortable, unsorted" from "does not sort".
+    it('marks every sortable header, and only those', async () => {
+      const cells = await headers()
+
+      expect(cells.map(c => c.sort)).toEqual([
+        // `select` — opts out with `enableSorting: false`
+        undefined,
+        'none',
+        'none',
+        'none',
+        'none',
+        'none',
+        // `actions` — a display column with no accessor, so nothing to sort by
+        undefined
+      ])
+    })
+
+    it.each([
+      [false, 'ascending'],
+      [true, 'descending']
+    ])('reports the direction when sorting desc=%s', async (desc, expected) => {
+      const cells = await headers([{ id: 'email', desc }])
+      const emailIndex = 4
+
+      expect(cells[emailIndex]!.text).toBe('Email')
+      expect(cells[emailIndex]!.sort).toBe(expected)
+      // The other sortable columns stay `none` — one sorted column, not all.
+      expect(cells.filter((_, i) => i !== emailIndex).map(c => c.sort))
+        .toEqual([undefined, 'none', 'none', 'none', 'none', undefined])
+    })
+
+    // A deliberate omission rather than an oversight. The footer repeats the
+    // column headers, and `aria-sort` there would announce the same state a
+    // second time; the `<thead>` cell is also the one carrying `scope="col"`.
+    it('leaves the footer headers alone', async () => {
+      const wrapper = await mountSuspended(Table, {
+        props: { ...props, columns: columns as any, sorting: [{ id: 'email', desc: true }] }
+      })
+
+      const footer = wrapper.findAll('tfoot th')
+      expect(footer.length).toBeGreaterThan(0)
+      expect(footer.every(th => th.attributes('aria-sort') === undefined)).toBe(true)
+    })
+  })
+
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(Table, {
       props: {
