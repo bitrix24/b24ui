@@ -6,7 +6,7 @@ const open = ref(false)
   <B24Popover
     v-model:open="open"
     :dismissible="false"
-    :b24ui="{ content: 'w-(--reka-popper-anchor-width) p-4' }"
+    :b24ui="{ content: 'w-(--reka-popover-trigger-width) p-4' }"
   >
     <template #anchor>
       <B24Input placeholder="Focus to open" @focus="open = true" @blur="open = false" />
