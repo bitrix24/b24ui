@@ -6,7 +6,7 @@ import { useAppConfig } from '#imports'
  * Tailwind `prefix(...)` configuration.
  */
 export function usePrefix() {
-  const appConfig = useAppConfig() as { b24ui?: { prefix?: string } }
+  const appConfig = useAppConfig()
   const prefix = appConfig.b24ui?.prefix
 
   return (classString: string): string => {
