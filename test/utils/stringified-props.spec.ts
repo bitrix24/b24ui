@@ -32,7 +32,7 @@ import { SNAPSHOT_ROOT, snapshotFiles } from '../../scripts/indistinguishable-sn
  * holds none — every case that would produce one is fixed.
  */
 describe('object props stringified into the DOM', () => {
-  const hits = () => {
+  const scan = () => {
     const found: string[] = []
 
     for (const file of snapshotFiles()) {
@@ -45,12 +45,22 @@ describe('object props stringified into the DOM', () => {
     return [...new Set(found)].sort()
   }
 
+  // Read here rather than inside the `it()`, the way the collision guard beside
+  // this one already does it. The corpus is 28 MB across 218 files: ~0.5s in
+  // plain node, 1.9s in the `nuxt` project alone — 38% of vitest's 5s default
+  // with no contention — and past it under a full run sharing forks with 346
+  // other files. It timed out that way twice before the cause was pinned, once
+  // reported as an unexplained single failure. Describe-body work is not
+  // subject to the per-test timeout, so the scan happens once and the
+  // assertions below are free.
+  const found = scan()
+
   it('reads the corpus before drawing conclusions from it', () => {
     // An empty glob would pass this file vacuously.
     expect(snapshotFiles().length).toBeGreaterThan(100)
   })
 
   it('leaks no object-valued prop into the corpus as an attribute', () => {
-    expect(hits()).toEqual([])
+    expect(found).toEqual([])
   })
 })
