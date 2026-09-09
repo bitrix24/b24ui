@@ -251,11 +251,27 @@ describe('highlight', () => {
         .toBeUndefined()
     })
 
-    it('falls back to an empty value rather than throwing when a match carries none', () => {
-      // Fuse's own type declares `value?: string`. Without the `value || ''`
-      // guard this reaches `substring()` on `undefined` and throws inside
-      // `CommandPalette`'s render path — a harder failure than an empty mark.
-      expect(highlight({ label, matches: [{ key: 'label', indices: [[0, 3]] }] }, 'alpha', 'label')).toBe('')
+    // Fuse's own type declares `value?: string`, and this used to return `''` —
+    // the `value || ''` coalesce inside `generateHighlightedText` kept it from
+    // throwing on `substring(undefined)`, but the loop returns on the first
+    // match it reaches, so the empty string became the answer for the call.
+    // Both halves are now asserted: the value-less match is skipped, and it no
+    // longer swallows the match behind it (#392).
+    it('skips a match that carries no value', () => {
+      expect(highlight({ label, matches: [{ key: 'label', indices: [[0, 3]] }] }, 'alpha', 'label')).toBeUndefined()
+    })
+
+    it('does not let a value-less match hide a later real one', () => {
+      // Unreachable through Fuse, which always sets `value`, and reachable
+      // through `CommandPaletteGroup.postFilter`, which lets a caller supply its
+      // own matches. Before the skip this returned `''` and the highlight below
+      // was never built.
+      const matches = [
+        { key: 'label', indices: [[0, 4]] as [number, number][] },
+        { key: 'label', value: label, indices: [[0, 4]] as [number, number][] }
+      ]
+
+      expect(highlight({ label, matches }, 'alpha', 'label')).toBe('<mark>alpha</mark> team')
     })
   })
 

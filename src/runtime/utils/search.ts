@@ -372,6 +372,22 @@ export function highlight<T>(item: T & { matches?: FuseResult<T>['matches'] }, s
     if (omitKeys?.includes(match.key as GetItemKeys<T>)) {
       continue
     }
+    // Fuse types `value` as optional, and a match without one is not a hit —
+    // `generateHighlightedText` coalesces it to `''`, and because this loop
+    // returns on the first match it reaches, that empty string is the answer
+    // for the whole call. Measured on `[valueless, real]`: the result was `''`
+    // and the real match's highlight was lost entirely (#392). Skipping is what
+    // the docstring already promises — `undefined` means nothing here applies,
+    // not "something applied and it was empty".
+    //
+    // Fuse itself always sets `value`, so this is unreachable through the
+    // search path. It is reachable through `CommandPaletteGroup.postFilter`,
+    // which lets a caller supply its own matches — the same extension point the
+    // index sorting above exists for. Diverges from upstream, which returns the
+    // empty string.
+    if (!match.value) {
+      continue
+    }
 
     return generateHighlightedText(match.value, match.indices)
   }
