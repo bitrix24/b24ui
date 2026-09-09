@@ -68,11 +68,13 @@ describe('module setup()', () => {
     // `defaults`, through defu, into `getDefaultConfig`.
     const { b24ui } = await loadFixture({ b24ui: { theme: { prefix: 'smoke' } } })
 
-    // `AppConfig['b24ui']` does not declare `prefix`, though `getDefaultConfig`
-    // writes it and `nuxt.options.app.rootAttrs` reads it back — a gap in the
-    // module's types rather than in this assertion, so the read is widened
-    // here rather than papered over by dropping the case.
-    expect((b24ui as Record<string, unknown> | undefined)?.prefix).toBe('smoke')
+    // Read without a cast on purpose. Until #486 this line needed one, because
+    // `AppConfigRuntimeUI` picked only `tv` out of `AppConfigUI` while
+    // `getDefaultConfig` wrote `prefix` too — so the module's own value was a
+    // type error to read back. The type now declares it, and this assertion is
+    // what would catch that being undone: drop `prefix` from the pick again and
+    // `typecheck` fails here.
+    expect(b24ui?.prefix).toBe('smoke')
     // Reached by `tv()` at render time to build twMerge's config; a `prefix`
     // that lands in one place and not the other is a live bug.
     expect(b24ui?.tv?.twMergeConfig?.prefix).toBe('smoke')
