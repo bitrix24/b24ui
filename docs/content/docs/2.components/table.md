@@ -500,6 +500,15 @@ class: '!p-0'
 You can use the `sorting` prop to control the sorting state of the columns (can be bound with `v-model`).
 ::
 
+::note
+The `<th>` of a sortable column carries `aria-sort` on its own — `ascending`,
+`descending`, or `none` when the column sorts but is not currently sorted — so
+your header button does not need to add it. A column that opts out with
+`enableSorting: false`, or a display column with no accessor such as an actions
+column, gets no `aria-sort` at all, which is what tells assistive technology it
+is not sortable rather than merely unsorted.
+::
+
 You can also create a reusable component to make any column header sortable.
 
 ::component-example
