@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "6d6737af38d517f1d5bae9a4a0e063d169c17890",
+  "cursor": "797feeac4f5ba6e7d93353456337ae9198fba242",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -1835,6 +1835,12 @@
       "b24ui_sha": "2b4ad139e2f4855cbf4d2ee54609e2e097520b08",
       "decision": "port",
       "summary": "fix(Input/Textarea): keep `0` with `nullable` and `optional` modifiers (nuxt/ui #6871) — PORT, verbatim. updateInput mapped empty values with ||=, which fires on every FALSY value rather than on emptiness. With the number modifier — or type=\"number\", which takes the same branch — looseToNumber('0') yields 0, and 0 ||= null is null, so a quantity of zero came back as no value at all; same for .optional producing undefined. Not a rendering nuisance: the model is what a form submits and what validation sees, so a required field holding 0 read as empty. Applies verbatim, our pre-image being upstream's line for line in both components, with the guard changing to isEmpty(value) and ||= replaced by a plain assignment. THE HELPER WAS ALREADY HERE AND SO WAS THE REASONING: isEmpty lives at src/runtime/utils/index.ts:194 and its doc comment states the exact principle this fix turns on — 'false and 0 are values, not emptiness — a checkbox bound to false is answered, and a quantity of 0 is a quantity'. So the fork had written down why ||= is wrong here and then left these two components using it; worth recording, because a rule stated in a comment does not propagate itself and nothing in lint, typecheck or the suite connected the two until upstream's cases arrived. Took upstream's five cases for Input and four for Textarea as written — Input gets one more because it has a type prop and Textarea does not, so type=\"number\" needs its own row. The empty-value rows matter as much as the 0 rows: the mapping still has to happen when the value really IS empty, or the fix would trade one bug for another. Mutation-checked, and the counts show both halves are separately covered: reverting the port turns 10 red (the five new cases in both projects), guarding nullable only while leaving optional on ||= turns 4 red (exactly the two .number + .optional rows), and inverting to !isEmpty(value) turns 26 red because the empty-value mapping then breaks everywhere."
+    },
+    "797feeac4f5ba6e7d93353456337ae9198fba242": {
+      "pr": "pending-merge",
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "docs(error): display note to nuxt only (nuxt/ui #6932) — PORT, verbatim. First of three commits in this run. Three lines: the error.vue note in error.md is wrapped in ::framework-only / #nuxt so it renders on the Nuxt tab and not the Vue one. Applies verbatim — our error.md carries upstream's pre-image at that hunk, the same ::note{to=\"https://nuxt.com/docs/guide/directory-structure/error\"} block, unwrapped. CHECKED THAT THE DIRECTIVE DOES SOMETHING HERE BEFORE TAKING IT: a wrapper with no implementation would not error, it would silently swallow the note, which is the failure this kind of change invites. docs/app/components/content/FrameworkOnly.vue exists and renders each named slot inside a Slot carrying nuxt-only / vue-only, useFrameworks.ts declares both nuxt and vue with nuxt as the default, and the directive is already used in five other pages. The note is Nuxt-specific on its own terms — error.vue is a Nuxt directory convention — and this fork ships a Vue build alongside the Nuxt one, so the reason upstream scoped it holds here unchanged."
     }
   }
 }
