@@ -517,6 +517,19 @@ function onUpdateOpen(value: boolean) {
   }
 }
 
+// `ComboboxTrigger` only toggles on click, unlike `ComboboxInput` which opens on arrow keys.
+// Since the trigger is the focusable element here, replicate the same behavior.
+function onTriggerKeydown(e: KeyboardEvent) {
+  if (isOpen.value) {
+    return
+  }
+
+  const trigger = e.currentTarget as HTMLElement
+
+  e.preventDefault()
+  trigger.click()
+}
+
 function onCreate(e: Event) {
   e.preventDefault()
   e.stopPropagation()
@@ -716,6 +729,8 @@ defineExpose({
           :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
           tabindex="0"
           v-bind="{ ...$attrs, ...ariaAttrs }"
+          @keydown.down="onTriggerKeydown"
+          @keydown.up="onTriggerKeydown"
         >
           <B24Badge
             v-if="isTag"
