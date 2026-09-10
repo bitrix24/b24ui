@@ -601,6 +601,28 @@ describe('Form', () => {
         { id: 'password', name: 'password' }
       ])
     })
+
+    // `clear` reached a matching nested form and called `form.api.clear()` with
+    // no argument, which clears it whole — so clearing one field wiped every
+    // error in that nested form. `setErrors` one function above already passed
+    // `getNestedTarget`; `clear` was the outlier.
+    //
+    // Its own fixture because `FormNested` has a single nested field, and one
+    // field cannot show the difference between "clear this one" and "clear them
+    // all".
+    it('clear with a nested path keeps the other errors of the same nested form', async () => {
+      const nestedWrapper: any = await renderForm({ fixture: 'FormNestedFields' })
+      const nestedForm = nestedWrapper.setupState.form.value
+      await nestedForm.submit()
+      expect(nestedForm.errors).toMatchObject([
+        { id: 'first', name: 'nested.first' },
+        { id: 'second', name: 'nested.second' }
+      ])
+      nestedForm.clear('nested.first')
+      expect(nestedForm.errors).toMatchObject([
+        { id: 'second', name: 'nested.second' }
+      ])
+    })
   })
 
   describe('apply transform', async () => {
