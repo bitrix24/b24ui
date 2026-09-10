@@ -357,6 +357,46 @@ describe('SelectMenu', () => {
     })
   })
 
+  describe('keyboard', () => {
+    // `ComboboxTrigger` toggles on click only; `ComboboxInput` is what opens on
+    // arrow keys, and this component focuses the trigger instead. So the two
+    // halves of the control disagreed about what the arrow keys do.
+    test.each(['ArrowDown', 'ArrowUp'])('opens the menu on %s', async (key) => {
+      const wrapper = mount(SelectMenu, { attachTo: document.body, props: { portal: false, items } })
+      await wrapper.find('[data-slot="base"]').trigger('keydown', { key })
+      await flushPromises()
+      expect(wrapper.emitted('update:open')).toMatchObject([[true]])
+      wrapper.unmount()
+    })
+
+    // Not upstream's — added because removing `e.preventDefault()` left all 162
+    // green. It is there so the arrow key opens the menu instead of scrolling
+    // the page, and nothing reached it.
+    test.each(['ArrowDown', 'ArrowUp'])('prevents the default page scroll on %s', async (key) => {
+      const wrapper = mount(SelectMenu, { attachTo: document.body, props: { portal: false, items } })
+      const event = new KeyboardEvent('keydown', { key, bubbles: true, cancelable: true })
+
+      wrapper.find('[data-slot="base"]').element.dispatchEvent(event)
+      await flushPromises()
+
+      expect(event.defaultPrevented).toBe(true)
+      wrapper.unmount()
+    })
+
+    // The other half of the guard: the handler clicks the trigger, and a click
+    // toggles — so without the `isOpen` early return the arrow keys would close
+    // an open menu instead of moving through it.
+    test('does not toggle the menu on ArrowDown when already open', async () => {
+      const wrapper = mount(SelectMenu, { attachTo: document.body, props: { portal: false, items } })
+      const root = wrapper.findComponent({ name: 'ComboboxRoot' })
+      await root.vm.$emit('update:open', true)
+      await wrapper.find('[data-slot="base"]').trigger('keydown', { key: 'ArrowDown' })
+      await flushPromises()
+      expect(wrapper.emitted('update:open')).toMatchObject([[true]])
+      wrapper.unmount()
+    })
+  })
+
   describe('form integration', async () => {
     async function createForm(validateOn?: FormInputEvents[]) {
       const wrapper = await renderForm({
