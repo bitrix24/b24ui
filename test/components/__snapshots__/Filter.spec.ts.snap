@@ -1,0 +1,163 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Filter > renders with active preset correctly 1`] = `
+"<div data-slot="root" class="relative w-full">
+  <div data-slot="bar" class="flex items-center gap-2 w-full">
+    <div class="flex flex-wrap items-center gap-1.5 flex-1 min-w-0 px-2 py-1 rounded-(--ui-border-radius-xs) border border-(--ui-color-divider-vibrant-accent-more) min-h-[34px] cursor-text"><button type="button" data-filter-bar-interactive="" class="inline-flex items-center justify-center min-w-[20px] h-[20px] px-1.5 rounded-full bg-(--ui-color-accent-soft-element-red) text-white text-(length:--ui-font-size-3xs) font-(--ui-font-weight-medium)" aria-label="Сбросить фильтр">1</button><span data-filter-bar-interactive="" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-(--ui-border-radius-xs) bg-(--ui-color-design-tinted-bg-alt) text-(--ui-color-design-tinted-content) text-(length:--ui-font-size-xs)"><span class="truncate max-w-[140px]">Сделки в работе</span><button type="button" class="shrink-0 text-(--b24ui-icon-color-secondary) hover:text-(--b24ui-icon-color-secondary-hover) cursor-pointer" aria-label="Удалить Сделки в работе"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-3">
+          <path fill="currentColor" d="M7.495 6.505a.7.7 0 1 0-.99.99L11.01 12l-4.505 4.505a.7.7 0 0 0 .99.99L12 12.99l4.504 4.504a.7.7 0 1 0 .99-.99L12.99 12l4.504-4.505a.7.7 0 0 0-.99-.99L12 11.01z"></path>
+        </svg></button></span><input data-filter-bar-interactive="" type="text" placeholder="+поиск" class="flex-1 min-w-[120px] border-0 bg-transparent text-(length:--ui-font-size-sm) text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) focus:outline-none focus:ring-0" aria-label="Поиск">
+      <div data-filter-bar-interactive="" class="flex items-center gap-1 shrink-0"><button type="button" class="inline-flex items-center justify-center size-7 text-(--b24ui-icon-color-secondary) hover:text-(--b24ui-icon-color-secondary-hover) cursor-pointer" aria-label="Поиск"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4">
+            <path fill="currentColor" fill-rule="evenodd" d="M14.666 16.908a6.87 6.87 0 1 1 2.242-2.242l2.492 2.491a1 1 0 0 1 0 1.415l-.828.828a1 1 0 0 1-1.414 0zm.844-5.848a4.45 4.45 0 1 1-8.9 0 4.45 4.45 0 0 1 8.9 0" clip-rule="evenodd"></path>
+          </svg></button><button type="button" class="inline-flex items-center justify-center size-7 text-(--b24ui-icon-color-secondary) hover:text-(--b24ui-icon-color-secondary-hover) cursor-pointer" aria-label="Сбросить фильтр"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4">
+            <path fill="currentColor" d="M7.495 6.505a.7.7 0 1 0-.99.99L11.01 12l-4.505 4.505a.7.7 0 0 0 .99.99L12 12.99l4.504 4.504a.7.7 0 1 0 .99-.99L12.99 12l4.504-4.505a.7.7 0 0 0-.99-.99L12 11.01z"></path>
+          </svg></button><button type="button" class="inline-flex items-center justify-center size-7 text-(--b24ui-icon-color-secondary) hover:text-(--b24ui-icon-color-secondary-hover) cursor-pointer" aria-label="Настройки"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4">
+            <path fill="currentColor" fill-rule="evenodd" d="M6.17 17H5a1 1 0 1 1 0-2h1.17a3.001 3.001 0 0 1 5.66 0H18a1 1 0 1 1 0 2h-6.17a3.001 3.001 0 0 1-5.66 0m5-7H5a1 1 0 0 1 0-2h6.17a3.001 3.001 0 0 1 5.66 0H18a1 1 0 1 1 0 2h-1.17a3.001 3.001 0 0 1-5.66 0M14 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2" clip-rule="evenodd"></path>
+          </svg></button></div>
+    </div>
+  </div>
+  <!--v-if--><span class="block"></span>
+  <!--teleport start-->
+  <!--teleport end-->
+</div>"
+`;
+
+exports[`Filter > renders with activeFields and values correctly 1`] = `
+"<div data-slot="root" class="relative w-full">
+  <div data-slot="bar" class="flex items-center gap-2 w-full">
+    <div class="flex flex-wrap items-center gap-1.5 flex-1 min-w-0 px-2 py-1 rounded-(--ui-border-radius-xs) border border-(--ui-color-divider-vibrant-accent-more) min-h-[34px] cursor-text"><button type="button" data-filter-bar-interactive="" class="inline-flex items-center justify-center min-w-[20px] h-[20px] px-1.5 rounded-full bg-(--ui-color-accent-soft-element-red) text-white text-(length:--ui-font-size-3xs) font-(--ui-font-weight-medium)" aria-label="Сбросить фильтр">1</button><span data-filter-bar-interactive="" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-(--ui-border-radius-xs) bg-(--ui-color-design-tinted-bg) text-(--ui-color-base-1) text-(length:--ui-font-size-xs)"><span class="truncate max-w-[180px]">Сумма &gt; 1000</span><button type="button" class="shrink-0 text-(--b24ui-icon-color-secondary) hover:text-(--b24ui-icon-color-secondary-hover) cursor-pointer" aria-label="Удалить Сумма > 1000"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-3">
+          <path fill="currentColor" d="M7.495 6.505a.7.7 0 1 0-.99.99L11.01 12l-4.505 4.505a.7.7 0 0 0 .99.99L12 12.99l4.504 4.504a.7.7 0 1 0 .99-.99L12.99 12l4.504-4.505a.7.7 0 0 0-.99-.99L12 11.01z"></path>
+        </svg></button></span><input data-filter-bar-interactive="" type="text" placeholder="+поиск" class="flex-1 min-w-[120px] border-0 bg-transparent text-(length:--ui-font-size-sm) text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) focus:outline-none focus:ring-0" aria-label="Поиск">
+      <div data-filter-bar-interactive="" class="flex items-center gap-1 shrink-0"><button type="button" class="inline-flex items-center justify-center size-7 text-(--b24ui-icon-color-secondary) hover:text-(--b24ui-icon-color-secondary-hover) cursor-pointer" aria-label="Поиск"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4">
+            <path fill="currentColor" fill-rule="evenodd" d="M14.666 16.908a6.87 6.87 0 1 1 2.242-2.242l2.492 2.491a1 1 0 0 1 0 1.415l-.828.828a1 1 0 0 1-1.414 0zm.844-5.848a4.45 4.45 0 1 1-8.9 0 4.45 4.45 0 0 1 8.9 0" clip-rule="evenodd"></path>
+          </svg></button><button type="button" class="inline-flex items-center justify-center size-7 text-(--b24ui-icon-color-secondary) hover:text-(--b24ui-icon-color-secondary-hover) cursor-pointer" aria-label="Сбросить фильтр"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4">
+            <path fill="currentColor" d="M7.495 6.505a.7.7 0 1 0-.99.99L11.01 12l-4.505 4.505a.7.7 0 0 0 .99.99L12 12.99l4.504 4.504a.7.7 0 1 0 .99-.99L12.99 12l4.504-4.505a.7.7 0 0 0-.99-.99L12 11.01z"></path>
+          </svg></button><button type="button" class="inline-flex items-center justify-center size-7 text-(--b24ui-icon-color-secondary) hover:text-(--b24ui-icon-color-secondary-hover) cursor-pointer" aria-label="Настройки"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4">
+            <path fill="currentColor" fill-rule="evenodd" d="M6.17 17H5a1 1 0 1 1 0-2h1.17a3.001 3.001 0 0 1 5.66 0H18a1 1 0 1 1 0 2h-6.17a3.001 3.001 0 0 1-5.66 0m5-7H5a1 1 0 0 1 0-2h6.17a3.001 3.001 0 0 1 5.66 0H18a1 1 0 1 1 0 2h-1.17a3.001 3.001 0 0 1-5.66 0M14 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2" clip-rule="evenodd"></path>
+          </svg></button></div>
+    </div>
+  </div>
+  <!--v-if--><span class="block"></span>
+  <!--teleport start-->
+  <!--teleport end-->
+</div>"
+`;
+
+exports[`Filter > renders with class correctly 1`] = `
+"<div data-slot="root" class="relative w-full custom-filter">
+  <div data-slot="bar" class="flex items-center gap-2 w-full">
+    <div class="flex flex-wrap items-center gap-1.5 flex-1 min-w-0 px-2 py-1 rounded-(--ui-border-radius-xs) border border-(--ui-color-divider-vibrant-accent-more) min-h-[34px] cursor-text">
+      <!--v-if--><input data-filter-bar-interactive="" type="text" placeholder="+поиск" class="flex-1 min-w-[120px] border-0 bg-transparent text-(length:--ui-font-size-sm) text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) focus:outline-none focus:ring-0" aria-label="Поиск">
+      <div data-filter-bar-interactive="" class="flex items-center gap-1 shrink-0"><button type="button" class="inline-flex items-center justify-center size-7 text-(--b24ui-icon-color-secondary) hover:text-(--b24ui-icon-color-secondary-hover) cursor-pointer" aria-label="Поиск"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4">
+            <path fill="currentColor" fill-rule="evenodd" d="M14.666 16.908a6.87 6.87 0 1 1 2.242-2.242l2.492 2.491a1 1 0 0 1 0 1.415l-.828.828a1 1 0 0 1-1.414 0zm.844-5.848a4.45 4.45 0 1 1-8.9 0 4.45 4.45 0 0 1 8.9 0" clip-rule="evenodd"></path>
+          </svg></button>
+        <!--v-if--><button type="button" class="inline-flex items-center justify-center size-7 text-(--b24ui-icon-color-secondary) hover:text-(--b24ui-icon-color-secondary-hover) cursor-pointer" aria-label="Настройки"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4">
+            <path fill="currentColor" fill-rule="evenodd" d="M6.17 17H5a1 1 0 1 1 0-2h1.17a3.001 3.001 0 0 1 5.66 0H18a1 1 0 1 1 0 2h-6.17a3.001 3.001 0 0 1-5.66 0m5-7H5a1 1 0 0 1 0-2h6.17a3.001 3.001 0 0 1 5.66 0H18a1 1 0 1 1 0 2h-1.17a3.001 3.001 0 0 1-5.66 0M14 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2" clip-rule="evenodd"></path>
+          </svg></button>
+      </div>
+    </div>
+  </div>
+  <!--v-if--><span class="block"></span>
+  <!--teleport start-->
+  <!--teleport end-->
+</div>"
+`;
+
+exports[`Filter > renders with disabled correctly 1`] = `
+"<div data-slot="root" class="relative w-full">
+  <div data-slot="bar" class="flex items-center gap-2 w-full">
+    <div class="flex flex-wrap items-center gap-1.5 flex-1 min-w-0 px-2 py-1 rounded-(--ui-border-radius-xs) border border-(--ui-color-divider-vibrant-accent-more) min-h-[34px] cursor-text">
+      <!--v-if--><input data-filter-bar-interactive="" type="text" placeholder="+поиск" disabled="" class="flex-1 min-w-[120px] border-0 bg-transparent text-(length:--ui-font-size-sm) text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) focus:outline-none focus:ring-0" aria-label="Поиск">
+      <div data-filter-bar-interactive="" class="flex items-center gap-1 shrink-0"><button type="button" class="inline-flex items-center justify-center size-7 text-(--b24ui-icon-color-secondary) hover:text-(--b24ui-icon-color-secondary-hover) cursor-pointer" aria-label="Поиск"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4">
+            <path fill="currentColor" fill-rule="evenodd" d="M14.666 16.908a6.87 6.87 0 1 1 2.242-2.242l2.492 2.491a1 1 0 0 1 0 1.415l-.828.828a1 1 0 0 1-1.414 0zm.844-5.848a4.45 4.45 0 1 1-8.9 0 4.45 4.45 0 0 1 8.9 0" clip-rule="evenodd"></path>
+          </svg></button>
+        <!--v-if--><button type="button" class="inline-flex items-center justify-center size-7 text-(--b24ui-icon-color-secondary) hover:text-(--b24ui-icon-color-secondary-hover) cursor-pointer" aria-label="Настройки"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4">
+            <path fill="currentColor" fill-rule="evenodd" d="M6.17 17H5a1 1 0 1 1 0-2h1.17a3.001 3.001 0 0 1 5.66 0H18a1 1 0 1 1 0 2h-6.17a3.001 3.001 0 0 1-5.66 0m5-7H5a1 1 0 0 1 0-2h6.17a3.001 3.001 0 0 1 5.66 0H18a1 1 0 1 1 0 2h-1.17a3.001 3.001 0 0 1-5.66 0M14 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2" clip-rule="evenodd"></path>
+          </svg></button>
+      </div>
+    </div>
+  </div>
+  <!--v-if--><span class="block"></span>
+  <!--teleport start-->
+  <!--teleport end-->
+</div>"
+`;
+
+exports[`Filter > renders with fields correctly 1`] = `
+"<div data-slot="root" class="relative w-full">
+  <div data-slot="bar" class="flex items-center gap-2 w-full">
+    <div class="flex flex-wrap items-center gap-1.5 flex-1 min-w-0 px-2 py-1 rounded-(--ui-border-radius-xs) border border-(--ui-color-divider-vibrant-accent-more) min-h-[34px] cursor-text">
+      <!--v-if--><input data-filter-bar-interactive="" type="text" placeholder="+поиск" class="flex-1 min-w-[120px] border-0 bg-transparent text-(length:--ui-font-size-sm) text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) focus:outline-none focus:ring-0" aria-label="Поиск">
+      <div data-filter-bar-interactive="" class="flex items-center gap-1 shrink-0"><button type="button" class="inline-flex items-center justify-center size-7 text-(--b24ui-icon-color-secondary) hover:text-(--b24ui-icon-color-secondary-hover) cursor-pointer" aria-label="Поиск"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4">
+            <path fill="currentColor" fill-rule="evenodd" d="M14.666 16.908a6.87 6.87 0 1 1 2.242-2.242l2.492 2.491a1 1 0 0 1 0 1.415l-.828.828a1 1 0 0 1-1.414 0zm.844-5.848a4.45 4.45 0 1 1-8.9 0 4.45 4.45 0 0 1 8.9 0" clip-rule="evenodd"></path>
+          </svg></button>
+        <!--v-if--><button type="button" class="inline-flex items-center justify-center size-7 text-(--b24ui-icon-color-secondary) hover:text-(--b24ui-icon-color-secondary-hover) cursor-pointer" aria-label="Настройки"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4">
+            <path fill="currentColor" fill-rule="evenodd" d="M6.17 17H5a1 1 0 1 1 0-2h1.17a3.001 3.001 0 0 1 5.66 0H18a1 1 0 1 1 0 2h-6.17a3.001 3.001 0 0 1-5.66 0m5-7H5a1 1 0 0 1 0-2h6.17a3.001 3.001 0 0 1 5.66 0H18a1 1 0 1 1 0 2h-1.17a3.001 3.001 0 0 1-5.66 0M14 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2" clip-rule="evenodd"></path>
+          </svg></button>
+      </div>
+    </div>
+  </div>
+  <!--v-if--><span class="block"></span>
+  <!--teleport start-->
+  <!--teleport end-->
+</div>"
+`;
+
+exports[`Filter > renders with loading correctly 1`] = `
+"<div data-slot="root" class="relative w-full">
+  <div data-slot="bar" class="flex items-center gap-2 w-full">
+    <div class="flex flex-wrap items-center gap-1.5 flex-1 min-w-0 px-2 py-1 rounded-(--ui-border-radius-xs) border border-(--ui-color-divider-vibrant-accent-more) min-h-[34px] cursor-text">
+      <!--v-if--><input data-filter-bar-interactive="" type="text" placeholder="+поиск" class="flex-1 min-w-[120px] border-0 bg-transparent text-(length:--ui-font-size-sm) text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) focus:outline-none focus:ring-0" aria-label="Поиск">
+      <div data-filter-bar-interactive="" class="flex items-center gap-1 shrink-0"><button type="button" class="inline-flex items-center justify-center size-7 text-(--b24ui-icon-color-secondary) hover:text-(--b24ui-icon-color-secondary-hover) cursor-pointer" aria-label="Поиск"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4">
+            <path fill="currentColor" fill-rule="evenodd" d="M14.666 16.908a6.87 6.87 0 1 1 2.242-2.242l2.492 2.491a1 1 0 0 1 0 1.415l-.828.828a1 1 0 0 1-1.414 0zm.844-5.848a4.45 4.45 0 1 1-8.9 0 4.45 4.45 0 0 1 8.9 0" clip-rule="evenodd"></path>
+          </svg></button>
+        <!--v-if--><button type="button" class="inline-flex items-center justify-center size-7 text-(--b24ui-icon-color-secondary) hover:text-(--b24ui-icon-color-secondary-hover) cursor-pointer" aria-label="Настройки"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4">
+            <path fill="currentColor" fill-rule="evenodd" d="M6.17 17H5a1 1 0 1 1 0-2h1.17a3.001 3.001 0 0 1 5.66 0H18a1 1 0 1 1 0 2h-6.17a3.001 3.001 0 0 1-5.66 0m5-7H5a1 1 0 0 1 0-2h6.17a3.001 3.001 0 0 1 5.66 0H18a1 1 0 1 1 0 2h-1.17a3.001 3.001 0 0 1-5.66 0M14 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2" clip-rule="evenodd"></path>
+          </svg></button>
+      </div>
+    </div>
+  </div>
+  <!--v-if--><span class="block"></span>
+  <!--teleport start-->
+  <!--teleport end-->
+</div>"
+`;
+
+exports[`Filter > renders with searchQuery correctly 1`] = `
+"<div data-slot="root" class="relative w-full">
+  <div data-slot="bar" class="flex items-center gap-2 w-full">
+    <div class="flex flex-wrap items-center gap-1.5 flex-1 min-w-0 px-2 py-1 rounded-(--ui-border-radius-xs) border border-(--ui-color-divider-vibrant-accent-more) min-h-[34px] cursor-text">
+      <!--v-if--><input data-filter-bar-interactive="" type="text" placeholder="+поиск" class="flex-1 min-w-[120px] border-0 bg-transparent text-(length:--ui-font-size-sm) text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) focus:outline-none focus:ring-0" aria-label="Поиск">
+      <div data-filter-bar-interactive="" class="flex items-center gap-1 shrink-0"><button type="button" class="inline-flex items-center justify-center size-7 text-(--b24ui-icon-color-secondary) hover:text-(--b24ui-icon-color-secondary-hover) cursor-pointer" aria-label="Поиск"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4">
+            <path fill="currentColor" fill-rule="evenodd" d="M14.666 16.908a6.87 6.87 0 1 1 2.242-2.242l2.492 2.491a1 1 0 0 1 0 1.415l-.828.828a1 1 0 0 1-1.414 0zm.844-5.848a4.45 4.45 0 1 1-8.9 0 4.45 4.45 0 0 1 8.9 0" clip-rule="evenodd"></path>
+          </svg></button><button type="button" class="inline-flex items-center justify-center size-7 text-(--b24ui-icon-color-secondary) hover:text-(--b24ui-icon-color-secondary-hover) cursor-pointer" aria-label="Сбросить фильтр"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4">
+            <path fill="currentColor" d="M7.495 6.505a.7.7 0 1 0-.99.99L11.01 12l-4.505 4.505a.7.7 0 0 0 .99.99L12 12.99l4.504 4.504a.7.7 0 1 0 .99-.99L12.99 12l4.504-4.505a.7.7 0 0 0-.99-.99L12 11.01z"></path>
+          </svg></button><button type="button" class="inline-flex items-center justify-center size-7 text-(--b24ui-icon-color-secondary) hover:text-(--b24ui-icon-color-secondary-hover) cursor-pointer" aria-label="Настройки"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4">
+            <path fill="currentColor" fill-rule="evenodd" d="M6.17 17H5a1 1 0 1 1 0-2h1.17a3.001 3.001 0 0 1 5.66 0H18a1 1 0 1 1 0 2h-6.17a3.001 3.001 0 0 1-5.66 0m5-7H5a1 1 0 0 1 0-2h6.17a3.001 3.001 0 0 1 5.66 0H18a1 1 0 1 1 0 2h-1.17a3.001 3.001 0 0 1-5.66 0M14 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2" clip-rule="evenodd"></path>
+          </svg></button></div>
+    </div>
+  </div>
+  <!--v-if--><span class="block"></span>
+  <!--teleport start-->
+  <!--teleport end-->
+</div>"
+`;
+
+exports[`Filter > renders without fields correctly 1`] = `
+"<div data-slot="root" class="relative w-full">
+  <div data-slot="bar" class="flex items-center gap-2 w-full">
+    <div class="flex flex-wrap items-center gap-1.5 flex-1 min-w-0 px-2 py-1 rounded-(--ui-border-radius-xs) border border-(--ui-color-divider-vibrant-accent-more) min-h-[34px] cursor-text">
+      <!--v-if--><input data-filter-bar-interactive="" type="text" placeholder="+поиск" class="flex-1 min-w-[120px] border-0 bg-transparent text-(length:--ui-font-size-sm) text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) focus:outline-none focus:ring-0" aria-label="Поиск">
+      <div data-filter-bar-interactive="" class="flex items-center gap-1 shrink-0"><button type="button" class="inline-flex items-center justify-center size-7 text-(--b24ui-icon-color-secondary) hover:text-(--b24ui-icon-color-secondary-hover) cursor-pointer" aria-label="Поиск"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4">
+            <path fill="currentColor" fill-rule="evenodd" d="M14.666 16.908a6.87 6.87 0 1 1 2.242-2.242l2.492 2.491a1 1 0 0 1 0 1.415l-.828.828a1 1 0 0 1-1.414 0zm.844-5.848a4.45 4.45 0 1 1-8.9 0 4.45 4.45 0 0 1 8.9 0" clip-rule="evenodd"></path>
+          </svg></button>
+        <!--v-if--><button type="button" class="inline-flex items-center justify-center size-7 text-(--b24ui-icon-color-secondary) hover:text-(--b24ui-icon-color-secondary-hover) cursor-pointer" aria-label="Настройки"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4">
+            <path fill="currentColor" fill-rule="evenodd" d="M6.17 17H5a1 1 0 1 1 0-2h1.17a3.001 3.001 0 0 1 5.66 0H18a1 1 0 1 1 0 2h-6.17a3.001 3.001 0 0 1-5.66 0m5-7H5a1 1 0 0 1 0-2h6.17a3.001 3.001 0 0 1 5.66 0H18a1 1 0 1 1 0 2h-1.17a3.001 3.001 0 0 1-5.66 0M14 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2" clip-rule="evenodd"></path>
+          </svg></button>
+      </div>
+    </div>
+  </div>
+  <!--v-if--><span class="block"></span>
+  <!--teleport start-->
+  <!--teleport end-->
+</div>"
+`;
