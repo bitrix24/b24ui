@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.13.1](https://github.com/bitrix24/b24ui/compare/v2.13.0...v2.13.1) (2026-09-12)
+
+
+### Docs
+
+* **contributing:** show the release-post AI prompt in the open ([#572](https://github.com/bitrix24/b24ui/issues/572)) ([94ba442](https://github.com/bitrix24/b24ui/commit/94ba4423d2c57a6b0c8887adb37c6382166610d0))
+
 ## [2.13.0](https://github.com/bitrix24/b24ui/compare/v2.12.0...v2.13.0) (2026-09-11)
 
 
