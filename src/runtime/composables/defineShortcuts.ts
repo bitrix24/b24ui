@@ -70,6 +70,32 @@ function convertKeyToCode(key: string): string {
   return specialKeys[key.toLowerCase()] || key
 }
 
+/**
+ * Collects the shortcuts declared on a menu's items into a `defineShortcuts`
+ * config, so a keyboard binding is written once — on the item that shows it.
+ *
+ * Walks `children` and `items` recursively, and picks up any entry that has
+ * both a `kbds` array and an `onSelect` or `onClick` handler. Entries without
+ * one of the two are skipped rather than bound to nothing.
+ *
+ * @param items Menu items, flat or grouped, as passed to `DropdownMenu`,
+ *   `ContextMenu`, `NavigationMenu` or `CommandPalette`.
+ * @param separator How to join a multi-key binding into its config key. `'_'`
+ *   is a combination (`meta_k`, pressed together), `'-'` is a chain (`g-d`,
+ *   pressed in order).
+ * @returns A `ShortcutsConfig` keyed by binding, ready to hand to
+ *   `defineShortcuts`.
+ *
+ * @example
+ * ```ts
+ * const items = [{ label: 'Save', kbds: ['meta', 's'], onSelect: save }]
+ *
+ * defineShortcuts(extractShortcuts(items))
+ * // equivalent to defineShortcuts({ meta_s: save })
+ * ```
+ *
+ * @see https://bitrix24.github.io/b24ui/docs/composables/extract-shortcuts/
+ */
 export function extractShortcuts(items: any[] | any[][], separator: '_' | '-' = '_') {
   const shortcuts: Record<string, Handler> = {}
 
@@ -93,6 +119,42 @@ export function extractShortcuts(items: any[] | any[][], separator: '_' | '-' = 
   return shortcuts
 }
 
+/**
+ * Binds keyboard shortcuts for as long as the calling component is alive.
+ *
+ * Keys are written lowercase. `_` combines (`meta_k` — held together), `-`
+ * chains (`g-d` — pressed in sequence within `chainDelay`). `meta` is the
+ * Command key on macOS and Control elsewhere, so `meta_k` is the one binding
+ * that reads correctly on both.
+ *
+ * A shortcut is ignored while the user is typing, unless its config says
+ * otherwise: `usingInput: true` allows it in any field, and
+ * `usingInput: 'search'` allows it only in the input whose `name` is `search`.
+ * Setting an entry to `false`, `null` or `undefined` disables it, which is how
+ * a shortcut is turned off reactively without rebuilding the config.
+ *
+ * @param config Bindings, as a plain object or a ref — a ref is re-read when
+ *   it changes, so shortcuts can appear and disappear with state. Each value
+ *   is either a handler or a `{ handler, usingInput }` object.
+ * @param options Behaviour of the matcher itself.
+ * @param options.chainDelay How long a chained shortcut waits for its next
+ *   key, in milliseconds. Defaults to `800`.
+ * @param options.layoutIndependent Match on the physical key (`event.code`)
+ *   rather than the character it produces. Makes `meta_k` work on a Cyrillic
+ *   or Dvorak layout, at the cost of matching by position instead of by what
+ *   the user sees printed on the key. Defaults to `false`.
+ *
+ * @example
+ * ```ts
+ * defineShortcuts({
+ *   meta_k: () => open.value = true,
+ *   'g-d': () => navigateTo('/dashboard'),
+ *   escape: { handler: () => close(), usingInput: true }
+ * })
+ * ```
+ *
+ * @see https://bitrix24.github.io/b24ui/docs/composables/define-shortcuts/
+ */
 export function defineShortcuts(config: MaybeRef<ShortcutsConfig>, options: ShortcutsOptions = {}) {
   const chainDelay = options.chainDelay ?? 800
   const chainedInputs = ref<string[]>([])

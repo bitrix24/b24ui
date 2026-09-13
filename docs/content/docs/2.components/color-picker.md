@@ -2,6 +2,10 @@
 title: ColorPicker
 description: A color picker component.
 category: form
+keywords:
+  - colour picker
+  - swatch
+  - hex
 links:
   - label: GitHub
     iconName: GitHubIcon

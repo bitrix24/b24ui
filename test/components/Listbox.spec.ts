@@ -45,7 +45,11 @@ describe('Listbox', () => {
     ['with valueKey', { props: { ...props, valueKey: 'value', defaultValue: 'FR' } }],
     ['with by', { props: { ...props, by: 'value', defaultValue: items[0] } }],
     ['with labelKey', { props: { ...props, labelKey: 'value' } }],
-    ['with descriptionKey', { props: { ...props, descriptionKey: 'description' } }],
+    // Inherited from upstream, not a porting slip: `descriptionKey: 'description'`
+    // sets the prop to the value it already has, on items carrying no such
+    // field — byte-identical to `with items` (#454). Reading the description out
+    // of `label` proves the *key* is what the component looks up.
+    ['with descriptionKey', { props: { ...props, items: itemsWithDescription, descriptionKey: 'label' } }],
     ['with multiple', { props: { ...props, multiple: true } }],
     ['with multiple and modelValue', { props: { ...props, multiple: true, modelValue: [items[0], items[1]] } }],
     ['with id', { props: { ...props, id: 'id' } }],

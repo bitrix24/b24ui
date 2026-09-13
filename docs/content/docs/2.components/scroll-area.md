@@ -2,6 +2,10 @@
 title: ScrollArea
 description: A flexible scrollable viewport component that implements virtualization to handle large datasets with optimal performance.
 category: data
+keywords:
+  - scrollbar
+  - overflow
+  - scrolling
 links:
   - label: GitHub
     iconName: GitHubIcon

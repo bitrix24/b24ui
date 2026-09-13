@@ -2,6 +2,10 @@
 title: DropdownMenu
 description: A contextual menu for actions triggered by clicking an element.
 category: overlay
+keywords:
+  - menu
+  - context menu
+  - actions
 links:
   - label: GitHub
     iconName: GitHubIcon

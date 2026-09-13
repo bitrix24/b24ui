@@ -29,7 +29,12 @@ describe('Empty', () => {
     // Props
     ['with as', { props: { as: 'section' } }],
     ['with icon', { props: { icon: SignIcon } }],
-    ['with avatar', { props: { avatar: { src: 'https://github.com/bitrix24.png' } } }],
+    // No `with avatar` case. Upstream's Empty carries `avatar?: AvatarProps`
+    // and renders it through `UAvatar`; this fork's does not, by a divergence
+    // recorded in the ledger entry for `86cd25c5` — "b24ui's `Empty` diverges
+    // … no `avatar`". The case that used to sit here passed the prop anyway,
+    // so it fell through to the root element and the snapshot pinned
+    // `avatar="[object Object]"` as expected output (#454).
     ['with title', { props: { icon: SignIcon, title: 'Title' } }],
     ['with description', { props: { icon: SignIcon, title: 'Title', description: 'Description' } }],
     ['with actions', { props: { icon: SignIcon, title: 'Title', description: 'Description', actions: [{ icon: Cross30Icon, label: 'Add' }] } }],

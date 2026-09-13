@@ -1,8 +1,6 @@
 /**
  * ColorPicker
  * ---
- * @todo add demo
- * @todo add docs
  */
 
 export default {

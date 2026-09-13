@@ -12,7 +12,7 @@ links:
 
 ## Usage
 
-Use the `defineLocale` utility to create a custom locale with your own translations.
+Use the auto-imported `defineLocale` utility to create a custom locale with your own translations.
 
 ```vue
 <script setup lang="ts">
@@ -58,7 +58,7 @@ Creates a new locale object with the provided options.
       ::field-group
   
         ::field{name="name" type="string" required}
-        The display name of the locale (e.g., `'English'`, `'Français'`).
+        The display name of the locale (e.g. `'English'`, `'Français'`).
         ::
   
         ::field{name="code" type="string" required}
@@ -66,7 +66,7 @@ Creates a new locale object with the provided options.
         ::
   
         ::field{name="locale" type="string" required}
-        The ISO code of the locale (e.g., `'en'`, `'fr'`, `'de-AT'`).
+        The ISO code of the locale (e.g. `'en'`, `'fr'`, `'de-AT'`).
         ::
   
         ::field{name="dir" type="'ltr' | 'rtl'"}

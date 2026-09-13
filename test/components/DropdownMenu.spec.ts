@@ -122,9 +122,17 @@ describe('DropdownMenu', () => {
     ['with items', { props }],
     ['with items with description', { props: { ...props, items: itemsWithDescription } }],
     ['with labelKey', { props: { ...props, labelKey: 'icon' } }],
-    ['with descriptionKey', { props: { ...props, descriptionKey: 'description' } }],
+    // Inherited from upstream, not a porting slip: `descriptionKey: 'description'`
+    // sets the prop to the value it already has, on items carrying no such
+    // field — byte-identical to `with items` (#454). Reading the description out
+    // of `label` proves the *key* is what the component looks up.
+    ['with descriptionKey', { props: { ...props, items: itemsWithDescription, descriptionKey: 'label' } }],
     ['with disabled', { props: { ...props, disabled: true } }],
     ['with arrow', { props: { ...props, arrow: true } }],
+    // The object form takes a different branch of `arrowProps` than the boolean one;
+    // it is here because that branch was the only way `arrow` reached the DOM as
+    // `arrow="[object Object]"`, and nothing exercised it.
+    ['with arrow object', { props: { ...props, arrow: { width: 12, height: 8 } } }],
     ...colors.map((color: string) => [`with color ${color}`, { props: { ...props, color } }]),
     ['with externalIcon', { props: { ...props, externalIcon: SignIcon } }],
     ['without externalIcon', { props: { ...props, externalIcon: false } }],

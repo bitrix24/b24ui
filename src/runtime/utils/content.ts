@@ -3,6 +3,14 @@ import type { IconComponent } from '#b24ui/types'
 
 type MapContentNavigationItemOptions = { labelAttribute?: string, deep?: number }
 
+/**
+ * Turns one `@nuxt/content` navigation entry into the item shape b24ui's
+ * navigation components take, recursing into `children`.
+ *
+ * @param item The content navigation entry.
+ * @param options Depth limits and per-item overrides.
+ * @param currentDepth Recursion depth; callers pass nothing.
+ */
 export function mapContentNavigationItem(item: ContentNavigationItem, options?: MapContentNavigationItemOptions, currentDepth: number = 0) {
   const navMap = {
     [options?.labelAttribute || 'title']: 'label',
@@ -30,6 +38,9 @@ export function mapContentNavigationItem(item: ContentNavigationItem, options?: 
   return link
 }
 
+/**
+ * `mapContentNavigationItem` over a whole tree — what a docs sidebar binds to.
+ */
 export function mapContentNavigation(navigation: ContentNavigationItem[], options?: MapContentNavigationItemOptions) {
   return navigation.map(item => mapContentNavigationItem(item, options))
 }

@@ -256,7 +256,12 @@ const Picker = computed(() => {
   return props.range ? RangeCalendar : SingleCalendar
 }) as unknown as ComputedRef<Record<string, Component>>
 
-const omittedProps = ['type', 'placeholder', 'range', 'modelValue', 'defaultValue', 'color', 'variant', 'size', 'monthControls', 'yearControls', 'viewControl', 'class', 'b24ui']
+// `viewControl` was already here; its four siblings were not, though they are
+// declared the same way — an `Omit<ButtonProps, LinkPropsKeys>` object of button
+// configuration. Without them `reactiveOmit` keeps them, `useForwardProps` passes
+// them on, and Vue renders each as `nextmonth="[object Object]"` on the picker
+// root. Upstream carries the same four in its own snapshots.
+const omittedProps = ['type', 'placeholder', 'range', 'modelValue', 'defaultValue', 'color', 'variant', 'size', 'monthControls', 'yearControls', 'viewControl', 'nextYear', 'nextMonth', 'prevYear', 'prevMonth', 'class', 'b24ui']
 // Only declared by the day `Calendar` / `RangeCalendar` primitives, omitted in other views to avoid fallthrough attributes.
 const dayOnlyProps = ['pagedNavigation', 'weekStartsOn', 'weekdayFormat', 'fixedWeeks', 'numberOfMonths', 'isDateDisabled', 'isDateUnavailable', 'isDateHighlightable', 'disableDaysOutsideCurrentView', 'maximumDays']
 const monthOnlyProps = ['isMonthDisabled', 'isMonthUnavailable']

@@ -39,8 +39,11 @@ export default {
       'ai': { item: 'style-old-ai' }
     },
     variant: {
-      list: {},
+      list: {
+        fieldset: 'flex-wrap'
+      },
       card: {
+        fieldset: 'flex-wrap',
         // @memo style-outline-no-accent
         item: [
           'cursor-pointer',

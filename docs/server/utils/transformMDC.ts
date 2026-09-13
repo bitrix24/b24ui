@@ -1,4 +1,5 @@
 import type { H3Event } from 'h3'
+import { fencedBlock, pipeTable } from './markdown'
 import json5 from 'json5'
 import { camelCase, kebabCase, upperFirst } from 'scule'
 import { visit } from '@nuxt/content/runtime'
@@ -103,6 +104,15 @@ function replaceNodeWithPre(node: any[], language: string, code: string, filenam
   if (filename) node[1].filename = filename
 }
 
+// A paragraph holding ready-made markdown: the stringifier writes a string
+// child as is, so this is how a block it has no handler for gets through.
+function replaceNodeWithMarkdown(node: any[], markdown: string) {
+  node[0] = 'p'
+  node[1] = {}
+  node[2] = markdown
+  node.length = 3
+}
+
 function visitAndReplace(doc: Document, type: string, handler: (node: any[]) => void) {
   visit(doc.body, (node) => {
     if (Array.isArray(node) && node[0] === type) {
@@ -198,13 +208,6 @@ function propItemHandler(propValue: any): string {
   let propType: string = propValue.type
 
   /**
-   * @memo remove depricate props
-   * @see docs/app/components/content/ComponentProps.vue
-   */
-  if (['depth', 'activeDepth'].includes(propName)) {
-    return ''
-  }
-  /**
    * @memo customize color property
    * @todo test all colors
    * @see docs/app/components/content/HighlightInlineType.vue
@@ -242,8 +245,13 @@ function propItemHandler(propValue: any): string {
   const isRequired = propValue.required || false
   const hasDescription = propValue.description && propValue.description.trim().length > 0
   const hasDefault = propValue.default !== undefined
+  // Carried through rather than dropped: this output is what the `/raw/` pages
+  // and `llms.txt` serve, so a consumer reading it needs to know a prop is on
+  // its way out. `depth`/`activeDepth` used to be removed here by name.
+  const deprecated = propValue.tags?.find((tag: any) => tag.name === 'deprecated')
+  const removed = propValue.tags?.find((tag: any) => tag.name === 'removed')?.text?.trim()
   let result = ''
-  if (hasDescription || hasDefault) {
+  if (hasDescription || hasDefault || deprecated) {
     result += `  /**\n`
     if (hasDescription) {
       const descLines = propValue.description.split(/\r?\n/)
@@ -254,6 +262,16 @@ function propItemHandler(propValue: any): string {
     if (hasDefault) {
       const defaultValue = propValue.default
       result += `   * @default ${typeof defaultValue === 'string' ? defaultValue : JSON.stringify(defaultValue)}\n`
+    }
+    if (deprecated) {
+      const deprecatedLines = (deprecated.text ?? '').split(/\r?\n/)
+      result += `   * @deprecated${deprecatedLines[0] ? ` ${deprecatedLines[0]}` : ''}\n`
+      deprecatedLines.slice(1).forEach((line: string) => {
+        result += `   *   ${line.trim()}\n`
+      })
+      if (removed) {
+        result += `   * @removed ${removed}\n`
+      }
     }
     result += `   */\n`
   }
@@ -1182,6 +1200,31 @@ export async function transformMDC(event: H3Event, doc: Document): Promise<Docum
   })
 
   processLinks(doc.body.value, baseUrl)
+
+  // Both passes run *after* `processLinks`, and the order is load-bearing here
+  // in a way it is not upstream. Upstream absolutises links in the stringified
+  // document, so its table pass can run anywhere; ours rewrites `a.href` on the
+  // tree, and `pipeTable` flattens an `a` node into `[text](href)` text. Render
+  // the table first and the hrefs inside its cells are strings by the time
+  // `processLinks` looks for nodes to rewrite — relative, and pointing nowhere
+  // from a raw markdown file served to an agent.
+
+  // minimark has no pipe-table handler and writes every table as HTML, so the
+  // rows are rendered here, each cell reduced to inline markdown.
+  visitAndReplace(doc, 'table', (node) => {
+    replaceNodeWithMarkdown(node, pipeTable(node))
+  })
+
+  // minimark always opens a three-backtick fence, which code holding fences of
+  // its own breaks out of — the typography pages documenting code blocks write
+  // exactly that.
+  visitAndReplace(doc, 'pre', (node) => {
+    const attrs = node[1] || {}
+    const code = String(attrs.code ?? '')
+    if (code.includes('```')) {
+      replaceNodeWithMarkdown(node, fencedBlock(code, attrs.language, attrs.filename, attrs.meta))
+    }
+  })
 
   // Flatten __flatten markers by splicing their children into parents
   if (Array.isArray(doc.body)) {

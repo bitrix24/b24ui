@@ -35,7 +35,7 @@ class: 'p-8'
 ::
 
 ::note
-The bubble and floating layouts use TipTap's [`BubbleMenu`](https://tiptap.dev/docs/editor/extensions/functionality/bubble-menu) and [`FloatingMenu`](https://tiptap.dev/docs/editor/extensions/functionality/floating-menu) extensions.
+The bubble and floating layouts use TipTap's [`BubbleMenu`](https://tiptap.dev/docs/editor/extensions/functionality/bubble-menu) and [`FloatingMenu`](https://tiptap.dev/docs/editor/extensions/functionality/floatingmenu) extensions.
 ::
 
 ### Items

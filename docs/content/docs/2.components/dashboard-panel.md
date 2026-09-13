@@ -36,7 +36,7 @@ It is recommended to set an `id` when using multiple panels in different pages t
 ::
 
 ::warning
-This component does not have a single root element when using the `resizable` prop, so wrap it in a container (e.g., `<div class="flex flex-1">`) if you use page transitions or require a single root for layout.
+This component does not have a single root element when using the `resizable` prop, so wrap it in a container (e.g. `<div class="flex flex-1">`) if you use page transitions or require a single root for layout.
 ::
 
 Use the `header`, `body` and `footer` slots to customize the panel or the default slot if you don't want a scrollable body with padding.
@@ -61,6 +61,28 @@ Most of the time, you will use the [`DashboardNavbar`](/docs/components/dashboar
 ### Resizable
 
 Use the `resizable` prop to make the panel resizable.
+
+::note
+The dragging, the remembered size and the collapse behaviour all come from the `useResizable` composable, which is exported if you need a resizable region of your own:
+
+```ts
+const { el, size, isDragging, isCollapsed, onMouseDown, onTouchStart, onDoubleClick, collapse } = useResizable('my-panel', {
+  side: 'left',
+  unit: '%',
+  defaultSize: 25,
+  minSize: 10,
+  maxSize: 50,
+  collapsible: true,
+  storage: 'local'
+})
+```
+
+Bind `el` to the element being sized and the handlers to your handle. The first argument is the storage key, so give each region its own — two regions sharing a key share a width.
+::
+
+::warning
+Four defaults are worth setting explicitly, because they are not what the prop names suggest. `unit` is `'px'`{lang="ts-type"}, so bare `minSize`/`maxSize` numbers are pixels, not percentages. `defaultSize` is `0`{lang="ts-type"}. `collapsible` is `false`{lang="ts-type"} in the composable, so `collapse()`{lang="ts"} and `isCollapsed` do nothing until you turn it on. And `storage` is `'cookie'`{lang="ts-type"}, which relies on `useCookie` — outside Nuxt that is a stub and nothing persists, so use `'local'`{lang="ts-type"} in a plain Vue app.
+::
 
 ::component-code
 ---

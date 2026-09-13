@@ -2,8 +2,7 @@
  * Prose/P
  * Show p
  * ---
- * @todo: docs
- * @todo: playground
+ * @todo playground
  */
 
 export default {

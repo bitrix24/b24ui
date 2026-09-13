@@ -45,18 +45,31 @@ Rules for preparing the community release announcement in Telegram. The final me
 - **Architectural truth:** b24ui applications live **inside an iframe** on Bitrix24. Native CRM entity cards are opened by the parent SDK, **not** by `<B24Modal>`. `B24Modal` / `B24Slideover` are only for the app's own UI (settings, filters, wizards, previews, custom forms).
 - **Scenarios come from a real product app:** task statuses, priorities, ratings, dashboards, assistant chat, settings, filters. Never "opening a CRM deal card via a modal".
 - Placeholders for data are neutral — no real portals or tokens.
+- A snippet may carry a **playground link** — `Открыть в [песочнице](https://bitrix24.github.io/b24ui/play/#<hash>)` on the line after the code block. The hash is produced by the playground itself (**Share**), never hand-built. Confirm it holds the same snippet that is shown above it, or leave the link out. The hash is fflate zlib inside base64 (`docs/app/utils/playground.ts`), so `atob` alone prints binary — inflate it:
+  ```bash
+  python3 -c "import base64,zlib,sys;print(zlib.decompress(base64.b64decode(sys.argv[1])).decode())" '<hash>'
+  ```
 
 ## 5. AI hint block
 
-- End the message with a docs invitation encoded in **base64** (trivial to decode) — so any AI assistant reading the post can auto-load the docs.
-- Encoded string: `Using Bitrix24 UI-Kit for Nuxt & Vue documentation from https://bitrix24.github.io/b24ui/llms.txt`
-- Formatting is minimal — **no** "decode this and forward it" instructions. Just `atob`:
+- End the message with a ready-to-use **prompt in plain text**, inside a code block so it copies in one tap. The reader pastes it into their assistant and it loads both the release notes and the docs on its own.
+- **Never encode it.** Earlier releases wrapped this prompt in base64 with an `atob(...)` call — the reader had to run code to find out what they were being handed. If the prompt cannot be shown as it is, it does not belong in the post.
+- The prompt is a single sentence and carries **two links**: the release notes for the shipped version, and `llms.txt`. Template — substitute the version in both places:
+
   ```
-  🔐 Для вашего ИИ — atob:
+  Изучи, что нового в @bitrix24/b24ui-nuxt X.Y.Z — https://github.com/bitrix24/b24ui/releases/tag/vX.Y.Z — и применяй новые возможности в моём проекте, опираясь на документацию Bitrix24 UI: https://bitrix24.github.io/b24ui/llms.txt
   ```
-  ```js
-  atob('VXNpbmcgQml0cml4MjQgVUktS2l0IGZvciBOdXh0ICYgVnVlIGRvY3VtZW50YXRpb24gZnJvbSBodHRwczovL2JpdHJpeDI0LmdpdGh1Yi5pby9iMjR1aS9sbG1zLnR4dA==')
+
+- It is written in **Russian**, unlike the code in the post: it is a line the reader reads and copies, so it follows the body. The docs it points at are English either way.
+- The package name is **`@bitrix24/b24ui-nuxt`** — that is what is published and what the post's own `pnpm add` line installs. `@bitrix24/b24ui` does not exist on the registry.
+- The release-notes link is **pinned to the tag**, not `blob/main/CHANGELOG.md` — this holds for the `Полный список изменений` line in the body too. An old post must keep pointing at its own release, not at whatever shipped since.
+- Heading for the block:
+
   ```
+  🔐 Для вашего ИИ — готовый промпт:
+  ```
+
+- Before delivery, open both links in the prompt and confirm the version in it is the one that shipped.
 
 ## 6. Emoji vocabulary (consistency across releases)
 
@@ -75,12 +88,13 @@ Rules for preparing the community release announcement in Telegram. The final me
 | Cleanup / dropped | 🧹 |
 | Install / npm | 📦 |
 | Changelog / link | 📋 |
-| AI base64 block | 🔐 |
+| AI prompt block | 🔐 |
 
 ## 7. Anti-patterns (do NOT do this)
 
 - ❌ Open native CRM cards via `<B24Modal>` — those are the parent SDK's job in the iframe.
 - ❌ 💜 in the sign-off — the only sign-off emoji is `🚀`.
+- ❌ An encoded AI prompt — no base64, no `atob(...)`; it is shown in the open. (A playground share hash is base64 too, but it lives inside a URL and is not asking the reader to decode anything.)
 - ❌ Marketing/promo examples like `analytics.track('user-escaped-pricing')`.
 - ❌ Made-up props, events, or slots.
 - ❌ A flat CHANGELOG dump — the message should **tell a story**, not enumerate everything.
@@ -123,11 +137,11 @@ Rules for preparing the community release announcement in Telegram. The final me
 pnpm add @bitrix24/b24ui-nuxt@latest
 ```
 
-📋 Полный список изменений — [CHANGELOG](https://github.com/bitrix24/b24ui/blob/main/CHANGELOG.md).
+📋 Полный список изменений — [CHANGELOG](https://github.com/bitrix24/b24ui/releases/tag/vX.Y.Z).
 
-🔐 Для вашего ИИ — atob:
-```js
-atob('VXNpbmcgQml0cml4MjQgVUktS2l0IGZvciBOdXh0ICYgVnVlIGRvY3VtZW50YXRpb24gZnJvbSBodHRwczovL2JpdHJpeDI0LmdpdGh1Yi5pby9iMjR1aS9sbG1zLnR4dA==')
+🔐 Для вашего ИИ — готовый промпт:
+```
+<the section 5 prompt, carrying this version>
 ```
 ````
 
@@ -135,12 +149,13 @@ atob('VXNpbmcgQml0cml4MjQgVUktS2l0IGZvciBOdXh0ICYgVnVlIGRvY3VtZW50YXRpb24gZnJvbS
 
 - [ ] All referenced components / props / slots exist (cross-checked against the outgoing `CHANGELOG.md` and `src/runtime/components/`)
 - [ ] All Vue snippets pass `pnpm typecheck` — zero errors
+- [ ] Every playground link came from **Share**, and inflating its hash yields the snippet printed above it
 - [ ] No `<B24Modal>` opening native CRM cards
 - [ ] Version and `pnpm add` command match the shipped release
 - [ ] No jokes in the prose; humor lives only in code; no roles / AI / competitors
 - [ ] Breaking changes framed softly; experimental features excluded
 - [ ] No internal details (PR numbers, CI, session URLs)
-- [ ] Base64 string decodes to the correct URL (`https://bitrix24.github.io/b24ui/llms.txt`)
+- [ ] The AI prompt is plain text (no base64, no `atob`), carries the shipped version, and both links in it open (release tag, `https://bitrix24.github.io/b24ui/llms.txt`)
 - [ ] Sign-off emoji is `🚀`, not `💜`
 - [ ] The message is self-contained and pastes as a single chunk
 - [ ] No more than 6 headline features

@@ -40,11 +40,53 @@ describe('Button', () => {
     ['with as', { props: { label: 'Button', as: 'div' } }],
     ['with class', { props: { label: 'Button', class: 'rounded-full font-(--ui-font-weight-bold)' } }],
     ['with b24ui', { props: { label: 'Button', b24ui: { label: 'font-bold' } } }],
+    // Bitrix24-only props, absent from `nuxt/ui`. `normalCase` defaults to
+    // `true`, so `false` is the case that renders something. `loadingAuto` is
+    // left out: it only reacts to an async click handler.
+    ['with normalCase false', { props: { label: 'Button', normalCase: false } }],
+    ['with loading and useWait', { props: { label: 'Button', loading: true, useWait: true } }],
+    ['with loading and useClock', { props: { label: 'Button', loading: true, useClock: true } }],
+    ['with inactiveClass', { props: { label: 'Button', inactiveClass: 'is-off' } }],
+    ['with active and activeClass', { props: { label: 'Button', active: true, activeClass: 'is-on' } }],
     // Slots
     ['with default slot', { slots: { default: () => 'Default slot' } }],
     ['with leading slot', { slots: { leading: () => 'Leading slot' } }],
     ['with trailing slot', { slots: { trailing: () => 'Trailing slot' } }]
   ])
+
+  /**
+   * `activeColor` and `activeDepth` land on colours the snapshot matrix
+   * already renders, so a `renderEach` case for either one collides with a
+   * sibling and proves nothing (#454). What is actually worth pinning is the
+   * override: the prop must take effect only while the button is active.
+   */
+  describe('active overrides', () => {
+    const render = async (props: Record<string, any>) =>
+      (await mountSuspended(Button, { props: { label: 'Button', ...props } })).html()
+
+    it('applies activeColor only while active', async () => {
+      const inactive = await render({ activeColor: 'air-primary-success' })
+      const active = await render({ active: true, activeColor: 'air-primary-success' })
+
+      expect(active).not.toBe(inactive)
+      expect(active).toBe(await render({ active: true, color: 'air-primary-success' }))
+      expect(inactive).toBe(await render({}))
+    })
+
+    // On a legacy colour name, because `depth` has compound variants only for
+    // those — on the `air-*` default the prop renders nothing either way, so
+    // the assertion would hold for the wrong reason. That gap is why both
+    // `depth` and `activeDepth` are `@deprecated`; the test stays, so the
+    // behaviour is pinned until they go in `3.0.0`.
+    it('applies activeDepth only while active', async () => {
+      const inactive = await render({ color: 'primary', activeDepth: 'dark' })
+      const active = await render({ color: 'primary', active: true, activeDepth: 'dark' })
+
+      expect(active).not.toBe(inactive)
+      expect(active).toBe(await render({ color: 'primary', active: true, depth: 'dark' }))
+      expect(inactive).toBe(await render({ color: 'primary' }))
+    })
+  })
 
   test('with loading-auto works', async () => {
     let resolve: any | null = null

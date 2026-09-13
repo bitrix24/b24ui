@@ -22,6 +22,9 @@ describe('User', () => {
     ['with to', { props: { ...props, to: 'https://github.com/bitrix24' } }],
     ['with avatar', { props }],
     ['with chip', { props: { ...props, chip: { color: 'air-primary-success' } } }],
+    ['with color', { props: { ...props, color: 'air-primary' } }],
+    ['with color overridden by avatar color', { props: { ...props, color: 'air-primary', avatar: { ...props.avatar, color: 'air-primary-success' } } }],
+    ['with color and chip', { props: { ...props, color: 'air-primary', chip: true } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { ...props, size } }]),
     ...orientations.map((orientation: string) => [`with orientation ${orientation}`, { props: { ...props, orientation } }]),
     ['with as', { props: { ...props, as: 'section' } }],
@@ -33,6 +36,30 @@ describe('User', () => {
     ['with description slot', { props, slots: { description: () => 'Description slot' } }],
     ['with default slot', { props, slots: { default: () => 'Default slot' } }]
   ])
+
+  // `v-bind="props.avatar"` overwrites with present-but-undefined keys, so binding
+  // the cascade ahead of it drops the default for `:avatar="{ src, color: maybe }"`.
+  // Snapshots cannot witness this: a surviving cascade renders exactly what the
+  // plain `with color` case renders.
+  it.each([
+    ['standalone branch', false],
+    ['chip branch', true]
+  ])('keeps the color cascade when avatar.color is undefined — %s', async (_name, chip) => {
+    const wrapper = await mountSuspended(User, {
+      props: {
+        ...props,
+        chip,
+        color: 'air-primary',
+        avatar: { ...props.avatar, color: undefined }
+      }
+    })
+
+    // B24Avatar stamps its own `data-slot="root"` over the one User passes, so the
+    // avatar is addressed through the element wrapping its `img`.
+    const avatar = wrapper.get('img').element.parentElement
+
+    expect(avatar?.classList.contains('style-filled')).toBe(true)
+  })
 
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(User, {

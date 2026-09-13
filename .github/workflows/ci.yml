@@ -114,8 +114,37 @@ jobs:
       - name: Typecheck
         run: pnpm run typecheck
 
-      - name: Test
-        run: pnpm run test run
+      # `typecheck` runs `vue-tsc --noEmit`; this runs the real declaration emit,
+      # which is a different thing and fails on its own (TS2883 on the runtime
+      # plugins, from #500's lockfile reshuffle, went unnoticed for three days
+      # because nothing here built the module).
+      - name: Build the module
+        run: pnpm run build
 
+      # Coverage rather than a plain `vitest run`: it is the same suite with the
+      # same assertions, plus a gate that goes red when coverage falls below
+      # the thresholds in `vitest.config.ts`. Instrumenting every worker costs
+      # about 100s on a 240s suite, which is why it is one run here and not a
+      # second job — and why it stays off for local runs unless asked for.
+      - name: Test
+        run: pnpm run test:coverage
+
+      - name: Upload the coverage report
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: coverage
+          path: coverage/
+          retention-days: 14
+
+      # A separate invocation, not a third project in the run above. These
+      # specs boot Nuxt with `loadNuxt`, and the component suite already sits
+      # close to the fork heap limit — see the note in vitest.module.config.ts.
+      - name: Test the module
+        run: pnpm test:module
+
+      # Everything in this job tests source: `Test` mounts components out of
+      # `src/` and `Build` only proves the bundler is happy. Nothing here starts
+      # an application — that is smoke.yml, on a schedule (#329).
       - name: Build
         run: pnpm build

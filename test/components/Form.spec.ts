@@ -36,6 +36,37 @@ describe('Form', () => {
     expect(await axe(wrapper.element)).toHaveNoViolations()
   })
 
+  // #50 asked for the labelled `role="group"` sub-section to be added to the
+  // fixture and expected the axe assertion above to cover it. Measured before
+  // trusting: it does not. Pointing `aria-labelledby` at an id that exists
+  // nowhere leaves the run green — axe's `aria-valid-attr-value` does not fire
+  // on a dangling reference here, so the fixture on its own guards nothing.
+  //
+  // The linkage is the whole point of the pattern (`FormExampleEditSection.vue`
+  // builds it by hand, since b24ui has no `fieldset` primitive), so it is
+  // asserted from both ends: the group names an id, and that id belongs to the
+  // heading a screen reader will read out.
+  it('resolves the labelled group to its heading', async () => {
+    const wrapper = await renderForm({
+      fixture: 'FormA11y'
+    })
+
+    // `findAll` rather than `find`: `find` returns the first match, so a second
+    // `role="group"` arriving in the fixture later would silently move this
+    // assertion onto it instead of failing.
+    const groups = wrapper.findAll('[role=group]')
+    expect(groups).toHaveLength(1)
+
+    const labelledby = groups[0]!.attributes('aria-labelledby')
+    expect(labelledby).toBeTruthy()
+
+    // Asserted before `.text()` so a dangling reference reads as "nothing has
+    // this id" rather than as `Cannot call text on an empty DOMWrapper`.
+    const heading = wrapper.find(`[id="${labelledby}"]`)
+    expect(heading.exists(), `nothing in the form has id="${labelledby}"`).toBe(true)
+    expect(heading.text()).toBe('Client')
+  })
+
   renderEach(
     B24Form,
     [
@@ -568,6 +599,28 @@ describe('Form', () => {
       expect(form.errors).toMatchObject([
         { id: 'email', name: 'email' },
         { id: 'password', name: 'password' }
+      ])
+    })
+
+    // `clear` reached a matching nested form and called `form.api.clear()` with
+    // no argument, which clears it whole — so clearing one field wiped every
+    // error in that nested form. `setErrors` one function above already passed
+    // `getNestedTarget`; `clear` was the outlier.
+    //
+    // Its own fixture because `FormNested` has a single nested field, and one
+    // field cannot show the difference between "clear this one" and "clear them
+    // all".
+    it('clear with a nested path keeps the other errors of the same nested form', async () => {
+      const nestedWrapper: any = await renderForm({ fixture: 'FormNestedFields' })
+      const nestedForm = nestedWrapper.setupState.form.value
+      await nestedForm.submit()
+      expect(nestedForm.errors).toMatchObject([
+        { id: 'first', name: 'nested.first' },
+        { id: 'second', name: 'nested.second' }
+      ])
+      nestedForm.clear('nested.first')
+      expect(nestedForm.errors).toMatchObject([
+        { id: 'second', name: 'nested.second' }
       ])
     })
   })

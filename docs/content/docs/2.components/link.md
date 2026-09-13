@@ -1,7 +1,11 @@
 ---
 title: Link
-description: A wrapper around <NuxtLink> with extra props.
+description: A wrapper around NuxtLink with extra props.
 category: navigation
+keywords:
+  - anchor
+  - href
+  - navigation
 links:
   - label: GitHub
     iconName: GitHubIcon

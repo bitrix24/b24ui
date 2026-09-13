@@ -96,7 +96,11 @@ describe('NavigationMenu', () => {
     ['with defaultValue', { props: { ...props, defaultValue: 'item-0' } }],
     ['with valueKey', { props: { ...props, valueKey: 'label', defaultValue: 'Documentation' } }],
     ['with labelKey', { props: { ...props, labelKey: 'icon' } }],
-    ['with arrow', { props: { ...props, arrow: true, modelValue: 'item-0' } }],
+    // No `with arrow` here on purpose. Upstream has one, and an `arrow` prop
+    // rendering a NavigationMenuIndicator; we dropped the prop and kept the case,
+    // which left it passing an undeclared prop that Vue put on `<nav>` as
+    // `arrow="true"`. Without it the case was byte-identical to `with modelValue`.
+    // If the indicator is ever ported, the case comes back with it.
     ['with orientation vertical', { props: { ...props, orientation: 'vertical', modelValue: 'item-0' } }],
     ['with orientation vertical and collapsed', { props: { ...props, orientation: 'vertical', modelValue: 'item-0', collapsed: true } }],
     ['with content orientation vertical', { props: { ...props, contentOrientation: 'vertical', modelValue: 'item-0' } }],
@@ -115,8 +119,52 @@ describe('NavigationMenu', () => {
     ['with item-leading slot', { props, slots: { 'item-leading': () => 'Item leading slot' } }],
     ['with item-label slot', { props, slots: { 'item-label': () => 'Item label slot' } }],
     ['with item-trailing slot', { props, slots: { 'item-trailing': () => 'Item trailing slot' } }],
-    ['with custom slot', { props, slots: { custom: () => 'Custom slot' } }]
+    // The dynamic slot fires for an item carrying `slot: 'custom'`, and no
+    // fixture here had one — this was the only item-based spec with no `slot:`
+    // key at all, so the case was byte-identical to four siblings (#454).
+    // Upstream's spec has the same gap.
+    ['with custom slot', {
+      props: { ...props, items: [[{ label: 'Custom', slot: 'custom' as const }]] },
+      slots: { custom: () => 'Custom slot' }
+    }]
   ])
+
+  // A vertical item with children but no `to` renders its whole link as the
+  // AccordionTrigger, so making the trailing span a trigger too produced a
+  // second element carrying the same `id` — invalid HTML, and it is the `id`
+  // the content's `aria-labelledby` points at, so a screen reader following the
+  // reference lands on whichever the browser resolves first.
+  it('renders a single accordion trigger for a vertical item without `to`', async () => {
+    const wrapper = await mountSuspended(NavigationMenu, {
+      props: {
+        orientation: 'vertical',
+        items: [{ label: 'Group', children: [{ label: 'Child', to: '/child' }] }]
+      }
+    })
+
+    const link = wrapper.find('[data-slot="link"]')
+    expect(wrapper.findAll(`[id="${link.attributes('id')}"]`)).toHaveLength(1)
+
+    await wrapper.find('[data-slot="linkTrailing"]').trigger('click')
+    expect(wrapper.find('[data-slot="link"]').attributes('data-state')).toBe('open')
+  })
+
+  // The other side of the same gate, and the reason it is a gate rather than a
+  // removal: with `to` the link is a real anchor and navigates, so the trailing
+  // span has to stay the trigger or the group can never be opened.
+  it('keeps the trailing accordion trigger for a vertical item with `to`', async () => {
+    const wrapper = await mountSuspended(NavigationMenu, {
+      props: {
+        orientation: 'vertical',
+        items: [{ label: 'Group', to: '/group', children: [{ label: 'Child', to: '/child' }] }]
+      }
+    })
+
+    expect(wrapper.find('[data-slot="link"]').element.tagName).toBe('A')
+
+    await wrapper.find('[data-slot="linkTrailing"]').trigger('click')
+    expect(wrapper.find('[data-slot="content"]').attributes('data-state')).toBe('open')
+  })
 
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(NavigationMenu, {

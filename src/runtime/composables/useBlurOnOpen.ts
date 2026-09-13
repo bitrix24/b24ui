@@ -68,6 +68,19 @@ function activeElement(): HTMLElement | null {
   return active && active !== document.body ? active : null
 }
 
+/**
+ * Wraps a component's `emit` so the focused element is blurred while an
+ * overlay is open, and given its focus back when it closes.
+ *
+ * Works around a Chromium behaviour where a focused control under a modal
+ * keeps receiving keystrokes. The blurred element is remembered per instance,
+ * not globally — two overlays open at once must not share one slot, or the
+ * second to close hands focus to the wrong place.
+ *
+ * @param open The overlay's open state.
+ * @param emits The component's `emit`, returned wrapped.
+ * @returns The same `emit`, with the blur and restore attached.
+ */
 export function useBlurOnOpen<E extends (event: any, ...args: any[]) => any>(
   open: MaybeRefOrGetter<boolean | undefined>,
   emits: E

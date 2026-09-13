@@ -32,6 +32,13 @@ describe('Modal', () => {
     ['with title slot', { props, slots: { title: () => 'Title slot' } }],
     ['with description slot', { props, slots: { description: () => 'Description slot' } }],
     ['with actions slot', { props, slots: { actions: () => 'Actions slot' } }],
+    // The header is what holds the `actions` slot, and every other reason to
+    // render it is off here. It used to be missing from that `v-if`, so an
+    // `actions` slot on its own rendered nothing — the case above did not show
+    // it, because `close` defaults to `true` and kept the header alive.
+    // `Slideover` had the same hole and was reached by its default fixture:
+    // with `side: 'bottom'` its close button is external, so no header.
+    ['with actions slot and without close', { props: { ...props, close: false }, slots: { actions: () => 'Actions slot' } }],
     ['with close slot', { props, slots: { close: () => 'Close slot' } }],
     ['with body slot', { props, slots: { body: () => 'Body slot' } }],
     ['with footer slot', { props, slots: { footer: () => 'Footer slot' } }]

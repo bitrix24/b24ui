@@ -4,6 +4,11 @@ import { useState } from '#imports'
 import type { ToastEmits, ToastProps } from '../components/Toast.vue'
 import type { EmitsToProps } from '../types/utils'
 
+/**
+ * How many toasts `Toaster` keeps on screen at once, provided by `Toaster`
+ * itself and read by `useToast`. Older toasts fall off the end; `0` clears
+ * them all.
+ */
 export const toastMaxInjectionKey: InjectionKey<Ref<number | undefined>> = Symbol('bitrix24-ui.toast-max')
 
 export interface Toast extends Omit<ToastProps, 'defaultOpen'>, EmitsToProps<ToastEmits> {
@@ -15,6 +20,34 @@ export interface Toast extends Omit<ToastProps, 'defaultOpen'>, EmitsToProps<Toa
   _updated?: boolean
 }
 
+/**
+ * The queue behind `Toaster`. Every call returns the same shared list, so a
+ * toast raised from a composable, a store or a route handler reaches whichever
+ * `Toaster` is mounted.
+ *
+ * Toasts are queued rather than pushed straight in: duplicates are merged at
+ * display time, by `id`, no matter which `useToast()` instance queued them.
+ * Pass an explicit `id` to make a repeated notification collapse into one
+ * instead of stacking.
+ *
+ * Requires a `<B24Toaster />` in the tree — without one the toasts accumulate
+ * and nothing renders them.
+ *
+ * @returns The live `toasts` list plus `add`, `update`, `remove` and `clear`.
+ *   `add` returns the toast it created, whose `id` is what `update` and
+ *   `remove` take.
+ *
+ * @example
+ * ```ts
+ * const toast = useToast()
+ *
+ * const { id } = toast.add({ title: 'Saving…', color: 'air-primary' })
+ * await save()
+ * toast.update(id, { title: 'Saved', color: 'air-primary-success' })
+ * ```
+ *
+ * @see https://bitrix24.github.io/b24ui/docs/composables/use-toast/
+ */
 export function useToast() {
   const toasts = useState<Toast[]>('toasts', () => [])
   const max = inject(toastMaxInjectionKey, undefined)

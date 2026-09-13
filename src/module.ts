@@ -136,28 +136,6 @@ export default defineNuxtModule<ModuleOptions>({
       '@bitrix24/b24icons-nuxt': {
         defaults: {}
       },
-      // '@nuxt/icon': {
-      //   defaults: {
-      //     cssLayer: 'base'
-      //   }
-      // },
-      // ...userUiOptions.fonts !== false && {
-      //   '@nuxt/fonts': {
-      //     defaults: {
-      //       defaults: {
-      //         weights: [400, 500, 600, 700]
-      //       }
-      //     }
-      //   }
-      // },
-      // ...userUiOptions.colorMode !== false && {
-      //   '@nuxtjs/color-mode': {
-      //     defaults: {
-      //       classSuffix: '',
-      //       disableTransition: true
-      //     }
-      //   }
-      // },
       '@nuxtjs/mdc': {
         optional: !userUiOptions.mdc,
         defaults: {

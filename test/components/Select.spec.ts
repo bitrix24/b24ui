@@ -50,7 +50,11 @@ describe('Select', () => {
     ['with defaultValue', { props: { ...props, defaultValue: items[0]?.value } }],
     ['with valueKey', { props: { ...props, valueKey: 'label', defaultValue: 'Backlog' } }],
     ['with labelKey', { props: { ...props, labelKey: 'value' } }],
-    ['with descriptionKey', { props: { ...props, descriptionKey: 'description' } }],
+    // Inherited from upstream, not a porting slip: `descriptionKey: 'description'`
+    // sets the prop to the value it already has, on items carrying no such
+    // field — byte-identical to `with items` (#454). Reading the description out
+    // of `label` proves the *key* is what the component looks up.
+    ['with descriptionKey', { props: { ...props, items: itemsWithDescription, descriptionKey: 'label' } }],
     ['with multiple', { props: { ...props, multiple: true } }],
     ['with multiple and modelValue', { props: { ...props, multiple: true, modelValue: [items[0], items[1]] } }],
     ['with id', { props: { ...props, id: 'id' } }],
@@ -79,6 +83,15 @@ describe('Select', () => {
     ['with ariaLabel', { props, attrs: { 'aria-label': 'Aria label' } }],
     ['with class', { props: { ...props, class: 'rounded-full' } }],
     ['with b24ui', { props: { ...props, b24ui: { group: 'p-2' } } }],
+    // Bitrix24-only props, absent from `nuxt/ui`. `content` and `autofocus*`
+    // are left out: the first only applies to the open popover, the second two
+    // move focus without changing markup.
+    ['with noPadding', { props: { ...props, noPadding: true } }],
+    ['with noBorder', { props: { ...props, noBorder: true } }],
+    ['with underline', { props: { ...props, underline: true } }],
+    ['with rounded', { props: { ...props, rounded: true } }],
+    ['with tag', { props: { ...props, tag: 'Tag' } }],
+    ['with tag and tagColor', { props: { ...props, tag: 'Tag', tagColor: 'air-primary-success' } }],
     // Slots
     ['with leading slot', { props, slots: { leading: () => 'Leading slot' } }],
     ['with trailing slot', { props, slots: { trailing: () => 'Trailing slot' } }],
@@ -138,7 +151,65 @@ describe('Select', () => {
       }
     })
 
-    expect(await axe(wrapper.element)).toHaveNoViolations()
+    expect(await axe(wrapper.element, {
+      rules: {
+        // reka-ui's `hideOthers` puts the trigger inside an `aria-hidden`
+        // region while the popup is open and leaves it focusable, which is
+        // what this rule catches.
+        //
+        // Measured on both configurations, reading the DOM rather than axe:
+        // with `portal: false` the attribute lands on the trigger itself; with
+        // the production default `portal: true` it lands on the `[data-v-app]`
+        // ancestor instead, with the trigger still focusable inside it. So the
+        // arrangement is the same either way — the rule stops firing only
+        // because `axe(wrapper.element)` cannot see an ancestor above its own
+        // root. Disabling it here does not mean the condition is absent, and
+        // whether it is a real defect for screen-reader users or the ordinary
+        // price of a focus-trapped popup is an open question. Raised with the
+        // maintainer and deliberately left there: no issue, no upstream
+        // report. Reopen it on evidence, not on re-reading this comment.
+        //
+        // Auditing `document.body` instead is not the answer: it then trips on
+        // reka-ui's own `data-reka-focus-guard` spans, which carry
+        // `tabindex="0"` next to `aria-hidden="true"` by design.
+        'aria-hidden-focus': { enabled: false }
+      }
+    })).toHaveNoViolations()
+  })
+
+  describe('fixed', () => {
+    // The prop's whole effect is a class that is *absent*, which is why it needs
+    // an assertion rather than a snapshot case: a snapshot of `fixed: true`
+    // would pin the classes without stating what the prop is for, and would go
+    // on passing if the responsive rule stopped applying to Select entirely.
+    //
+    // The mechanism sits in `theme/input.ts`, which `theme/select.ts` extends:
+    // compound variants pair `fixed: false` with each size to add a `md:text-…`
+    // override, so the base class is the mobile size and the `md:` one takes
+    // over above the breakpoint. Setting `fixed` drops the override and the
+    // mobile size holds everywhere — which is the point, since a text input
+    // below 16px makes iOS Safari zoom on focus.
+    const baseClass = async (props_: Record<string, unknown>) => {
+      const wrapper = await mountSuspended(Select, { props: { ...props, ...props_ } })
+      return wrapper.find('[data-slot="base"]').attributes('class') ?? ''
+    }
+
+    it('applies the responsive override by default', async () => {
+      expect(await baseClass({})).toMatch(/\bmd:text-\(length:/)
+    })
+
+    it('drops the responsive override when fixed', async () => {
+      expect(await baseClass({ fixed: true })).not.toMatch(/\bmd:text-\(length:/)
+    })
+
+    it('keeps the mobile size itself either way', async () => {
+      // Guards the obvious wrong fix: dropping the *base* size instead of the
+      // override would also satisfy the assertion above, and would leave the
+      // control with no size at all.
+      for (const props_ of [{}, { fixed: true }]) {
+        expect(await baseClass(props_)).toMatch(/(?<!md:)\btext-\(length:/)
+      }
+    })
   })
 
   describe('it should display correct label', () => {

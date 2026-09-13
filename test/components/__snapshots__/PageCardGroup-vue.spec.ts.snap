@@ -1,0 +1,1096 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PageCardGroup > renders with b24ui correctly 1`] = `
+"<div id="v-0" role="radiogroup" data-slot="root" class="flex flex-col gap-8">
+  <fieldset data-slot="fieldset" class="flex flex-col gap-8 border-0 p-0 m-0 min-w-0">
+    <!--v-if-->
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group A</div>
+      <div data-slot="grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="a">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">First</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">One</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="b">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Second</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Two</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group B</div>
+      <div data-slot="grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="c">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Third</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Three</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+  </fieldset>
+</div>"
+`;
+
+exports[`PageCardGroup > renders with badge slot correctly 1`] = `
+"<div id="v-0" role="radiogroup" data-slot="root" class="flex flex-col gap-8">
+  <fieldset data-slot="fieldset" class="flex flex-col gap-8 border-0 p-0 m-0 min-w-0">
+    <!--v-if-->
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group A</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" checked="" class="sr-only" value="a">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) ring-2 ring-(--ui-color-design-filled-success-stroke) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">First</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">One</div>
+                </div>
+                <!--v-if-->
+              </div><span data-slot="badge" class="absolute -top-2 -end-2 z-10">Badge slot</span>
+            </div>
+            <!--v-if-->
+          </div>
+        </label><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="b">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Second</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Two</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group B</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="c">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Third</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Three</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+  </fieldset>
+</div>"
+`;
+
+exports[`PageCardGroup > renders with categoryLabel slot correctly 1`] = `
+"<div id="v-0" role="radiogroup" data-slot="root" class="flex flex-col gap-8">
+  <fieldset data-slot="fieldset" class="flex flex-col gap-8 border-0 p-0 m-0 min-w-0">
+    <!--v-if-->
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Category slot</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="a">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">First</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">One</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="b">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Second</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Two</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Category slot</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="c">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Third</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Three</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+  </fieldset>
+</div>"
+`;
+
+exports[`PageCardGroup > renders with class correctly 1`] = `
+"<div id="v-0" role="radiogroup" data-slot="root" class="flex flex-col gap-8 w-96">
+  <fieldset data-slot="fieldset" class="flex flex-col gap-8 border-0 p-0 m-0 min-w-0">
+    <!--v-if-->
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group A</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="a">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">First</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">One</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="b">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Second</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Two</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group B</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="c">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Third</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Three</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+  </fieldset>
+</div>"
+`;
+
+exports[`PageCardGroup > renders with columns 1 correctly 1`] = `
+"<div id="v-0" role="radiogroup" data-slot="root" class="flex flex-col gap-8">
+  <fieldset data-slot="fieldset" class="flex flex-col gap-8 border-0 p-0 m-0 min-w-0">
+    <!--v-if-->
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group A</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="a">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">First</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">One</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="b">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Second</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Two</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group B</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="c">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Third</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Three</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+  </fieldset>
+</div>"
+`;
+
+exports[`PageCardGroup > renders with columns 2 correctly 1`] = `
+"<div id="v-0" role="radiogroup" data-slot="root" class="flex flex-col gap-8">
+  <fieldset data-slot="fieldset" class="flex flex-col gap-8 border-0 p-0 m-0 min-w-0">
+    <!--v-if-->
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group A</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="a">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">First</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">One</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="b">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Second</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Two</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group B</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="c">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Third</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Three</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+  </fieldset>
+</div>"
+`;
+
+exports[`PageCardGroup > renders with columns 4 correctly 1`] = `
+"<div id="v-0" role="radiogroup" data-slot="root" class="flex flex-col gap-8">
+  <fieldset data-slot="fieldset" class="flex flex-col gap-8 border-0 p-0 m-0 min-w-0">
+    <!--v-if-->
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group A</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="a">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">First</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">One</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="b">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Second</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Two</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group B</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="c">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Third</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Three</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+  </fieldset>
+</div>"
+`;
+
+exports[`PageCardGroup > renders with disabled correctly 1`] = `
+"<div id="v-0" role="radiogroup" aria-disabled="true" data-slot="root" class="flex flex-col gap-8 opacity-30 pointer-events-none">
+  <fieldset data-slot="fieldset" class="flex flex-col gap-8 border-0 p-0 m-0 min-w-0" disabled="">
+    <!--v-if-->
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group A</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"><label data-slot="item" data-disabled="true" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" disabled="" class="sr-only" value="a">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">First</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">One</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label><label data-slot="item" data-disabled="true" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" disabled="" class="sr-only" value="b">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Second</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Two</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group B</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"><label data-slot="item" data-disabled="true" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" disabled="" class="sr-only" value="c">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Third</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Three</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+  </fieldset>
+</div>"
+`;
+
+exports[`PageCardGroup > renders with items correctly 1`] = `
+"<div id="v-0" role="radiogroup" data-slot="root" class="flex flex-col gap-8">
+  <fieldset data-slot="fieldset" class="flex flex-col gap-8 border-0 p-0 m-0 min-w-0">
+    <!--v-if-->
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group A</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="a">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">First</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">One</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="b">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Second</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Two</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group B</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="c">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Third</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Three</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+  </fieldset>
+</div>"
+`;
+
+exports[`PageCardGroup > renders with leading slot correctly 1`] = `
+"<div id="v-0" role="radiogroup" data-slot="root" class="flex flex-col gap-8">
+  <fieldset data-slot="fieldset" class="flex flex-col gap-8 border-0 p-0 m-0 min-w-0">
+    <!--v-if-->
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group A</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="a">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <div data-slot="leading" class="inline-flex items-center mb-0 shrink-0">Leading slot</div>
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">First</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">One</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="b">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <div data-slot="leading" class="inline-flex items-center mb-0 shrink-0">Leading slot</div>
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Second</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Two</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group B</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="c">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <div data-slot="leading" class="inline-flex items-center mb-0 shrink-0">Leading slot</div>
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Third</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Three</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+  </fieldset>
+</div>"
+`;
+
+exports[`PageCardGroup > renders with legend correctly 1`] = `
+"<div id="v-0" role="radiogroup" data-slot="root" class="flex flex-col gap-8">
+  <fieldset data-slot="fieldset" class="flex flex-col gap-8 border-0 p-0 m-0 min-w-0">
+    <legend data-slot="legend" class="text-(length:--ui-font-size-2xl)/[normal] font-(--ui-font-weight-semi-bold) mb-2">Pick one</legend>
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group A</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="a">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">First</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">One</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="b">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Second</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Two</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group B</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="c">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Third</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Three</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+  </fieldset>
+</div>"
+`;
+
+exports[`PageCardGroup > renders with legend slot correctly 1`] = `
+"<div id="v-0" role="radiogroup" data-slot="root" class="flex flex-col gap-8">
+  <fieldset data-slot="fieldset" class="flex flex-col gap-8 border-0 p-0 m-0 min-w-0">
+    <legend data-slot="legend" class="text-(length:--ui-font-size-2xl)/[normal] font-(--ui-font-weight-semi-bold) mb-2">Legend slot</legend>
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group A</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="a">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">First</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">One</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="b">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Second</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Two</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group B</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="c">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Third</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Three</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+  </fieldset>
+</div>"
+`;
+
+exports[`PageCardGroup > renders with modelValue correctly 1`] = `
+"<div id="v-0" role="radiogroup" data-slot="root" class="flex flex-col gap-8">
+  <fieldset data-slot="fieldset" class="flex flex-col gap-8 border-0 p-0 m-0 min-w-0">
+    <!--v-if-->
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group A</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="a">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">First</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">One</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" checked="" class="sr-only" value="b">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) ring-2 ring-(--ui-color-design-filled-success-stroke) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Second</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Two</div>
+                </div>
+                <!--v-if-->
+              </div><span data-slot="badge" class="absolute -top-2 -end-2 z-10"><span data-slot="base" class="ui-label__scope --air select-none font-[family-name:var(--ui-font-family-secondary)] font-(--ui-label-font-weight) text-(length:--ui-label-font-size)/normal inline-flex items-center transition-all duration-200 ease-linear text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) group-[.is-field-group]/items:not-only:not-first:after:content-[''] group-[.is-field-group]/items:not-only:not-first:after:absolute group-[.is-field-group]/items:not-only:not-first:after:top-[7px] group-[.is-field-group]/items:not-only:not-first:after:bottom-[6px] group-[.is-field-group]/items:not-only:not-first:after:left-0 group-[.is-field-group]/items:not-only:not-first:after:w-px group-[.is-field-group]/items:not-only:not-first:after:bg-current/30 style-filled-success ui-label-md gap-1 p-0 ps-0 pe-0 rounded-full"><span data-slot="wrapper" class="h-(--ui-label-height) inline-flex items-center w-(--ui-label-height) p-[1px] gap-0"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4.5"><path fill="currentColor" fill-rule="evenodd" d="M20.196 6.432a.7.7 0 0 1-.002.99L9.878 17.695a.7.7 0 0 1-.988 0L4.206 13.03a.7.7 0 0 1 .988-.992l4.19 4.172 9.822-9.781a.7.7 0 0 1 .99.002" clip-rule="evenodd"></path></svg><!--v-if--></span>
+              <!--v-if--></span></span>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group B</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="c">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Third</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Three</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+  </fieldset>
+</div>"
+`;
+
+exports[`PageCardGroup > renders with multiple correctly 1`] = `
+"<div id="v-0" role="group" data-slot="root" class="flex flex-col gap-8">
+  <fieldset data-slot="fieldset" class="flex flex-col gap-8 border-0 p-0 m-0 min-w-0">
+    <!--v-if-->
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group A</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="checkbox" name="v-0" class="sr-only" value="a">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">First</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">One</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="checkbox" name="v-0" class="sr-only" value="b">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Second</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Two</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group B</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="checkbox" name="v-0" class="sr-only" value="c">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Third</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Three</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+  </fieldset>
+</div>"
+`;
+
+exports[`PageCardGroup > renders with required correctly 1`] = `
+"<div id="v-0" role="radiogroup" aria-required="true" data-slot="root" class="flex flex-col gap-8">
+  <fieldset data-slot="fieldset" class="flex flex-col gap-8 border-0 p-0 m-0 min-w-0">
+    <legend data-slot="legend" class="text-(length:--ui-font-size-2xl)/[normal] font-(--ui-font-weight-semi-bold) mb-2">Pick one</legend>
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group A</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" required="" class="sr-only" value="a">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">First</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">One</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" required="" class="sr-only" value="b">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Second</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Two</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group B</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" required="" class="sr-only" value="c">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Third</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Three</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+  </fieldset>
+</div>"
+`;
+
+exports[`PageCardGroup > renders with size lg correctly 1`] = `
+"<div id="v-0" role="radiogroup" data-slot="root" class="flex flex-col gap-8">
+  <fieldset data-slot="fieldset" class="flex flex-col gap-8 border-0 p-0 m-0 min-w-0">
+    <!--v-if-->
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group A</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="a">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-4">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-xl)/[normal]">First</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">One</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="b">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-4">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-xl)/[normal]">Second</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Two</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group B</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="c">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-4">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-xl)/[normal]">Third</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Three</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+  </fieldset>
+</div>"
+`;
+
+exports[`PageCardGroup > renders with size sm correctly 1`] = `
+"<div id="v-0" role="radiogroup" data-slot="root" class="flex flex-col gap-8">
+  <fieldset data-slot="fieldset" class="flex flex-col gap-8 border-0 p-0 m-0 min-w-0">
+    <!--v-if-->
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group A</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="a">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-2.5">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-base)/[normal]">First</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-sm)/[normal]">One</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="b">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-2.5">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-base)/[normal]">Second</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-sm)/[normal]">Two</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+    <div data-slot="group" class="flex flex-col gap-4">
+      <div data-slot="categoryLabel" class="text-(length:--ui-font-size-base)/[normal] font-(--ui-font-weight-medium) text-(--ui-color-design-outline-content-secondary)">Group B</div>
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="c">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-2.5">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-base)/[normal]">Third</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-sm)/[normal]">Three</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+  </fieldset>
+</div>"
+`;
+
+exports[`PageCardGroup > renders without categories correctly 1`] = `
+"<div id="v-0" role="radiogroup" data-slot="root" class="flex flex-col gap-8">
+  <fieldset data-slot="fieldset" class="flex flex-col gap-8 border-0 p-0 m-0 min-w-0">
+    <!--v-if-->
+    <div data-slot="group" class="flex flex-col gap-4">
+      <!--v-if-->
+      <div data-slot="grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="a">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">First</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">One</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="b">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Second</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Two</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label><label data-slot="item" class="relative flex cursor-pointer transition-shadow duration-200 rounded-lg [&amp;:not([data-disabled])]:hover:shadow-(--ui-shadow-bottom-l) data-[disabled]:cursor-not-allowed"><input type="radio" name="v-0" class="sr-only" value="c">
+          <div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) flex-1">
+            <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+              <div data-slot="wrapper" class="flex-1 flex flex-row items-center gap-3">
+                <!--v-if-->
+                <!--v-if-->
+                <div data-slot="body" class="flex-1 min-w-0">
+                  <div data-slot="title" class="text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content) text-(length:--ui-font-size-lg)/[normal]">Third</div>
+                  <div data-slot="description" class="text-pretty text-(--ui-color-design-outline-content-secondary) mt-1 text-(length:--ui-font-size-base)/[normal]">Three</div>
+                </div>
+                <!--v-if-->
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+        </label></div>
+    </div>
+  </fieldset>
+</div>"
+`;

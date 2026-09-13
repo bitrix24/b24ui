@@ -3,6 +3,7 @@ import { computed, defineComponent, inject, provide } from 'vue'
 import type { FieldGroupProps } from '../components/FieldGroup.vue'
 import type { GetObjectField } from '../types/utils'
 
+/** The `size`, `orientation` and `noSplit` a `FieldGroup` imposes on the controls inside it. */
 export const fieldGroupInjectionKey: InjectionKey<ComputedRef<{
   size: FieldGroupProps['size']
   orientation: FieldGroupProps['orientation']
@@ -30,6 +31,13 @@ export function useFieldGroup<T>(props: Props<T>) {
   }
 }
 
+/**
+ * Opts a subtree out of the surrounding `FieldGroup`.
+ *
+ * Wrap a control in it when the group's `size` and `orientation` should not
+ * reach it — a standalone button inside a joined input row, say. Renders its
+ * slot and nothing else.
+ */
 export const FieldGroupReset = defineComponent({
   name: 'FieldGroupReset',
   setup(_, { slots }) {

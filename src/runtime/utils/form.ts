@@ -1,8 +1,13 @@
+import { toRaw } from 'vue'
 import type { StandardSchemaV1 } from '@standard-schema/spec'
 import type { Struct } from 'superstruct'
 import type { FormSchema, ValidateReturnSchema } from '../types/form'
 import { assertNoPrototypeKeys, isPrototypeKey, ownContainer } from './prototype-guard'
 
+/**
+ * Whether a schema is superstruct's, detected by shape — superstruct exports
+ * no brand to check.
+ */
 export function isSuperStructSchema(schema: any): schema is Struct<any, any> {
   return (
     'schema' in schema
@@ -12,10 +17,20 @@ export function isSuperStructSchema(schema: any): schema is Struct<any, any> {
   )
 }
 
+/**
+ * Whether a schema implements Standard Schema, which Zod, Valibot, Yup, Joi
+ * and Arktype all do — the one check that covers every validator `Form`
+ * supports except superstruct.
+ */
 export function isStandardSchema(schema: any): schema is StandardSchemaV1 {
   return '~standard' in schema
 }
 
+/**
+ * Runs a Standard Schema over the form state and flattens its issues into the
+ * `{ name, message }` pairs `Form` renders, joining each issue's path with
+ * dots so it matches a `FormField`'s `name`.
+ */
 export async function validateStandardSchema(
   state: any,
   schema: StandardSchemaV1
@@ -58,7 +73,18 @@ async function validateSuperstructSchema(state: any, schema: Struct<any, any>): 
   }
 }
 
-export function validateSchema<T extends object>(state: T, schema: FormSchema<T>): Promise<ValidateReturnSchema<typeof state>> {
+/**
+ * Validates the form state with whichever library the schema came from.
+ *
+ * @throws {Error} if the schema is neither Standard Schema nor superstruct.
+ */
+export function validateSchema<T extends object>(state: T, _schema: FormSchema<T>): Promise<ValidateReturnSchema<typeof state>> {
+  // Schemas stored in reactive state reach us as Vue proxies. Zod 4.5 resolves
+  // `~standard` through a lazy getter that captures the proxy as `this`, then
+  // reads its non-configurable `_zod` internals through it, which violates the
+  // proxy invariant and throws.
+  const schema = toRaw(_schema)
+
   if (isStandardSchema(schema)) {
     return validateStandardSchema(state, schema)
   } else if (isSuperStructSchema(schema)) {
@@ -68,6 +94,15 @@ export function validateSchema<T extends object>(state: T, schema: FormSchema<T>
   }
 }
 
+/**
+ * Reads a dotted `path` out of the form state — the read half of the same
+ * traversal `setAtPath` writes with.
+ *
+ * Prototype-safe on the same terms as `get()` in `utils/index.ts`: an
+ * inherited key is refused, a field the form owns and happens to have named
+ * `constructor` still reads. No `path` returns `data` unchanged, which is how
+ * a `FormField` with no `name` reads the whole state.
+ */
 export function getAtPath<T extends object>(
   data: T,
   path?: string

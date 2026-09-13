@@ -2,6 +2,10 @@
 title: Button
 description: A button capable of linking or performing an action.
 category: element
+keywords:
+  - cta
+  - action
+  - btn
 links:
   - label: GitHub
     iconName: GitHubIcon

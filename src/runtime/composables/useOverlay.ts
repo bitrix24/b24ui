@@ -171,4 +171,35 @@ function _useOverlay() {
   }
 }
 
+/**
+ * Opens modals, slideovers and drawers from script rather than from a template
+ * — the case where the component that raises the dialog is not the one that
+ * should own its markup: a route guard, a store action, a table row's menu.
+ *
+ * `create()` registers a component and hands back a handle. `open()` mounts it
+ * and returns a promise that settles with whatever the overlay emits on
+ * `close`, so a confirmation reads as one `await` instead of a callback and a
+ * ref. `patch()` updates the props of an overlay that is already on screen.
+ *
+ * Shared across the app (`createSharedComposable`), so the same overlay cannot
+ * be mounted twice by two callers, and `closeAll()` means all of them.
+ *
+ * Requires a `<B24OverlayProvider />` in the tree.
+ *
+ * @returns `overlays` plus `create`, `open`, `close`, `closeAll`, `patch`,
+ *   `unmount` and `isOpen`.
+ *
+ * @example
+ * ```ts
+ * const overlay = useOverlay()
+ * const modal = overlay.create(ConfirmModal)
+ *
+ * const confirmed = await modal.open({ title: 'Delete this deal?' }).result
+ * if (confirmed) {
+ *   await remove()
+ * }
+ * ```
+ *
+ * @see https://bitrix24.github.io/b24ui/docs/composables/use-overlay/
+ */
 export const useOverlay = /* @__PURE__ */ createSharedComposable(_useOverlay)

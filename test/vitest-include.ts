@@ -21,6 +21,24 @@
  * Paths are relative to `test/` (`dir: './test'` in the vitest config).
  */
 
+/**
+ * Specs the plain-Node module suite runs — `vitest.module.config.ts`, a
+ * separate invocation rather than a third project here.
+ *
+ * `module/` boots Nuxt itself with `loadNuxt` to exercise the module's
+ * `setup()`, so it can run in neither of the other two: the `nuxt` project is
+ * already inside a Nuxt instance, and the `vue` one is happy-dom. Keeping it
+ * out of the shared fork pool is a separate decision, and the reason is in
+ * `vitest.module.config.ts`.
+ *
+ * The patterns still live here so `vitest-include.spec.ts` can hold every
+ * suite to the same rule: no spec in the tree goes uncollected, and none is
+ * collected twice.
+ */
+export const moduleInclude = [
+  'module/**/*.spec.ts'
+]
+
 /** Specs the Nuxt-environment project runs. */
 export const nuxtInclude = [
   'components/**/*.spec.ts',
@@ -33,7 +51,8 @@ export const nuxtInclude = [
  * Specs the plain-Vue project runs.
  *
  * `plugins/` is absent deliberately: those specs cover Nuxt plugins and have
- * no meaning in the unplugin distribution.
+ * no meaning in the unplugin distribution. `module/` is absent for the same
+ * kind of reason — see `moduleInclude`.
  */
 export const vueInclude = [
   'components/**/*.spec.ts',

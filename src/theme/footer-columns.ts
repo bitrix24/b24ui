@@ -12,7 +12,7 @@ export default {
     label: 'text-(length:--ui-font-size-lg)/[normal] font-(--ui-font-weight-semi-bold)',
     list: 'mt-6 space-y-4',
     item: 'relative',
-    link: 'group text-sm flex items-center gap-1.5 focus-visible:outline-primary',
+    link: 'group text-sm flex items-center gap-1.5 focus-visible:outline-(--ui-color-design-outline-focused-stroke)',
     linkLeadingIcon: 'size-5 shrink-0',
     linkLabel: 'truncate',
     linkLabelExternalIcon: 'inline-block size-[14px] text-(--ui-color-design-plain-content-icon-secondary)'

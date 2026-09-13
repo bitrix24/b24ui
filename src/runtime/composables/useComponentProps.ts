@@ -19,10 +19,29 @@ export const defaultThemeContext: ThemeContext = {
   defaults: computed(() => ({}))
 }
 
+/**
+ * Reads the nearest `<B24Theme>`'s prop defaults.
+ *
+ * Falls back to an empty context rather than throwing, because a component
+ * mounted outside any `<B24Theme>` — in a test, in a portal, in isolation —
+ * should still render with its own defaults.
+ *
+ * @param fallback Context to use when there is no provider above.
+ * @returns The theme context in scope.
+ */
 export function injectThemeContext(fallback: ThemeContext = defaultThemeContext): ThemeContext {
   return _injectThemeContext(fallback)
 }
 
+/**
+ * Publishes a `ThemeContext` to everything below, so `useComponentProps` in a
+ * descendant resolves prop defaults from it.
+ *
+ * `<B24Theme>` is the only caller in this package; it is exported for an
+ * application that wants a second scope — a themed dialog, a preview pane —
+ * without nesting another `<B24Theme>`. Half of the `createContext` pair whose
+ * reading half is `injectThemeContext`.
+ */
 export { provideThemeContext }
 
 function camelCase(str: string): string {

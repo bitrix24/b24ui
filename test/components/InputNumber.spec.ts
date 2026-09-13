@@ -37,6 +37,17 @@ describe('InputNumber', () => {
     ['with as', { props: { as: 'section' } }],
     ['with class', { props: { class: 'absolute' } }],
     ['with b24ui', { props: { b24ui: { base: 'rounded-full' } } }],
+    // Bitrix24-only props, absent from `nuxt/ui`. `autofocus`/`autofocusDelay`
+    // are left out: they move focus and change no markup.
+    ['with noBorder', { props: { noBorder: true } }],
+    ['with underline', { props: { underline: true } }],
+    ['with rounded', { props: { rounded: true } }],
+    ['with fixed', { props: { fixed: true } }],
+    ['with tag', { props: { tag: 'Tag' } }],
+    ['with tag and tagColor', { props: { tag: 'Tag', tagColor: 'air-primary-success' } }],
+    ['with incrementDisabled', { props: { incrementDisabled: true } }],
+    ['with decrementDisabled', { props: { decrementDisabled: true } }],
+    ['with defaultValue', { props: { defaultValue: 7 } }],
     // Slots
     ['with increment slot', { slots: { increment: () => '+' } }],
     ['with decrement slot', { slots: { decrement: () => '-' } }]
@@ -69,6 +80,80 @@ describe('InputNumber', () => {
       const input = wrapper.findComponent({ name: 'NumberFieldRoot' })
       await input.setValue(1)
       expect(wrapper.emitted()).toMatchObject({ change: [[{ type: 'change' }]] })
+    })
+
+    // The four upstream added with the fix. The first is the defect itself: with
+    // only a `defaultValue` and no `v-model`, `useVModel` held its own copy and
+    // the field stepped off that copy rather than off reka's internal state.
+    test('increments uncontrolled defaultValue without v-model', async () => {
+      const wrapper = await mountSuspended(InputNumber, { props: { defaultValue: 5 }, attachTo: document.body })
+      const increment = wrapper.find('[data-slot="increment"] button')
+
+      await increment.trigger('pointerdown')
+      await increment.trigger('pointerup')
+      await wrapper.find('input').trigger('blur')
+      await flushPromises()
+
+      expect(wrapper.emitted('update:modelValue')).toEqual([[6]])
+      expect((wrapper.find('input').element as HTMLInputElement).value).toBe('6')
+
+      wrapper.unmount()
+    })
+
+    // The other three pin the guard that pays for removing `useVModel`: reka
+    // writes on blur, Enter and stepping at a bound whether or not the value
+    // moved, so without the equality check every one of those re-emitted.
+    test('emits once when controlled and blurred', async () => {
+      const wrapper = await mountSuspended(InputNumber, {
+        attachTo: document.body,
+        props: {
+          'modelValue': 5,
+          'onUpdate:modelValue': (value: number | null | undefined) => wrapper.setProps({ modelValue: value })
+        }
+      })
+      const increment = wrapper.find('[data-slot="increment"] button')
+
+      await increment.trigger('pointerdown')
+      await increment.trigger('pointerup')
+      await flushPromises()
+      await wrapper.find('input').trigger('blur')
+      await flushPromises()
+
+      expect(wrapper.emitted('update:modelValue')).toEqual([[6]])
+      expect(wrapper.emitted('change')).toHaveLength(1)
+
+      wrapper.unmount()
+    })
+
+    test('emits undefined once when cleared with .optional modifier', async () => {
+      const wrapper = await mountSuspended(InputNumber, {
+        props: {
+          'modelValue': 5,
+          'modelModifiers': { optional: true },
+          'onUpdate:modelValue': (value: number | null | undefined) => wrapper.setProps({ modelValue: value })
+        }
+      })
+      const input = wrapper.find('input')
+
+      await input.setValue('')
+      await input.trigger('blur')
+      await flushPromises()
+      await input.trigger('blur')
+      await flushPromises()
+
+      expect(wrapper.emitted('update:modelValue')).toEqual([[undefined]])
+    })
+
+    // `undefined` and `null` are different values but the same emptiness, which
+    // is why the guard tests `value == null && props.modelValue == null` rather
+    // than identity alone.
+    test('does not emit when blurred with a null modelValue', async () => {
+      const wrapper = await mountSuspended(InputNumber, { props: { modelValue: null } })
+
+      await wrapper.find('input').trigger('blur')
+      await flushPromises()
+
+      expect(wrapper.emitted('update:modelValue')).toBeUndefined()
     })
 
     test('blur event', async () => {

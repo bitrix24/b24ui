@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
+import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { defineComponent, h, ref, nextTick, KeepAlive } from 'vue'
 import Countdown from '../../src/runtime/components/Countdown.vue'
@@ -19,11 +20,30 @@ describe('Countdown', () => {
     ['with needStartImmediately false', { props: { needStartImmediately: false } }],
     ['with emitEvents false', { props: { emitEvents: false } }],
     ['with showMinutes false', { props: { showMinutes: false } }],
-    ...useCircle.map((circle: boolean) => [`with useCircle ${circle}`, { props: { useCircle: circle } }]),
+    // `seconds` is needed for the ring to compute at all — without it the
+    // default of 0 divides into nothing and the snapshot pinned
+    // `stroke-dasharray="NaN 283"`, the only dasharray value in either file
+    // (#454). 100 matches the unit test below that proves '283 283'.
+    ...useCircle.map((circle: boolean) => [`with useCircle ${circle}`, { props: { useCircle: circle, seconds: 100 } }]),
     ['with leading icon', { props: { leading: true } }],
     ['with default slot', { slots: { default: () => 'Default slot' } }],
     ['with leading slot', { slots: { leading: () => 'Leading slot' } }]
   ])
+
+  // The avatar is what makes this test a test. Ring plus digits alone matches
+  // no axe rule — the first version of this case reported zero rules run and
+  // was green by vacancy. The avatar renders an `<img>` and brings in
+  // `image-alt` / `nested-interactive`.
+  //
+  // `needStartImmediately: false` so the frame loop never starts: an axe run
+  // takes long enough that a live countdown would tick the DOM underneath it.
+  it('passes accessibility tests', async () => {
+    const wrapper = await mountSuspended(Countdown, {
+      props: { seconds: 100, useCircle: true, needStartImmediately: false, avatar: { src: 'https://github.com/bitrix24.png', alt: 'Bitrix24' } }
+    })
+
+    expect(await axe(wrapper.element)).toHaveNoViolations()
+  })
 
   describe('computed values', () => {
     it('calculates time units correctly', async () => {
@@ -97,6 +117,10 @@ describe('Countdown', () => {
         props: { seconds: 10, needStartImmediately: false }
       })
       const vm = wrapper.vm as any
+      // `start()` first, because there is nothing to cancel otherwise. This
+      // used to pass without it: `pause` cancelled unconditionally, so the spy
+      // recorded a call that handed `cancelAnimationFrame` the initial `0`.
+      vm.start()
       vm.pause()
       expect(cancelAnimationFrameSpy).toHaveBeenCalled()
     })
@@ -379,5 +403,82 @@ describe('Countdown', () => {
       const vm = wrapper.vm as any
       expect(vm.fullDashArray).toBe('283 283')
     })
+
+    /**
+     * Every one of these divided into nothing before #454. The zero case is
+     * the one that mattered: it is the **default** of `seconds`, so the
+     * minimal documented usage — `<B24Countdown use-circle />` — emitted
+     * `stroke-dasharray="NaN 283"`, an invalid SVG value that the snapshot had
+     * been recording as expected output. The string cases reach the same place
+     * by the other route, since `seconds` is typed `number | string`.
+     *
+     * The negative cases are here because the `total < 0` guard is
+     * load-bearing, which an earlier revision of this file got wrong by
+     * checking a single value. `-1` reaches 1 with or without the guard, and
+     * so does every other whole number — `totalSeconds` floors, so the
+     * fraction is `Math.floor(total) / total`. Fractions are where it comes
+     * apart: without the guard `-0.5` renders an empty ring and `-0.2` renders
+     * `-4245 283`. Deleting the guard must fail this test, which is why the
+     * cases below are fractional.
+     */
+    it.each([
+      ['the default of 0', 0, '0 283'],
+      ['a non-numeric string', 'soon', '0 283'],
+      ['an empty string', '', '0 283'],
+      ['a numeric string', '100', '283 283'],
+      ['a negative fraction of a second', -0.5, '283 283'],
+      ['a negative fifth of a second', -0.2, '283 283']
+    ])('renders a valid dash array for %s', async (_name, seconds, expected) => {
+      const wrapper = await mountSuspended(Countdown, {
+        props: { seconds, useCircle: true, needStartImmediately: false }
+      })
+      const vm = wrapper.vm as any
+      expect(vm.fullDashArray).toBe(expected)
+      expectValidDashArray(vm.fullDashArray)
+    })
+
+    /**
+     * The other half of the same bug, and the one that fires on the happy
+     * path. The formula subtracts a tick's worth of arc so the ring keeps step
+     * with the digits, which means it overshoots by exactly that much at zero:
+     * `totalSeconds` lands on 0, the expression yields `-1 / total`, and the
+     * ring rendered `stroke-dasharray="-28 283"` on its final frame. Reached
+     * through `start()`/`stop()` because that is the same state the tick loop
+     * arrives at — `update()` clamps the remaining time with `Math.max(0, …)`
+     * and `stop()` zeroes it outright.
+     */
+    it('never renders a negative dash length at the end of the countdown', async () => {
+      const wrapper = await mountSuspended(Countdown, {
+        props: { seconds: 10, useCircle: true, needStartImmediately: false }
+      })
+      const vm = wrapper.vm as any
+
+      // `start()` only has to flip `counting` so that `stop()` runs; the
+      // animation frame it would otherwise schedule outlives the test.
+      const requestAnimationFrameSpy = vi.spyOn(window, 'requestAnimationFrame').mockImplementation(() => 1)
+      vm.start()
+      vm.stop()
+      requestAnimationFrameSpy.mockRestore()
+      await nextTick()
+
+      expect(vm.totalSeconds).toBe(0)
+      expect(vm.fullDashArray).toBe('0 283')
+      expectValidDashArray(vm.fullDashArray)
+    })
   })
 })
+
+/**
+ * `stroke-dasharray` takes a list of SVG lengths. Negative values are invalid
+ * and NaN is not a number at all; either one makes the browser drop the
+ * attribute, so the ring silently reverts to a full circle. Asserting the
+ * exact string is the real check — this only makes the failure message say
+ * what is wrong with it.
+ */
+function expectValidDashArray(value: string): void {
+  expect(value, 'an SVG length list must never contain NaN').not.toContain('NaN')
+
+  for (const length of value.split(' ')) {
+    expect(Number(length), `an SVG length must not be negative: '${value}'`).toBeGreaterThanOrEqual(0)
+  }
+}
