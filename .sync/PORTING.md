@@ -162,6 +162,19 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   write and `next()` stops advancing. Call the divergence out in the PR
   "deviations" section, and never regenerate `test/components/{Timeline,Stepper}`
   snapshots to make a port compile — those specs guard this on purpose.
+- **A component that embeds `B24Avatar` forwards its own `color` as the avatar's
+  default.** Upstream's `Avatar` has a `color` prop, but no upstream component
+  passes one down to an embedded `UAvatar` — `ChatMessage` binds only `size`,
+  `v-bind` and `class`, and upstream's `Error` renders no avatar at all. b24ui
+  cascades it in `ChatMessage`, `Error` and `User`, because `air-*` is the design
+  system's semantic palette and reaching into `:avatar="{ color }"` to tint one
+  is neither discoverable nor consistent with the sibling components. The binding
+  order carries the rule: `:color="props.color"` goes **before**
+  `v-bind="props.avatar"`, so an explicit `avatar.color` still wins. Porting an
+  upstream commit that rewrites one of these avatar branches will drop the
+  binding — re-add it, and keep it ahead of the `v-bind`. `test/components/User`
+  guards both halves: `with color` fails when the cascade is removed, `with color
+  overridden by avatar color` fails when the binding moves after the `v-bind`.
 - **Generated CSS template is `b24ui.css`, never upstream's `ui.css`.** The
   `experimental.componentDetection` dev watcher filters `updateTemplates` on that
   name, and a filter matching nothing is a successful call — the feature just

@@ -22,6 +22,8 @@ describe('User', () => {
     ['with to', { props: { ...props, to: 'https://github.com/bitrix24' } }],
     ['with avatar', { props }],
     ['with chip', { props: { ...props, chip: { color: 'air-primary-success' } } }],
+    ['with color', { props: { ...props, color: 'air-primary' } }],
+    ['with color overridden by avatar color', { props: { ...props, color: 'air-primary', avatar: { ...props.avatar, color: 'air-primary-success' } } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { ...props, size } }]),
     ...orientations.map((orientation: string) => [`with orientation ${orientation}`, { props: { ...props, orientation } }]),
     ['with as', { props: { ...props, as: 'section' } }],

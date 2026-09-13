@@ -262,7 +262,7 @@ const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponen
 
 ## Components with Embedded Avatar
 
-Components that render a leading visual which can be either a plain icon **or** a `B24Avatar` (`Button`, `ChatMessage`, `Badge`, `Input`, `Select`, `Tabs`, `Countdown`, `PageCard`, `PageCardGroup`) follow a single canonical template. The icon path takes precedence — `avatar` is the fallback when no icon is set:
+Components that render a leading visual which can be either a plain icon **or** a `B24Avatar` (`Button`, `ChatMessage`, `Badge`, `Input`, `Select`, `Tabs`, `Countdown`, `Error`, `PageCard`, `PageCardGroup`) follow a single canonical template. `User` is the same shape without the icon branch — it always renders the avatar. The icon path takes precedence — `avatar` is the fallback when no icon is set:
 
 ```vue
 <script lang="ts">
@@ -273,6 +273,10 @@ export interface ComponentNameProps {
   icon?: IconComponent
   /** Rendered as `B24Avatar` when `icon` is not set. */
   avatar?: AvatarProps
+  /**
+   * Default `color` for the inner `B24Avatar`. Overridden by `avatar.color` when set.
+   */
+  color?: AvatarProps['color']
   // ...
 }
 </script>
@@ -291,6 +295,7 @@ import B24Avatar from './Avatar.vue'
   <B24Avatar
     v-else-if="!!props.avatar"
     :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+    :color="props.color"
     v-bind="props.avatar"
     data-slot="leadingAvatar"
     :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
@@ -304,6 +309,7 @@ import B24Avatar from './Avatar.vue'
 |---|---|
 | `:size="…"` **before** `v-bind="props.avatar"` | `props.avatar.size` (user-supplied) can override the theme-derived size |
 | `:class="…"` **after** `v-bind="props.avatar"` | The wrapper class slot always wins over any `class` key inside `props.avatar` |
+| `:color="props.color"` **before** `v-bind="props.avatar"` | A component-level `color` is a *default* for the avatar; an explicit `avatar.color` overrides it |
 
 The `leadingAvatarSize` slot is a **value slot**, not a CSS class — see [theme-structure.md](./theme-structure.md#value-slots-avatar-size-badge-size-) for the "base must be empty when size variant supplies the value" rule. Forgetting it collapses the avatar to 0×0.
 

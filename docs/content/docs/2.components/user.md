@@ -77,6 +77,44 @@ ignore:
 
 ::
 
+### Color
+
+Use the `color` prop to tint the inner [Avatar](/docs/components/avatar/). An explicit `avatar.color` overrides this default.
+
+::component-code
+---
+prettier: true
+ignore:
+  - name
+  - description
+  - avatar.src
+items:
+  color:
+    - air-primary
+    - air-primary-success
+    - air-primary-alert
+    - air-primary-copilot
+    - air-primary-warning
+    - air-primary-no-accent
+    - air-secondary
+    - air-secondary-alert
+    - air-secondary-accent
+    - air-secondary-accent-1
+    - air-secondary-accent-2
+    - air-secondary-no-accent
+    - air-tertiary
+    - air-tertiary-accent
+    - air-tertiary-no-accent
+    - air-selection
+    - air-boost
+props:
+  name: 'John Doe'
+  description: 'Software Engineer'
+  avatar.src: '/b24ui/avatar/employee.png'
+  color: 'air-primary-alert'
+---
+::
+
 ### Chip
 
 Use the `chip` prop to display a [Chip](/docs/components/chip/) component.
