@@ -190,6 +190,16 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   rejected exactly that, correctly. `Error` and `ChatMessage` are covered by this
   rule rather than by cases of their own; the binding is one line and identical
   in all three.
+- **`Card` has a `size` variant; upstream's does not.** Upstream's `Card` carries
+  only `variant`, and its `header` / `body` / `footer` slot bases hold the padding
+  directly. b24ui lifts that padding into a `size` variant (`xs` / `sm` / `md` /
+  `lg`) with `md` reproducing upstream's values byte for byte and `defaultVariants`
+  pinning `md`, so an unsized card renders exactly as before. Porting an upstream
+  commit that rewrites `src/theme/card.ts` will push the padding back into the slot
+  bases and take the variant with it — keep the variant, and keep the slot bases
+  empty. The `Card` snapshots are the tell: with the padding supplied by the
+  variant it lands *after* the variant classes rather than before, so a port that
+  reverts this shows up as fourteen snapshot lines whose class order changes back.
 - **Generated CSS template is `b24ui.css`, never upstream's `ui.css`.** The
   `experimental.componentDetection` dev watcher filters `updateTemplates` on that
   name, and a filter matching nothing is a successful call — the feature just
