@@ -79,7 +79,7 @@ ignore:
 
 ### Color
 
-Use the `color` prop to tint the inner [Avatar](/docs/components/avatar/). An explicit `avatar.color` overrides this default.
+Use the `color` prop to tint the inner [Avatar](/docs/components/avatar/). A non-`undefined` `avatar.color` overrides it.
 
 ::component-code
 ---
@@ -110,7 +110,8 @@ items:
 props:
   name: 'John Doe'
   description: 'Software Engineer'
-  avatar.src: '/b24ui/avatar/employee.png'
+  avatar:
+    src: '/b24ui/avatar/employee.png'
   color: 'air-primary-alert'
 ---
 ::
@@ -145,7 +146,8 @@ items:
 props:
   name: 'John Doe'
   description: 'Software Engineer'
-  avatar.src: '/b24ui/avatar/employee.png'
+  avatar:
+    src: '/b24ui/avatar/employee.png'
   chip:
     color: 'primary'
     position: top-right
@@ -181,7 +183,8 @@ ignore:
 props:
   name: 'John Doe'
   description: 'Software Engineer'
-  avatar.src: '/b24ui/avatar/employee.png'
+  avatar:
+    src: '/b24ui/avatar/employee.png'
   chip: true
   size: xl
 ---
@@ -200,7 +203,8 @@ props:
   orientation: 'vertical'
   name: 'John Doe'
   description: 'Software Engineer'
-  avatar.src: '/b24ui/avatar/employee.png'
+  avatar:
+    src: '/b24ui/avatar/employee.png'
 ---
 ::
 
@@ -221,7 +225,8 @@ props:
   target: '_blank'
   name: 'Username'
   description: 'User description'
-  avatar.src: 'https://github.com/bitrix24.png'
+  avatar:
+    src: 'https://github.com/bitrix24.png'
 ---
 ::
 

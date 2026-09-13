@@ -115,8 +115,8 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.chatMessag
           <B24Avatar
             v-else-if="props.avatar"
             :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
-            :color="props.color"
             v-bind="props.avatar"
+            :color="props.avatar?.color ?? props.color"
             data-slot="leadingAvatar"
             :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
           />
