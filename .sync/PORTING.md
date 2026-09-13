@@ -162,6 +162,34 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   write and `next()` stops advancing. Call the divergence out in the PR
   "deviations" section, and never regenerate `test/components/{Timeline,Stepper}`
   snapshots to make a port compile — those specs guard this on purpose.
+- **A component that embeds `B24Avatar` forwards its own `color` as the avatar's
+  default.** Upstream's `Avatar` has a `color` prop, but no upstream component
+  passes one down to an embedded `UAvatar` — `ChatMessage` binds only `size`,
+  `v-bind` and `class`, and upstream's `Error` renders no avatar at all. b24ui
+  cascades it in `ChatMessage`, `Error` and `User`, because `air-*` is the design
+  system's semantic palette and reaching into `:avatar="{ color }"` to tint one
+  is neither discoverable nor consistent with the sibling components. The binding
+  form carries the rule: `:color="props.avatar?.color ?? props.color"` goes
+  **after** `v-bind="props.avatar"`, in all three of `User`, `Error` and
+  `ChatMessage`. The obvious alternative — binding `:color="props.color"` ahead
+  of the `v-bind`, which is what all three did until this entry — looks
+  equivalent and is not: `v-bind` overwrites with present-but-`undefined` keys,
+  so `:avatar="{ src, color: user.accent }"` with an unset accent silently drops
+  back to the theme default. Measured on `User` before the fix: that case
+  rendered `style-outline-no-accent` instead of `style-filled`. Porting an upstream commit that rewrites one of these avatar
+  branches will drop the binding — re-add it in this form.
+  `test/components/User.spec.ts` guards it, each case verified to fail on its own
+  mutation: the `with color` / `with color and chip` snapshots die when the
+  respective binding is deleted, `with color overridden by avatar color` dies
+  when the `??` is dropped, and `keeps the color cascade when avatar.color is
+  undefined` — an explicit class assertion, not a snapshot — dies when either
+  binding moves back ahead of the `v-bind`. The position deliberately has **no**
+  snapshot: with the cascade intact, an `undefined` `avatar.color` renders byte
+  for byte what the plain case renders, so a snapshot would collide with its
+  sibling and assert nothing — `test/utils/indistinguishable-snapshots.spec.ts`
+  rejected exactly that, correctly. `Error` and `ChatMessage` are covered by this
+  rule rather than by cases of their own; the binding is one line and identical
+  in all three.
 - **Generated CSS template is `b24ui.css`, never upstream's `ui.css`.** The
   `experimental.componentDetection` dev watcher filters `updateTemplates` on that
   name, and a filter matching nothing is a successful call — the feature just

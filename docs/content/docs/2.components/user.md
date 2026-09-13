@@ -77,6 +77,45 @@ ignore:
 
 ::
 
+### Color
+
+Use the `color` prop to tint the inner [Avatar](/docs/components/avatar/). A non-`undefined` `avatar.color` overrides it.
+
+::component-code
+---
+prettier: true
+ignore:
+  - name
+  - description
+  - avatar.src
+items:
+  color:
+    - air-primary
+    - air-primary-success
+    - air-primary-alert
+    - air-primary-copilot
+    - air-primary-warning
+    - air-primary-no-accent
+    - air-secondary
+    - air-secondary-alert
+    - air-secondary-accent
+    - air-secondary-accent-1
+    - air-secondary-accent-2
+    - air-secondary-no-accent
+    - air-tertiary
+    - air-tertiary-accent
+    - air-tertiary-no-accent
+    - air-selection
+    - air-boost
+props:
+  name: 'John Doe'
+  description: 'Software Engineer'
+  avatar:
+    src: '/b24ui/avatar/employee.png'
+  color: 'air-primary-alert'
+---
+::
+
 ### Chip
 
 Use the `chip` prop to display a [Chip](/docs/components/chip/) component.
@@ -107,7 +146,8 @@ items:
 props:
   name: 'John Doe'
   description: 'Software Engineer'
-  avatar.src: '/b24ui/avatar/employee.png'
+  avatar:
+    src: '/b24ui/avatar/employee.png'
   chip:
     color: 'primary'
     position: top-right
@@ -143,7 +183,8 @@ ignore:
 props:
   name: 'John Doe'
   description: 'Software Engineer'
-  avatar.src: '/b24ui/avatar/employee.png'
+  avatar:
+    src: '/b24ui/avatar/employee.png'
   chip: true
   size: xl
 ---
@@ -162,7 +203,8 @@ props:
   orientation: 'vertical'
   name: 'John Doe'
   description: 'Software Engineer'
-  avatar.src: '/b24ui/avatar/employee.png'
+  avatar:
+    src: '/b24ui/avatar/employee.png'
 ---
 ::
 
@@ -183,7 +225,8 @@ props:
   target: '_blank'
   name: 'Username'
   description: 'User description'
-  avatar.src: 'https://github.com/bitrix24.png'
+  avatar:
+    src: 'https://github.com/bitrix24.png'
 ---
 ::
 
