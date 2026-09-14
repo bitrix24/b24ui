@@ -34,6 +34,10 @@ export interface DateTimePickerProps {
   modelValue?: DateValue
   /** The value before the user picks one. */
   defaultValue?: DateValue
+  /** Controlled open state. Pairs with `update:open`, so `v-model:open` works. */
+  open?: boolean
+  /** Whether the picker starts open. Ignored when `open` is given. */
+  defaultOpen?: boolean
   /**
    * Drop the time step. The value stays a `CalendarDate`, so it carries no
    * time at all rather than a time of `00:00`.
@@ -163,10 +167,16 @@ watch(() => props.modelValue, (value) => {
   internalValue.value = value
 })
 
-const open = ref(false)
+const isOpen = ref(props.open ?? props.defaultOpen ?? false)
 const step = ref<'date' | 'time'>('date')
 
-watch(open, (value) => {
+watch(() => props.open, (value) => {
+  if (value !== undefined) {
+    isOpen.value = value
+  }
+})
+
+watch(isOpen, (value) => {
   emits('update:open', value)
   if (value) {
     step.value = 'date'
@@ -253,7 +263,7 @@ function onCalendarSelect(value: DateRange | DateValue | DateValue[] | null | un
   }
   if (props.dateOnly) {
     commit(toDateOnly(value))
-    open.value = false
+    isOpen.value = false
     return
   }
   commit(withTime(value, currentHour.value, currentMinute.value))
@@ -266,7 +276,7 @@ function onHourSelect(hour: number) {
 
 function onMinuteSelect(minute: number) {
   commit(withTime(baseForTime(), currentHour.value, minute))
-  open.value = false
+  isOpen.value = false
 }
 
 function goToTime() {
@@ -335,7 +345,7 @@ function applyPreset(preset: DateTimePickerPreset) {
   const value = resolvePreset(preset)
   if (props.dateOnly) {
     commit(toDateOnly(value))
-    open.value = false
+    isOpen.value = false
     return
   }
   commit(withTime(value, currentHour.value, currentMinute.value))
@@ -348,32 +358,34 @@ const wrapperProps = computed(() => screen.value.isMobile
   ? { title: props.placeholder || t('dateTimePicker.openPicker'), ...(props.drawer ?? {}) }
   : { b24ui: { content: b24ui.value.content() }, ...(props.popover ?? {}) })
 
-defineExpose({ open, step })
+defineExpose({ open: isOpen, step })
 </script>
 
 <template>
   <component
     :is="Wrapper"
-    v-model:open="open"
+    v-model:open="isOpen"
     v-bind="wrapperProps"
   >
-    <slot :open="open" :value="internalValue" :formatted="formattedValue">
-      <div
+    <slot :open="isOpen" :value="internalValue" :formatted="formattedValue">
+      <!--
+        The input is the trigger itself, not a control inside one. `B24Input`
+        forwards fall-through attributes onto its `<input>`, so the popover's
+        `aria-haspopup` / `aria-expanded` land on a real control. Wrapping a
+        readonly input in a clickable element instead puts one interactive
+        control inside another, which `nested-interactive` rejects.
+      -->
+      <B24Input
+        :model-value="formattedValue"
+        :placeholder="props.placeholder"
+        :disabled="props.disabled"
+        :icon="props.icon || Calendar1Icon"
+        :size="props.size"
+        :aria-label="props.placeholder || t('dateTimePicker.openPicker')"
+        readonly
+        v-bind="props.input"
         :class="b24ui.trigger({ class: [props.b24ui?.trigger, props.class] })"
-        v-bind="$attrs"
-      >
-        <B24Input
-          :model-value="formattedValue"
-          :placeholder="props.placeholder"
-          :disabled="props.disabled"
-          :icon="props.icon || Calendar1Icon"
-          :size="props.size"
-          readonly
-          tabindex="-1"
-          v-bind="props.input"
-          :class="b24ui.triggerInput({ class: props.b24ui?.triggerInput })"
-        />
-      </div>
+      />
     </slot>
 
     <template #content>

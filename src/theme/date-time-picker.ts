@@ -16,8 +16,8 @@ export default {
     /** Presets sit below the calendar on narrow screens and beside it from `sm` up. */
     body: 'flex flex-col-reverse sm:flex-row',
     /** Click target wrapping the read-only input, so the whole field opens the picker. */
-    trigger: 'cursor-pointer',
-    triggerInput: 'pointer-events-none w-full',
+    /** The readonly input that doubles as the popover trigger. */
+    trigger: 'cursor-pointer w-full',
     main: 'flex flex-col p-2 min-w-64',
     presets: [
       'flex flex-row sm:flex-col gap-2 p-2',
