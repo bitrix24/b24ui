@@ -35,6 +35,23 @@ export default defineConfig(({ mode }) => {
         }
       }
     ],
+    resolve: {
+      // b24ui's `Link` renders vue-router's own `RouterLink`, which reads the
+      // router through `inject(routerKey)`. `routerKey` is a module-level
+      // Symbol, so two copies of vue-router in one bundle are two different
+      // keys and the injection returns `undefined` — `RouterLink` then throws
+      // `Cannot destructure property 'options'` on first render.
+      //
+      // That is the state this workspace is in: the playground depends on
+      // vue-router 5.2.0, while the repo root gets 5.1.0 hoisted from nuxt, and
+      // the b24ui runtime resolves from the root. Both ended up in the bundle
+      // and the SPA threw on boot. Not visible to any unit test, and not
+      // visible to a consumer either — the package declares vue-router as an
+      // optional peer, so an installed copy is shared — which is exactly why it
+      // survived here until something loaded the page in a browser (#329).
+      dedupe: ['vue', 'vue-router']
+    },
+
     server: {
       // Fix: "Blocked request. This host is not allowed" when using tunnels like ngrok
       allowedHosts: [...extraAllowedHosts]

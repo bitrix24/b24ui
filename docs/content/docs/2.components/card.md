@@ -2,6 +2,10 @@
 title: Card
 description: Render the content within a card component comprising a header, body, and footer section.
 category: element
+keywords:
+  - panel
+  - box
+  - container
 links:
   - label: GitHub
     iconName: GitHubIcon
@@ -93,6 +97,48 @@ slots:
 
 #default
 :placeholder{class="h-32"}
+::
+
+### Size
+
+Use the `size` prop to control the padding of the header, body and footer.
+
+::component-code
+---
+prettier: true
+hide:
+  - class
+items:
+  size:
+    - xs
+    - sm
+    - md
+    - lg
+props:
+  size: lg
+  class: 'w-full'
+slots:
+  header: |
+
+    <Placeholder class="h-8" />
+
+  default: |
+
+    <Placeholder class="h-32" />
+
+  footer: |
+
+    <Placeholder class="h-8" />
+---
+
+#header
+:placeholder{class="h-8"}
+
+#default
+:placeholder{class="h-32"}
+
+#footer
+:placeholder{class="h-8"}
 ::
 
 ### Variant

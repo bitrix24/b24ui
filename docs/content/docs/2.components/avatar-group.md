@@ -2,6 +2,10 @@
 title: AvatarGroup
 description: Pile multiple avatars into a single group.
 category: element
+keywords:
+  - stacked avatars
+  - faces
+  - members
 links:
   - label: GitHub
     iconName: GitHubIcon

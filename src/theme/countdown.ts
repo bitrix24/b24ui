@@ -7,10 +7,6 @@
  * @see bitrix/js/ui/countdown/src
  */
 
-/**
- * @todo add tests
- * @todo add docs
- */
 export default {
   slots: {
     base: [

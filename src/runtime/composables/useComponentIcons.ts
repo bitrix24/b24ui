@@ -23,6 +23,19 @@ export interface UseComponentIconsProps {
   trailingIcon?: IconComponent
 }
 
+/**
+ * Works out which side a component's icon goes on, from the props every
+ * icon-bearing component shares.
+ *
+ * The rules are not obvious from the props alone: `loading` replaces the icon
+ * rather than joining it, `avatar` is always leading, and `trailingIcon`
+ * counts as trailing unless `trailing` is explicitly `false`. Centralised here
+ * so `Button`, `Badge`, `Link`, `Chip` and the inputs agree.
+ *
+ * @param componentProps The component's own props — a ref, getter or object.
+ * @returns `isLeading` / `isTrailing`, and the resolved
+ *   `leadingIconName` / `trailingIconName`.
+ */
 export function useComponentIcons(componentProps: MaybeRefOrGetter<UseComponentIconsProps>) {
   const props = computed(() => toValue(componentProps))
 

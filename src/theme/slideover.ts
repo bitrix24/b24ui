@@ -109,13 +109,6 @@ export default {
         content: 'max-h-[calc(100%-2rem)] inset-x-4 top-4'
       }
     },
-    // @todo remove this ?
-    {
-      side: 'top',
-      inset: true,
-      useFooter: true,
-      class: {}
-    },
     {
       side: 'top',
       inset: false,
@@ -130,13 +123,6 @@ export default {
         content: 'w-[calc(100%-2rem)] max-h-[calc(100%-2rem)] inset-y-4 right-4 '
       }
     },
-    // @todo remove this ?
-    {
-      side: 'right',
-      inset: true,
-      useFooter: true,
-      class: {}
-    },
     {
       side: 'right',
       inset: false,
@@ -150,13 +136,6 @@ export default {
       class: {
         content: 'max-h-[calc(100%-2rem)] w-[calc(100%-2rem)] end-4 bottom-4'
       }
-    },
-    // @todo remove this ?
-    {
-      side: 'bottom',
-      inset: true,
-      useFooter: true,
-      class: {}
     },
     {
       side: 'bottom',
@@ -176,13 +155,6 @@ export default {
         content: 'w-[calc(100%-2rem)] max-h-[calc(100%-2rem)] inset-y-4 left-4'
       }
     },
-    // @todo remove this ?
-    {
-      side: 'left',
-      inset: true,
-      useFooter: true,
-      class: {}
-    },
     {
       side: 'left',
       inset: false,
@@ -192,13 +164,6 @@ export default {
     },
     // endregion ////
     // region bottom & footer -> min-h ////
-    // @todo remove this ?
-    {
-      side: 'bottom',
-      inset: false,
-      useFooter: true,
-      class: {}
-    },
     // endregion ////
     // region btn.close ////
     {

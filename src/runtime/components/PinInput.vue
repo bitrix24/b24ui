@@ -64,6 +64,7 @@ export interface PinInputProps<T extends PinInputType = 'text'> extends Pick<Pin
 export type PinInputEmits<T extends PinInputType = 'text'> = PinInputRootEmits<T> & {
   change: [event: Event]
   blur: [event: Event]
+  focus: [event: Event]
 }
 
 export interface PinInputSlots {
@@ -133,11 +134,22 @@ function onComplete(value: string[] | number[]) {
   emitFormChange()
 }
 
-function onBlur(event: FocusEvent) {
-  if (!event.relatedTarget) {
-    emits('blur', event)
-    emitFormBlur()
+function onFocusOut(event: FocusEvent) {
+  if (event.relatedTarget && (event.currentTarget as HTMLElement).contains(event.relatedTarget as Node)) {
+    return
   }
+
+  emits('blur', event)
+  emitFormBlur()
+}
+
+function onFocusIn(event: FocusEvent) {
+  if (event.relatedTarget && (event.currentTarget as HTMLElement).contains(event.relatedTarget as Node)) {
+    return
+  }
+
+  emits('focus', event)
+  emitFormFocus()
 }
 
 function autoFocus() {
@@ -187,6 +199,8 @@ defineExpose({
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     @update:model-value="emitFormInput()"
     @complete="onComplete"
+    @focusout="onFocusOut"
+    @focusin="onFocusIn"
   >
     <template v-for="(ids, index) in looseToNumber(props.length)" :key="ids">
       <PinInputInput
@@ -195,8 +209,6 @@ defineExpose({
         data-slot="base"
         :class="b24ui.base({ class: props.b24ui?.base })"
         :disabled="disabled"
-        @blur="onBlur"
-        @focus="emitFormFocus"
       />
       <span
         v-if="shouldInsertSeparator(index as number)"

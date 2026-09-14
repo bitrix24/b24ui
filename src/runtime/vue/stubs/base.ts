@@ -62,6 +62,32 @@ export function useNuxtApp() {
   }
 }
 
+/**
+ * Nuxt's `onNuxtReady` runs its callback once the app has hydrated and the
+ * browser is next idle. A plain Vue app has no hydration to wait for, so only
+ * the idle half is left — which is the half callers want, since this is how
+ * work is kept out of the mount path.
+ *
+ * Here even though no Vue build ever calls it. `Link.vue` imports it from
+ * `#imports` unconditionally and calls it only behind `prefetchApi`, which is
+ * `undefined` without `NuxtLink`. An import that is never called still has to
+ * resolve: rolldown fails the whole bundle on a missing export, and that is how
+ * this came to be written — `pnpm repl:build` broke on `main` while `ci` was
+ * green, because nothing in `ci` builds against these stubs.
+ */
+export function onNuxtReady(callback: () => void): void {
+  if (typeof window === 'undefined') {
+    return
+  }
+
+  if (typeof window.requestIdleCallback === 'function') {
+    window.requestIdleCallback(() => callback())
+    return
+  }
+
+  setTimeout(callback, 1)
+}
+
 export function useRuntimeHook(name: string, fn: (...args: any[]) => void): void {
   const nuxtApp = useNuxtApp()
 

@@ -1,5 +1,5 @@
 /**
- * @deprecate This component is deprecated and will be removed in version `3.0.0`
+ * @deprecated This component is deprecated and will be removed in version `3.0.0`
  * SidebarLayout
  * You incorporate a sidebar in the slider and CRM entity tab embedding. Overall, it's stylish, trendy, and youthful
  * ---

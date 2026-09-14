@@ -56,7 +56,7 @@ Extracts keyboard shortcuts from an array of menu items and returns a configurat
       ::field-group
   
         ::field{name="kbds" type="string[]"}
-        An array of keyboard keys that form the shortcut (e.g., `['meta', 'S']`).
+        An array of keyboard keys that form the shortcut (e.g. `['meta', 'S']`).
         ::
   
         ::field{name="onSelect" type="() => void"}
@@ -79,7 +79,7 @@ Extracts keyboard shortcuts from an array of menu items and returns a configurat
   ::
 
   ::field{name="separator" type="'_' | '-'"}
-  The separator used to join keyboard keys. Use `'_'` for key combinations (e.g., `meta_k`) or `'-'` for key sequences (e.g., `g-d`). Defaults to `'_'`.
+  The separator used to join keyboard keys. Use `'_'` for key combinations (e.g. `meta_k`) or `'-'` for key sequences (e.g. `g-d`). Defaults to `'_'`.
   ::
 ::
 

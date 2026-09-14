@@ -184,4 +184,14 @@ function _useContentSearch() {
   }
 }
 
+/**
+ * The search index behind `ContentSearch` — the palette that opens on `meta_k`.
+ *
+ * Shared, so the state survives the palette closing and reopening, and two
+ * triggers on one page do not build two indexes.
+ *
+ * @returns `open`, plus the mappers that turn `@nuxt/content` navigation and
+ *   search hits into palette items — `mapFile`, `mapNavigationItems`,
+ *   `mapLinks`, `mapSearchResults` and `postFilter`.
+ */
 export const useContentSearch = /* @__PURE__ */ createSharedComposable(_useContentSearch)

@@ -194,11 +194,11 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.modal || {
 
         <slot name="content" :close="close">
           <div
-            v-if="!!slots.header || (props.title || !!slots.title) || (props.description || !!slots.description) || (props.close || !!slots.close) || !!slots.body"
+            v-if="!!slots.header || (props.title || !!slots.title) || (props.description || !!slots.description) || (props.close || !!slots.close) || !!slots.body || !!slots.actions"
             data-slot="contentWrapper"
             :class="b24ui.contentWrapper({ class: props.b24ui?.contentWrapper })"
           >
-            <div v-if="!!slots.header || (props.title || !!slots.title) || (props.description || !!slots.description) || (props.close || !!slots.close)" data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
+            <div v-if="!!slots.header || (props.title || !!slots.title) || (props.description || !!slots.description) || (props.close || !!slots.close) || !!slots.actions" data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
               <slot name="header" :close="close">
                 <div
                   v-if="props.title || !!slots.title || props.description || !!slots.description"

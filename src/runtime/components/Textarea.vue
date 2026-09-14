@@ -65,7 +65,14 @@ export interface TextareaProps<T extends TextareaValue = TextareaValue, Mod exte
   tagColor?: BadgeProps['color']
   /** Highlight the ring color like a focus state. */
   highlight?: boolean
-  /** Keep the mobile text size on all breakpoints. (Left for backward compatibility.) */
+  /**
+   * Keep the mobile text size on all breakpoints. (Left for backward compatibility.)
+   * @deprecated Does nothing. It works through `fixed` x `size` compound
+   *   variants, and `Textarea` deliberately has no `size`, so no variant ever
+   *   matches.
+   *
+   * @removed 3.0.0
+   */
   fixed?: boolean
   defaultValue?: ApplyModifiers<T, Mod>
   modelValue?: ApplyModifiers<T, Mod>
@@ -95,7 +102,7 @@ import { useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { useFormField } from '../composables/useFormField'
-import { looseToNumber } from '../utils'
+import { isEmpty, looseToNumber } from '../utils'
 import { tv } from '../utils/tv'
 import B24Badge from './Badge.vue'
 import B24Avatar from './Avatar.vue'
@@ -161,12 +168,13 @@ function updateInput(value: string | null | undefined) {
     value = looseToNumber(value)
   }
 
-  if (props.modelModifiers?.nullable) {
-    value ||= null
+  // Only empty values are mapped, `0` is a value on its own with the `number` modifier
+  if (props.modelModifiers?.nullable && isEmpty(value)) {
+    value = null
   }
 
-  if (props.modelModifiers?.optional && !props.modelModifiers?.nullable && value !== null) {
-    value ||= undefined
+  if (props.modelModifiers?.optional && !props.modelModifiers?.nullable && value !== null && isEmpty(value)) {
+    value = undefined
   }
 
   modelValue.value = value as ApplyModifiers<T, Mod>

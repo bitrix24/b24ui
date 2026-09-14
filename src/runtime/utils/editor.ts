@@ -4,6 +4,11 @@ import { flip, shift, offset, size, autoPlacement, hide, inline } from '@floatin
 import { isArrayOfArray } from './index'
 import type { EditorHandlers, EditorCustomHandlers, EditorItem, FloatingUIOptions } from '../types/editor'
 
+/**
+ * Whether the editor's schema knows a mark — the check that decides if a
+ * toolbar button is offered at all, since a `Bold` button on an editor built
+ * without the Bold extension would be dead.
+ */
 export function isMarkInSchema(mark: string | Mark, editor: Editor | null): boolean {
   if (!editor?.schema) {
     return false
@@ -13,6 +18,10 @@ export function isMarkInSchema(mark: string | Mark, editor: Editor | null): bool
   return editor.schema.spec.marks.get(markName) !== undefined
 }
 
+/**
+ * Whether the current selection is one of `nodeTypes`. Used to hide controls
+ * that make no sense for what is selected — text alignment over an image, say.
+ */
 export function isNodeTypeSelected(editor: Editor | null, nodeTypes: string[]): boolean {
   if (!editor) {
     return false
@@ -28,6 +37,7 @@ export function isNodeTypeSelected(editor: Editor | null, nodeTypes: string[]): 
   })
 }
 
+/** Whether an extension is registered on this editor instance. */
 export function isExtensionAvailable(editor: Editor | null, extensionName: string): boolean {
   if (!editor) {
     return false
@@ -36,6 +46,18 @@ export function isExtensionAvailable(editor: Editor | null, extensionName: strin
   return editor.extensionManager.extensions.some(ext => ext.name === extensionName)
 }
 
+/**
+ * Every `create*Handler` below returns the same shape, and it is the shape
+ * `EditorToolbar` binds a button to: `canExecute` decides whether to enable
+ * it, `execute` runs on click, `isActive` shows it pressed, and `isDisabled`
+ * greys it out where the command makes no sense — inside a code block, or with
+ * an image selected. Only the differences are documented on each one.
+ */
+
+/**
+ * A handler for a command that toggles, by name — `blockquote` becomes
+ * `toggleBlockquote`.
+ */
 export function createToggleHandler(name: string) {
   const fnName = `toggle${name.charAt(0).toUpperCase()}${name.slice(1)}`
   return {
@@ -46,6 +68,12 @@ export function createToggleHandler(name: string) {
   }
 }
 
+/**
+ * A handler for a command that sets rather than toggles — `paragraph` becomes
+ * `setParagraph`. Still reports active, because the node it sets *is* a state
+ * the toolbar shows pressed; what differs from `createToggleHandler` is only
+ * that running it twice is idempotent instead of undoing itself.
+ */
 export function createSetHandler(name: string) {
   const fnName = `set${name.charAt(0).toUpperCase()}${name.slice(1)}`
   return {
@@ -56,6 +84,11 @@ export function createSetHandler(name: string) {
   }
 }
 
+/**
+ * A handler for a command called by its own name and carrying no state, such
+ * as `undo` and `redo`. Does not focus the editor first: undo should not move
+ * the caret.
+ */
 export function createSimpleHandler(name: string) {
   return {
     canExecute: (editor: Editor) => (editor.can() as any)[name](),
@@ -65,6 +98,11 @@ export function createSimpleHandler(name: string) {
   }
 }
 
+/**
+ * A handler for any inline mark, taking the mark's name from the item rather
+ * than from a closure — so bold, italic, code and strike are one handler
+ * configured four ways.
+ */
 export function createMarkHandler() {
   return {
     canExecute: (editor: Editor, cmd: any) => (editor.can() as any).toggleMark(cmd.mark),
@@ -74,6 +112,9 @@ export function createMarkHandler() {
   }
 }
 
+/**
+ * A handler for text alignment, reading the target alignment from the item.
+ */
 export function createTextAlignHandler() {
   return {
     canExecute: (editor: Editor, cmd: any) => (editor.can() as any).setTextAlign(cmd.align),
@@ -83,6 +124,9 @@ export function createTextAlignHandler() {
   }
 }
 
+/**
+ * A handler for headings, reading the level from the item.
+ */
 export function createHeadingHandler() {
   return {
     canExecute: (editor: Editor, cmd: any) => (editor.can() as any).toggleHeading({ level: cmd.level }),
@@ -92,6 +136,11 @@ export function createHeadingHandler() {
   }
 }
 
+/**
+ * A handler for links. Enabled when the editor can either set or unset one,
+ * so the button stays usable both to add a link and to remove the one under
+ * the caret.
+ */
 export function createLinkHandler() {
   return {
     canExecute: (editor: Editor) => {
@@ -133,6 +182,9 @@ export function createLinkHandler() {
   }
 }
 
+/**
+ * A handler for images.
+ */
 export function createImageHandler() {
   return {
     canExecute: (editor: Editor) => {
@@ -161,6 +213,9 @@ export function createImageHandler() {
   }
 }
 
+/**
+ * A handler for one of the three list types.
+ */
 export function createListHandler(listType: 'bulletList' | 'orderedList' | 'taskList') {
   const fnNameMap = {
     bulletList: 'toggleBulletList',
@@ -234,6 +289,11 @@ export function createListHandler(listType: 'bulletList' | 'orderedList' | 'task
   }
 }
 
+/**
+ * A handler that moves the block at `cmd.pos` up or down — what the drag
+ * handle's menu binds to. Disabled when there is no node at that position, or
+ * no sibling to swap with.
+ */
 export function createMoveHandler(direction: 'up' | 'down') {
   return {
     canExecute: (editor: Editor, cmd: any) => {
@@ -277,6 +337,11 @@ export function createMoveHandler(direction: 'up' | 'down') {
   }
 }
 
+/**
+ * The full set of built-in handlers, keyed by the `type` an editor item
+ * declares. `mapEditorItems` merges a caller's own over these, so a custom
+ * handler can replace a built-in under the same key.
+ */
 export function createHandlers(): EditorHandlers {
   return {
     mark: createMarkHandler(),
@@ -416,6 +481,18 @@ export function createHandlers(): EditorHandlers {
   }
 }
 
+/**
+ * Binds a toolbar or menu definition to a live editor: each item's `type` is
+ * looked up in the handlers, and the resulting `disabled` / `active` /
+ * `onSelect` are attached.
+ *
+ * Grouped input (an array of arrays) comes back grouped, so a toolbar's
+ * separators survive.
+ *
+ * @param editor The editor the items act on.
+ * @param items Item definitions, flat or grouped.
+ * @param customHandlers Handlers merged over the built-ins, by key.
+ */
 export function mapEditorItems(
   editor: Editor,
   items: (Partial<EditorItem> & Record<string, any>)[] | (Partial<EditorItem> & Record<string, any>)[][],
@@ -467,6 +544,14 @@ export function mapEditorItems(
   })
 }
 
+/**
+ * Assembles the floating-ui middleware chain for the editor's popups from a
+ * plain options object.
+ *
+ * The order is fixed here rather than taken from the caller — offset, flip,
+ * shift, size, autoPlacement, hide, inline — because floating-ui applies
+ * middleware in sequence and the result depends on it.
+ */
 export function buildFloatingUIMiddleware(options: FloatingUIOptions): Middleware[] {
   const middleware: Middleware[] = []
 

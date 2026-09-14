@@ -148,14 +148,15 @@ const groups = computed(() =>
     : []
 )
 
-function isActive(item: EditorToolbarItem): boolean {
+function isActive(item: EditorToolbarItem | EditorToolbarDropdownChildItem): boolean {
   if (!props.editor?.isEditable) {
     return false
   }
 
   // Check for dropdown (has items property)
   if (('items' in item) && item.items?.length) {
-    return item.items?.some((item): boolean => isActive(item as EditorToolbarItem)) || false
+    const nested = item.items as ArrayOrNested<EditorToolbarDropdownChildItem>
+    return nested.some((child): boolean => isActive(child as EditorToolbarDropdownChildItem)) || false
   }
 
   // Check for plain button (no kind property)
@@ -168,13 +169,14 @@ function isActive(item: EditorToolbarItem): boolean {
   return handler?.isActive(props.editor, item as any) || false
 }
 
-function isDisabled(item: EditorToolbarItem): boolean {
+function isDisabled(item: EditorToolbarItem | EditorToolbarDropdownChildItem): boolean {
   if (!props.editor?.isEditable) {
     return true
   }
 
   if ('items' in item && item.items?.length) {
-    const items = isArrayOfArray(item.items) ? item.items.flat() : item.items
+    const nested = item.items as ArrayOrNested<EditorToolbarDropdownChildItem>
+    const items = isArrayOfArray(nested) ? nested.flat() : nested
     // Filter out structural elements (separators, labels)
     const actionableItems = items.filter((item: any) => item.type !== 'separator' && item.type !== 'label')
 
@@ -203,7 +205,7 @@ function isDisabled(item: EditorToolbarItem): boolean {
   return !handler.canExecute(props.editor, item)
 }
 
-function onClick(e: MouseEvent, item: EditorToolbarItem) {
+function onClick(e: MouseEvent, item: EditorToolbarItem | EditorToolbarDropdownChildItem) {
   if (!props.editor?.isEditable || isDisabled(item)) {
     return
   }
@@ -279,16 +281,12 @@ function mapDropdownItem(item: EditorToolbarDropdownChildItem): DropdownMenuItem
     return children ? { ...item, children } : item
   }
 
-  const editorToolbarItem = item as EditorToolbarDropdownChildItem
   return {
-    ...editorToolbarItem,
+    ...item,
     ...(children && { children }),
-    // @ts-expect-error: need test at nuxt.ui? but this work
-    active: isActive(editorToolbarItem),
-    // @ts-expect-error: need test at nuxt.ui? but this work
-    disabled: isDisabled(editorToolbarItem),
-    // @ts-expect-error: need test at nuxt.ui? but this work
-    onSelect: (e: Event) => onClick(e as MouseEvent, editorToolbarItem)
+    active: isActive(item),
+    disabled: isDisabled(item),
+    onSelect: (e: Event) => onClick(e as MouseEvent, item)
   }
 }
 

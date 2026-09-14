@@ -10,6 +10,7 @@ import type { TableColumn, TableRow } from '../../src/runtime/components/Table.v
 import theme from '#build/b24ui/table'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
+import SearchIcon from '@bitrix24/b24icons-vue/main/Search2Icon'
 
 describe('Table', () => {
   const loadingColors = Object.keys(theme.variants.loadingColor) as any
@@ -156,7 +157,10 @@ describe('Table', () => {
         return h(B24Button, {
           color: 'air-primary-copilot',
           label: 'Email',
-          icon: isSorted ? (isSorted === 'asc' ? SignIcon : Cross30Icon) : SignIcon,
+          // Three distinct icons for three states. The fixture used to give
+          // `asc` and unsorted the same one, so even a sorted case could only
+          // ever have distinguished `desc` (#454).
+          icon: isSorted ? (isSorted === 'asc' ? Cross30Icon : SearchIcon) : SignIcon,
           class: '-mx-2.5',
           onClick: () => column.toggleSorting(column.getIsSorted() === 'asc')
         })
@@ -218,6 +222,14 @@ describe('Table', () => {
         }]
 
         return h<any>(B24DropdownMenu, {
+          // `open` and `portal: false` so the menu renders inline and its items
+          // reach the snapshot. Without them every label in `items` above
+          // appeared zero times in the file — the whole array was dead (#454),
+          // which is how a column definition can look covered and prove
+          // nothing. This mirrors what DropdownMenu.spec.ts does for the same
+          // reason.
+          open: true,
+          portal: false,
           content: {
             align: 'end'
           },
@@ -246,24 +258,145 @@ describe('Table', () => {
     ...loadingAnimations.map((loadingAnimation: string) => [`with loading animation ${loadingAnimation}`, { props: { ...props, loading: true, loadingAnimation } }]),
     ['with meta prop', { props: { ...props, meta: { class: { tr: 'custom-row-class' }, style: { tr: { backgroundColor: 'lightgray' } } } } }],
     ['with meta field on columns', { props: { ...props, columns: columns.map(c => ({ ...c, meta: { class: { th: 'custom-heading-class', td: 'custom-cell-class' }, style: { th: { backgroundColor: 'black' }, td: { backgroundColor: 'lightgray' } } } })) } }],
+    // `sorting` is a v-model too. Before these two, `column.getIsSorted()`
+    // returned false in all 35 entries, so both branches of every sortable
+    // header were unreachable and `aria-sort` appeared zero times in the file
+    // (#454).
+    ['with sorting asc', { props: { ...props, columns, sorting: [{ id: 'email', desc: false }] } }],
+    ['with sorting desc', { props: { ...props, columns, sorting: [{ id: 'email', desc: true }] } }],
     ['with virtualize', { props: { ...props, virtualize: true } }],
     ['with virtualize and sticky', { props: { ...props, columns, virtualize: true, sticky: true } }],
     ['with virtualize external scroll element', { props: { ...props, virtualize: { getScrollElement: () => document.body, scrollMargin: 20 } } }],
     ['with row pinning', { props: { ...props, rowPinning: { top: ['2'], bottom: ['3'] } } }],
-    ['with row pinning and virtualization', { props: { ...props, virtualize: true, rowPinning: { top: ['2'], bottom: ['3'] } } }],
+    // No combined pinning-and-virtualization case. Virtualization under
+    // happy-dom renders a single row — the virtualiser sizes its window from
+    // scroll geometry the environment does not compute — so there is nothing
+    // for `rowPinning` to pin and the case was byte-identical to
+    // `with virtualize` (#454). `with row pinning` on its own does assert
+    // something and stays. Same shape as ChatMessages' viewport slot: not a
+    // fixture to fix, a branch this environment cannot reach.
     ['with as', { props: { ...props, as: 'section' } }],
     ['with class', { props: { ...props, class: 'absolute' } }],
     ['with b24ui', { props: { ...props, b24ui: { base: 'table-auto' } } }],
     // Slots
     ['with header slot', { props, slots: { 'id-header': () => 'ID Header slot' } }],
     ['with cell slot', { props, slots: { 'id-cell': () => 'ID Cell slot' } }],
-    ['with expanded slot', { props, slots: { expanded: () => 'Expanded slot' } }],
+    // `expanded` is a v-model, so the state can be handed in directly. The
+    // slot renders inside `v-if="row.getIsExpanded()"`, so without it the case
+    // was byte-identical to `with data` (#454). Upstream's spec has the same
+    // omission.
+    ['with expanded slot', { props: { ...props, expanded: { 0: true } }, slots: { expanded: () => 'Expanded slot' } }],
     ['with empty slot', { props: { columns }, slots: { empty: () => 'Empty slot' } }],
     ['with loading slot', { props: { columns, loading: true }, slots: { loading: () => 'Loading slot' } }],
     ['with caption slot', { props, slots: { caption: () => 'Caption slot' } }],
     ['with body-top slot', { props, slots: { 'body-top': () => 'Body top slot' } }],
     ['with body-bottom slot', { props, slots: { 'body-bottom': () => 'Body bottom slot' } }]
   ])
+
+  // The body already rendered `getVisibleCells()`, so a hidden column left every
+  // full-width cell one column too wide — the `<td>` overhung the row it was
+  // meant to span. Both spots are checked because they read the count from
+  // different objects: the row for `expanded`, the table for `empty`.
+  it('excludes hidden columns from colspan', async () => {
+    const columnVisibility = { email: false }
+    const visibleColumns = String(columns.length - 1)
+
+    const empty = await mountSuspended(Table, {
+      props: { columns: columns as any, columnVisibility }
+    })
+
+    expect(empty.find('[data-slot="empty"]').attributes('colspan')).toBe(visibleColumns)
+
+    const expanded = await mountSuspended(Table, {
+      props: { ...props, columns: columns as any, columnVisibility, expanded: { 0: true } },
+      slots: { expanded: () => 'Expanded slot' }
+    })
+
+    expect(expanded.findAll('td').find(td => td.text() === 'Expanded slot')?.attributes('colspan')).toBe(visibleColumns)
+
+    // Not upstream's — added because mutating this site alone left their two
+    // assertions green. It reads the count from the same object as `empty` but
+    // through a different branch, so a fix applied to one and not the other
+    // would still pass above.
+    //
+    // No `data`: the loading row is a sibling `v-else-if` of the rows, so it
+    // renders only when there are none. Passing `props` here mounted the rows
+    // instead and the query came back empty — which is how this comment exists.
+    const loading = await mountSuspended(Table, {
+      props: { columns: columns as any, columnVisibility, loading: true },
+      slots: { loading: () => 'Loading slot' }
+    })
+
+    expect(loading.find('[data-slot="loading"]').attributes('colspan')).toBe(visibleColumns)
+  })
+
+  // Sorting a column flips the header's icon and, before #479, told a screen
+  // reader nothing — `aria-sort` appeared zero times in `Table.vue`. That is
+  // also true of upstream, so a later port must not take it back out.
+  //
+  // The snapshot cases cover all three values, but only as text in a blob; these
+  // assert the two halves the issue asks for, which a snapshot cannot state:
+  // that the attribute tracks the state, and that it is absent exactly where the
+  // column does not sort.
+  describe('aria-sort', () => {
+    const headers = async (sorting?: { id: string, desc: boolean }[]) => {
+      const wrapper = await mountSuspended(Table, {
+        props: { ...props, columns: columns as any, ...(sorting ? { sorting } : {}) }
+      })
+
+      return wrapper.findAll('thead th').map(th => ({
+        // `select` renders a checkbox and `actions` renders nothing, so neither
+        // has text to key on; the column id is not in the DOM either.
+        text: th.text(),
+        sort: th.attributes('aria-sort')
+      }))
+    }
+
+    // `none` carries as much weight as the directions: without it a screen
+    // reader cannot separate "sortable, unsorted" from "does not sort".
+    it('marks every sortable header, and only those', async () => {
+      const cells = await headers()
+
+      expect(cells.map(c => c.sort)).toEqual([
+        // `select` — opts out with `enableSorting: false`
+        undefined,
+        'none',
+        'none',
+        'none',
+        'none',
+        'none',
+        // `actions` — a display column with no accessor, so nothing to sort by
+        undefined
+      ])
+    })
+
+    it.each([
+      [false, 'ascending'],
+      [true, 'descending']
+    ])('reports the direction when sorting desc=%s', async (desc, expected) => {
+      const cells = await headers([{ id: 'email', desc }])
+      const emailIndex = 4
+
+      expect(cells[emailIndex]!.text).toBe('Email')
+      expect(cells[emailIndex]!.sort).toBe(expected)
+      // The other sortable columns stay `none` — one sorted column, not all.
+      expect(cells.filter((_, i) => i !== emailIndex).map(c => c.sort))
+        .toEqual([undefined, 'none', 'none', 'none', 'none', undefined])
+    })
+
+    // A deliberate omission rather than an oversight. The footer repeats the
+    // column headers, and `aria-sort` there would announce the same state a
+    // second time; the `<thead>` cell is also the one carrying `scope="col"`.
+    it('leaves the footer headers alone', async () => {
+      const wrapper = await mountSuspended(Table, {
+        props: { ...props, columns: columns as any, sorting: [{ id: 'email', desc: true }] }
+      })
+
+      const footer = wrapper.findAll('tfoot th')
+      expect(footer.length).toBeGreaterThan(0)
+      expect(footer.every(th => th.attributes('aria-sort') === undefined)).toBe(true)
+    })
+  })
 
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(Table, {
@@ -280,7 +413,27 @@ describe('Table', () => {
         'empty-table-header': { enabled: false },
         // Checkbox buttons inside table are labelled via <label for="..."> from reka-ui,
         // but axe-core in JSDOM cannot resolve the association on custom elements.
-        'button-name': { enabled: false }
+        'button-name': { enabled: false },
+        // reka-ui's `hideOthers` puts the trigger inside an `aria-hidden`
+        // region while the popup is open and leaves it focusable, which is
+        // what this rule catches.
+        //
+        // Measured on both configurations, reading the DOM rather than axe:
+        // with `portal: false` the attribute lands on the trigger itself; with
+        // the production default `portal: true` it lands on the `[data-v-app]`
+        // ancestor instead, with the trigger still focusable inside it. So the
+        // arrangement is the same either way — the rule stops firing only
+        // because `axe(wrapper.element)` cannot see an ancestor above its own
+        // root. Disabling it here does not mean the condition is absent, and
+        // whether it is a real defect for screen-reader users or the ordinary
+        // price of a focus-trapped popup is an open question. Raised with the
+        // maintainer and deliberately left there: no issue, no upstream
+        // report. Reopen it on evidence, not on re-reading this comment.
+        //
+        // Auditing `document.body` instead is not the answer: it then trips on
+        // reka-ui's own `data-reka-focus-guard` spans, which carry
+        // `tabindex="0"` next to `aria-hidden="true"` by design.
+        'aria-hidden-focus': { enabled: false }
       }
     })).toHaveNoViolations()
   })

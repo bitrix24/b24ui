@@ -106,6 +106,10 @@ Documentation for `@bitrix24/b24ui`.
 
 ## API
 
+### Props
+
+:component-props{prose}
+
 ### Slots
 
 :component-slots{prose}

@@ -34,6 +34,9 @@ const items = ref(['Prospecting', 'Qualifying', 'Presenting', 'Negotiating', 'Cl
 const itemsSimple = ref(['Prospecting', 'Qualifying', 'Presenting', 'Negotiating', 'Closed'])
 const valueForAdd = ref('Prospecting')
 const valueMultiple = ref(['Prospecting', 'Presenting'])
+// `mode="autocomplete"` makes modelValue the input text rather than a selected
+// item, so this one is a string where the rows above hold items.
+const valueAutocomplete = ref('')
 
 function onCreate(item: string) {
   itemsSimple.value.unshift(item)
@@ -212,6 +215,16 @@ const itemsObj = ref([
         v-bind="{ ...singleAttrs, ...props }"
         class="w-full"
         @create="onCreateMultiple"
+      />
+      <B24InputMenu
+        v-model="valueAutocomplete"
+        :items="items"
+        mode="autocomplete"
+        name="some_value"
+        placeholder="Autocomplete"
+        aria-label="Autocomplete"
+        v-bind="{ ...singleAttrs, ...props }"
+        class="w-full"
       />
       <B24InputMenu
         :icon="TaskListIcon"

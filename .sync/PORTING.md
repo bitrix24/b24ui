@@ -162,6 +162,54 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   write and `next()` stops advancing. Call the divergence out in the PR
   "deviations" section, and never regenerate `test/components/{Timeline,Stepper}`
   snapshots to make a port compile — those specs guard this on purpose.
+- **A component that embeds `B24Avatar` forwards its own `color` as the avatar's
+  default.** Upstream's `Avatar` has a `color` prop, but no upstream component
+  passes one down to an embedded `UAvatar` — `ChatMessage` binds only `size`,
+  `v-bind` and `class`, and upstream's `Error` renders no avatar at all. b24ui
+  cascades it in `ChatMessage`, `Error` and `User`, because `air-*` is the design
+  system's semantic palette and reaching into `:avatar="{ color }"` to tint one
+  is neither discoverable nor consistent with the sibling components. The binding
+  form carries the rule: `:color="props.avatar?.color ?? props.color"` goes
+  **after** `v-bind="props.avatar"`, in all three of `User`, `Error` and
+  `ChatMessage`. The obvious alternative — binding `:color="props.color"` ahead
+  of the `v-bind`, which is what all three did until this entry — looks
+  equivalent and is not: `v-bind` overwrites with present-but-`undefined` keys,
+  so `:avatar="{ src, color: user.accent }"` with an unset accent silently drops
+  back to the theme default. Measured on `User` before the fix: that case
+  rendered `style-outline-no-accent` instead of `style-filled`. Porting an upstream commit that rewrites one of these avatar
+  branches will drop the binding — re-add it in this form.
+  `test/components/User.spec.ts` guards it, each case verified to fail on its own
+  mutation: the `with color` / `with color and chip` snapshots die when the
+  respective binding is deleted, `with color overridden by avatar color` dies
+  when the `??` is dropped, and `keeps the color cascade when avatar.color is
+  undefined` — an explicit class assertion, not a snapshot — dies when either
+  binding moves back ahead of the `v-bind`. The position deliberately has **no**
+  snapshot: with the cascade intact, an `undefined` `avatar.color` renders byte
+  for byte what the plain case renders, so a snapshot would collide with its
+  sibling and assert nothing — `test/utils/indistinguishable-snapshots.spec.ts`
+  rejected exactly that, correctly. `Error` and `ChatMessage` are covered by this
+  rule rather than by cases of their own; the binding is one line and identical
+  in all three.
+- **`Card` has a `size` variant, expressed in `--spacing-*` utilities; upstream's
+  does not.** Upstream's `Card` carries only `variant`, and its `header` / `body` /
+  `footer` slot bases hold the padding as literal pixels. b24ui lifts that padding
+  into a `size` variant (`xs` / `sm` / `md` / `lg`) whose every step is a package
+  token rather than a literal — `p-sm sm:px-xs2 sm:py-xs` and so on, resolved
+  through the `@theme` scale in
+  `src/runtime/air-design-tokens/tw-style/spacing.css`. `card.ts` is the first
+  theme to use those utilities; the older files in `src/theme/` still write raw
+  `p-[Npx]`, so do not take their form as the convention here.
+
+  `defaultVariants` pins `md`. `md` is *not* a byte-for-byte carry-over: its
+  `sm:py` moved 15px → 16px (`--spacing-md`), because 15 is not on the package
+  scale — a deliberate one-pixel change agreed with the maintainer, not a
+  refactoring accident. Every other value is unchanged.
+
+  Porting an upstream commit that rewrites `src/theme/card.ts` will push the
+  padding back into the slot bases as pixels and take the variant with it — keep
+  the variant, keep the slot bases empty, and keep the utilities. The `Card`
+  snapshots are the tell: fourteen entries, seven in each of
+  `test/components/__snapshots__/Card.spec.ts.snap` and its `-vue` counterpart.
 - **Generated CSS template is `b24ui.css`, never upstream's `ui.css`.** The
   `experimental.componentDetection` dev watcher filters `updateTemplates` on that
   name, and a filter matching nothing is a successful call — the feature just
@@ -492,7 +540,40 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   via `Component['slots']` / `Component['b24ui']`; mirror that shape.
 - **a11y** — keep the `axe` test case for the component green.
 - **Tests** — for every new/changed prop, add a `renderEach` case so a snapshot
-  exercises it; update snapshots with `pnpm run test run -u` when markup changes.
+  exercises it; update snapshots with `pnpm run test:update` when markup
+  changes. That is the whole suite on purpose. A targeted `vitest run -u` on
+  the few specs a port touched rewrites snapshots the port did not name — `-u`
+  swallows the following path, so the filter is dropped and the whole project
+  updates — and a later targeted verify never re-renders those files, so the
+  stale ones stay green until somebody runs everything. That is the false
+  green #74 reported from the #72 ports. Reproduced step by step in
+  `.github/contributing/testing.md`.
+- **A focus outline is coloured by `--ui-color-design-outline-focused-stroke`.**
+  Upstream colours focus from whatever accent is at hand; this fork has one
+  token for it. What makes it the right one is not that it is defined per
+  context — `accent-main-primary` and `accent-soft-element-blue` are too — but
+  that it *changes kind*: a saturated blue in the light and dark contexts, and
+  a translucent luminance shift in the edge ones, black at 35% over a light
+  surface and white at 40% over a dark one. `outline-primary` is the odd one
+  out for a different reason: it reads `--color-primary` from the Tailwind
+  theme block, which has no per-context override at all. Reapplying an
+  upstream hunk that reintroduces `outline-primary`,
+  `--ui-color-accent-soft-element-blue` or `--ui-color-accent-main-primary` on a
+  `focus-visible:outline-*` reverts an accessibility fix, not a preference: those
+  measure 1.99:1 on white and 2.22:1 on the dark background, against the 3:1 WCAG
+  2.2 SC 1.4.11 asks (#191). In the **edge** contexts the token is weaker than
+  what it replaced — it reaches about 2.4:1 there and cannot do better, because
+  a translucent shift over a backdrop the portal chooses has no guaranteed
+  ratio. That is a property of the token, tracked in #475, not a reason to paint
+  focus from an accent again. Guarded by
+  `test/utils/focus-accent-token.spec.ts`.
+
+  Out of scope, and deliberately: focus that reads `--b24ui-border-color` or
+  `--b24ui-background`, whether as `ring-` (inputs) or `outline-`
+  (breadcrumb, checkbox, switch, listbox, input-rating, radio-group). There the
+  stroke is the control's own border following the component palette, not a
+  focus accent.
+
 - **Tag width caps are relative to the field, never an absolute length.**
   Upstream's `tagsItemText` / `itemText` are plain `truncate` with no cap;
   b24ui caps the **tag** at `max-w-[70%]` with `min-w-0`, marks the delete
@@ -506,6 +587,83 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   `test/utils/tag-width-cap.spec.ts`, which sweeps every theme file for an
   absolute `max-w` on any tag- or item-named slot, nested size variants
   included.
+- **`FormField` announces the blocks it drew, not the props it was given.**
+  Upstream builds `aria-describedby` in `useFormField` from
+  `formField.value[type]` — the props handed down through `provide` — while the
+  template renders each block from `props.x || !!slots.x`. The two disagree in
+  both directions: a slot with no prop is text on screen that nothing
+  announces, and a prop whose block never draws (`hint` without a label,
+  `help` behind a rendered error, `error: true` with no message) leaves the
+  attribute naming an id that is not in the document. b24ui computes the ids in
+  `FormField.vue`, where slots are in scope, and passes them through the
+  injected context as `describedBy`; `useFormField` prefers that list and keeps
+  the props-derived one only as a fallback for a context provided by hand, since
+  `formFieldInjectionKey` and `FormFieldInjectedOptions` are both published.
+  The template binds the same `hasLabel` / `hasError` computeds it feeds, so the
+  two cannot drift apart again. Upstream still carries the defect at v4 HEAD, so
+  a faithful port of any commit touching these two files silently reverts the
+  fix. Guarded by `test/components/FormField.spec.ts` — seven cases, each
+  verified to fail with the fix removed. `aria-invalid` is deliberately
+  **unchanged**: it reports the field's error state, and the `#error` slot's
+  `v-if` is satisfied by the slot merely existing, so keying invalidity off the
+  rendered block would mark every field invalid for anyone supplying the slot
+  as markup.
+- **`Table` emits `aria-sort` on its sortable column headers.** Upstream's
+  `Table.vue` contains no `aria-sort` at all, so sorting a column flips the
+  header icon and announces nothing (#479). b24ui derives the attribute in
+  `getAriaSort()` from `column.getCanSort()` and `column.getIsSorted()`, binds
+  it on the `<thead>` `<th>` only, and deliberately leaves the `<tfoot>`
+  headers bare — the footer repeats the columns, and a second `aria-sort` would
+  announce the same state twice. `none` is as load-bearing as the two
+  directions: without it a screen reader cannot separate "sortable, unsorted"
+  from "does not sort", so the attribute is present on every sortable header
+  and absent everywhere else. A faithful port of any upstream commit touching
+  the header template silently removes it. Guarded by the `aria-sort` block in
+  `test/components/Table.spec.ts` — four cases, each verified by a separate
+  mutation: dropping the `getCanSort()` guard, pinning the value to `none`, and
+  binding it on the footer each red a different one.
+- **`highlight()` skips a match that carries no `value`.** Fuse types `value`
+  as optional. Upstream's loop returns on the first match that passes the key
+  filters and hands it to `generateHighlightedText`, which coalesces to `''` —
+  so a match with `indices` but no `value` becomes the answer for the whole
+  call and silently swallows any real match behind it. Measured on
+  `[valueless, real]`: the result was `''` and the real highlight was never
+  built (#392). b24ui `continue`s past such a match instead, which is what the
+  function's own docstring already promises — `undefined` means nothing here
+  applies, not "something applied and it was empty". Unreachable through Fuse,
+  which always sets `value`; reachable through `CommandPaletteGroup.postFilter`,
+  the same caller-supplied-matches extension point the index sorting exists for.
+  Upstream still returns the empty string, so a faithful port of that loop
+  reinstates the shadowing. Guarded by `skips a match that carries no value` and
+  `does not let a value-less match hide a later real one` in
+  `test/utils/search.spec.ts`, both verified to fail with the skip removed.
+
+  The **other** half of #392 was decided the other way and deliberately left
+  alone: the truncation budget grows by 13 characters for every `<mark>` in the
+  snippet, because the budget counts tag characters that the spending loop
+  skips. Reproduced — 1/2/3/4 marks retain 13/26/39/52 characters of leading
+  context. It is upstream's behaviour, it is not a defect, and how much context
+  a multi-word match deserves is a product question rather than a correctness
+  one. Pinned by `scales the budget with the number of marks`; if it is ever
+  made constant, that is the test to change.
+- **The tiptap stack stays in `dependencies`, not `peerDependencies`.**
+  Upstream moved 17 `@tiptap/*` packages to `peerDependencies` — and left them
+  **required**, not optional: `peerDependenciesMeta` marks `ai`, the
+  validators, `@inertiajs/vue3`, `@nuxt/content` and `vue-router` optional, and
+  no tiptap entry appears there. b24ui keeps all 17 as runtime dependencies, so
+  a port that touches `package.json` must not "align" the two shapes; doing so
+  is a breaking change for every consumer of `B24Editor`, who would have to add
+  17 entries to their own manifest or watch resolution fail.
+  The decision was taken on a measurement rather than on install-weight
+  intuition (#352, closing #99 §4): deduplicated, the 17 packages a consumer
+  actually resolves total **≈7 MB**, plus ≈2 MB of `prosemirror-*` — about 9 MB
+  against a breaking change. Beware the number that makes the case look
+  stronger: `du` over `node_modules/.pnpm` reports 86 MB for `@tiptap/*` across
+  77 entries, because pnpm stores one directory per package-and-peer-set
+  combination. That is an artefact of this repository's dev store, not what
+  anyone installs. Revisit only if a fresh measurement disagrees — and check
+  first whether pnpm's `auto-install-peers` makes the move a no-op for pnpm
+  consumers, which was not measured.
 
 ## 3. Examples (before → after)
 
@@ -591,6 +749,12 @@ For each commit:
    `processed[sha]` entry, and reconcile the **previous** entry with its merged
    PR number and squash SHA. The last entry in a run has no follower to
    reconcile it — close it out with its own small bookkeeping PR.
+   `decision` takes one of exactly four values — `port`, `no-op`, `skip`,
+   `n/a` — and `test/utils/sync-ledger.spec.ts` holds the file to them. The
+   list is closed because the ledger is queried by decision when answering
+   *what did we skip, and why*; a second spelling for one verdict silently
+   omits every entry that uses it. A fifth verdict is a process change and
+   belongs in this file before it appears in that one.
 4b. **Batch only a contiguous run.** Two commits may share a PR when nothing
    sits between them in topological order. Batching across a gap advances the
    cursor past the skipped commit and then moves it **backwards** when that
@@ -756,6 +920,44 @@ forward, since every commit between the two would then never be judged.
 6. If a fix corrects a recurring mistake, add a rule here and append a dated
    line to the changelog below.
 
+**A test that asserts nothing is a diagnosis before it is a repair.** The shape
+is a spec case whose fixture never satisfies its precondition, so the snapshot
+records the fallback and the case reads as coverage while proving nothing
+(#454). On a component this fork wrote, that is a test to fix. On a ported one
+it is a question, because the same symptom has three causes and only one of
+them is the test's fault:
+
+1. **Compare against upstream at our cursor**, not at upstream's HEAD. Comparing
+   against HEAD imports whatever upstream has added since and presents it as a
+   port we dropped. `git -C <mirror> show <cursor>:src/runtime/components/X.vue`.
+2. **We match upstream** — the fixture is wrong, fix the fixture.
+3. **We differ and the divergence is recorded**, in §2 above or in a
+   `.sync/log/<sha>.md` entry — the case tests a feature this fork does not
+   have. Remove it, citing the record.
+4. **We differ and nothing records it** — *this is the finding*. The port lost
+   something, and the vacuous test is the only surviving trace of it. Fix the
+   port; the test comes back on its own.
+5. **We match upstream and upstream's case is vacuous too** — inherited
+   faithfully, wrong in both trees. Fix ours. Upstream is the control, not the
+   authority: matching it answers *where the mistake happened*, which is the
+   question worth asking, and settles nothing about whether it is a mistake.
+   The five `descriptionKey` cases are this — upstream's own spec passes the
+   prop's default value on items that lack the field.
+
+`Empty`'s `['with avatar', …]` case is the worked example of the branch, and it is case 3
+rather than case 4 only because somebody wrote it down: upstream's `Empty` does
+carry `avatar?: AvatarProps` and renders it through `UAvatar`, while the ledger
+entry for `86cd25c5` says "b24ui's `Empty` diverges … no `avatar`". Deleting the
+case without that check would have erased the only evidence of a missing
+feature, had it been one.
+
+Note the two edges this does not cover. A component absent from upstream is not
+automatically ours — §1 makes renames mandatory, so upstream's `Slider` is this
+fork's `Range`; compare by content, not by name or by whether the docs page
+links to nuxt.com. And the procedure finds what a port dropped, never what it
+added: a prop this fork has, upstream does not, and nothing exercises, is the
+same bug facing the other way and needs reading rather than diffing.
+
 ## Changelog of rules
 
 - 2026-06-04 — _(seed)_ initial rules extracted from the review of `.sync/PLAN.md` (removed 2026-08-12; see the last entry). Last reviewed: 2026-06-04.
@@ -791,3 +993,13 @@ forward, since every commit between the two would then never be judged.
 - 2026-08-23 — closed #98 (PR #468) by adding the §6 rule **carry upstream's breaking marker into our subject**, and the matching §7 reviewer check. The issue's other two actions were already done and are recorded elsewhere: the version arithmetic table in `releasing.md` maps any `BREAKING CHANGE` or `!` to a major, with no v2-line exception, and release automation landed as release-please. What was missing is the one step automation cannot supply. release-please derives the bump from the squashed subject, so the marker is now load-bearing in a way it was not when the CHANGELOG was hand-written and a human read the diff — a dropped `!` used to be a cosmetic slip and is now a semver violation that every gate passes. The rule is stated in both directions on purpose, because a port is not a copy: a §2 divergence can absorb a break that upstream had, and this fork's own prop surface can break where upstream's did not. Last reviewed: 2026-08-23.
 - 2026-08-23 — fix of #342 (PR #470): added the §2 rule **tag width caps are relative to the field**. `max-w-[180px]` on the tag label was ours — upstream is plain `truncate` — and it ellipsised tags that had room to spare, because a constant knows nothing about the field's width or what shares its row. Settled by measuring in Chromium rather than by reading the spec, which was the only way to tell three plausible readings apart: in a 562px field a tag wanting 590px renders at 199px under the old cap, 412px under `max-w-[70%]` with both tags still on one row, and 562px uncapped with the second tag pushed to the next line. The same measurement caught what review had flagged and reading had not — `input-tags.ts`'s root is `inline-flex` with no width, so the percentage was circular there: the field grew to 590px, overflowing its 562px parent, and clipped the label anyway. `max-w-full` on that root fixes both and is now part of the invariant. The guard went through three drafts, each corrected by mutation rather than by review: it credited one slot with a neighbour's class, then passed on its own comment (which contains the string `min-w-0`), then missed both the six per-size `tagsItem` overrides at deeper indentation and the `(prev) => [...]` slot form — an arrow function's parameter list closes before its body opens, so balancing brackets returned `(prev: string)` and nothing else. It ends at a comma at depth zero, and a self-check asserts the scanner matched something before reporting no offenders. Last reviewed: 2026-08-23.
 - 2026-08-23 — added the §6 rule **name the upstream commit in the subject** and the §7 reviewer check, on the maintainer's request that ported commits be traceable from the changelog. Only the subject reaches `CHANGELOG.md`, so that is the only place the reference can go. Upstream's own first line was the request as originally put and is deliberately not what shipped: their `Slider` is this fork's `Range`, and §1 makes that rename mandatory, so copying their wording would name a component this library does not have — the reference points at the commit and the sentence stays about ours. Enforced by `assert-commit-parses.mjs`, which keys on a new entry appearing in `processed` rather than on the ledger being edited, so the reconciliation commits §6 step 4 requires are unaffected — verified against #467, which passes, and against #466 and #464, which are real ports and are flagged. The same pass extended that guard to reject a type with no `changelog-sections` entry (#437): a breaking commit of an unconfigured type keeps its raw lowercase type as the group title and sorts above every real section, reproduced by running the writer release-please uses. Both checks read `release-please-config.json` and the ledger rather than restating either. Last reviewed: 2026-08-23.
+- 2026-08-23 — fix of #191 (PR pending): added the §2 rule **a focus outline is coloured by the focus token**, and took two design-agnostic fixes upstream had shipped alongside — `a:focus-visible { outline-offset: 0 }` in `index.css`, and `overflow: hidden` on every frame of the accordion and collapsible height animations. The issue read as an inconsistency, four colours doing one job across 46 theme files, and the maintainer scoped it to colour only: form stays per component, `ring-*` on inputs untouched. Measuring the four turned it into an accessibility fix. `outline-primary` is not a token at all — it resolves to `--color-primary`, a legacy Bitrix cyan at 1.99:1 against white — and `--ui-color-accent-soft-element-blue` is a dark blue in every context including the dark ones, 2.22:1 against `#262626`; WCAG 2.2 SC 1.4.11 asks 3:1, and seven of the nine outline-coloured sites failed it in at least one theme. `--ui-color-design-outline-focused-stroke` is the design system's own name for this and the only one of the four defined in all four contexts: 4.21:1 light, 4.24:1 dark. Two things were deliberately left: the `isAction` link's red focus, where the colour matches the hover state and the real defect is the token having no dark value (#473), and the fifteen `--b24ui-border-color` focus rings on inputs, where the ring is the field's border rather than a focus accent. A dead `hover:text(` — missing its dash, so Tailwind generated nothing — was removed from `link.ts` on the way past. Last reviewed: 2026-08-23.
+- 2026-08-24 — added the §7 rule **a test that asserts nothing is a diagnosis before it is a repair**, on the maintainer's instruction that ported components be checked against upstream rather than patched locally. #454 lists fourteen specs whose fixture never reaches the branch they claim to cover, and treating them uniformly as test bugs is what the rule prevents: the same symptom means a wrong fixture on our own components, a recorded divergence on ported ones, and a lost port when nothing records it — and only the third is worth finding. `Empty`'s `with avatar` case is the worked example. Upstream does carry `avatar?: AvatarProps`, so the case looked like a dropped prop; it is not, because the ledger entry for `86cd25c5` says so in as many words, and the difference between those two readings is one `git show` against the cursor. Measuring the corpus first was also worth it and changed the plan: 916 of 4361 snapshot entries — 21% — were byte-identical to a sibling, against the fourteen the issue names, so the fourteen are a hand-picked sample rather than the set. Comparing at the cursor rather than at upstream's HEAD is written into the rule because the two happened to be the same commit on the day it was written (`aa5f4af0`), which is exactly when the distinction is easiest to lose. Last reviewed: 2026-08-24.
+- 2026-08-26 — closed #74 (PR #498) by rewording the §2 **Tests** rule to name `pnpm run test:update` and say why it takes no path. The issue reported a green `-u` followed by a failing verify during the #72 ports, and the first write-up of this rule guessed at the cause — a stale compiled theme under `#build/b24ui/*` — which does not reproduce and was corrected in review. What does reproduce, deterministically, is an argument-order trap: `vitest run -u <path>` consumes the path as `-u`'s value, so the filter is dropped and the whole project updates. Adding a marker class to `src/theme/kbd.ts`, updating that way, and reverting the theme leaves the marker in four snapshot files the author never named — `CommandPalette`, `ContextMenu`, `DashboardSearchButton`, `Tooltip`, and in a second run `ContentSearchButton` in a different directory again. Every targeted verify afterwards is green because it does not re-render those files; `pnpm run test run` is red with five failures in a component the change never touched. That is the whole reason the safe command takes no path. The same PR closed #50 by giving `FormA11y.vue` a `role="group"` labelled through `aria-labelledby`, and pinned the linkage with an explicit test rather than leaving it to axe: axe files a dangling `aria-labelledby` under `incomplete`, and `toHaveNoViolations` reads only `violations`, so the fixture alone guarded nothing — verified by pointing the reference at a missing id and watching the axe case stay green. Last reviewed: 2026-08-26.
+- 2026-08-30 — normalised the ledger's `decision` vocabulary and gave it a guard (`test/utils/sync-ledger.spec.ts`). Found by a routine sync check, not by anything red: tallying `.sync/nuxt-ui.json` whole showed 50 entries spelling a verdict `no-op` and 14 spelling it `noop`, interleaved across the same period — `f2ff8241` and `b0461e72` are twenty entries apart and disagree. Neither form is wrong on its face, which is why it survived: the drift is invisible in a one-entry diff and only appears when the file is counted, and no reviewer counts a 280-entry data file. It is not cosmetic. The ledger's whole purpose is being queryable after the fact — the §1 component-name rule exists because one such query was answered wrongly — and a query written against `no-op` was quietly missing a fifth of them. The 14 are now `no-op`, the four-value vocabulary is written down in §6 step 4, and the guard checks it along with the other invariants that were likewise unenforced: full-SHA keys, a `cursor` that is one of the processed commits, no entry still carrying `pending-merge`, and a non-empty `summary` on every entry. Writing that guard turned up a second drift and pinned it on this session: `pr` is a **number** in all 277 older entries and was a string in exactly the three #511 added an hour earlier, which `vue-tsc` caught the moment the file was typed at all — `pr === 509` does not match `"509"`, and a sort orders one as text. Those three are now numbers. `b24ui_sha` splits the same way, 155 abbreviated against 125 full, and is deliberately **left** split: both forms resolve under `git show`, which is the field's only use, so the assertion checks 7-to-40 lowercase hex — a value that resolves to nothing — rather than a uniformity worth 280 rows of diff. Ten mutations verified, each failing exactly one assertion. Two findings from the same audit were deliberately **not** fixed in that PR: four entries at the very start of the ledger (`2799fa6f`, `631f5dc5`, `6102a87b`, `007b136a` — PRs #68–#72) have no `.sync/log/<sha>.md`, predating the convention by one commit, and a "every entry has a log" guard was deferred with them, since it would have gone red on exactly those four. Both were done on maintainer instruction the same day — see the next entry. Last reviewed: 2026-08-30.
+- 2026-08-30 — backfilled the four missing `.sync/log/` files and closed the guard that was deferred with them, on maintainer instruction. The reasoning against doing this was that writing a rationale months later is reconstruction rather than record; what changed the answer is that the record turned out to still exist in full — both commits are readable on both sides, and three of the four fork commits carry unusually detailed messages that state the reasoning contemporaneously. So every log is derived from `git show` on the upstream commit and on ours, plus the fork commit's own message, and each says at the top that it was backfilled and from what. Nothing is recalled. Re-deriving them was worth more than the tidiness: it turned up a real omission nobody had recorded — `2799fa6f` added an autocomplete-mode row to upstream's InputMenu playground, the port dropped it, and **neither playground has one to this day**, so the mode cannot be exercised by hand. It also made two ports legible that the one-line summaries flattened. `631f5dc5` looks like a verbatim prop-list copy and is not: upstream's list contains `loadingIcon` and ours must not, because this fork does not carry that prop at all (`CommandPalette.vue:93`, `@memo not use loadingIcon`) — taking the list verbatim would have forwarded `undefined` silently. `007b136a` is the opposite of verbatim: upstream adds a popper cap to a `content` slot that already had `flex flex-col`, while here the equivalent cap was on `viewport`, so the port had to *move* it — keeping the fork's own ceilings rather than upstream's `15rem`, adding a `var(…, 100vh)` fallback that upstream's bare `max-h-(--reka-…)` form does not need (inside `min()`, an unset variable invalidates the whole declaration instead of merely not capping — which is exactly `Select` with `position="item-aligned"`, where reka never publishes the height), and fixing two transform-origin namespace bugs that were ours alone. That is also why it is marked breaking here and is not upstream. The guard now asserts the pairing in **both** directions plus a floor on file size: a missing log is the obvious failure, but an orphaned log is what a mistyped SHA in a filename looks like, and an empty file satisfies pairing while documenting nothing. Three mutations verified. Deliberately not guarded: the heading format, which varies across the 280 files (`# no-op — nuxt/ui@<sha>` and `# Port: <subject>` both occur) and where a rule would be invented rather than enforced. Last reviewed: 2026-08-30.
+- 2026-09-01 — ports of `9c99bf16`…`20c1954d`, and a correction to the ledger guard added a day earlier in #515. That guard asserted "no entry carries `pending-merge`", which is a rule this file's own §6 step 4 contradicts: the entry is written in the same commit as the port, before its PR has a number or a squash SHA, and is reconciled by a later bookkeeping PR. It went red on the very next port — this one — and as written would have blocked the documented process rather than guarding it. The real invariant is ordering, since reconciliation happens in sequence: pending entries must form a **suffix**, and one sitting behind a reconciled entry means a bookkeeping PR was skipped. That is the failure worth catching, and it is the one that is otherwise invisible, because a stranded entry looks complete and says nothing false. Three mutations verified — a pending entry in the middle goes red, the current three-entry tail stays green, a fully reconciled ledger stays green. Worth generalising: a guard written while the tree happens to be in one state encodes that state rather than the rule, and the way to tell the difference is to ask what the next ordinary change looks like. Two method notes from the same run. **Counting installed packages with `find node_modules/.pnpm` is wrong** — the store keeps directories from earlier installs, so a version no longer resolved still appears; it reported an `@nuxtjs/mdc@0.22.2` the lockfile did not contain, and the conclusion had to be re-derived from `pnpm-lock.yaml`, which is the resolution. **And an upstream removal is not a reason to remove.** `9c99bf16` drops the `@nuxt/content>@nuxtjs/mdc` override, which upstream can do having moved to content 3.16.0; here removing it demonstrably resolves two mdc copies, because the root peer `@nuxt/content: ^3.0.0` — deliberately wide — sits at 3.14.0. The override stays. Its sibling removal, the spent `minimumReleaseAgeExclude` entry, was taken, on the opposite evidence: the supply-chain check passes without it. Last reviewed: 2026-09-01.
+- 2026-09-08 — fix of #497 (PR #549): added the §2 **`FormField` announces the blocks it drew** invariant. Filed rather than fixed in August because the component and the composable were line-for-line identical to upstream; re-checked at upstream v4 HEAD (`970025f`) before touching anything, and they still are, so this is now a recorded divergence rather than a porting slip. Worth noting what "identical to upstream" bought: the issue's own measurements were taken in #496, the behaviour was pinned by six characterization tests written to fail when it was fixed, and that is exactly what happened — 66 failures per project on the first run, every one of them a test that existed to say "this is wrong on purpose". The seventh case was found while fixing: `error?: boolean | string`, and `error: true` marks the field invalid without a message, so the error block — which needs a string — never draws while the attribute named it anyway. Nothing covered that direction. Each of the four conditions in `describedBy` was mutated separately, because a guard checked at one value is not a guard checked: dropping the `hasLabel` term reds exactly one test, dropping the `!hasError` term reds two, replacing the whole list reds all seven. The `aria-invalid` half was measured and deliberately **not** changed — see the invariant for why. Docs and the `skills/` forms guideline both described the old behaviour in detail and were rewritten with it, including a section rename (`Slots do not replace their props` → `What is announced is what was drawn`) and its two in-page anchors. Last reviewed: 2026-09-08.
+- 2026-09-08 — fix of #479 (PR #554): added the §2 **`Table` emits `aria-sort`** invariant. Second divergence recorded today for the same reason as #497 — upstream has the defect, checked rather than assumed, and a port would take the fix back out. Worth recording two things from the measurement. First, `column.getCanSort()` turned out to be exactly the right predicate without needing a rule of its own: probed on a live mount, it is false both for a column that opts out with `enableSorting: false` and for a display column with no accessor, so the selection and actions columns stay silent while every accessor column is marked. Second, a reading error worth not repeating: the first pass counted 15 `<th>` in a snapshot and found one with neither `scope` nor `aria-sort`, because the tag regex was `<th[^>]*>` and a Tailwind arbitrary variant (`[&>div]:`) inside `class` ends the match early. The real count is 14, and an attribute-aware pattern gets it — the identical `[^>]*` truncation was found in `test/utils/skill-manifest.spec.ts` a week earlier, so this is the second time it has cost a wrong number. Last reviewed: 2026-09-08.
+- 2026-09-09 — decision on #392 (PR #563): added the §2 **`highlight()` skips a value-less match** invariant, and recorded the half that was decided *not* to change. The issue raised two behaviours as questions rather than bugs, and measurement separated them. The truncation budget scaling with the number of marks is real (13 characters per mark, reproduced at 1/2/3/4) but harmless and upstream's — a product preference with no defect behind it, so it stays. The value-less match was worse than the issue described: it reported "no live rendering difference today", which holds for the render path, but the loop returns on the first match it reaches, so a value-less match does not merely render as `''` — it **prevents a later real match from being highlighted at all**. That is what moved it from a question to a fix. Both behaviours are byte-identical to upstream at v4 HEAD, so the fix is the third recorded divergence in three days, all three of the same shape: upstream carries the defect, checked rather than assumed, and a port would silently take the fix back out. One process note: the first version of the new shadowing test failed on an expectation of `'<mark>alpha</mark> squad'` when the fixture's `label` is `'alpha team'` — `squad` is the neighbouring `suffix` constant. A fixture value recalled instead of read, which is rule 5.3 in miniature and cost one run. Last reviewed: 2026-09-09.
+- 2026-09-10 — decision on #352 (no PR beyond this entry): added the §2 **tiptap stays in `dependencies`** invariant. The issue asked for a measurement first — "#99 asked for this and it has never been done" — and the measurement is what settled it against the change: ≈9 MB for a consumer, traded against a breaking change requiring 17 manifest entries from every `B24Editor` user. Worth recording the wrong number as well as the right one, because the wrong one is the one a hurried check produces: `du -sm node_modules/.pnpm/@tiptap*` says 86 MB across 77 directories, and 77 is not 17 — pnpm keeps one store entry per package-and-peer-set combination, so the figure counts the same package many times over. Resolving each `node_modules/@tiptap/*` symlink to its real path and deduplicating gives 17 paths and 7 MB, of which `@tiptap/core` alone is 3.7 MB. Also confirmed the doubt the issue raised about upstream: their 17 tiptap peers really are **required** — `peerDependenciesMeta` lists eleven optional entries and no tiptap among them — so copying their shape wholesale would have imposed required peers for a component most apps never mount. Their peer count has grown from the 21 recorded in the issue to 30. Last reviewed: 2026-09-10.

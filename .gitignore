@@ -62,3 +62,6 @@ CLAUDE.md
 # Python bytecode from .github/scripts (py_compile, and any local run)
 __pycache__/
 *.pyc
+
+# Coverage reports (pnpm run test:coverage)
+/coverage

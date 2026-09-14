@@ -163,15 +163,6 @@ exports[`DescriptionList > renders with custom slot correctly 1`] = `
 </div>"
 `;
 
-exports[`DescriptionList > renders with default slot correctly 1`] = `
-"<div data-slot="root" class="w-full shrink-0">
-  <!--v-if-->
-  <!--v-if-->
-  <dl data-slot="container" class="grid grid-cols-1 sm:grid-cols-[min(50%,theme(spacing.80))_auto] mt-3 text-(length:--ui-font-size-lg)"></dl>
-  <!--v-if-->
-</div>"
-`;
-
 exports[`DescriptionList > renders with empty items correctly 1`] = `
 "<div data-slot="root" class="w-full shrink-0">
   <!--v-if-->

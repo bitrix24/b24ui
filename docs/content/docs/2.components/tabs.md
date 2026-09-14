@@ -2,6 +2,10 @@
 title: Tabs
 description: A collection of tab panels shown individually.
 category: navigation
+keywords:
+  - tabbed
+  - panels
+  - sections
 links:
   - label: GitHub
     iconName: GitHubIcon
@@ -20,7 +24,7 @@ links:
 
 ## Usage
 
-Use the Tabs component to display a list of items in a tabs.
+Use the Tabs component to display a list of items in tabs.
 
 ::component-example
 ---

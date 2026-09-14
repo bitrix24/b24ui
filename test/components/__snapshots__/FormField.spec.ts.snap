@@ -117,10 +117,10 @@ exports[`FormField > renders with help slot correctly 1`] = `
 exports[`FormField > renders with hint correctly 1`] = `
 "<div data-orientation="vertical" data-slot="root" class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
   <div data-slot="wrapper" class="leading-(--ui-font-line-height-reset) mb-[10px]">
-    <!--v-if-->
+    <div data-slot="root" class="flex content-center items-center justify-between gap-1"><label for="v-0-0" data-slot="label" class="block text-label">Username</label><span id="v-0-0-hint" data-slot="hint" class="text-description">Use letters, numbers, and special characters</span></div>
     <!--v-if-->
   </div>
-  <div data-slot="container" class="">
+  <div data-slot="container" class="relative">
     <!--v-if-->
   </div>
 </div>"
@@ -129,10 +129,10 @@ exports[`FormField > renders with hint correctly 1`] = `
 exports[`FormField > renders with hint slot correctly 1`] = `
 "<div data-orientation="vertical" data-slot="root" class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
   <div data-slot="wrapper" class="leading-(--ui-font-line-height-reset) mb-[10px]">
-    <!--v-if-->
+    <div data-slot="root" class="flex content-center items-center justify-between gap-1"><label for="v-0-0" data-slot="label" class="block text-label">Username</label><span id="v-0-0-hint" data-slot="hint" class="text-description">Hint slot</span></div>
     <!--v-if-->
   </div>
-  <div data-slot="container" class="">
+  <div data-slot="container" class="relative">
     <!--v-if-->
   </div>
 </div>"

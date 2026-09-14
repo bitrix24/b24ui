@@ -517,6 +517,31 @@ function resolveValue<T, A = undefined>(prop: T | ((arg: A) => T), arg?: A): T |
   return prop
 }
 
+/**
+ * The sort state of a column header, for `aria-sort`.
+ *
+ * Sorting a column flips the header's icon and tells assistive technology
+ * nothing (#479). `none` matters as much as the two directions: without it a
+ * screen reader cannot tell a sortable-but-unsorted column from one that does
+ * not sort at all, so the attribute is present on every sortable header and
+ * absent everywhere else.
+ *
+ * `getCanSort()` is the predicate, measured rather than assumed: it is false
+ * both for a column that opts out with `enableSorting: false` and for a
+ * display column with no accessor, so selection and action columns stay
+ * silent without needing a rule of their own.
+ */
+function getAriaSort(column: Column<T>): 'ascending' | 'descending' | 'none' | undefined {
+  if (!column.getCanSort()) {
+    return undefined
+  }
+
+  const sorted = column.getIsSorted()
+  if (sorted === 'asc') return 'ascending'
+  if (sorted === 'desc') return 'descending'
+  return 'none'
+}
+
 function getColumnStyles(column: Column<T>): Record<string, string> {
   const styles: Record<string, string> = {}
 
@@ -591,7 +616,7 @@ defineExpose({
     </tr>
 
     <tr v-if="row.getIsExpanded()" data-slot="tr" :class="b24ui.tr({ class: [props.b24ui?.tr] })">
-      <td :colspan="row.getAllCells().length" data-slot="td" :class="b24ui.td({ class: [props.b24ui?.td] })">
+      <td :colspan="row.getVisibleCells().length" data-slot="td" :class="b24ui.td({ class: [props.b24ui?.td] })">
         <slot name="expanded" :row="row" />
       </td>
     </tr>
@@ -612,6 +637,7 @@ defineExpose({
             :key="header.id"
             :data-pinned="header.column.getIsPinned()"
             :scope="header.colSpan > 1 ? 'colgroup' : 'col'"
+            :aria-sort="getAriaSort(header.column)"
             :colspan="header.colSpan > 1 ? header.colSpan : undefined"
             :rowspan="header.rowSpan > 1 ? header.rowSpan : undefined"
             data-slot="th"
@@ -644,7 +670,7 @@ defineExpose({
 
           <template v-if="virtualizer">
             <tr v-if="virtualPaddingTop > 0" :style="{ height: `${virtualPaddingTop}px` }" aria-hidden="true">
-              <td :colspan="tableApi.getAllLeafColumns().length" />
+              <td :colspan="tableApi.getVisibleLeafColumns().length" />
             </tr>
             <template v-for="virtualRow in virtualItems" :key="centerRows[virtualRow.index]?.id ?? `virtual-${virtualRow.index}`">
               <ReuseRowTemplate
@@ -654,7 +680,7 @@ defineExpose({
               />
             </template>
             <tr v-if="virtualPaddingBottom > 0" :style="{ height: `${virtualPaddingBottom}px` }" aria-hidden="true">
-              <td :colspan="tableApi.getAllLeafColumns().length" />
+              <td :colspan="tableApi.getVisibleLeafColumns().length" />
             </tr>
           </template>
 
@@ -666,13 +692,13 @@ defineExpose({
         </template>
 
         <tr v-else-if="props.loading && !!slots['loading']">
-          <td :colspan="tableApi.getAllLeafColumns().length" data-slot="loading" :class="b24ui.loading({ class: props.b24ui?.loading })">
+          <td :colspan="tableApi.getVisibleLeafColumns().length" data-slot="loading" :class="b24ui.loading({ class: props.b24ui?.loading })">
             <slot name="loading" />
           </td>
         </tr>
 
         <tr v-else>
-          <td :colspan="tableApi.getAllLeafColumns().length" data-slot="empty" :class="b24ui.empty({ class: props.b24ui?.empty })">
+          <td :colspan="tableApi.getVisibleLeafColumns().length" data-slot="empty" :class="b24ui.empty({ class: props.b24ui?.empty })">
             <slot name="empty">
               {{ props.empty || t('table.noData') }}
             </slot>

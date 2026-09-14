@@ -1,0 +1,26 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Navbar > renders with as correctly 1`] = `
+"<!-- Navbar -->
+<header data-slot="root" class="h-full flex-1 flex items-center gap-4"></header>"
+`;
+
+exports[`Navbar > renders with b24ui correctly 1`] = `
+"<!-- Navbar -->
+<nav data-slot="root" class="h-full flex-1 flex items-center gap-4 px-8"></nav>"
+`;
+
+exports[`Navbar > renders with class correctly 1`] = `
+"<!-- Navbar -->
+<nav data-slot="root" class="h-full flex-1 flex items-center gap-4 border-b"></nav>"
+`;
+
+exports[`Navbar > renders with default correctly 1`] = `
+"<!-- Navbar -->
+<nav data-slot="root" class="h-full flex-1 flex items-center gap-4"></nav>"
+`;
+
+exports[`Navbar > renders with default slot correctly 1`] = `
+"<!-- Navbar -->
+<nav data-slot="root" class="h-full flex-1 flex items-center gap-4">Default slot</nav>"
+`;

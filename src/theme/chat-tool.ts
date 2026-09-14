@@ -2,8 +2,8 @@
  * ChatTool
  * An expandable section that indicates whether an AI tool has been called and its execution state.
  * ---
- * @todo: make refactor for `--leftmenu-group-stroke`
- * @todo: make ChatTool.variant.card === NavigationMenu.orientation.vertical.item
+ * @todo make refactor for `--leftmenu-group-stroke`
+ * @todo make ChatTool.variant.card === NavigationMenu.orientation.vertical.item
  * A link
  */
 
@@ -19,7 +19,7 @@ export default {
       'disabled:cursor-default',
       'disabled:hover:text-muted',
       'hover:text-default',
-      'focus-visible:outline-offset-2 focus-visible:outline-primary',
+      'focus-visible:outline-offset-2 focus-visible:outline-(--ui-color-design-outline-focused-stroke)',
       'transition-colors'
     ].join(' '),
     leading: 'relative shrink-0 size-5',

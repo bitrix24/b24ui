@@ -51,7 +51,10 @@ describe('Tabs', () => {
     ['with default slot', { props, slots: { default: () => 'Default slot' } }],
     ['with trailing slot', { props, slots: { trailing: () => 'Trailing slot' } }],
     ['with content slot', { props, slots: { content: () => 'Content slot' } }],
-    ['with custom slot', { props, slots: { custom: () => 'Custom slot' } }]
+    // `defaultValue: '2'` selects the item carrying `slot: 'custom'`. Without
+    // it the first tab is active, the custom item's panel is never rendered,
+    // and the case was byte-identical to a sibling (#454).
+    ['with custom slot', { props: { ...props, defaultValue: '2' }, slots: { custom: () => 'Custom slot' } }]
   ])
 
   it('passes accessibility tests', async () => {

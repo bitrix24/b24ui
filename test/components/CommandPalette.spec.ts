@@ -148,7 +148,10 @@ describe('CommandPalette', () => {
     ['with class', { props: { ...props, class: 'divide-(--ui-color-accent-main-success)' } }],
     ['with b24ui', { props: { ...props, b24ui: { input: '[&>input]:h-10' } } }],
     // Slots
-    ['with empty slot', { props, slots: { empty: () => 'Empty slot' } }],
+    // A `searchTerm` nothing matches, without which there is no empty state
+    // and the slot never renders (#454). Inherited from upstream, whose case
+    // omits it too.
+    ['with empty slot', { props: { ...props, searchTerm: 'zzzznomatch' }, slots: { empty: () => 'Empty slot' } }],
     ['with item slot', { props, slots: { item: () => 'Item slot' } }],
     ['with item-leading slot', { props, slots: { 'item-leading': () => 'Item leading slot' } }],
     ['with item-label slot', { props, slots: { 'item-label': () => 'Item label slot' } }],

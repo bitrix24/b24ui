@@ -43,6 +43,19 @@ describe('Input', () => {
     ['with as', { props: { as: 'section' } }],
     ['with class', { props: { class: 'absolute' } }],
     ['with b24ui', { props: { b24ui: { base: 'rounded-full' } } }],
+    // Bitrix24-only props, absent from `nuxt/ui` — so nothing that arrives with
+    // an upstream sync covers them. `autofocus`/`autofocusDelay` are left out
+    // on purpose: they move focus and change no markup, so a snapshot pins
+    // nothing.
+    ['with noPadding', { props: { noPadding: true } }],
+    ['with noBorder', { props: { noBorder: true } }],
+    ['with underline', { props: { underline: true } }],
+    ['with rounded', { props: { rounded: true } }],
+    ['with fixed', { props: { fixed: true } }],
+    ['with autocomplete', { props: { autocomplete: 'email' } }],
+    ['with tag', { props: { tag: 'Tag' } }],
+    ['with tag and tagColor', { props: { tag: 'Tag', tagColor: 'air-primary-success' } }],
+    ['with defaultValue', { props: { defaultValue: 'preset' } }],
     // Slots
     ['with default slot', { slots: { default: () => 'Default slot' } }],
     ['with leading slot', { slots: { leading: () => 'Leading slot' } }],
@@ -56,7 +69,16 @@ describe('Input', () => {
       ['with .number modifier', { props: { modelModifiers: { number: true } } }, { input: '42', expected: 42 }],
       ['with .lazy modifier', { props: { modelModifiers: { lazy: true } } }, { input: 'input', expected: 'input' }],
       ['with .nullable modifier', { props: { modelModifiers: { nullable: true } } }, { input: '', expected: null }],
-      ['with .optional modifier', { props: { modelModifiers: { optional: true } } }, { input: '', expected: undefined }]
+      ['with .optional modifier', { props: { modelModifiers: { optional: true } } }, { input: '', expected: undefined }],
+      // `0` is the case the fix is about: `value ||= null` treated it as empty,
+      // so a quantity of zero came back as `null`. The empty-value rows are the
+      // other half — the mapping still has to happen when the value really is
+      // empty, or the fix would trade one bug for another.
+      ['with .number and .nullable modifiers', { props: { modelModifiers: { number: true, nullable: true } } }, { input: '0', expected: 0 }],
+      ['with .number and .optional modifiers', { props: { modelModifiers: { number: true, optional: true } } }, { input: '0', expected: 0 }],
+      ['with .number and .nullable modifiers on an empty value', { props: { modelModifiers: { number: true, nullable: true } } }, { input: '', expected: null }],
+      ['with .number and .optional modifiers on an empty value', { props: { modelModifiers: { number: true, optional: true } } }, { input: '', expected: undefined }],
+      ['with number type and .nullable modifier', { props: { type: 'number', modelModifiers: { nullable: true } } }, { input: '0', expected: 0 }]
     ],
     '%s works',
     async (_nameOrHtml, options, spec) => {

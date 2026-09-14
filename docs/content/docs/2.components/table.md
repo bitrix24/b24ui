@@ -312,7 +312,7 @@ You could also add this action to the [`DropdownMenu`](/docs/components/dropdown
 
 You can group rows based on a given column value and show/hide sub rows via some button added to the cell using the TanStack Table [Grouping APIs](https://tanstack.com/table/v8/docs/api/features/grouping).
 
-#### Important parts:
+#### Important parts
 
 * Add `grouping` prop with an array of column ids you want to group by.
 * Add `grouping-options` prop. It must include `getGroupedRowModel`, you can import it from `@tanstack/vue-table` or implement your own.
@@ -498,6 +498,15 @@ class: '!p-0'
 
 ::tip
 You can use the `sorting` prop to control the sorting state of the columns (can be bound with `v-model`).
+::
+
+::note
+The `<th>` of a sortable column carries `aria-sort` on its own — `ascending`,
+`descending`, or `none` when the column sorts but is not currently sorted — so
+your header button does not need to add it. A column that opts out with
+`enableSorting: false`, or a display column with no accessor such as an actions
+column, gets no `aria-sort` at all, which is what tells assistive technology it
+is not sortable rather than merely unsorted.
 ::
 
 You can also create a reusable component to make any column header sortable.
@@ -708,7 +717,7 @@ class: '!p-0'
 ::
 
 ::note
-A height constraint is required on the table for virtualization to work properly (e.g., `class="h-[400px]"`).
+A height constraint is required on the table for virtualization to work properly (e.g. `class="h-[400px]"`).
 ::
 
 ### With external scroll element :badge{label="New" class="align-text-top"}

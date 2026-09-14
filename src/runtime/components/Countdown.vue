@@ -143,9 +143,20 @@ const endTime = ref<number>(0)
  */
 const totalMilliseconds = ref<number>(0)
 /**
- * The request ID of the requestAnimationFrame.
+ * The handle of the pending `requestAnimationFrame`, or `0` when none is
+ * scheduled.
+ *
+ * Deliberately not a `ref`. Nothing renders or watches it, and a `ref` deep-
+ * wraps an object value in `reactive()` — which is exactly what this holds
+ * outside a browser: a DOM spec says `requestAnimationFrame` returns a `long`,
+ * happy-dom returns the Node `Immediate` it scheduled. Stored in a `ref`, the
+ * handle came back out as a Proxy, and `clearImmediate` unlinked a node that
+ * was not identical to anything in Node's queue, leaving `processImmediate` to
+ * read `_idleNext` off `undefined`. Four uncaught `TypeError`s in
+ * `Countdown.spec.ts`, invisible until the harness began unmounting wrappers
+ * and `pause` ran for the first time.
  */
-const requestId = ref<number>(0)
+let requestId: number = 0
 // endregion ////
 
 // region events ////
@@ -323,9 +334,19 @@ function continueProcess(): void {
   // props watcher's `start()` and `onActivated`'s `resumeCounting()` both land
   // here. Measured: one extra uncancellable frame chain, and `progress` firing
   // twice for a single tick. Guarding here rather than at the two call sites
-  // covers any future third caller too. `cancelAnimationFrame` on a stale or
-  // already-fired handle is a no-op, so the recursive call from `step` is safe.
-  cancelAnimationFrame(requestId.value)
+  // covers any future third caller too.
+  //
+  // A spent handle never reaches here: `step` drops it as it fires, and `pause`
+  // drops it as it cancels, so `requestId` holds only a frame that is still
+  // pending. That used to rest on `cancelAnimationFrame` being a no-op for a
+  // handle that already ran, which is true of a browser and not of happy-dom:
+  // its handle is a Node `Immediate`, and `clearImmediate` on one that has
+  // already executed unlinks a node that is no longer in the queue, leaving
+  // Node's `processImmediate` to read `_idleNext` off `undefined`. Four
+  // uncaught `TypeError`s in `Countdown.spec.ts` — invisible until the harness
+  // began unmounting wrappers, because nothing ever called `pause`.
+  cancelAnimationFrame(requestId)
+  requestId = 0
 
   const delay = Math.min(totalMilliseconds.value, props.interval!)
 
@@ -333,6 +354,9 @@ function continueProcess(): void {
     let init: number
     let prev: number
     const step = (now: number) => {
+      // This frame has fired, so its handle is spent — see `pause`.
+      requestId = 0
+
       if (!init) {
         init = now
       }
@@ -350,13 +374,13 @@ function continueProcess(): void {
       ) {
         progress()
       } else {
-        requestId.value = requestAnimationFrame(step)
+        requestId = requestAnimationFrame(step)
       }
 
       prev = now
     }
 
-    requestId.value = requestAnimationFrame(step)
+    requestId = requestAnimationFrame(step)
   } else {
     stop()
   }
@@ -366,7 +390,12 @@ function continueProcess(): void {
  * Pauses the countdown.
  */
 function pause(): void {
-  cancelAnimationFrame(requestId.value)
+  if (!requestId) {
+    return
+  }
+
+  cancelAnimationFrame(requestId)
+  requestId = 0
 }
 
 /**
@@ -497,12 +526,38 @@ const fullDashArray = computed((): string => {
   const fullDashArray = 283
 
   const calculateTimeFraction = (): number => {
-    if (Number(props.seconds) < 0) {
+    const total = Number(props.seconds)
+
+    // A negative duration has no meaning. The ring reads as full, which is
+    // what it did before this guard existed. The guard is load-bearing, not
+    // cosmetic: `totalSeconds` floors, so without it the fraction comes out as
+    // `Math.floor(total) / total`, which only lands on 1 when `total` is a
+    // whole number. `seconds="-0.5"` rendered an empty ring and `seconds="-0.2"`
+    // rendered `stroke-dasharray="-4245 283"` — fifteen negative circumferences.
+    if (total < 0) {
       return 1
     }
 
-    const rawTimeFraction = totalSeconds.value / Number(props.seconds)
-    return rawTimeFraction - (1 / Number(props.seconds)) * (1 - rawTimeFraction)
+    // Zero and NaN both divide into nothing. Zero is not an edge case here —
+    // it is the **default** of `seconds`, so `<B24Countdown use-circle />`
+    // computed `0 / 0` and rendered `stroke-dasharray="NaN 283"`, which is not
+    // a valid SVG value. NaN arrives the other way: `seconds` is typed
+    // `number | string`, so any non-numeric string lands here too. Nothing to
+    // count down means an empty ring (#454).
+    if (!Number.isFinite(total) || total === 0) {
+      return 0
+    }
+
+    const rawTimeFraction = totalSeconds.value / total
+
+    // The correction term keeps the ring in step with the ticking digits: it
+    // spends the last tick's worth of arc during that tick rather than after
+    // it. At the end of the countdown it overshoots by exactly that much —
+    // `totalSeconds` reaches 0 and the expression yields `-1 / total`, which
+    // rendered as `stroke-dasharray="-28 283"`. A dash length may not be
+    // negative, so clamp to the arc the ring can actually draw (#454).
+    const timeFraction = rawTimeFraction - (1 / total) * (1 - rawTimeFraction)
+    return Math.min(Math.max(timeFraction, 0), 1)
   }
 
   return [

@@ -1,8 +1,6 @@
 /**
  * FileUpload
  * ---
- * @todo add demo
- * @todo add docs
  * @todo fix color
  */
 export default {
@@ -141,7 +139,7 @@ export default {
   },
   compoundVariants: [
     {
-      class: 'focus-visible:outline-inverted'
+      class: 'focus-visible:outline-(--ui-color-design-outline-focused-stroke)'
     },
     {
       highlight: true,

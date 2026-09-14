@@ -2,6 +2,10 @@
 title: InputTime
 description: 'A time selection input field.'
 category: form
+keywords:
+  - time picker
+  - clock
+  - hour
 links:
   - label: GitHub
     iconName: GitHubIcon

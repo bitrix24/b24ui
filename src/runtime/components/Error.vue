@@ -27,7 +27,7 @@ export interface ErrorProps {
    */
   avatar?: AvatarProps
   /**
-   * Default `color` for the inner `B24Avatar`. Overridden by `avatar.color` when set.
+   * Default `color` for the inner `B24Avatar`. A non-`undefined` `avatar.color` overrides it.
    */
   color?: AvatarProps['color']
   error?: Partial<NuxtError & { message: string }>
@@ -94,8 +94,8 @@ function handleError() {
         <B24Avatar
           v-else-if="!!props.avatar"
           :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
-          :color="props.color"
           v-bind="props.avatar"
+          :color="props.avatar?.color ?? props.color"
           data-slot="leadingAvatar"
           :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
         />

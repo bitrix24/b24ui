@@ -2,6 +2,7 @@ import { computed } from 'vue'
 // import colors from 'tailwindcss/colors'
 // import { defineNuxtPlugin, useAppConfig, useNuxtApp, useHead } from '#imports'
 import { defineNuxtPlugin, injectHead, useNuxtApp, useHead } from '#imports'
+import type { ObjectPlugin } from 'nuxt/app'
 
 /**
  * @see src/templates.ts -> getTemplates
@@ -29,7 +30,13 @@ function removeTemporaryColorsStyle() {
   document.querySelector('[data-bitrix24-ui-colors]')?.remove()
 }
 
-export default defineNuxtPlugin(() => {
+/**
+ * Annotated rather than inferred: `nuxt-module-build`'s declaration emit cannot
+ * name `ObjectPlugin` through pnpm's hashed `nuxt@x.y.z_<peers>` path, and fails
+ * the build with TS2883. The annotation makes the emitted `.d.ts` independent of
+ * how the peer graph happens to resolve.
+ */
+const plugin: ObjectPlugin = defineNuxtPlugin(() => {
   // const appConfig = useAppConfig()
   const nuxtApp = useNuxtApp()
 
@@ -81,3 +88,5 @@ export default defineNuxtPlugin(() => {
 
   useHead(headData)
 })
+
+export default plugin

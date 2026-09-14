@@ -75,6 +75,63 @@ Rules for `b24ui` overrides:
 - **Prefer `defaultVariants`** over slot class overrides when possible (e.g., changing default button color/size).
 - **Don't duplicate default classes** — check the generated theme file first to see what's already there.
 
+### Global config
+
+Change a component's theme for every instance.
+
+```ts
+// app/app.config.ts (Nuxt)
+export default defineAppConfig({
+  b24ui: {
+    button: {
+      slots: { base: 'font-bold' },
+      defaultVariants: { size: 'lg' }
+    }
+  }
+})
+```
+
+```ts
+// vite.config.ts (Vue) — same object, passed to the plugin
+bitrix24UIPluginVite({
+  b24ui: {
+    button: {
+      slots: { base: 'font-bold' },
+      defaultVariants: { size: 'lg' }
+    }
+  }
+})
+```
+
+Prefer `defaultVariants` over slot classes whenever a variant already expresses the change.
+
+### Replace instead of merge
+
+Classes from the `b24ui` prop, the `class` prop, `B24Theme` and global config are **merged onto** the component defaults. To replace them, set the slot to a function — it receives the default classes so you can keep part of them.
+
+```vue
+<B24Button :b24ui="{ label: () => 'text-base font-bold' }" label="Button" />
+```
+
+```ts
+// app/app.config.ts — applies to every instance
+export default defineAppConfig({
+  b24ui: {
+    button: {
+      slots: {
+        label: () => 'text-base font-bold'
+      }
+    }
+  }
+})
+```
+
+**Where you write it changes what it replaces:**
+- In **global config** it replaces the slot's *own* classes — `variants` and `compoundVariants` still merge on top.
+- In the **`b24ui` / `class` props and `B24Theme`** it runs after variants resolve, so it replaces everything, variants included.
+
+Reach for this when merging cannot win — `tailwind-merge` only resolves conflicts inside a class group, so an override that has to drop unrelated defaults (layout, transitions, ring utilities) needs the function form.
+
 ### `class` prop
 
 Override the **root** (or `base`) slot only — simpler than `b24ui` for single-slot changes.
@@ -101,6 +158,8 @@ Override theme for a section of the component tree without affecting the rest of
   <B24Button label="Also rounded" />
 </B24Theme>
 ```
+
+Slot names go **directly** under the component name here — `{ button: { base: … } }`. This is *not* the global-config shape, which nests them under `slots`. TypeScript rejects the wrong one (`TS2353`); at runtime it is ignored with no error, so an untyped object loses the override silently.
 
 ### Tree-shaking with `experimental.componentDetection`
 

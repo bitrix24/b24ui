@@ -22,8 +22,11 @@ The Error component renders a `<main>` element that works together with the [Sid
 
 Use the `error` prop to display an error message.
 
+::framework-only
+#nuxt
 ::note{to="https://nuxt.com/docs/guide/directory-structure/error" target="_blank"}
 In most cases, you will receive the `error` prop in your `error.vue` file.
+::
 ::
 
 ::component-code

@@ -12,7 +12,7 @@ links:
 
 ## Usage
 
-Use the `extendLocale` utility to customize an existing locale by overriding specific properties or messages.
+Use the auto-imported `extendLocale` utility to customize an existing locale by overriding specific properties or messages.
 
 ```vue
 <script setup lang="ts">
@@ -36,7 +36,7 @@ const locale = extendLocale(en, {
 ```
 
 This is useful when you want to:
-- Create a regional variant of a language (e.g., `en-AU` from `en`)
+- Create a regional variant of a language (e.g. `en-AU` from `en`)
 - Override specific translations without redefining the entire locale
 - Customize component labels for your application
 
@@ -74,7 +74,7 @@ Extends an existing locale with the provided options, deeply merging the message
         ::
   
         ::field{name="locale" type="string"}
-        Override the ISO code of the locale (e.g., `'en-GB'`, `'fr-CA'`).
+        Override the ISO code of the locale (e.g. `'en-GB'`, `'fr-CA'`).
         ::
   
         ::field{name="dir" type="'ltr' | 'rtl'"}

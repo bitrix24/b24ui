@@ -5,8 +5,8 @@
  * @link: /api_d7/bitrix/ui/dialogs/dialogs.php
  * @see bitrix/js/ui/dialogs/messagebox/..
  *
- * @todo: use modal template from - What's new in Bitrix24 + set position ~> top-right
- * @todo: add wizard component
+ * @todo use modal template from - What's new in Bitrix24 + set position ~> top-right
+ * @todo add wizard component
  */
 
 export default {
