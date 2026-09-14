@@ -577,8 +577,26 @@ export default defineNuxtConfig({
 
   componentMeta: {
     transformers: [(component, code) => {
-      // Simplify b24ui in slot prop types: `leading(props: { b24ui: Button['b24ui'] })` -> `leading(props: { b24ui: object })`
-      code = code.replace(/b24ui:[^}]+(?=\})/g, 'b24ui: object')
+      // Simplify the slot-prop type: `leading(props: { b24ui: Button['b24ui'] })`
+      // -> `leading(props: { b24ui: object })`.
+      //
+      // Two bounds, both there because the unbounded version corrupted real
+      // files. It is applied only to the plain `<script>` block, where slot
+      // interfaces are declared, because in `<script setup>` the same token is
+      // an object key in an expression — rewriting it produced code that does
+      // not parse, and `vue-component-meta` then returned empty Props, Slots
+      // and Emits for the whole component with no error anywhere. And the run
+      // may not cross a brace, because without that it swallowed the following
+      // slot prop whenever the type was followed by a function signature.
+      //
+      // Measured over `src/runtime/components`: 119 of the 125 sites the old
+      // pattern hit are kept, and the 6 dropped are the ones it was damaging —
+      // `DashboardSearchButton`, `DateTimePicker`, `Theme` (x4) in setup, and
+      // `EditorDragHandle`, whose `onClick` slot prop it was eating.
+      const setupAt = code.indexOf('<script setup')
+      const head = setupAt === -1 ? code : code.slice(0, setupAt)
+      code = head.replace(/b24ui:[^{}]+(?=\})/g, 'b24ui: object')
+        + (setupAt === -1 ? '' : code.slice(setupAt))
 
       return { component, code }
     }],
