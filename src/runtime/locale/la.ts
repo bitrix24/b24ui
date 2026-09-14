@@ -68,7 +68,7 @@ export default defineLocale<Messages>({
       presets: {
         today: 'Hoy',
         tomorrow: 'Mañana',
-        endOfWeek: 'Fin de semana',
+        endOfWeek: 'Final de la semana',
         inAWeek: 'En una semana',
         endOfMonth: 'Fin de mes'
       }

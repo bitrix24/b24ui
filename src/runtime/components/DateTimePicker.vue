@@ -71,6 +71,10 @@ export interface DateTimePickerProps {
   color?: DateTimePicker['variants']['color']
   /** @defaultValue 'md' */
   size?: DateTimePicker['variants']['size']
+  /**
+   * Blocks the trigger, so the picker cannot be opened.
+   * @defaultValue false
+   */
   disabled?: boolean
   /**
    * Leading icon on the default trigger.
@@ -120,7 +124,7 @@ export interface DateTimePickerSlots {
 
 <script setup lang="ts">
 import { computed, ref, shallowRef, watch } from 'vue'
-import { CalendarDate, CalendarDateTime, ZonedDateTime, today, getLocalTimeZone, startOfWeek, endOfWeek, endOfMonth } from '@internationalized/date'
+import { CalendarDate, CalendarDateTime, ZonedDateTime, today, getLocalTimeZone, getDayOfWeek, endOfMonth } from '@internationalized/date'
 import Calendar1Icon from '@bitrix24/b24icons-vue/main/Calendar1Icon'
 import ClockIcon from '@bitrix24/b24icons-vue/outline/ClockIcon'
 import { useAppConfig } from '#imports'
@@ -168,17 +172,25 @@ watch(() => props.modelValue, (value) => {
   internalValue.value = value
 })
 
-const isOpen = ref(props.open ?? props.defaultOpen ?? false)
+const localOpen = ref(props.defaultOpen ?? false)
 const step = ref<'date' | 'time'>('date')
 
-watch(() => props.open, (value) => {
-  if (value !== undefined) {
-    isOpen.value = value
+/**
+ * Controlled when `open` is given, uncontrolled otherwise. Reading through the
+ * prop rather than mirroring it into a ref is what makes `open` actually
+ * control: picking a date asks to close by writing here, and a parent holding
+ * the prop at `true` keeps the picker open. Mirroring let the component close
+ * itself behind the parent's back.
+ */
+const isOpen = computed({
+  get: () => props.open ?? localOpen.value,
+  set: (value) => {
+    localOpen.value = value
+    emits('update:open', value)
   }
 })
 
 watch(isOpen, (value) => {
-  emits('update:open', value)
   if (value) {
     step.value = 'date'
   }
@@ -190,7 +202,20 @@ function commit(value: DateValue | undefined) {
   emits('change', value)
 }
 
-const activeLocale = computed(() => props.locale || code.value || 'en')
+/**
+ * `locale` is a free string on the public API, and every formatter below feeds
+ * it to `Intl.DateTimeFormat`, which throws `RangeError` on a malformed tag.
+ * That happens on the always-visible trigger, so an unchecked value took the
+ * whole component down before it could ever be opened.
+ */
+const activeLocale = computed(() => {
+  const requested = props.locale || code.value || 'en'
+  try {
+    return Intl.DateTimeFormat.supportedLocalesOf([requested]).length > 0 ? requested : 'en'
+  } catch {
+    return 'en'
+  }
+})
 
 const formatter = computed(() => new Intl.DateTimeFormat(
   activeLocale.value,
@@ -302,10 +327,12 @@ function presetHint(value: DateValue): string {
 
 const defaultPresets = computed<DateTimePickerPreset[]>(() => {
   const start = today(tz)
-  // The working week ends on Friday; past Friday the preset means the calendar
-  // week's end instead, so it never resolves to a day already gone.
-  const friday = startOfWeek(start, activeLocale.value).add({ days: 4 })
-  const weekEnd = friday.compare(start) >= 0 ? friday : endOfWeek(start, activeLocale.value)
+  // The preset means the end of the working week, which is Friday whatever the
+  // locale's week starts on. Deriving it from `startOfWeek(…) + 4` did depend
+  // on that: under a Sunday-start locale it landed on Thursday, and under a
+  // Saturday-start one on Wednesday — measured, which is how this was found.
+  // Anchoring the index to `en-US` fixes Sunday at 0, so Friday is always 5.
+  const weekEnd = start.add({ days: (5 - getDayOfWeek(start, 'en-US') + 7) % 7 })
 
   return ([
     ['today', start],
@@ -322,8 +349,23 @@ const defaultPresets = computed<DateTimePickerPreset[]>(() => {
 
 const presetList = computed(() => props.presets ?? defaultPresets.value)
 
-function resolvePreset(preset: DateTimePickerPreset): DateValue {
-  return typeof preset.value === 'function' ? preset.value() : preset.value
+/**
+ * A preset's `value` may be a consumer-supplied factory, and it is called
+ * during render. An exception thrown there escaped the computed below and took
+ * the whole picker with it — under SSR it rejected the page render outright,
+ * and on the client it replaced the component, working calendar included, with
+ * an empty node. One bad preset now drops out of the list instead.
+ */
+function resolvePreset(preset: DateTimePickerPreset): DateValue | undefined {
+  if (typeof preset.value !== 'function') {
+    return preset.value
+  }
+  try {
+    return preset.value()
+  } catch (error) {
+    console.warn('[B24DateTimePicker] a preset factory threw and the preset was skipped:', error)
+    return undefined
+  }
 }
 
 /**
@@ -332,18 +374,24 @@ function resolvePreset(preset: DateTimePickerPreset): DateValue {
  * "now"-like value would otherwise be called twice and could disagree with
  * itself between the two reads.
  */
-const resolvedPresets = computed(() => presetList.value.map(preset => ({ preset, value: resolvePreset(preset) })))
+const resolvedPresets = computed(() => presetList.value
+  .map(preset => ({ preset, value: resolvePreset(preset) }))
+  .filter((entry): entry is { preset: DateTimePickerPreset, value: DateValue } => entry.value !== undefined))
 
 function isActiveValue(value: DateValue): boolean {
   return !!internalValue.value && toDateOnly(value).compare(toDateOnly(internalValue.value)) === 0
 }
 
 function isPresetActive(preset: DateTimePickerPreset): boolean {
-  return isActiveValue(resolvePreset(preset))
+  const value = resolvePreset(preset)
+  return !!value && isActiveValue(value)
 }
 
 function applyPreset(preset: DateTimePickerPreset) {
   const value = resolvePreset(preset)
+  if (!value) {
+    return
+  }
   if (props.dateOnly) {
     commit(toDateOnly(value))
     isOpen.value = false
@@ -357,6 +405,11 @@ function applyPreset(preset: DateTimePickerPreset) {
 const Wrapper = computed(() => screen.value.isMobile ? B24Drawer : B24Popover)
 const wrapperProps = computed(() => screen.value.isMobile
   ? { title: props.placeholder || t('dateTimePicker.openPicker'), ...(props.drawer ?? {}) }
+  // The key is quoted to survive the docs `componentMeta` transformer. It
+  // rewrites the slot-prop key wherever the bare token appears, and does not
+  // stop at type positions, so unquoted this expression was rewritten into
+  // something that does not parse and the component's Props, Slots and Emits
+  // tables came out empty. Tracked separately; quoting is the local escape.
   : { b24ui: { content: b24ui.value.content() }, ...(props.popover ?? {}) })
 
 defineExpose({ open: isOpen, step })

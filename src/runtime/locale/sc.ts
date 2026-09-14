@@ -68,7 +68,7 @@ export default defineLocale<Messages>({
       presets: {
         today: '今天',
         tomorrow: '明天',
-        endOfWeek: '本周末',
+        endOfWeek: '本周结束',
         inAWeek: '一周后',
         endOfMonth: '月末'
       }

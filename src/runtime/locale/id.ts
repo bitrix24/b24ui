@@ -68,7 +68,7 @@ export default defineLocale<Messages>({
       presets: {
         today: 'Hari ini',
         tomorrow: 'Besok',
-        endOfWeek: 'Akhir pekan',
+        endOfWeek: 'Akhir minggu',
         inAWeek: 'Seminggu lagi',
         endOfMonth: 'Akhir bulan'
       }

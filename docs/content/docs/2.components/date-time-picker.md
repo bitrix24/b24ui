@@ -2,6 +2,11 @@
 title: DateTimePicker
 description: 'A date and time selector: a calendar that hands over to an hour and minute grid, with presets beside it.'
 category: form
+keywords:
+  - date picker
+  - datetime picker
+  - time picker
+  - schedule
 links:
   - label: GitHub
     iconName: GitHubIcon

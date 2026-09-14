@@ -68,7 +68,7 @@ export default defineLocale<Messages>({
       presets: {
         today: 'วันนี้',
         tomorrow: 'พรุ่งนี้',
-        endOfWeek: 'สุดสัปดาห์',
+        endOfWeek: 'สิ้นสุดสัปดาห์',
         inAWeek: 'ในหนึ่งสัปดาห์',
         endOfMonth: 'สิ้นเดือน'
       }
