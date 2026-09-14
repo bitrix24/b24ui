@@ -159,9 +159,10 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.dateTimePi
 const tz = getLocalTimeZone()
 
 // `shallowRef`, not `ref`: Vue's deep unwrapping widens the `DateValue` union of
-// class instances into a structural object that no longer matches the type, which
-// is what forces `as unknown as DateValue` casts elsewhere (#56). Date values are
-// immutable, so there is nothing to track deeply in the first place.
+// class instances into a structural object that no longer matches the type.
+// Swapping this one word for `ref` was measured at seven `TS2322`/`TS2345`
+// errors, each of which would otherwise be silenced with a cast. Date values
+// are immutable, so there is nothing to track deeply in the first place.
 const internalValue = shallowRef<DateValue | undefined>(props.modelValue ?? props.defaultValue)
 watch(() => props.modelValue, (value) => {
   internalValue.value = value
