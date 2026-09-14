@@ -60,6 +60,19 @@ export default defineLocale<Messages>({
     contentToc: {
       title: 'このページの内容'
     },
+    dateTimePicker: {
+      backToDate: '日付に戻る',
+      openPicker: 'ピッカーを開く',
+      hours: '時',
+      minutes: '分',
+      presets: {
+        today: '今日',
+        tomorrow: '明日',
+        endOfWeek: '週末',
+        inAWeek: '1週間後',
+        endOfMonth: '月末'
+      }
+    },
     dropdownMenu: {
       noMatch: '一致するデータがありません',
       search: '検索…'

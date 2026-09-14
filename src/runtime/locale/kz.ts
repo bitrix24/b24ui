@@ -60,6 +60,19 @@ export default defineLocale<Messages>({
     contentToc: {
       title: 'Осы бетте'
     },
+    dateTimePicker: {
+      backToDate: 'Күнге қайту',
+      openPicker: 'Таңдағышты ашу',
+      hours: 'Сағат',
+      minutes: 'Минут',
+      presets: {
+        today: 'Бүгін',
+        tomorrow: 'Ертең',
+        endOfWeek: 'Апта соңы',
+        inAWeek: 'Бір аптадан кейін',
+        endOfMonth: 'Ай соңы'
+      }
+    },
     dropdownMenu: {
       noMatch: 'Сәйкес дерек жоқ',
       search: 'Іздеу…'

@@ -60,6 +60,19 @@ export default defineLocale<Messages>({
     contentToc: {
       title: 'Sur cette page'
     },
+    dateTimePicker: {
+      backToDate: 'Retour à la date',
+      openPicker: 'Ouvrir le sélecteur',
+      hours: 'Heures',
+      minutes: 'Minutes',
+      presets: {
+        today: 'Aujourd\'hui',
+        tomorrow: 'Demain',
+        endOfWeek: 'Fin de la semaine',
+        inAWeek: 'Dans une semaine',
+        endOfMonth: 'Fin du mois'
+      }
+    },
     dropdownMenu: {
       noMatch: 'Aucune donnée correspondante',
       search: 'Rechercher…'

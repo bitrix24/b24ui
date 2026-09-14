@@ -61,6 +61,19 @@ export default defineLocale<Messages>({
     contentToc: {
       title: 'في هذه الصفحة'
     },
+    dateTimePicker: {
+      backToDate: 'العودة إلى التاريخ',
+      openPicker: 'افتح المنتقي',
+      hours: 'ساعات',
+      minutes: 'دقائق',
+      presets: {
+        today: 'اليوم',
+        tomorrow: 'غدًا',
+        endOfWeek: 'نهاية الأسبوع',
+        inAWeek: 'بعد أسبوع',
+        endOfMonth: 'نهاية الشهر'
+      }
+    },
     dropdownMenu: {
       noMatch: 'لا توجد بيانات مطابقة',
       search: 'بحث…'

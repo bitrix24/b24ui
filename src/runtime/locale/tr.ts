@@ -60,6 +60,19 @@ export default defineLocale<Messages>({
     contentToc: {
       title: 'Bu sayfada'
     },
+    dateTimePicker: {
+      backToDate: 'Tarihe dön',
+      openPicker: 'Seçiciyi aç',
+      hours: 'Saat',
+      minutes: 'Dakika',
+      presets: {
+        today: 'Bugün',
+        tomorrow: 'Yarın',
+        endOfWeek: 'Haftanın sonu',
+        inAWeek: 'Bir hafta sonra',
+        endOfMonth: 'Ay sonu'
+      }
+    },
     dropdownMenu: {
       noMatch: 'Eşleşen veri yok',
       search: 'Ara…'
