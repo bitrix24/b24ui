@@ -10,7 +10,7 @@ export default {
       'overflow-hidden',
       'rounded-(--ui-border-radius-md)'
     ].join(' '),
-    header: 'p-[24px] sm:px-[22px] sm:py-[15px]',
+    header: '',
     title: [
       'font-[family-name:var(--ui-font-family-primary)]',
       'font-(--ui-font-weight-semi-bold)',
@@ -22,8 +22,8 @@ export default {
       'mt-1  text-pretty',
       'text-(length:--ui-font-size-lg)/[normal] text-pretty'
     ].join(' '),
-    body: 'p-[24px] sm:px-[22px] sm:py-[15px]',
-    footer: 'p-[24px] sm:px-[22px] sm:py-[15px]'
+    body: '',
+    footer: ''
   },
   variants: {
     variant: {
@@ -324,9 +324,36 @@ export default {
         title: 'text-(--ui-color-design-selection-content)',
         description: 'text-(--ui-color-design-selection-content)'
       }
+    },
+    // Padding comes from the `--spacing-*` scale in
+    // `src/runtime/air-design-tokens/tw-style/spacing.css`, so every step is a
+    // package token rather than a literal: `xs` 12/10/8, `sm` 16/14/10,
+    // `md` 24/22/16, `lg` 32/28/20 (px, then the `sm:` breakpoint).
+    size: {
+      xs: {
+        header: 'p-sm sm:px-xs2 sm:py-xs',
+        body: 'p-sm sm:px-xs2 sm:py-xs',
+        footer: 'p-sm sm:px-xs2 sm:py-xs'
+      },
+      sm: {
+        header: 'p-md sm:px-sm2 sm:py-xs2',
+        body: 'p-md sm:px-sm2 sm:py-xs2',
+        footer: 'p-md sm:px-sm2 sm:py-xs2'
+      },
+      md: {
+        header: 'p-xl sm:px-lg2 sm:py-md',
+        body: 'p-xl sm:px-lg2 sm:py-md',
+        footer: 'p-xl sm:px-lg2 sm:py-md'
+      },
+      lg: {
+        header: 'p-3xl sm:px-2xl sm:py-lg',
+        body: 'p-3xl sm:px-2xl sm:py-lg',
+        footer: 'p-3xl sm:px-2xl sm:py-lg'
+      }
     }
   },
   defaultVariants: {
-    variant: 'outline'
+    variant: 'outline',
+    size: 'md'
   }
 }

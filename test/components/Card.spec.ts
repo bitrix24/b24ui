@@ -7,6 +7,7 @@ import theme from '#build/b24ui/card'
 
 describe('Card', () => {
   const variants = Object.keys(theme.variants.variant) as any
+  const sizes = Object.keys(theme.variants.size) as any
 
   renderEach(Card, [
     // Props
@@ -15,6 +16,13 @@ describe('Card', () => {
     ['with description', { props: { description: 'Description' } }],
     ['with title and description', { props: { title: 'Title', description: 'Description' } }],
     ...variants.map((variant: string) => [`with variant ${variant}`, { props: { variant } }]),
+    // `header` / `body` / `footer` only render when they have content, and the
+    // padding lives on those three slots — a size case without content shows no
+    // padding class at all and collides with every other bare case (#454).
+    ...sizes.map((size: string) => [`with size ${size}`, {
+      props: { size, title: 'Title', description: 'Description' },
+      slots: { default: () => 'Body', footer: () => 'Footer' }
+    }]),
     ['with class', { props: { class: 'rounded-xl' } }],
     ['with b24ui', { props: { b24ui: { body: 'font-bold' } } }],
     // Slots
