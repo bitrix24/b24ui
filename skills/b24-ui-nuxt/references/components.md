@@ -58,6 +58,7 @@ Quick-reference index of 130+ components. The table below lists the ones you com
 | `B24InputNumber` | Numeric input with +/- controls | [input-number.md](https://bitrix24.github.io/b24ui/raw/docs/components/input-number.md) |
 | `B24InputDate` | Date picker with calendar | [input-date.md](https://bitrix24.github.io/b24ui/raw/docs/components/input-date.md) |
 | `B24InputTime` | Time picker (12/24h) | [input-time.md](https://bitrix24.github.io/b24ui/raw/docs/components/input-time.md) |
+| `B24DateTimePicker` | Date and time picker — calendar, then an hour/minute grid | [date-time-picker.md](https://bitrix24.github.io/b24ui/raw/docs/components/date-time-picker.md) |
 | `B24InputTags` | Tag/chip input | [input-tags.md](https://bitrix24.github.io/b24ui/raw/docs/components/input-tags.md) |
 | `B24InputRating` | Star/icon rating input | [input-rating.md](https://bitrix24.github.io/b24ui/raw/docs/components/input-rating.md) |
 | `B24Listbox` | Single/multi selection list, always expanded | [listbox.md](https://bitrix24.github.io/b24ui/raw/docs/components/listbox.md) |

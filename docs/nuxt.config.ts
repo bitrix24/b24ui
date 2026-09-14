@@ -31,6 +31,7 @@ const pages = [
   // region Layout ////
   '/docs/components/',
   '/docs/components/app/',
+  '/docs/components/date-time-picker/',
   '/docs/components/sidebar-layout/',
   '/docs/components/container/',
   '/docs/components/error/',
