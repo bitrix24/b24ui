@@ -53,7 +53,10 @@ describe('DescriptionList', () => {
     ['with class', { props: { items: baseItems, class: 'custom-class' } }],
     ['with b24ui', { props: { items: baseItems, b24ui: { text: 'font-(--ui-font-weight-bold)' } } }],
     ['with empty items', { props: { items: [] } }],
-    ['with link description', { props: { items: [createItem({ to: '/docs', description: 'Documentation' })] } }],
+    // `/` is the only route the vue project's test router registers
+    // (`test/utils/mount.ts`); any other internal path warns, and the console
+    // gate turns a warning into a failure rather than into a debt entry.
+    ['with link description', { props: { items: [createItem({ to: '/', description: 'Documentation' })] } }],
     ['with link description and target', { props: { items: [createItem({ to: 'https://bitrix24.com', target: '_blank', description: 'Bitrix24' })] } }],
     // Custom keys
     ['with labelKey and descriptionKey', {
@@ -102,11 +105,11 @@ describe('DescriptionList', () => {
       expect(plain.text()).toContain('Documentation')
 
       const linked = await mountSuspended(DescriptionList, {
-        props: { items: [createItem({ to: '/docs', description: 'Documentation' })] }
+        props: { items: [createItem({ to: '/', description: 'Documentation' })] }
       })
       const link = linked.find('a')
       expect(link.exists()).toBe(true)
-      expect(link.attributes('href')).toBe('/docs')
+      expect(link.attributes('href')).toBe('/')
       expect(link.text()).toBe('Documentation')
     })
 

@@ -361,7 +361,7 @@ exports[`DescriptionList > renders with link description and target correctly 1`
     <dt data-slot="labelWrapper" class="col-start-1 border-t first:border-none sm:border-t flex flex-nowrap flex-row items-center justify-start gap-1.5 border-(--ui-color-divider-vibrant-default) sm:border-(--ui-color-divider-vibrant-default) text-description pt-3 sm:py-3">
       <!--v-if--><span data-slot="label" class="">Test Item</span>
     </dt>
-    <dd data-orientation="vertical" data-slot="descriptionWrapper" class="sm:border-t sm:[&amp;:nth-child(2)]:border-none sm:border-(--ui-color-divider-vibrant-default) text-label pb-3 pt-1 sm:py-3"><span data-slot="description" class=""><a href="https://bitrix24.com" rel="noopener noreferrer" target="_blank" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start text-(--ui-color-design-selection-content) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt-2) hover:underline">Bitrix24</a></span>
+    <dd data-orientation="vertical" data-slot="descriptionWrapper" class="sm:border-t sm:[&amp;:nth-child(2)]:border-none sm:border-(--ui-color-divider-vibrant-default) text-label pb-3 pt-1 sm:py-3"><span data-slot="description" class=""><a href="https://bitrix24.com" rel="noopener noreferrer" target="_blank" class="cursor-pointer focus-visible:outline-(--ui-color-design-outline-focused-stroke) focus-visible:outline-1 focus-visible:rounded-[4px] text-start text-(--ui-color-design-selection-content) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt-2) hover:underline">Bitrix24</a></span>
       <!--v-if-->
     </dd>
   </dl>
@@ -377,7 +377,7 @@ exports[`DescriptionList > renders with link description correctly 1`] = `
     <dt data-slot="labelWrapper" class="col-start-1 border-t first:border-none sm:border-t flex flex-nowrap flex-row items-center justify-start gap-1.5 border-(--ui-color-divider-vibrant-default) sm:border-(--ui-color-divider-vibrant-default) text-description pt-3 sm:py-3">
       <!--v-if--><span data-slot="label" class="">Test Item</span>
     </dt>
-    <dd data-orientation="vertical" data-slot="descriptionWrapper" class="sm:border-t sm:[&amp;:nth-child(2)]:border-none sm:border-(--ui-color-divider-vibrant-default) text-label pb-3 pt-1 sm:py-3"><span data-slot="description" class=""><a href="/docs" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start text-(--ui-color-design-selection-content) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt-2) hover:underline">Documentation</a></span>
+    <dd data-orientation="vertical" data-slot="descriptionWrapper" class="sm:border-t sm:[&amp;:nth-child(2)]:border-none sm:border-(--ui-color-divider-vibrant-default) text-label pb-3 pt-1 sm:py-3"><span data-slot="description" class=""><a href="/" class="cursor-pointer focus-visible:outline-(--ui-color-design-outline-focused-stroke) focus-visible:outline-1 focus-visible:rounded-[4px] text-start text-(--ui-color-design-selection-content) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt-2) hover:underline">Documentation</a></span>
       <!--v-if-->
     </dd>
   </dl>
