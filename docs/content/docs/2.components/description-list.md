@@ -231,6 +231,20 @@ name: 'description-list-custom-slot-example'
 ---
 ::
 
+### Link in the description
+
+The `description` slot receives the item, so a description can be rendered as a
+[Link](/docs/components/link/) without any extra prop on the item. The slot is
+global rather than per-item, so the fallback branch keeps every other item
+rendering as plain text.
+
+::component-example
+---
+collapse: true
+name: 'description-list-link-slot-example'
+---
+::
+
 ## API
 
 ### Props
