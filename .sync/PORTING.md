@@ -190,16 +190,26 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   rejected exactly that, correctly. `Error` and `ChatMessage` are covered by this
   rule rather than by cases of their own; the binding is one line and identical
   in all three.
-- **`Card` has a `size` variant; upstream's does not.** Upstream's `Card` carries
-  only `variant`, and its `header` / `body` / `footer` slot bases hold the padding
-  directly. b24ui lifts that padding into a `size` variant (`xs` / `sm` / `md` /
-  `lg`) with `md` reproducing upstream's values byte for byte and `defaultVariants`
-  pinning `md`, so an unsized card renders exactly as before. Porting an upstream
-  commit that rewrites `src/theme/card.ts` will push the padding back into the slot
-  bases and take the variant with it — keep the variant, and keep the slot bases
-  empty. The `Card` snapshots are the tell: with the padding supplied by the
-  variant it lands *after* the variant classes rather than before, so a port that
-  reverts this shows up as fourteen snapshot lines whose class order changes back.
+- **`Card` has a `size` variant, expressed in `--spacing-*` utilities; upstream's
+  does not.** Upstream's `Card` carries only `variant`, and its `header` / `body` /
+  `footer` slot bases hold the padding as literal pixels. b24ui lifts that padding
+  into a `size` variant (`xs` / `sm` / `md` / `lg`) whose every step is a package
+  token rather than a literal — `p-sm sm:px-xs2 sm:py-xs` and so on, resolved
+  through the `@theme` scale in
+  `src/runtime/air-design-tokens/tw-style/spacing.css`. `card.ts` is the first
+  theme to use those utilities; the older files in `src/theme/` still write raw
+  `p-[Npx]`, so do not take their form as the convention here.
+
+  `defaultVariants` pins `md`. `md` is *not* a byte-for-byte carry-over: its
+  `sm:py` moved 15px → 16px (`--spacing-md`), because 15 is not on the package
+  scale — a deliberate one-pixel change agreed with the maintainer, not a
+  refactoring accident. Every other value is unchanged.
+
+  Porting an upstream commit that rewrites `src/theme/card.ts` will push the
+  padding back into the slot bases as pixels and take the variant with it — keep
+  the variant, keep the slot bases empty, and keep the utilities. The `Card`
+  snapshots are the tell: fourteen entries, seven in each of
+  `test/components/__snapshots__/Card.spec.ts.snap` and its `-vue` counterpart.
 - **Generated CSS template is `b24ui.css`, never upstream's `ui.css`.** The
   `experimental.componentDetection` dev watcher filters `updateTemplates` on that
   name, and a filter matching nothing is a successful call — the feature just

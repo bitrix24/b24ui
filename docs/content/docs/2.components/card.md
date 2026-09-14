@@ -103,10 +103,42 @@ slots:
 
 Use the `size` prop to control the padding of the header, body and footer.
 
-::component-example
+::component-code
 ---
-name: 'card-size-example'
+prettier: true
+hide:
+  - class
+items:
+  size:
+    - xs
+    - sm
+    - md
+    - lg
+props:
+  size: lg
+  class: 'w-full'
+slots:
+  header: |
+
+    <Placeholder class="h-8" />
+
+  default: |
+
+    <Placeholder class="h-32" />
+
+  footer: |
+
+    <Placeholder class="h-8" />
 ---
+
+#header
+:placeholder{class="h-8"}
+
+#default
+:placeholder{class="h-32"}
+
+#footer
+:placeholder{class="h-8"}
 ::
 
 ### Variant

@@ -325,26 +325,30 @@ export default {
         description: 'text-(--ui-color-design-selection-content)'
       }
     },
+    // Padding comes from the `--spacing-*` scale in
+    // `src/runtime/air-design-tokens/tw-style/spacing.css`, so every step is a
+    // package token rather than a literal: `xs` 12/10/8, `sm` 16/14/10,
+    // `md` 24/22/16, `lg` 32/28/20 (px, then the `sm:` breakpoint).
     size: {
       xs: {
-        header: 'p-[12px] sm:px-[10px] sm:py-[8px]',
-        body: 'p-[12px] sm:px-[10px] sm:py-[8px]',
-        footer: 'p-[12px] sm:px-[10px] sm:py-[8px]'
+        header: 'p-sm sm:px-xs2 sm:py-xs',
+        body: 'p-sm sm:px-xs2 sm:py-xs',
+        footer: 'p-sm sm:px-xs2 sm:py-xs'
       },
       sm: {
-        header: 'p-[16px] sm:px-[14px] sm:py-[10px]',
-        body: 'p-[16px] sm:px-[14px] sm:py-[10px]',
-        footer: 'p-[16px] sm:px-[14px] sm:py-[10px]'
+        header: 'p-md sm:px-sm2 sm:py-xs2',
+        body: 'p-md sm:px-sm2 sm:py-xs2',
+        footer: 'p-md sm:px-sm2 sm:py-xs2'
       },
       md: {
-        header: 'p-[24px] sm:px-[22px] sm:py-[15px]',
-        body: 'p-[24px] sm:px-[22px] sm:py-[15px]',
-        footer: 'p-[24px] sm:px-[22px] sm:py-[15px]'
+        header: 'p-xl sm:px-lg2 sm:py-md',
+        body: 'p-xl sm:px-lg2 sm:py-md',
+        footer: 'p-xl sm:px-lg2 sm:py-md'
       },
       lg: {
-        header: 'p-[32px] sm:px-[30px] sm:py-[20px]',
-        body: 'p-[32px] sm:px-[30px] sm:py-[20px]',
-        footer: 'p-[32px] sm:px-[30px] sm:py-[20px]'
+        header: 'p-3xl sm:px-2xl sm:py-lg',
+        body: 'p-3xl sm:px-2xl sm:py-lg',
+        footer: 'p-3xl sm:px-2xl sm:py-lg'
       }
     }
   },
