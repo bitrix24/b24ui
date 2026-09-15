@@ -1,5 +1,31 @@
 # Changelog
 
+## [2.14.0](https://github.com/bitrix24/b24ui/compare/v2.13.0...v2.14.0) (2026-09-15)
+
+
+### Features
+
+* **Card:** add `size` prop for compact and roomy padding ([#475](https://github.com/bitrix24/b24ui/issues/475)) ([b821eef](https://github.com/bitrix24/b24ui/commit/b821eef3fee81fc1b6be66ef9aee22d87302bec1))
+* **DateTimePicker:** a date-and-time picker with presets ([#578](https://github.com/bitrix24/b24ui/issues/578)) ([66c24cf](https://github.com/bitrix24/b24ui/commit/66c24cfc6e3d00b7943c57b6f091d1cbe5ce70db))
+* **User:** add `color` prop forwarded to inner Avatar ([#27](https://github.com/bitrix24/b24ui/issues/27)) ([4e5b808](https://github.com/bitrix24/b24ui/commit/4e5b808e81985148e51c3914071ac9ceb72be0b0))
+
+
+### Docs
+
+* **contributing:** show the release-post AI prompt in the open ([#572](https://github.com/bitrix24/b24ui/issues/572)) ([94ba442](https://github.com/bitrix24/b24ui/commit/94ba4423d2c57a6b0c8887adb37c6382166610d0))
+* **DescriptionList:** show how to link a description through the slot ([#576](https://github.com/bitrix24/b24ui/issues/576)) ([75d9bb7](https://github.com/bitrix24/b24ui/commit/75d9bb7c71d55c60ec0dce97fc9d2327e858b9a6))
+* **skills:** pass `silent` where the example expects a boolean (nuxt/ui@beb7d46) ([#580](https://github.com/bitrix24/b24ui/issues/580)) ([3d4f278](https://github.com/bitrix24/b24ui/commit/3d4f278c38c806c56f7089497fe9a70c8b6ad303))
+
+
+### Chore
+
+* **deps:** update non-major dependencies (nuxt/ui@69b075a) ([#579](https://github.com/bitrix24/b24ui/issues/579)) ([ef7d0cb](https://github.com/bitrix24/b24ui/commit/ef7d0cbdff7f88b84bb9a5366718c7809fcace4e))
+* **sync:** reconcile the [#580](https://github.com/bitrix24/b24ui/issues/580) ledger entry ([#581](https://github.com/bitrix24/b24ui/issues/581)) ([88d26f2](https://github.com/bitrix24/b24ui/commit/88d26f201dfcb6247336f9f01a6f09400d9b3017))
+* **sync:** reconcile the [#584](https://github.com/bitrix24/b24ui/issues/584) ledger entry ([#585](https://github.com/bitrix24/b24ui/issues/585)) ([80f0a2c](https://github.com/bitrix24/b24ui/commit/80f0a2c8a9d52715bcb07be247a3760ec35314aa))
+* **sync:** reconcile the [#586](https://github.com/bitrix24/b24ui/issues/586) ledger entry ([#587](https://github.com/bitrix24/b24ui/issues/587)) ([4f3d9d1](https://github.com/bitrix24/b24ui/commit/4f3d9d17577eb5c5891331f4a77be4c1cac58778))
+* **sync:** record upstream's docs navigation rework as not applicable ([#584](https://github.com/bitrix24/b24ui/issues/584)) ([62deeaf](https://github.com/bitrix24/b24ui/commit/62deeaf65c1e77b9438e1a70554a235e62514cae))
+* **sync:** record upstream's parser auto-close change as not applicable ([#586](https://github.com/bitrix24/b24ui/issues/586)) ([d921ac2](https://github.com/bitrix24/b24ui/commit/d921ac2d57a8634e5a060f12d9ac6bdca75f2de8))
+
 ## [2.13.0](https://github.com/bitrix24/b24ui/compare/v2.12.0...v2.13.0) (2026-09-11)
 
 
