@@ -210,4 +210,17 @@ describe('DateTimePicker', () => {
     expect(wrapper.find('input').element.value).toBe('Oct 6, 2024, 2:30 PM')
     expect(wrapper.find('[data-slot="body"]').exists()).toBe(true)
   })
+
+  it('puts the colour on the teleported content, where the grid can see it', async () => {
+    const wrapper = await mountSuspended(DateTimePicker, { props: { ...open, modelValue: value } })
+
+    // The colour variant used to sit on a `root` slot the template never
+    // rendered, and both wrappers teleport their content out of the component,
+    // so `--b24ui-background` was undefined wherever it was actually used: the
+    // selected hour and minute came out transparent and the active preset kept
+    // the default grey border. Nothing failed — `aria-pressed` was still
+    // correct, so the tests and `axe` stayed green while the picker looked
+    // unselected.
+    expect(wrapper.find('[data-slot="body"]').element.closest('.style-filled')).not.toBeNull()
+  })
 })

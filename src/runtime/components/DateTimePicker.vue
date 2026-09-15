@@ -88,6 +88,12 @@ export interface DateTimePickerProps {
    * @IconComponent
    */
   timeIcon?: IconComponent
+  /**
+   * Icon on the control that returns from the time step to the calendar.
+   * @defaultValue icons.chevronLeft
+   * @IconComponent
+   */
+  backIcon?: IconComponent
   /** Forwarded to the `B24Popover` used on pointer-sized screens. */
   popover?: Omit<PopoverProps, 'open' | 'defaultOpen' | 'modelValue'>
   /** Forwarded to the `B24Drawer` used on small screens. */
@@ -127,6 +133,7 @@ import { computed, ref, shallowRef, watch } from 'vue'
 import { CalendarDate, CalendarDateTime, ZonedDateTime, today, getLocalTimeZone, getDayOfWeek, endOfMonth } from '@internationalized/date'
 import Calendar1Icon from '@bitrix24/b24icons-vue/main/Calendar1Icon'
 import ClockIcon from '@bitrix24/b24icons-vue/outline/ClockIcon'
+import icons from '../dictionary/icons'
 import { useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
 import { useLocale } from '../composables/useLocale'
@@ -404,7 +411,7 @@ function applyPreset(preset: DateTimePickerPreset) {
 /** A drawer on a phone, a popover everywhere else. */
 const Wrapper = computed(() => screen.value.isMobile ? B24Drawer : B24Popover)
 const wrapperProps = computed(() => screen.value.isMobile
-  ? { title: props.placeholder || t('dateTimePicker.openPicker'), ...(props.drawer ?? {}) }
+  ? { title: props.placeholder || t('dateTimePicker.openPicker'), b24ui: { content: b24ui.value.content() }, ...(props.drawer ?? {}) }
   // The key is quoted to survive the docs `componentMeta` transformer. It
   // rewrites the slot-prop key wherever the bare token appears, and does not
   // stop at type positions, so unquoted this expression was rewritten into
@@ -473,9 +480,10 @@ defineExpose({ open: isOpen, step })
                 <button
                   type="button"
                   :aria-label="t('dateTimePicker.backToDate')"
+                  :class="b24ui.timeHeaderBack({ class: props.b24ui?.timeHeaderBack })"
                   @click="goToDate"
                 >
-                  <Component :is="props.timeIcon || ClockIcon" :class="b24ui.footerIcon({ class: props.b24ui?.footerIcon })" />
+                  <Component :is="props.backIcon || icons.chevronLeft" :class="b24ui.timeHeaderBackIcon({ class: props.b24ui?.timeHeaderBackIcon })" />
                 </button>
                 <span :class="b24ui.timeHeaderLabel({ class: props.b24ui?.timeHeaderLabel })">{{ formattedDate }}</span>
               </div>

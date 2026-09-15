@@ -10,8 +10,11 @@
 
 export default {
   slots: {
-    root: '',
-    /** Popover content; padding lives on the inner parts so the preset column can reach the edge. */
+    /**
+     * The popover or drawer content. Everything this component draws lives
+     * here, because both wrappers teleport it out of the component — there is
+     * no root element of its own to hang anything on.
+     */
     content: 'p-0 overflow-hidden',
     /** Presets sit below the calendar on narrow screens and beside it from `sm` up. */
     body: 'flex flex-col-reverse sm:flex-row',
@@ -39,11 +42,25 @@ export default {
     ].join(' '),
     presetLabel: 'text-(length:--ui-font-size-md) font-(--ui-font-weight-medium) text-(--b24ui-typography-label-color)',
     presetHint: 'text-(length:--ui-font-size-xs) text-(--ui-color-design-plain-na-content-secondary)',
-    timeHeader: 'flex items-center gap-2 pb-2 mb-2 border-b border-(--ui-color-divider-default)',
-    timeHeaderLabel: 'flex-1 text-center font-(--ui-font-weight-semi-bold) text-(--b24ui-typography-legend-color)',
-    timeBody: 'flex gap-4 px-1',
-    timeColumn: 'flex flex-col gap-1 min-w-26',
-    timeColumnTitle: 'text-center pb-1 text-(length:--ui-font-size-xs) text-(--ui-color-design-plain-na-content-secondary)',
+    // No rule under the header: the columns below are already separated by one,
+    // and a second short line floating inside the padding read as a mistake.
+    timeHeader: 'flex items-center gap-1 pb-3',
+    timeHeaderBack: [
+      'inline-flex items-center justify-center shrink-0 size-7',
+      'rounded-(--ui-border-radius-circle)',
+      'cursor-pointer transition-colors',
+      'hover:bg-(--ui-color-bg-content-secondary)',
+      'focus-visible:outline-(--ui-color-design-outline-focused-stroke) focus-visible:outline-1'
+    ].join(' '),
+    timeHeaderBackIcon: 'size-5 text-(--ui-color-design-plain-na-content-secondary)',
+    timeHeaderLabel: 'flex-1 text-center pe-7 font-(--ui-font-weight-semi-bold) text-(--b24ui-typography-legend-color)',
+    timeBody: 'flex',
+    /** The rule between hours and minutes; `first:` keeps it off the left edge. */
+    timeColumn: [
+      'flex flex-col gap-1 px-3 first:pl-1 last:pr-1',
+      'border-l border-(--ui-color-divider-default) first:border-l-0'
+    ].join(' '),
+    timeColumnTitle: 'text-center pb-2 text-(length:--ui-font-size-xs) text-(--ui-color-design-plain-na-content-secondary)',
     timeHoursGrid: 'grid grid-cols-4 gap-1',
     timeMinutesGrid: 'grid grid-cols-2 gap-1',
     timeCell: [
@@ -55,7 +72,9 @@ export default {
       'focus-visible:outline-(--ui-color-design-outline-focused-stroke) focus-visible:outline-1',
       // The real-world current cell: a hint only, never the selected styling.
       'data-[now=true]:bg-(--ui-color-bg-content-secondary)',
-      'data-[selected=true]:bg-(--b24ui-background) data-[selected=true]:text-(--b24ui-color)'
+      // After `data-[now]`, so a cell that is both reads as selected.
+      'data-[selected=true]:bg-(--b24ui-background) data-[selected=true]:text-(--b24ui-color)',
+      'data-[selected=true]:font-(--ui-font-weight-medium)'
     ].join(' '),
     /** Footer of the calendar step; also the control that moves to the time step. */
     footer: [
@@ -70,12 +89,20 @@ export default {
     footerValue: 'text-(length:--ui-font-size-sm) font-(--ui-font-weight-medium)'
   },
   variants: {
+    /**
+     * On `content`, not on `root`. The popover and the drawer both teleport
+     * their content out of this component, so a class on the root never
+     * reaches the grid or the presets: `--b24ui-background` resolved to an
+     * empty string inside the popover, which left the selected hour and minute
+     * transparent and the active preset bordered in the default grey. `root`
+     * is not rendered at all, so it could not have worked either way.
+     */
     color: {
-      'air-primary': { root: 'style-filled' },
-      'air-primary-success': { root: 'style-filled-success' },
-      'air-primary-alert': { root: 'style-filled-alert' },
-      'air-primary-copilot': { root: 'style-filled-copilot' },
-      'air-primary-warning': { root: 'style-filled-warning' }
+      'air-primary': { content: 'style-filled' },
+      'air-primary-success': { content: 'style-filled-success' },
+      'air-primary-alert': { content: 'style-filled-alert' },
+      'air-primary-copilot': { content: 'style-filled-copilot' },
+      'air-primary-warning': { content: 'style-filled-warning' }
     },
     size: {
       xs: { timeCell: 'size-6 text-(length:--ui-font-size-xs)', preset: 'min-w-32 px-2 py-1' },
