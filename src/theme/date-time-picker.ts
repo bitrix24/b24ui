@@ -35,7 +35,7 @@ export default {
     ].join(' '),
     preset: [
       'flex flex-col items-start text-start',
-      'min-w-36 px-3 py-1',
+      'min-w-36 px-3 py-2 sm:py-1',
       'rounded-(--ui-border-radius-md)',
       'border border-(--ui-color-divider-default)',
       'cursor-pointer select-none transition-colors',
@@ -50,7 +50,7 @@ export default {
     // and a second short line floating inside the padding read as a mistake.
     timeHeader: 'flex items-center gap-1 pb-3',
     timeHeaderBack: [
-      'inline-flex items-center justify-center shrink-0 size-7',
+      'inline-flex items-center justify-center shrink-0 size-11 sm:size-7',
       'rounded-(--ui-border-radius-circle)',
       'cursor-pointer transition-colors',
       'hover:bg-(--ui-color-bg-content-secondary)',
@@ -61,7 +61,7 @@ export default {
     // two steps do not announce themselves in different type.
     timeHeaderLabel: 'flex-1 min-w-0 text-center pe-7 text-legend font-(--ui-font-weight-semi-bold) block truncate p-1.5',
     /** 252px: the width the time step is expected to hold, whatever the locale. */
-    timeBody: 'flex min-w-[252px]',
+    timeBody: 'flex justify-center min-w-[252px]',
     /** The rule between hours and minutes; `first:` keeps it off the left edge. */
     timeColumn: [
       'flex flex-col gap-1 px-3 first:pl-1 last:pr-1',
@@ -80,7 +80,11 @@ export default {
      */
     timeCell: [
       'inline-flex items-center justify-center',
-      'size-7 rounded-(--ui-border-radius-circle)',
+      // 44px on a phone, where this renders in a drawer and is hit with a
+      // thumb, and the compact desktop cell from `sm` up. The size variants
+      // below only ever narrow the `sm:` half, so no setting of `size` can
+      // shrink the touch target.
+      'size-11 sm:size-7 rounded-(--ui-border-radius-circle)',
       'text-label',
       'cursor-pointer select-none transition',
       'focus-visible:ring-2 focus:outline-none',
@@ -88,7 +92,10 @@ export default {
       'data-selected:bg-(--b24ui-background)',
       'data-selected:text-(--b24ui-color)',
       'data-selected:focus-visible:ring-(--b24ui-background-hover)',
-      'data-[now]:not-data-selected:text-(--b24ui-background)',
+      // `not-hover` because the current-cell rule outranks the hover rule in
+      // Tailwind's variant order: hovering the current hour painted accent text
+      // on an accent background and the digit vanished.
+      'data-[now]:not-data-selected:not-hover:text-(--b24ui-background)',
       'data-[now]:font-(--ui-font-weight-semi-bold)',
       'hover:not-data-selected:bg-(--b24ui-background)',
       'hover:not-data-selected:text-(--b24ui-color)'
@@ -97,7 +104,7 @@ export default {
     footer: [
       // `self-start`, or the flex column stretched it across the whole calendar
       // and the whole strip became one click target.
-      'mt-2 self-start inline-flex items-center gap-1.5 px-2 py-1',
+      'mt-2 self-start inline-flex items-center gap-1.5 px-2 py-2 sm:py-1',
       'rounded-(--ui-border-radius-md)',
       'text-(--b24ui-background)',
       'cursor-pointer select-none transition-colors',
@@ -123,11 +130,36 @@ export default {
       'air-primary-copilot': { content: 'style-filled-copilot' },
       'air-primary-warning': { content: 'style-filled-warning' }
     },
+    /**
+     * The type scale is the calendar's, step for step — `cell`, `headCell` and
+     * `headingLabel` from `src/theme/calendar.ts`. The grid was sized only by
+     * `text-label`, which is 16px against the calendar cell's 14px, so the two
+     * halves of the same picker were set in different type.
+     */
     size: {
-      xs: { timeCell: 'size-6 text-(length:--ui-font-size-xs)', preset: 'min-w-32 px-2 py-1' },
-      sm: { timeCell: 'size-6', preset: 'min-w-34 px-2.5 py-1' },
-      md: {},
-      lg: { timeCell: 'size-8', preset: 'min-w-40 px-3.5 py-2' }
+      xs: {
+        timeHeaderLabel: 'text-(length:--ui-font-size-md)',
+        timeColumnTitle: 'text-(length:--ui-font-size-4xs)',
+        timeCell: 'sm:size-6 text-(length:--ui-font-size-sm)',
+        preset: 'min-w-32 px-2 py-1'
+      },
+      sm: {
+        timeHeaderLabel: 'text-(length:--ui-font-size-md)',
+        timeColumnTitle: 'text-(length:--ui-font-size-3xs)',
+        timeCell: 'sm:size-6 text-(length:--ui-font-size-sm)',
+        preset: 'min-w-34 px-2.5 py-1'
+      },
+      md: {
+        timeHeaderLabel: 'text-(length:--ui-font-size-lg)',
+        timeColumnTitle: 'text-(length:--ui-font-size-xs)',
+        timeCell: 'text-(length:--ui-font-size-md)'
+      },
+      lg: {
+        timeHeaderLabel: 'text-(length:--ui-font-size-2xl)',
+        timeColumnTitle: 'text-(length:--ui-font-size-xs)',
+        timeCell: 'sm:size-8 text-(length:--ui-font-size-lg)',
+        preset: 'min-w-40 px-3.5 py-2'
+      }
     }
   },
   defaultVariants: {

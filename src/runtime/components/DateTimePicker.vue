@@ -104,9 +104,23 @@ export interface DateTimePickerProps {
   popover?: Omit<PopoverProps, 'open' | 'defaultOpen' | 'modelValue'>
   /** Forwarded to the `B24Drawer` used on small screens. */
   drawer?: Omit<DrawerProps, 'open' | 'defaultOpen'>
-  /** Forwarded to the inner `B24Calendar`. */
+  /**
+   * Forwarded to the inner `B24Calendar`.
+   *
+   * `color` and `size` cascade into it from this component unless they are
+   * given here. They are bound after the spread rather than before, because
+   * `v-bind` overwrites with keys that are present but `undefined`.
+   */
   calendar?: Omit<CalendarProps, 'modelValue' | 'defaultValue' | 'range' | 'multiple'>
-  /** Forwarded to the `B24Input` used as the default trigger. */
+  /**
+   * Forwarded to the `B24Input` used as the default trigger.
+   *
+   * The input *is* the trigger, not a control inside one: `B24Input` forwards
+   * fall-through attributes onto its `<input>`, so the popover's
+   * `aria-haspopup` and `aria-expanded` land on a real control. Wrapping a
+   * readonly input in a clickable element instead nests one interactive
+   * control inside another, which `axe` rejects as `nested-interactive`.
+   */
   input?: Omit<InputProps, 'modelValue' | 'defaultValue'>
   class?: any
   b24ui?: DateTimePicker['slots']
@@ -436,13 +450,6 @@ defineExpose({ open: isOpen, step })
     v-bind="wrapperProps"
   >
     <slot :open="isOpen" :value="internalValue" :formatted="formattedValue">
-      <!--
-        The input is the trigger itself, not a control inside one. `B24Input`
-        forwards fall-through attributes onto its `<input>`, so the popover's
-        `aria-haspopup` / `aria-expanded` land on a real control. Wrapping a
-        readonly input in a clickable element instead puts one interactive
-        control inside another, which `nested-interactive` rejects.
-      -->
       <B24Input
         :model-value="formattedValue"
         :placeholder="props.placeholder"
@@ -464,6 +471,8 @@ defineExpose({ open: isOpen, step })
               :model-value="internalValue"
               :locale="activeLocale"
               v-bind="props.calendar"
+              :color="props.calendar?.color ?? props.color"
+              :size="props.calendar?.size ?? props.size"
               @update:model-value="onCalendarSelect"
             />
 
