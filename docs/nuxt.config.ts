@@ -383,6 +383,14 @@ export default defineNuxtConfig({
     experimental: {
       asyncContext: true
     },
+    // `@nuxtjs/mcp-toolkit` re-exports `completable` straight from the MCP SDK,
+    // and with the SDK left external the dev bundle keeps the name in its
+    // namespace object while importing the module for side effects only —
+    // `ReferenceError: completable is not defined` before the first request is
+    // served. Inlining the SDK gives the re-export something to bind to.
+    externals: {
+      inline: ['@modelcontextprotocol/sdk']
+    },
     publicAssets: [{
       dir: resolve('../skills'),
       baseURL: '/.well-known/skills',
