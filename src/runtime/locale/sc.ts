@@ -60,6 +60,19 @@ export default defineLocale<Messages>({
     contentToc: {
       title: '本页内容'
     },
+    dateTimePicker: {
+      backToDate: '返回日期',
+      openPicker: '打开选择器',
+      hours: '小时',
+      minutes: '分钟',
+      presets: {
+        today: '今天',
+        tomorrow: '明天',
+        endOfWeek: '本周结束',
+        inAWeek: '一周后',
+        endOfMonth: '月末'
+      }
+    },
     dropdownMenu: {
       noMatch: '无匹配数据',
       search: '搜索…'

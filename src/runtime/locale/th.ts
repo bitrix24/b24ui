@@ -60,6 +60,19 @@ export default defineLocale<Messages>({
     contentToc: {
       title: 'ในหน้านี้'
     },
+    dateTimePicker: {
+      backToDate: 'กลับไปที่วันที่',
+      openPicker: 'เปิดตัวเลือก',
+      hours: 'ชั่วโมง',
+      minutes: 'นาที',
+      presets: {
+        today: 'วันนี้',
+        tomorrow: 'พรุ่งนี้',
+        endOfWeek: 'สิ้นสุดสัปดาห์',
+        inAWeek: 'ในหนึ่งสัปดาห์',
+        endOfMonth: 'สิ้นเดือน'
+      }
+    },
     dropdownMenu: {
       noMatch: 'ไม่มีข้อมูลที่ตรงกัน',
       search: 'ค้นหา…'

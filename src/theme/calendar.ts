@@ -6,18 +6,25 @@
  * @todo `mx-auto` - replace `flex-1 min-w-0`
  */
 
+/**
+ * Mobile-first: a 44px target on a touch screen, the compact desktop cell from
+ * `sm` up. Every size in this scale used to be between 24px and 36px, which is
+ * under what a thumb can reliably hit, and a calendar in a drawer is hit with a
+ * thumb. The `sm:` half is the scale as it was, so nothing changes on a pointer
+ * device.
+ */
 const daySizes = {
-  xs: 'size-6',
-  sm: 'size-7',
-  md: 'size-8',
-  lg: 'size-9'
+  xs: 'size-11 sm:size-6',
+  sm: 'size-11 sm:size-7',
+  md: 'size-11 sm:size-8',
+  lg: 'size-11 sm:size-9'
 }
 
 const pickerSizes = {
-  xs: 'h-6 px-2',
-  sm: 'h-7 px-2',
-  md: 'h-8 px-3',
-  lg: 'h-9 px-4'
+  xs: 'h-11 sm:h-6 px-2',
+  sm: 'h-11 sm:h-7 px-2',
+  md: 'h-11 sm:h-8 px-3',
+  lg: 'h-11 sm:h-9 px-4'
 }
 
 export default {
@@ -43,7 +50,7 @@ export default {
     headCellWeek: 'text-(--ui-color-design-plain-na-content-secondary)',
     cell: 'relative text-center cursor-pointer aria-disabled:cursor-not-allowed',
     cellTrigger: [
-      'm-0.5 relative',
+      'm-0 sm:m-0.5 relative',
       'flex items-center justify-center',
       'whitespace-nowrap',
       'focus-visible:ring-2 focus:outline-none',

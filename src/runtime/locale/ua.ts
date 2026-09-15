@@ -60,6 +60,19 @@ export default defineLocale<Messages>({
     contentToc: {
       title: 'На цій сторінці'
     },
+    dateTimePicker: {
+      backToDate: 'До дати',
+      openPicker: 'Відкрити вибір',
+      hours: 'Години',
+      minutes: 'Хвилини',
+      presets: {
+        today: 'Сьогодні',
+        tomorrow: 'Завтра',
+        endOfWeek: 'У кінці тижня',
+        inAWeek: 'Через тиждень',
+        endOfMonth: 'У кінці місяця'
+      }
+    },
     dropdownMenu: {
       noMatch: 'Немає відповідних даних',
       search: 'Пошук…'

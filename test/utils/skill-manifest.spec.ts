@@ -280,11 +280,15 @@ describe('skill package', () => {
 
       // Two names that are one file once installed — case-insensitively on
       // Windows and macOS, and NFC/NFD-conflated on macOS.
-      await write('skills/zeta/Notes.md', '# Notes')
-      await write('skills/zeta/notes.md', '# Notes')
-      await expect(buildManifest(root)).rejects.toThrow(/collide once installed/)
-      await rm(join(root, 'skills/zeta/Notes.md'))
-      await rm(join(root, 'skills/zeta/notes.md'))
+      // Skipped on Windows: the two names are already one file there, so the
+      // tree the check is meant to refuse cannot be written in the first place.
+      if (process.platform !== 'win32') {
+        await write('skills/zeta/Notes.md', '# Notes')
+        await write('skills/zeta/notes.md', '# Notes')
+        await expect(buildManifest(root)).rejects.toThrow(/collide once installed/)
+        await rm(join(root, 'skills/zeta/Notes.md'))
+        await rm(join(root, 'skills/zeta/notes.md'))
+      }
 
       // Refused rather than skipped: a symlinked reference is on disk, looks
       // installed, and never arrives.

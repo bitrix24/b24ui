@@ -55,6 +55,19 @@ export type Messages = {
   contentToc: {
     title: string
   }
+  dateTimePicker: {
+    backToDate: string
+    openPicker: string
+    hours: string
+    minutes: string
+    presets: {
+      today: string
+      tomorrow: string
+      endOfWeek: string
+      inAWeek: string
+      endOfMonth: string
+    }
+  }
   dropdownMenu: {
     noMatch: string
     search: string

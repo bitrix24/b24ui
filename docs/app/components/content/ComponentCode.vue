@@ -4,7 +4,7 @@
 import json5 from 'json5'
 import { upperFirst, camelCase, kebabCase } from 'scule'
 import { hash } from 'ohash'
-import { CalendarDate, Time } from '@internationalized/date'
+import { CalendarDate, CalendarDateTime, Time } from '@internationalized/date'
 import * as theme from '#build/b24ui'
 import { get, set } from '#b24ui/utils'
 import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
@@ -24,6 +24,7 @@ interface Cast {
 }
 
 type CastDateValue = [number, number, number]
+type CastDateTimeValue = [number, number, number, number, number]
 type CastTimeValue = [number, number, number]
 type CastTimeRangeValue = { start: CastTimeValue, end: CastTimeValue }
 
@@ -86,6 +87,15 @@ const castMap: Record<string, Cast> = {
       return value ? `new CalendarDate(${value.year}, ${value.month}, ${value.day})` : 'null'
     },
     imports: [{ name: 'CalendarDate', from: '@internationalized/date' }]
+  },
+  // `DateValue` only carries a date, so a picker that also picks a time had no
+  // way to show a value in an example at all.
+  'DateTimeValue': {
+    get: (args: CastDateTimeValue) => new CalendarDateTime(...args),
+    template: (value: CalendarDateTime) => {
+      return value ? `new CalendarDateTime(${value.year}, ${value.month}, ${value.day}, ${value.hour}, ${value.minute})` : 'null'
+    },
+    imports: [{ name: 'CalendarDateTime', from: '@internationalized/date' }]
   },
   'DateValue[]': {
     get: (args: CastDateValue[]) => args.map(date => new CalendarDate(...date)),
@@ -405,7 +415,7 @@ ${props.slots?.default}
         const cast = props.cast?.[key]
         const value = cast ? castMap[cast]!.template(componentProps[key]) : json5.stringify(componentProps[key], null, 2)?.replace(/,([ |\t\n]+[}|\]])/g, '$1')
         const type = props.externalTypes?.[i] ? `<${props.externalTypes[i]}>` : ''
-        const refType = cast && ['DateValue', 'DateValue[]', 'DateRange', 'TimeValue'].includes(cast || '') ? 'shallowRef' : 'ref'
+        const refType = cast && ['DateValue', 'DateTimeValue', 'DateValue[]', 'DateRange', 'TimeValue'].includes(cast || '') ? 'shallowRef' : 'ref'
 
         code += `const ${key === 'modelValue' ? 'value' : key} = ${refType}${type}(${value})
 `

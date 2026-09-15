@@ -60,6 +60,19 @@ export default defineLocale<Messages>({
     contentToc: {
       title: 'На этой странице'
     },
+    dateTimePicker: {
+      backToDate: 'К дате',
+      openPicker: 'Открыть выбор',
+      hours: 'Часы',
+      minutes: 'Минуты',
+      presets: {
+        today: 'Сегодня',
+        tomorrow: 'Завтра',
+        endOfWeek: 'В конце недели',
+        inAWeek: 'Через неделю',
+        endOfMonth: 'В конце месяца'
+      }
+    },
     dropdownMenu: {
       noMatch: 'Нет подходящих данных',
       search: 'Поиск…'

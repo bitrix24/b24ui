@@ -60,6 +60,19 @@ export default defineLocale<Messages>({
     contentToc: {
       title: 'इस पृष्ठ पर'
     },
+    dateTimePicker: {
+      backToDate: 'तारीख पर वापस',
+      openPicker: 'पिकर खोलें',
+      hours: 'घंटे',
+      minutes: 'मिनट',
+      presets: {
+        today: 'आज',
+        tomorrow: 'कल',
+        endOfWeek: 'सप्ताह का अंत',
+        inAWeek: 'एक सप्ताह में',
+        endOfMonth: 'महीने का अंत'
+      }
+    },
     dropdownMenu: {
       noMatch: 'कोई मेल खाता डेटा नहीं',
       search: 'खोजें…'

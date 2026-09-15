@@ -60,6 +60,19 @@ export default defineLocale<Messages>({
     contentToc: {
       title: 'Di halaman ini'
     },
+    dateTimePicker: {
+      backToDate: 'Kembali ke tarikh',
+      openPicker: 'Buka pemilih',
+      hours: 'Jam',
+      minutes: 'Minit',
+      presets: {
+        today: 'Hari ini',
+        tomorrow: 'Esok',
+        endOfWeek: 'Akhir minggu',
+        inAWeek: 'Seminggu lagi',
+        endOfMonth: 'Akhir bulan'
+      }
+    },
     dropdownMenu: {
       noMatch: 'Tiada data yang sepadan',
       search: 'Cari…'

@@ -9,7 +9,7 @@ import meta from '#nuxt-component-meta'
 import { compactProps, getDefaultVariants, hasLinkPassthrough, partitionLinkProps } from './componentMeta'
 // @ts-expect-error - no types available
 import { getComponentExample } from '#component-example/nitro'
-import { CalendarDate, Time } from '@internationalized/date'
+import { CalendarDate, CalendarDateTime, Time } from '@internationalized/date'
 import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
 
 /**
@@ -352,6 +352,7 @@ interface Cast {
 }
 
 type CastDateValue = [number, number, number]
+type CastDateTimeValue = [number, number, number, number, number]
 type CastTimeValue = [number, number, number]
 type CastTimeRangeValue = { start: CastTimeValue, end: CastTimeValue }
 
@@ -403,6 +404,16 @@ const castMap: Record<string, Cast> = {
       return value ? `new CalendarDate(${value.year}, ${value.month}, ${value.day})` : 'null'
     },
     imports: [{ name: 'CalendarDate', from: '@internationalized/date' }]
+  },
+  // Kept in step with the same entry in `app/components/content/ComponentCode.vue`
+  // by hand: this map is a copy of that one, and a cast missing from either side
+  // fails the page it is used on with a bare 500.
+  'DateTimeValue': {
+    get: (args: CastDateTimeValue) => new CalendarDateTime(...args),
+    template: (value: CalendarDateTime) => {
+      return value ? `new CalendarDateTime(${value.year}, ${value.month}, ${value.day}, ${value.hour}, ${value.minute})` : 'null'
+    },
+    imports: [{ name: 'CalendarDateTime', from: '@internationalized/date' }]
   },
   'DateValue[]': {
     get: (args: CastDateValue[]) => args.map(date => new CalendarDate(...date)),
@@ -590,7 +601,7 @@ ${slots?.default}
         const cast = propsCast?.[key] as string
         const value = cast ? castMap[cast]!.template(componentProps[key]) : json5.stringify(componentProps[key], null, 2)?.replace(/,([ |\t\n]+[}|\]])/g, '$1')
         const type = externalTypes?.[i] ? `<${externalTypes[i]}>` : ''
-        const refType = cast && ['DateValue', 'DateValue[]', 'DateRange', 'TimeValue'].includes(cast || '') ? 'shallowRef' : 'ref'
+        const refType = cast && ['DateValue', 'DateTimeValue', 'DateValue[]', 'DateRange', 'TimeValue'].includes(cast || '') ? 'shallowRef' : 'ref'
 
         code += `const ${key === 'modelValue' ? 'value' : key} = ${refType}${type}(${value})
 `

@@ -116,7 +116,10 @@ describe('commit messages release-please can read', () => {
    * exactly as #437 predicted, because an unknown group title indexes to -1.
    */
   describe('types that have no changelog section', () => {
-    it('reads the type list from the config rather than restating it', () => {
+    // The copy of the script needs a `node_modules` to resolve its imports
+    // against, and symlinking one needs elevated rights on Windows without
+    // Developer Mode. CI runs this on Linux.
+    it.skipIf(process.platform === 'win32')('reads the type list from the config rather than restating it', () => {
       // Asserted by behaviour, not by grep. The first version checked that the
       // script mentioned the config file — which a hardcoded copy of the list
       // passes with the comment still in place, as review demonstrated. So:

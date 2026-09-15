@@ -60,6 +60,19 @@ export default defineLocale<Messages>({
     contentToc: {
       title: 'Trong trang này'
     },
+    dateTimePicker: {
+      backToDate: 'Quay lại ngày',
+      openPicker: 'Mở bộ chọn',
+      hours: 'Giờ',
+      minutes: 'Phút',
+      presets: {
+        today: 'Hôm nay',
+        tomorrow: 'Ngày mai',
+        endOfWeek: 'Cuối tuần',
+        inAWeek: 'Một tuần sau',
+        endOfMonth: 'Cuối tháng'
+      }
+    },
     dropdownMenu: {
       noMatch: 'Không có dữ liệu phù hợp',
       search: 'Tìm kiếm…'
