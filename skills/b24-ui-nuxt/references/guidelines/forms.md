@@ -263,14 +263,14 @@ block through `b24ui.error`.
 const form = useTemplateRef('form')
 
 async function validateAndSubmit() {
-  const result = await form.value?.validate()
+  const result = await form.value?.validate({ silent: true })
   if (result) {
     // valid — submit
   }
 }
 
 async function validateEmail() {
-  await form.value?.validate({ name: 'email' })
+  await form.value?.validate({ name: 'email', silent: true })
 }
 
 function setServerError() {
@@ -290,6 +290,12 @@ function resetErrors() {
   </B24Form>
 </template>
 ```
+
+By default, `validate()` throws a `FormValidationException` when validation
+fails — `Form.vue` returns `false` only under `silent`, and otherwise throws. So
+`const result = await validate(); if (result)` never reaches its branch on a
+failure: pass `{ silent: true }` when you want a boolean back rather than an
+exception. Use `clear()` to remove validation errors.
 
 ## Record-edit form pattern
 
