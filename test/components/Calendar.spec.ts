@@ -142,4 +142,16 @@ describe('Calendar', () => {
 
     expect(await axe(wrapper.element)).toHaveNoViolations()
   })
+
+  it.each(['xs', 'sm', 'md', 'lg'] as const)('keeps a 44px day target on touch at size %s', async (size) => {
+    // Every size in this scale used to be 24-36px, which is under what a thumb
+    // can reliably hit, and the calendar renders in a drawer on a phone. The
+    // desktop cell now arrives at `sm:`, so a size variant can only narrow that
+    // half — it can no longer shrink the touch target.
+    const wrapper = await mountSuspended(Calendar, { props: { size, modelValue: new CalendarDate(2025, 1, 1) } })
+    const cells = wrapper.findAll('[data-slot="cellTrigger"]')
+
+    expect(cells.length).toBeGreaterThan(0)
+    expect(cells.every(cell => cell.classes().includes('size-11'))).toBe(true)
+  })
 })
