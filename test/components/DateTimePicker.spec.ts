@@ -237,4 +237,14 @@ describe('DateTimePicker', () => {
 
     expect(wrapper.find('input').element.value).toBe(expected)
   })
+
+  it('renders the time step', async () => {
+    const wrapper = await mountSuspended(DateTimePicker, { props: { ...open, modelValue: value } })
+    await wrapper.find('[data-slot="footer"]').trigger('click')
+
+    // The rendered matrix only ever reaches the calendar step, so nothing held
+    // the hour and minute grid's markup: the cells carried the wrong hover, the
+    // current hour was styled unlike the current date, and no test could tell.
+    expect(wrapper.find('[data-slot="body"]').html()).toMatchSnapshot()
+  })
 })

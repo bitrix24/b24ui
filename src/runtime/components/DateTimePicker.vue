@@ -511,8 +511,8 @@ defineExpose({ open: isOpen, step })
                     :key="hour"
                     type="button"
                     :aria-pressed="hour === currentHour"
-                    :data-selected="hour === currentHour"
-                    :data-now="hour === nowHour"
+                    :data-selected="hour === currentHour || undefined"
+                    :data-now="hour === nowHour || undefined"
                     :class="b24ui.timeCell({ class: props.b24ui?.timeCell })"
                     @click="onHourSelect(hour)"
                   >
@@ -535,8 +535,8 @@ defineExpose({ open: isOpen, step })
                     :key="minute"
                     type="button"
                     :aria-pressed="minute === currentMinute"
-                    :data-selected="minute === currentMinute"
-                    :data-now="minute === nowMinute"
+                    :data-selected="minute === currentMinute || undefined"
+                    :data-now="minute === nowMinute || undefined"
                     :class="b24ui.timeCell({ class: props.b24ui?.timeCell })"
                     @click="onMinuteSelect(minute)"
                   >

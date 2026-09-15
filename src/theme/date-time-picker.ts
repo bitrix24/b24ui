@@ -21,7 +21,7 @@ export default {
     /** Click target wrapping the read-only input, so the whole field opens the picker. */
     /** The readonly input that doubles as the popover trigger. */
     trigger: 'cursor-pointer w-full',
-    main: 'flex flex-col p-4 min-w-64',
+    main: 'flex flex-col p-4',
     presets: [
       // Tighter than the cards want to be on their own: the preset column sets
       // the height of the whole popover, and at `gap-2 p-2 py-1.5` it ran 47px
@@ -57,8 +57,11 @@ export default {
       'focus-visible:outline-(--ui-color-design-outline-focused-stroke) focus-visible:outline-1'
     ].join(' '),
     timeHeaderBackIcon: 'size-5 text-(--ui-color-design-plain-na-content-secondary)',
-    timeHeaderLabel: 'flex-1 text-center pe-7 font-(--ui-font-weight-semi-bold) text-(--b24ui-typography-legend-color)',
-    timeBody: 'flex',
+    // `text-legend` and the same weight the calendar's own heading uses, so the
+    // two steps do not announce themselves in different type.
+    timeHeaderLabel: 'flex-1 min-w-0 text-center pe-7 text-legend font-(--ui-font-weight-semi-bold) block truncate p-1.5',
+    /** 252px: the width the time step is expected to hold, whatever the locale. */
+    timeBody: 'flex min-w-[252px]',
     /** The rule between hours and minutes; `first:` keeps it off the left edge. */
     timeColumn: [
       'flex flex-col gap-1 px-3 first:pl-1 last:pr-1',
@@ -67,18 +70,28 @@ export default {
     timeColumnTitle: 'text-center pb-2 text-(length:--ui-font-size-xs) text-(--ui-color-design-plain-na-content-secondary)',
     timeHoursGrid: 'grid grid-cols-4 gap-1',
     timeMinutesGrid: 'grid grid-cols-2 gap-1',
+    /**
+     * Deliberately the calendar's `cellTrigger`, variant for variant: the two
+     * steps are the same control over different units, and they were reading
+     * differently. The current hour was a grey pill where the current date is
+     * accent text, and hover used `--b24ui-background-hover` where the calendar
+     * uses `--b24ui-background` and skips the cell that is already selected.
+     * @see src/theme/calendar.ts
+     */
     timeCell: [
       'inline-flex items-center justify-center',
       'size-7 rounded-(--ui-border-radius-circle)',
-      'text-(length:--ui-font-size-sm)',
+      'text-label',
       'cursor-pointer select-none transition',
-      'hover:bg-(--b24ui-background-hover) hover:text-(--b24ui-color)',
-      'focus-visible:outline-(--ui-color-design-outline-focused-stroke) focus-visible:outline-1',
-      // The real-world current cell: a hint only, never the selected styling.
-      'data-[now=true]:bg-(--ui-color-bg-content-secondary)',
-      // After `data-[now]`, so a cell that is both reads as selected.
-      'data-[selected=true]:bg-(--b24ui-background) data-[selected=true]:text-(--b24ui-color)',
-      'data-[selected=true]:font-(--ui-font-weight-medium)'
+      'focus-visible:ring-2 focus:outline-none',
+      'focus-visible:ring-(--b24ui-background-hover)',
+      'data-selected:bg-(--b24ui-background)',
+      'data-selected:text-(--b24ui-color)',
+      'data-selected:focus-visible:ring-(--b24ui-background-hover)',
+      'data-[now]:not-data-selected:text-(--b24ui-background)',
+      'data-[now]:font-(--ui-font-weight-semi-bold)',
+      'hover:not-data-selected:bg-(--b24ui-background)',
+      'hover:not-data-selected:text-(--b24ui-color)'
     ].join(' '),
     /** Footer of the calendar step; also the control that moves to the time step. */
     footer: [
