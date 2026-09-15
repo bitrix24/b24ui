@@ -223,4 +223,18 @@ describe('DateTimePicker', () => {
     // unselected.
     expect(wrapper.find('[data-slot="body"]').element.closest('.style-filled')).not.toBeNull()
   })
+
+  it.each([
+    ['follows the locale when unset', undefined, 'Oct 6, 2024, 2:30 PM'],
+    ['forces the 24-hour clock', false, 'Oct 6, 2024, 14:30'],
+    ['forces the 12-hour clock', true, 'Oct 6, 2024, 2:30 PM']
+  ])('`hour12` %s', async (_name, hour12, expected) => {
+    // The grid is always 00-23, so an `en` trigger reading `2:30 PM` next to a
+    // cell marked 14 had no way to be turned off.
+    const wrapper = await mountSuspended(DateTimePicker, {
+      props: { locale: 'en', modelValue: value, ...(hour12 === undefined ? {} : { hour12 }) }
+    })
+
+    expect(wrapper.find('input').element.value).toBe(expected)
+  })
 })

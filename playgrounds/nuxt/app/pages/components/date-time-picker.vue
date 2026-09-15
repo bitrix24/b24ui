@@ -14,6 +14,8 @@ const attrs = reactive({
 
 const dateOnly = ref(false)
 const hidePresets = ref(false)
+// The grid is always 00-23, so this is how the trigger is kept from saying `PM`.
+const hour12 = ref(false)
 const value = shallowRef<DateValue | undefined>(new CalendarDateTime(2024, 10, 6, 14, 30))
 </script>
 
@@ -38,6 +40,7 @@ const value = shallowRef<DateValue | undefined>(new CalendarDateTime(2024, 10, 6
       />
       <B24Switch v-model="dateOnly" label="Date only" size="xs" />
       <B24Switch v-model="hidePresets" label="Hide presets" size="xs" />
+      <B24Switch v-model="hour12" label="12-hour clock" size="xs" />
     </template>
 
     <Matrix v-slot="props" :attrs="attrs">
@@ -46,6 +49,7 @@ const value = shallowRef<DateValue | undefined>(new CalendarDateTime(2024, 10, 6
         v-bind="props"
         :date-only="dateOnly"
         :hide-presets="hidePresets"
+        :hour12="hour12"
         placeholder="Pick a date and time"
         class="w-64"
       />

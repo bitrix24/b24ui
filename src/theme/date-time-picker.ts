@@ -21,9 +21,13 @@ export default {
     /** Click target wrapping the read-only input, so the whole field opens the picker. */
     /** The readonly input that doubles as the popover trigger. */
     trigger: 'cursor-pointer w-full',
-    main: 'flex flex-col p-2 min-w-64',
+    main: 'flex flex-col p-4 min-w-64',
     presets: [
-      'flex flex-row sm:flex-col gap-2 p-2',
+      // Tighter than the cards want to be on their own: the preset column sets
+      // the height of the whole popover, and at `gap-2 p-2 py-1.5` it ran 47px
+      // past the bottom of the time grid — measured — leaving a dead band under
+      // the minutes that the picker this copies does not have.
+      'flex flex-row sm:flex-col gap-1.5 p-4',
       'sm:border-l sm:border-(--ui-color-divider-default)',
       'overflow-x-auto sm:overflow-x-visible',
       // Same cap the menus use, so an application moving the token moves this too.
@@ -31,7 +35,7 @@ export default {
     ].join(' '),
     preset: [
       'flex flex-col items-start text-start',
-      'min-w-36 px-3 py-1.5',
+      'min-w-36 px-3 py-1',
       'rounded-(--ui-border-radius-md)',
       'border border-(--ui-color-divider-default)',
       'cursor-pointer select-none transition-colors',
@@ -78,7 +82,9 @@ export default {
     ].join(' '),
     /** Footer of the calendar step; also the control that moves to the time step. */
     footer: [
-      'mt-2 flex items-center gap-2 px-2 py-1',
+      // `self-start`, or the flex column stretched it across the whole calendar
+      // and the whole strip became one click target.
+      'mt-2 self-start inline-flex items-center gap-1.5 px-2 py-1',
       'rounded-(--ui-border-radius-md)',
       'text-(--b24ui-background)',
       'cursor-pointer select-none transition-colors',

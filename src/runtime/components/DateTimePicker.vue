@@ -67,6 +67,12 @@ export interface DateTimePickerProps {
    * @defaultValue `{ dateStyle: 'medium' }`, plus `timeStyle: 'short'` unless `dateOnly` is set
    */
   format?: Intl.DateTimeFormatOptions
+  /**
+   * Clock the formatted value uses. The grid is always 00–23, so leaving this
+   * to the locale made an `en` trigger read `2:30 PM` beside a cell marked 14.
+   * `false` is the 24-hour clock; omit it to follow the locale.
+   */
+  hour12?: boolean
   /** @defaultValue 'air-primary' */
   color?: DateTimePicker['variants']['color']
   /** @defaultValue 'md' */
@@ -224,11 +230,13 @@ const activeLocale = computed(() => {
   }
 })
 
-const formatter = computed(() => new Intl.DateTimeFormat(
-  activeLocale.value,
-  props.format ?? (props.dateOnly ? { dateStyle: 'medium' } : { dateStyle: 'medium', timeStyle: 'short' })
-))
-const dateFormatter = computed(() => new Intl.DateTimeFormat(activeLocale.value, { dateStyle: 'medium' }))
+/** `hour12` is applied on top of `format`, so either can be given alone. */
+const formatOptions = computed<Intl.DateTimeFormatOptions>(() => ({
+  ...(props.format ?? (props.dateOnly ? { dateStyle: 'medium' } : { dateStyle: 'medium', timeStyle: 'short' })),
+  ...(props.hour12 === undefined || props.dateOnly ? {} : { hour12: props.hour12 })
+}))
+
+const formatter = computed(() => new Intl.DateTimeFormat(activeLocale.value, formatOptions.value))
 const weekdayFormatter = computed(() => new Intl.DateTimeFormat(activeLocale.value, { weekday: 'long' }))
 const dayMonthFormatter = computed(() => new Intl.DateTimeFormat(activeLocale.value, { day: 'numeric', month: 'long' }))
 
@@ -237,7 +245,6 @@ function toJsDate(value: DateValue): Date {
 }
 
 const formattedValue = computed(() => internalValue.value ? formatter.value.format(toJsDate(internalValue.value)) : '')
-const formattedDate = computed(() => internalValue.value ? dateFormatter.value.format(toJsDate(internalValue.value)) : '')
 
 const currentHour = computed(() => (internalValue.value as CalendarDateTime | undefined)?.hour ?? 0)
 const currentMinute = computed(() => (internalValue.value as CalendarDateTime | undefined)?.minute ?? 0)
@@ -475,7 +482,7 @@ defineExpose({ open: isOpen, step })
           </template>
 
           <template v-else>
-            <slot name="time-header" :value="internalValue" :formatted="formattedDate" :back="goToDate">
+            <slot name="time-header" :value="internalValue" :formatted="formattedValue" :back="goToDate">
               <div data-slot="timeHeader" :class="b24ui.timeHeader({ class: props.b24ui?.timeHeader })">
                 <button
                   type="button"
@@ -485,7 +492,7 @@ defineExpose({ open: isOpen, step })
                 >
                   <Component :is="props.backIcon || icons.chevronLeft" :class="b24ui.timeHeaderBackIcon({ class: props.b24ui?.timeHeaderBackIcon })" />
                 </button>
-                <span :class="b24ui.timeHeaderLabel({ class: props.b24ui?.timeHeaderLabel })">{{ formattedDate }}</span>
+                <span :class="b24ui.timeHeaderLabel({ class: props.b24ui?.timeHeaderLabel })">{{ formattedValue }}</span>
               </div>
             </slot>
 

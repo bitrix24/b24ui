@@ -69,6 +69,32 @@ props:
 ---
 ::
 
+### Clock
+
+The grid always runs `00`–`23`, so under a locale that prefers a 12-hour clock the
+trigger would say `2:30 PM` beside a cell marked `14`. Use `hour12` to settle it.
+Omit the prop to follow the locale.
+
+::component-code
+---
+prettier: true
+cast:
+  modelValue: DateTimeValue
+ignore:
+  - modelValue
+external:
+  - modelValue
+items:
+  hour12:
+    - true
+    - false
+props:
+  hour12: false
+  modelValue: [2024, 10, 6, 14, 30]
+  placeholder: 'Pick a date and time'
+---
+::
+
 ### Custom trigger
 
 The `#default` slot replaces the trigger. It receives the open state, the value and the formatted value.
