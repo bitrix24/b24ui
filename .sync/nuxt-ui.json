@@ -1897,8 +1897,8 @@
       "summary": "chore(vscode): scope Tailwind classRegex to default export objects — upstream entry plus a fork entry for top-level consts, which hold 29 class strings in 4 theme files"
     },
     "a3e64fbe93f3fa1693a46f5ad1eb1b409feefe69": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 590,
+      "b24ui_sha": "025055d9",
       "decision": "no-op",
       "summary": "docs: update playground tiles and contributors in examples — n/a (12 of 31 files absent, incl. all of docs/app/components/playground/; the other 19 carry this fork’s own org avatars and none of the 13 usernames appear anywhere in docs/)"
     }
