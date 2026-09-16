@@ -1909,8 +1909,8 @@
       "summary": "test: update `.nuxtrc` — n/a (already byte-identical; this fork set the marker to 4.3.2 in #579 alongside the dependency bump upstream left behind)"
     },
     "35c74bb40c65841e8a42f7baafa921fede46c24a": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 594,
+      "b24ui_sha": "f220b72e",
       "decision": "n/a",
       "summary": "docs: align og images and readme banner with the new landing (#6948) — n/a by absence: 7 of 11 files missing, the nuxt-og-image/takumi stack was removed in b24ui #324, no @nuxt/fonts module, no README <picture> banner, and the one portable hunk (dropping static ogImage from useSeoMeta) is already the state of docs/app/pages/index.vue"
     }
