@@ -215,7 +215,7 @@ const itemsCustom: (DescriptionListItem & { value?: Date | string })[] = [
         <B24DescriptionList
           legend="Applicant Information"
           text="Personal details and application."
-          class="ring rounded-md backdrop-blur-md bg-(--ui-color-design-outline-na-bg) ring-0 border-1 border-(--ui-color-divider-vibrant-default)"
+          class="rounded-md backdrop-blur-md bg-(--ui-color-design-outline-na-bg) ring-0 border-1 border-(--ui-color-divider-vibrant-default)"
           :items="itemsCustom"
           :b24ui="{
             legend: 'sr-only',

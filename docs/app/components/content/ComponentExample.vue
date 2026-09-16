@@ -248,7 +248,7 @@ const urlSearchParams = computed(() => {
           <div
             v-else-if="resolvedComponent"
             ref="componentContainer"
-            class="flex justify-center p-4 bg-grid-example [mask-image:linear-gradient(0deg,rgba(255,255,255,0.09),rgba(255,255,255,0.18))"
+            class="flex justify-center p-4 bg-grid-example"
             :class="[props.class, { 'dark:bg-gray-950/50 rounded-t-md': props.elevated }]"
           >
             <component :is="resolvedComponent" v-bind="{ ...componentProps, ...optionsValues }" />

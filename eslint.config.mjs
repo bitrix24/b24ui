@@ -1,4 +1,6 @@
 import { createConfigForNuxt } from '@nuxt/eslint-config/flat'
+import { fileURLToPath } from 'node:url'
+import betterTailwindcss from 'eslint-plugin-better-tailwindcss'
 
 /**
  * Flag bare prop references in templates of components that use
@@ -290,6 +292,49 @@ const noUnresolvedFormFieldRefs = {
   }
 }
 
+/**
+ * Air design-system hook classes: real selectors shipped by
+ * `src/runtime/index.css` and `src/runtime/air-design-tokens/*.css`, not Tailwind
+ * utilities, so no entry point can generate them. The docs and every playground
+ * set the theme context and style tokens through them.
+ */
+const AIR_HOOK_CLASSES = [
+  '^(light|dark|base-mode)$',
+  '^edge-(light|dark)$',
+  '^style-filled(-boost)?$',
+  '^air-custom-bg$',
+  '^scrollbar-transparent$'
+]
+
+/**
+ * Tailwind class checks for the apps in this repo (docs and playgrounds).
+ * `src/theme` is not covered yet: the plugin skips `export default (options) => ({...})`
+ * until https://github.com/schoero/eslint-plugin-better-tailwindcss/pull/397 ships.
+ */
+function betterTailwindcssConfig(files, entryPoint, ignore = []) {
+  // Absolute so editor ESLint servers running from a subfolder resolve it too.
+  entryPoint = fileURLToPath(new URL(entryPoint, import.meta.url))
+  return {
+    files,
+    plugins: {
+      'better-tailwindcss': betterTailwindcss
+    },
+    settings: {
+      'better-tailwindcss': {
+        entryPoint,
+        attributes: [
+          '^(v-bind:|:)?class$',
+          ['^(v-bind:|:)?b24ui$', [{ match: 'objectValues' }]]
+        ]
+      }
+    },
+    rules: {
+      ...betterTailwindcss.configs['correctness-error'].rules,
+      'better-tailwindcss/no-unknown-classes': ['error', { ignore }]
+    }
+  }
+}
+
 export default createConfigForNuxt({
   features: {
     tooling: true,
@@ -333,7 +378,18 @@ export default createConfigForNuxt({
     'bitrix24-ui/no-bare-prop-refs': 'error',
     'bitrix24-ui/no-unresolved-form-field-refs': 'error'
   }
-}).append({
+}).append(betterTailwindcssConfig(['docs/app/**/*.vue'], 'docs/app/assets/css/main.css', [
+  ...AIR_HOOK_CLASSES,
+  // Hook classes styled in `docs/app/assets/css/main.css` or in scoped `<style>` blocks.
+  '^bg-grid-example$', '^custom-scrollbar-transparent$', '^(nuxt|vue)-only$',
+  '^squircle$', '^example$', '^my-table-tbody$'
+])).append(
+  betterTailwindcssConfig(['playgrounds/nuxt/app/**/*.vue'], 'playgrounds/nuxt/app/assets/css/main.css', AIR_HOOK_CLASSES)
+).append(
+  betterTailwindcssConfig(['playgrounds/vue/src/**/*.vue'], 'playgrounds/vue/src/assets/css/main.css', AIR_HOOK_CLASSES)
+).append(
+  betterTailwindcssConfig(['playgrounds/demo/app/**/*.vue'], 'playgrounds/demo/app/assets/css/main.css', AIR_HOOK_CLASSES)
+).append({
   files: ['src/runtime/components/**/*.vue', 'src/runtime/composables/**/*.ts'],
   rules: {
     'no-restricted-imports': ['error', {

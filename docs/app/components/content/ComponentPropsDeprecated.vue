@@ -32,7 +32,7 @@ const removed = computed(() => props.prop.tags?.find((tag: any) => tag.name === 
     <MDC
       v-if="deprecated.text"
       :value="deprecated.text"
-      class="text-toned mt-1"
+      class="text-muted mt-1"
       :cache-key="`${kebabCase(route.path)}-${prop.name}-deprecated`"
     />
   </div>
