@@ -156,7 +156,7 @@ function generateMessages() {
                 :href="source.url"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center gap-2 px-2 py-1 text-sm text-muted hover:text-default hover:bg-elevated/50 transition-colors min-w-0 rounded-md"
+                class="flex items-center gap-2 px-2 py-1 text-sm text-muted hover:bg-elevated/50 transition-colors min-w-0 rounded-md"
               >
                 <img
                   :src="getFaviconUrl(source.url)"

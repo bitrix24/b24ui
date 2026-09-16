@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "ca003a3eeb57b96938b7dffd02a1d61dc976e1a3",
+  "cursor": "9caf5755e8c6b834effba324abd5a63a641ab1ec",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -1883,6 +1883,12 @@
       "b24ui_sha": "d921ac2d57a8634e5a060f12d9ac6bdca75f2de8",
       "decision": "n/a",
       "summary": "docs: no auto-close on the shared parser, nothing it parses streams — N/A: it turns an option off on a parser this fork does not instantiate, and our one use of the same library is the case the option exists FOR. Upstream's one line adds autoClose: false to createMarkdownParser in docs/app/utils/markdown.ts, with the reason in a comment — nothing that parser handles streams, and comark 0.7's healing (which closes an unfinished document) adds a stray backtick after a double-backtick span carrying attributes. WHY IT DOES NOT APPLY: the file does not exist here — docs/app/utils/markdown.ts arrived in 6b4d2c72, the docs navigation rework recorded as n/a one commit ago, and createMarkdownParser appears nowhere in this tree. Our own comark usage is the OPPOSITE case: we do depend on @comark/vue (docs/package.json, ^0.7.0 since #579) and use it in three places — the two chat-palette examples and the sidebar chat example — all rendering through the Markdown component and all passing :streaming=isPartStreaming(part), i.e. displaying streaming AI output, which is exactly what auto-close is for; turning it off there would be the wrong change, not the same one. And the option is not reachable through our door anyway: Markdown.js:77 calls parse(markdown.value, { streaming: props.streaming }) and never forwards autoClose, while comark's parse defaults it to true. The bug pattern is absent too — a grep for a double-backtick span with attributes across docs/content and docs/app finds nothing. A TRAP WORTH RECORDING: the first read of the installed package reported @comark/vue@0.6.2, which would have made the whole question moot since the bug is 0.7 behaviour — that was node_modules/.pnpm keeping a directory from an earlier install, the store holding both 0.6.2 and 0.7.0 while only the lockfile says which is resolved (0.7.0). The same trap is recorded against @nuxtjs/mdc in an earlier entry and it caught this one too: read pnpm-lock.yaml, never the store."
+    },
+    "9caf5755e8c6b834effba324abd5a63a641ab1ec": {
+      "pr": "pending-merge",
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "chore: lint tailwind classes in docs and playgrounds — ported with `b24ui` attribute, a fourth config for `playgrounds/demo` and a shared air-hook ignore list; fixed 8 dead classes it found"
     }
   }
 }

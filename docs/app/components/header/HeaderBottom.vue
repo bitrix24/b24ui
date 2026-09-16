@@ -21,7 +21,7 @@ const items = computed<NavigationMenuItem[]>(() => mapContentNavigation(navigati
   <B24Container class="hidden lg:flex items-center justify-between pt-2.5 px-0">
     <B24NavigationMenu
       :items="items"
-      class="ps-2px"
+      class="ps-[2px]"
     />
 
     <FrameworkTabs />

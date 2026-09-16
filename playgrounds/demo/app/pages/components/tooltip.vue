@@ -63,7 +63,7 @@ defineShortcuts({
           </B24Tooltip> that shows details when you move your mouse over an item.
         </ProseH2>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-          <div class="mb-4 lex flex-col gap-4">
+          <div class="mb-4 flex flex-col gap-4">
             <B24Tooltip v-model:open="openState.T" :text="text.long" :kbds="['alt', 'T']" :content="{ side: 'top' }">
               <B24Button label="Top" block />
             </B24Tooltip>
