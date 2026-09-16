@@ -12,8 +12,19 @@
   "prettier.enable": false,
   "tailwindCSS.classAttributes": ["class", "b24ui"],
   "tailwindCSS.classFunctions": ["defineAppConfig"],
+  // The first entry is upstream's: scope class extraction to the default-export
+  // object, so imports, JSDoc and plain prose stop being offered as classes.
+  // The second is this fork's. Four theme files declare 29 class strings in a
+  // top-level `const` *before* the default export -- `fieldGroupVariant` in
+  // `field-group.ts` alone holds 19 -- and upstream's entry would leave every one
+  // of them without IntelliSense. Measured across all 120 `src/theme/*.ts`: with
+  // both entries the only strings still excluded are a JSDoc fragment in
+  // `calendar.ts`, an `@memo` line in `editor-suggestion-menu.ts`, the size keys
+  // in `chip.ts` and the prose in `toast.ts` -- which is exactly the noise the
+  // upstream commit set out to drop.
   "tailwindCSS.experimental.classRegex": [
-    ["[:\\[,]\\s*['\"`]([^'\"`]*)['\"`]"]
+    ["export default[^{]*\\{([\\s\\S]*)\\}", "[:\\[,]\\s*['\"`]([^'\"`]*)['\"`]"],
+    ["\\n((?:export )?const [\\s\\S]*)\\nexport default", "[:\\[,]\\s*['\"`]([^'\"`]*)['\"`]"]
   ],
   "tailwindCSS.experimental.configFile": {
     "playgrounds/nuxt/app/assets/css/main.css": ["playgrounds/nuxt/**", "src/**"],
