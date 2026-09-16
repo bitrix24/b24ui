@@ -1903,8 +1903,8 @@
       "summary": "docs: update playground tiles and contributors in examples — n/a (12 of 31 files absent, incl. all of docs/app/components/playground/; the other 19 carry this fork’s own org avatars and none of the 13 usernames appear anywhere in docs/)"
     },
     "ae72719ad0032ce0d90fe7fd6dff012241afe1ca": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 592,
+      "b24ui_sha": "97bf40ac",
       "decision": "no-op",
       "summary": "test: update `.nuxtrc` — n/a (already byte-identical; this fork set the marker to 4.3.2 in #579 alongside the dependency bump upstream left behind)"
     }
