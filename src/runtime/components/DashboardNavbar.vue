@@ -106,7 +106,7 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.dashboardN
           />
         </slot>
 
-        <h1 data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
+        <h1 v-if="props.title || !!slots.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
           <slot name="title">
             {{ props.title }}
           </slot>
