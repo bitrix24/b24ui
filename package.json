@@ -93,9 +93,6 @@
   "imports": {
     "#build/b24ui.css": "./.nuxt/b24ui.static.css"
   },
-  "bin": {
-    "bitrix24-ui": "./cli/index.mjs"
-  },
   "style": "./dist/runtime/index.css",
   "main": "./dist/module.mjs",
   "sideEffects": [
@@ -106,12 +103,12 @@
     "LICENSE",
     ".nuxt/b24ui.static.css",
     "dist",
-    "cli",
     "vue-plugin.d.ts"
   ],
   "scripts": {
     "build": "nuxt-module-build build",
     "prepack": "pnpm build",
+    "cli": "node ./cli/index.mjs",
     "dev": "nuxt dev playgrounds/nuxt --uiDev",
     "dev:generate": "nuxt generate playgrounds/nuxt",
     "dev:preview": "nuxt preview playgrounds/nuxt",

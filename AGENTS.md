@@ -45,16 +45,10 @@ pnpm run skill:sync   # Regenerate skills/index.json from the skill tree
 
 ## CLI for Scaffolding
 
-Link the CLI first (one-time setup):
+Use the CLI to create new components:
 
 ```bash
-npm link
-```
-
-Then use it to create new components:
-
-```bash
-bitrix24-ui make component <name> [options]
+pnpm cli make component <name> [options]
 ```
 
 Options:
@@ -109,7 +103,7 @@ Copy this checklist and track progress when creating a new component:
 ```
 Component: [name]
 Progress:
-- [ ] 1. Scaffold with CLI: bitrix24-ui make component <name>
+- [ ] 1. Scaffold with CLI: pnpm cli make component <name>
 - [ ] 2. Implement component in src/runtime/components/
 - [ ] 3. Create theme in src/theme/
 - [ ] 4. Export types from src/runtime/types/index.ts
