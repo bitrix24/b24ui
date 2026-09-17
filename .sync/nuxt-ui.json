@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "2aa1702a9944444f5994be003af1b8af51af0dc2",
+  "cursor": "61b6d53fd44df82466debcd51e46b10487e34540",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -1915,10 +1915,16 @@
       "summary": "docs: align og images and readme banner with the new landing (#6948) — n/a by absence: 7 of 11 files missing, the nuxt-og-image/takumi stack was removed in b24ui #324, no @nuxt/fonts module, no README <picture> banner, and the one portable hunk (dropping static ogImage from useSeoMeta) is already the state of docs/app/pages/index.vue"
     },
     "2aa1702a9944444f5994be003af1b8af51af0dc2": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 596,
+      "b24ui_sha": "17b46d17",
       "decision": "n/a",
       "summary": "chore(github): add `v5` base branch to labeler (#6949) — n/a: no .github/labeler.yml here and no workflow reads one; this fork ships from main and has no major-version branches to label"
+    },
+    "61b6d53fd44df82466debcd51e46b10487e34540": {
+      "pr": "pending-merge",
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "chore(deps): update pnpm to v12 (#6943) — packageManager 11.20.0 -> 12.4.2 (closes the pre-existing 11.20.0-vs-11.27.0 divergence). Lockfile becomes two YAML documents, structurally identical to upstream; 15 packages added (pnpm + 14 @pnpm/exe.*), 0 removed, every load-bearing pin held. CONTRIBUTING.md:58 updated — the governance guard went red on the bump"
     }
   }
 }
