@@ -12,7 +12,7 @@ const pages = [
   '/docs/getting-started/',
   '/docs/getting-started/installation/nuxt/',
   '/docs/getting-started/installation/vue/',
-  '/docs/getting-started/migration/v2/',
+  '/docs/getting-started/migration/',
   '/docs/getting-started/contribution/',
   '/docs/getting-started/theme/design-system/',
   '/docs/getting-started/theme/css-variables/',
@@ -355,7 +355,9 @@ export default defineNuxtConfig({
     '/raw/**': { headers: { Vary: 'Accept, User-Agent' } },
     // v4 redirects - default root pages
     '/docs/': { redirect: '/docs/getting-started/', prerender: false },
-    '/docs/getting-started/migration/': { redirect: '/docs/getting-started/migration/v2/', prerender: false },
+    // the version lives in the package, not the url — `/migration/` is the page
+    '/docs/getting-started/migration/v2/': { redirect: { to: '/docs/getting-started/migration/', statusCode: 301 }, prerender: false },
+    '/raw/docs/getting-started/migration/v2.md': { redirect: { to: '/raw/docs/getting-started/migration.md', statusCode: 301 }, prerender: false },
     '/docs/getting-started/theme/': { redirect: '/docs/getting-started/theme/design-system/', prerender: false },
     '/docs/getting-started/integrations/': { redirect: '/docs/getting-started/integrations/icons/', prerender: false },
     '/docs/getting-started/ai/': { redirect: '/docs/getting-started/ai/llms-txt/', prerender: false },
