@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "d9dd8476c20ab2c4fbb9d0e769a2388084625a27",
+  "cursor": "b0e1d715ce1d87b3ea00456e3cc655ae8b29dec7",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -1957,10 +1957,16 @@
       "summary": "docs(showcase): add fontnode.com (#6957) — n/a: fontnode is built with nuxt/ui, not b24ui. showcase.yml exists here but holds this fork’s own list (one placeholder entry); adding it would be a false claim about this library’s users"
     },
     "d9dd8476c20ab2c4fbb9d0e769a2388084625a27": {
+      "pr": 602,
+      "b24ui_sha": "92244b7f",
+      "decision": "port",
+      "summary": "chore(deps): move to pnpm catalog (#6956) — adopted catalogMode: strict + a 133-entry catalog across all 8 manifests (peerDependencies stay literal, as upstream); named catalog `vue-legacy` keeps the recorded @internationalized/date ^3.9.0 hold declared. Converged two live §2 drifts the hand-kept invariant missed (maska, tailwindcss). Zero packages added, 43 duplicate copies dropped. Also taught .sync/dep-parity.mjs and its spec to resolve `catalog:` on both sides — without that the next refresh would have recorded the literal for 140 of 152 entries and the guard would have compared placeholders"
+    },
+    "b0e1d715ce1d87b3ea00456e3cc655ae8b29dec7": {
       "pr": "pending-merge",
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "chore(deps): move to pnpm catalog (#6956) — adopted catalogMode: strict + a 133-entry catalog across all 8 manifests (peerDependencies stay literal, as upstream); named catalog `vue-legacy` keeps the recorded @internationalized/date ^3.9.0 hold declared. Converged two live §2 drifts the hand-kept invariant missed (maska, tailwindcss). Zero packages added, 43 duplicate copies dropped. Also taught .sync/dep-parity.mjs and its spec to resolve `catalog:` on both sides — without that the next refresh would have recorded the literal for 140 of 152 entries and the guard would have compared placeholders"
+      "summary": "refactor(unplugin): resolve vue runtime paths from runtimeDir (#6960) — four resolvePathSync sites in plugins.ts + bitrix24-environment.ts anchored on runtimeDir instead of import.meta.url (no `icons` plugin here); +AGENTS.md rule, with src/templates.ts:96-97 recorded as a live exception upstream also left. Step 1 of 2; b6cb8972 fixes the Windows `d:` scheme this form introduces"
     }
   }
 }
