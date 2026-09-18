@@ -1,6 +1,6 @@
 {
   "$note": "Upstream's pinned versions for every dependency both trees declare in the SAME section, snapshotted at `cursor`. The sync ports deltas, which is correct per commit and lets a one-time divergence become permanent: once a version is off upstream's line, every later `chore(deps)` batch skips it, because those ports bump only where this fork already matched upstream's pre-image. `prettier` sat at ^3.8.4 against upstream's ^3.9.6 for that reason, through four ported batches, until this file was written. Section-aware on purpose: 18 packages are declared on both sides but in different sections — the whole `@tiptap/*` family is a peer `^3` upstream and a dependency `^3.29.2` here, and `ai` is a peer there and a devDependency here. Those are structural divergences, not drift, and comparing a peer range against a dependency range says nothing. They are absent from this file by construction rather than by omission. Guarded by `test/utils/dep-parity.spec.ts`. Refresh with `node .sync/dep-parity.mjs <path-to-nuxt-ui-mirror> [cursor]`, which preserves `exceptions`.",
-  "cursor": "b0e1d715ce1d87b3ea00456e3cc655ae8b29dec7",
+  "cursor": "d00e9deeb3de19235f2359c36360068e3557393e",
   "manifests": {
     "package.json": {
       "dependencies": {
@@ -87,18 +87,18 @@
         "vue-tsc": "^3.3.11"
       },
       "peerDependencies": {
-        "@inertiajs/vue3": "^2.0.7 || ^3.0.0",
-        "@internationalized/date": "^3.0.0",
-        "@internationalized/number": "^3.0.0",
-        "@nuxt/content": "^3.0.0",
-        "joi": "^18.0.0",
-        "superstruct": "^2.0.0",
-        "tailwindcss": "^4.0.0",
-        "typescript": "^5.6.3 || ^6.0.0 || ^7.0.0",
-        "valibot": "^1.0.0",
-        "vue-router": "^4.5.0 || ^5.0.0",
+        "@inertiajs/vue3": "^2.0.7 || ^3",
+        "@internationalized/date": "^3",
+        "@internationalized/number": "^3",
+        "@nuxt/content": "^3",
+        "joi": "^18",
+        "superstruct": "^2",
+        "tailwindcss": "^4",
+        "typescript": "^5.6.3 || ^6 || ^7",
+        "valibot": "^1",
+        "vue-router": "^4.5.0 || ^5",
         "yup": "^1.7.0",
-        "zod": "^3.24.0 || ^4.0.0"
+        "zod": "^3.24.0 || ^4"
       }
     },
     "docs/package.json": {
