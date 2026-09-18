@@ -4,7 +4,7 @@ import { resolvePathSync } from 'mlly'
 import { join } from 'pathe'
 import { globSync } from 'tinyglobby'
 import type { UnpluginOptions } from 'unplugin'
-import { runtimeDir } from '../unplugin'
+import { runtimeDir, runtimeUrl } from '../unplugin'
 import type { Bitrix24UIOptions } from '../unplugin'
 
 /**
@@ -14,11 +14,11 @@ import type { Bitrix24UIOptions } from '../unplugin'
 export default function PluginsPlugin(options: Bitrix24UIOptions) {
   const plugins = globSync(['**/*', '!*.d.ts'], { cwd: join(runtimeDir, 'plugins'), absolute: true })
 
-  plugins.unshift(resolvePathSync(join(runtimeDir, 'vue/plugins/router'), { extensions: ['.ts', '.mjs', '.js'] }))
-  plugins.unshift(resolvePathSync(join(runtimeDir, 'vue/plugins/head'), { extensions: ['.ts', '.mjs', '.js'] }))
+  plugins.unshift(resolvePathSync('./vue/plugins/router', { extensions: ['.ts', '.mjs', '.js'], url: runtimeUrl }))
+  plugins.unshift(resolvePathSync('./vue/plugins/head', { extensions: ['.ts', '.mjs', '.js'], url: runtimeUrl }))
 
   if (options.colorMode) {
-    plugins.push(resolvePathSync(join(runtimeDir, 'vue/plugins/color-mode'), { extensions: ['.ts', '.mjs', '.js'] }))
+    plugins.push(resolvePathSync('./vue/plugins/color-mode', { extensions: ['.ts', '.mjs', '.js'], url: runtimeUrl }))
   }
 
   const proseComponents = (options.prose || options.mdc)

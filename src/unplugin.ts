@@ -1,4 +1,4 @@
-import { fileURLToPath } from 'node:url'
+import { fileURLToPath, pathToFileURL } from 'node:url'
 
 import { join, normalize } from 'pathe'
 import type { UnpluginOptions } from 'unplugin'
@@ -87,6 +87,8 @@ export interface Bitrix24UIOptions extends Omit<ModuleOptions, 'colorMode' | 'co
 }
 
 export const runtimeDir = normalize(fileURLToPath(new URL('./runtime', import.meta.url)))
+// `resolvePathSync` needs a relative id and a file url: an absolute Windows path like `D:/...` is parsed as a `d:` url scheme
+export const runtimeUrl = pathToFileURL(`${runtimeDir}/`).href
 
 export const Bitrix24UIPlugin = createUnplugin<Bitrix24UIOptions | undefined>((_options = {}, meta) => {
   const options = defu(_options, { }, defaultOptions)
