@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "d00e9deeb3de19235f2359c36360068e3557393e",
+  "cursor": "b6cb89725b3f3e9bb26583cb3177a921bb4a5e5b",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -1969,10 +1969,16 @@
       "summary": "refactor(unplugin): resolve vue runtime paths from runtimeDir (#6960) — four resolvePathSync sites in plugins.ts + bitrix24-environment.ts anchored on runtimeDir instead of import.meta.url (no `icons` plugin here); +AGENTS.md rule, with src/templates.ts:96-97 recorded as a live exception upstream also left. Step 1 of 2; b6cb8972 fixes the Windows `d:` scheme this form introduces"
     },
     "d00e9deeb3de19235f2359c36360068e3557393e": {
+      "pr": 605,
+      "b24ui_sha": "be088f44",
+      "decision": "port",
+      "summary": "chore(deps): shorten peer dependency ranges (#6961) — 11 of our 13 peers normalised (^3.0.0 -> ^3 etc.), all verified semantically identical with semver.subset both ways. The fork-only `vue: ^3.5.0` peer and `yup: ^1.7.0` keep their real floors, which is the same rule upstream applied"
+    },
+    "b6cb89725b3f3e9bb26583cb3177a921bb4a5e5b": {
       "pr": "pending-merge",
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "chore(deps): shorten peer dependency ranges (#6961) — 11 of our 13 peers normalised (^3.0.0 -> ^3 etc.), all verified semantically identical with semver.subset both ways. The fork-only `vue: ^3.5.0` peer and `yup: ^1.7.0` keep their real floors, which is the same rule upstream applied"
+      "summary": "refactor(unplugin): resolve vue runtime paths from a file url — second half of b0e1d715; an absolute Windows path like `D:/...` parses as a `d:` url scheme, so the four sites take a relative id against a new `runtimeUrl` (pathToFileURL of runtimeDir WITH a trailing slash, which is load-bearing). Drops the now-unused `join` import from bitrix24-environment.ts, as upstream does"
     }
   }
 }
