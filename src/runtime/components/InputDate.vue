@@ -177,14 +177,22 @@ function onUpdate(value: any) {
   emitFormInput()
 }
 
-function onBlur(event: FocusEvent) {
-  emitFormBlur()
+function onFocusOut(event: FocusEvent) {
+  if (event.relatedTarget && (event.currentTarget as HTMLElement).contains(event.relatedTarget as Node)) {
+    return
+  }
+
   emits('blur', event)
+  emitFormBlur()
 }
 
-function onFocus(event: FocusEvent) {
-  emitFormFocus()
+function onFocusIn(event: FocusEvent) {
+  if (event.relatedTarget && (event.currentTarget as HTMLElement).contains(event.relatedTarget as Node)) {
+    return
+  }
+
   emits('focus', event)
+  emitFormFocus()
 }
 
 function autoFocus() {
@@ -233,8 +241,8 @@ defineExpose({
     data-slot="base"
     :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
     @update:model-value="onUpdate"
-    @blur="onBlur"
-    @focus="onFocus"
+    @focusout="onFocusOut"
+    @focusin="onFocusIn"
   >
     <B24Badge
       v-if="isTag"

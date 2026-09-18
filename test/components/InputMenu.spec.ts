@@ -256,6 +256,88 @@ describe('InputMenu', () => {
     })
   })
 
+  describe('multiple', () => {
+    // reka-ui's `TagsInputInput` adds the search term as a tag on `Enter`, which renders a chip
+    // that is not part of the model since `TagsInputRoot` is controlled by the combobox.
+    test('does not add a tag on enter when the search term matches no item', async () => {
+      const wrapper = mount(InputMenu, {
+        attachTo: document.body,
+        props: {
+          modelValue: ['Option 1'],
+          items: ['Option 1', 'Option 2'],
+          multiple: true,
+          portal: false
+        }
+      })
+
+      await flushPromises()
+
+      const input = wrapper.find('input')
+      await input.setValue('Option 3')
+      await flushPromises()
+
+      await input.trigger('keydown', { key: 'Enter' })
+      await flushPromises()
+
+      expect(wrapper.findAll('[data-slot="tagsItem"]')).toHaveLength(1)
+      expect(wrapper.emitted('update:modelValue')).toBeFalsy()
+
+      wrapper.unmount()
+    })
+
+    // The `!searchTerm` half of the guard: with nothing typed there is no tag to add, and
+    // preventing the key would also swallow the implicit form submission an empty field allows.
+    test('does not prevent enter when nothing has been typed', async () => {
+      const wrapper = mount(InputMenu, {
+        attachTo: document.body,
+        props: {
+          modelValue: ['Option 1'],
+          items: ['Option 1', 'Option 2'],
+          multiple: true,
+          portal: false
+        }
+      })
+
+      await flushPromises()
+
+      const input = wrapper.find('input')
+      let prevented: boolean | null = null
+      input.element.addEventListener('keydown', event => (prevented = event.defaultPrevented))
+
+      await input.trigger('keydown', { key: 'Enter' })
+      await flushPromises()
+
+      expect(prevented).toBe(false)
+
+      wrapper.unmount()
+    })
+
+    test('still selects the highlighted item on enter', async () => {
+      const wrapper = mount(InputMenu, {
+        attachTo: document.body,
+        props: {
+          modelValue: ['Option 1'],
+          items: ['Option 1', 'Option 2'],
+          multiple: true,
+          portal: false
+        }
+      })
+
+      await flushPromises()
+
+      const input = wrapper.find('input')
+      await input.setValue('Option 2')
+      await flushPromises()
+
+      await input.trigger('keydown', { key: 'Enter' })
+      await flushPromises()
+
+      expect(wrapper.emitted('update:modelValue')).toMatchObject([[['Option 1', 'Option 2']]])
+
+      wrapper.unmount()
+    })
+  })
+
   describe('it should display correct label', () => {
     test.each([null, undefined, ''])('falsy model value %s should display placeholder', (modelValue) => {
       const wrapper = mount(InputMenu, {

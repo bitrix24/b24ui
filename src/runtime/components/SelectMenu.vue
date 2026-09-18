@@ -728,7 +728,7 @@ defineExpose({
           data-slot="base"
           :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
           tabindex="0"
-          v-bind="{ ...$attrs, ...ariaAttrs }"
+          v-bind="{ 'aria-label': undefined, ...$attrs, ...ariaAttrs }"
           @keydown.down="onTriggerKeydown"
           @keydown.up="onTriggerKeydown"
         >
