@@ -11,24 +11,24 @@
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
-    "@ai-sdk/deepseek": "^3.0.28",
-    "@ai-sdk/vue": "^4.0.99",
-    "@comark/vue": "^0.7.0",
-    "@internationalized/date": "^3.12.4",
-    "@nuxt/content": "^3.16.0",
-    "@bitrix24/b24ui-nuxt": "workspace:*",
-    "@bitrix24/b24icons-nuxt": "^2.0.7",
-    "@bitrix24/b24icons-vue": "^2.0.7",
-    "@tiptap/extension-emoji": "^3.31.3",
-    "@tiptap/extension-text-align": "^3.31.3",
-    "ai": "^7.0.99",
-    "nuxt": "^4.5.2",
-    "tailwindcss": "^4.3.2",
-    "zod": "^4.6.4",
-    "maska": "^3.2.1"
+    "@ai-sdk/deepseek": "catalog:",
+    "@ai-sdk/vue": "catalog:",
+    "@comark/vue": "catalog:",
+    "@internationalized/date": "catalog:",
+    "@nuxt/content": "catalog:",
+    "@bitrix24/b24ui-nuxt": "catalog:",
+    "@bitrix24/b24icons-nuxt": "catalog:",
+    "@bitrix24/b24icons-vue": "catalog:",
+    "@tiptap/extension-emoji": "catalog:",
+    "@tiptap/extension-text-align": "catalog:",
+    "ai": "catalog:",
+    "nuxt": "catalog:",
+    "tailwindcss": "catalog:",
+    "zod": "catalog:",
+    "maska": "catalog:"
   },
   "devDependencies": {
-    "typescript": "^6.0.3",
-    "vue-tsc": "^3.3.11"
+    "typescript": "catalog:",
+    "vue-tsc": "catalog:"
   }
 }
