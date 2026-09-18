@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { describe, it, expect } from 'vitest'
 import parity from '../../.sync/dep-parity.json'
+import { parse as parseYaml } from 'yaml'
 
 /**
  * The sync ports the *delta* of each upstream commit, which is right per commit
@@ -33,6 +34,27 @@ import parity from '../../.sync/dep-parity.json'
 
 const read = (path: string) => JSON.parse(readFileSync(resolve(process.cwd(), path), 'utf-8'))
 
+/**
+ * Since `nuxt/ui@d9dd8476` shared versions live in a pnpm catalog, so a manifest
+ * reads `"vue": "catalog:"`. Comparing that placeholder against the snapshot's
+ * resolved range would report every catalogued package as drift; comparing it
+ * against a snapshot that also held `catalog:` would be worse — green, and
+ * checking nothing. Both sides are resolved instead.
+ */
+const workspace = parseYaml(readFileSync(resolve(process.cwd(), 'pnpm-workspace.yaml'), 'utf-8')) ?? {}
+const catalogs = { default: workspace.catalog ?? {}, named: workspace.catalogs ?? {} }
+
+const resolveSpec = (spec: unknown, name: string): unknown => {
+  if (typeof spec !== 'string' || !spec.startsWith('catalog:')) return spec
+  const which = spec.slice('catalog:'.length)
+  const table = which === '' ? catalogs.default : catalogs.named[which]
+  return table?.[name]
+}
+
+/** Our declared range for a package, with `catalog:` resolved. */
+const declared = (manifest: any, section: string, name: string) =>
+  resolveSpec(manifest[section]?.[name], name)
+
 type Snapshot = Record<string, Record<string, Record<string, string>>>
 
 const manifests = Object.entries(parity.manifests as Snapshot)
@@ -54,6 +76,22 @@ describe('dependency parity with upstream', () => {
     expect(manifests.reduce((n, [, perSection]) => n + entriesOf(perSection).length, 0)).toBeGreaterThan(120)
   })
 
+  it('records resolved versions, never a catalog placeholder', () => {
+    // The entry count above does not notice this one. When upstream moved to a
+    // pnpm catalog in `d9dd8476`, a snapshot taken without resolving `catalog:`
+    // recorded that literal for 140 of 152 entries — the right *number* of
+    // entries, every one of them comparing a placeholder against a placeholder.
+    // That is the failure mode this whole file exists to prevent, arriving
+    // through the file itself.
+    const placeholders = manifests
+      .flatMap(([path, perSection]) => entriesOf(perSection).map(entry => ({ path, ...entry })))
+      .filter(({ version }) => typeof version !== 'string' || version.startsWith('catalog:'))
+      .map(({ path, section, name, version }) => `${path} ${section}.${name} = ${String(version)}`)
+      .sort()
+
+    expect(placeholders).toEqual([])
+  })
+
   it('snapshots the cursor the ledger is actually at', () => {
     // A snapshot taken at an older cursor silently checks against stale
     // versions, which looks identical to being in sync.
@@ -66,10 +104,10 @@ describe('dependency parity with upstream', () => {
 
     const drifted = entriesOf(perSection)
       .filter(({ name }) => !(name in allowed))
-      .filter(({ section, name, version }) => manifest[section]?.[name] !== version)
+      .filter(({ section, name, version }) => declared(manifest, section, name) !== version)
       // Named rather than counted, and carrying both versions: the failure has
       // to be actionable without re-running the comparison by hand.
-      .map(({ section, name, version }) => `${section}.${name}: ours ${manifest[section]?.[name] ?? '(absent)'}, upstream ${version}`)
+      .map(({ section, name, version }) => `${section}.${name}: ours ${declared(manifest, section, name) ?? '(absent)'}, upstream ${version}`)
       .sort()
 
     expect(drifted).toEqual([])
@@ -99,7 +137,7 @@ describe('dependency parity with upstream', () => {
       for (const [name, reason] of Object.entries(entries)) {
         expect(reason.length).toBeGreaterThan(40)
         const upstream = recorded.find(entry => entry.name === name)
-        if (upstream && manifest[upstream.section]?.[name] === upstream.version) stale.push(`${path}: ${name}`)
+        if (upstream && declared(manifest, upstream.section, name) === upstream.version) stale.push(`${path}: ${name}`)
       }
     }
 

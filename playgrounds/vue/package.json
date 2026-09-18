@@ -10,21 +10,21 @@
     "typecheck": "vue-tsc -p ./tsconfig.app.json"
   },
   "dependencies": {
-    "@bitrix24/b24ui-nuxt": "workspace:*",
-    "@bitrix24/b24icons-vue": "^2.0.7",
-    "@tiptap/extension-emoji": "^3.31.3",
-    "@tiptap/extension-text-align": "^3.31.3",
-    "@internationalized/date": "^3.9.0",
-    "tailwindcss": "^4.3.3",
-    "vue": "^3.5.42",
-    "vue-router": "^5.3.1",
-    "zod": "^4.6.4",
-    "maska": "^3.2.0"
+    "@bitrix24/b24ui-nuxt": "catalog:",
+    "@bitrix24/b24icons-vue": "catalog:",
+    "@tiptap/extension-emoji": "catalog:",
+    "@tiptap/extension-text-align": "catalog:",
+    "@internationalized/date": "catalog:vue-legacy",
+    "tailwindcss": "catalog:",
+    "vue": "catalog:",
+    "vue-router": "catalog:",
+    "zod": "catalog:",
+    "maska": "catalog:"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^6.0.8",
-    "typescript": "^6.0.3",
-    "vite": "^8.3.0",
-    "vue-tsc": "^3.3.11"
+    "@vitejs/plugin-vue": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vue-tsc": "catalog:"
   }
 }

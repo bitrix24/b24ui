@@ -153,6 +153,13 @@ jobs:
       # `--provenance` is redundant today and deliberate anyway: it moves the
       # attestation from being a property of a setting on npmjs.com to being a
       # property of this file. releasing.md has the reasoning.
+      #
+      # `pnpm publish`, not `npm publish`, and this is now load-bearing rather
+      # than a preference: since the move to a pnpm catalog the on-disk manifest
+      # declares 90 dependencies as `"catalog:"`, and only pnpm rewrites those
+      # into real ranges while packing. npm would upload the placeholder and
+      # every consumer install would fail on metadata this repo's own gate
+      # cannot see.
       - name: 'Publish 🚀'
         if: steps.version-check.outputs.skip == 'false'
         shell: bash

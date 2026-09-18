@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { describe, it, expect, beforeAll } from 'vitest'
 import { glob } from 'tinyglobby'
+import { parse as parseYaml } from 'yaml'
 
 /**
  * `vue` is a peer dependency here and is **not** one upstream (#99).
@@ -95,6 +96,25 @@ describe('peer dependencies', () => {
 
   beforeAll(async () => {
     manifest = JSON.parse(await readFile(join(repoRoot, 'package.json'), 'utf8'))
+
+    // Since `nuxt/ui@d9dd8476` the ranges live in the pnpm catalog and the
+    // manifest reads `"reka-ui": "catalog:"`, which carries no version — so
+    // every assertion below would see a placeholder instead of the pin it is
+    // guarding. `peerDependencies` are deliberately left alone: they stay
+    // literal on both sides, being the contract with consumers rather than what
+    // this repo installs.
+    const workspace = parseYaml(await readFile(join(repoRoot, 'pnpm-workspace.yaml'), 'utf8')) ?? {}
+    const catalogs = { default: workspace.catalog ?? {}, named: workspace.catalogs ?? {} }
+    const resolveCatalog = (section: Record<string, string>) =>
+      Object.fromEntries(Object.entries(section ?? {}).map(([name, spec]) => {
+        if (!spec.startsWith('catalog:')) return [name, spec]
+        const which = spec.slice('catalog:'.length)
+        const table = which === '' ? catalogs.default : catalogs.named[which]
+        return [name, table?.[name] ?? spec]
+      }))
+
+    manifest.dependencies = resolveCatalog(manifest.dependencies)
+    manifest.devDependencies = resolveCatalog(manifest.devDependencies)
     dependencies = manifest.dependencies
 
     const files = await glob(['**/*.vue', '**/*.ts'], { cwd: join(repoRoot, 'src') })

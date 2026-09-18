@@ -7,7 +7,7 @@
     "build": "nuxt build"
   },
   "dependencies": {
-    "@bitrix24/b24ui-nuxt": "workspace:*",
-    "nuxt": "^4.5.2"
+    "@bitrix24/b24ui-nuxt": "catalog:",
+    "nuxt": "catalog:"
   }
 }
