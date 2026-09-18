@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "60db60e05f2c605b9b96883218629754babc73e6",
+  "cursor": "b3d4342d9b588b85c69410dd14f0f7bba4a83adb",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -1987,16 +1987,34 @@
       "summary": "chore(github): drop `@nuxt/ui` placeholder from consumer fixtures — n/a: module.yml and test/fixtures/ do not exist here (recorded with b2cb53f8 / #598). Worth noting the reason: the placeholder made the job resolve the released package, so the build under test was never the one whose optional peers were checked"
     },
     "a3c3ff34b187b6447f9c5082fdd2bd3671f442a2": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 608,
+      "b24ui_sha": "0fe8ece3",
       "decision": "port",
       "summary": "docs: flatten migration guide to a single page — 3.migration/1.v2.md -> 3.migration.md, directory + .navigation.yml (shadow only) removed, prose link updated, redirect REVERSED (/migration/ is the page now) + a 301 for the raw twin. Five places against upstream’s four: our routes carry trailing slashes and we have a fork-only `pages` prerender list that generates /raw/**.md, which upstream has no counterpart for"
     },
     "60db60e05f2c605b9b96883218629754babc73e6": {
+      "pr": 608,
+      "b24ui_sha": "0fe8ece3",
+      "decision": "port",
+      "summary": "docs(mcp): resolve flattened page in `get-migration-guide` (#6963) — drops the `version` input and queries the flattened path exactly. Kept the fork-only baseUrl/withTrailingSlash construction of the returned path and url; the query matches without a trailing slash (nuxt/content’s stored path) while the response adds one (what the site serves)"
+    },
+    "aab2d10dad9dc811f4fb4abb88cd00514e6b1a30": {
       "pr": "pending-merge",
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "docs(mcp): resolve flattened page in `get-migration-guide` (#6963) — drops the `version` input and queries the flattened path exactly. Kept the fork-only baseUrl/withTrailingSlash construction of the returned path and url; the query matches without a trailing slash (nuxt/content’s stored path) while the response adds one (what the site serves)"
+      "summary": "fix(SelectMenu): remove the inherited \"Show popup\" aria-label — reka’s ComboboxTrigger hard-codes it and it beat the B24FormField label; the defect appeared 53x in each snapshot file. `aria-label: undefined` placed BEFORE the spreads so a caller label still wins. 106 snapshots updated and every pair verified to differ only by the removed attribute (0 differing by anything else)"
+    },
+    "8e4546e3b775ce91a8a2f9198cc70f9f94158bc1": {
+      "pr": "pending-merge",
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "fix(InputDate/InputTime): emit focus and blur when focus enters or leaves the field (#6855) — @blur/@focus fired per segment, so a form validating on blur ran mid-entry; now @focusout/@focusin with a containment guard, in both components, +B24InputDate/B24InputTime registered in test/utils/form.ts. Both halves mutation-pinned by different tests"
+    },
+    "b3d4342d9b588b85c69410dd14f0f7bba4a83adb": {
+      "pr": "pending-merge",
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "fix(InputMenu): prevent tags input from adding the search term on enter (#6776) — TagsInputInput added a chip that never reached modelValue. Ported upstream’s two tests and added one they lack: removing the `isComposing || !searchTerm` guard left all 166 tests green, so the !searchTerm half is now pinned; event.isComposing remains uncovered and the failed attempt is recorded rather than faked"
     }
   }
 }
