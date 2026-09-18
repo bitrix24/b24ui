@@ -1999,20 +1999,20 @@
       "summary": "docs(mcp): resolve flattened page in `get-migration-guide` (#6963) — drops the `version` input and queries the flattened path exactly. Kept the fork-only baseUrl/withTrailingSlash construction of the returned path and url; the query matches without a trailing slash (nuxt/content’s stored path) while the response adds one (what the site serves)"
     },
     "aab2d10dad9dc811f4fb4abb88cd00514e6b1a30": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 609,
+      "b24ui_sha": "7cae308e",
       "decision": "port",
       "summary": "fix(SelectMenu): remove the inherited \"Show popup\" aria-label — reka’s ComboboxTrigger hard-codes it and it beat the B24FormField label; the defect appeared 53x in each snapshot file. `aria-label: undefined` placed BEFORE the spreads so a caller label still wins. 106 snapshots updated and every pair verified to differ only by the removed attribute (0 differing by anything else)"
     },
     "8e4546e3b775ce91a8a2f9198cc70f9f94158bc1": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 609,
+      "b24ui_sha": "7cae308e",
       "decision": "port",
       "summary": "fix(InputDate/InputTime): emit focus and blur when focus enters or leaves the field (#6855) — @blur/@focus fired per segment, so a form validating on blur ran mid-entry; now @focusout/@focusin with a containment guard, in both components, +B24InputDate/B24InputTime registered in test/utils/form.ts. Both halves mutation-pinned by different tests"
     },
     "b3d4342d9b588b85c69410dd14f0f7bba4a83adb": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 609,
+      "b24ui_sha": "7cae308e",
       "decision": "port",
       "summary": "fix(InputMenu): prevent tags input from adding the search term on enter (#6776) — TagsInputInput added a chip that never reached modelValue. Ported upstream’s two tests and added one they lack: removing the `isComposing || !searchTerm` guard left all 166 tests green, so the !searchTerm half is now pinned; event.isComposing remains uncovered and the failed attempt is recorded rather than faked"
     }
