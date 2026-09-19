@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "b3d4342d9b588b85c69410dd14f0f7bba4a83adb",
+  "cursor": "27a3ef7ea5f688b42815595e6c49469f900e3a20",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2015,6 +2015,18 @@
       "b24ui_sha": "7cae308e",
       "decision": "port",
       "summary": "fix(InputMenu): prevent tags input from adding the search term on enter (#6776) — TagsInputInput added a chip that never reached modelValue. Ported upstream’s two tests and added one they lack: removing the `isComposing || !searchTerm` guard left all 166 tests green, so the !searchTerm half is now pinned; event.isComposing remains uncovered and the failed attempt is recorded rather than faked"
+    },
+    "619c7328106736bf799d70c4fc628f1378f5185d": {
+      "pr": "pending-merge",
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "fix(InputMenu): round corners inside a FieldGroup in multiple mode (#6968) — in `multiple` mode `root` and `base` are the same DOM node, so the `group-*` rounding inherited from `input` had no ancestor to match and never applied. Ported upstream’s structure 1:1 (functional `fieldGroup` variant so `defuFn` replaces instead of merging, plus four `multiple` × `fieldGroup` compoundVariants), but the class strings differ: the fork’s horizontal variant is scoped to the named `group-[.is-field-group]/items` that `B24FieldGroup` marks, so the test asserts what the fork actually renders. Added two assertions upstream lacks — a negative one, without which removing the functional form stays green, and a single-mode counterpart, without which dropping the `multiple: false` entries is a silent regression."
+    },
+    "27a3ef7ea5f688b42815595e6c49469f900e3a20": {
+      "pr": "pending-merge",
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "fix(InputMenu): ignore `multiple` in autocomplete mode (#6971) — autocomplete already drops `multiple` from the combobox props, but the markup still branched on `props.multiple`, so the two disagreed. One derived `isMultiple` flag now drives both. Fork-only follow-on: the `tag` badge is rendered twice, outside and inside `TagsInputRoot`, and the two guards partitioned `props.multiple`; once `TagsInputRoot` follows `isMultiple`, `multiple` + autocomplete rendered the tag in neither place — verified as an empty match before fixing. One uncaught mutation recorded as equivalent, not untested."
     }
   }
 }

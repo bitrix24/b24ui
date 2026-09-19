@@ -5,6 +5,7 @@
  */
 import { defuFn } from 'defu'
 import input from './input'
+import { fieldGroupVariant, fieldGroupVariantWithRoot } from './field-group'
 
 export default () => {
   return defuFn({
@@ -151,6 +152,19 @@ export default () => {
       tagsInput: ''
     },
     variants: {
+      // `root` and `base` are the same element in `multiple` mode — `Root` renders
+      // with `as-child` and `Anchor` renders the element — so the unnamed
+      // `group-*` rounding inherited from `input` has no separate parent to match
+      // against and never applies. Keep only the `group` marker here and pick the
+      // right rounding in `compoundVariants` depending on `multiple`.
+      //
+      // Written as functions on purpose: `defuFn` replaces a value produced by a
+      // function instead of merging it, which is what stops `input`'s own
+      // `fieldGroup` entry from being merged back in underneath.
+      fieldGroup: {
+        horizontal: () => ({ root: fieldGroupVariantWithRoot.fieldGroup.horizontal.root }),
+        vertical: () => ({ root: fieldGroupVariantWithRoot.fieldGroup.vertical.root })
+      },
       virtualize: {
         true: {
           viewport: 'p-1 isolate'
@@ -318,6 +332,28 @@ export default () => {
       }
     },
     compoundVariants: [
+      // region fieldGroup x multiple ////
+      {
+        multiple: false,
+        fieldGroup: 'horizontal',
+        class: { base: fieldGroupVariantWithRoot.fieldGroup.horizontal.base }
+      },
+      {
+        multiple: false,
+        fieldGroup: 'vertical',
+        class: { base: fieldGroupVariantWithRoot.fieldGroup.vertical.base }
+      },
+      {
+        multiple: true,
+        fieldGroup: 'horizontal',
+        class: { base: fieldGroupVariant.fieldGroup.horizontal }
+      },
+      {
+        multiple: true,
+        fieldGroup: 'vertical',
+        class: { base: fieldGroupVariant.fieldGroup.vertical }
+      },
+      // endregion ////
       // from dropdown-menu
       {
         colorItem: ['air-primary', 'air-primary-success', 'air-primary-alert', 'air-primary-copilot', 'air-primary-warning'],
