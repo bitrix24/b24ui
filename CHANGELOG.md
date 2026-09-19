@@ -1,5 +1,62 @@
 # Changelog
 
+## [2.14.0](https://github.com/bitrix24/b24ui/compare/v2.13.0...v2.14.0) (2026-09-19)
+
+
+### Features
+
+* **Card:** add `size` prop for compact and roomy padding ([#475](https://github.com/bitrix24/b24ui/issues/475)) ([b821eef](https://github.com/bitrix24/b24ui/commit/b821eef3fee81fc1b6be66ef9aee22d87302bec1))
+* **DateTimePicker:** a date-and-time picker with presets ([#578](https://github.com/bitrix24/b24ui/issues/578)) ([66c24cf](https://github.com/bitrix24/b24ui/commit/66c24cfc6e3d00b7943c57b6f091d1cbe5ce70db))
+* **User:** add `color` prop forwarded to inner Avatar ([#27](https://github.com/bitrix24/b24ui/issues/27)) ([4e5b808](https://github.com/bitrix24/b24ui/commit/4e5b808e81985148e51c3914071ac9ceb72be0b0))
+
+
+### Bug Fixes
+
+* **Accordion/ChatReasoning/ChatTool/FooterColumns/Table:** paint the focus outline the theme declares ([#614](https://github.com/bitrix24/b24ui/issues/614)) ([a33e52c](https://github.com/bitrix24/b24ui/commit/a33e52c65f6dceec32be70c719e6ee4eb288675c))
+* **DashboardNavbar:** render title only when defined (nuxt/ui@7c4c6e3) ([#599](https://github.com/bitrix24/b24ui/issues/599)) ([e936c56](https://github.com/bitrix24/b24ui/commit/e936c5614e1674cf1f5c74f88cb58dd845cd86c1))
+* **InputMenu:** round corners in a FieldGroup, ignore multiple in autocomplete (nuxt/ui@619c732, nuxt/ui@27a3ef7) ([#611](https://github.com/bitrix24/b24ui/issues/611)) ([619b1de](https://github.com/bitrix24/b24ui/commit/619b1deaa9dd2b1e0e532f47f218fa8df29bbc85))
+* **SelectMenu/InputDate/InputTime/InputMenu:** three upstream component fixes (nuxt/ui@aab2d10, nuxt/ui@8e4546e, nuxt/ui@b3d4342) ([#609](https://github.com/bitrix24/b24ui/issues/609)) ([7cae308](https://github.com/bitrix24/b24ui/commit/7cae308e803487a2e6728cee6dc9167cbd4a08b5))
+
+
+### Docs
+
+* **contributing:** show the release-post AI prompt in the open ([#572](https://github.com/bitrix24/b24ui/issues/572)) ([94ba442](https://github.com/bitrix24/b24ui/commit/94ba4423d2c57a6b0c8887adb37c6382166610d0))
+* **DescriptionList:** show how to link a description through the slot ([#576](https://github.com/bitrix24/b24ui/issues/576)) ([75d9bb7](https://github.com/bitrix24/b24ui/commit/75d9bb7c71d55c60ec0dce97fc9d2327e858b9a6))
+* flatten the migration guide and its MCP tool (nuxt/ui@a3c3ff3, nuxt/ui@60db60e) ([#608](https://github.com/bitrix24/b24ui/issues/608)) ([0fe8ece](https://github.com/bitrix24/b24ui/commit/0fe8ece3a4cb6ca5f53064a6236bd841760cc10b))
+* **skills:** pass `silent` where the example expects a boolean (nuxt/ui@beb7d46) ([#580](https://github.com/bitrix24/b24ui/issues/580)) ([3d4f278](https://github.com/bitrix24/b24ui/commit/3d4f278c38c806c56f7089497fe9a70c8b6ad303))
+
+
+### Chore
+
+* **cli:** stop shipping the cli in the package (nuxt/ui@db45a3e) ([#600](https://github.com/bitrix24/b24ui/issues/600)) ([0293b2b](https://github.com/bitrix24/b24ui/commit/0293b2b5b5c87cefce7d5284e6115c3f2f0a798c))
+* **deps:** drop the spent `@nuxtjs/mdc` override ([#603](https://github.com/bitrix24/b24ui/issues/603)) ([3a0aa32](https://github.com/bitrix24/b24ui/commit/3a0aa3222effa78e494e1b2f4493e13e83d974cb))
+* **deps:** move to pnpm catalog (nuxt/ui@d9dd847) ([#602](https://github.com/bitrix24/b24ui/issues/602)) ([92244b7](https://github.com/bitrix24/b24ui/commit/92244b7fde91f7d817f79ff25124058732158de8))
+* **deps:** shorten peer dependency ranges (nuxt/ui@d00e9de) ([#605](https://github.com/bitrix24/b24ui/issues/605)) ([be088f4](https://github.com/bitrix24/b24ui/commit/be088f44b735ad92f5eadbeb89f074e8d63f9f4a))
+* **deps:** update non-major dependencies (nuxt/ui@69b075a) ([#579](https://github.com/bitrix24/b24ui/issues/579)) ([ef7d0cb](https://github.com/bitrix24/b24ui/commit/ef7d0cbdff7f88b84bb9a5366718c7809fcace4e))
+* **deps:** update pnpm to v12 (nuxt/ui@61b6d53) ([#597](https://github.com/bitrix24/b24ui/issues/597)) ([3ef9979](https://github.com/bitrix24/b24ui/commit/3ef9979b8ee82f8d21bba6e4e9b08fab4c576a6c))
+* lint tailwind classes in docs and playgrounds (nuxt/ui@9caf575) ([#588](https://github.com/bitrix24/b24ui/issues/588)) ([3c9b41e](https://github.com/bitrix24/b24ui/commit/3c9b41e58d8525057eeb35c5435e0fa32065b82b))
+* **sync:** reconcile the [#580](https://github.com/bitrix24/b24ui/issues/580) ledger entry ([#581](https://github.com/bitrix24/b24ui/issues/581)) ([88d26f2](https://github.com/bitrix24/b24ui/commit/88d26f201dfcb6247336f9f01a6f09400d9b3017))
+* **sync:** reconcile the [#584](https://github.com/bitrix24/b24ui/issues/584) ledger entry ([#585](https://github.com/bitrix24/b24ui/issues/585)) ([80f0a2c](https://github.com/bitrix24/b24ui/commit/80f0a2c8a9d52715bcb07be247a3760ec35314aa))
+* **sync:** reconcile the [#586](https://github.com/bitrix24/b24ui/issues/586) ledger entry ([#587](https://github.com/bitrix24/b24ui/issues/587)) ([4f3d9d1](https://github.com/bitrix24/b24ui/commit/4f3d9d17577eb5c5891331f4a77be4c1cac58778))
+* **sync:** reconcile the a96823da entry with [#612](https://github.com/bitrix24/b24ui/issues/612) ([#613](https://github.com/bitrix24/b24ui/issues/613)) ([dae6e2d](https://github.com/bitrix24/b24ui/commit/dae6e2d1c1a2e096232698f2316931a94487a25d))
+* **sync:** reconcile the nuxt/ui@35c74bb entry with [#594](https://github.com/bitrix24/b24ui/issues/594) ([#595](https://github.com/bitrix24/b24ui/issues/595)) ([2d1d597](https://github.com/bitrix24/b24ui/commit/2d1d5976ca4a72ccd84b5c7c03c04aba0467629d))
+* **sync:** reconcile the nuxt/ui@a3e64fb entry with [#590](https://github.com/bitrix24/b24ui/issues/590) ([#591](https://github.com/bitrix24/b24ui/issues/591)) ([a5e4ee6](https://github.com/bitrix24/b24ui/commit/a5e4ee60bc8aaa069d8a3560ea118c5b1b55bc8c))
+* **sync:** reconcile the nuxt/ui@ae72719 entry with [#592](https://github.com/bitrix24/b24ui/issues/592) ([#593](https://github.com/bitrix24/b24ui/issues/593)) ([1f4fc57](https://github.com/bitrix24/b24ui/commit/1f4fc57cb7f2e68a3a8595fcc060120eb5f32c2c))
+* **sync:** reconcile the three component-fix entries with [#609](https://github.com/bitrix24/b24ui/issues/609) ([#610](https://github.com/bitrix24/b24ui/issues/610)) ([851fd58](https://github.com/bitrix24/b24ui/commit/851fd58d7a4db02b29c1ca4d5df71412b61441a7))
+* **sync:** record nuxt/ui@26a19da as not applicable ([#601](https://github.com/bitrix24/b24ui/issues/601)) ([d868f80](https://github.com/bitrix24/b24ui/commit/d868f80b2cfd4123c69b06596f35a8452e1465a2))
+* **sync:** record nuxt/ui@2aa1702 as not applicable ([#596](https://github.com/bitrix24/b24ui/issues/596)) ([17b46d1](https://github.com/bitrix24/b24ui/commit/17b46d178bd5d5447709bca7e813978a683d4246))
+* **sync:** record nuxt/ui@35c74bb as not applicable ([#594](https://github.com/bitrix24/b24ui/issues/594)) ([f220b72](https://github.com/bitrix24/b24ui/commit/f220b72e98fa9033cae4bdbb582d51871360a327))
+* **sync:** record nuxt/ui@a3e64fb as a no-op ([#590](https://github.com/bitrix24/b24ui/issues/590)) ([025055d](https://github.com/bitrix24/b24ui/commit/025055d9cd50db284649118c70b283f9dcfaae4c))
+* **sync:** record nuxt/ui@a96823d as a no-op ([#6973](https://github.com/bitrix24/b24ui/issues/6973)) ([#612](https://github.com/bitrix24/b24ui/issues/612)) ([dbf00c4](https://github.com/bitrix24/b24ui/commit/dbf00c491c7abe4651c7546bdc5e6bcd7d33ec62))
+* **sync:** record nuxt/ui@ae72719 as a no-op ([#592](https://github.com/bitrix24/b24ui/issues/592)) ([97bf40a](https://github.com/bitrix24/b24ui/commit/97bf40ac76393f3d7b0c40006650c00134bf80a7))
+* **sync:** record nuxt/ui@ee37a5b as not applicable ([#607](https://github.com/bitrix24/b24ui/issues/607)) ([ecd9e83](https://github.com/bitrix24/b24ui/commit/ecd9e83a7f6c882ee1e53324a099d5a3a4a08e12))
+* **sync:** record two upstream infrastructure commits as not applicable ([#598](https://github.com/bitrix24/b24ui/issues/598)) ([66a94cb](https://github.com/bitrix24/b24ui/commit/66a94cb65ee4e898fd9b8b5183e13244bf47a31a))
+* **sync:** record upstream's docs navigation rework as not applicable ([#584](https://github.com/bitrix24/b24ui/issues/584)) ([62deeaf](https://github.com/bitrix24/b24ui/commit/62deeaf65c1e77b9438e1a70554a235e62514cae))
+* **sync:** record upstream's parser auto-close change as not applicable ([#586](https://github.com/bitrix24/b24ui/issues/586)) ([d921ac2](https://github.com/bitrix24/b24ui/commit/d921ac2d57a8634e5a060f12d9ac6bdca75f2de8))
+* **unplugin:** resolve vue runtime paths from a file url (nuxt/ui@b6cb897) ([#606](https://github.com/bitrix24/b24ui/issues/606)) ([72c9605](https://github.com/bitrix24/b24ui/commit/72c960545230450d9cf0aba832b729862ec996b1))
+* **unplugin:** resolve vue runtime paths from runtimeDir (nuxt/ui@b0e1d71) ([#604](https://github.com/bitrix24/b24ui/issues/604)) ([453c82a](https://github.com/bitrix24/b24ui/commit/453c82addc32a2809ce009d186dd8a3be569c875))
+* **vscode:** scope Tailwind classRegex to default export objects (nuxt/ui@36d5543) ([#589](https://github.com/bitrix24/b24ui/issues/589)) ([007ce18](https://github.com/bitrix24/b24ui/commit/007ce1857dd39f084be373bac1575f9783249103))
+
 ## [2.13.0](https://github.com/bitrix24/b24ui/compare/v2.12.0...v2.13.0) (2026-09-11)
 
 
