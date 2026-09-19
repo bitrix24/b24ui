@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import CommandPalette from '../../src/runtime/components/CommandPalette.vue'
 
@@ -13,6 +13,36 @@ import CommandPalette from '../../src/runtime/components/CommandPalette.vue'
  *
  * `keydown`/`keyup` appear in two spec files in this repository, and neither is
  * this one — the guard was written and never exercised.
+ *
+ * ## Why one assertion waits
+ *
+ * What the palette renders comes from `filteredGroups`, which reads
+ * `refThrottled(fuseResults, 16, true)`. Leading-edge is on, so the first
+ * change applies at once — but a second change landing inside the same 16 ms
+ * window is deferred to the trailing timer, and `await $nextTick()` flushes
+ * Vue's queue without advancing timers. Drilling into a group and stepping
+ * straight back out is exactly that traffic, so the assertion could read the
+ * previous result: for this palette, the empty state.
+ *
+ * It therefore fails when the machine is *fast* enough to fit both changes into
+ * one window — the opposite of the usual flake, and why adding CPU load made it
+ * more reliable rather than less. It went red once in CI on #611 and green on
+ * re-run with no edit; widening the window to 2000 ms reproduces the identical
+ * `expected 'No data' to contain 'Pictures'` every time.
+ *
+ * A frame of staleness is not a product defect, so the assertion waits rather
+ * than the component changing. `vi.waitFor` rather than a sleep: it retries, so
+ * no timing constant is written down here and the test keeps working if the
+ * window moves.
+ *
+ * Only this one assertion needs it, and that was checked rather than assumed.
+ * The placeholder is plain reactive state, not throttled. The root-level test
+ * compares before against after, which a wait could not help anyway — you
+ * cannot wait for a non-event — and it is safe because `onBackspace` returns
+ * early with an empty history, so nothing is queued at all, and because the
+ * text right after `mountSuspended` is already the settled text (probed: the
+ * immediate and post-window reads are identical, since the leading edge fires
+ * on the first change).
  */
 describe('CommandPalette — Backspace', () => {
   const groups = [{
@@ -42,7 +72,7 @@ describe('CommandPalette — Backspace', () => {
     await wrapper.vm.$nextTick()
 
     expect(input(wrapper).attributes('placeholder')).not.toBe('Search documents…')
-    expect(wrapper.text()).toContain('Pictures')
+    await vi.waitFor(() => expect(wrapper.text()).toContain('Pictures'))
   })
 
   it('leaves the group alone while there is text to delete', async () => {
