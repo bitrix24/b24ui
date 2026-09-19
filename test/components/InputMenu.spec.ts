@@ -4,6 +4,8 @@ import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { renderEach } from '../component-render'
 import { flushPromises, mount } from '@vue/test-utils'
 import InputMenu from '../../src/runtime/components/InputMenu.vue'
+import FieldGroup from '../../src/runtime/components/FieldGroup.vue'
+import Button from '../../src/runtime/components/Button.vue'
 import type { FormInputEvents } from '../../src/module'
 import { renderForm } from '../utils/form'
 import { expectEmitPayloadType } from '../utils/types'
@@ -133,6 +135,54 @@ describe('InputMenu', () => {
 
     expect(wrapper.find('[data-slot="trailing"]').exists()).toBe(false)
     expect(wrapper.find('[data-slot="trailingIcon"]').exists()).toBe(false)
+  })
+
+  // `root` and `base` are the same element in `multiple` mode, so the rounding
+  // has to come from the element's own position, not from a `group` ancestor.
+  // Our `fieldGroup.horizontal` targets the named `.is-field-group` group,
+  // which is what the wrapping `B24FieldGroup` actually marks.
+  it('with multiple rounds its corners inside a FieldGroup', async () => {
+    const wrapper = await mountSuspended({
+      components: { B24FieldGroup: FieldGroup, B24Button: Button, B24InputMenu: InputMenu },
+      template: `<B24FieldGroup><B24Button label="Button" /><B24InputMenu multiple /></B24FieldGroup>`
+    })
+
+    const classes = wrapper.get('div[data-slot="base"]').classes()
+
+    expect(classes).toContain('group-[.is-field-group]/items:not-only:last:rounded-s-none')
+    // And the inherited `group-*` rounding, which can never match here, is gone
+    // rather than merged in alongside it.
+    expect(classes).not.toContain('group-not-only:group-last:rounded-s-none')
+  })
+
+  // The counterpart: without `multiple` the `root` wrapper is a separate
+  // element, so the `group-*` rounding is the one that applies.
+  it('without multiple rounds its corners inside a FieldGroup', async () => {
+    const wrapper = await mountSuspended({
+      components: { B24FieldGroup: FieldGroup, B24Button: Button, B24InputMenu: InputMenu },
+      template: `<B24FieldGroup><B24Button label="Button" /><B24InputMenu /></B24FieldGroup>`
+    })
+
+    expect(wrapper.get('input[data-slot="base"]').classes()).toContain('group-not-only:group-last:rounded-s-none')
+  })
+
+  it('with autocomplete mode ignores multiple', () => {
+    const autocomplete = mount(InputMenu, { props: { items, mode: 'autocomplete' as const } })
+    const withMultiple = mount(InputMenu, { props: { items, mode: 'autocomplete' as const, multiple: true } })
+
+    expect(withMultiple.html()).toBe(autocomplete.html())
+  })
+
+  // Fork-only: the `tag` badge is rendered twice - once outside `TagsInputRoot`
+  // and once inside it - and `TagsInputRoot` itself only renders in `multiple`
+  // mode. Both branches must follow the same condition, otherwise
+  // `multiple` + autocomplete renders the tag in neither place.
+  it('with autocomplete mode still renders the tag when multiple is set', () => {
+    const wrapper = mount(InputMenu, {
+      props: { items, mode: 'autocomplete' as const, multiple: true, tag: 'Tag' }
+    })
+
+    expect(wrapper.findAll('[data-slot="tag"]')).toHaveLength(1)
   })
 
   it('passes accessibility tests', async () => {

@@ -303,6 +303,8 @@ const appConfig = useAppConfig() as InputMenu['AppConfig']
 const { filterGroups } = useFilter()
 
 const isAutocomplete = computed(() => props.mode === 'autocomplete')
+// `multiple` doesn't apply in autocomplete mode.
+const isMultiple = computed(() => !!props.multiple && !isAutocomplete.value)
 const rootPropsPick = reactivePick(props, 'as', 'modelValue', 'defaultValue', 'open', 'defaultOpen', 'required', 'multiple', 'resetSearchTermOnBlur', 'resetSearchTermOnSelect', 'resetModelValueOnClear', 'highlightOnHover', 'openOnClick', 'openOnFocus', 'by')
 const rootPropsOmitted = reactiveOmit(rootPropsPick, 'multiple', 'resetSearchTermOnSelect', 'resetModelValueOnClear', 'by')
 const rootProps = useForwardProps(computed(() => isAutocomplete.value ? rootPropsOmitted : rootPropsPick), emits)
@@ -372,7 +374,7 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.inputMenu 
   underline: Boolean(props.underline),
   leading: Boolean(isLeading.value || !!props.avatar || !!slots.leading),
   trailing: Boolean(isTrailing.value || !!slots.trailing),
-  multiple: props.multiple,
+  multiple: isMultiple.value,
   fieldGroup: orientation.value,
   virtualize: !!props.virtualize
 }))
@@ -717,22 +719,22 @@ defineExpose({
     :disabled="disabled"
     data-slot="root"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
-    :as-child="!!props.multiple && !isAutocomplete"
+    :as-child="isMultiple"
     ignore-filter
     @update:model-value="onUpdate"
     @update:open="onUpdateOpen"
   >
     <B24Badge
-      v-if="!props.multiple && isTag"
+      v-if="!isMultiple && isTag"
       data-slot="tag"
       :class="b24ui.tag({ class: props.b24ui?.tag })"
       :color="props.tagColor"
       :label="props.tag"
       size="xs"
     />
-    <Component.Anchor :as-child="!props.multiple" data-slot="base" :class="b24ui.base({ class: props.b24ui?.base })">
+    <Component.Anchor :as-child="!isMultiple" data-slot="base" :class="b24ui.base({ class: props.b24ui?.base })">
       <TagsInputRoot
-        v-if="props.multiple && !isAutocomplete"
+        v-if="isMultiple"
         v-slot="{ modelValue: tags }"
         :model-value="(modelValue as string[])"
         :disabled="disabled"
@@ -744,7 +746,7 @@ defineExpose({
         @remove-tag="onRemoveTag($event, modelValue as GetModelValue<T, VK, true, ExcludeItem>)"
       >
         <B24Badge
-          v-if="!!props.multiple && isTag"
+          v-if="isMultiple && isTag"
           data-slot="tag"
           :class="b24ui.tag({ class: props.b24ui?.tag })"
           :color="props.tagColor"
