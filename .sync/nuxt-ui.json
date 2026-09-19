@@ -2029,8 +2029,8 @@
       "summary": "fix(InputMenu): ignore `multiple` in autocomplete mode (#6971) — autocomplete already drops `multiple` from the combobox props, but the markup still branched on `props.multiple`, so the two disagreed. One derived `isMultiple` flag now drives both. Fork-only follow-on: the `tag` badge is rendered twice, outside and inside `TagsInputRoot`, and the two guards partitioned `props.multiple`; once `TagsInputRoot` follows `isMultiple`, `multiple` + autocomplete rendered the tag in neither place — verified as an empty match before fixing. One uncaught mutation recorded as equivalent, not untested."
     },
     "a96823da9f350d17ebaba321cae1cfc4de62eccc": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 612,
+      "b24ui_sha": "dbf00c49",
       "decision": "no-op",
       "summary": "fix(Table): inset row focus outline (#6973) — adds `-outline-offset-3` to `tbody` so the 3px row focus outline is drawn inside the row. No-op here: the counterpart file and slot exist, but the outline does not. Measured against emitted CSS rather than read off the source — all 84 classes in `src/theme/table.ts` produce `outline-color` twice and `outline-style`/`outline-width` zero times, because the fork declares only `outline-(--ui-color-design-outline-focused-stroke)` and has no equivalent of upstream’s `outline-3`. An offset alone would act on an outline this theme never paints. Turned up a separate pre-existing defect, filed as its own `fix(Table)` rather than smuggled into a no-op: rows with `onSelect` get `tabindex=\"0\"` and a dedicated focus design token that cannot take effect while `outline-style` is unset, so the keyboard focus indicator falls back to the browser default and the token is dead."
     }
