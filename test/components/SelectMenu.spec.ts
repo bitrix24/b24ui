@@ -257,6 +257,45 @@ describe('SelectMenu', () => {
     })
   })
 
+  describe('clear', () => {
+    // Upstream finds this button by `[data-slot="trailingClear"]`. That marker
+    // never reaches the DOM here: `Button.vue:222` puts a static
+    // `data-slot="base"` on its root and it wins over the fallthrough, so the
+    // attribute is swallowed while the `trailingClear` class still merges. The
+    // button is therefore addressed by its position — the only `base` inside
+    // the trailing slot — because that is what the fork actually renders.
+    const clearButton = (wrapper: { find: (s: string) => { exists: () => boolean } }) =>
+      wrapper.find('[data-slot="trailing"] [data-slot="base"]')
+
+    it('does not render the clear button when disabled', async () => {
+      const wrapper = await mountSuspended(SelectMenu, { props: { items, modelValue: items[0], clear: true, disabled: true } as any })
+
+      expect(clearButton(wrapper).exists()).toBe(false)
+    })
+
+    it('renders the clear button when not disabled', async () => {
+      const wrapper = await mountSuspended(SelectMenu, { props: { items, modelValue: items[0], clear: true } as any })
+
+      expect(clearButton(wrapper).exists()).toBe(true)
+    })
+
+    // Fork-only, and the reason it earns its place: `disabled` here is
+    // `formFieldDisabled ?? props.disabled`, and `formFieldDisabled` reads
+    // `B24Form`'s own `disabled` through `formOptions` — `B24FormField` has no
+    // such prop. So a field disabled by its surrounding form has to hide the
+    // button too. Upstream's two tests only ever set the prop, and both stay
+    // green with the `v-if` reading `!props.disabled`.
+    it('does not render the clear button when the form is disabled', async () => {
+      const wrapper = await renderForm({
+        props: { disabled: true },
+        slotVars: { items },
+        slotTemplate: `<B24FormField name="value"><B24SelectMenu :items="items" :model-value="items[0]" clear /></B24FormField>`
+      })
+
+      expect(clearButton(wrapper).exists()).toBe(false)
+    })
+  })
+
   describe('create-item', () => {
     // With `create-item`, the create item is always registered so reka-ui's collection
     // never goes from empty to non-empty, leaving the highlight stale when async items load.

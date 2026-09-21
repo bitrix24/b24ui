@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "a581357a7890b07b7446273769491929fc24779b",
+  "cursor": "9ea37c1653cf0fdae78a2edd7dd95fcb85b2a033",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2035,10 +2035,16 @@
       "summary": "fix(Table): inset row focus outline (#6973) — adds `-outline-offset-3` to `tbody` so the 3px row focus outline is drawn inside the row. No-op here: the counterpart file and slot exist, but the outline does not. Measured against emitted CSS rather than read off the source — all 84 classes in `src/theme/table.ts` produce `outline-color` twice and `outline-style`/`outline-width` zero times, because the fork declares only `outline-(--ui-color-design-outline-focused-stroke)` and has no equivalent of upstream’s `outline-3`. An offset alone would act on an outline this theme never paints. Turned up a separate pre-existing defect, filed as its own `fix(Table)` rather than smuggled into a no-op: rows with `onSelect` get `tabindex=\"0\"` and a dedicated focus design token that cannot take effect while `outline-style` is unset, so the keyboard focus indicator falls back to the browser default and the token is dead."
     },
     "a581357a7890b07b7446273769491929fc24779b": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 616,
+      "b24ui_sha": "9e7d41f2",
       "decision": "n/a",
       "summary": "chore(github): set up nuxi triage (#6981) — upstream hands issue triage to their `nuxi` bot, adding `.github/nuxi.yml` and removing `reproduire/`, `reproduction.yml`, `reproduire.yml` and `stale.yml`. None of the five paths exist here: this fork’s `.github/workflows/` is ci, deploy, npm-publish, pr-title, release-please, release-watchdog and smoke, with no triage automation at all — verified by term, where `triage` and `reproduire` match nothing and every `stale`/`reproduction`/`nuxi` hit is incidental prose. The added config is bound to upstream throughout: `@nuxt/ui` as the package, benjamincanac as maintainer, a `v5` branch this fork does not have (same ground as 2aa1702a), a pkg.pr.new preview URL and nuxt/.github as the security policy. Recorded rather than acted on: the removed `stale.yml` closed issues after 60 days and this fork never had an equivalent."
+    },
+    "9ea37c1653cf0fdae78a2edd7dd95fcb85b2a033": {
+      "pr": "pending-merge",
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "fix(SelectMenu/InputMenu): ignore clear button when disabled (#6986) — a disabled field still rendered its clear button and still emitted `clear` on click. Both hunks transfer directly: our `onClear` is byte-identical to upstream’s pre-image and the `v-if` matches modulo `ui`→`b24ui`. `disabled` is already `formFieldDisabled ?? props.disabled`, so the fix also covers a field disabled by its form. Upstream’s tests could NOT be used as written: `[data-slot=\"trailingClear\"]` never reaches the DOM here, because `Button.vue:222` puts a static `data-slot=\"base\"` on its root that wins over the fallthrough — 0 occurrences across the snapshot file, and a three-shape probe found the button under none of them — so the ported tests address it by position and the swallowed marker is recorded as a separate divergence. Coverage gap recorded rather than papered over: dropping the `onClear` guard leaves all 360 tests green, because its only call site sits inside the `v-if` the same commit gates, and it is not exposed; ported anyway as upstream’s line. One fork-only test added for the form-disabled path, which upstream’s two tests do not reach."
     }
   }
 }
