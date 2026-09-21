@@ -258,14 +258,8 @@ describe('SelectMenu', () => {
   })
 
   describe('clear', () => {
-    // Upstream finds this button by `[data-slot="trailingClear"]`. That marker
-    // never reaches the DOM here: `Button.vue:222` puts a static
-    // `data-slot="base"` on its root and it wins over the fallthrough, so the
-    // attribute is swallowed while the `trailingClear` class still merges. The
-    // button is therefore addressed by its position — the only `base` inside
-    // the trailing slot — because that is what the fork actually renders.
     const clearButton = (wrapper: { find: (s: string) => { exists: () => boolean } }) =>
-      wrapper.find('[data-slot="trailing"] [data-slot="base"]')
+      wrapper.find('[data-slot="trailingClear"]')
 
     it('does not render the clear button when disabled', async () => {
       const wrapper = await mountSuspended(SelectMenu, { props: { items, modelValue: items[0], clear: true, disabled: true } as any })

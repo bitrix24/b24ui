@@ -218,8 +218,8 @@ const b24ui = computed(() => tv({
     custom
   >
     <B24LinkBase
-      v-bind="slotProps"
       data-slot="base"
+      v-bind="slotProps"
       :class="b24ui.base({
         class: [props.b24ui?.base, props.class],
         active,

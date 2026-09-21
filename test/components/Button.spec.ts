@@ -147,6 +147,40 @@ describe('Button', () => {
     resolve?.(null)
   })
 
+  /**
+   * `Button` labels its own root `data-slot="base"`, but it is also the element
+   * fifteen other components reach for when they need a button inside
+   * themselves — `Modal`'s close, `Header`'s toggle, `Pagination`'s arrows,
+   * `InputMenu`'s clear. Each passes its own `data-slot` down, and that marker
+   * is how every test and every consumer addresses the thing.
+   *
+   * Those markers were silently dropped: the root bound `v-bind="slotProps"`
+   * before its static `data-slot="base"`, so the default overwrote whatever the
+   * caller sent. Nothing failed — the element still rendered and its classes
+   * still merged, so the only symptom was a selector that matched nothing.
+   * Nine distinct markers stood at zero occurrences across every snapshot in
+   * the suite, `close` and `toggle` among them, and that is also why upstream's
+   * own `[data-slot="trailingClear"]` selector found nothing here.
+   *
+   * Both directions are pinned, because the fix is an ordering and either half
+   * can be lost by moving one line: the caller has to win, and the default has
+   * to survive when there is no caller.
+   */
+  it('lets a caller override data-slot on the root', async () => {
+    const wrapper = await mountSuspended(Button, {
+      props: { label: 'Button' },
+      attrs: { 'data-slot': 'close' }
+    })
+
+    expect(wrapper.element.getAttribute('data-slot')).toBe('close')
+  })
+
+  it('keeps data-slot="base" on the root when the caller sends none', async () => {
+    const wrapper = await mountSuspended(Button, { props: { label: 'Button' } })
+
+    expect(wrapper.element.getAttribute('data-slot')).toBe('base')
+  })
+
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(Button, {
       props: {
