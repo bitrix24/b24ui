@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/block-tag-newline -->
 <script lang="ts">
-import type { Ref, WatchOptions, ComponentPublicInstance, VNode } from 'vue'
+import type { AriaAttributes, Ref, WatchOptions, ComponentPublicInstance, VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import type {
   Cell,
@@ -526,20 +526,41 @@ function resolveValue<T, A = undefined>(prop: T | ((arg: A) => T), arg?: A): T |
  * not sort at all, so the attribute is present on every sortable header and
  * absent everywhere else.
  *
- * `getCanSort()` is the predicate, measured rather than assumed: it is false
- * both for a column that opts out with `enableSorting: false` and for a
- * display column with no accessor, so selection and action columns stay
- * silent without needing a rule of their own.
+ * The predicate was wrong when this landed in #554, and the docblock asserted
+ * the opposite with some confidence. `getCanSort()` alone is not enough: it is
+ * false for `enableSorting: false` and for a display column with no accessor,
+ * but **true for any ordinary accessor column**, including one that offers no
+ * sort UI at all. So a plain column announced itself as sortable-but-unsorted.
+ * `enableSorting === true` has to agree, and it is read off `columnDef` because
+ * it can arrive from `defaultColumn` or be overridden by `sortingOptions`.
  */
-function getAriaSort(column: Column<T>): 'ascending' | 'descending' | 'none' | undefined {
-  if (!column.getCanSort()) {
+function isSortable(column: Column<T, unknown>) {
+  return column.columnDef.enableSorting === true && column.getCanSort()
+}
+
+function getAriaSort(header: Header<T, unknown>): AriaAttributes['aria-sort'] {
+  if (header.isPlaceholder || !isSortable(header.column)) {
     return undefined
   }
 
-  const sorted = column.getIsSorted()
-  if (sorted === 'asc') return 'ascending'
-  if (sorted === 'desc') return 'descending'
-  return 'none'
+  const sorted = header.column.getIsSorted()
+  if (!sorted) {
+    return 'none'
+  }
+
+  // `aria-sort` is a single-column pattern, so the direction goes to the first sort key that has a
+  // header on screen. Keys for an unknown id, a hidden column or a column with no sort UI are
+  // skipped, otherwise every header would report `none` while the rows are sorted.
+  const sortableIds = new Set(tableApi.getVisibleLeafColumns()
+    .filter(isSortable)
+    .map(column => column.id))
+  const primary = tableApi.getState().sorting.find(({ id }) => sortableIds.has(id))
+
+  if (primary?.id !== header.column.id) {
+    return 'none'
+  }
+
+  return sorted === 'asc' ? 'ascending' : 'descending'
 }
 
 function getColumnStyles(column: Column<T>): Record<string, string> {
@@ -637,7 +658,7 @@ defineExpose({
             :key="header.id"
             :data-pinned="header.column.getIsPinned()"
             :scope="header.colSpan > 1 ? 'colgroup' : 'col'"
-            :aria-sort="getAriaSort(header.column)"
+            :aria-sort="getAriaSort(header)"
             :colspan="header.colSpan > 1 ? header.colSpan : undefined"
             :rowspan="header.rowSpan > 1 ? header.rowSpan : undefined"
             data-slot="th"

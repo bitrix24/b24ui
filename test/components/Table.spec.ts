@@ -1,5 +1,5 @@
 import { h, ref, computed } from 'vue'
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { axe } from 'vitest-axe'
 import { flushPromises } from '@vue/test-utils'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
@@ -339,9 +339,19 @@ describe('Table', () => {
   // that the attribute tracks the state, and that it is absent exactly where the
   // column does not sort.
   describe('aria-sort', () => {
+    // #554 ran this block against the shared fixture, where no column sets
+    // `enableSorting: true`. That was fine while `getCanSort()` alone decided
+    // the answer; with the corrected predicate the shared fixture has no
+    // sortable column at all, so the block would assert nothing. The accessor
+    // columns opt in explicitly here. `select` keeps its `enableSorting: false`
+    // and `actions` stays a display column, which is what the block is about.
+    const sortableColumns = (columns as any[]).map(column =>
+      'accessorKey' in column ? { ...column, enableSorting: true } : column
+    )
+
     const headers = async (sorting?: { id: string, desc: boolean }[]) => {
       const wrapper = await mountSuspended(Table, {
-        props: { ...props, columns: columns as any, ...(sorting ? { sorting } : {}) }
+        props: { ...props, columns: sortableColumns as any, ...(sorting ? { sorting } : {}) }
       })
 
       return wrapper.findAll('thead th').map(th => ({
@@ -389,7 +399,7 @@ describe('Table', () => {
     // second time; the `<thead>` cell is also the one carrying `scope="col"`.
     it('leaves the footer headers alone', async () => {
       const wrapper = await mountSuspended(Table, {
-        props: { ...props, columns: columns as any, sorting: [{ id: 'email', desc: true }] }
+        props: { ...props, columns: sortableColumns as any, sorting: [{ id: 'email', desc: true }] }
       })
 
       const footer = wrapper.findAll('tfoot th')
@@ -436,6 +446,133 @@ describe('Table', () => {
         'aria-hidden-focus': { enabled: false }
       }
     })).toHaveNoViolations()
+  })
+
+  it('sets aria-sort on sortable th elements', async () => {
+    const sortableColumns: TableColumn<typeof data[number]>[] = [
+      { accessorKey: 'id', header: 'Id', enableSorting: true },
+      { accessorKey: 'email', header: 'Email', enableSorting: false },
+      { accessorKey: 'amount', header: 'Amount' }
+    ]
+
+    const wrapper = await mountSuspended(Table, {
+      props: { data, columns: sortableColumns as any }
+    })
+
+    const [idTh, emailTh, amountTh] = wrapper.findAll('th')
+    expect(idTh!.attributes('aria-sort')).toBe('none')
+    expect(emailTh!.attributes('aria-sort')).toBeUndefined()
+    // No `enableSorting` means no sort UI, so the column must not claim to be sortable.
+    expect(amountTh!.attributes('aria-sort')).toBeUndefined()
+
+    await wrapper.setProps({ sorting: [{ id: 'id', desc: false }] })
+    expect(wrapper.findAll('th')[0]!.attributes('aria-sort')).toBe('ascending')
+
+    await wrapper.setProps({ sorting: [{ id: 'id', desc: true }] })
+    expect(wrapper.findAll('th')[0]!.attributes('aria-sort')).toBe('descending')
+  })
+
+  it('only sets a directional aria-sort on the primary sort column', async () => {
+    const sortableColumns: TableColumn<typeof data[number]>[] = [
+      { accessorKey: 'id', header: 'Id', enableSorting: true },
+      { accessorKey: 'email', header: 'Email', enableSorting: true }
+    ]
+
+    const wrapper = await mountSuspended(Table, {
+      props: {
+        data,
+        columns: sortableColumns as any,
+        sorting: [{ id: 'email', desc: false }, { id: 'id', desc: true }]
+      }
+    })
+
+    const [idTh, emailTh] = wrapper.findAll('th')
+    expect(emailTh!.attributes('aria-sort')).toBe('ascending')
+    expect(idTh!.attributes('aria-sort')).toBe('none')
+  })
+
+  it('skips sort keys with no th on screen when picking the primary sort column', async () => {
+    const sortableColumns: TableColumn<typeof data[number]>[] = [
+      { accessorKey: 'id', header: 'Id', enableSorting: true },
+      { accessorKey: 'email', header: 'Email', enableSorting: true }
+    ]
+
+    // An unknown sort id is the point of this half, and TanStack rightly logs
+    // `[Table] Column with id 'unknown' does not exist.` for it. Upstream has
+    // no console gate; this fork fails any spec that logs while rendering, so
+    // the expected noise is owned here rather than exempting the whole file.
+    const error = vi.spyOn(console, 'error').mockImplementation(() => {})
+
+    const unknownIdWrapper = await mountSuspended(Table, {
+      props: {
+        data,
+        columns: sortableColumns as any,
+        sorting: [{ id: 'unknown', desc: false }, { id: 'id', desc: true }]
+      }
+    })
+
+    expect(unknownIdWrapper.findAll('th')[0]!.attributes('aria-sort')).toBe('descending')
+    expect(error).toHaveBeenCalledWith(expect.stringContaining('Column with id \'unknown\' does not exist'))
+    error.mockRestore()
+
+    const hiddenColumnWrapper = await mountSuspended(Table, {
+      props: {
+        data,
+        columns: sortableColumns as any,
+        columnVisibility: { email: false },
+        sorting: [{ id: 'email', desc: false }, { id: 'id', desc: true }]
+      }
+    })
+
+    const visibleThs = hiddenColumnWrapper.findAll('thead th')
+    expect(visibleThs.length).toBe(1)
+    expect(visibleThs[0]!.attributes('aria-sort')).toBe('descending')
+  })
+
+  it('does not set aria-sort on footer or placeholder th elements', async () => {
+    const groupedColumns: TableColumn<typeof data[number]>[] = [
+      { header: 'Group', columns: [{ accessorKey: 'id', header: 'Id', footer: 'Id total', enableSorting: true }] },
+      { accessorKey: 'email', header: 'Email', enableSorting: true }
+    ]
+
+    const wrapper = await mountSuspended(Table, {
+      props: { data, columns: groupedColumns as any, sorting: [{ id: 'email', desc: false }] }
+    })
+
+    const [, emailPlaceholderTh] = wrapper.findAll('thead th')
+    expect(emailPlaceholderTh!.attributes('aria-sort')).toBeUndefined()
+    // The real email header sits on the second header row and does carry the attribute.
+    expect(wrapper.findAll('thead tr')[1]!.findAll('th')[1]!.attributes('aria-sort')).toBe('ascending')
+
+    const footerThs = wrapper.findAll('tfoot th')
+    expect(footerThs.length).toBeGreaterThan(0)
+    expect(footerThs.every(th => th.attributes('aria-sort') === undefined)).toBe(true)
+  })
+
+  it('does not set aria-sort on th elements the table cannot sort', async () => {
+    const sortableColumns: TableColumn<typeof data[number]>[] = [
+      { accessorKey: 'id', header: 'Id', enableSorting: true },
+      { accessorKey: 'email', header: 'Email', enableSorting: true }
+    ]
+
+    const disabledWrapper = await mountSuspended(Table, {
+      props: { data, columns: sortableColumns as any, sortingOptions: { enableSorting: false } }
+    })
+
+    expect(disabledWrapper.findAll('th').every(th => th.attributes('aria-sort') === undefined)).toBe(true)
+
+    const displayColumns: TableColumn<typeof data[number]>[] = [
+      { id: 'actions', header: 'Actions' },
+      { accessorKey: 'id', header: 'Id' }
+    ]
+
+    const defaultColumnWrapper = await mountSuspended(Table, {
+      props: { data, columns: displayColumns as any, defaultColumn: { enableSorting: true } }
+    })
+
+    const [actionsTh, idTh] = defaultColumnWrapper.findAll('th')
+    expect(actionsTh!.attributes('aria-sort')).toBeUndefined()
+    expect(idTh!.attributes('aria-sort')).toBe('none')
   })
 
   it('reactive columns', async () => {
