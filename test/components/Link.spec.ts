@@ -1,6 +1,8 @@
+import { onErrorCaptured } from 'vue'
 import { describe, it, expect, vi } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
+import { flushPromises } from '@vue/test-utils'
 import { renderEach } from '../component-render'
 import { B24Link as Link } from '#components'
 
@@ -80,6 +82,26 @@ describe('Link', () => {
     })
 
     expect(wrapper.html()).not.toContain('isaction')
+  })
+
+  it('propagates async click handler errors to onErrorCaptured', async () => {
+    const onError = vi.fn(() => false)
+    const wrapper = await mountSuspended({
+      components: { Link },
+      setup() {
+        onErrorCaptured(onError)
+
+        return { onClick: () => Promise.reject(new Error('click error')) }
+      },
+      template: `
+        <Link @click="onClick"> Click </Link>
+      `
+    })
+
+    wrapper.find('button').trigger('click')
+    await flushPromises()
+
+    expect(onError).toHaveBeenCalledOnce()
   })
 
   it('passes accessibility tests', async () => {

@@ -1,5 +1,5 @@
-import { ref } from 'vue'
-import { describe, it, expect, test } from 'vitest'
+import { ref, onErrorCaptured } from 'vue'
+import { describe, it, expect, test, vi } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { flushPromises } from '@vue/test-utils'
@@ -114,6 +114,42 @@ describe('Button', () => {
     // expect(icon?.vm?.name).toBe('i-lucide-loader-circle')
 
     resolve?.(null)
+  })
+
+  // `onClickWrapper` used to call each handler and drop what it returned, so a
+  // rejected promise became an unhandled rejection instead of reaching Vue.
+  // With `loading-auto` that also stranded the button: the spinner never
+  // cleared, because nothing told it the click had finished.
+  //
+  // Upstream asserts the second half through `findComponent({ name: 'Icon' })`.
+  // This fork has no `Icon` component — the existing `with loading-auto works`
+  // test carries that assertion commented out for the same reason — so the
+  // loading state is read off `data-slot="baseLoading"`, which was checked to
+  // be present while a click is pending and gone once it settles.
+  test.each([
+    ['sync', () => {
+      throw new Error('click error')
+    }],
+    ['async', () => Promise.reject(new Error('click error'))]
+  ])('propagates %s click handler errors to onErrorCaptured', async (_, onClick) => {
+    const onError = vi.fn(() => false)
+    const wrapper = await mountSuspended({
+      components: { Button },
+      setup() {
+        onErrorCaptured(onError)
+
+        return { onClick }
+      },
+      template: `
+        <Button loading-auto @click="onClick"> Click </Button>
+      `
+    })
+
+    wrapper.find('button').trigger('click')
+    await flushPromises()
+
+    expect(onError).toHaveBeenCalledOnce()
+    expect(wrapper.find('[data-slot="baseLoading"]').exists()).toBe(false)
   })
 
   test('with loading-auto works with forms', async () => {
