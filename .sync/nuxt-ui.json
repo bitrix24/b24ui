@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "480d33233bbe2e9c8a55d1eef8ed443ec09c6815",
+  "cursor": "187c34f0234a769da2c7c344f93d6c603d0bb514",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2083,10 +2083,16 @@
       "summary": "chore(deps): update all non-major dependencies (#6988) — upstream bumps 27 catalog entries and pnpm 12.4.2 -> 12.5.1. Of those, 14 matched our pre-image exactly and were taken; 12 are not in our catalog at all (iconify packs, takumi, og-image, release-it, agent-discovery — upstream tooling this fork does not use); and `nuxt-schema-org` is left at ^6.2.1, the deliberate hold recorded in dep-parity, because any bump drags nuxt-site-config to 4.2.3, which calls two @nuxt/kit functions no published 4.x exports. The comparison was redone after the first pass reported 17 false absences: our workspace file quotes with single quotes and upstream’s with double, so the parser matched nothing. Finding, measured and attributed: bumping `vue` to 3.5.43 while `@vue/test-utils@2.5.1` pins `@vue/server-renderer@3.5.42` produces a SECOND Vue runtime — `@vue/runtime-core` goes from one version to two. Traced with `pnpm why` after a hand-rolled lockfile walker gave a wrong answer. Not introduced by this fork: upstream’s own lockfile at this commit carries both 3.5.42 and 3.5.43 for the same reason. Confined to test scope, and it resolves itself when test-utils catches up."
     },
     "480d33233bbe2e9c8a55d1eef8ed443ec09c6815": {
+      "pr": 626,
+      "b24ui_sha": "70eb9858",
+      "decision": "port",
+      "summary": "refactor(composables): use `unref` to simplify prop resolution (#6987) — two call sites stop hand-rolling what `unref` already is. Both files match upstream’s pre-image and the rewrite is an identity, since `unref(x)` is defined as `isRef(x) ? x.value : x`. `useForwardProps` swaps the import; `useResizable` keeps `isRef`, which it still uses three more times for the `collapsed` option, and upstream’s file ends the same way. No test added, none warranted for an identity — but both branches are exercised by the existing suite and that was checked rather than assumed: `useForwardProps` gets a `computed()` at 2 call sites and a non-ref `reactivePick()` at 37, and `useResizable` gets a `toRef()` from both Dashboard components while its spec passes plain objects."
+    },
+    "187c34f0234a769da2c7c344f93d6c603d0bb514": {
       "pr": "pending-merge",
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "refactor(composables): use `unref` to simplify prop resolution (#6987) — two call sites stop hand-rolling what `unref` already is. Both files match upstream’s pre-image and the rewrite is an identity, since `unref(x)` is defined as `isRef(x) ? x.value : x`. `useForwardProps` swaps the import; `useResizable` keeps `isRef`, which it still uses three more times for the `collapsed` option, and upstream’s file ends the same way. No test added, none warranted for an identity — but both branches are exercised by the existing suite and that was checked rather than assumed: `useForwardProps` gets a `computed()` at 2 call sites and a non-ref `reactivePick()` at 37, and `useResizable` gets a `toRef()` from both Dashboard components while its spec passes plain objects."
+      "summary": "fix(Table): make rows with a select event keyboard accessible (#6838) — a row with `onSelect` already had `tabindex=\"0\"` and no keydown handler, so it could be focused and not operated. Closes a gap left half-open by #614, which gave those rows a focus outline that paints: after it a keyboard user could SEE focus land on a row that did nothing. Four parts, all matching upstream’s pre-image: a `@keydown.self.exact.enter.space` handler; removal of `role=\"button\"`, which took the `<tr>` out of the table for assistive technology; `isInteractive` widened from `button, a` to `a, button, input, label, select, textarea`; and an early return on `repeat`. Upstream’s tests were added before touching the implementation and five of six failed. The sixth, `passes accessibility tests with select event`, is deliberately NOT ported: axe reports `aria-hidden-focus` because this fork’s test environment renders inside an `aria-hidden` subtree — `data-aria-hidden` occurs 168 times in the committed Table snapshots, `tabindex=\"0\"` predates this commit, and it fails in isolation, so it fails on the pre-image for an environmental reason. Worth a separate look."
     }
   }
 }
