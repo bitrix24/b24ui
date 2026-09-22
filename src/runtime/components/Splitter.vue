@@ -16,7 +16,7 @@ export interface SplitterItem extends Omit<SplitterPanelProps, 'as' | 'asChild'>
   id?: string
   slot?: string
   class?: any
-  b24ui?: Pick<Splitter['slots'], 'panel'>
+  b24ui?: Partial<Pick<Splitter['slots'], 'panel'>>
   [key: string]: any
 }
 

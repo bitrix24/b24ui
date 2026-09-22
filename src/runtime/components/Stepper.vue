@@ -22,7 +22,7 @@ export interface StepperItem {
   content?: string
   disabled?: boolean
   class?: any
-  b24ui?: Pick<Stepper['slots'], 'item' | 'container' | 'trigger' | 'indicator' | 'icon' | 'separator' | 'wrapper' | 'title' | 'description'>
+  b24ui?: Partial<Pick<Stepper['slots'], 'item' | 'container' | 'trigger' | 'indicator' | 'icon' | 'separator' | 'wrapper' | 'title' | 'description'>>
   [key: string]: any
 }
 

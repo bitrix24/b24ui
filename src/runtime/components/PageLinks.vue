@@ -15,7 +15,7 @@ export interface PageLink extends Omit<LinkProps, 'custom' | 'isAction'> {
    */
   icon?: IconComponent
   class?: any
-  b24ui?: Pick<PageLinks['slots'], 'item' | 'link' | 'linkWrapper' | 'linkLabel' | 'linkLabelExternalIcon' | 'linkLeadingIcon'>
+  b24ui?: Partial<Pick<PageLinks['slots'], 'item' | 'link' | 'linkWrapper' | 'linkLabel' | 'linkLabelExternalIcon' | 'linkLeadingIcon'>>
 }
 
 export interface PageLinksProps<T extends PageLink = PageLink> {

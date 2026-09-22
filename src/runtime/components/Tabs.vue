@@ -34,7 +34,7 @@ export interface TabsItem {
   value?: string | number
   disabled?: boolean
   class?: any
-  b24ui?: Pick<Tabs['slots'], 'trigger' | 'leadingIcon' | 'leadingAvatar' | 'leadingAvatarSize' | 'label' | 'trailingBadge' | 'trailingBadgeSize' | 'content'>
+  b24ui?: Partial<Pick<Tabs['slots'], 'trigger' | 'leadingIcon' | 'leadingAvatar' | 'leadingAvatarSize' | 'label' | 'trailingBadge' | 'trailingBadgeSize' | 'content'>>
   [key: string]: any
 }
 

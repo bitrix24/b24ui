@@ -23,7 +23,7 @@ export type CheckboxGroupItem = CheckboxGroupValue | {
    */
   icon?: IconComponent
   class?: any
-  b24ui?: Pick<CheckboxGroup['slots'], 'item'> & Omit<Required<CheckboxProps>['b24ui'], 'root'>
+  b24ui?: Partial<Pick<CheckboxGroup['slots'], 'item'>> & Omit<Required<CheckboxProps>['b24ui'], 'root'>
   [key: string]: any
 }
 

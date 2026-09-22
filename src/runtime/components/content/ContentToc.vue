@@ -11,7 +11,7 @@ type ContentToc = ComponentConfig<typeof theme, AppConfig, 'contentToc'>
 
 export type ContentTocLink = TocLink & {
   class?: any
-  b24ui?: Pick<ContentToc['slots'], 'item' | 'itemWithChildren' | 'link' | 'linkText'>
+  b24ui?: Partial<Pick<ContentToc['slots'], 'item' | 'itemWithChildren' | 'link' | 'linkText'>>
 }
 
 /**

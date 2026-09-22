@@ -15,7 +15,7 @@ export interface FooterColumnLink extends Omit<LinkProps, 'custom' | 'isAction'>
    */
   icon?: IconComponent
   class?: any
-  b24ui?: Pick<FooterColumns['slots'], 'item' | 'link' | 'linkLabel' | 'linkLabelExternalIcon' | 'linkLeadingIcon'>
+  b24ui?: Partial<Pick<FooterColumns['slots'], 'item' | 'link' | 'linkLabel' | 'linkLabelExternalIcon' | 'linkLeadingIcon'>>
 }
 
 export interface FooterColumn<T extends FooterColumnLink = FooterColumnLink> {
