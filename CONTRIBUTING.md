@@ -55,7 +55,7 @@ something that is deliberately the way it is.
 
 Then:
 
-- **Node** `^20.19.0 || >=22.12.0`, **pnpm** `12.4.2` (the version is pinned in
+- **Node** `^20.19.0 || >=22.12.0`, **pnpm** `12.5.1` (the version is pinned in
   `package.json`; `corepack enable` picks it up).
 - Run `pnpm run dev:prepare` after installing. Nothing typechecks before it.
 - `pnpm run lint`, `pnpm run typecheck` and `pnpm run test run` all have to
