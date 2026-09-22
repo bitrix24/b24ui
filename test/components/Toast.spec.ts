@@ -1,10 +1,11 @@
 import { defineComponent } from 'vue'
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { renderEach } from '../component-render'
 import Toaster from '../../src/runtime/components/Toaster.vue'
 import Toast from '../../src/runtime/components/Toast.vue'
+import { useToast } from '../../src/runtime/composables/useToast'
 import { ClientOnly } from '#components'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
@@ -52,6 +53,43 @@ describe('Toast', () => {
     ['with description slot', { props, slots: { description: () => 'Description slot' } }],
     ['with close slot', { props, slots: { close: () => 'Close slot' } }]
   ])
+
+  // `Toaster` spreads the whole toast object onto `<B24Toast>` and also binds
+  // `@click="toast.onClick && toast.onClick(toast)"` on the same element, so
+  // `onClick` arrived twice — once as a fallthrough listener, once as the
+  // explicit handler. Reproduced before fixing: the handler ran 2 times for one
+  // click.
+  //
+  // The API is taken from inside `setup()` rather than from the test body,
+  // which is a fork-only adaptation. `useToast` calls `inject()`, and outside a
+  // component instance that warns — `useToast.spec.ts` sits in
+  // `KNOWN_NOISY_SPECS` for exactly this reason, and upstream has no such gate.
+  // Reaching for it through a component keeps this file off that list.
+  it('calls onClick once per click', async () => {
+    const onClick = vi.fn()
+    let toast!: ReturnType<typeof useToast>
+
+    const Harness = defineComponent({
+      components: { B24Toaster: Toaster },
+      setup() {
+        toast = useToast()
+        return {}
+      },
+      template: `<B24Toaster :portal="false" />`
+    })
+
+    const wrapper = await mountSuspended(Harness)
+    toast.clear()
+    const body = toast.add({ title: 'Toast', onClick })
+
+    await vi.waitFor(() => expect(wrapper.find('[data-slot="base"]').exists()).toBe(true))
+    await wrapper.find('[data-slot="base"]').trigger('click')
+
+    expect(onClick).toHaveBeenCalledTimes(1)
+    expect(onClick).toHaveBeenCalledWith(expect.objectContaining({ id: body.id, title: 'Toast' }))
+
+    toast.clear()
+  })
 
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(ToastWrapper, {

@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "6a3f31bca7132c50dd4e192a4ca10aa88326043a",
+  "cursor": "796f79d4956405c5aeada2176486396eb935c83e",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2047,10 +2047,16 @@
       "summary": "fix(SelectMenu/InputMenu): ignore clear button when disabled (#6986) — a disabled field still rendered its clear button and still emitted `clear` on click. Both hunks transfer directly: our `onClear` is byte-identical to upstream’s pre-image and the `v-if` matches modulo `ui`→`b24ui`. `disabled` is already `formFieldDisabled ?? props.disabled`, so the fix also covers a field disabled by its form. Upstream’s tests could NOT be used as written: `[data-slot=\"trailingClear\"]` never reaches the DOM here, because `Button.vue:222` puts a static `data-slot=\"base\"` on its root that wins over the fallthrough — 0 occurrences across the snapshot file, and a three-shape probe found the button under none of them — so the ported tests address it by position and the swallowed marker is recorded as a separate divergence. Coverage gap recorded rather than papered over: dropping the `onClear` guard leaves all 360 tests green, because its only call site sits inside the `v-if` the same commit gates, and it is not exposed; ported anyway as upstream’s line. One fork-only test added for the form-disabled path, which upstream’s two tests do not reach."
     },
     "6a3f31bca7132c50dd4e192a4ca10aa88326043a": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 620,
+      "b24ui_sha": "cbfb50be",
       "decision": "n/a",
       "summary": "chore(renovate): update config — trims `renovate.json` to what their shared preset provides, dropping `timezone`, `schedule`, `lockFileMaintenance`, the `resolutions` rule, `pnpmDedupe` and `ignoreDeps: [\"actions/stale\"]` (the last a follow-on from a581357a, which deleted `stale.yml`). The file does not exist here: a grep for `renovate` across the tree matches only earlier `.sync/log` journals. And the policy is not ours either — dependencies run through `.github/dependabot.yml`, github-actions only and monthly, with npm deliberately excluded because bumps arrive as ports of upstream’s own through `.sync/`. Same shape as 2aa1702a and a581357a."
+    },
+    "796f79d4956405c5aeada2176486396eb935c83e": {
+      "pr": "pending-merge",
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "fix(Toaster): prevent `onClick` from being called twice (#6980) — `Toaster` spreads the toast object onto `<B24Toast>` and binds an explicit `@click` on the same element, so `onClick` arrived both as a fallthrough listener and as the handler. Reproduced before fixing: 2 calls for one click. Fix is one line, `onClick` added to the omit list, byte-identical to upstream. Upstream’s `[data-slot=\"base\"]` selector works here — checked, and worth noting against #619, where a caller’s `data-slot` was lost on `Button`: there it travelled through `slotProps` inside the template and was overwritten, here it arrives by ordinary fallthrough and wins. The test needed one fork adaptation: `useToast` calls `inject()` and warns outside a component, which this fork’s console gate fails on, so the API is taken from inside a harness `setup()` rather than adding the spec to `KNOWN_NOISY_SPECS`."
     }
   }
 }
