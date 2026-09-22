@@ -73,5 +73,8 @@ export default {
       horizontal: 'flex flex-row -space-x-px',
       vertical: 'flex flex-col -space-y-px'
     }
+  },
+  defaultVariants: {
+    size: 'md'
   }
 }
