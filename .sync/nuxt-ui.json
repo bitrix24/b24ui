@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "187c34f0234a769da2c7c344f93d6c603d0bb514",
+  "cursor": "074152b7b65f7878fb4117b5bf31555476463b43",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2089,10 +2089,16 @@
       "summary": "refactor(composables): use `unref` to simplify prop resolution (#6987) — two call sites stop hand-rolling what `unref` already is. Both files match upstream’s pre-image and the rewrite is an identity, since `unref(x)` is defined as `isRef(x) ? x.value : x`. `useForwardProps` swaps the import; `useResizable` keeps `isRef`, which it still uses three more times for the `collapsed` option, and upstream’s file ends the same way. No test added, none warranted for an identity — but both branches are exercised by the existing suite and that was checked rather than assumed: `useForwardProps` gets a `computed()` at 2 call sites and a non-ref `reactivePick()` at 37, and `useResizable` gets a `toRef()` from both Dashboard components while its spec passes plain objects."
     },
     "187c34f0234a769da2c7c344f93d6c603d0bb514": {
+      "pr": 627,
+      "b24ui_sha": "a66fd9a8",
+      "decision": "port",
+      "summary": "fix(Table): make rows with a select event keyboard accessible (#6838) — a row with `onSelect` already had `tabindex=\"0\"` and no keydown handler, so it could be focused and not operated. Closes a gap left half-open by #614, which gave those rows a focus outline that paints: after it a keyboard user could SEE focus land on a row that did nothing. Four parts, all matching upstream’s pre-image: a `@keydown.self.exact.enter.space` handler; removal of `role=\"button\"`, which took the `<tr>` out of the table for assistive technology; `isInteractive` widened from `button, a` to `a, button, input, label, select, textarea`; and an early return on `repeat`. Upstream’s tests were added before touching the implementation and five of six failed. The sixth, `passes accessibility tests with select event`, is deliberately NOT ported: axe reports `aria-hidden-focus` because this fork’s test environment renders inside an `aria-hidden` subtree — `data-aria-hidden` occurs 168 times in the committed Table snapshots, `tabindex=\"0\"` predates this commit, and it fails in isolation, so it fails on the pre-image for an environmental reason. Worth a separate look."
+    },
+    "074152b7b65f7878fb4117b5bf31555476463b43": {
       "pr": "pending-merge",
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(Table): make rows with a select event keyboard accessible (#6838) — a row with `onSelect` already had `tabindex=\"0\"` and no keydown handler, so it could be focused and not operated. Closes a gap left half-open by #614, which gave those rows a focus outline that paints: after it a keyboard user could SEE focus land on a row that did nothing. Four parts, all matching upstream’s pre-image: a `@keydown.self.exact.enter.space` handler; removal of `role=\"button\"`, which took the `<tr>` out of the table for assistive technology; `isInteractive` widened from `button, a` to `a, button, input, label, select, textarea`; and an early return on `repeat`. Upstream’s tests were added before touching the implementation and five of six failed. The sixth, `passes accessibility tests with select event`, is deliberately NOT ported: axe reports `aria-hidden-focus` because this fork’s test environment renders inside an `aria-hidden` subtree — `data-aria-hidden` occurs 168 times in the committed Table snapshots, `tabindex=\"0\"` predates this commit, and it fails in isolation, so it fails on the pre-image for an environmental reason. Worth a separate look."
+      "summary": "fix(Link): propagate click handler errors to Vue error handling (#6993) — `onClickWrapper` called each handler and dropped what it returned, so a rejecting handler became an unhandled rejection instead of reaching `onErrorCaptured`, and with `loading-auto` the spinner never cleared. Fix collects the results and returns `Promise.all`, in both `LinkBase.vue` and the Inertia override; both matched upstream’s pre-image. Adaptation: upstream reads the loading state via `findComponent({ name: \"Icon\" })` and this fork has no `Icon` component — the existing `with loading-auto works` test has that assertion commented out for the same reason — so `data-slot=\"baseLoading\"` is used, probed first to confirm it is present while a click is pending and gone once it settles. Coverage note: reverting everything reddens both cases, but dropping only the `return` reddens just the async ones, because a synchronous throw reaches Vue anyway and what catches it is the second assertion about the loading state clearing. The Inertia override is NOT covered by any test — exercising it needs @inertiajs/vue3 and a `router: \"inertia\"` build — and that is recorded rather than left looking covered."
     }
   }
 }
