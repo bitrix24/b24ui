@@ -12,6 +12,13 @@ import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
 import SearchIcon from '@bitrix24/b24icons-vue/main/Search2Icon'
 
+async function triggerKeydown(element: Element, init: KeyboardEventInit) {
+  const event = new KeyboardEvent('keydown', { bubbles: true, cancelable: true, ...init })
+  element.dispatchEvent(event)
+  await flushPromises()
+  return event
+}
+
 describe('Table', () => {
   const loadingColors = Object.keys(theme.variants.loadingColor) as any
   const loadingAnimations = Object.keys(theme.variants.loadingAnimation) as any
@@ -446,6 +453,135 @@ describe('Table', () => {
         'aria-hidden-focus': { enabled: false }
       }
     })).toHaveNoViolations()
+  })
+
+  // Upstream also adds `passes accessibility tests with select event` here. It
+  // is deliberately not ported: it fails in this fork for a reason that has
+  // nothing to do with this commit.
+  //
+  // axe reports `aria-hidden-focus` — "ARIA hidden element must not be
+  // focusable" — on `<thead>` and every `<tr>`, because this fork's test
+  // environment renders the table inside an `aria-hidden="true"` subtree.
+  // That is not new and not ours to fix here: `data-aria-hidden` appears 168
+  // times in the committed Table snapshots, and `tabindex="0"` on selectable
+  // rows predates this commit, so the rule fires on the pre-image too.
+  // Verified in isolation, so it is not another test leaking an open overlay.
+  //
+  // The rows are still checked for accessibility by the existing `passes
+  // accessibility tests`; what that one does not have is a focusable row for
+  // the rule to catch.
+
+  it('calls select on Enter and Space', async () => {
+    const onSelect = vi.fn()
+    const wrapper = await mountSuspended(Table, { props: { ...props, onSelect } })
+
+    const row = wrapper.find('tbody tr')
+    expect(row.attributes('tabindex')).toBe('0')
+    // A `<tr>` is a row, not a button: `role="button"` would take it out of the
+    // table for assistive technology.
+    expect(row.attributes('role')).toBeUndefined()
+
+    const enterEvent = await triggerKeydown(row.element, { key: 'Enter' })
+    expect(onSelect).toHaveBeenCalledTimes(1)
+    expect(enterEvent.defaultPrevented).toBe(true)
+
+    const spaceEvent = await triggerKeydown(row.element, { key: ' ' })
+    expect(onSelect).toHaveBeenCalledTimes(2)
+    expect(spaceEvent.defaultPrevented).toBe(true)
+  })
+
+  it('does not call select when a modifier key is held', async () => {
+    const onSelect = vi.fn()
+    const wrapper = await mountSuspended(Table, { props: { ...props, onSelect } })
+
+    const row = wrapper.find('tbody tr')
+    const metaEvent = await triggerKeydown(row.element, { key: 'Enter', metaKey: true })
+    expect(metaEvent.defaultPrevented).toBe(false)
+
+    const shiftEvent = await triggerKeydown(row.element, { key: ' ', shiftKey: true })
+    expect(shiftEvent.defaultPrevented).toBe(false)
+
+    expect(onSelect).not.toHaveBeenCalled()
+
+    await triggerKeydown(row.element, { key: 'Enter' })
+    expect(onSelect).toHaveBeenCalledTimes(1)
+  })
+
+  it('does not call select on repeated keydown', async () => {
+    const onSelect = vi.fn()
+    const wrapper = await mountSuspended(Table, { props: { ...props, onSelect } })
+
+    const row = wrapper.find('tbody tr')
+    await row.trigger('keydown', { key: 'Enter', repeat: true })
+    const spaceEvent = await triggerKeydown(row.element, { key: ' ', repeat: true })
+    expect(spaceEvent.defaultPrevented).toBe(true)
+    expect(onSelect).not.toHaveBeenCalled()
+
+    await row.trigger('keydown', { key: 'Enter' })
+    expect(onSelect).toHaveBeenCalledTimes(1)
+  })
+
+  it('does not call select from nested controls', async () => {
+    const onSelect = vi.fn()
+    const wrapper = await mountSuspended(Table, {
+      props: {
+        ...props,
+        columns: [{
+          id: 'controls',
+          header: 'Controls',
+          cell: () => [
+            h('input', { 'type': 'checkbox', 'aria-label': 'Select row' }),
+            h('button', { type: 'button' }, 'Edit'),
+            h('a', { href: '#' }, 'Details'),
+            h('label', {}, [h('input', { type: 'checkbox' }), 'Toggle'])
+          ]
+        }] as any,
+        onSelect
+      }
+    })
+
+    const checkbox = wrapper.find<HTMLInputElement>('tbody tr input')
+    const checkboxEvent = await triggerKeydown(checkbox.element, { key: ' ' })
+    expect(checkboxEvent.defaultPrevented).toBe(false)
+
+    const buttonEvent = await triggerKeydown(wrapper.find('tbody tr button').element, { key: ' ' })
+    expect(buttonEvent.defaultPrevented).toBe(false)
+
+    const linkEvent = await triggerKeydown(wrapper.find('tbody tr a').element, { key: 'Enter' })
+    expect(linkEvent.defaultPrevented).toBe(false)
+
+    await checkbox.trigger('click')
+    expect(checkbox.element.checked).toBe(true)
+
+    await wrapper.find('tbody tr button').trigger('click')
+    await wrapper.find('tbody tr a').trigger('click')
+    await wrapper.find('tbody tr label').trigger('click')
+    expect(wrapper.find<HTMLInputElement>('tbody tr label input').element.checked).toBe(true)
+
+    expect(onSelect).not.toHaveBeenCalled()
+
+    await wrapper.find('tbody tr').trigger('keydown', { key: 'Enter' })
+    expect(onSelect).toHaveBeenCalledTimes(1)
+  })
+
+  it('does not call select from a nested contenteditable', async () => {
+    const onSelect = vi.fn()
+    const wrapper = await mountSuspended(Table, {
+      props: {
+        ...props,
+        columns: [{ id: 'notes', header: 'Notes', cell: () => h('div', { contenteditable: 'true' }, 'Notes') }] as any,
+        onSelect
+      }
+    })
+
+    const editable = wrapper.find('tbody tr [contenteditable]')
+    const enterEvent = await triggerKeydown(editable.element, { key: 'Enter' })
+    expect(enterEvent.defaultPrevented).toBe(false)
+
+    const spaceEvent = await triggerKeydown(editable.element, { key: ' ' })
+    expect(spaceEvent.defaultPrevented).toBe(false)
+
+    expect(onSelect).not.toHaveBeenCalled()
   })
 
   it('sets aria-sort on sortable th elements', async () => {
