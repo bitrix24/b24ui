@@ -15,7 +15,7 @@ export interface ContentSurroundLink extends ContentNavigationItem {
    */
   icon?: IconComponent
   class?: any
-  b24ui?: Pick<ContentSurround['slots'], 'link' | 'linkLeading' | 'linkLeadingIcon' | 'linkTitle' | 'linkDescription'>
+  b24ui?: Partial<Pick<ContentSurround['slots'], 'link' | 'linkLeading' | 'linkLeadingIcon' | 'linkTitle' | 'linkDescription'>>
 }
 
 export interface ContentSurroundProps<T extends ContentSurroundLink = ContentSurroundLink> {

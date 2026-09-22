@@ -22,7 +22,7 @@ export type RadioGroupItem = RadioGroupValue | {
    */
   icon?: IconComponent
   class?: any
-  b24ui?: Pick<RadioGroup['slots'], 'item' | 'container' | 'base' | 'indicator' | 'wrapper' | 'label' | 'icon' | 'description'>
+  b24ui?: Partial<Pick<RadioGroup['slots'], 'item' | 'container' | 'base' | 'indicator' | 'wrapper' | 'label' | 'icon' | 'description'>>
   [key: string]: any
 }
 

@@ -33,7 +33,7 @@ export interface DescriptionListItem {
    */
   actions?: ButtonProps[]
   class?: any
-  b24ui?: Pick<DescriptionList['slots'], 'labelWrapper' | 'icon' | 'avatar' | 'label' | 'descriptionWrapper' | 'description' | 'actions'>
+  b24ui?: Partial<Pick<DescriptionList['slots'], 'labelWrapper' | 'icon' | 'avatar' | 'label' | 'descriptionWrapper' | 'description' | 'actions'>>
   [key: string]: any
 }
 

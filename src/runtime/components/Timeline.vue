@@ -19,7 +19,7 @@ export interface TimelineItem {
   value?: string | number
   slot?: string
   class?: any
-  b24ui?: Pick<Timeline['slots'], 'item' | 'container' | 'indicator' | 'separator' | 'wrapper' | 'date' | 'title' | 'description'>
+  b24ui?: Partial<Pick<Timeline['slots'], 'item' | 'container' | 'indicator' | 'separator' | 'wrapper' | 'date' | 'title' | 'description'>>
   [key: string]: any
 }
 

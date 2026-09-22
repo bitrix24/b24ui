@@ -23,7 +23,7 @@ export interface ProgressGroupItem {
   color?: ProgressGroup['variants']['color']
   slot?: string
   class?: any
-  b24ui?: Pick<ProgressGroup['slots'], 'segment' | 'indicator' | 'item' | 'itemLeadingIcon' | 'itemLeadingDot' | 'itemLabel' | 'itemTrailing'>
+  b24ui?: Partial<Pick<ProgressGroup['slots'], 'segment' | 'indicator' | 'item' | 'itemLeadingIcon' | 'itemLeadingDot' | 'itemLabel' | 'itemTrailing'>>
   [key: string]: any
 }
 
