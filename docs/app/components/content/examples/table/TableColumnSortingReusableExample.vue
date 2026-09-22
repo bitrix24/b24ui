@@ -51,10 +51,12 @@ const data = ref<Payment[]>([{
 
 const columns: TableColumn<Payment>[] = [{
   accessorKey: 'id',
+  enableSorting: true,
   header: ({ column }) => getHeader(column, 'ID'),
   cell: ({ row }) => `#${row.getValue('id')}`
 }, {
   accessorKey: 'date',
+  enableSorting: true,
   header: ({ column }) => getHeader(column, 'Date'),
   cell: ({ row }) => {
     return new Date(row.getValue('date')).toLocaleString('en-US', {
@@ -68,6 +70,7 @@ const columns: TableColumn<Payment>[] = [{
   }
 }, {
   accessorKey: 'status',
+  enableSorting: true,
   header: ({ column }) => getHeader(column, 'Status'),
   cell: ({ row }) => {
     const color = ({
@@ -80,9 +83,11 @@ const columns: TableColumn<Payment>[] = [{
   }
 }, {
   accessorKey: 'email',
+  enableSorting: true,
   header: ({ column }) => getHeader(column, 'Email')
 }, {
   accessorKey: 'amount',
+  enableSorting: true,
   header: ({ column }) => getHeader(column, 'Amount'),
   meta: {
     class: {

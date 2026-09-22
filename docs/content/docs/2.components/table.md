@@ -484,14 +484,16 @@ class: '!p-0'
 
 You can update a column `header` to render a [Button](/docs/components/button/) component inside the `header` to toggle the sorting state using the TanStack Table [Sorting APIs](https://tanstack.com/table/v8/docs/api/features/sorting).
 
+Set `enableSorting: true` on those columns as well. This puts `aria-sort` on the `<th>` so screen readers can read the current sort state of the column: `none`, `ascending` or `descending`. The `Button` stays the control that changes it.
+
 ::component-example
 ---
 prettier: true
 collapse: true
 name: 'table-column-sorting-example'
 highlights:
-  - 90
-  - 115
+  - 91
+  - 116
 class: '!p-0'
 ---
 ::
@@ -503,10 +505,14 @@ You can use the `sorting` prop to control the sorting state of the columns (can 
 ::note
 The `<th>` of a sortable column carries `aria-sort` on its own — `ascending`,
 `descending`, or `none` when the column sorts but is not currently sorted — so
-your header button does not need to add it. A column that opts out with
-`enableSorting: false`, or a display column with no accessor such as an actions
-column, gets no `aria-sort` at all, which is what tells assistive technology it
-is not sortable rather than merely unsorted.
+your header button does not need to add it. A column is sortable for this
+purpose only when it sets `enableSorting: true`: an ordinary accessor column
+that renders no sort control, a column that opts out with
+`enableSorting: false`, and a display column with no accessor all get no
+`aria-sort` at all, which is what tells assistive technology they are not
+sortable rather than merely unsorted. When several columns are sorted at once
+the direction goes to the first one, since `aria-sort` describes a single
+column.
 ::
 
 You can also create a reusable component to make any column header sortable.
@@ -517,8 +523,8 @@ prettier: true
 collapse: true
 name: 'table-column-sorting-reusable-example'
 highlights:
-  - 109
-  - 154
+  - 114
+  - 159
 class: '!p-0'
 ---
 ::
