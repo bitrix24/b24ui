@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "0317d508f077360724ccd4bb54d62b414088c334",
+  "cursor": "27a5fe43333de0b1ba8388dbb4101fe4604503f9",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2101,10 +2101,22 @@
       "summary": "fix(Link): propagate click handler errors to Vue error handling (#6993) — `onClickWrapper` called each handler and dropped what it returned, so a rejecting handler became an unhandled rejection instead of reaching `onErrorCaptured`, and with `loading-auto` the spinner never cleared. Fix collects the results and returns `Promise.all`, in both `LinkBase.vue` and the Inertia override; both matched upstream’s pre-image. Adaptation: upstream reads the loading state via `findComponent({ name: \"Icon\" })` and this fork has no `Icon` component — the existing `with loading-auto works` test has that assertion commented out for the same reason — so `data-slot=\"baseLoading\"` is used, probed first to confirm it is present while a click is pending and gone once it settles. Coverage note: reverting everything reddens both cases, but dropping only the `return` reddens just the async ones, because a synchronous throw reaches Vue anyway and what catches it is the second assertion about the loading state clearing. The Inertia override is NOT covered by any test — exercising it needs @inertiajs/vue3 and a `router: \"inertia\"` build — and that is recorded rather than left looking covered."
     },
     "0317d508f077360724ccd4bb54d62b414088c334": {
+      "pr": 629,
+      "b24ui_sha": "bb8c7b74",
+      "decision": "port",
+      "summary": "fix(FieldGroup): add `defaultVariants` in theme (#6938) — `applyDefaultVariants` rewrites a theme's size default from the `b24ui.theme.defaultVariants.size` module option only for a theme that already declares one, so `field-group.ts`, which declared none, was skipped outright and never picked the option up. The three lines make it eligible. No DOM change: every `size` value in this theme is an empty string and `FieldGroup.spec.ts` is snapshot-identical both ways. `useComponentProps` reads `app.config` defaults, not theme ones, so the group still provides `size: undefined` when the prop is unset — unchanged by this commit. Added an `applyDefaultVariants` block to `test/utils/theme.spec.ts`; reverting the theme lines turns it red."
+    },
+    "d3e8bcb28067e33a881d89da409a970d754b1157": {
+      "pr": "pending-merge",
+      "b24ui_sha": "pending-merge",
+      "decision": "no-op",
+      "summary": "test: raise timeouts for slow windows runners — both counterparts exist (`test/components/Toast.spec.ts`, `test/utils/components.spec.ts`), but the raises target `windows-latest`, which this fork's CI never provisions: every workflow pins `ubuntu-latest` and `deploy.yml`'s only matrix is `os: [ ubuntu-latest ]`. Measured on the runner OS actually used: `detectUsedComponents`'s slowest case 206ms against a 5000ms default, `Toast > calls onClick once per click` 68ms against `vi.waitFor`'s 1000ms — 24x and 14x headroom. Applying them would only make a genuinely hung test take longer to say so. Revisit if a Windows runner is ever added."
+    },
+    "27a5fe43333de0b1ba8388dbb4101fe4604503f9": {
       "pr": "pending-merge",
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(FieldGroup): add `defaultVariants` in theme (#6938) — `applyDefaultVariants` rewrites a theme's size default from the `b24ui.theme.defaultVariants.size` module option only for a theme that already declares one, so `field-group.ts`, which declared none, was skipped outright and never picked the option up. The three lines make it eligible. No DOM change: every `size` value in this theme is an empty string and `FieldGroup.spec.ts` is snapshot-identical both ways. `useComponentProps` reads `app.config` defaults, not theme ones, so the group still provides `size: undefined` when the prop is unset — unchanged by this commit. Added an `applyDefaultVariants` block to `test/utils/theme.spec.ts`; reverting the theme lines turns it red."
+      "summary": "fix(vue): resolve explicit component imports to their Vue overrides (#6999) — the Vue adapter's `resolveId` hook only fired for relative imports made from inside the runtime, so `import Link from '@bitrix24/b24ui-nuxt/components/Link.vue'` in an app (a form the `./components/*` export supports) silently got the plain component instead of the router-mode override. Adds a branch matching the package specifier or an absolute path under `runtimeDir/components/`, resolved through a new `ComponentSource.resolvePath` that matches the full relative path rather than `resolveFile`'s basename. `PACKAGE_IMPORT_RE` carries this fork's package name. Upstream's new test drives every case through `Icon.vue`, which this fork does not have — `Link.vue` stands in, which moves the cases onto the router-mode source, and the color-mode pair keeps the `vue/components` source covered; two fork-only cases added for inertia-only `LinkBase` and for `colorMode: false`. Upstream's negative cases were vacuous here and were rewritten so a basename lookup or a regex missing the package prefix turns them red. Nuxt adapter checked: `vue/overrides` is referenced only from `src/plugins/components.ts`, in both trees."
     }
   }
 }

@@ -12,6 +12,7 @@ interface ComponentSource {
   has: (name: string) => boolean
   resolve: (name: string) => { name: string, from: string } | undefined
   resolveFile: (filename: string) => string | undefined
+  resolvePath: (relativePath: string) => string | undefined
 }
 
 function createComponentSource(cwd: string, prefix: string, ignore: string[] = []): ComponentSource {
@@ -34,7 +35,8 @@ function createComponentSource(cwd: string, prefix: string, ignore: string[] = [
       const relativePath = paths.get(componentName)
       if (!relativePath) return
       return join(cwd, relativePath)
-    }
+    },
+    resolvePath: relativePath => files.includes(relativePath) ? join(cwd, relativePath) : undefined
   }
 }
 
@@ -63,6 +65,8 @@ export default function ComponentImportPlugin(
   // Override sources only: Vue-compatible replacements for Icon and Link
   const overrideSources = [routerOverrides[routerMode], unpluginComponents].filter((s): s is ComponentSource => !!s)
 
+  const componentsDir = `${join(runtimeDir, 'components')}/`
+
   const internalResolverPlugin: UnpluginOptions = {
     /**
      * This plugin aims to ensure we override certain components with Vue-compatible versions:
@@ -71,6 +75,19 @@ export default function ComponentImportPlugin(
     name: 'bitrix24:b24ui:components',
     enforce: 'pre',
     resolveId(id, importer) {
+      // Explicit imports must resolve to the override too, by specifier (`@bitrix24/b24ui-nuxt/components/Link.vue`)
+      // or by absolute path, which is also what an alias hands over once Vite has replaced it.
+      const normalizedId = normalize(id)
+      const packagePath = normalizedId.match(PACKAGE_IMPORT_RE)?.[1]
+        ?? (normalizedId.startsWith(componentsDir) && normalizedId.endsWith('.vue') ? normalizedId.slice(componentsDir.length) : undefined)
+      if (packagePath) {
+        for (const source of overrideSources) {
+          const resolved = source.resolvePath(packagePath)
+          if (resolved) return resolved
+        }
+        return
+      }
+
       if (!importer || !normalize(importer).includes(runtimeDir)) {
         return
       }
@@ -139,3 +156,4 @@ export default function ComponentImportPlugin(
 }
 
 const RELATIVE_IMPORT_RE = /^\.{1,2}\//
+const PACKAGE_IMPORT_RE = /(?:^|\/node_modules\/)@bitrix24\/b24ui-nuxt\/(?:dist\/)?(?:runtime\/)?components\/(.+\.vue)$/
