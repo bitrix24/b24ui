@@ -178,6 +178,10 @@ Use the `orientation` prop to change the orientation of the NavigationMenu.
 When orientation is `vertical`, an [Accordion](/docs/components/accordion/) component is used to display each group. You can control the open state of each item using the `open` and `defaultOpen` properties and change the behavior using the [`collapsible`](/docs/components/accordion/#collapsible) and [`type`](/docs/components/accordion/#multiple) props.
 ::
 
+::note
+When orientation is `vertical` and the menu is not `collapsed`, children are rendered recursively as items, so `b24ui.link` styles them. `b24ui.childLink` only applies to the `content` displayed in `horizontal` orientation and to the [popover](#with-popover-in-items) when `collapsed`.
+::
+
 ::warning
 The last top-level menu item needs to have `viewportRtl` set to ensure the drop-down menu is positioned correctly.
 ::
