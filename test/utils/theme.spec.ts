@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
-import { applyUnstyled } from '../../src/utils/theme'
+import { applyDefaultVariants, applyUnstyled } from '../../src/utils/theme'
+import fieldGroup from '../../src/theme/field-group'
 
 describe('applyUnstyled', () => {
   const theme = () => ({
@@ -80,5 +81,32 @@ describe('applyUnstyled', () => {
     expect(result.defaultVariants).toEqual({ color: 'primary', size: 'md' })
     expect(Object.keys(result.variants)).toEqual(['color', 'size'])
     expect(Object.keys(result.variants.color)).toEqual(['primary', 'neutral'])
+  })
+})
+
+describe('applyDefaultVariants', () => {
+  // `applyDefaultVariants` mutates the object it is given, and the themes are
+  // shared module exports — clone before every call.
+  const clone = <T>(value: T): T => JSON.parse(JSON.stringify(value))
+
+  it('rewrites a size default the module option was meant to reach', () => {
+    const result = applyDefaultVariants(clone(fieldGroup), { size: 'lg' })
+    expect(result.defaultVariants.size).toBe('lg')
+  })
+
+  it('does nothing to a theme that declares no defaultVariants', () => {
+    // The guard is `result.defaultVariants?.size === 'md'`: a theme without the
+    // block is skipped outright, which is why `fieldGroup` had to grow one for
+    // `ui.theme.defaultVariants.size` to apply to it at all.
+    const sizedButUndeclared = { base: 'relative', variants: { size: { sm: '', md: '', lg: '' } } }
+    expect(applyDefaultVariants(clone(sizedButUndeclared), { size: 'lg' })).toEqual(sizedButUndeclared)
+  })
+
+  it('leaves a non-canonical default alone', () => {
+    // Only the library-wide defaults (`md`, `air-primary`) are treated as
+    // "unset"; a theme that deliberately pins another value keeps it.
+    const pinned = { variants: { size: { sm: '', xl: '' } }, defaultVariants: { size: 'xl', color: 'air-secondary' } }
+    const result = applyDefaultVariants(clone(pinned), { size: 'sm', color: 'air-primary' })
+    expect(result.defaultVariants).toEqual({ size: 'xl', color: 'air-secondary' })
   })
 })

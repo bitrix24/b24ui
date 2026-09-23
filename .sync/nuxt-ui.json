@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "074152b7b65f7878fb4117b5bf31555476463b43",
+  "cursor": "0317d508f077360724ccd4bb54d62b414088c334",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2095,10 +2095,16 @@
       "summary": "fix(Table): make rows with a select event keyboard accessible (#6838) — a row with `onSelect` already had `tabindex=\"0\"` and no keydown handler, so it could be focused and not operated. Closes a gap left half-open by #614, which gave those rows a focus outline that paints: after it a keyboard user could SEE focus land on a row that did nothing. Four parts, all matching upstream’s pre-image: a `@keydown.self.exact.enter.space` handler; removal of `role=\"button\"`, which took the `<tr>` out of the table for assistive technology; `isInteractive` widened from `button, a` to `a, button, input, label, select, textarea`; and an early return on `repeat`. Upstream’s tests were added before touching the implementation and five of six failed. The sixth, `passes accessibility tests with select event`, is deliberately NOT ported: axe reports `aria-hidden-focus` because this fork’s test environment renders inside an `aria-hidden` subtree — `data-aria-hidden` occurs 168 times in the committed Table snapshots, `tabindex=\"0\"` predates this commit, and it fails in isolation, so it fails on the pre-image for an environmental reason. Worth a separate look."
     },
     "074152b7b65f7878fb4117b5bf31555476463b43": {
+      "pr": 628,
+      "b24ui_sha": "2d88f6de",
+      "decision": "port",
+      "summary": "fix(Link): propagate click handler errors to Vue error handling (#6993) — `onClickWrapper` called each handler and dropped what it returned, so a rejecting handler became an unhandled rejection instead of reaching `onErrorCaptured`, and with `loading-auto` the spinner never cleared. Fix collects the results and returns `Promise.all`, in both `LinkBase.vue` and the Inertia override; both matched upstream’s pre-image. Adaptation: upstream reads the loading state via `findComponent({ name: \"Icon\" })` and this fork has no `Icon` component — the existing `with loading-auto works` test has that assertion commented out for the same reason — so `data-slot=\"baseLoading\"` is used, probed first to confirm it is present while a click is pending and gone once it settles. Coverage note: reverting everything reddens both cases, but dropping only the `return` reddens just the async ones, because a synchronous throw reaches Vue anyway and what catches it is the second assertion about the loading state clearing. The Inertia override is NOT covered by any test — exercising it needs @inertiajs/vue3 and a `router: \"inertia\"` build — and that is recorded rather than left looking covered."
+    },
+    "0317d508f077360724ccd4bb54d62b414088c334": {
       "pr": "pending-merge",
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(Link): propagate click handler errors to Vue error handling (#6993) — `onClickWrapper` called each handler and dropped what it returned, so a rejecting handler became an unhandled rejection instead of reaching `onErrorCaptured`, and with `loading-auto` the spinner never cleared. Fix collects the results and returns `Promise.all`, in both `LinkBase.vue` and the Inertia override; both matched upstream’s pre-image. Adaptation: upstream reads the loading state via `findComponent({ name: \"Icon\" })` and this fork has no `Icon` component — the existing `with loading-auto works` test has that assertion commented out for the same reason — so `data-slot=\"baseLoading\"` is used, probed first to confirm it is present while a click is pending and gone once it settles. Coverage note: reverting everything reddens both cases, but dropping only the `return` reddens just the async ones, because a synchronous throw reaches Vue anyway and what catches it is the second assertion about the loading state clearing. The Inertia override is NOT covered by any test — exercising it needs @inertiajs/vue3 and a `router: \"inertia\"` build — and that is recorded rather than left looking covered."
+      "summary": "fix(FieldGroup): add `defaultVariants` in theme (#6938) — `applyDefaultVariants` rewrites a theme's size default from the `b24ui.theme.defaultVariants.size` module option only for a theme that already declares one, so `field-group.ts`, which declared none, was skipped outright and never picked the option up. The three lines make it eligible. No DOM change: every `size` value in this theme is an empty string and `FieldGroup.spec.ts` is snapshot-identical both ways. `useComponentProps` reads `app.config` defaults, not theme ones, so the group still provides `size: undefined` when the prop is unset — unchanged by this commit. Added an `applyDefaultVariants` block to `test/utils/theme.spec.ts`; reverting the theme lines turns it red."
     }
   }
 }
