@@ -256,7 +256,6 @@ export default defineNuxtConfig({
   modules: [
     '../src/module',
     // '@bitrix24/b24ui-nuxt',
-    './modules/bx-assistant',
     '@nuxt/content',
     // '@nuxt/image',
     '@nuxtjs/mcp-toolkit',
@@ -318,8 +317,6 @@ export default defineNuxtConfig({
    */
   runtimeConfig: {
     public: {
-      // @depricate
-      // useAI: false,
       version: pkg.version,
       siteUrl: prodUrl,
       baseUrl,
@@ -577,12 +574,6 @@ export default defineNuxtConfig({
         '@bitrix24/b24icons-vue/file-type/MarkdownIcon'
       ]
     }
-  },
-
-  bxAssistant: {
-    apiPath: `${baseUrl}/__bx__/assistant/`,
-    mcpServer: `${baseUrl}/mcp/`,
-    modelDeepSeek: 'deepseek-reasoner'
   },
 
   componentMeta: {

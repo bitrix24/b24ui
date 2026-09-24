@@ -4,7 +4,6 @@ import { normalizePath, upperName } from '../utils'
 import ItemIcon from '@bitrix24/b24icons-vue/crm/ItemIcon'
 import TextIcon from '@bitrix24/b24icons-vue/outline/TextIcon'
 import HomeIcon from '@bitrix24/b24icons-vue/outline/HomeIcon'
-import CopilotIcon from '@bitrix24/b24icons-vue/outline/CopilotIcon'
 // import ArrowRightLIcon from '@bitrix24/b24icons-vue/outline/ArrowRightLIcon'
 // import ArrowLeftLIcon from '@bitrix24/b24icons-vue/outline/ArrowLeftLIcon'
 
@@ -133,8 +132,7 @@ export const useNavigation = () => {
   // const appConfig = useAppConfig()
 
   const items = [
-    { label: 'Home', icon: HomeIcon, to: '/' },
-    { label: 'Chat', icon: CopilotIcon, to: '/chat' }
+    { label: 'Home', icon: HomeIcon, to: '/' }
   ]
 
   const groups = computed(() => [

@@ -11,8 +11,6 @@
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
-    "@ai-sdk/deepseek": "catalog:",
-    "@ai-sdk/vue": "catalog:",
     "@comark/vue": "catalog:",
     "@internationalized/date": "catalog:",
     "@nuxt/content": "catalog:",
@@ -21,7 +19,6 @@
     "@bitrix24/b24icons-vue": "catalog:",
     "@tiptap/extension-emoji": "catalog:",
     "@tiptap/extension-text-align": "catalog:",
-    "ai": "catalog:",
     "nuxt": "catalog:",
     "tailwindcss": "catalog:",
     "zod": "catalog:",

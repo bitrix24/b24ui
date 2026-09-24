@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import type { UIMessage } from 'ai'
-import type { NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
-import { Chat } from '@ai-sdk/vue'
+import type { ChatMessageProps, NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
 import theme from '#build/b24ui/sidebar'
 import HomeIcon from '@bitrix24/b24icons-vue/outline/HomeIcon'
 import MessagesIcon from '@bitrix24/b24icons-vue/outline/MessagesIcon'
@@ -15,7 +13,7 @@ const openRight = ref(true)
 
 const variant = ref('sidebar' as keyof typeof theme.variants.variant)
 
-const messages: UIMessage[] = [{
+const messages = ref<ChatMessageProps[]>([{
   id: '1',
   role: 'user',
   parts: [{ type: 'text', text: 'What is Bitrix24 UI?' }]
@@ -23,19 +21,17 @@ const messages: UIMessage[] = [{
   id: '2',
   role: 'assistant',
   parts: [{ type: 'text', text: 'Bitrix24 UI is a Vue component library built on Reka UI, Tailwind CSS, and Tailwind Variants. It provides 125+ accessible components for building modern web apps.' }]
-}]
+}])
 
-const chat = new Chat({
-  messages,
-  onError(error) {
-    console.error(error)
-  }
-})
-
+// A static demo: nothing is sent anywhere.
 function onSubmit() {
-  if (!input.value.trim()) return
+  const text = input.value.trim()
+  if (!text) return
 
-  chat.sendMessage({ text: input.value })
+  messages.value.push(
+    { id: `${Date.now()}-user`, role: 'user', parts: [{ type: 'text', text }] },
+    { id: `${Date.now()}-assistant`, role: 'assistant', parts: [{ type: 'text', text: 'This demo is static, so nothing leaves the page. Connect the prompt to your own endpoint to get real answers.' }] }
+  )
 
   input.value = ''
 }
@@ -61,7 +57,7 @@ function onSubmit() {
       </template>
 
       <B24NavigationMenu
-        :items="[{ label: 'Home', icon: HomeIcon, to: '/', badge: 4 }, { label: 'Chat', icon: MessagesIcon, to: '/chat' }] as NavigationMenuItem[]"
+        :items="[{ label: 'Home', icon: HomeIcon, to: '/', badge: 4 }, { label: 'Chat', icon: MessagesIcon }] as NavigationMenuItem[]"
         orientation="vertical"
         :b24ui="{ link: 'p-1.5 overflow-hidden' }"
       />
@@ -106,8 +102,8 @@ function onSubmit() {
       :style="{ '--sidebar-width': '20rem' }"
     >
       <B24ChatMessages
-        :messages="chat.messages"
-        :status="chat.status"
+        :messages="messages"
+        status="ready"
         compact
         class="px-0"
       />
@@ -115,12 +111,11 @@ function onSubmit() {
       <template #footer>
         <B24ChatPrompt
           v-model="input"
-          :error="chat.error"
           variant="outline"
           :b24ui="{ base: 'px-0' }"
           @submit="onSubmit"
         >
-          <B24ChatPromptSubmit size="sm" :status="chat.status" @stop="chat.stop()" @reload="chat.regenerate()" />
+          <B24ChatPromptSubmit size="sm" status="ready" />
         </B24ChatPrompt>
       </template>
     </B24Sidebar>

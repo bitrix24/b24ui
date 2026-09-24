@@ -6,7 +6,6 @@ import { mapEditorItems } from '@bitrix24/b24ui-nuxt/utils/editor'
 import { Emoji, gitHubEmojis } from '@tiptap/extension-emoji'
 import { TextAlign } from '@tiptap/extension-text-align'
 import { ImageUpload } from '../../components/editor/EditorImageUploadExtension'
-// import { useEditorCompletion } from '../../composables/useEditorCompletion'
 import EditorLinkPopover from '../../components/editor/EditorLinkPopover.vue'
 import UndoIcon from '@bitrix24/b24icons-vue/outline/UndoIcon'
 import RedoIcon from '@bitrix24/b24icons-vue/outline/RedoIcon'
@@ -42,15 +41,6 @@ import ArrowDownLIcon from '@bitrix24/b24icons-vue/outline/ArrowDownLIcon'
 import PlusLIcon from '@bitrix24/b24icons-vue/outline/PlusLIcon'
 import DragLIcon from '@bitrix24/b24icons-vue/outline/DragLIcon'
 import TaskListIcon from '@bitrix24/b24icons-vue/outline/TaskListIcon'
-import CopilotIcon from '@bitrix24/b24icons-vue/solid/CopilotIcon'
-import CheckGrammarIcon from '@bitrix24/b24icons-vue/editor/CheckGrammarIcon'
-import MakeLongerIcon from '@bitrix24/b24icons-vue/editor/MakeLongerIcon'
-import MakeShorterIcon from '@bitrix24/b24icons-vue/editor/MakeShorterIcon'
-import IdeaLampIcon from '@bitrix24/b24icons-vue/outline/IdeaLampIcon'
-import PenIcon from '@bitrix24/b24icons-vue/actions/PenIcon'
-import TranslationIcon from '@bitrix24/b24icons-vue/outline/TranslationIcon'
-
-const editorRef = useTemplateRef('editorRef')
 
 const content = ref(`# Bitrix24 UI: A Modern UI Library
 
@@ -115,8 +105,6 @@ Whether you're working on a personal project or building an enterprise applicati
 Visit our [documentation](https://bitrix24.github.io/b24ui/) to learn more and explore all available components.
 `)
 
-// const { extension: completionExtension, handlers: aiHandlers, isLoading: aiLoading } = useEditorCompletion(editorRef)
-
 const customHandlers = {
   imageUpload: {
     canExecute: (editor: any) => editor.can().insertContent({ type: 'imageUpload' }),
@@ -124,7 +112,6 @@ const customHandlers = {
     isActive: (editor: any) => editor.isActive('imageUpload'),
     isDisabled: undefined
   }
-  // ...aiHandlers
 } satisfies EditorCustomHandlers
 
 const toolbarItems = computed(() => [
@@ -138,78 +125,6 @@ const toolbarItems = computed(() => [
       kind: 'redo',
       icon: RedoIcon,
       tooltip: { text: 'Redo' }
-    }
-  ],
-  [
-    {
-      icon: CopilotIcon,
-      // loading: aiLoading.value,
-      disabled: true,
-      content: { align: 'start' },
-      b24ui: { leadingIcon: 'text-(--ui-color-copilot-accent-less-1)' },
-      items: [
-        {
-          kind: 'aiFix',
-          icon: CheckGrammarIcon,
-          label: 'Fix spelling & grammar'
-        },
-        {
-          kind: 'aiExtend',
-          icon: MakeLongerIcon,
-          label: 'Extend text'
-        },
-        {
-          kind: 'aiReduce',
-          icon: MakeShorterIcon,
-          label: 'Reduce text'
-        },
-        {
-          kind: 'aiSimplify',
-          icon: IdeaLampIcon,
-          label: 'Simplify text'
-        },
-        {
-          kind: 'aiContinue',
-          icon: PenIcon,
-          label: 'Continue sentence'
-        },
-        {
-          kind: 'aiSummarize',
-          icon: QuoteIcon,
-          label: 'Summarize'
-        },
-        {
-          icon: TranslationIcon,
-          label: 'Translate',
-          children: [
-            {
-              kind: 'aiTranslate',
-              language: 'English',
-              label: 'English'
-            },
-            {
-              kind: 'aiTranslate',
-              language: 'French',
-              label: 'French'
-            },
-            {
-              kind: 'aiTranslate',
-              language: 'German',
-              label: 'German'
-            },
-            {
-              kind: 'aiTranslate',
-              language: 'Russian',
-              label: 'Russian'
-            },
-            {
-              kind: 'aiTranslate',
-              language: 'Spanish',
-              label: 'Spanish'
-            }
-          ]
-        }
-      ]
     }
   ],
   [
@@ -488,17 +403,6 @@ const handleItems = (editor: any): DropdownMenuItem[][] => {
 }
 
 const suggestionItems = [
-  // [
-  //   {
-  //     type: 'label',
-  //     label: 'AI'
-  //   },
-  //   {
-  //     kind: 'aiContinue',
-  //     label: 'Continue writing',
-  //     icon: PenIcon
-  //   }
-  // ],
   [
     {
       type: 'label',
@@ -591,13 +495,11 @@ const emojiItems: EditorEmojiMenuItem[] = gitHubEmojis.filter(emoji => !emoji.na
 <template>
   <PlaygroundPage>
     <B24Editor
-      ref="editorRef"
       v-slot="{ editor, handlers }"
       v-model="content"
       :extensions="[
         Emoji,
         ImageUpload,
-        // completionExtension,
         TextAlign.configure({
           types: ['heading', 'paragraph']
         })

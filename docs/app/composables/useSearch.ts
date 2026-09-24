@@ -5,54 +5,15 @@ import ViewmodeCodeIcon from '@bitrix24/b24icons-vue/editor/ViewmodeCodeIcon'
 import FormattingIcon from '@bitrix24/b24icons-vue/editor/FormattingIcon'
 import FormIcon from '@bitrix24/b24icons-vue/outline/FormIcon'
 // import DemonstrationOnIcon from '@bitrix24/b24icons-vue/outline/DemonstrationOnIcon'
-import RobotIcon from '@bitrix24/b24icons-vue/outline/RobotIcon'
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
 
 export function useSearch() {
   const route = useRoute()
   const { frameworks } = useFrameworks()
-  const { track } = useAnalytics()
-
-  const config = useRuntimeConfig()
-  // @memo this for NUXT.UI.docs
-  const { open, messages } = useChat()
-  const { isEnabled: isAssistantEnabled } = useAssistant()
-
-  // @memo this for docus
-  // const { open: openAIChat } = useAIChat()
-  // const { open: openContentSearch } = useContentSearch()
 
   const searchTerm = ref('')
 
-  function onSelect() {
-    track('AI Chat Opened', { source: 'search', hasSearchTerm: !!searchTerm.value })
-
-    // @memo this for NUXT.UI.docs
-    if (searchTerm.value) {
-      messages.value = [...messages.value, {
-        id: String(Date.now()),
-        role: 'user',
-        parts: [{ type: 'text', text: searchTerm.value }]
-      }]
-    }
-
-    open.value = true
-
-    // @memo this for docus
-    // openContentSearch.value = false
-    // openAIChat(searchTerm.value, true)
-  }
-
   const links = computed(() => [
-    isAssistantEnabled.value && {
-      label: 'Ask AI',
-      icon: RobotIcon,
-      kbds: ['meta', 'i'],
-      b24ui: {
-        itemLeadingIcon: 'text-primary group-data-highlighted:not-group-data-disabled:text-primary-copilot'
-      },
-      onSelect
-    },
     {
       label: 'Get Started',
       description: 'Learn how to get started with Bitrix24 UI.',
@@ -94,39 +55,14 @@ export function useSearch() {
       to: 'https://github.com/bitrix24/b24ui',
       target: '_blank'
     }
-  ].filter(link => !!link) as ContentSearchLink[]) // @memo: use filter: `isAssistantEnabled`
+  ] as ContentSearchLink[])
 
   const groups = computed(() => [
     {
       id: 'framework',
       label: 'Framework',
       items: frameworks.value
-    },
-    ...(
-      config.public.useAI
-        ? [
-            {
-              id: 'ai',
-              label: 'AI',
-              ignoreFilter: true,
-              postFilter: (searchTerm: string, items: any[]) => {
-                if (!searchTerm) {
-                  return []
-                }
-
-                return items
-              },
-              items: [{
-                label: 'Ask AI',
-                icon: RobotIcon,
-                b24ui: {
-                  itemLeadingIcon: 'text-(--ui-color-accent-main-primary) group-data-highlighted:not-group-data-disabled:text-(--ui-color-copilot-accent-primary)'
-                },
-                onSelect
-              }]
-            }]
-        : []
-    )
+    }
   ])
 
   return {

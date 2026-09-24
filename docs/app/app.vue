@@ -4,9 +4,6 @@ import type { ToasterProps } from '@bitrix24/b24ui-nuxt'
 const route = useRoute()
 const appConfig = useAppConfig()
 const { style, link } = useTheme()
-const { isEnabled: isAssistantEnabled } = useAssistant()
-// @memo this for docus
-// const { isEnabled: isAssistantEnabled, panelWidth: assistantPanelWidth, shouldPushContent } = useAssistant()
 
 const { data: navigation } = await useFetch('/api/navigation.json')
 
@@ -66,18 +63,6 @@ provide('navigation', rootNavigation)
       <template v-if="!route.path.startsWith('/examples')">
         <ClientOnly>
           <Search :navigation="navigationByFramework" />
-          <!-- @memo this for docus -->
-          <!-- template v-if="isAssistantEnabled">
-            <LazyAssistantPanel />
-            <LazyAssistantFloatingInput />
-          </template -->
-        </ClientOnly>
-      </template>
-
-      <!-- @memo this for NUXT.UI.docs -->
-      <template v-if="isAssistantEnabled && !route.path.startsWith('/examples')">
-        <ClientOnly>
-          <Chat />
         </ClientOnly>
       </template>
     </div>
