@@ -84,7 +84,7 @@ const b24ui = {
               v-model="input"
               :icon="SearchIcon"
               variant="plain"
-                            @submit="onSubmit"
+              @submit="onSubmit"
             >
               <B24ChatPromptSubmit status="ready" />
             </B24ChatPrompt>
