@@ -9,7 +9,7 @@ const sectionEnum = z.enum(sectionList)
 
 export default defineMcpTool({
   title: 'Get Component',
-  description: 'Retrieves Bitrix24 UI component documentation and details. Use the `sections` parameter to fetch only specific parts of the documentation to reduce response size.',
+  description: 'Retrieves Bitrix24 UI component documentation and details. Use the `sections` parameter to fetch only specific parts of the documentation to reduce response size. Use `b24-ui-get-component-metadata` instead when you only need structured props, slots and events.',
   annotations: {
     readOnlyHint: true,
     destructiveHint: false,

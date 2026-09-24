@@ -6,7 +6,7 @@ import { withTrailingSlash } from 'ufo'
 
 export default defineMcpTool({
   title: 'Get Component Metadata',
-  description: 'Retrieves metadata for a Bitrix24 UI component including props, slots, and events. Props are compact by default, pass `full: true` to get the raw recursive prop schemas (very large)',
+  description: 'Retrieves metadata for a Bitrix24 UI component including props, slots, and events. Props are compact by default, pass `full: true` to get the raw recursive prop schemas (very large). Use this over `b24-ui-get-component` when you need structured props, slots and events rather than prose documentation.',
   annotations: {
     readOnlyHint: true,
     destructiveHint: false,

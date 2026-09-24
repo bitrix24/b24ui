@@ -142,7 +142,7 @@ Required fields:
 ```yaml
 ---
 description: Brief description of the component.
-category: element  # element, form, overlay, navigation, layout, data
+category: element  # reuse an existing category from docs/content/docs/2.components/
 links:
   - label: GitHub
     iconName: GitHubIcon
@@ -331,10 +331,10 @@ For complex examples with setup code:
 :component-example{name="button-loading-auto-example"}
 ```
 
-Example component in `docs/app/components/content/examples/`:
+Example component in `docs/app/components/content/examples/<component>/`:
 
 ```vue
-<!-- ButtonLoadingAutoExample.vue -->
+<!-- button/ButtonLoadingAutoExample.vue -->
 <script setup lang="ts">
 async function onClick() {
   await new Promise(resolve => setTimeout(resolve, 2000))
@@ -450,9 +450,16 @@ name: 'card-sales-dynamics-example'
 
 | Category | Components |
 |----------|------------|
-| `element` | Button, Badge, Icon, Avatar, etc. |
+| `element` | Button, Badge, Avatar, Card, etc. |
 | `form` | Input, Select, Checkbox, Form, etc. |
 | `overlay` | Modal, Slideover, Popover, Toast, etc. |
 | `navigation` | NavigationMenu, Breadcrumb, Tabs, etc. |
-| `layout` | Card, Container, Separator, etc. |
-| `data` | Table, Tree, Calendar, etc. |
+| `layout` | Container, Header, Footer, Sidebar, etc. |
+| `data` | Table, Accordion, Timeline, etc. |
+| `page` | PageSection, PageCard, PageHeader, etc. |
+| `dashboard` | DashboardGroup, DashboardSidebar, DashboardPanel, etc. |
+| `chat` | ChatMessages, ChatPrompt, ChatPalette, etc. |
+| `editor` | Editor, EditorToolbar, EditorSuggestionMenu, etc. |
+| `content` | ContentSearch, ContentToc, ContentSurround, etc. |
+| `color-mode` | ColorModeButton, ColorModeSelect, etc. |
+| `i18n` | LocaleSelect |
