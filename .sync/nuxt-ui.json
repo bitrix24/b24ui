@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "21c5a7fbbd7d03e2a9f87408ece73d55b5b96b66",
+  "cursor": "7f0250eab69d04c42e137aa85c103e3dc83eec60",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2197,22 +2197,34 @@
       "summary": "docs(Chat): keep page context in history so the prompt cache holds — the pre-image does not exist here: this fork interpolates the page into the system prompt (`ai.post.ts:74`) from a `new Chat()` transport body, not a last-message marker. The commit also loosens the page-path check from `^/docs/…` to any site path, which in this fork's shape would widen an injection surface in the most trusted part of the prompt, and its motivation is Anthropic's prompt cache while the docs chat here is DeepSeek. The page-in-system-prompt placement defeats DeepSeek's prefix cache too; that belongs to the #635 pass."
     },
     "4bfb47d74ed50a9e9723415038305875d5569777": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 637,
+      "b24ui_sha": "3260579b",
       "decision": "port",
       "summary": "chore(cli): register new components in `ThemeDefaults` again — verbatim; both files matched upstream's parent. The CLI wrote to `useComponentProps.ts`, which has no `ThemeDefaults` interface, so every scaffolded component silently skipped registration. The fix also replaces the insertion, and that half matters more here: the old body lexically sorted every line, and run against this fork's real `types/theme.ts` it moves 67 of 172 lines, separates comments from what they document, and hoists the nested `prose` entries so `radioGroup` … `user` land inside `prose?: {}` — still parsing. The wrong path was all that prevented it, so the two halves are one change. Also corrects the same stale path in `component-structure.md`, which upstream still carries. New `test/utils/cli-theme-defaults.spec.ts` (the CLI had no tests); six cases, each red under at least one of four mutations."
     },
     "a9370fbf670c7c450633928d583ac13e45f70ee3": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 637,
+      "b24ui_sha": "3260579b",
       "decision": "n/a",
       "summary": "docs(input): pin `outline` variant in floating label example — this fork's `Input` has no `variant` axis (its variants are `size`, `color`, `rounded`, `noPadding`, `noBorder`, `underline`, …), so `variant=\"outline\"` would be an unknown attribute. The example exists; there is nothing to pin."
     },
     "21c5a7fbbd7d03e2a9f87408ece73d55b5b96b66": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 637,
+      "b24ui_sha": "3260579b",
       "decision": "n/a",
       "summary": "docs(og-image): remove stray svg attributes in docs template — edits `Docs.takumi.vue`; this fork has no takumi og-image templates. Same as `f5699461`."
+    },
+    "032a152119530795d39d1f97458baf375ff7ee5e": {
+      "pr": "pending-merge",
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "fix(useFilter): keep labels and separators in place while sorting (#6995) — `filterGroups` gave structural items score -1 and then sorted the whole group ascending, so every label and separator was pulled to the top and matches crossed them; now each run of matches between structural items is sorted on its own. Logic matched upstream's parent (only this fork's JSDoc differs); applied unchanged. Upstream's `useFilter.spec.ts` is new and this fork had none; added first, it went red on both structural cases against the fork's code. A loop-bound mutation (`<=` → `<`) is also caught. `CommandPalette`, `InputMenu`, `SelectMenu`: 478 tests, no snapshot changed."
+    },
+    "7f0250eab69d04c42e137aa85c103e3dc83eec60": {
+      "pr": "pending-merge",
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "fix(EditorToolbar): use tooltip text as `aria-label` on icon-only buttons (#7009) — an icon plus a tooltip, the documented configuration, left the button with no accessible name, since a tooltip never reaches assistive technology. Adds `'aria-label': baseProps.label ? undefined : item.tooltip?.text` to `getButtonProps`' defaults. Adapted: this fork's toolbar has no `variant`/`activeVariant`, so the key went into the fork's own defaults object. Upstream's tests added first with `@bitrix24/b24icons-vue` icons: 4 red before the fix. Mutations removing the label guard or letting the tooltip override an author's `aria-label` are each caught."
     }
   }
 }
