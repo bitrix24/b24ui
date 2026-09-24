@@ -212,7 +212,7 @@ const { data, status } = await useAsyncData(
   <B24Table :data="data?.items" :columns="columns" :loading="status === 'pending'" />
 
   <div class="flex justify-end p-4">
-    <B24Pagination v-model="page" :total="data?.total" :items-per-page="data?.pageSize" />
+    <B24Pagination v-model:page="page" :total="data?.total" :items-per-page="data?.pageSize" />
   </div>
 </template>
 ```

@@ -41,7 +41,7 @@ Quick-reference index of 130+ components. The table below lists the ones you com
 | `B24ScrollArea` | Scrollable area with custom scrollbar | [scroll-area.md](https://bitrix24.github.io/b24ui/raw/docs/components/scroll-area.md) |
 | `B24Timeline` | Timeline display for events and activity | [timeline.md](https://bitrix24.github.io/b24ui/raw/docs/components/timeline.md) |
 | `B24User` | User display — avatar + name + description | [user.md](https://bitrix24.github.io/b24ui/raw/docs/components/user.md) |
-| `B24Theme` | Theme provider — scoped color overrides for children | [theme.md](https://bitrix24.github.io/b24ui/raw/docs/components/theme.md) |
+| `B24Theme` | Scoped `b24ui` class overrides and prop defaults for a subtree | [theme.md](https://bitrix24.github.io/b24ui/raw/docs/components/theme.md) |
 | `B24Advice` | A couple of lines of text next to an avatar | [advice.md](https://bitrix24.github.io/b24ui/raw/docs/components/advice.md) |
 | `B24Countdown` | Countdown timer with start/pause/abort control | [countdown.md](https://bitrix24.github.io/b24ui/raw/docs/components/countdown.md) |
 | `B24LocaleSelect` | Select for switching the app locale | [locale-select.md](https://bitrix24.github.io/b24ui/raw/docs/components/locale-select.md) |

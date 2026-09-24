@@ -108,7 +108,7 @@ Progress:
 - [ ] 2. Implement component in src/runtime/components/
 - [ ] 3. Create theme in src/theme/
 - [ ] 4. Export types from src/runtime/types/index.ts
-- [ ] 5. Register in ThemeDefaults interface (src/runtime/composables/useComponentProps.ts)
+- [ ] 5. Register in ThemeDefaults interface (src/runtime/types/theme.ts)
 - [ ] 6. Write tests in test/components/
 - [ ] 7. Create docs in docs/content/docs/2.components/
 - [ ] 8. Add playground page
