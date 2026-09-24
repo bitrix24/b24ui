@@ -154,7 +154,7 @@ Content panel with `#header`, `#body` (scrollable), `#footer`, and `#default` (r
 
 ### DashboardNavbar / DashboardToolbar
 
-Navbar: `#leading`, `#left`, `#default`, `#right` slots + `title` prop. Use `B24DashboardSidebarCollapse` in `#leading` to toggle sidebar on mobile.
+Navbar: `#leading`, `#left`, `#default`, `#right` slots + `title` prop. Use `B24DashboardSidebarCollapse` in `#leading` to collapse the sidebar on desktop. The navbar already renders a mobile toggle, customized with its `toggle` prop.
 Toolbar: same slots, sits below navbar for filters/actions.
 
 ### B24NavigationMenu in sidebar

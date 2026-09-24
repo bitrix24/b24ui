@@ -255,7 +255,11 @@ const groups = [{
 <template>
   <B24Button label="Search..." :icon="SearchIcon" color="air-tertiary" @click="isOpen = true" />
 
-  <B24CommandPalette v-model:open="isOpen" :groups="groups" placeholder="Type a command or search..." />
+  <B24Modal v-model:open="isOpen">
+    <template #content>
+      <B24CommandPalette :groups="groups" placeholder="Type a command or search..." close @update:open="isOpen = $event" />
+    </template>
+  </B24Modal>
 </template>
 ```
 

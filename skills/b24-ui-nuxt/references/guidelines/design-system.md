@@ -179,7 +179,7 @@ export default defineNuxtConfig({
 For dynamic components (e.g., `<component :is="...">`), pass an array of component names to guarantee they're included:
 
 ```ts
-componentDetection: ['Modal', 'Dropdown', 'Popover']
+componentDetection: ['Modal', 'DropdownMenu', 'Popover']
 ```
 
 ## CSS `@theme` customization
