@@ -475,7 +475,7 @@ Both arrays must stay in sync. Forgetting either side leaves an orphan page that
 
 ## Register in `ThemeDefaults`
 
-The `ThemeDefaults` interface in `src/runtime/composables/useComponentProps.ts` powers autocomplete inside `<B24Theme :props="{ componentName: { … } }">`. The CLI scaffolder (`pnpm cli make component`) auto-inserts the entry; only do this manually if you skipped the CLI:
+The `ThemeDefaults` interface in `src/runtime/types/theme.ts` powers autocomplete inside `<B24Theme :props="{ componentName: { … } }">`. The CLI scaffolder (`pnpm cli make component`) auto-inserts the entry; only do this manually if you skipped the CLI:
 
 ```ts
 export interface ThemeDefaults {

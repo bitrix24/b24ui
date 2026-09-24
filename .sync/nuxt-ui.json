@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "4fe6b29c8ff427694174d2d34ab1062795d16588",
+  "cursor": "21c5a7fbbd7d03e2a9f87408ece73d55b5b96b66",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2173,28 +2173,46 @@
       "summary": "chore(AGENTS): fix stale repl script and ThemeDefaults path — one of two hunks. `pnpm run repl` was already right here (guarded by `documented-scripts.spec.ts`). Step 5 of the component workflow pointed at `useComponentProps.ts`, which has no `ThemeDefaults` interface; it lives in `src/runtime/types/theme.ts`. The same stale path sits in the CLI (fixed upstream by `4bfb47d7`) and in `component-structure.md` (still stale upstream); both are handled with the `4bfb47d7` port."
     },
     "2a2062456e783b8d28b6cea8d6be14959d593e2c": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 636,
+      "b24ui_sha": "7ea75a56",
       "decision": "port",
       "summary": "docs(contributing): fix stale paths, categories and test commands — `documentation.md` ported and adapted: the front-matter comment listed 6 categories where the docs use 14; examples live in per-component subfolders (0 `.vue` files at the top level); and the category table was rebuilt from this fork's `category:` front matter, since upstream's rows name `PageHero` and `ContentNavigation`, which do not exist here, and the existing rows named `Icon` and `Tree` (absent) and put `Card`, `Separator` and `Calendar` in the wrong category — 40 examples across 13 rows now, 0 mismatches. `testing.md` not taken: the snapshot hunk would teach `vitest run -u <spec>`, and re-measured on vitest 4.1.11 `-u` still swallows the path (185 files run instead of 1), which is why this fork's doc says to update the whole suite; the coverage hunk was already handled here by `test:coverage`."
     },
     "e1bd0fbe00613cd0ed4981f851db41966025c13c": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 636,
+      "b24ui_sha": "7ea75a56",
       "decision": "port",
       "summary": "docs(mcp): clarify example and component tool descriptions — five tool descriptions ported, each checked against this fork's handler: `b24-ui-get-example` returns the code string only, `b24-ui-list-examples` returns `names`, and `b24-ui-get-template` returns the whole `templates.yml` item, which here also carries `deploy_links`, so its description mentions one-click deploys. Cross-references renamed to `b24-ui-*` and all five resolved against the tool files. The `7.ai/1.mcp.md` hunk has no counterpart. Observed, not changed: `Dashboard` and `Starter` appear twice in `templates.yml` (nuxt and vue) and the handler takes the first title match, same as upstream."
     },
     "1022010a3d2046b638df641c12a94f6e5cff09d0": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 636,
+      "b24ui_sha": "7ea75a56",
       "decision": "skip",
       "summary": "docs(chat): use latest web search tool and v7 note — the one hunk with a counterpart would be false here: \"the examples on this page target AI SDK v7\" while `chat.md` uses `system:` and `.toUIMessageStreamResponse()` throughout, both `@deprecated` in the installed `ai@7.0.107`. The v7 migration of this code was deferred in #238 (`dfbbfeb5`), though #425 has since moved the package to `^7`. The web-search and playground hunks have no counterpart: no Anthropic web-search tool here, and the playground runs DeepSeek with `tools: {}`. Filed as #635."
     },
     "4fe6b29c8ff427694174d2d34ab1062795d16588": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 636,
+      "b24ui_sha": "7ea75a56",
       "decision": "skip",
       "summary": "docs(Chat): keep page context in history so the prompt cache holds — the pre-image does not exist here: this fork interpolates the page into the system prompt (`ai.post.ts:74`) from a `new Chat()` transport body, not a last-message marker. The commit also loosens the page-path check from `^/docs/…` to any site path, which in this fork's shape would widen an injection surface in the most trusted part of the prompt, and its motivation is Anthropic's prompt cache while the docs chat here is DeepSeek. The page-in-system-prompt placement defeats DeepSeek's prefix cache too; that belongs to the #635 pass."
+    },
+    "4bfb47d74ed50a9e9723415038305875d5569777": {
+      "pr": "pending-merge",
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "chore(cli): register new components in `ThemeDefaults` again — verbatim; both files matched upstream's parent. The CLI wrote to `useComponentProps.ts`, which has no `ThemeDefaults` interface, so every scaffolded component silently skipped registration. The fix also replaces the insertion, and that half matters more here: the old body lexically sorted every line, and run against this fork's real `types/theme.ts` it moves 67 of 172 lines, separates comments from what they document, and hoists the nested `prose` entries so `radioGroup` … `user` land inside `prose?: {}` — still parsing. The wrong path was all that prevented it, so the two halves are one change. Also corrects the same stale path in `component-structure.md`, which upstream still carries. New `test/utils/cli-theme-defaults.spec.ts` (the CLI had no tests); six cases, each red under at least one of four mutations."
+    },
+    "a9370fbf670c7c450633928d583ac13e45f70ee3": {
+      "pr": "pending-merge",
+      "b24ui_sha": "pending-merge",
+      "decision": "n/a",
+      "summary": "docs(input): pin `outline` variant in floating label example — this fork's `Input` has no `variant` axis (its variants are `size`, `color`, `rounded`, `noPadding`, `noBorder`, `underline`, …), so `variant=\"outline\"` would be an unknown attribute. The example exists; there is nothing to pin."
+    },
+    "21c5a7fbbd7d03e2a9f87408ece73d55b5b96b66": {
+      "pr": "pending-merge",
+      "b24ui_sha": "pending-merge",
+      "decision": "n/a",
+      "summary": "docs(og-image): remove stray svg attributes in docs template — edits `Docs.takumi.vue`; this fork has no takumi og-image templates. Same as `f5699461`."
     }
   }
 }
