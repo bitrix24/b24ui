@@ -2215,14 +2215,14 @@
       "summary": "docs(og-image): remove stray svg attributes in docs template — edits `Docs.takumi.vue`; this fork has no takumi og-image templates. Same as `f5699461`."
     },
     "032a152119530795d39d1f97458baf375ff7ee5e": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 638,
+      "b24ui_sha": "fab024e2",
       "decision": "port",
       "summary": "fix(useFilter): keep labels and separators in place while sorting (#6995) — `filterGroups` gave structural items score -1 and then sorted the whole group ascending, so every label and separator was pulled to the top and matches crossed them; now each run of matches between structural items is sorted on its own. Logic matched upstream's parent (only this fork's JSDoc differs); applied unchanged. Upstream's `useFilter.spec.ts` is new and this fork had none; added first, it went red on both structural cases against the fork's code. A loop-bound mutation (`<=` → `<`) is also caught. `CommandPalette`, `InputMenu`, `SelectMenu`: 478 tests, no snapshot changed."
     },
     "7f0250eab69d04c42e137aa85c103e3dc83eec60": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 638,
+      "b24ui_sha": "fab024e2",
       "decision": "port",
       "summary": "fix(EditorToolbar): use tooltip text as `aria-label` on icon-only buttons (#7009) — an icon plus a tooltip, the documented configuration, left the button with no accessible name, since a tooltip never reaches assistive technology. Adds `'aria-label': baseProps.label ? undefined : item.tooltip?.text` to `getButtonProps`' defaults. Adapted: this fork's toolbar has no `variant`/`activeVariant`, so the key went into the fork's own defaults object. Upstream's tests added first with `@bitrix24/b24icons-vue` icons: 4 red before the fix. Mutations removing the label guard or letting the tooltip override an author's `aria-label` are each caught."
     }
