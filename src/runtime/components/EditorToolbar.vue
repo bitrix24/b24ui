@@ -255,9 +255,10 @@ function getButtonProps(item: EditorToolbarItem) {
   }
 
   return defu(baseProps, {
-    color: props.color,
-    activeColor: props.activeColor,
-    size: props.size
+    'aria-label': baseProps.label ? undefined : item.tooltip?.text,
+    'color': props.color,
+    'activeColor': props.activeColor,
+    'size': props.size
   })
 }
 
