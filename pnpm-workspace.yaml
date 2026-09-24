@@ -26,9 +26,6 @@ catalogMode: strict
 # against nuxt ^3.2.0) and `tailwindcss` (demo ^4.3.2 against everyone else's
 # ^4.3.3) — both converged upward here.
 catalog:
-  '@ai-sdk/deepseek': ^3.0.28
-  '@ai-sdk/mcp': 2.0.32
-  '@ai-sdk/vue': ^4.0.107
   '@bitrix24/b24icons-nuxt': ^2.0.7
   '@bitrix24/b24icons-vue': ^2.0.7
   '@bitrix24/b24ui-nuxt': 'workspace:*'
@@ -49,10 +46,6 @@ catalog:
   '@octokit/rest': ^22.0.1
   '@regle/core': ^1.29.1
   '@regle/rules': ^1.29.1
-  '@shikijs/core': ^4.4.2
-  '@shikijs/engine-javascript': ^4.4.2
-  '@shikijs/langs': ^4.4.2
-  '@shikijs/themes': ^4.4.2
   '@shikijs/types': ^4.4.3
   '@standard-schema/spec': ^1.1.0
   '@tailwindcss/postcss': ^4.3.3

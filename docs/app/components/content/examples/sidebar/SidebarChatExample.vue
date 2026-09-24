@@ -1,17 +1,14 @@
 <script setup lang="ts">
-import type { UIMessage } from 'ai'
-import { DefaultChatTransport, isTextUIPart } from 'ai'
-import { Chat } from '@ai-sdk/vue'
+import type { ChatMessageProps } from '@bitrix24/b24ui-nuxt'
 import { isPartStreaming } from '@bitrix24/b24ui-nuxt/utils/ai'
 import { Markdown } from '@comark/vue'
 import shiki from '@comark/vue/plugins/shiki'
 import OpenChatIcon from '@bitrix24/b24icons-vue/outline/OpenChatIcon'
 
-const config = useRuntimeConfig()
 const open = ref(true)
 const input = ref('')
 
-const messages: UIMessage[] = [
+const messages = ref<ChatMessageProps[]>([
   {
     id: '1',
     role: 'user',
@@ -22,19 +19,17 @@ const messages: UIMessage[] = [
     role: 'assistant',
     parts: [{ type: 'text', text: 'Bitrix24 UI is a Vue component library built on Reka UI, Tailwind CSS, and Tailwind Variants. It provides 130+ accessible components for building modern web apps.' }]
   }
-]
+])
 
-const chat = new Chat({
-  messages,
-  transport: new DefaultChatTransport({
-    api: `${config.public.baseUrl}/api/chat`
-  })
-})
-
+// A static demo: nothing is sent anywhere. Replace this with a call to your own endpoint.
 function onSubmit() {
-  if (!input.value.trim()) return
+  const text = input.value.trim()
+  if (!text) return
 
-  chat.sendMessage({ text: input.value })
+  messages.value.push(
+    { id: `${Date.now()}-user`, role: 'user', parts: [{ type: 'text', text }] },
+    { id: `${Date.now()}-assistant`, role: 'assistant', parts: [{ type: 'text', text: 'This demo is static, so nothing leaves the page. To get real answers, connect the prompt to your own endpoint — the Chat page shows how.' }] }
+  )
 
   input.value = ''
 }
@@ -84,14 +79,14 @@ const b24ui = {
     >
       <B24Theme :b24ui="b24ui">
         <B24ChatMessages
-          :messages="chat.messages"
-          :status="chat.status"
+          :messages="messages"
+          status="ready"
           compact
           class="px-0"
         >
           <template #content="{ message }">
             <template v-for="(part, index) in message.parts" :key="`${message.id}-${part.type}-${index}`">
-              <template v-if="isTextUIPart(part)">
+              <template v-if="part.type === 'text'">
                 <Markdown
                   v-if="message.role === 'assistant'"
                   :value="part.text"
@@ -111,19 +106,13 @@ const b24ui = {
       <template #footer>
         <B24ChatPrompt
           v-model="input"
-          :error="chat.error"
           :autofocus="false"
           variant="outline"
           size="sm"
           :b24ui="{ base: 'px-0' }"
           @submit="onSubmit"
         >
-          <B24ChatPromptSubmit
-            size="sm"
-            :status="chat.status"
-            @stop="chat.stop()"
-            @reload="chat.regenerate()"
-          />
+          <B24ChatPromptSubmit size="sm" status="ready" />
         </B24ChatPrompt>
       </template>
     </B24Sidebar>

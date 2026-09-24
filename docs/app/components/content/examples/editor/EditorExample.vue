@@ -7,7 +7,6 @@ import { Emoji, gitHubEmojis } from '@tiptap/extension-emoji'
 import { TextAlign } from '@tiptap/extension-text-align'
 import { CodeBlockShiki } from 'tiptap-extension-code-block-shiki'
 import { ImageUpload } from './EditorImageUploadExtension'
-import { useEditorCompletion } from './EditorUseCompletion'
 import EditorLinkPopover from './EditorLinkPopover.vue'
 import UndoIcon from '@bitrix24/b24icons-vue/outline/UndoIcon'
 import RedoIcon from '@bitrix24/b24icons-vue/outline/RedoIcon'
@@ -42,16 +41,6 @@ import SmileIcon from '@bitrix24/b24icons-vue/outline/SmileIcon'
 import HrIcon from '@bitrix24/b24icons-vue/editor/HrIcon'
 import PlusLIcon from '@bitrix24/b24icons-vue/outline/PlusLIcon'
 import DragLIcon from '@bitrix24/b24icons-vue/outline/DragLIcon'
-import CopilotIcon from '@bitrix24/b24icons-vue/solid/CopilotIcon'
-import CheckGrammarIcon from '@bitrix24/b24icons-vue/editor/CheckGrammarIcon'
-import MakeLongerIcon from '@bitrix24/b24icons-vue/editor/MakeLongerIcon'
-import MakeShorterIcon from '@bitrix24/b24icons-vue/editor/MakeShorterIcon'
-import IdeaLampIcon from '@bitrix24/b24icons-vue/outline/IdeaLampIcon'
-import PenIcon from '@bitrix24/b24icons-vue/actions/PenIcon'
-import TranslationIcon from '@bitrix24/b24icons-vue/outline/TranslationIcon'
-
-const config = useRuntimeConfig()
-const editorRef = useTemplateRef('editorRef')
 
 const value = ref(`# Building Modern Interfaces with Bitrix24 UI
 
@@ -96,16 +85,13 @@ Perfect for technical documentation:
 
 Whether you're building a blog, documentation site, or content management system, the Bitrix24 UI Editor provides everything you need for a professional editing experience. Visit [bitrix24.github.io/b24ui](https://bitrix24.github.io/b24ui/) to explore more components.`)
 
-const { extension: completionExtension, handlers: aiHandlers, isLoading: aiLoading } = useEditorCompletion(editorRef)
-
 const customHandlers = {
   imageUpload: {
     canExecute: (editor: Editor) => editor.can().insertContent({ type: 'imageUpload' }),
     execute: (editor: Editor) => editor.chain().focus().insertContent({ type: 'imageUpload' }),
     isActive: (editor: Editor) => editor.isActive('imageUpload'),
     isDisabled: undefined
-  },
-  ...aiHandlers
+  }
 } satisfies EditorCustomHandlers
 
 const fixedToolbarItems = [
@@ -254,72 +240,6 @@ const fixedToolbarItems = [
 ] satisfies EditorToolbarItem<typeof customHandlers>[][]
 
 const bubbleToolbarItems = computed(() => [
-  [
-    {
-      icon: CopilotIcon,
-      disabled: !config.public.useAI,
-      loading: aiLoading.value,
-      content: { align: 'start' },
-      b24ui: { leadingIcon: 'text-(--ui-color-copilot-accent-less-1)' },
-      items: [
-        {
-          kind: 'aiFix',
-          icon: CheckGrammarIcon,
-          label: 'Fix spelling & grammar'
-        }, {
-          kind: 'aiExtend',
-          icon: MakeLongerIcon,
-          label: 'Extend text'
-        }, {
-          kind: 'aiReduce',
-          icon: MakeShorterIcon,
-          label: 'Reduce text'
-        }, {
-          kind: 'aiSimplify',
-          icon: IdeaLampIcon,
-          label: 'Simplify text'
-        }, {
-          kind: 'aiContinue',
-          icon: PenIcon,
-          label: 'Continue sentence'
-        }, {
-          kind: 'aiSummarize',
-          icon: QuoteIcon,
-          label: 'Summarize'
-        }, {
-          icon: TranslationIcon,
-          label: 'Translate',
-          children: [
-            {
-              kind: 'aiTranslate',
-              language: 'English',
-              label: 'English'
-            },
-            {
-              kind: 'aiTranslate',
-              language: 'French',
-              label: 'French'
-            },
-            {
-              kind: 'aiTranslate',
-              language: 'German',
-              label: 'German'
-            },
-            {
-              kind: 'aiTranslate',
-              language: 'Russian',
-              label: 'Russian'
-            },
-            {
-              kind: 'aiTranslate',
-              language: 'Spanish',
-              label: 'Spanish'
-            }
-          ]
-        }
-      ]
-    }
-  ],
   [
     {
       label: 'Turn into',
@@ -590,18 +510,6 @@ const suggestionItems = [
   [
     {
       type: 'label',
-      label: 'AI'
-    },
-    {
-      disabled: !config.public.useAI,
-      kind: 'aiContinue',
-      label: 'Continue writing',
-      icon: PenIcon
-    }
-  ],
-  [
-    {
-      type: 'label',
       label: 'Style'
     },
     {
@@ -693,7 +601,6 @@ const emojiItems: EditorEmojiMenuItem[] = gitHubEmojis.filter(emoji => !emoji.na
 
 <template>
   <B24Editor
-    ref="editorRef"
     v-slot="{ editor, handlers }"
     v-model="value"
     content-type="markdown"
@@ -707,8 +614,7 @@ const emojiItems: EditorEmojiMenuItem[] = gitHubEmojis.filter(emoji => !emoji.na
           light: 'material-theme-lighter',
           dark: 'material-theme-palenight'
         }
-      }),
-      completionExtension
+      })
     ]"
     :handlers="customHandlers"
     placeholder="Write, type '/' for commands..."

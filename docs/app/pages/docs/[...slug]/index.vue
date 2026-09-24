@@ -7,7 +7,6 @@ import { resolveIcon } from '@bitrix24/b24ui-nuxt/utils'
 import DesignIcon from '@bitrix24/b24icons-vue/outline/DesignIcon'
 import FavoriteIcon from '@bitrix24/b24icons-vue/outline/FavoriteIcon'
 import MoreMIcon from '@bitrix24/b24icons-vue/outline/MoreMIcon'
-import AiStarsIcon from '@bitrix24/b24icons-vue/outline/AiStarsIcon'
 
 // const isDev = import.meta.dev
 
@@ -15,18 +14,10 @@ const route = useRoute()
 const { framework } = useFrameworks()
 const pageUrl = route.path
 const config = useRuntimeConfig()
-const appConfig = useAppConfig()
 
 definePageMeta({
   layout: 'docs'
 })
-
-// @memo this for NUXT.UI.docs
-const { open, messages } = useChat()
-const isOpen = computed(() => open.value)
-// @memo this for docus
-const { isEnabled } = useAssistant()
-// const { isEnabled, open, isOpen } = useAssistant()
 
 const { data: page } = await useAsyncData(kebabCase(pageUrl), () => queryCollection('docs').path(pageUrl).first())
 if (!page.value) {
@@ -115,12 +106,6 @@ const communityLinks = computed(() => [
   }
 ])
 
-const explainIcon = computed(() => appConfig.bxAssistant?.icons?.explain || AiStarsIcon)
-
-const showExplainWithAi = computed(() => {
-  return isEnabled.value && appConfig.bxAssistant?.explainWithAi !== false
-})
-
 const colorMode = useColorMode()
 const isDark = computed(() => {
   return colorMode.value === 'dark'
@@ -136,27 +121,6 @@ const cardColorContext = computed(() => {
 onMounted(() => {
   isMounted.value = true
 })
-
-// @todo fix this
-// @see docs/app/components/PageHeaderLinks.vue:16
-// const aiPrompt = computed(() => `I'm looking at this Bitrix24 UI documentation: ${page.value?.path}\nHelp me understand how to use it. Be ready to explain concepts, give examples, or help debug based on it.`)
-const aiPrompt = ref('Read this documentation page and summarize it. I want to ask questions about it.')
-
-function makeExplain() {
-  // @memo this for NUXT.UI.docs
-  messages.value = [
-    ...messages.value,
-    {
-      id: String(Date.now()),
-      role: 'user',
-      parts: [{ type: 'text', text: aiPrompt.value }]
-    }
-  ]
-  open.value = true
-
-  // @memo this for docus
-  // openAIChat(aiPrompt.value, true)
-}
 </script>
 
 <template>
@@ -164,8 +128,8 @@ function makeExplain() {
     v-if="page"
     :b24ui="{
       root: 'lg:gap-2.5 lg:py-3',
-      center: `flex flex-col lg:gap-4 ${open ? 'lg:col-span-10' : ''}`,
-      right: `order-first lg:order-last lg:top-[0px] ${open ? 'lg:hidden' : 'lg:col-span-2'}`
+      center: 'flex flex-col lg:gap-4',
+      right: 'order-first lg:order-last lg:top-[0px] lg:col-span-2'
     }"
   >
     <PageHeader>
@@ -189,15 +153,6 @@ function makeExplain() {
         />
       </template>
       <template #head-links>
-        <B24Button
-          v-if="showExplainWithAi"
-          :icon="explainIcon"
-          label="Explain with AI"
-          color="air-selection"
-          size="sm"
-          @click="makeExplain"
-        />
-
         <PageHeaderLinks />
 
         <B24DropdownMenu
@@ -243,7 +198,7 @@ function makeExplain() {
       </B24Card>
     </B24PageBody>
 
-    <template v-if="page?.body?.toc?.links?.length && !isOpen" #right>
+    <template v-if="page?.body?.toc?.links?.length" #right>
       <B24ContentToc
         :links="page.body.toc.links"
         class="sticky top-(--b24ui-header-height) px-3 py-3 pb-0 lg:p-4 lg:top-(--b24ui-header-height) scrollbar-thin scrollbar-transparent bg-(--ui-color-accent-soft-element-violet)/60 dark:bg-(--ui-color-copilot-bg-content-3)/40 lg:bg-transparent dark:lg:bg-transparent backdrop-blur-md lg:ms-0 overflow-y-auto max-h-[calc(100vh-var(--b24ui-header-height))] lg:col-span-2 order-first lg:order-last z-2"

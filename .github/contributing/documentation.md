@@ -12,7 +12,6 @@ MDC fails at render time, not at lint time, so a malformed block is invisible
 until something builds the site. After `pnpm dev:prepare`:
 
 ```bash
-NUXT_PUBLIC_USE_AI=false \
 NUXT_PUBLIC_SITE_URL=https://bitrix24.github.io \
 NUXT_PUBLIC_BASE_URL=/b24ui \
 NUXT_PUBLIC_CANONICAL_URL=https://bitrix24.github.io \

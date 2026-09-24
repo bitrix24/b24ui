@@ -1,22 +1,9 @@
 <script setup lang="ts">
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
-import AiStarsIcon from '@bitrix24/b24icons-vue/outline/AiStarsIcon'
 
 const route = useRoute()
 const { desktopLinks } = useHeader()
 const config = useRuntimeConfig()
-
-// @memo @memo this for NUXT.UI.docs
-const { open } = useChat()
-const { isEnabled: isAssistantEnabled } = useAssistant()
-const { track } = useAnalytics()
-
-function toggleChat() {
-  if (!open.value) {
-    track('AI Chat Opened', { source: 'header' })
-  }
-  open.value = !open.value
-}
 
 // region ColorMode ////
 const colorMode = useColorMode()
@@ -55,19 +42,6 @@ defineShortcuts({
       <B24Tooltip text="Search" :kbds="['meta', 'K']" ignore-non-keyboard-focus>
         <B24ContentSearchButton />
       </B24Tooltip>
-
-      <!-- @memo @memo this for NUXT.UI.docs -->
-      <B24Tooltip text="Ask AI" :kbds="['meta', 'I']" ignore-non-keyboard-focus>
-        <B24Button
-          v-if="isAssistantEnabled"
-          color="air-selection"
-          :icon="AiStarsIcon"
-          aria-label="Ask AI for help"
-          @click="toggleChat"
-        />
-      </B24Tooltip>
-      <!-- @memo this for docus -->
-      <!-- AssistantChat v-if="isAssistantEnabled" / -->
 
       <B24ColorModeButton />
 

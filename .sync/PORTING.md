@@ -426,30 +426,6 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   `test/utils/peer-dependencies.spec.ts`, which derives the floor from the Vue
   APIs `src/` actually imports rather than trusting the number.
 - **`reka-ui` and `vaul-vue` are exact-pinned because upstream pins them.**
-- **The AI provider packages are fork-only and must move with `ai`.** This fork's
-  docs assistant runs on DeepSeek: `@ai-sdk/deepseek` and `@ai-sdk/mcp` are
-  declared here and nowhere upstream, which has two consequences. An upstream
-  `chore(deps)` batch that bumps `ai` will never mention them, and
-  [`dep-parity.json`](./dep-parity.json) cannot catch the gap either — it only
-  records packages **both** trees declare, so a fork-only dependency is outside
-  it by construction.
-  Nothing in the gate catches it either. The packages peer-depend on `zod`, not
-  on `ai`, so `pnpm` stays quiet; `typecheck` passes because the provider is
-  still a valid module; and `docs:generate` runs with `NUXT_PUBLIC_USE_AI=false`
-  and no `DEEPSEEK_API_KEY`, so the request path is never exercised. The break
-  would first appear to a user.
-  The real coupling is the provider spec: `ai@7` uses `@ai-sdk/provider@4`,
-  while `@ai-sdk/deepseek@2` implements `@ai-sdk/provider@3`. **When `ai` moves
-  a major, check that one version of `@ai-sdk/provider` resolves across the whole
-  tree** — `grep -oE "@ai-sdk/provider@[0-9.]+" pnpm-lock.yaml | sort -u` should
-  print exactly one line — and mirror the providers across `docs/` *and* both
-  Nuxt playgrounds, which declare them too.
-  One trap while doing it: if the version you reach for is younger than a day,
-  `pnpm` **silently appends it to `minimumReleaseAgeExclude`** in
-  `pnpm-workspace.yaml` rather than refusing. That is a supply-chain policy being
-  waived, and in a diff it reads as one unremarkable config line. Check whether
-  the newest release is actually needed — a slightly older one on the same
-  provider spec usually is not — and read that list in every deps diff.
   Both sit at the same versions upstream does, with no caret, while everything
   around them is ranged. That is not a local workaround to revisit: it moves
   when upstream moves it, through an ordinary port. Do not independently bump
@@ -462,6 +438,23 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   minor may be pinned locally ahead of upstream, with a comment citing the
   advisory, because waiting for a port is not an acceptable answer to a live
   CVE. Everything else waits.
+- **This fork has no AI chat — not in the docs, not in the playgrounds.**
+  Removed on purpose: the docs "Ask AI" panel and its "Explain with AI" button,
+  the `bx-assistant` module, the `/api/ai`, `/api/chat` and `/api/completion`
+  routes, the Nuxt playground's chat page, and the Editor's AI completion
+  example. Upstream keeps all of them, so its commits to those files —
+  `docs/server/api/{ai,chat,completion}.post.ts`, `docs/app/components/chat/`,
+  `useChat` / `useAIChat`, the playground `server/api/` routes,
+  `useEditorCompletion` — are **n/a** here: absent, not skipped. Do not port
+  them back one fix at a time.
+  What stays, and still ports normally: the `Chat*` components in `src/`, their
+  docs pages (whose live examples use static messages rather than a backend),
+  and the AI SDK integration guide on `chat.md`, which is prose and code
+  samples. `src/` imports only **types** from `ai` (`UIMessage`, `ChatStatus`),
+  which is why `ai` remains a root `devDependency` while the docs and
+  playgrounds declare no AI SDK package at all. The MCP server, `llms.txt`, the
+  skills and the "Open in ChatGPT / Claude" page links are tooling for outside
+  agents, not chat, and stay.
 - **A `withDefaults` default on a prop that also flows through `useFormField`
   breaks the theme chain.** `useFormField` is handed the **raw** `_props`, so a
   `withDefaults` value lands on it and `formFieldX.value ?? props.X` can never
@@ -1003,3 +996,4 @@ same bug facing the other way and needs reading rather than diffing.
 - 2026-09-08 — fix of #479 (PR #554): added the §2 **`Table` emits `aria-sort`** invariant. Second divergence recorded today for the same reason as #497 — upstream has the defect, checked rather than assumed, and a port would take the fix back out. Worth recording two things from the measurement. First, `column.getCanSort()` turned out to be exactly the right predicate without needing a rule of its own: probed on a live mount, it is false both for a column that opts out with `enableSorting: false` and for a display column with no accessor, so the selection and actions columns stay silent while every accessor column is marked. Second, a reading error worth not repeating: the first pass counted 15 `<th>` in a snapshot and found one with neither `scope` nor `aria-sort`, because the tag regex was `<th[^>]*>` and a Tailwind arbitrary variant (`[&>div]:`) inside `class` ends the match early. The real count is 14, and an attribute-aware pattern gets it — the identical `[^>]*` truncation was found in `test/utils/skill-manifest.spec.ts` a week earlier, so this is the second time it has cost a wrong number. Last reviewed: 2026-09-08.
 - 2026-09-09 — decision on #392 (PR #563): added the §2 **`highlight()` skips a value-less match** invariant, and recorded the half that was decided *not* to change. The issue raised two behaviours as questions rather than bugs, and measurement separated them. The truncation budget scaling with the number of marks is real (13 characters per mark, reproduced at 1/2/3/4) but harmless and upstream's — a product preference with no defect behind it, so it stays. The value-less match was worse than the issue described: it reported "no live rendering difference today", which holds for the render path, but the loop returns on the first match it reaches, so a value-less match does not merely render as `''` — it **prevents a later real match from being highlighted at all**. That is what moved it from a question to a fix. Both behaviours are byte-identical to upstream at v4 HEAD, so the fix is the third recorded divergence in three days, all three of the same shape: upstream carries the defect, checked rather than assumed, and a port would silently take the fix back out. One process note: the first version of the new shadowing test failed on an expectation of `'<mark>alpha</mark> squad'` when the fixture's `label` is `'alpha team'` — `squad` is the neighbouring `suffix` constant. A fixture value recalled instead of read, which is rule 5.3 in miniature and cost one run. Last reviewed: 2026-09-09.
 - 2026-09-10 — decision on #352 (no PR beyond this entry): added the §2 **tiptap stays in `dependencies`** invariant. The issue asked for a measurement first — "#99 asked for this and it has never been done" — and the measurement is what settled it against the change: ≈9 MB for a consumer, traded against a breaking change requiring 17 manifest entries from every `B24Editor` user. Worth recording the wrong number as well as the right one, because the wrong one is the one a hurried check produces: `du -sm node_modules/.pnpm/@tiptap*` says 86 MB across 77 directories, and 77 is not 17 — pnpm keeps one store entry per package-and-peer-set combination, so the figure counts the same package many times over. Resolving each `node_modules/@tiptap/*` symlink to its real path and deduplicating gives 17 paths and 7 MB, of which `@tiptap/core` alone is 3.7 MB. Also confirmed the doubt the issue raised about upstream: their 17 tiptap peers really are **required** — `peerDependenciesMeta` lists eleven optional entries and no tiptap among them — so copying their shape wholesale would have imposed required peers for a component most apps never mount. Their peer count has grown from the 21 recorded in the issue to 30. Last reviewed: 2026-09-10.
+- 2026-09-24 — maintainer decision: the AI chat is removed from the docs site and both Nuxt playgrounds. Replaced the §2 **AI provider packages are fork-only and must move with `ai`** invariant (2026-08-18) with **This fork has no AI chat**: the providers it guarded — `@ai-sdk/deepseek`, `@ai-sdk/mcp` — are gone along with `@ai-sdk/vue`, and no manifest outside the root declares any AI SDK package, so there is no longer a provider-spec coupling to keep in step. `ai` stays as a root `devDependency` only because `src/` imports its types. Removing the old bullet also repaired a layout fault it had introduced: it had been inserted between the `reka-ui` / `vaul-vue` bullet and that bullet's own continuation paragraph ("Both sit at the same versions upstream does…"), so the continuation rendered under the AI bullet. Two further facts found while removing it: `NUXT_PUBLIC_USE_AI`, set in `ci.yml` and `deploy.yml`, had already had no effect — `runtimeConfig.public.useAI` was commented out, so the "Ask AI" search group and the Editor's AI menu items were never enabled; and upstream's docs-chat and AI-completion commits are now `n/a` here by absence, per the new bullet. Last reviewed: 2026-09-24.

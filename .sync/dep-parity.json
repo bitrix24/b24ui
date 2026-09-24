@@ -103,7 +103,6 @@
     },
     "docs/package.json": {
       "dependencies": {
-        "@ai-sdk/vue": "^4.0.107",
         "@comark/vue": "^0.7.0",
         "@nuxt/content": "^3.16.0",
         "@nuxt/image": "^2.0.0",
@@ -115,7 +114,6 @@
         "@tiptap/extension-emoji": "^3.31.3",
         "@tiptap/extension-text-align": "^3.31.3",
         "@vueuse/integrations": "^14.4.0",
-        "ai": "^7.0.107",
         "capture-website": "^5.1.0",
         "fflate": "^0.8.3",
         "joi": "^18.2.9",
@@ -148,13 +146,11 @@
     },
     "playgrounds/nuxt/package.json": {
       "dependencies": {
-        "@ai-sdk/vue": "^4.0.107",
         "@comark/vue": "^0.7.0",
         "@internationalized/date": "^3.12.4",
         "@nuxt/content": "^3.16.0",
         "@tiptap/extension-emoji": "^3.31.3",
         "@tiptap/extension-text-align": "^3.31.3",
-        "ai": "^7.0.107",
         "nuxt": "^4.5.2",
         "tailwindcss": "^4.3.3",
         "zod": "^4.6.5"

@@ -11,9 +11,6 @@
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
-    "@ai-sdk/deepseek": "catalog:",
-    "@ai-sdk/mcp": "catalog:",
-    "@ai-sdk/vue": "catalog:",
     "@comark/vue": "catalog:",
     "@nuxt/content": "catalog:",
     "@nuxt/image": "catalog:",
@@ -26,7 +23,6 @@
     "@tiptap/extension-emoji": "catalog:",
     "@tiptap/extension-text-align": "catalog:",
     "@vueuse/integrations": "catalog:",
-    "ai": "catalog:",
     "capture-website": "catalog:",
     "fflate": "catalog:",
     "joi": "catalog:",
@@ -41,10 +37,6 @@
     "prettier": "catalog:",
     "shiki": "catalog:",
     "shiki-transformer-color-highlight": "catalog:",
-    "@shikijs/core": "catalog:",
-    "@shikijs/engine-javascript": "catalog:",
-    "@shikijs/langs": "catalog:",
-    "@shikijs/themes": "catalog:",
     "sortablejs": "catalog:",
     "superstruct": "catalog:",
     "tailwindcss": "catalog:",

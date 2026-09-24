@@ -1,16 +1,11 @@
 <script setup lang="ts">
-import type { UIMessage } from 'ai'
-import { Chat } from '@ai-sdk/vue'
+import type { ChatMessageProps } from '@bitrix24/b24ui-nuxt'
 
-const messages: UIMessage[] = [{
+const messages: ChatMessageProps[] = [{
   id: '1',
   role: 'user',
   parts: [{ type: 'text', text: 'Hello! Can you help me with something?' }]
 }]
-
-const chat = new Chat({
-  messages
-})
 
 const size = 4
 const gap = 2
@@ -98,7 +93,7 @@ onUnmounted(() => {
 
 <template>
   <B24ChatMessages
-    :messages="chat.messages"
+    :messages="messages"
     status="submitted"
     :should-scroll-to-bottom="false"
   >

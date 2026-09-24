@@ -151,7 +151,7 @@ export default {
   DesignIcon, // "Edit this page" entry point
   FavoriteIcon, // "Star on GitHub" / favorite CTA
   MoreMIcon, // dropdown menu trigger
-  AiStarsIcon, // "Explain with AI" / AI assistant entry
+  AiStarsIcon, // AI / chat entry points (e.g. the Chat components category)
   EncloseTextInCodeTagIcon, // source / "View code" CTA
   PlayLIcon, // "Try it" / playground / REPL CTA
   CursorIcon, // Cursor IDE — open prompt in app
