@@ -3,7 +3,7 @@ import { queryCollection } from '@nuxt/content/server'
 
 export default defineMcpTool({
   title: 'Get Template',
-  description: 'Retrieves template details and setup instructions',
+  description: 'Retrieves a template by its title (case-insensitive): description, framework, features, and links to its live preview, GitHub repository and one-click deploys. Does not include setup instructions or source code. Use `b24-ui-list-templates` to find the exact title.',
   annotations: {
     readOnlyHint: true,
     destructiveHint: false,
