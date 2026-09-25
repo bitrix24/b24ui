@@ -2188,7 +2188,7 @@
       "pr": 636,
       "b24ui_sha": "7ea75a56",
       "decision": "skip",
-      "summary": "docs(chat): use latest web search tool and v7 note — the one hunk with a counterpart would be false here: \"the examples on this page target AI SDK v7\" while `chat.md` uses `system:` and `.toUIMessageStreamResponse()` throughout, both `@deprecated` in the installed `ai@7.0.107`. The v7 migration of this code was deferred in #238 (`dfbbfeb5`), though #425 has since moved the package to `^7`. The web-search and playground hunks have no counterpart: no Anthropic web-search tool here, and the playground runs DeepSeek with `tools: {}`. Filed as #635."
+      "summary": "docs(chat): use latest web search tool and v7 note — the one hunk with a counterpart would be false here: \"the examples on this page target AI SDK v7\" while `chat.md` uses `system:` and `.toUIMessageStreamResponse()` throughout, both `@deprecated` in the installed `ai@7.0.107`. The v7 migration of this code was deferred in #238 (`dfbbfeb5`), though #425 has since moved the package to `^7`. The playground hunk had no counterpart (DeepSeek, `tools: {}`). Filed as #635. Corrected 2026-09-25: the entry originally also called the web-search hunk counterpart-less, which was wrong — `chat.md` carries `webSearch_20250305`; a truncated grep hid it. Both `chat.md` hunks were taken later with the #635 v7 migration of the Chat docs samples; the decision stays `skip` as recorded at processing time."
     },
     "4fe6b29c8ff427694174d2d34ab1062795d16588": {
       "pr": 636,
