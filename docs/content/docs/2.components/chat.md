@@ -30,7 +30,7 @@ Bitrix24 UI provides a set of components designed to build AI-powered chat inter
 
 ## Installation
 
-The Chat components are designed to be used with the [Vercel AI SDK](https://ai-sdk.dev/), specifically the [`Chat`](https://ai-sdk.dev/docs/reference/ai-sdk-ui/use-chat) class for managing chat state and streaming responses.
+The Chat components are designed to be used with the [Vercel AI SDK](https://ai-sdk.dev/), specifically the [`useChat`](https://ai-sdk.dev/docs/reference/ai-sdk-ui/use-chat) composable for managing chat state and streaming responses. The examples on this page target AI SDK v7.
 
 Install the required dependencies:
 
@@ -59,18 +59,21 @@ bun add ai @ai-sdk/gateway @ai-sdk/vue
 Create a server API endpoint to handle chat requests using [`streamText`](https://ai-sdk.dev/docs/reference/ai-sdk-core/stream-text). You can use the [Vercel AI Gateway](https://vercel.com/ai-gateway) to access AI models through a centralized endpoint:
 
 ```ts [server/api/chat.post.ts]
-import { streamText, convertToModelMessages } from 'ai'
+import { streamText, convertToModelMessages, toUIMessageStream, createUIMessageStreamResponse } from 'ai'
 import { gateway } from '@ai-sdk/gateway'
 
 export default defineEventHandler(async (event) => {
   const { messages } = await readBody(event)
 
-  return streamText({
-    model: gateway('anthropic/claude-sonnet-4.6'),
+  const result = streamText({
+    model: gateway('anthropic/claude-sonnet-5'),
     maxOutputTokens: 10000,
-    system: 'You are a helpful assistant.',
+    instructions: 'You are a helpful assistant.',
     messages: await convertToModelMessages(messages)
-  }).toUIMessageStreamResponse()
+  })
+
+  const stream = toUIMessageStream({ stream: result.stream })
+  return createUIMessageStreamResponse({ stream })
 })
 ```
 
@@ -79,16 +82,16 @@ export default defineEventHandler(async (event) => {
 To enable [reasoning](https://ai-sdk.dev/docs/ai-sdk-ui/chatbot#reasoning), configure `providerOptions` for your provider ([Anthropic](https://ai-sdk.dev/providers/ai-sdk-providers/anthropic#reasoning), [Google](https://ai-sdk.dev/providers/ai-sdk-providers/google-generative-ai#thinking), [OpenAI](https://ai-sdk.dev/providers/ai-sdk-providers/openai#reasoning)):
 
 ```ts [server/api/chat.post.ts]
-import { streamText, convertToModelMessages } from 'ai'
+import { streamText, convertToModelMessages, toUIMessageStream, createUIMessageStreamResponse } from 'ai'
 import { gateway } from '@ai-sdk/gateway'
 
 export default defineEventHandler(async (event) => {
   const { messages } = await readBody(event)
 
-  return streamText({
-    model: gateway('anthropic/claude-sonnet-4.6'),
+  const result = streamText({
+    model: gateway('anthropic/claude-sonnet-5'),
     maxOutputTokens: 10000,
-    system: 'You are a helpful assistant.',
+    instructions: 'You are a helpful assistant.',
     messages: await convertToModelMessages(messages),
     providerOptions: {
       anthropic: {
@@ -108,7 +111,10 @@ export default defineEventHandler(async (event) => {
         reasoningSummary: 'detailed'
       }
     }
-  }).toUIMessageStreamResponse()
+  })
+
+  const stream = toUIMessageStream({ stream: result.stream })
+  return createUIMessageStreamResponse({ stream })
 })
 ```
 
@@ -119,59 +125,68 @@ Some providers offer built-in web search tools: [Anthropic](https://ai-sdk.dev/p
 ::code-group
 
 ```ts [Anthropic]
-import { streamText, convertToModelMessages } from 'ai'
+import { streamText, convertToModelMessages, toUIMessageStream, createUIMessageStreamResponse } from 'ai'
 import { anthropic } from '@ai-sdk/anthropic'
 import { gateway } from '@ai-sdk/gateway'
 
 export default defineEventHandler(async (event) => {
   const { messages } = await readBody(event)
 
-  return streamText({
-    model: gateway('anthropic/claude-sonnet-4.6'),
-    system: 'You are a helpful assistant.',
+  const result = streamText({
+    model: gateway('anthropic/claude-sonnet-5'),
+    instructions: 'You are a helpful assistant.',
     messages: await convertToModelMessages(messages),
     tools: {
-      web_search: anthropic.tools.webSearch_20250305({})
+      web_search: anthropic.tools.webSearch_20260209({})
     }
-  }).toUIMessageStreamResponse()
+  })
+
+  const stream = toUIMessageStream({ stream: result.stream })
+  return createUIMessageStreamResponse({ stream })
 })
 ```
 
 ```ts [Google]
-import { streamText, convertToModelMessages } from 'ai'
+import { streamText, convertToModelMessages, toUIMessageStream, createUIMessageStreamResponse } from 'ai'
 import { google } from '@ai-sdk/google'
 import { gateway } from '@ai-sdk/gateway'
 
 export default defineEventHandler(async (event) => {
   const { messages } = await readBody(event)
 
-  return streamText({
+  const result = streamText({
     model: gateway('google/gemini-3-flash'),
-    system: 'You are a helpful assistant.',
+    instructions: 'You are a helpful assistant.',
     messages: await convertToModelMessages(messages),
     tools: {
       google_search: google.tools.googleSearch({})
     }
-  }).toUIMessageStreamResponse()
+  })
+
+  const stream = toUIMessageStream({ stream: result.stream })
+  return createUIMessageStreamResponse({ stream })
 })
 ```
 
 ```ts [OpenAI]
-import { streamText, convertToModelMessages } from 'ai'
+import { streamText, convertToModelMessages, toUIMessageStream, createUIMessageStreamResponse } from 'ai'
 import { openai } from '@ai-sdk/openai'
 import { gateway } from '@ai-sdk/gateway'
 
 export default defineEventHandler(async (event) => {
   const { messages } = await readBody(event)
 
-  return streamText({
+  const result = streamText({
     model: gateway('openai/gpt-5-nano'),
-    system: 'You are a helpful assistant.',
+    instructions: 'You are a helpful assistant.',
     messages: await convertToModelMessages(messages),
     tools: {
       web_search: openai.tools.webSearch({})
     }
-  }).toUIMessageStreamResponse()
+  })
+
+  const stream = toUIMessageStream({ stream: result.stream })
+  return createUIMessageStreamResponse({ stream })
 })
 ```
 
@@ -202,8 +217,7 @@ yarn add @ai-sdk/mcp
 Then, configure your server endpoint to use MCP tools:
 
 ```ts [server/api/chat.post.ts]
-import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js'
-import { streamText, convertToModelMessages, stepCountIs } from 'ai'
+import { streamText, convertToModelMessages, isStepCount, toUIMessageStream, createUIMessageStreamResponse } from 'ai'
 import { createMCPClient } from '@ai-sdk/mcp'
 import { gateway } from '@ai-sdk/gateway'
 
@@ -213,23 +227,32 @@ export default defineEventHandler(async (event) => {
   const httpClient = await createMCPClient({
     transport: { type: 'http', url: 'https://your-app.com/mcp' }
   })
-  const tools = await httpClient.tools()
+  try {
+    const tools = await httpClient.tools()
 
-  return streamText({
-    model: gateway('anthropic/claude-sonnet-4.6'),
-    maxOutputTokens: 10000,
-    system: 'You are a helpful assistant. Use your tools to search for relevant information before answering questions.',
-    messages: await convertToModelMessages(messages),
-    stopWhen: stepCountIs(6),
-    tools,
-    onFinish: async () => {
-      await httpClient.close()
-    },
-    onError: async (error) => {
-      console.error('streamText error:', error)
-      await httpClient.close()
-    }
-  }).toUIMessageStreamResponse()
+    const result = streamText({
+      model: gateway('anthropic/claude-sonnet-5'),
+      maxOutputTokens: 10000,
+      instructions: 'You are a helpful assistant. Use your tools to search for relevant information before answering questions.',
+      messages: await convertToModelMessages(messages),
+      stopWhen: isStepCount(6),
+      tools,
+      onEnd: async () => {
+        await httpClient.close()
+      },
+      onError: async (error) => {
+        console.error(error)
+        await httpClient.close()
+      }
+    })
+
+    const stream = toUIMessageStream({ stream: result.stream })
+    return createUIMessageStreamResponse({ stream })
+  } catch (error) {
+    // Close the MCP client if setup fails before streaming starts
+    await httpClient.close()
+    throw error
+  }
 })
 ```
 
@@ -262,7 +285,7 @@ bun add ai @ai-sdk/deepseek @ai-sdk/vue
 Create a server API endpoint:
 
 ```ts [server/api/chat.post.ts]
-import { streamText, convertToModelMessages } from 'ai'
+import { streamText, convertToModelMessages, toUIMessageStream, createUIMessageStreamResponse } from 'ai'
 import { createDeepSeek } from '@ai-sdk/deepseek'
 
 export default defineEventHandler(async (event) => {
@@ -272,19 +295,22 @@ export default defineEventHandler(async (event) => {
     apiKey: process.env.DEEPSEEK_API_KEY ?? ''
   })
 
-  return streamText({
+  const result = streamText({
     model: deepseek('deepseek-reasoner'), // or 'deepseek-chat'
     maxOutputTokens: 10000,
-    system: 'You are a helpful assistant.',
+    instructions: 'You are a helpful assistant.',
     messages: await convertToModelMessages(messages)
-  }).toUIMessageStreamResponse()
+  })
+
+  const stream = toUIMessageStream({ stream: result.stream })
+  return createUIMessageStreamResponse({ stream })
 })
 ```
 
 **Reasoning**
 
 ```ts [server/api/chat.post.ts]
-import { streamText, convertToModelMessages } from 'ai'
+import { streamText, convertToModelMessages, toUIMessageStream, createUIMessageStreamResponse } from 'ai'
 import { createDeepSeek } from '@ai-sdk/deepseek'
 
 export default defineEventHandler(async (event) => {
@@ -294,10 +320,10 @@ export default defineEventHandler(async (event) => {
     apiKey: process.env.DEEPSEEK_API_KEY ?? ''
   })
 
-  return streamText({
+  const result = streamText({
     model: deepseek('deepseek-reasoner'), // or 'deepseek-chat'
     maxOutputTokens: 10000,
-    system: 'You are a helpful assistant.',
+    instructions: 'You are a helpful assistant.',
     messages: await convertToModelMessages(messages),
     providerOptions: {
       openai: {
@@ -305,15 +331,17 @@ export default defineEventHandler(async (event) => {
         reasoningSummary: 'detailed'
       }
     }
-  }).toUIMessageStreamResponse()
+  })
+
+  const stream = toUIMessageStream({ stream: result.stream })
+  return createUIMessageStreamResponse({ stream })
 })
 ```
 
 **Tool Calling (MCP)**
 
 ```ts [server/api/chat.post.ts]
-import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js'
-import { streamText, convertToModelMessages, stepCountIs, smoothStream } from 'ai'
+import { streamText, convertToModelMessages, isStepCount, smoothStream, toUIMessageStream, createUIMessageStreamResponse } from 'ai'
 import { createMCPClient } from '@ai-sdk/mcp'
 import { createDeepSeek } from '@ai-sdk/deepseek'
 
@@ -324,28 +352,40 @@ export default defineEventHandler(async (event) => {
     throw createError({ status: 400, message: 'Invalid or missing messages array.' })
   }
 
+  const deepseek = createDeepSeek({
+    apiKey: process.env.DEEPSEEK_API_KEY ?? ''
+  })
+
   const httpClient = await createMCPClient({
     transport: { type: 'http', url: 'https://your-app.com/mcp' }
   })
-  const tools = await httpClient.tools()
+  try {
+    const tools = await httpClient.tools()
 
-  return streamText({
-    model: deepseek('deepseek-reasoner'), // or 'deepseek-chat'
-    maxOutputTokens: 10000,
-    providerOptions: {},
-    system: 'You are a helpful assistant. Use your tools to search for relevant information before answering questions.',
-    messages: await convertToModelMessages(messages),
-    experimental_transform: smoothStream(),
-    stopWhen: stepCountIs(6),
-    tools,
-    onFinish: async () => {
-      await httpClient.close()
-    },
-    onError: async (error) => {
-      console.error('streamText error:', error)
-      await httpClient.close()
-    }
-  }).toUIMessageStreamResponse()
+    const result = streamText({
+      model: deepseek('deepseek-reasoner'), // or 'deepseek-chat'
+      maxOutputTokens: 10000,
+      instructions: 'You are a helpful assistant. Use your tools to search for relevant information before answering questions.',
+      messages: await convertToModelMessages(messages),
+      experimental_transform: smoothStream(),
+      stopWhen: isStepCount(6),
+      tools,
+      onEnd: async () => {
+        await httpClient.close()
+      },
+      onError: async (error) => {
+        console.error(error)
+        await httpClient.close()
+      }
+    })
+
+    const stream = toUIMessageStream({ stream: result.stream })
+    return createUIMessageStreamResponse({ stream })
+  } catch (error) {
+    // Close the MCP client if setup fails before streaming starts
+    await httpClient.close()
+    throw error
+  }
 })
 ```
 
@@ -353,25 +393,24 @@ export default defineEventHandler(async (event) => {
 
 ## Client Setup
 
-Use the `Chat` class from `@ai-sdk/vue` to manage chat state and connect to your server endpoint:
+Use the `useChat` composable from `@ai-sdk/vue` to manage chat state and connect to your server endpoint:
 
 ```vue
 <script setup lang="ts">
-import type { UIMessage } from 'ai'
 import { isReasoningUIPart, isTextUIPart, isToolUIPart, getToolName } from 'ai'
-import { Chat } from '@ai-sdk/vue'
-import { isPartStreaming, isToolStreaming } from '@bitrix24/b24ui-nuxt'
+import { useChat } from '@ai-sdk/vue'
+import { isPartStreaming, isToolStreaming } from '@bitrix24/b24ui-nuxt/utils/ai'
 
 const input = ref('')
 
-const chat = new Chat({
+const { messages, status, error, sendMessage, regenerate, stop } = useChat({
   onError(error) {
     console.error(error)
   }
 })
 
 function onSubmit() {
-  chat.sendMessage({ text: input.value })
+  sendMessage({ text: input.value })
 
   input.value = ''
 }
@@ -379,8 +418,8 @@ function onSubmit() {
 
 <template>
   <B24ChatMessages
-    :messages="chat.messages"
-    :status="chat.status"
+    :messages="messages"
+    :status="status"
   >
     <template #content="{ message }">
       <template
@@ -422,13 +461,13 @@ function onSubmit() {
 
   <B24ChatPrompt
     v-model="input"
-    :error="chat.error"
+    :error="error"
     @submit="onSubmit"
   >
     <B24ChatPromptSubmit
-      :status="chat.status"
-      @stop="chat.stop()"
-      @reload="chat.regenerate()"
+      :status="status"
+      @stop="stop()"
+      @reload="regenerate()"
     />
   </B24ChatPrompt>
 </template>

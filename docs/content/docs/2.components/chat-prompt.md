@@ -88,19 +88,19 @@ Check the **Chat** overview page for installation instructions, server setup and
 
 You can also use it as a starting point for a chat interface.
 
-```vue [pages/index.vue] {2,4,8-15,23,25}
+```vue [pages/index.vue] {2,4,8-15,24,25}
 <script setup lang="ts">
-import { Chat } from '@ai-sdk/vue'
+import { useChat } from '@ai-sdk/vue'
 
 const input = ref('')
 
-const chat = new Chat()
+const { messages, status, sendMessage } = useChat()
 
 async function onSubmit() {
-  chat.sendMessage({ text: input.value })
+  sendMessage({ text: input.value })
 
   // Navigate to chat page after first message
-  if (chat.messages.length === 1) {
+  if (messages.value.length === 1) {
     await navigateTo('/chat')
   }
 }
@@ -113,7 +113,7 @@ async function onSubmit() {
         <h1>How can I help you today?</h1>
   
         <B24ChatPrompt v-model="input" @submit="onSubmit">
-          <B24ChatPromptSubmit :status="chat.status" />
+          <B24ChatPromptSubmit :status="status" />
         </B24ChatPrompt>
       </B24Container>
     </template>
