@@ -40,7 +40,7 @@ export default {
       'text-start',
       'text-(length:--ui-size-sm)',
       'text-(--ui-color-base-3)',
-      'bitrix-mobile:[&_[data-slot="itemLabel"]]:text-(--ui-color-base-5)',
+      'bitrix-mobile:[&_[data-slot=itemLabel]]:text-(--ui-color-base-5)',
       'font-(--ui-font-weight-normal)',
       'after:ms-2 after:block after:flex-1 after:min-w-3 after:h-px after:bg-(--ui-color-divider-vibrant-default)'
     ].join(' '),
@@ -72,7 +72,7 @@ export default {
       'data-[state=open]:bg-(--ui-color-base-black-fixed)/6 dark:data-[state=open]:bg-(--ui-color-base-black-fixed)',
       'bitrix-mobile:data-[state=open]:bg-(--ui-color-bg-state-hover-default)',
       'transition-colors',
-      'bitrix-mobile:[[data-slot="item"]+&]:border-t',
+      'bitrix-mobile:[[data-slot=item]+&]:border-t',
       'bitrix-mobile:border-t-(--ui-color-divider-vibrant-default)',
       'bitrix-mobile:data-highlighted:bg-(--ui-color-bg-state-hover-default)'
     ].join(' '),
