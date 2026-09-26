@@ -4,13 +4,13 @@
 @import './air-design-tokens/index.css';
 @source './components';
 
-@variant light (&:where(.light, .light *));
-@variant edge-dark (&:where(.edge-dark, .edge-dark *));
-@variant edge-light (&:where(.edge-light, .edge-light *));
-@variant dark (&:where(.dark, .dark *));
-@variant bitrix-mobile (&:where(html[data-platform="bitrix-mobile"] *));
-@variant bitrix-desktop (&:where(html[data-platform="bitrix-desktop"] *));
-@variant web (&:where(html[data-platform="web"] *));
+@custom-variant light (&:where(.light, .light *));
+@custom-variant edge-dark (&:where(.edge-dark, .edge-dark *));
+@custom-variant edge-light (&:where(.edge-light, .edge-light *));
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant bitrix-mobile (&:where(html[data-platform="bitrix-mobile"] *));
+@custom-variant bitrix-desktop (&:where(html[data-platform="bitrix-desktop"] *));
+@custom-variant web (&:where(html[data-platform="web"] *));
 
 @layer base {
   /*
