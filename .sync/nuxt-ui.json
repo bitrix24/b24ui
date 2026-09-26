@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "897739491a24642c6678cf6ce10e1638ff883d35",
+  "cursor": "5a04c6c432be5b6e793366a9338b83f20c7847b7",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2233,16 +2233,28 @@
       "summary": "chore(deps): update pnpm.catalog.default reka-ui to v2.10.5 (#7017) — `reka-ui` is exact-pinned here because upstream pins it and moves only through a port; the catalog line matched upstream's pre-image. Lockfile delta is exactly `reka-ui@2.10.4` → `2.10.5`, same 9+/9- size as upstream's, and `--frozen-lockfile` passes. Release-age checked first: 2.10.5 was published 2026-09-21, so no `minimumReleaseAgeExclude` entry was written. A wide patch — the tarball diff touches Tree, Tooltip, Listbox, Drawer, Dialog, Select, PinInput, NumberField, Menu, DismissableLayer and Collection — so the full suite with snapshots is the real check. The pre-existing `reka-ui@2.9.9` copy belongs to the docs site's `nuxt-schema-org` devtools layer, not the library."
     },
     "584016bdec75b1eb799d30ec95eb85ed3b49d38b": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 644,
+      "b24ui_sha": "079635b6",
       "decision": "port",
       "summary": "fix(module): use `@custom-variant` for `light` and `dark` variants (#7023) — the documented form for defining a variant. Not a behaviour change here: `tailwindcss@4.3.3` renames a top-level body-less `@variant` to `@custom-variant` itself (a shim in `dist/lib.js`), and compiling the real `src/runtime/index.css` before and after with all seven variants in use gives byte-identical output (284,253 bytes). Extended from upstream's two variants to all seven this fork defines the same way — `light`, `dark`, `edge-dark`, `edge-light`, `bitrix-mobile`, `bitrix-desktop`, `web` — so the file is not left half on the shim."
     },
     "897739491a24642c6678cf6ce10e1638ff883d35": {
+      "pr": 644,
+      "b24ui_sha": "079635b6",
+      "decision": "port",
+      "summary": "fix(Form): include nested forms in parent `dirty` state (#6545) — a parent form's `dirty` looked only at its own fields, and a successful submit cleared only those. Now `dirty` also reflects any attached nested form, and nested forms pass a `clearDirty` on attach that submit calls recursively. Every changed line matched upstream's parent; applied by exact line where `git apply` refused on context. Upstream's test, added first on the existing `FormNestedFields` fixture, went red against the fork's code (2, both projects); a mutation that clears only the parent's own set on submit turns the last assertion red, so both halves are covered."
+    },
+    "12e51704958d5d4d1d1e7dbe5ec1c62b7878a0c6": {
+      "pr": "pending-merge",
+      "b24ui_sha": "pending-merge",
+      "decision": "skip",
+      "summary": "chore(github): report bundle size on pull requests (#7032) — 35 files of repository tooling: five `test/bundle/` fixture apps added as workspace packages, a `pnpm run size` script, and two workflows (a `pull_request` build, a `workflow_run` commenter holding `pull-requests: write` over the PR-built artifact). Nothing ships (`files` has no `test/`, no `src/` change); as written it would be inert here — it triggers on `v4`/`v5`, and the fixtures import `@nuxt/ui` / `@nuxt/ui/vite`. Adopting it means rewriting the fixtures, retargeting at `main` and reviewing the privileged workflow on its own — a separate task, not a port."
+    },
+    "5a04c6c432be5b6e793366a9338b83f20c7847b7": {
       "pr": "pending-merge",
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(Form): include nested forms in parent `dirty` state (#6545) — a parent form's `dirty` looked only at its own fields, and a successful submit cleared only those. Now `dirty` also reflects any attached nested form, and nested forms pass a `clearDirty` on attach that submit calls recursively. Every changed line matched upstream's parent; applied by exact line where `git apply` refused on context. Upstream's test, added first on the existing `FormNestedFields` fixture, went red against the fork's code (2, both projects); a mutation that clears only the parent's own set on submit turns the last assertion red, so both halves are covered."
+      "summary": "fix(theme): drop double quotes from class strings (#7039) — theme templates are `JSON.stringify`-ed into `.nuxt/b24ui/*.ts`, so a `\"` in a class becomes `\\\"`, Tailwind extracts the candidate with the backslashes and the emitted rule matches nothing; the docs site masked it by also scanning `src/`, consumers got only the broken rule. Upstream's hunks are n/a (`input-tags` has no such class; the fork has no Marquee). The fork's four instances — `bitrix-mobile:` `[data-slot=\"itemLabel\"]` / `[data-slot=\"item\"]` in `context-menu` and `dropdown-menu` — are unquoted; compiled with `tailwindcss@4.3.3` they now emit matching rules. New `theme-no-escaped-quotes.spec.ts` renders every theme template and fails on `\\\"`: red on exactly those four lines before, green after."
     }
   }
 }
