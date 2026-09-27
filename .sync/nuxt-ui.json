@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "5a04c6c432be5b6e793366a9338b83f20c7847b7",
+  "cursor": "e8756fd3a8aaab3cb434f1dfe8d32559330f38a9",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2255,6 +2255,12 @@
       "b24ui_sha": "32ad4893",
       "decision": "port",
       "summary": "fix(theme): drop double quotes from class strings (#7039) — theme templates are `JSON.stringify`-ed into `.nuxt/b24ui/*.ts`, so a `\"` in a class becomes `\\\"`, Tailwind extracts the candidate with the backslashes and the emitted rule matches nothing; the docs site masked it by also scanning `src/`, consumers got only the broken rule. Upstream's hunks are n/a (`input-tags` has no such class; the fork has no Marquee). The fork's four instances — `bitrix-mobile:` `[data-slot=\"itemLabel\"]` / `[data-slot=\"item\"]` in `context-menu` and `dropdown-menu` — are unquoted; compiled with `tailwindcss@4.3.3` they now emit matching rules. New `theme-no-escaped-quotes.spec.ts` renders every theme template and fails on `\\\"`: red on exactly those four lines before, green after."
+    },
+    "e8756fd3a8aaab3cb434f1dfe8d32559330f38a9": {
+      "pr": "pending-merge",
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "fix(Table): keep footer separator above pinned columns (#7047) — the divider is an absolute `<tr data-slot=\"separator\">` at `z-1`, pinned cells are `sticky` at `z-1` too; in `tfoot` the separator comes before the footer row, so pinned footer cells painted over it. Same structure in the fork (checked in `table.ts` and `Table.vue`); same one-line fix, `tfoot: 'relative [&>[data-slot=separator]]:z-2'`, which `tailwindcss@4.3.3` compiles to `> [data-slot=separator] { z-index: 2 }`. Upstream's `with column pinning and footer` snapshot case added and recorded on the fork's code first; the theme change turns it red, so it covers the class. The stacking itself is not observable in happy-dom."
     }
   }
 }
