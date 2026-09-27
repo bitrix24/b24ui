@@ -282,6 +282,7 @@ describe('Table', () => {
     // `with virtualize` (#454). `with row pinning` on its own does assert
     // something and stays. Same shape as ChatMessages' viewport slot: not a
     // fixture to fix, a branch this environment cannot reach.
+    ['with column pinning and footer', { props: { ...props, columns, columnPinning: { left: ['id'], right: ['actions'] } } }],
     ['with as', { props: { ...props, as: 'section' } }],
     ['with class', { props: { ...props, class: 'absolute' } }],
     ['with b24ui', { props: { ...props, b24ui: { base: 'table-auto' } } }],

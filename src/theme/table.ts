@@ -28,7 +28,7 @@ export default {
       '[&>tr]:last:[&>td]:border-b-0',
       'divide-y divide-(--ui-color-divider-default)'
     ].join(' '),
-    tfoot: 'relative',
+    tfoot: 'relative [&>[data-slot=separator]]:z-2',
     tr: [
       'data-[selected=true]:bg-(--ui-color-bg-content-tertiary)',
       'light:data-[selected=true]:bg-[#f4fcde]'
