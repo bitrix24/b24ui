@@ -59,6 +59,18 @@ describe('DashboardSearch', () => {
     }
   )
 
+  // Upstream's test covers ContentSearch only; the same fallback changed here.
+  it('labels the dialog with the translated search label', async () => {
+    const wrapper = await mountSuspended(DashboardWrapper, { props })
+
+    const dialog = wrapper.find('[role="dialog"]')
+    const title = wrapper.find(`#${dialog.attributes('aria-labelledby')}`)
+    expect(title.text()).toBe('Search…')
+    expect(wrapper.html()).not.toContain('dashboardSearch.')
+
+    wrapper.unmount()
+  })
+
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(DashboardWrapper, {
       props

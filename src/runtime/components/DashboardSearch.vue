@@ -107,7 +107,7 @@ useRuntimeHook('dashboard:search:toggle', () => {
   open.value = !open.value
 })
 
-const { t } = useLocale()
+const { t, locale } = useLocale()
 // eslint-disable-next-line vue/no-dupe-keys
 const colorMode = useColorMode()
 const appConfig = useAppConfig() as DashboardSearch['AppConfig']
@@ -206,8 +206,8 @@ defineExpose({
 <template>
   <B24Modal
     v-model:open="open"
-    :title="props.title || t('dashboardSearch.title')"
-    :description="props.description || t('dashboardSearch.description')"
+    :title="props.title || locale.messages.dashboardSearch?.title || t('dashboardSearchButton.label')"
+    :description="props.description || locale.messages.dashboardSearch?.description"
     v-bind="modalProps"
     data-slot="modal"
     :class="b24ui.modal({ class: [props.b24ui?.modal, props.class] })"
