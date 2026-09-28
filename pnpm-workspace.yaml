@@ -34,7 +34,7 @@ catalog:
   '@floating-ui/dom': ^1.8.0
   '@internationalized/date': ^3.12.4
   '@internationalized/number': ^3.6.8
-  '@nuxt/content': ^3.16.0
+  '@nuxt/content': ^3.16.1
   '@nuxt/eslint-config': ^1.17.0
   '@nuxt/image': ^2.0.0
   '@nuxt/kit': ^4.5.2
@@ -44,8 +44,8 @@ catalog:
   '@nuxtjs/mcp-toolkit': ^0.21.0
   '@nuxtjs/mdc': ^0.23.1
   '@octokit/rest': ^22.0.1
-  '@regle/core': ^1.29.1
-  '@regle/rules': ^1.29.1
+  '@regle/core': ^1.29.3
+  '@regle/rules': ^1.29.3
   '@shikijs/types': ^4.4.3
   '@standard-schema/spec': ^1.1.0
   '@tailwindcss/postcss': ^4.3.3
@@ -83,7 +83,7 @@ catalog:
   '@vueuse/core': ^14.4.0
   '@vueuse/integrations': ^14.4.0
   '@vueuse/shared': ^14.4.0
-  ai: ^7.0.107
+  ai: ^7.0.116
   canvas-confetti: ^1.9.4
   capture-website: ^5.1.0
   citty: ^0.2.2
@@ -107,7 +107,7 @@ catalog:
   joi: ^18.2.9
   json5: ^2.2.3
   knitwork: ^1.3.0
-  magic-string: ^1.4.1
+  magic-string: ^1.4.2
   maska: ^3.2.1
   minimark: ^0.2.0
   mlly: ^1.8.2
@@ -119,7 +119,7 @@ catalog:
   ohash: ^2.0.12
   pathe: ^2.0.3
   playwright-core: 1.56.1
-  prettier: ^3.9.8
+  prettier: ^3.9.9
   reka-ui: 2.10.5
   scule: ^1.3.0
   shiki: ^4.4.3
@@ -140,7 +140,7 @@ catalog:
   unplugin-vue-components: ^32.1.0
   valibot: ^1.5.0
   vaul-vue: 0.4.1
-  vite: ^8.3.0
+  vite: ^8.3.1
   vitest: ^4.1.11
   vitest-axe: ^0.1.0
   vitest-environment-nuxt: ^2.0.0
