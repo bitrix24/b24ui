@@ -166,7 +166,7 @@ const props = useComponentProps<ContentSearchProps<T>>('contentSearch', _props)
 
 const searchTerm = defineModel<string>('searchTerm', { default: '' })
 
-const { t } = useLocale()
+const { t, locale } = useLocale()
 const { open, mapNavigationItems, mapLinks, mapSearchResults, postFilter } = useContentSearch()
 // eslint-disable-next-line vue/no-dupe-keys
 const colorMode = useColorMode()
@@ -359,8 +359,8 @@ defineExpose({
 <template>
   <B24Modal
     v-model:open="open"
-    :title="props.title || t('contentSearch.title')"
-    :description="props.description || t('contentSearch.description')"
+    :title="props.title || locale.messages.contentSearch?.title || t('contentSearchButton.label')"
+    :description="props.description || locale.messages.contentSearch?.description"
     v-bind="modalProps"
     data-slot="modal"
     :class="b24ui.modal({ class: [props.b24ui?.modal, props.class] })"
