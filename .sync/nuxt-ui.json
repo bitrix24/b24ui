@@ -2299,8 +2299,8 @@
       "summary": "docs(theme): fix editor hydration, alias flash and favicon type (#7063) — all three files are upstream's docs theme studio (`theme-studio/toolbar`, `useFaviconFromTheme`, the colour-swap script in `plugins/theme.ts`); the fork's docs have no theme studio and its `plugins/theme.ts` is an empty `setup()`."
     },
     "4145e2d2e44f4edd7013d624a1c2fd96824ce188": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 652,
+      "b24ui_sha": "e2f95621",
       "decision": "n/a",
       "summary": "chore(github): typecheck vue playground on ubuntu only (#7066) — restricts to ubuntu the `module.yml` step that nuxt/ui@1dbb6062 added; that commit is a skip here and the fork has no `module.yml` (its CI is a single-ubuntu `ci.yml`), so there is no step to guard."
     }
