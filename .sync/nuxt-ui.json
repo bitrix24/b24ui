@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "ec28f8e1eb0f2b515e01731dce6297a2eafe1184",
+  "cursor": "4145e2d2e44f4edd7013d624a1c2fd96824ce188",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2269,34 +2269,40 @@
       "summary": "chore(deps): update all non-major dependencies (#7064) — bumped only where the fork's catalog range matched upstream's pre-image: `packageManager` pnpm 12.5.1 → 12.6.0, `@nuxt/content` ^3.16.1, `@regle/{core,rules}` ^1.29.3, `ai` ^7.0.116 (resolves 7.0.118), `magic-string` ^1.4.2, `prettier` ^3.9.9, `vite` ^8.3.1 (resolution still governed by the `vite: ^8.2.1` override). Not taken: `@ai-sdk/*` (removed with the AI chat mode), `@iconify*`, `nuxt-og-image`, bundle-size workflows (not adopted). Lockfile deltas traced: `@nuxt/content` 3.16.1 adds `isomorphic-git`, `db0` 0.4.1, `nypm`, `pkg-types`, `confbox`; the root's peer-only `@nuxt/content` keeps 3.16.0, and `pnpm dedupe` was not run because it rewrites unrelated entries. `pnpm-workspace.yaml` untouched by the installer."
     },
     "93c40df0a7ed2cffad2b86f81cc27f9c5c038d41": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 651,
+      "b24ui_sha": "6951ad23",
       "decision": "port",
       "summary": "fix(App): apply the `dir` prop to the provided locale (#6767) — `B24App` gave `dir` to reka's ConfigProvider but provided the locale unchanged, so `useLocale().dir` (Pagination chevrons and the rest) ignored `<B24App dir=\"rtl\">` without a locale and could not override an `rtl` locale. Same line in the fork; upstream's fix applied. Upstream's `useLocale.spec.ts` adapted to `B24*` and the fork's icon components: 3 of 7 cases red on the fork's code in both projects, green after. Mutation found a gap — dropping the `|| en` fallback left all 7 green while `t()` returned raw keys — so one extra case asserts the default messages survive a `dir`-only App; red under that mutation."
     },
     "1dbb6062d4e2216a93300284468ba4df7fd8655e": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 651,
+      "b24ui_sha": "6951ad23",
       "decision": "skip",
       "summary": "chore: typecheck vue playground against the built package (#7051) — the finding applies: `playgrounds/vue/tsconfig.json` is `\"files\": []` + references, so the root `typecheck`'s `vue-tsc --noEmit` there compiles no file and exits 0. But the real check, `vue-tsc -b` after `pnpm run build`, reports 247 errors here (missing `#imports`/`#build/*` aliases in `src/`, an ES2020 `lib`, type errors in the shared Nuxt-playground pages), and the fork has no `module.yml` — its `ci.yml` runs `typecheck` before `build`. Making it real is its own task; recorded so the vacuous step is not mistaken for coverage."
     },
     "3c55cf230dc623bdbfd1918357ec04f137afd290": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 651,
+      "b24ui_sha": "6951ad23",
       "decision": "port",
       "summary": "fix(ContentSearch/DashboardSearch): use translated search label as dialog title (#7062) — the modals were titled `t('contentSearch.title')` / `t('dashboardSearch.title')`, keys none of the fork's 20 locales define, and `translate()` returns the path for a missing key: the dialog's accessible name was the literal key, already in the committed snapshots (14 + 15 occurrences). Upstream's fallback to the locale's own title, else the translated button label, applied to both. Upstream's ContentSearch test added plus the same case for DashboardSearch (upstream tested one of the two): 3 red on the fork's code, green after."
     },
     "5046b5b74c6e5fdc3f5f8a2ae6cf8d2a99b331ac": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 651,
+      "b24ui_sha": "6951ad23",
       "decision": "port",
       "summary": "chore(deps): remove unused simple-git and unist-util-visit — `unist-util-visit` was declared in `docs/package.json` and the catalog with no import anywhere outside `node_modules`/build output; both declarations removed. `simple-git` n/a (never a dependency here). The reinstall also re-resolved the root's peer-only `@nuxt/content` to 3.16.1, so 3.16.0 and its `isomorphic-git` 1.41.9 left the graph; `unist-util-visit` stays transitively via `@nuxt/content`."
     },
     "ec28f8e1eb0f2b515e01731dce6297a2eafe1184": {
+      "pr": 651,
+      "b24ui_sha": "6951ad23",
+      "decision": "n/a",
+      "summary": "docs(theme): fix editor hydration, alias flash and favicon type (#7063) — all three files are upstream's docs theme studio (`theme-studio/toolbar`, `useFaviconFromTheme`, the colour-swap script in `plugins/theme.ts`); the fork's docs have no theme studio and its `plugins/theme.ts` is an empty `setup()`."
+    },
+    "4145e2d2e44f4edd7013d624a1c2fd96824ce188": {
       "pr": "pending-merge",
       "b24ui_sha": "pending-merge",
       "decision": "n/a",
-      "summary": "docs(theme): fix editor hydration, alias flash and favicon type (#7063) — all three files are upstream's docs theme studio (`theme-studio/toolbar`, `useFaviconFromTheme`, the colour-swap script in `plugins/theme.ts`); the fork's docs have no theme studio and its `plugins/theme.ts` is an empty `setup()`."
+      "summary": "chore(github): typecheck vue playground on ubuntu only (#7066) — restricts to ubuntu the `module.yml` step that nuxt/ui@1dbb6062 added; that commit is a skip here and the fork has no `module.yml` (its CI is a single-ubuntu `ci.yml`), so there is no step to guard."
     }
   }
 }
