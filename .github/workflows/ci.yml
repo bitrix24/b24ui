@@ -120,6 +120,21 @@ jobs:
       - name: Build the module
         run: pnpm run build
 
+      # Rebuilt after the module so its generated `components.d.ts` and
+      # `auto-imports.d.ts` point at `dist/`: the copies `dev:prepare` wrote
+      # point at `src/` through the stub, and the typecheck below would then
+      # compile all of `src/` outside Nuxt, where `#imports` and `#build/*` do
+      # not resolve, instead of the published declarations (#654,
+      # nuxt/ui@1dbb606).
+      - name: Build the Vue playground
+        run: pnpm run dev:vue:build
+
+      # `vue-tsc -b`, because the playground's `tsconfig.json` is `"files": []`
+      # plus references, which plain `vue-tsc --noEmit` does not follow — the
+      # step `typecheck` used to carry compiled zero files (#654).
+      - name: Typecheck the Vue playground
+        run: pnpm --filter ./playgrounds/vue typecheck
+
       # Coverage rather than a plain `vitest run`: it is the same suite with the
       # same assertions, plus a gate that goes red when coverage falls below
       # the thresholds in `vitest.config.ts`. Instrumenting every worker costs

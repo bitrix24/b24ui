@@ -26,6 +26,9 @@
     "paths": {
       "#build/b24ui/*": [
         "./node_modules/.b24ui-nuxt/b24ui/*"
+      ],
+      "#imports": [
+        "./node_modules/@bitrix24/b24ui-nuxt/dist/runtime/vue/stubs/vue-router"
       ]
     }
   },

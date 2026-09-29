@@ -134,7 +134,7 @@
     "skill:sync": "node scripts/sync-skill-manifest.mjs",
     "skill:check": "node scripts/sync-skill-manifest.mjs --check",
     "snapshots:baseline": "node scripts/regen-indistinguishable-baseline.mjs",
-    "typecheck": "vue-tsc --noEmit && nuxt typecheck playgrounds/nuxt && nuxt typecheck playgrounds/demo && nuxt typecheck docs && cd playgrounds/vue && vue-tsc --noEmit",
+    "typecheck": "vue-tsc --noEmit && nuxt typecheck playgrounds/nuxt && nuxt typecheck playgrounds/demo && nuxt typecheck docs",
     "test": "vitest",
     "test:vue": "vitest --project vue",
     "test:nuxt": "vitest --project nuxt",

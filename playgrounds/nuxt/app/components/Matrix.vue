@@ -64,7 +64,7 @@ const combinations = computed(() => {
     }
 
     const key = keys[index]!
-    const variants = props.attrs[key] as Array<MatrixValue<T[typeof key]>>
+    const variants = props.attrs[key] as readonly unknown[] as Array<MatrixValue<T[typeof key]>>
 
     if (variants.length === 0) {
       return
