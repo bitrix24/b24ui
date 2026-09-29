@@ -2305,8 +2305,8 @@
       "summary": "chore(github): typecheck vue playground on ubuntu only (#7066) — restricts to ubuntu the `module.yml` step that nuxt/ui@1dbb6062 added; that commit is a skip here and the fork has no `module.yml` (its CI is a single-ubuntu `ci.yml`), so there is no step to guard."
     },
     "3da141cbd174c28c46d9209872a0693ee6ede01e": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 656,
+      "b24ui_sha": "aa8a6c79",
       "decision": "n/a",
       "summary": "fix(ProseA): only round corners on focus — upstream turns an unconditional `rounded-xs` into `focus-visible:rounded-xs` in `prose/a.ts`. The fork's ProseA theme is its own (Bitrix24 link colours, `hover:underline`, `focus-visible:outline-info-text`) and carries no `rounded-*` class, so there is nothing to scope."
     }
