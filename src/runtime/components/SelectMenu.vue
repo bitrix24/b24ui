@@ -576,6 +576,16 @@ function onMountAutoFocus(event: Event) {
   }
 }
 
+// The `FocusScope` uses `loop` instead of `trapped`: a trapped scope pulls focus back while the menu is closing,
+// so focusing another element on select never lands. An enclosing Modal's trap is still paused by the scope stack.
+function onUnmountAutoFocus(event: Event) {
+  // Keep the focus where it was moved on select instead of restoring it to the trigger after the close animation.
+  const activeElement = document.activeElement
+  if (activeElement && activeElement !== document.body && !(event.target as HTMLElement).contains(activeElement)) {
+    event.preventDefault()
+  }
+}
+
 const viewportRef = useTemplateRef('viewportRef')
 
 const comboboxRootRef = useTemplateRef('comboboxRootRef')
@@ -811,7 +821,7 @@ defineExpose({
       <ComboboxPortal v-bind="portalProps">
         <FieldGroupReset>
           <ComboboxContent data-slot="content" :class="b24ui.content({ class: props.b24ui?.content })" v-bind="contentProps">
-            <FocusScope trapped data-slot="focusScope" :class="b24ui.focusScope({ class: props.b24ui?.focusScope })" @mount-auto-focus="onMountAutoFocus">
+            <FocusScope loop data-slot="focusScope" :class="b24ui.focusScope({ class: props.b24ui?.focusScope })" @mount-auto-focus="onMountAutoFocus" @unmount-auto-focus="onUnmountAutoFocus">
               <slot name="content-top" />
 
               <ComboboxInput
