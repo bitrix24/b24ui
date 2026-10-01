@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "384fdc12591a3124653438ec361438610b3dfe07",
+  "cursor": "56b1156a9abaeb587221ac018d6c335c58a353be",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2359,10 +2359,16 @@
       "summary": "fix(module): detect kebab-case components in Pug templates (#7045) — the kebab alternative of `createComponentPattern` now also matches at line start, after `: ` and inside `#[` (with the `m` flag), so `b24-card(...)` / `b24-card: b24-badge` / `#[b24-button]` in Pug are detected. Same regex as upstream with the `b24` prefix; both adapters call `detectUsedComponents`."
     },
     "384fdc12591a3124653438ec361438610b3dfe07": {
+      "pr": 667,
+      "b24ui_sha": "9e4712e8",
+      "decision": "port",
+      "summary": "fix(Form): merge unnamed nested forms into a parent without schema (#7034) — with `transform`, a parent with no schema has no `transformedState`, so an unnamed nested form's `Object.assign(undefined, …)` threw; its output now merges into a copy of the raw state. Applied as is with upstream's `FormNestedTransform` fixture."
+    },
+    "56b1156a9abaeb587221ac018d6c335c58a353be": {
       "pr": "pending-merge",
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(Form): merge unnamed nested forms into a parent without schema (#7034) — with `transform`, a parent with no schema has no `transformedState`, so an unnamed nested form's `Object.assign(undefined, …)` threw; its output now merges into a copy of the raw state. Applied as is with upstream's `FormNestedTransform` fixture."
+      "summary": "fix(Form): keep dirty state and validation in sync with input (#7033) — input is tracked immediately and only its validation debounced; a full-validation `epoch` drops stale field validations and pre-submit input, superseded runs are dropped, `clearDirty` keeps fields edited during an async submit, and `validate({ name })` decides only on the targeted fields. `FormInputEvent` gains optional `track` / `validate`. Applied verbatim."
     }
   }
 }

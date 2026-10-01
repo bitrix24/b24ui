@@ -192,12 +192,16 @@ describe('useFormField', () => {
       ])
     })
 
-    it('emits a debounced eager input event', async () => {
-      const { api, events } = await mountField({}, undefined, { formField: { name: 'email', ariaId: 'aria-1' } })
+    it('emits the input right away and a debounced eager validation', async () => {
+      const { api, events } = await mountField({}, undefined, { formField: { name: 'email', ariaId: 'aria-1' }, formOptions: { validateOnInputDelay: 20 } })
 
       api.emitFormInput()
+      expect(events).toEqual([{ type: 'input', name: 'email', validate: false }])
 
-      await vi.waitFor(() => expect(events).toContainEqual({ type: 'input', name: 'email', eager: true }))
+      await vi.waitFor(() => expect(events).toEqual([
+        { type: 'input', name: 'email', validate: false },
+        { type: 'input', name: 'email', eager: true, track: false }
+      ]))
     })
 
     it('defers input validation when requested and the field is not eager', async () => {
@@ -205,7 +209,7 @@ describe('useFormField', () => {
 
       api.emitFormInput()
 
-      await vi.waitFor(() => expect(events).toContainEqual({ type: 'input', name: 'email', eager: false }))
+      await vi.waitFor(() => expect(events).toContainEqual({ type: 'input', name: 'email', eager: false, track: false }))
     })
 
     it('stays eager when the field opts into eager validation, even with defer', async () => {
@@ -213,7 +217,7 @@ describe('useFormField', () => {
 
       api.emitFormInput()
 
-      await vi.waitFor(() => expect(events).toContainEqual({ type: 'input', name: 'email', eager: true }))
+      await vi.waitFor(() => expect(events).toContainEqual({ type: 'input', name: 'email', eager: true, track: false }))
     })
   })
 })
