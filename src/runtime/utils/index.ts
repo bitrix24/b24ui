@@ -3,7 +3,7 @@ import { withTrailingSlash, withLeadingSlash, joinURL } from 'ufo'
 import type { GetItemKeys } from '../types/utils'
 import type { IconComponent } from '../types/icons'
 import icons from '../dictionary/icons'
-import { assertNoPrototypeKeys, isPrototypeKey, ownContainer } from './prototype-guard'
+import { assertNoPrototypeKeys, isIndexKey, isPrototypeKey, ownContainer } from './prototype-guard'
 
 /**
  * A new object with only `keys` copied across. Shallow; missing keys become
@@ -35,15 +35,13 @@ export function omit<Data extends object, Keys extends keyof Data>(data: Data, k
   return result as Omit<Data, Keys>
 }
 
+/**
+ * Splits a dotted path. Segments stay strings: property access coerces them
+ * anyway, and casting with `Number()` first made `'a.0x10'` read `a[16]` and
+ * `'a.01'` read `a[1]` (nuxt/ui@4bfd115).
+ */
 function toPath(path: (string | number)[] | string): (string | number)[] {
-  if (typeof path !== 'string') {
-    return path
-  }
-
-  return path.split('.').map((key) => {
-    const numKey = Number(key)
-    return Number.isNaN(numKey) ? key : numKey
-  })
+  return typeof path === 'string' ? path.split('.') : path
 }
 
 /**
@@ -90,7 +88,9 @@ export function get(object: Record<string, any> | undefined, path: (string | num
 }
 
 /**
- * Writes a nested value by path, creating plain objects along the way.
+ * Writes a nested value by path, creating what is missing along the way — an
+ * array where the next segment is an index (`items.0.label`), a plain object
+ * otherwise — and replacing a primitive that sits where a container is needed.
  *
  * Neither this nor `get()` is reachable from inside b24ui — nothing in `src/`
  * calls `set()`, and every `get()` path the components pass is an
@@ -124,7 +124,7 @@ export function set(object: Record<string, any>, path: (string | number)[] | str
       return acc[key]
     }
 
-    return ownContainer(acc, key)
+    return ownContainer(acc, key, isIndexKey(keys[i + 1]))
   }, object)
 }
 

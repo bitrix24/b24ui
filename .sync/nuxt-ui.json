@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "57f7699315833854a4f4421c60763d365805e0e7",
+  "cursor": "4bfd115418fdbd2c4419bac1b53aa7dcdc7e8f8a",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2341,10 +2341,16 @@
       "summary": "fix(module): generate classes prefixed by `usePrefix` (#7074) — classes components pass to `prefix()` only get the prefix at runtime, so with `theme.prefix` Tailwind never generated them; `prefixedClasses` (same twelve classes here) is now emitted as `@source inline(...)` from `getTemplates()`, which serves both adapters. Spec cases rewritten for our own `templates.spec.ts`."
     },
     "57f7699315833854a4f4421c60763d365805e0e7": {
+      "pr": 664,
+      "b24ui_sha": "f5fc47e0",
+      "decision": "port",
+      "summary": "fix(ChatPrompt): add `method=\"post\"` to prevent input leaking via GET before hydration (#7078) — before hydration `@submit.prevent` is not bound, so Enter performed a default GET and put the prompt in the URL; the root now renders `method=\"post\"` when `as` is `form`. Applied as is; 22 snapshot roots per spec, same as upstream."
+    },
+    "4bfd115418fdbd2c4419bac1b53aa7dcdc7e8f8a": {
       "pr": "pending-merge",
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(ChatPrompt): add `method=\"post\"` to prevent input leaking via GET before hydration (#7078) — before hydration `@submit.prevent` is not bound, so Enter performed a default GET and put the prompt in the URL; the root now renders `method=\"post\"` when `as` is `form`. Applied as is; 22 snapshot roots per spec, same as upstream."
+      "summary": "fix(utils): prevent prototype pollution in `set` and `setAtPath` (#7077) — the pollution half was already closed here, stricter (#92: throws, own-containers only), and is kept; ported the behaviour half: `get()` no longer casts path keys with `Number()` (`a.0x10` read `a[16]`), `set()` creates arrays for canonical index keys (shared `isIndexKey`, also used by `setAtPath`), and a primitive mid-path is replaced instead of written through."
     }
   }
 }

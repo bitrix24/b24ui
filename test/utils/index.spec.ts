@@ -130,6 +130,16 @@ describe('get', () => {
     expect(get(source, 'list.1.id')).toBe(2)
   })
 
+  // nuxt/ui@4bfd115: segments were cast with `Number()` first, which also
+  // accepts hex and leading zeros, so these read keys 16 and 1.
+  it('does not cast keys to numbers', () => {
+    const object = { a: { 1: 'one', 16: 'sixteen' } }
+
+    expect(get(object, 'a.0x10')).toBeUndefined()
+    expect(get(object, 'a.01')).toBeUndefined()
+    expect(get(object, 'a.16')).toBe('sixteen')
+  })
+
   it('returns falsy values rather than the default', () => {
     expect(get(source, 'zero', 'fallback')).toBe(0)
     expect(get(source, 'empty', 'fallback')).toBe('')
@@ -277,5 +287,34 @@ describe('set', () => {
 
     expect(Array.isArray(config.items)).toBe(true)
     expect(config.items).toEqual(['a', 'b'])
+  })
+  // nuxt/ui@4bfd115 — `set()` only ever created plain objects, and walked
+  // straight into a primitive it found on the way.
+  it('creates arrays for index keys', () => {
+    const object: Record<string, any> = {}
+
+    set(object, 'items.0.label', 'a')
+    set(object, ['list', 1], 'b')
+
+    expect(object).toEqual({ items: [{ label: 'a' }], list: [undefined, 'b'] })
+    expect(Array.isArray(object.items)).toBe(true)
+  })
+
+  it.each(['01', '0x10', '1e3', ''])('creates an object, not an array, for the non-index key %j', (key) => {
+    const object: Record<string, any> = {}
+
+    set(object, ['a', key, 'b'], 1)
+
+    expect(Array.isArray(object.a)).toBe(false)
+  })
+
+  it('replaces primitive values in the path', () => {
+    const object: Record<string, any> = { a: null, b: 'string', c: 0 }
+
+    set(object, 'a.x', 1)
+    set(object, 'b.x', 2)
+    set(object, 'c.x', 3)
+
+    expect(object).toEqual({ a: { x: 1 }, b: { x: 2 }, c: { x: 3 } })
   })
 })

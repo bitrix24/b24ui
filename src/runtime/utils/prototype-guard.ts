@@ -20,6 +20,17 @@
 const PROTOTYPE_KEYS = new Set(['__proto__', 'constructor', 'prototype'])
 
 /**
+ * Whether a path segment is an array index, so a missing container for it
+ * should be created as an array rather than an object.
+ *
+ * Canonical integers only. `Number(key)` also accepts `''`, `' '`, `'1e3'` and
+ * `'0x10'`, so a check built on it turned `a..b` or `a.0x10.b` into arrays.
+ */
+export function isIndexKey(key: unknown): boolean {
+  return typeof key !== 'symbol' && /^(?:0|[1-9]\d*)$/.test(String(key))
+}
+
+/**
  * Whether `key` names a prototype-reaching property.
  *
  * Compares the *coerced* key, not the key as passed. `object[key]` runs
@@ -63,7 +74,11 @@ export function ownContainer(object: Record<string, any>, key: string | number, 
   if (Object.hasOwn(object, key)) {
     const own = object[key]
 
-    if (own !== undefined && own !== null) {
+    // Only a value that can hold properties is descended into. A primitive in
+    // the middle of a path is replaced, as `null` and `undefined` always were:
+    // writing through it would throw in strict mode (`'str'.c = 1`), and the
+    // caller asked for a nested value at that path (nuxt/ui@4bfd115).
+    if ((typeof own === 'object' && own !== null) || typeof own === 'function') {
       return own
     }
   } else {

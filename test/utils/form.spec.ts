@@ -142,4 +142,21 @@ describe('setAtPath / getAtPath prototype safety', () => {
     expect(getAtPath({}, 'constructor.prototype')).toBeUndefined()
     expect(getAtPath({ constructor: 'Toyota' }, 'constructor')).toBe('Toyota')
   })
+  // nuxt/ui@4bfd115 routes `setAtPath` through `set()`; here they keep
+  // separate walkers over the shared guard, so the behaviour is pinned twice.
+  it('replaces a primitive in the middle of the path', () => {
+    const state: Record<string, any> = { address: 'unknown' }
+
+    setAtPath(state, 'address.city', 'Kaliningrad')
+
+    expect(state).toEqual({ address: { city: 'Kaliningrad' } })
+  })
+
+  it('creates an object, not an array, when the next segment only looks numeric', () => {
+    const state: Record<string, any> = {}
+
+    setAtPath(state, 'a.0x10.b', 1)
+
+    expect(Array.isArray(state.a)).toBe(false)
+  })
 })
