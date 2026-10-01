@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "77c92de2e52cbe247986c53cb25334d7fe4202ec",
+  "cursor": "57f7699315833854a4f4421c60763d365805e0e7",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2335,10 +2335,16 @@
       "summary": "fix(CheckboxGroup/RadioGroup): lift a hovered table item above its neighbors (#7073) — upstream adds `hover:z-[1]` so a hovered table item's accented border is not hidden by its overlapping neighbour, and bumps checked to `z-[2]`. The fork's themes have no hover border on table items, so there is nothing to lift; checked keeps `z-[1]`."
     },
     "77c92de2e52cbe247986c53cb25334d7fe4202ec": {
+      "pr": 663,
+      "b24ui_sha": "f61c09ce",
+      "decision": "port",
+      "summary": "fix(module): generate classes prefixed by `usePrefix` (#7074) — classes components pass to `prefix()` only get the prefix at runtime, so with `theme.prefix` Tailwind never generated them; `prefixedClasses` (same twelve classes here) is now emitted as `@source inline(...)` from `getTemplates()`, which serves both adapters. Spec cases rewritten for our own `templates.spec.ts`."
+    },
+    "57f7699315833854a4f4421c60763d365805e0e7": {
       "pr": "pending-merge",
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(module): generate classes prefixed by `usePrefix` (#7074) — classes components pass to `prefix()` only get the prefix at runtime, so with `theme.prefix` Tailwind never generated them; `prefixedClasses` (same twelve classes here) is now emitted as `@source inline(...)` from `getTemplates()`, which serves both adapters. Spec cases rewritten for our own `templates.spec.ts`."
+      "summary": "fix(ChatPrompt): add `method=\"post\"` to prevent input leaking via GET before hydration (#7078) — before hydration `@submit.prevent` is not bound, so Enter performed a default GET and put the prompt in the URL; the root now renders `method=\"post\"` when `as` is `form`. Applied as is; 22 snapshot roots per spec, same as upstream."
     }
   }
 }
