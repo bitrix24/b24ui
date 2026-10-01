@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "d6437a84e77d0a11d9da15ddc781bd443a78976c",
+  "cursor": "86321bf8ea771a4b9e8cb708b7444dd1a38b1e28",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2389,10 +2389,16 @@
       "summary": "fix(DashboardSidebar/Header): use translated toggle label as menu dialog title (#7082) — no locale defines the optional `header.title` / `dashboardSidebar.title` messages, so `t()` returned the key and the mobile menu dialog was named `header.title`; it now reads the optional messages directly and falls back to the toggle's translated `open` label. Applied as is; 14 snapshots updated."
     },
     "d6437a84e77d0a11d9da15ddc781bd443a78976c": {
+      "pr": 673,
+      "b24ui_sha": "4fff3dec",
+      "decision": "n/a",
+      "summary": "chore(github): link issue reproductions to pr playground (#7085) — adds upstream's `repl-links.yml`, which rewrites linked issues' `play.ui.nuxt.com` reproductions against the PR's preview playground; the fork has no hosted REPL playground, no per-PR preview and no such links in its issue template."
+    },
+    "86321bf8ea771a4b9e8cb708b7444dd1a38b1e28": {
       "pr": "pending-merge",
       "b24ui_sha": "pending-merge",
       "decision": "n/a",
-      "summary": "chore(github): link issue reproductions to pr playground (#7085) — adds upstream's `repl-links.yml`, which rewrites linked issues' `play.ui.nuxt.com` reproductions against the PR's preview playground; the fork has no hosted REPL playground, no per-PR preview and no such links in its issue template."
+      "summary": "chore(github): drop headings from bot comments — reformats the comments of upstream's `repl-links.yml` (nuxt/ui@d6437a84, n/a) and `test/bundle/compare.mjs` (the bundle-size workflow nuxt/ui@d32c367 touched, n/a); the fork has neither file."
     }
   }
 }
