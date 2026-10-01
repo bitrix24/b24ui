@@ -2,7 +2,7 @@ import { toRaw } from 'vue'
 import type { StandardSchemaV1 } from '@standard-schema/spec'
 import type { Struct } from 'superstruct'
 import type { FormSchema, ValidateReturnSchema } from '../types/form'
-import { assertNoPrototypeKeys, isPrototypeKey, ownContainer } from './prototype-guard'
+import { assertNoPrototypeKeys, isIndexKey, isPrototypeKey, ownContainer } from './prototype-guard'
 
 /**
  * Whether a schema is superstruct's, detected by shape — superstruct exports
@@ -150,10 +150,8 @@ export function setAtPath<T extends object>(
   // Navigate to the parent of the target property
   for (let i = 0; i < keys.length - 1; i++) {
     const key = keys[i]!
-    // If the next key is a number, initialize as array
-    const arrayHint = i + 1 < keys.length && !Number.isNaN(Number(keys[i + 1]))
-
-    current = ownContainer(current, key, arrayHint)
+    // If the next key is an array index, initialize as array
+    current = ownContainer(current, key, isIndexKey(keys[i + 1]))
   }
 
   // Set the final value
