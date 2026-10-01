@@ -2401,8 +2401,8 @@
       "summary": "chore(github): drop headings from bot comments — reformats the comments of upstream's `repl-links.yml` (nuxt/ui@d6437a84, n/a) and `test/bundle/compare.mjs` (the bundle-size workflow nuxt/ui@d32c367 touched, n/a); the fork has neither file."
     },
     "6138bf09d8c9a4e7d971cb76a88fbe6b67619c8e": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 675,
+      "b24ui_sha": "402bb6fa",
       "decision": "port",
       "summary": "fix(Select/SelectMenu): keep focus moved on selection (#7083) — an `update:model-value` handler that moved focus lost it to the trigger after the close animation; `Select` prevents `close-auto-focus` and `SelectMenu` prevents its `FocusScope`'s `unmount-auto-focus` (now `loop` instead of `trapped`) when focus has left the content, and the select theme's content gets `data-[state=closed]:pointer-events-none!`. Applied as is; 170 snapshots, only that class."
     }
