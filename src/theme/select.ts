@@ -49,7 +49,8 @@ export default () => {
           'relative',
           'isolate',
           'px-0 py-(--menu-popup-padding)',
-          'pointer-events-auto'
+          'pointer-events-auto',
+          'data-[state=closed]:pointer-events-none!'
         ].join(' '),
         viewport: [
           'relative',
