@@ -1,9 +1,10 @@
 import { readFileSync } from 'node:fs'
-import { resolve } from 'node:path'
+import { join, resolve } from 'node:path'
+import { globSync } from 'tinyglobby'
 import { describe, it, expect, vi } from 'vitest'
 import type { Nuxt } from '@nuxt/schema'
 import type { ModuleOptions } from '../../src/module'
-import { CSS_TEMPLATE_FILENAME, getTemplates, isCssTemplate, watchForComponentDetection } from '../../src/templates'
+import { CSS_TEMPLATE_FILENAME, getTemplates, isCssTemplate, prefixedClasses, watchForComponentDetection } from '../../src/templates'
 import { COMPONENT_DETECTION_EXTENSIONS } from '../../src/utils/components'
 
 /**
@@ -106,5 +107,31 @@ describe('watchForComponentDetection', () => {
     const source = readFileSync(resolve(process.cwd(), 'src/utils/components.ts'), 'utf-8')
 
     expect(source).toMatch(/globSync\(\[`\*\*\/\*\.\{\$\{COMPONENT_DETECTION_EXTENSIONS\.join\(','\)\}\}`\]/)
+  })
+})
+
+describe('prefixedClasses', () => {
+  it('lists every class components pass to `usePrefix`', () => {
+    const componentDir = join(process.cwd(), 'src/runtime/components')
+    const classes = new Set<string>()
+    for (const file of globSync('**/*.vue', { cwd: componentDir })) {
+      for (const [, value] of readFileSync(join(componentDir, file), 'utf8').matchAll(/\bprefix\(\s*'([^']+)'\s*\)/g)) {
+        value!.split(/\s+/).filter(Boolean).forEach(cls => classes.add(cls))
+      }
+    }
+
+    expect([...classes].sort()).toEqual(prefixedClasses)
+  })
+
+  it(`adds them to \`${CSS_TEMPLATE_FILENAME}\` with \`theme.prefix\``, async () => {
+    const cssTemplate = getTemplates({ theme: { prefix: 'tw' } } as ModuleOptions).find(isCssTemplate)
+
+    expect(await cssTemplate!.getContents!({} as any)).toContain(`@source inline("${prefixedClasses.map(cls => `tw:${cls}`).join(' ')}");`)
+  })
+
+  it('adds nothing without `theme.prefix`', async () => {
+    const cssTemplate = getTemplates({} as ModuleOptions).find(isCssTemplate)
+
+    expect(await cssTemplate!.getContents!({} as any)).not.toContain(':peer')
   })
 })
