@@ -125,6 +125,18 @@ describe('detectUsedComponents', () => {
     expect(detected).toContain('Button')
   })
 
+  it('detects kebab-case tags in Pug templates', async () => {
+    const dir = fixtureUsing('<div />')
+    writeFileSync(join(dir, 'Pug.vue'), `<template lang="pug">\nb24-accordion(:items="items")\n  b24-card: b24-badge(label="x")\n  p This has a #[b24-button Click me]\n</template>\n`)
+
+    const detected = await detectUsedComponents([dir], 'B24', componentDir)
+
+    expect(detected).toContain('Accordion')
+    expect(detected).toContain('Card')
+    expect(detected).toContain('Badge')
+    expect(detected).toContain('Button')
+  })
+
   it('detects kebab-case and PascalCase usage in the same file', async () => {
     const detected = await detectUsedComponents([fixtureUsing('<B24Card><b24-badge label="x" /></B24Card>')], 'B24', componentDir)
 

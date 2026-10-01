@@ -22,12 +22,13 @@ export const COMPONENT_DETECTION_EXTENSIONS = ['vue', 'ts', 'mts', 'js', 'mjs', 
  * Pattern to match:
  * - <B24Button in templates
  * - <b24-button in templates (kebab-case, mandatory for in-DOM templates)
+ * - b24-button at the start of a line, after `: ` or inside `#[...]` (Pug templates)
  * - B24Button in script (imports, usage)
  * - <LazyB24Button / <lazy-b24-button (lazy components)
  * - LazyB24Button in script
  *
- * The kebab form only matches as a tag: bare kebab identifiers in scripts and
- * prose would match far too much ordinary text.
+ * The kebab form only matches in tag position: bare kebab identifiers in
+ * scripts and prose would match far too much ordinary text.
  *
  * The prefix is escaped even though this fork's is the literal `B24` and not a
  * user-facing option (upstream's `prefix` is configurable). Keeping the escape
@@ -37,7 +38,7 @@ function createComponentPattern(prefix: string): RegExp {
   const escapedPrefix = prefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
   const kebabPrefix = kebabCase(prefix).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
-  return new RegExp(`<(?:Lazy)?${escapedPrefix}([A-Z][a-zA-Z]+)|<(?:lazy-)?${kebabPrefix}-([a-z][a-z0-9-]*)|\\b(?:Lazy)?${escapedPrefix}([A-Z][a-zA-Z]+)\\b`, 'g')
+  return new RegExp(`<(?:Lazy)?${escapedPrefix}([A-Z][a-zA-Z]+)|(?:<|#\\[|^[ \\t]*|:[ \\t]+)(?:lazy-)?${kebabPrefix}-([a-z][a-z0-9-]*)|\\b(?:Lazy)?${escapedPrefix}([A-Z][a-zA-Z]+)\\b`, 'gm')
 }
 
 /**
