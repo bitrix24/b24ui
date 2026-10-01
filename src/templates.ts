@@ -12,6 +12,10 @@ import * as theme from './theme'
 import * as themeProse from './theme/prose'
 import * as themeContent from './theme/content'
 
+// The classes components pass to `usePrefix`, which only adds the prefix at
+// runtime, so Tailwind never sees them prefixed
+export const prefixedClasses = ['absolute', 'dark:block', 'dark:hidden', 'dark:inline-block', 'focus:outline-none', 'hidden', 'inset-0', 'lg:block', 'lg:flex', 'lg:hidden', 'peer', 'sm:block']
+
 /**
  * Name of the generated CSS template, shared by the site that registers it and
  * the dev watcher that refreshes it. These were two independent string
@@ -170,6 +174,11 @@ export function getTemplates(options: ModuleOptions, nuxt?: Nuxt, resolve?: Reso
           sources.push(`@source inline(${JSON.stringify(value)});`)
         }
       }
+    }
+
+    const prefix = options.theme?.prefix
+    if (prefix) {
+      sources.push(`@source inline(${JSON.stringify(prefixedClasses.map(cls => `${prefix}:${cls}`).join(' '))});`)
     }
 
     // Add theme sources. With `experimental.componentDetection`, Nuxt narrows
