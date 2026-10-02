@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "62a1df3d203b9d8de53968a07522ac99fbb46bf6",
+  "cursor": "dfccadb231e0a396657546a1a998d4b74066db1a",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2419,10 +2419,16 @@
       "summary": "docs(showcase): add milostudio.app (#7025) — a site built with Nuxt UI added to upstream's showcase.yml + screenshot; the fork's showcase lists sites built with Bitrix24 UI, so adding it would be a false claim."
     },
     "62a1df3d203b9d8de53968a07522ac99fbb46bf6": {
+      "pr": 679,
+      "b24ui_sha": "c60a1805",
+      "decision": "n/a",
+      "summary": "docs(showcase): add avelune-online.vercel.app — a site built with Nuxt UI added to upstream's showcase.yml + screenshot; the fork's showcase lists sites built with Bitrix24 UI, so adding it would be a false claim."
+    },
+    "dfccadb231e0a396657546a1a998d4b74066db1a": {
       "pr": "pending-merge",
       "b24ui_sha": "pending-merge",
       "decision": "n/a",
-      "summary": "docs(showcase): add avelune-online.vercel.app — a site built with Nuxt UI added to upstream's showcase.yml + screenshot; the fork's showcase lists sites built with Bitrix24 UI, so adding it would be a false claim."
+      "summary": "chore(playground): move typography page out of components — moves upstream's `pages/components/typography.vue` to `pages/typography.vue` with a top-level nav link; the fork's Nuxt playground has no typography page, so there is nothing to move."
     }
   }
 }
