@@ -2437,8 +2437,8 @@
       "summary": "test(bench): scale re-render benchmarks past codspeed's noise floor — SKIP, same as nuxt/ui@3d2129d2: the re-render benches in button-link/link-stack repeat their cycle 10x to absorb CodSpeed's ~150µs overhead, but this fork does not run CodSpeed (8aa80416 no-op); `bench` is a local-only `vitest bench`. Take it with 3d2129d2 if benchmarks are ever wired into CI."
     },
     "6365a617d9e51f441662e791f6373ce85b0e7725": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 682,
+      "b24ui_sha": "cd21c317",
       "decision": "n/a",
       "summary": "chore(github): validate pull request titles — adds upstream's `semantic-pull-request.yml` (amannn/action-semantic-pull-request on pull_request_target); the fork already gates titles with its own stricter `pr-title.yml` (changelog-sections + upstream-commit reference), so a second, looser check is not adopted."
     }
