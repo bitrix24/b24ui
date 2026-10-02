@@ -1,5 +1,48 @@
 # Changelog
 
+## [2.14.1](https://github.com/bitrix24/b24ui/compare/v2.14.0...v2.14.1) (2026-10-02)
+
+
+### Bug Fixes
+
+* **ChatPrompt:** submit with POST so input cannot leak via GET before hydration (nuxt/ui@57f7699) ([#664](https://github.com/bitrix24/b24ui/issues/664)) ([f5fc47e](https://github.com/bitrix24/b24ui/commit/f5fc47e01247e3c63e17d49551aa7af6d3016ac1))
+* **DashboardSidebar/Header:** use translated toggle label as menu dialog title (nuxt/ui@51e98da) ([#672](https://github.com/bitrix24/b24ui/issues/672)) ([d60f7d9](https://github.com/bitrix24/b24ui/commit/d60f7d919e4bcbf50f338eb5b70f48003647689d))
+* **Form:** keep dirty state and validation in sync with input (nuxt/ui@56b1156) ([#669](https://github.com/bitrix24/b24ui/issues/669)) ([4a21ba8](https://github.com/bitrix24/b24ui/commit/4a21ba8f8547b990ce2a900f323550faa796719c))
+* **Form:** merge unnamed nested forms into a parent without schema (nuxt/ui@384fdc1) ([#667](https://github.com/bitrix24/b24ui/issues/667)) ([9e4712e](https://github.com/bitrix24/b24ui/commit/9e4712e84f7a10c6b312c1f165986cdbaa5eb01e))
+* **module:** detect kebab-case components in Pug templates (nuxt/ui@42ba532) ([#666](https://github.com/bitrix24/b24ui/issues/666)) ([56a1ece](https://github.com/bitrix24/b24ui/commit/56a1ece0ae4a9c457d830d7e62cfb579ccbebe6b))
+* **module:** generate classes prefixed by `usePrefix` (nuxt/ui@77c92de) ([#663](https://github.com/bitrix24/b24ui/issues/663)) ([f61c09c](https://github.com/bitrix24/b24ui/commit/f61c09ce3a69730a6597de9b565981a11e3d67a0))
+* **Select/SelectMenu:** keep focus moved on selection (nuxt/ui@6138bf0) ([#675](https://github.com/bitrix24/b24ui/issues/675)) ([402bb6f](https://github.com/bitrix24/b24ui/commit/402bb6faab8c63e36ee36db9a5493f275a4e236b))
+* **useOverlay:** resolve every pending promise when reopened (nuxt/ui@2f50c2e) ([#660](https://github.com/bitrix24/b24ui/issues/660)) ([301a4a7](https://github.com/bitrix24/b24ui/commit/301a4a73d3ed160da6c071f4ddedb57dcc366d2c))
+* **utils:** stop casting path keys and create containers by index in `set` (nuxt/ui@4bfd115) ([#665](https://github.com/bitrix24/b24ui/issues/665)) ([295b003](https://github.com/bitrix24/b24ui/commit/295b003ee9c6026e4490be5ff47407a44b83d696))
+
+
+### Docs
+
+* **Drawer:** use a neutral placeholder in the responsive example (nuxt/ui@21616a8) ([#670](https://github.com/bitrix24/b24ui/issues/670)) ([560693e](https://github.com/bitrix24/b24ui/commit/560693e3deea5f22b33e514df74c8a15e0acf045))
+
+
+### Chore
+
+* **sync:** reconcile the 6138bf09 entry with [#675](https://github.com/bitrix24/b24ui/issues/675) ([#676](https://github.com/bitrix24/b24ui/issues/676)) ([1125fb0](https://github.com/bitrix24/b24ui/commit/1125fb028e097bceb94b396cebadfab2d2ae35b0))
+* **sync:** reconcile the 6365a617 entry with [#682](https://github.com/bitrix24/b24ui/issues/682) ([#683](https://github.com/bitrix24/b24ui/issues/683)) ([c0a38fe](https://github.com/bitrix24/b24ui/commit/c0a38fe61ad0f2cca770dbfbec889d069968d011))
+* **sync:** record nuxt/ui@26f28e0 as skip ([#681](https://github.com/bitrix24/b24ui/issues/681)) ([7b461bc](https://github.com/bitrix24/b24ui/commit/7b461bcaa95e9c4c04bfa3e888925e4bcc08b2e5))
+* **sync:** record nuxt/ui@52056f4 as n/a ([#671](https://github.com/bitrix24/b24ui/issues/671)) ([e6f492c](https://github.com/bitrix24/b24ui/commit/e6f492c711afdde35d85e0521e32980ec8860f10))
+* **sync:** record nuxt/ui@62a1df3 as n/a ([#679](https://github.com/bitrix24/b24ui/issues/679)) ([c60a180](https://github.com/bitrix24/b24ui/commit/c60a1805a253ceb43f691ae686e60b537972ba30))
+* **sync:** record nuxt/ui@6365a61 as n/a ([#682](https://github.com/bitrix24/b24ui/issues/682)) ([cd21c31](https://github.com/bitrix24/b24ui/commit/cd21c317f06b011ca01c5d88b2ea4b5627f7fe7c))
+* **sync:** record nuxt/ui@6b67381 as n/a ([#677](https://github.com/bitrix24/b24ui/issues/677)) ([2afef14](https://github.com/bitrix24/b24ui/commit/2afef14e9186e0a630e0be25e5fc867b84ab8629))
+* **sync:** record nuxt/ui@86321bf as n/a ([#674](https://github.com/bitrix24/b24ui/issues/674)) ([2d7a9f1](https://github.com/bitrix24/b24ui/commit/2d7a9f17d2b59bbf0f5e671d105c7f241ebc1de3))
+* **sync:** record nuxt/ui@926097a as n/a ([#662](https://github.com/bitrix24/b24ui/issues/662)) ([37630bc](https://github.com/bitrix24/b24ui/commit/37630bc154e0438e38f276aac7e04efafa19a64d))
+* **sync:** record nuxt/ui@afa2be2 as n/a ([#678](https://github.com/bitrix24/b24ui/issues/678)) ([82c11ec](https://github.com/bitrix24/b24ui/commit/82c11ec7d55273fa732082dbb89c3c3f58bccfc1))
+* **sync:** record nuxt/ui@d32c367 as n/a ([#658](https://github.com/bitrix24/b24ui/issues/658)) ([3605f0f](https://github.com/bitrix24/b24ui/commit/3605f0fc6953dd32298c3283d1948336b2c2d1f9))
+* **sync:** record nuxt/ui@d3972b8 as n/a ([#661](https://github.com/bitrix24/b24ui/issues/661)) ([27f01b8](https://github.com/bitrix24/b24ui/commit/27f01b85373669a4803e76e6e2c3c0e75ff9bcaa))
+* **sync:** record nuxt/ui@d6437a8 as n/a ([#673](https://github.com/bitrix24/b24ui/issues/673)) ([4fff3de](https://github.com/bitrix24/b24ui/commit/4fff3dec42eddfb90cd4c077b23445695a58ee91))
+* **sync:** record nuxt/ui@dfccadb as n/a ([#680](https://github.com/bitrix24/b24ui/issues/680)) ([43dc95a](https://github.com/bitrix24/b24ui/commit/43dc95a53592921d080527b63465267373822c4b))
+
+
+### CI
+
+* bump the github-actions group with 2 updates ([#668](https://github.com/bitrix24/b24ui/issues/668)) ([5785437](https://github.com/bitrix24/b24ui/commit/57854372e54d501cf0458223b6c1d1f4f02f59af))
+
 ## [2.14.0](https://github.com/bitrix24/b24ui/compare/v2.13.0...v2.14.0) (2026-09-29)
 
 
