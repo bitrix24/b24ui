@@ -131,8 +131,9 @@ Root wrapper. Manages sidebar state and persistence.
 
 | Prop | Default | Purpose |
 |---|---|---|
-| `storage` | `'cookie'` | `'cookie'`, `'localStorage'`, `false` |
+| `storage` | `'cookie'` | `'cookie'` or `'local'` |
 | `storage-key` | `'dashboard'` | Storage key name |
+| `persistent` | `true` | Set to `false` to stop saving sizes |
 | `unit` | `'px'` | Size unit: `'px'`, `'rem'` or `'%'` |
 
 ### DashboardSidebar
