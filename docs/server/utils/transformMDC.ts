@@ -5,7 +5,9 @@ import { camelCase, kebabCase, upperFirst } from 'scule'
 import { visit } from '@nuxt/content/runtime'
 import { queryCollection } from '@nuxt/content/server'
 import * as theme from '../../.nuxt/b24ui'
-import meta from '#nuxt-component-meta'
+// the alias nuxt-component-meta's own route imports, so the server bundles the meta once
+// @ts-expect-error - no types available
+import meta from '#nuxt-component-meta/nitro'
 import { compactProps, getDefaultVariants, hasLinkPassthrough, partitionLinkProps } from './componentMeta'
 // @ts-expect-error - no types available
 import { getComponentExample } from '#component-example/nitro'
