@@ -4,7 +4,7 @@ import { withTrailingSlash } from 'ufo'
 
 export default defineMcpTool({
   title: 'Search Composables',
-  description: 'Search composables by name or description',
+  description: 'Finds Bitrix24 UI composables such as `useToast` or `useOverlay`. `search` is a case-insensitive substring match on the name, title and description, checked against the whole string, so pass one keyword rather than a sentence. With no `search` it lists every composable. Returns name, title, description, path and URL for each match, sorted by name. It does not return usage or signatures. Read a result with `b24-ui-get-documentation-page` using its `path`.',
   annotations: {
     readOnlyHint: true,
     destructiveHint: false,
@@ -12,7 +12,7 @@ export default defineMcpTool({
     openWorldHint: false
   },
   inputSchema: {
-    search: z.string().optional().describe('Search term to filter composables by name or description')
+    search: z.string().optional().describe('Single keyword, matched as a substring of the name, title or description')
   },
   inputExamples: [
     {},

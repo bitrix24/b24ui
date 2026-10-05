@@ -3,7 +3,7 @@ import { withTrailingSlash } from 'ufo'
 
 export default defineMcpTool({
   title: 'Get Migration Guide',
-  description: 'Retrieves the migration guide and upgrade instructions for this version of Bitrix24 UI',
+  description: 'Returns the full guide for migrating an application from the previous major version of Bitrix24 UI to this one, as Markdown with its title, description and URL. Takes no parameters and covers that single upgrade only. To read part of it, call `b24-ui-get-documentation-page` with `/docs/getting-started/migration` and a `headings` list.',
   annotations: {
     readOnlyHint: true,
     destructiveHint: false,
