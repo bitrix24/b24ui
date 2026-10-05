@@ -179,10 +179,12 @@ export interface AccordionProps<T extends AccordionItem = AccordionItem> {
 </script>
 
 <script setup lang="ts" generic="T extends AccordionItem">
-const props = withDefaults(defineProps<AccordionProps<T>>(), {
+const _props = withDefaults(defineProps<AccordionProps<T>>(), {
   type: 'single',
   collapsible: true
 })
+
+const props = useComponentProps<AccordionProps<T>>('accordion', _props)
 </script>
 ```
 
