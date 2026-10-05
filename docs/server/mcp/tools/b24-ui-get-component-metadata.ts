@@ -14,7 +14,7 @@ export default defineMcpTool({
     openWorldHint: false
   },
   inputSchema: {
-    componentName: z.string().describe('The name of the component (PascalCase)'),
+    componentName: z.string().describe('Component name. Accepts `Button`, `B24Button`, `button` or `b24-button`.'),
     full: z.boolean().optional().describe('Return raw metadata with recursive prop schemas (very large). Defaults to false (compact props)')
   },
   inputExamples: [

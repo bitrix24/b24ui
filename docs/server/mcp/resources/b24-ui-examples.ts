@@ -4,7 +4,7 @@ import { listComponentExamples } from '#component-example/nitro'
 export default defineMcpResource({
   title: 'Bitrix24 UI Examples',
   uri: 'resource://bitrix24-ui/examples',
-  description: 'Complete list of available Bitrix24 UI example code and demonstrations',
+  description: 'List of the available Bitrix24 UI example names. Names only, not code.',
   cache: '1h',
   handler(uri: URL) {
     return {
