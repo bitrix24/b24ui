@@ -265,6 +265,14 @@ export default defineNuxtConfig({
     'nuxt-schema-org'
   ],
 
+  $production: {
+    // Server sourcemaps cost the final Nitro bundle about 1 GB of heap while
+    // bundling. Build only, so `nuxt dev` keeps Nuxt's defaults.
+    sourcemap: {
+      server: false
+    }
+  },
+
   ssr: true,
 
   devtools: {
