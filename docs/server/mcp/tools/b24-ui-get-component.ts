@@ -17,7 +17,7 @@ export default defineMcpTool({
     openWorldHint: false
   },
   inputSchema: {
-    componentName: z.string().describe('The name of the component (PascalCase)'),
+    componentName: z.string().describe('Component name. Accepts `Button`, `B24Button`, `button` or `b24-button`.'),
     sections: z.array(sectionEnum).optional().describe(`Specific sections to return: ${sectionList.join(', ')}. If omitted, returns full documentation.`)
   },
   inputExamples: [

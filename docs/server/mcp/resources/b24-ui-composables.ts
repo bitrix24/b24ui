@@ -3,7 +3,7 @@ import { queryCollection } from '@nuxt/content/server'
 export default defineMcpResource({
   title: 'Bitrix24 UI Composables',
   uri: 'resource://bitrix24-ui/composables',
-  description: 'Complete list of available Bitrix24 UI v2 composables with metadata and categorie',
+  description: 'List of Bitrix24 UI composables with the path, title and description of each',
   cache: '1h',
   async handler(uri: URL) {
     const event = useEvent()

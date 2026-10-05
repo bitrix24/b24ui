@@ -3,7 +3,7 @@ import { withoutTrailingSlash } from 'ufo'
 
 export default defineMcpTool({
   title: 'Get Documentation Page',
-  description: 'Retrieves documentation page content by URL path. Use the `headings` parameter to fetch only specific h2 sections to reduce response size.',
+  description: 'Returns the Markdown content of one documentation page by its URL path, as found in the `path` field of `b24-ui-search-documentation`. Pass `headings` to return only the named h2 sections and reduce response size. The result is the Markdown string only, headed by a short frontmatter (title, description, canonical URL). For a component, `b24-ui-get-component` returns the same content with metadata. A path with no page returns a "Page Not Found" Markdown stub rather than an error.',
   annotations: {
     readOnlyHint: true,
     destructiveHint: false,
