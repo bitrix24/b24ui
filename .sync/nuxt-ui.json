@@ -2491,8 +2491,8 @@
       "summary": "docs(app) chat prompt tool-call limit in docs/server/api/ai.post.ts — the fork's docs have no AI chat endpoint or system prompt"
     },
     "322fcfbbae4d28a20651945593721d0e506dbb47": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 692,
+      "b24ui_sha": "a97f3b7d",
       "decision": "port",
       "summary": "docs: plain model ids instead of gateway() in chat.md (install lines, 6 imports, 6 calls); editor.md/playground/skills n/a (absent); @ai-sdk/gateway only transitive via ai"
     }
