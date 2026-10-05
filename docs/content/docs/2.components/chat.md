@@ -37,19 +37,19 @@ Install the required dependencies:
 ::code-group{sync="pm"}
 
 ```bash [pnpm]
-pnpm add ai @ai-sdk/gateway @ai-sdk/vue
+pnpm add ai @ai-sdk/vue
 ```
 
 ```bash [yarn]
-yarn add ai @ai-sdk/gateway @ai-sdk/vue
+yarn add ai @ai-sdk/vue
 ```
 
 ```bash [npm]
-npm install ai @ai-sdk/gateway @ai-sdk/vue
+npm install ai @ai-sdk/vue
 ```
 
 ```bash [bun]
-bun add ai @ai-sdk/gateway @ai-sdk/vue
+bun add ai @ai-sdk/vue
 ```
 
 ::
@@ -60,13 +60,12 @@ Create a server API endpoint to handle chat requests using [`streamText`](https:
 
 ```ts [server/api/chat.post.ts]
 import { streamText, convertToModelMessages, toUIMessageStream, createUIMessageStreamResponse } from 'ai'
-import { gateway } from '@ai-sdk/gateway'
 
 export default defineEventHandler(async (event) => {
   const { messages } = await readBody(event)
 
   const result = streamText({
-    model: gateway('anthropic/claude-sonnet-5.5'),
+    model: 'anthropic/claude-sonnet-5.5',
     maxOutputTokens: 10000,
     instructions: 'You are a helpful assistant.',
     messages: await convertToModelMessages(messages)
@@ -83,13 +82,12 @@ To enable [reasoning](https://ai-sdk.dev/docs/ai-sdk-ui/chatbot#reasoning), conf
 
 ```ts [server/api/chat.post.ts]
 import { streamText, convertToModelMessages, toUIMessageStream, createUIMessageStreamResponse } from 'ai'
-import { gateway } from '@ai-sdk/gateway'
 
 export default defineEventHandler(async (event) => {
   const { messages } = await readBody(event)
 
   const result = streamText({
-    model: gateway('anthropic/claude-sonnet-5.5'),
+    model: 'anthropic/claude-sonnet-5.5',
     maxOutputTokens: 10000,
     instructions: 'You are a helpful assistant.',
     messages: await convertToModelMessages(messages),
@@ -127,13 +125,12 @@ Some providers offer built-in web search tools: [Anthropic](https://ai-sdk.dev/p
 ```ts [Anthropic]
 import { streamText, convertToModelMessages, toUIMessageStream, createUIMessageStreamResponse } from 'ai'
 import { anthropic } from '@ai-sdk/anthropic'
-import { gateway } from '@ai-sdk/gateway'
 
 export default defineEventHandler(async (event) => {
   const { messages } = await readBody(event)
 
   const result = streamText({
-    model: gateway('anthropic/claude-sonnet-5.5'),
+    model: 'anthropic/claude-sonnet-5.5',
     instructions: 'You are a helpful assistant.',
     messages: await convertToModelMessages(messages),
     tools: {
@@ -149,13 +146,12 @@ export default defineEventHandler(async (event) => {
 ```ts [Google]
 import { streamText, convertToModelMessages, toUIMessageStream, createUIMessageStreamResponse } from 'ai'
 import { google } from '@ai-sdk/google'
-import { gateway } from '@ai-sdk/gateway'
 
 export default defineEventHandler(async (event) => {
   const { messages } = await readBody(event)
 
   const result = streamText({
-    model: gateway('google/gemini-3-flash'),
+    model: 'google/gemini-3-flash',
     instructions: 'You are a helpful assistant.',
     messages: await convertToModelMessages(messages),
     tools: {
@@ -171,13 +167,12 @@ export default defineEventHandler(async (event) => {
 ```ts [OpenAI]
 import { streamText, convertToModelMessages, toUIMessageStream, createUIMessageStreamResponse } from 'ai'
 import { openai } from '@ai-sdk/openai'
-import { gateway } from '@ai-sdk/gateway'
 
 export default defineEventHandler(async (event) => {
   const { messages } = await readBody(event)
 
   const result = streamText({
-    model: gateway('openai/gpt-5-nano'),
+    model: 'openai/gpt-5-nano',
     instructions: 'You are a helpful assistant.',
     messages: await convertToModelMessages(messages),
     tools: {
@@ -219,7 +214,6 @@ Then, configure your server endpoint to use MCP tools:
 ```ts [server/api/chat.post.ts]
 import { streamText, convertToModelMessages, isStepCount, toUIMessageStream, createUIMessageStreamResponse } from 'ai'
 import { createMCPClient } from '@ai-sdk/mcp'
-import { gateway } from '@ai-sdk/gateway'
 
 export default defineEventHandler(async (event) => {
   const { messages } = await readBody(event)
@@ -231,7 +225,7 @@ export default defineEventHandler(async (event) => {
     const tools = await httpClient.tools()
 
     const result = streamText({
-      model: gateway('anthropic/claude-sonnet-5.5'),
+      model: 'anthropic/claude-sonnet-5.5',
       maxOutputTokens: 10000,
       instructions: 'You are a helpful assistant. Use your tools to search for relevant information before answering questions.',
       messages: await convertToModelMessages(messages),
