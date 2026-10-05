@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "d0f0b540516f6fe1ebc555a6668e74fde45a38e7",
+  "cursor": "e8dd339dfde780ae0a5a136ef8b154e5697603e8",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2443,10 +2443,16 @@
       "summary": "chore(github): validate pull request titles — adds upstream's `semantic-pull-request.yml` (amannn/action-semantic-pull-request on pull_request_target); the fork already gates titles with its own stricter `pr-title.yml` (changelog-sections + upstream-commit reference), so a second, looser check is not adopted."
     },
     "d0f0b540516f6fe1ebc555a6668e74fde45a38e7": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 684,
+      "b24ui_sha": "51476d63",
       "decision": "port",
       "summary": "Docs build: server sourcemaps off in production and component meta imported via #nuxt-component-meta/nitro; icon JSON externalization n/a (no @nuxt/icon)"
+    },
+    "e8dd339dfde780ae0a5a136ef8b154e5697603e8": {
+      "pr": "pending-merge",
+      "b24ui_sha": "pending-merge",
+      "decision": "n/a",
+      "summary": "docs(hero) postcss-calc fix on PageHero .horizon colors — the fork has no PageHero, no .horizon styles, no relative oklch colors"
     }
   }
 }
