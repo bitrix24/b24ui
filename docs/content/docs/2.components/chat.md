@@ -66,7 +66,7 @@ export default defineEventHandler(async (event) => {
   const { messages } = await readBody(event)
 
   const result = streamText({
-    model: gateway('anthropic/claude-sonnet-5'),
+    model: gateway('anthropic/claude-sonnet-5.5'),
     maxOutputTokens: 10000,
     instructions: 'You are a helpful assistant.',
     messages: await convertToModelMessages(messages)
@@ -89,7 +89,7 @@ export default defineEventHandler(async (event) => {
   const { messages } = await readBody(event)
 
   const result = streamText({
-    model: gateway('anthropic/claude-sonnet-5'),
+    model: gateway('anthropic/claude-sonnet-5.5'),
     maxOutputTokens: 10000,
     instructions: 'You are a helpful assistant.',
     messages: await convertToModelMessages(messages),
@@ -133,7 +133,7 @@ export default defineEventHandler(async (event) => {
   const { messages } = await readBody(event)
 
   const result = streamText({
-    model: gateway('anthropic/claude-sonnet-5'),
+    model: gateway('anthropic/claude-sonnet-5.5'),
     instructions: 'You are a helpful assistant.',
     messages: await convertToModelMessages(messages),
     tools: {
@@ -231,7 +231,7 @@ export default defineEventHandler(async (event) => {
     const tools = await httpClient.tools()
 
     const result = streamText({
-      model: gateway('anthropic/claude-sonnet-5'),
+      model: gateway('anthropic/claude-sonnet-5.5'),
       maxOutputTokens: 10000,
       instructions: 'You are a helpful assistant. Use your tools to search for relevant information before answering questions.',
       messages: await convertToModelMessages(messages),
