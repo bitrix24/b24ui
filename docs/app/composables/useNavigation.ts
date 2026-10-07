@@ -248,7 +248,9 @@ export const useNavigation = (navigation: Ref<ContentNavigationItem[] | undefine
   const navigationByCategory = computed(() => {
     const route = useRoute()
 
-    const slug = route.params.slug?.[0] as string
+    // Typed route params are a union per route under Nuxt 4.6, and routes
+    // without a catch-all have no `slug` key at all, so narrow before reading.
+    const slug = ('slug' in route.params ? route.params.slug?.[0] : undefined) as string
     const children = findPageChildren(navigation?.value, `/docs/${slug}`, { indexAsChild: true })
 
     return groupChildrenByCategory(children, slug)
