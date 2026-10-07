@@ -127,6 +127,13 @@ export default defineLocale<Messages>({
     drawer: {
       close: 'إغلاق'
     },
+    pagination: {
+      first: 'الصفحة الأولى',
+      last: 'الصفحة الأخيرة',
+      next: 'الصفحة التالية',
+      page: 'الصفحة {page}',
+      prev: 'الصفحة السابقة'
+    },
     pricingTable: {
       caption: 'مقارنة خطط الأسعار'
     },

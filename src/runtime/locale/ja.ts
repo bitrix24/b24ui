@@ -126,6 +126,13 @@ export default defineLocale<Messages>({
     drawer: {
       close: '閉じる'
     },
+    pagination: {
+      first: '最初のページ',
+      last: '最後のページ',
+      next: '次のページ',
+      page: '{page}ページ',
+      prev: '前のページ'
+    },
     pricingTable: {
       caption: '料金プランの比較'
     },
