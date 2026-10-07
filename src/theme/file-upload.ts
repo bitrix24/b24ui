@@ -75,10 +75,10 @@ export default {
         file: 'text-(length:--ui-font-size-xs) px-2.5 py-1.5 gap-1.5'
       },
       lg: {
-        base: 'ext-(length:--ui-font-size-sm)',
+        base: 'text-(length:--ui-font-size-sm)',
         icon: 'size-5',
-        file: 'ext-(length:--ui-font-size-sm) px-3 py-2 gap-2',
-        fileSize: 'ext-(length:--ui-font-size-xs)'
+        file: 'text-(length:--ui-font-size-sm) px-3 py-2 gap-2',
+        fileSize: 'text-(length:--ui-font-size-xs)'
       }
     },
     layout: {
