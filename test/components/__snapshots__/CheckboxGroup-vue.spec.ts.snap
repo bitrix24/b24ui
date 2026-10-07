@@ -80,7 +80,7 @@ exports[`CheckboxGroup > renders with air-primary-success variant list correctly
 exports[`CheckboxGroup > renders with air-primary-success variant table correctly 1`] = `
 "<div id="v-0" data-slot="root" class="relative" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;">
   <fieldset data-slot="fieldset" class="flex flex-col gap-0 -space-y-px">
-    <!--v-if--><label data-slot="root" class="relative flex items-start flex-row style-filled-success cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
+    <!--v-if--><label data-slot="root" class="relative flex items-start flex-row style-filled-success cursor-pointer has-aria-disabled:cursor-not-allowed border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
       <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0:1" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M20.196 6.432a.7.7 0 0 1-.002.99L9.878 17.695a.7.7 0 0 1-.988 0L4.206 13.03a.7.7 0 0 1 .988-.992l4.19 4.172 9.822-9.781a.7.7 0 0 1 .99.002" clip-rule="evenodd"></path></svg></span></button>
         <!--v-if-->
       </div>
@@ -88,7 +88,7 @@ exports[`CheckboxGroup > renders with air-primary-success variant table correctl
         <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <!--v-if-->
       </div>
-    </label><label data-slot="root" class="relative flex items-start flex-row style-filled-success cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
+    </label><label data-slot="root" class="relative flex items-start flex-row style-filled-success cursor-pointer has-aria-disabled:cursor-not-allowed border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
       <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0:2" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical">
           <!---->
         </button>
@@ -98,7 +98,7 @@ exports[`CheckboxGroup > renders with air-primary-success variant table correctl
         <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <!--v-if-->
       </div>
-    </label><label data-slot="root" class="relative flex items-start flex-row style-filled-success cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
+    </label><label data-slot="root" class="relative flex items-start flex-row style-filled-success cursor-pointer has-aria-disabled:cursor-not-allowed border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
       <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0:3" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical">
           <!---->
         </button>
@@ -650,7 +650,7 @@ exports[`CheckboxGroup > renders with horizontal variant list correctly 1`] = `
 exports[`CheckboxGroup > renders with horizontal variant table correctly 1`] = `
 "<div id="v-0" data-slot="root" class="relative" tabindex="0" data-orientation="horizontal" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;">
   <fieldset data-slot="fieldset" class="flex flex-row gap-0 -space-x-px">
-    <!--v-if--><label data-slot="root" class="relative flex items-start flex-row style-filled cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-s-(--ui-border-radius-md) last-of-type:rounded-e-(--ui-border-radius-md)">
+    <!--v-if--><label data-slot="root" class="relative flex items-start flex-row style-filled cursor-pointer has-aria-disabled:cursor-not-allowed border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-s-(--ui-border-radius-md) last-of-type:rounded-e-(--ui-border-radius-md)">
       <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0:1" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked" data-reka-collection-item="" tabindex="-1" data-orientation="horizontal"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M20.196 6.432a.7.7 0 0 1-.002.99L9.878 17.695a.7.7 0 0 1-.988 0L4.206 13.03a.7.7 0 0 1 .988-.992l4.19 4.172 9.822-9.781a.7.7 0 0 1 .99.002" clip-rule="evenodd"></path></svg></span></button>
         <!--v-if-->
       </div>
@@ -658,7 +658,7 @@ exports[`CheckboxGroup > renders with horizontal variant table correctly 1`] = `
         <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <!--v-if-->
       </div>
-    </label><label data-slot="root" class="relative flex items-start flex-row style-filled cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-s-(--ui-border-radius-md) last-of-type:rounded-e-(--ui-border-radius-md)">
+    </label><label data-slot="root" class="relative flex items-start flex-row style-filled cursor-pointer has-aria-disabled:cursor-not-allowed border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-s-(--ui-border-radius-md) last-of-type:rounded-e-(--ui-border-radius-md)">
       <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0:2" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" data-reka-collection-item="" tabindex="-1" data-orientation="horizontal">
           <!---->
         </button>
@@ -668,7 +668,7 @@ exports[`CheckboxGroup > renders with horizontal variant table correctly 1`] = `
         <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <!--v-if-->
       </div>
-    </label><label data-slot="root" class="relative flex items-start flex-row style-filled cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-s-(--ui-border-radius-md) last-of-type:rounded-e-(--ui-border-radius-md)">
+    </label><label data-slot="root" class="relative flex items-start flex-row style-filled cursor-pointer has-aria-disabled:cursor-not-allowed border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-s-(--ui-border-radius-md) last-of-type:rounded-e-(--ui-border-radius-md)">
       <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0:3" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" data-reka-collection-item="" tabindex="-1" data-orientation="horizontal">
           <!---->
         </button>
@@ -762,7 +762,7 @@ exports[`CheckboxGroup > renders with icon correctly 1`] = `
 exports[`CheckboxGroup > renders with icon table correctly 1`] = `
 "<div id="v-0" data-slot="root" class="relative" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;">
   <fieldset data-slot="fieldset" class="flex flex-col gap-0 -space-y-px">
-    <!--v-if--><label data-slot="root" class="relative flex items-start outline-transparent has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-border-color) style-filled cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
+    <!--v-if--><label data-slot="root" class="relative flex items-start outline-transparent has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-border-color) style-filled cursor-pointer has-aria-disabled:cursor-not-allowed border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
       <div data-slot="container" class="flex items-center h-auto"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 sr-only size-4" id="v-0:1" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"></button>
         <!--v-if-->
       </div>
@@ -771,7 +771,7 @@ exports[`CheckboxGroup > renders with icon table correctly 1`] = `
         </svg><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <!--v-if-->
       </div>
-    </label><label data-slot="root" class="relative flex items-start outline-transparent has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-border-color) style-filled cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
+    </label><label data-slot="root" class="relative flex items-start outline-transparent has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-border-color) style-filled cursor-pointer has-aria-disabled:cursor-not-allowed border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
       <div data-slot="container" class="flex items-center h-auto"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 sr-only size-4" id="v-0:2" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"></button>
         <!--v-if-->
       </div>
@@ -780,7 +780,7 @@ exports[`CheckboxGroup > renders with icon table correctly 1`] = `
         </svg><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <!--v-if-->
       </div>
-    </label><label data-slot="root" class="relative flex items-start outline-transparent has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-border-color) style-filled cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
+    </label><label data-slot="root" class="relative flex items-start outline-transparent has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--b24ui-border-color) style-filled cursor-pointer has-aria-disabled:cursor-not-allowed border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
       <div data-slot="container" class="flex items-center h-auto"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 sr-only size-4" id="v-0:3" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"></button>
         <!--v-if-->
       </div>
@@ -958,6 +958,83 @@ exports[`CheckboxGroup > renders with legend slot correctly 1`] = `
         <!--v-if-->
       </div>
     </div>
+  </fieldset>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`CheckboxGroup > renders with max correctly 1`] = `
+"<div id="v-0" data-slot="root" class="relative" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;">
+  <fieldset data-slot="fieldset" class="flex flex-col flex-wrap gap-x-[16px] gap-y-2">
+    <!--v-if-->
+    <div data-slot="root" class="relative flex items-start flex-row style-filled">
+      <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0:1" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M20.196 6.432a.7.7 0 0 1-.002.99L9.878 17.695a.7.7 0 0 1-.988 0L4.206 13.03a.7.7 0 0 1 .988-.992l4.19 4.172 9.822-9.781a.7.7 0 0 1 .99.002" clip-rule="evenodd"></path></svg></span></button>
+        <!--v-if-->
+      </div>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+        <!--v-if-->
+      </div>
+    </div>
+    <div data-slot="root" class="relative flex items-start flex-row opacity-30 style-filled">
+      <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4 cursor-not-allowed" id="v-0:2" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" aria-disabled="true" data-reka-collection-item="" tabindex="-1" data-orientation="vertical">
+          <!---->
+        </button>
+        <!--v-if-->
+      </div>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="block text-label cursor-not-allowed">Option 2</span>
+        <!--v-if-->
+      </div>
+    </div>
+    <div data-slot="root" class="relative flex items-start flex-row opacity-30 style-filled">
+      <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4 cursor-not-allowed" id="v-0:3" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" aria-disabled="true" data-reka-collection-item="" tabindex="-1" data-orientation="vertical">
+          <!---->
+        </button>
+        <!--v-if-->
+      </div>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="block text-label cursor-not-allowed">Option 3</span>
+        <!--v-if-->
+      </div>
+    </div>
+  </fieldset>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`CheckboxGroup > renders with max variant table correctly 1`] = `
+"<div id="v-0" data-slot="root" class="relative" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;">
+  <fieldset data-slot="fieldset" class="flex flex-col gap-0 -space-y-px">
+    <!--v-if--><label data-slot="root" class="relative flex items-start flex-row style-filled cursor-pointer has-aria-disabled:cursor-not-allowed border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
+      <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0:1" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M20.196 6.432a.7.7 0 0 1-.002.99L9.878 17.695a.7.7 0 0 1-.988 0L4.206 13.03a.7.7 0 0 1 .988-.992l4.19 4.172 9.822-9.781a.7.7 0 0 1 .99.002" clip-rule="evenodd"></path></svg></span></button>
+        <!--v-if-->
+      </div>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
+        <!--v-if-->
+      </div>
+    </label><label data-slot="root" class="relative flex items-start flex-row opacity-30 style-filled cursor-pointer has-aria-disabled:cursor-not-allowed border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
+      <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4 cursor-not-allowed" id="v-0:2" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" aria-disabled="true" data-reka-collection-item="" tabindex="-1" data-orientation="vertical">
+          <!---->
+        </button>
+        <!--v-if-->
+      </div>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="block text-label cursor-not-allowed">Option 2</span>
+        <!--v-if-->
+      </div>
+    </label><label data-slot="root" class="relative flex items-start flex-row opacity-30 style-filled cursor-pointer has-aria-disabled:cursor-not-allowed border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
+      <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4 cursor-not-allowed" id="v-0:3" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" aria-disabled="true" data-reka-collection-item="" tabindex="-1" data-orientation="vertical">
+          <!---->
+        </button>
+        <!--v-if-->
+      </div>
+      <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-4">
+        <!--v-if--><span data-slot="label" class="block text-label cursor-not-allowed">Option 3</span>
+        <!--v-if-->
+      </div>
+    </label>
   </fieldset>
   <!--v-if-->
 </div>"
@@ -1325,7 +1402,7 @@ exports[`CheckboxGroup > renders with variant list correctly 1`] = `
 exports[`CheckboxGroup > renders with variant table correctly 1`] = `
 "<div id="v-0" data-slot="root" class="relative" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;">
   <fieldset data-slot="fieldset" class="flex flex-col gap-0 -space-y-px">
-    <!--v-if--><label data-slot="root" class="relative flex items-start flex-row style-filled cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
+    <!--v-if--><label data-slot="root" class="relative flex items-start flex-row style-filled cursor-pointer has-aria-disabled:cursor-not-allowed border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
       <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0:1" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M20.196 6.432a.7.7 0 0 1-.002.99L9.878 17.695a.7.7 0 0 1-.988 0L4.206 13.03a.7.7 0 0 1 .988-.992l4.19 4.172 9.822-9.781a.7.7 0 0 1 .99.002" clip-rule="evenodd"></path></svg></span></button>
         <!--v-if-->
       </div>
@@ -1333,7 +1410,7 @@ exports[`CheckboxGroup > renders with variant table correctly 1`] = `
         <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 1</span>
         <!--v-if-->
       </div>
-    </label><label data-slot="root" class="relative flex items-start flex-row style-filled cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
+    </label><label data-slot="root" class="relative flex items-start flex-row style-filled cursor-pointer has-aria-disabled:cursor-not-allowed border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
       <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0:2" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical">
           <!---->
         </button>
@@ -1343,7 +1420,7 @@ exports[`CheckboxGroup > renders with variant table correctly 1`] = `
         <!--v-if--><span data-slot="label" class="cursor-pointer block text-label">Option 2</span>
         <!--v-if-->
       </div>
-    </label><label data-slot="root" class="relative flex items-start flex-row style-filled cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
+    </label><label data-slot="root" class="relative flex items-start flex-row style-filled cursor-pointer has-aria-disabled:cursor-not-allowed border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
       <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4" id="v-0:3" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" data-reka-collection-item="" tabindex="-1" data-orientation="vertical">
           <!---->
         </button>

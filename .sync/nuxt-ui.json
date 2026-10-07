@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "8a7270d6604b5f7fd4ab07d52a57bd47736480d0",
+  "cursor": "63a0c0563ea225d31d32019ccf3fdc9a455bb44c",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2695,10 +2695,16 @@
       "summary": "feat(components): add `loop` prop"
     },
     "8a7270d6604b5f7fd4ab07d52a57bd47736480d0": {
+      "pr": 731,
+      "b24ui_sha": "66267c87",
+      "decision": "port",
+      "summary": "fix(useTour): accept any CSS selector as step target"
+    },
+    "63a0c0563ea225d31d32019ccf3fdc9a455bb44c": {
       "pr": "pending-merge",
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(useTour): accept any CSS selector as step target"
+      "summary": "feat(CheckboxGroup): add `max` prop"
     }
   }
 }
