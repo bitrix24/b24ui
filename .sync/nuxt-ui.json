@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "2113daa41f2dfc13ffb2c37d9d1610002229c24b",
+  "cursor": "a96f56f7649b0794dba5337a4d483efeb228d58b",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2683,10 +2683,16 @@
       "summary": "fix(Slideover): only cap width from `sm` breakpoint — the fork's slideover theme has no max-w cap"
     },
     "2113daa41f2dfc13ffb2c37d9d1610002229c24b": {
+      "pr": 729,
+      "b24ui_sha": "2450afbb",
+      "decision": "port",
+      "summary": "feat(Sidebar): add `breakpoint` prop"
+    },
+    "a96f56f7649b0794dba5337a4d483efeb228d58b": {
       "pr": "pending-merge",
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "feat(Sidebar): add `breakpoint` prop"
+      "summary": "feat(components): add `loop` prop"
     }
   }
 }
