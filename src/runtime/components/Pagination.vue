@@ -118,7 +118,7 @@ const slots = defineSlots<PaginationSlots>()
 
 const props = useComponentProps('pagination', _props)
 
-const { dir } = useLocale()
+const { dir, t } = useLocale()
 const appConfig = useAppConfig() as Pagination['AppConfig']
 
 const rootProps = useForwardProps(reactivePick(props, 'as', 'defaultPage', 'disabled', 'itemsPerPage', 'page', 'showEdges', 'siblingCount', 'total'), emits)
@@ -139,19 +139,26 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.pagination
 <template>
   <PaginationRoot v-slot="{ page, pageCount }" v-bind="(rootProps as any)" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <PaginationList v-slot="{ items }" data-slot="list" :class="b24ui.list({ class: props.b24ui?.list })">
-      <PaginationFirst v-if="props.showControls || !!slots.first" as-child data-slot="first" :class="b24ui.first({ class: props.b24ui?.first })">
+      <PaginationFirst v-if="props.showControls || !!slots.first" as-child :aria-label="t('pagination.first')" data-slot="first" :class="b24ui.first({ class: props.b24ui?.first })">
         <slot name="first">
           <B24Button :color="props.color" :size="props.size" :icon="firstIcon" :to="props.to?.(1)" />
         </slot>
       </PaginationFirst>
-      <PaginationPrev v-if="props.showControls || !!slots.prev" as-child data-slot="prev" :class="b24ui.prev({ class: props.b24ui?.prev })">
+      <PaginationPrev v-if="props.showControls || !!slots.prev" as-child :aria-label="t('pagination.prev')" data-slot="prev" :class="b24ui.prev({ class: props.b24ui?.prev })">
         <slot name="prev">
           <B24Button :color="props.color" :size="props.size" :icon="prevIcon" :to="page > 1 ? props.to?.(page - 1) : undefined" />
         </slot>
       </PaginationPrev>
 
       <template v-for="(item, index) in items" :key="index">
-        <PaginationListItem v-if="item.type === 'page'" as-child :value="item.value" data-slot="item" :class="b24ui.item({ class: props.b24ui?.item })">
+        <PaginationListItem
+          v-if="item.type === 'page'"
+          as-child
+          :value="item.value"
+          :aria-label="t('pagination.page', { page: item.value })"
+          data-slot="item"
+          :class="b24ui.item({ class: props.b24ui?.item })"
+        >
           <slot name="item" v-bind="{ item, index, page, pageCount }">
             <B24Button
               :color="page === item.value ? props.activeColor : props.color"
@@ -171,12 +178,12 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.pagination
         </PaginationEllipsis>
       </template>
 
-      <PaginationNext v-if="props.showControls || !!slots.next" as-child data-slot="next" :class="b24ui.next({ class: props.b24ui?.next })">
+      <PaginationNext v-if="props.showControls || !!slots.next" as-child :aria-label="t('pagination.next')" data-slot="next" :class="b24ui.next({ class: props.b24ui?.next })">
         <slot name="next">
           <B24Button :color="props.color" :size="props.size" :icon="nextIcon" :to="page < pageCount ? props.to?.(page + 1) : undefined" />
         </slot>
       </PaginationNext>
-      <PaginationLast v-if="props.showControls || !!slots.last" as-child data-slot="last" :class="b24ui.last({ class: props.b24ui?.last })">
+      <PaginationLast v-if="props.showControls || !!slots.last" as-child :aria-label="t('pagination.last')" data-slot="last" :class="b24ui.last({ class: props.b24ui?.last })">
         <slot name="last">
           <B24Button :color="props.color" :size="props.size" :icon="lastIcon" :to="props.to?.(pageCount)" />
         </slot>

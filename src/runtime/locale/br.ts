@@ -121,6 +121,13 @@ export default defineLocale<Messages>({
     drawer: {
       close: 'Fechar'
     },
+    pagination: {
+      first: 'Primeira página',
+      last: 'Última página',
+      next: 'Próxima página',
+      page: 'Página {page}',
+      prev: 'Página anterior'
+    },
     pricingTable: {
       caption: 'Comparação de planos de preços'
     },

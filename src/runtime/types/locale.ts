@@ -124,6 +124,13 @@ export type Messages = {
   drawer: {
     close: string
   }
+  pagination: {
+    first: string
+    last: string
+    next: string
+    page: string
+    prev: string
+  }
   pricingTable: {
     caption: string
   }

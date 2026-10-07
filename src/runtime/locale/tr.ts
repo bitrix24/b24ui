@@ -121,6 +121,13 @@ export default defineLocale<Messages>({
     drawer: {
       close: 'Kapat'
     },
+    pagination: {
+      first: 'İlk sayfa',
+      last: 'Son sayfa',
+      next: 'Sonraki sayfa',
+      page: 'Sayfa {page}',
+      prev: 'Önceki sayfa'
+    },
     pricingTable: {
       caption: 'Fiyat planları karşılaştırması'
     },

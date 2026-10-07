@@ -121,6 +121,13 @@ export default defineLocale<Messages>({
     drawer: {
       close: 'Жабу'
     },
+    pagination: {
+      first: 'Бірінші бет',
+      last: 'Соңғы бет',
+      next: 'Келесі бет',
+      page: '{page}-бет',
+      prev: 'Алдыңғы бет'
+    },
     pricingTable: {
       caption: 'Баға жоспарларын салыстыру'
     },

@@ -121,6 +121,13 @@ export default defineLocale<Messages>({
     drawer: {
       close: '關閉'
     },
+    pagination: {
+      first: '第一頁',
+      last: '最後一頁',
+      next: '下一頁',
+      page: '第 {page} 頁',
+      prev: '上一頁'
+    },
     pricingTable: {
       caption: '方案價格比較'
     },

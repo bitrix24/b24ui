@@ -121,6 +121,13 @@ export default defineLocale<Messages>({
     drawer: {
       close: 'Закрити'
     },
+    pagination: {
+      first: 'Перша сторінка',
+      last: 'Остання сторінка',
+      next: 'Наступна сторінка',
+      page: 'Сторінка {page}',
+      prev: 'Попередня сторінка'
+    },
     pricingTable: {
       caption: 'Порівняння тарифних планів'
     },
