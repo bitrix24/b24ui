@@ -29,11 +29,16 @@ export default defineLocale<Messages>({
       next: 'Next',
       prev: 'Previous'
     },
+    chatMessages: {
+      autoScroll: 'Scroll to bottom'
+    },
     chatPrompt: {
       placeholder: 'Enter your message here…'
     },
     chatPromptSubmit: {
-      label: 'Send'
+      label: 'Send',
+      reload: 'Retry',
+      stop: 'Stop generating'
     },
     colorMode: {
       dark: 'Dark',
@@ -120,6 +125,13 @@ export default defineLocale<Messages>({
     },
     drawer: {
       close: 'Close'
+    },
+    pagination: {
+      first: 'First page',
+      last: 'Last page',
+      next: 'Next page',
+      page: 'Page {page}',
+      prev: 'Previous page'
     },
     pricingTable: {
       caption: 'Pricing plans comparison'

@@ -29,11 +29,16 @@ export default defineLocale<Messages>({
       next: 'Келесі',
       prev: 'Алдыңғы'
     },
+    chatMessages: {
+      autoScroll: 'Төмен айналдыру'
+    },
     chatPrompt: {
       placeholder: 'Хабарламаңызды осында енгізіңіз…'
     },
     chatPromptSubmit: {
-      label: 'Жіберу'
+      label: 'Жіберу',
+      reload: 'Қайталау',
+      stop: 'Генерацияны тоқтату'
     },
     colorMode: {
       dark: 'Қараңғы',
@@ -120,6 +125,13 @@ export default defineLocale<Messages>({
     },
     drawer: {
       close: 'Жабу'
+    },
+    pagination: {
+      first: 'Бірінші бет',
+      last: 'Соңғы бет',
+      next: 'Келесі бет',
+      page: '{page}-бет',
+      prev: 'Алдыңғы бет'
     },
     pricingTable: {
       caption: 'Баға жоспарларын салыстыру'

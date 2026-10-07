@@ -2,6 +2,7 @@ import { defineComponent } from 'vue'
 import { describe, it, expect, vi } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
+import { ToastProvider } from 'reka-ui'
 import { renderEach } from '../component-render'
 import Toaster from '../../src/runtime/components/Toaster.vue'
 import Toast from '../../src/runtime/components/Toast.vue'
@@ -91,6 +92,41 @@ describe('Toast', () => {
     toast.clear()
   })
 
+  // Same fork-only adaptation as above: upstream calls `useToast()` in the test
+  // body, which warns outside a component instance; here it is taken from a
+  // harness's `setup()` so this file stays off `KNOWN_NOISY_SPECS`.
+  it('marks stacked toasts as collapsed', async () => {
+    let toast!: ReturnType<typeof useToast>
+
+    const Harness = defineComponent({
+      components: { B24Toaster: Toaster },
+      setup() {
+        toast = useToast()
+        return {}
+      },
+      template: `<B24Toaster :portal="false" :expand="false" />`
+    })
+
+    const wrapper = await mountSuspended(Harness)
+    toast.clear()
+    toast.add({ title: 'Back' })
+    toast.add({ title: 'Front' })
+
+    await vi.waitFor(() => expect(wrapper.findAll('li[data-slot="base"]')).toHaveLength(2), { timeout: 4000 })
+    const [back, front] = wrapper.findAll('li[data-slot="base"]')
+
+    expect([back!.attributes('data-collapsed'), back!.attributes('data-front')]).toEqual(['true', 'false'])
+    expect([front!.attributes('data-collapsed'), front!.attributes('data-front')]).toEqual(['true', 'true'])
+
+    toast.clear()
+  })
+
+  it('does not pass attributes down to the provider', async () => {
+    const wrapper = await mountSuspended(Toaster, { props: { portal: false }, attrs: { limit: 1 } })
+
+    expect(wrapper.findComponent(ToastProvider).props('limit')).toBeUndefined()
+  })
+
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(ToastWrapper, {
       props: {
@@ -100,24 +136,6 @@ describe('Toast', () => {
         actions: [{ label: 'Action' }]
       }
     })
-    expect(await axe(wrapper.element, {
-      rules: {
-        // "ARIA role should be appropriate for the element (aria-allowed-role)"
-
-        // Fix any of the following:
-        //   ARIA role alert is not allowed for given element
-        'aria-allowed-role': { enabled: false },
-        // "ARIA hidden element must not be focusable or contain focusable elements (aria-hidden-focus)"
-
-        // Fix all of the following:
-        //   Focusable content should have tabindex="-1" or be removed from the DOM
-        'aria-hidden-focus': { enabled: false },
-        // "<ul> and <ol> must only directly contain <li>, <script> or <template> elements (list)"
-
-        // Fix all of the following:
-        //   List element has direct children that are not allowed: [role=alert]
-        'list': { enabled: false }
-      }
-    })).toHaveNoViolations()
+    expect(await axe(wrapper.element)).toHaveNoViolations()
   })
 })

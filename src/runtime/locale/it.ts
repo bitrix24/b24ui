@@ -29,11 +29,16 @@ export default defineLocale<Messages>({
       next: 'Successivo',
       prev: 'Precedente'
     },
+    chatMessages: {
+      autoScroll: 'Scorri in fondo'
+    },
     chatPrompt: {
       placeholder: 'Scrivi il tuo messaggio qui…'
     },
     chatPromptSubmit: {
-      label: 'Invia'
+      label: 'Invia',
+      reload: 'Riprova',
+      stop: 'Interrompi generazione'
     },
     colorMode: {
       dark: 'Scuro',
@@ -120,6 +125,13 @@ export default defineLocale<Messages>({
     },
     drawer: {
       close: 'Chiudi'
+    },
+    pagination: {
+      first: 'Prima pagina',
+      last: 'Ultima pagina',
+      next: 'Pagina seguente',
+      page: 'Pagina {page}',
+      prev: 'Pagina precedente'
     },
     pricingTable: {
       caption: 'Confronto piani tariffari'
