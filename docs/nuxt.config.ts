@@ -1,5 +1,5 @@
 import { createResolver } from '@nuxt/kit'
-import pkg from '../package.json'
+import pkg from '../package.json' with { type: 'json' }
 import { withoutTrailingSlash } from 'ufo'
 
 const { resolve } = createResolver(import.meta.url)

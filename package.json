@@ -227,6 +227,7 @@
     "eslint": "catalog:",
     "eslint-plugin-better-tailwindcss": "catalog:",
     "happy-dom": "catalog:",
+    "jiti": "catalog:",
     "minimark": "catalog:",
     "nuxt": "catalog:",
     "playwright-core": "catalog:",
