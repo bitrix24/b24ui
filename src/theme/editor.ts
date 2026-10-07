@@ -39,7 +39,7 @@ export default {
       '[&_hr]:border-t [&_hr]:border-(--ui-color-divider-default)',
       // Code blocks
       '[&_pre]:text-sm/6 [&_pre]:border [&_pre]:border-(--ui-color-design-tinted-na-stroke) [&_pre]:bg-(--ui-color-design-tinted-na-bg) [&_pre]:rounded-md [&_pre]:px-4 [&_pre]:py-3 [&_pre]:whitespace-pre-wrap [&_pre]:wrap-break-word [&_pre]:overflow-x-auto',
-      '[&_pre_code]:p-0 [&_pre_code]:text-inherit [&_pre_code]:font-inherit [&_pre_code]:rounded-none [&_pre_code]:inline [&_pre_code]:border-0 [&_pre_code]:bg-transparent',
+      '[&_pre_code]:p-0 [&_pre_code]:text-inherit [&_pre_code]:rounded-none [&_pre_code]:inline [&_pre_code]:border-0 [&_pre_code]:bg-transparent',
       // Inline code
       '[&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-sm [&_code]:font-[family-name:var(--ui-font-family-system-mono)] [&_code]:font-(--ui-font-weight-medium) [&_code]:rounded-md [&_code]:inline-block [&_code]:border [&_code]:border-(--ui-color-design-tinted-na-stroke) [&_code]:text-label [&_code]:bg-(--ui-color-design-tinted-na-bg)',
       // Lists

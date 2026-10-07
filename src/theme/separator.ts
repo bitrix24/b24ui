@@ -7,7 +7,7 @@
 
 export default {
   slots: {
-    root: 'flex items-center align-center text-center',
+    root: 'flex items-center text-center',
     border: '',
     container: 'font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-normal) flex',
     icon: 'shrink-0 size-7',
