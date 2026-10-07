@@ -29,11 +29,16 @@ export default defineLocale<Messages>({
       next: '次へ',
       prev: '前へ'
     },
+    chatMessages: {
+      autoScroll: '一番下までスクロール'
+    },
     chatPrompt: {
       placeholder: 'メッセージを入力してください…'
     },
     chatPromptSubmit: {
-      label: '送信'
+      label: '送信',
+      reload: '再試行',
+      stop: '生成を停止'
     },
     colorMode: {
       dark: 'ダーク',
@@ -120,6 +125,13 @@ export default defineLocale<Messages>({
     },
     drawer: {
       close: '閉じる'
+    },
+    pagination: {
+      first: '最初のページ',
+      last: '最後のページ',
+      next: '次のページ',
+      page: '{page}ページ',
+      prev: '前のページ'
     },
     pricingTable: {
       caption: '料金プランの比較'
