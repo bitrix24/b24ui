@@ -29,11 +29,16 @@ export default defineLocale<Messages>({
       next: 'Seterusnya',
       prev: 'Sebelumnya'
     },
+    chatMessages: {
+      autoScroll: 'Tatal ke bawah'
+    },
     chatPrompt: {
       placeholder: 'Taip mesej anda di sini…'
     },
     chatPromptSubmit: {
-      label: 'Hantar'
+      label: 'Hantar',
+      reload: 'Cuba lagi',
+      stop: 'Hentikan penjanaan'
     },
     colorMode: {
       dark: 'Gelap',

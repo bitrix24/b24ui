@@ -29,11 +29,16 @@ export default defineLocale<Messages>({
       next: 'Next',
       prev: 'Previous'
     },
+    chatMessages: {
+      autoScroll: 'Scroll to bottom'
+    },
     chatPrompt: {
       placeholder: 'Enter your message here…'
     },
     chatPromptSubmit: {
-      label: 'Send'
+      label: 'Send',
+      reload: 'Retry',
+      stop: 'Stop generating'
     },
     colorMode: {
       dark: 'Dark',

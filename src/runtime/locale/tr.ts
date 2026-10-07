@@ -29,11 +29,16 @@ export default defineLocale<Messages>({
       next: 'Sonraki',
       prev: 'Önceki'
     },
+    chatMessages: {
+      autoScroll: 'Aşağı kaydır'
+    },
     chatPrompt: {
       placeholder: 'Mesajınızı buraya yazın…'
     },
     chatPromptSubmit: {
-      label: 'Gönder'
+      label: 'Gönder',
+      reload: 'Tekrar dene',
+      stop: 'Oluşturmayı durdur'
     },
     colorMode: {
       dark: 'Koyu',

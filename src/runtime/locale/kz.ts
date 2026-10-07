@@ -29,11 +29,16 @@ export default defineLocale<Messages>({
       next: 'Келесі',
       prev: 'Алдыңғы'
     },
+    chatMessages: {
+      autoScroll: 'Төмен айналдыру'
+    },
     chatPrompt: {
       placeholder: 'Хабарламаңызды осында енгізіңіз…'
     },
     chatPromptSubmit: {
-      label: 'Жіберу'
+      label: 'Жіберу',
+      reload: 'Қайталау',
+      stop: 'Генерацияны тоқтату'
     },
     colorMode: {
       dark: 'Қараңғы',

@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "927153310901c0922a593336ef5f92cbb428761f",
+  "cursor": "3cd30e013affa172acc2048710109690d83b042c",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2593,10 +2593,52 @@
       "summary": "docs(nuxt.config): silence jiti fallback warnings"
     },
     "927153310901c0922a593336ef5f92cbb428761f": {
+      "pr": 714,
+      "b24ui_sha": "d0d28bf2",
+      "decision": "port",
+      "summary": "fix(App): forward `nonce` prop"
+    },
+    "cc4acae75c9e18705e97ff0b7af9b2dd5af3f290": {
+      "pr": 715,
+      "b24ui_sha": "4601f042",
+      "decision": "port",
+      "summary": "feat(Calendar): add `yearsPerPage` prop"
+    },
+    "50cde922b8801f6a0ed5adc04a413e17604c8840": {
+      "pr": 716,
+      "b24ui_sha": "e8d51324",
+      "decision": "port",
+      "summary": "refactor(InputTime): use namespaced `TimeRangeField`"
+    },
+    "db30f7f4402e80e94b7325f0a16bca1f554a6229": {
+      "pr": 717,
+      "b24ui_sha": "84ac23f3",
+      "decision": "n/a",
+      "summary": "fix(Tree): pass `disabled` to tree item — b24ui has no Tree component"
+    },
+    "5c302c3bb83661226b74008a17741e8e001b3925": {
+      "pr": 718,
+      "b24ui_sha": "29a21c7b",
+      "decision": "port",
+      "summary": "feat(module): export prose components from `@bitrix24/b24ui-nuxt/components/prose`"
+    },
+    "fa7a93002ba71c73c65ed8e02364941c0ebd5c58": {
+      "pr": 719,
+      "b24ui_sha": "6120720c",
+      "decision": "port",
+      "summary": "chore(deps): update reka-ui to v2.11.0"
+    },
+    "60b9f0315ad26aa77bfea0f3d25dacea2427a73f": {
+      "pr": 720,
+      "b24ui_sha": "f67e97a9",
+      "decision": "no-op",
+      "summary": "docs(showcase): add linked.is — their showcase, not ours"
+    },
+    "3cd30e013affa172acc2048710109690d83b042c": {
       "pr": "pending-merge",
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(App): forward `nonce` prop"
+      "summary": "fix(ChatMessages/ChatPromptSubmit): add accessible names to icon buttons"
     }
   }
 }

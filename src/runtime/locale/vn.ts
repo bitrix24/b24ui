@@ -29,11 +29,16 @@ export default defineLocale<Messages>({
       next: 'Tiếp',
       prev: 'Trước'
     },
+    chatMessages: {
+      autoScroll: 'Cuộn xuống dưới'
+    },
     chatPrompt: {
       placeholder: 'Nhập tin nhắn của bạn tại đây…'
     },
     chatPromptSubmit: {
-      label: 'Gửi'
+      label: 'Gửi',
+      reload: 'Thử lại',
+      stop: 'Dừng tạo'
     },
     colorMode: {
       dark: 'Tối',
