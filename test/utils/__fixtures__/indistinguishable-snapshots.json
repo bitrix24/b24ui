@@ -1923,6 +1923,7 @@
   {
     "file": "components/__snapshots__/Sidebar-vue.spec.ts.snap",
     "names": [
+      "Sidebar > renders with breakpoint lg correctly 1",
       "Sidebar > renders with collapsible offcanvas correctly 1",
       "Sidebar > renders with content slot correctly 1",
       "Sidebar > renders with mode drawer correctly 1",
@@ -1935,6 +1936,7 @@
   {
     "file": "components/__snapshots__/Sidebar.spec.ts.snap",
     "names": [
+      "Sidebar > renders with breakpoint lg correctly 1",
       "Sidebar > renders with collapsible offcanvas correctly 1",
       "Sidebar > renders with content slot correctly 1",
       "Sidebar > renders with mode drawer correctly 1",
