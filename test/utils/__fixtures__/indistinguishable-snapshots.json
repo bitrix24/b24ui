@@ -1234,21 +1234,20 @@
   {
     "file": "components/__snapshots__/InputMenu-vue.spec.ts.snap",
     "names": [
-      "InputMenu > renders with autocomplete correctly 1",
-      "InputMenu > renders with create-item-label slot correctly 1",
-      "InputMenu > renders with items correctly 1",
-      "InputMenu > renders with name correctly 1",
-      "InputMenu > renders with selectedIcon correctly 1",
-      "InputMenu > renders with size md correctly 1"
+      "InputMenu > renders with by correctly 1",
+      "InputMenu > renders with defaultValue correctly 1",
+      "InputMenu > renders with modelValue correctly 1",
+      "InputMenu > renders with valueKey correctly 1"
     ]
   },
   {
     "file": "components/__snapshots__/InputMenu-vue.spec.ts.snap",
     "names": [
-      "InputMenu > renders with by correctly 1",
-      "InputMenu > renders with defaultValue correctly 1",
-      "InputMenu > renders with modelValue correctly 1",
-      "InputMenu > renders with valueKey correctly 1"
+      "InputMenu > renders with create-item-label slot correctly 1",
+      "InputMenu > renders with items correctly 1",
+      "InputMenu > renders with name correctly 1",
+      "InputMenu > renders with selectedIcon correctly 1",
+      "InputMenu > renders with size md correctly 1"
     ]
   },
   {
@@ -1268,21 +1267,20 @@
   {
     "file": "components/__snapshots__/InputMenu.spec.ts.snap",
     "names": [
-      "InputMenu > renders with autocomplete correctly 1",
-      "InputMenu > renders with create-item-label slot correctly 1",
-      "InputMenu > renders with items correctly 1",
-      "InputMenu > renders with name correctly 1",
-      "InputMenu > renders with selectedIcon correctly 1",
-      "InputMenu > renders with size md correctly 1"
+      "InputMenu > renders with by correctly 1",
+      "InputMenu > renders with defaultValue correctly 1",
+      "InputMenu > renders with modelValue correctly 1",
+      "InputMenu > renders with valueKey correctly 1"
     ]
   },
   {
     "file": "components/__snapshots__/InputMenu.spec.ts.snap",
     "names": [
-      "InputMenu > renders with by correctly 1",
-      "InputMenu > renders with defaultValue correctly 1",
-      "InputMenu > renders with modelValue correctly 1",
-      "InputMenu > renders with valueKey correctly 1"
+      "InputMenu > renders with create-item-label slot correctly 1",
+      "InputMenu > renders with items correctly 1",
+      "InputMenu > renders with name correctly 1",
+      "InputMenu > renders with selectedIcon correctly 1",
+      "InputMenu > renders with size md correctly 1"
     ]
   },
   {

@@ -29,11 +29,16 @@ export default defineLocale<Messages>({
       next: 'Seterusnya',
       prev: 'Sebelumnya'
     },
+    chatMessages: {
+      autoScroll: 'Tatal ke bawah'
+    },
     chatPrompt: {
       placeholder: 'Taip mesej anda di sini…'
     },
     chatPromptSubmit: {
-      label: 'Hantar'
+      label: 'Hantar',
+      reload: 'Cuba lagi',
+      stop: 'Hentikan penjanaan'
     },
     colorMode: {
       dark: 'Gelap',
@@ -120,6 +125,13 @@ export default defineLocale<Messages>({
     },
     drawer: {
       close: 'Tutup'
+    },
+    pagination: {
+      first: 'Halaman pertama',
+      last: 'Halaman terakhir',
+      next: 'Halaman seterusnya',
+      page: 'Halaman {page}',
+      prev: 'Halaman sebelumnya'
     },
     pricingTable: {
       caption: 'Perbandingan pelan harga'

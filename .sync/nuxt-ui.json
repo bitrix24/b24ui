@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "cc4acae75c9e18705e97ff0b7af9b2dd5af3f290",
+  "cursor": "3cd61edc6d051501ee2393513b987ab44953821b",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2599,10 +2599,64 @@
       "summary": "fix(App): forward `nonce` prop"
     },
     "cc4acae75c9e18705e97ff0b7af9b2dd5af3f290": {
+      "pr": 715,
+      "b24ui_sha": "4601f042",
+      "decision": "port",
+      "summary": "feat(Calendar): add `yearsPerPage` prop"
+    },
+    "50cde922b8801f6a0ed5adc04a413e17604c8840": {
+      "pr": 716,
+      "b24ui_sha": "e8d51324",
+      "decision": "port",
+      "summary": "refactor(InputTime): use namespaced `TimeRangeField`"
+    },
+    "db30f7f4402e80e94b7325f0a16bca1f554a6229": {
+      "pr": 717,
+      "b24ui_sha": "84ac23f3",
+      "decision": "n/a",
+      "summary": "fix(Tree): pass `disabled` to tree item — b24ui has no Tree component"
+    },
+    "5c302c3bb83661226b74008a17741e8e001b3925": {
+      "pr": 718,
+      "b24ui_sha": "29a21c7b",
+      "decision": "port",
+      "summary": "feat(module): export prose components from `@bitrix24/b24ui-nuxt/components/prose`"
+    },
+    "fa7a93002ba71c73c65ed8e02364941c0ebd5c58": {
+      "pr": 719,
+      "b24ui_sha": "6120720c",
+      "decision": "port",
+      "summary": "chore(deps): update reka-ui to v2.11.0"
+    },
+    "60b9f0315ad26aa77bfea0f3d25dacea2427a73f": {
+      "pr": 720,
+      "b24ui_sha": "f67e97a9",
+      "decision": "no-op",
+      "summary": "docs(showcase): add linked.is — their showcase, not ours"
+    },
+    "3cd30e013affa172acc2048710109690d83b042c": {
+      "pr": 721,
+      "b24ui_sha": "b0dbcb21",
+      "decision": "port",
+      "summary": "fix(ChatMessages/ChatPromptSubmit): add accessible names to icon buttons"
+    },
+    "d2d3da0db012b8a21a003eace1b81f00e4135f32": {
+      "pr": 722,
+      "b24ui_sha": "3f124ad0",
+      "decision": "port",
+      "summary": "fix(Pagination): localize `aria-label` of controls and pages"
+    },
+    "1fd55401e004f853d4ed187af0c605a7494ce578": {
+      "pr": 723,
+      "b24ui_sha": "3bfae5b8",
+      "decision": "n/a",
+      "summary": "docs(chat): rename `Ask AI` to `Ask` — the fork's docs have no AI chat"
+    },
+    "3cd61edc6d051501ee2393513b987ab44953821b": {
       "pr": "pending-merge",
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "feat(Calendar): add `yearsPerPage` prop"
+      "summary": "fix(ProseA): hide underline on focus"
     }
   }
 }
