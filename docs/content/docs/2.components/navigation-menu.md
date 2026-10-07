@@ -308,6 +308,66 @@ props:
 ---
 ::
 
+### Viewport :badge{label="Soon" class="align-text-top"}
+
+Use the `viewport` prop to control how the NavigationMenu viewport is rendered, like its `align` for example.
+
+::warning
+This prop only works when `orientation` is `horizontal`.
+::
+
+::component-code
+---
+collapse: true
+prettier: true
+ignore:
+  - items
+  - class
+external:
+  - items
+externalTypes:
+  - NavigationMenuItem[]
+items:
+  viewport.align:
+    - start
+    - center
+    - end
+props:
+  viewport:
+    align: start
+  items:
+    - label: Sales management
+      type: trigger
+      children:
+        - label: Lead management
+        - label: Deal management
+        - label: 'Pipelines'
+        - label: 'Access permissions'
+    - label: Collaboration
+      type: trigger
+      children:
+        - label: Online workspace
+          to: https://www.bitrix24.com/tools/communications/online-workspace.php
+        - label: CoPilot in Chat
+          to: https://www.bitrix24.com/tools/copilot-ai-powered-tools-for-business.php#copilot-in-chat
+        - label: useToast
+          to: /docs/composables/use-toast
+    - label: HR & Automation
+      type: trigger
+      badge: +5
+      active: true
+      children:
+        - label: Employee management
+          to: https://www.bitrix24.com/tools/hr_automation/employee-management.php
+        - label: Culture & engagement
+          to: https://www.bitrix24.com/tools/hr_automation/culture-and-engagement.php
+        - label: Automation
+          to: https://www.bitrix24.com/tools/hr_automation/automation.php
+          target: _blank
+  class: 'w-full justify-center'
+---
+::
+
 ### Unmount
 
 Use the `unmount-on-hide` prop to control the content unmounting behavior. Defaults to `true`.
