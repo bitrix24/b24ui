@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "5cd317bfee044346ac3d3005b1348ff5b5f0d2d9",
+  "cursor": "4a3464e3619321cb44c3a017db12250a906ccac4",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2539,10 +2539,16 @@
       "summary": "fix(SelectMenu): onFocusOutside keeps the open menu open and returns focus to the search input (or scope); focusScopeRef + @focus-outside; spec test added"
     },
     "5cd317bfee044346ac3d3005b1348ff5b5f0d2d9": {
+      "pr": 702,
+      "b24ui_sha": "2f8ce324",
+      "decision": "port",
+      "summary": "fix(Drawer): emit after:enter/after:leave on vaul animationEnd (only after a real open), so useOverlay can unmount Drawers; spec test + use-overlay docs mention Drawer"
+    },
+    "4a3464e3619321cb44c3a017db12250a906ccac4": {
       "pr": "pending-merge",
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "fix(Drawer): emit after:enter/after:leave on vaul animationEnd (only after a real open), so useOverlay can unmount Drawers; spec test + use-overlay docs mention Drawer"
+      "summary": "feat(NavigationMenu): viewport prop (NavigationMenuViewportProps minus as/asChild/forceMount) bound on NavigationMenuViewport; playground align select; docs section. Fork has no contentOrientation/arrow, so the prop works for any horizontal menu"
     }
   }
 }
