@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/block-tag-newline -->
 <script lang="ts">
-import type { NavigationMenuRootProps, NavigationMenuContentProps, NavigationMenuContentEmits, AccordionRootProps } from 'reka-ui'
+import type { NavigationMenuRootProps, NavigationMenuContentProps, NavigationMenuContentEmits, NavigationMenuViewportProps, AccordionRootProps } from 'reka-ui'
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/navigation-menu'
@@ -190,6 +190,12 @@ export interface NavigationMenuProps<
    */
   content?: Omit<NavigationMenuContentProps, 'as' | 'asChild' | 'forceMount'> & Partial<EmitsToProps<NavigationMenuContentEmits>>
   /**
+   * The viewport of the menu.
+   * Only works when `orientation` is `horizontal`.
+   * `{ align: 'center' }`{lang="ts-type"}
+   */
+  viewport?: Omit<NavigationMenuViewportProps, 'as' | 'asChild' | 'forceMount'>
+  /**
    * The key used to get the value from the item.
    * @defaultValue 'value'
    */
@@ -288,6 +294,7 @@ const rootProps = useForwardProps(computed(() => ({
 })), emits)
 const accordionProps = useForwardProps(reactivePick(props, 'collapsible', 'disabled', 'type', 'unmountOnHide'), emits)
 const contentProps = toRef(() => props.content)
+const viewportProps = toRef(() => props.viewport)
 const tooltipProps = toRef(() => defu(typeof props.tooltip === 'boolean' ? {} : props.tooltip, { ...(props.orientation === 'vertical' && { delayDuration: 0, content: { side: 'right' } }) }) as TooltipProps)
 const popoverProps = toRef(() => defu(typeof props.popover === 'boolean' ? {} : props.popover, { arrow: true, mode: 'hover', content: { side: 'right', align: 'center', alignOffset: 2 } }) as PopoverProps)
 
@@ -817,7 +824,7 @@ function onLinkTrailingClick(e: Event, item: NavigationMenuItem, trailingTrigger
     <slot name="list-trailing" />
 
     <div v-if="props.orientation === 'horizontal'" data-slot="viewportWrapper" :class="b24ui.viewportWrapper({ class: props.b24ui?.viewportWrapper })">
-      <NavigationMenuViewport data-slot="viewport" :class="b24ui.viewport({ class: props.b24ui?.viewport })" />
+      <NavigationMenuViewport v-bind="viewportProps" data-slot="viewport" :class="b24ui.viewport({ class: props.b24ui?.viewport })" />
     </div>
   </NavigationMenuRoot>
 </template>

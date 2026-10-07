@@ -16,6 +16,8 @@ const collapsed = ref(false)
 const tooltip = ref(false)
 const popover = ref(false)
 const orientation = ref(orientations[0])
+const viewportAligns = ['start', 'center', 'end']
+const viewportAlign = ref('center' as 'start' | 'center' | 'end')
 
 const items = [
   [
@@ -124,6 +126,7 @@ const items = [
         <B24Switch v-model="tooltip" size="xs" label="isTooltip" />
         <B24Switch v-model="popover" size="xs" label="isPopover" />
       </template>
+      <B24Select v-else v-model="viewportAlign" :items="viewportAligns" size="xs" placeholder="Viewport align" />
     </template>
 
     <div :class="['flex gap-2 w-full py-3 px-1', { 'flex-col min-h-52': orientation === 'horizontal' }]">
@@ -133,6 +136,7 @@ const items = [
         :collapsed="collapsed"
         :items="items"
         :orientation="orientation"
+        :viewport="{ align: viewportAlign }"
         class="data-[orientation=horizontal]:h-max data-[orientation=horizontal]:min-w-120 data-[orientation=vertical]:w-[250px] data-[orientation=vertical]:data-[collapsed=true]:w-[40px]"
       />
       <Placeholder class="size-full mt-0" />
