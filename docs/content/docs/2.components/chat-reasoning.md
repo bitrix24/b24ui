@@ -50,7 +50,7 @@ props:
 ---
 ::
 
-### Streaming
+### Streaming :badge{label="Soon" class="align-text-top"}
 
 Use the `streaming` prop to indicate active reasoning. The component auto-opens when streaming starts and auto-closes when it ends.
 
@@ -66,6 +66,10 @@ props:
   text: 'The user is asking about Vue components...'
   class: 'w-60'
 ---
+::
+
+::tip
+Set the `auto-open` prop to `false` to keep the component closed when streaming starts, and `auto-close-delay` to `0` to keep it open when streaming ends.
 ::
 
 ::tip

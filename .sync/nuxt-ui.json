@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "4a3464e3619321cb44c3a017db12250a906ccac4",
+  "cursor": "dad748e230314aed88fc555da93089185d49c1a3",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2545,10 +2545,16 @@
       "summary": "fix(Drawer): emit after:enter/after:leave on vaul animationEnd (only after a real open), so useOverlay can unmount Drawers; spec test + use-overlay docs mention Drawer"
     },
     "4a3464e3619321cb44c3a017db12250a906ccac4": {
+      "pr": 703,
+      "b24ui_sha": "e8692b96",
+      "decision": "port",
+      "summary": "feat(NavigationMenu): viewport prop (NavigationMenuViewportProps minus as/asChild/forceMount) bound on NavigationMenuViewport; playground align select; docs section. Fork has no contentOrientation/arrow, so the prop works for any horizontal menu"
+    },
+    "dad748e230314aed88fc555da93089185d49c1a3": {
       "pr": "pending-merge",
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "feat(NavigationMenu): viewport prop (NavigationMenuViewportProps minus as/asChild/forceMount) bound on NavigationMenuViewport; playground align select; docs section. Fork has no contentOrientation/arrow, so the prop works for any horizontal menu"
+      "summary": "feat(ChatReasoning): autoOpen prop (default true) gates opening on stream start; spec cases + snapshots; docs tip (Soon badge on Streaming heading)"
     }
   }
 }
