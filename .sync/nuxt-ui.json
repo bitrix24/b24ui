@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "73c489b64460430a0924e7897cfc33145e1458d0",
+  "cursor": "6067cdf16b36e0a3adbaa3fbd06ba6de57294ad0",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2719,10 +2719,16 @@
       "summary": "feat(Toast): add `closeOnClick` to actions"
     },
     "73c489b64460430a0924e7897cfc33145e1458d0": {
+      "pr": 735,
+      "b24ui_sha": "f83a69a8",
+      "decision": "port",
+      "summary": "feat(ContextMenu): add `open` and `pressOpenDelay` props"
+    },
+    "6067cdf16b36e0a3adbaa3fbd06ba6de57294ad0": {
       "pr": "pending-merge",
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "feat(ContextMenu): add `open` and `pressOpenDelay` props"
+      "summary": "docs(server): trim navigation payload"
     }
   }
 }

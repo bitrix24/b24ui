@@ -1,7 +1,23 @@
 // This route will be pre-rendered as /api/navigation.json
 import { queryCollectionNavigation } from '@nuxt/content/server'
+import type { ContentNavigationItem } from '@nuxt/content'
+
+// The tree lands in the payload of every page. Each requested field comes back as `null` on
+// the pages that don't set it, and `stem` is only read by `findPageHeadline` without
+// `indexAsChild`, which the docs never call.
+function compact(items: ContentNavigationItem[]): ContentNavigationItem[] {
+  return items.map((item) => {
+    const { stem, children, ...rest } = item
+    const entries = Object.entries(rest).filter(([, value]) => value !== null)
+
+    return {
+      ...Object.fromEntries(entries),
+      ...(children ? { children: compact(children) } : {})
+    } as ContentNavigationItem
+  })
+}
 
 // const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs', ['framework', 'category', 'description', 'badge']))
-export default defineEventHandler((event) => {
-  return queryCollectionNavigation(event, 'docs', ['framework', 'category', 'description'])
+export default defineEventHandler(async (event) => {
+  return compact(await queryCollectionNavigation(event, 'docs', ['framework', 'category', 'description']))
 })
