@@ -91,6 +91,7 @@ import { defu } from 'defu'
 import { useEventListener, useMutationObserver, watchThrottled } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
+import { useLocale } from '../composables/useLocale'
 import { omit } from '../utils'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
@@ -124,6 +125,7 @@ function showIndicator() {
   return lastMessage?.role === 'assistant' && !lastMessage.parts?.length
 }
 
+const { t } = useLocale()
 const appConfig = useAppConfig() as ChatMessages['AppConfig']
 
 const userProps = toRef(() => defu(props.user, { side: 'right' as const, variant: 'message' as const }))
@@ -389,6 +391,7 @@ defineExpose({
             v-if="props.autoScroll"
             :icon="props.autoScrollIcon || icons.arrowDown"
             color="air-secondary-no-accent"
+            :aria-label="t('chatMessages.autoScroll')"
             v-bind="(typeof props.autoScroll === 'object' ? props.autoScroll : {})"
             data-slot="autoScroll"
             :class="b24ui.autoScroll({ class: props.b24ui?.autoScroll })"

@@ -29,11 +29,16 @@ export default defineLocale<Messages>({
       next: '下一張',
       prev: '上一張'
     },
+    chatMessages: {
+      autoScroll: '捲動到底部'
+    },
     chatPrompt: {
       placeholder: '在此輸入您的訊息…'
     },
     chatPromptSubmit: {
-      label: '傳送'
+      label: '傳送',
+      reload: '重試',
+      stop: '停止生成'
     },
     colorMode: {
       dark: '深色',
