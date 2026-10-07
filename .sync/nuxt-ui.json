@@ -2569,8 +2569,8 @@
       "summary": "docs(showcase): add cosmicstays.com — their showcase, not ours"
     },
     "b1e89e883dd75f69805c854e8360af24577485c5": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 707,
+      "b24ui_sha": "ed2ee72f",
       "decision": "port",
       "summary": "chore(deps): update nuxt to v4.6"
     }
