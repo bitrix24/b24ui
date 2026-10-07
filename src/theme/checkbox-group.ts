@@ -56,6 +56,7 @@ export default {
       table: {
         item: [
           'cursor-pointer',
+          'has-aria-disabled:cursor-not-allowed',
           'border border-(--ui-color-design-outline-na-stroke)',
           'bg-(--ui-color-design-outline-na-bg)',
           'has-data-[state=checked]:bg-(--b24ui-background)/24',
