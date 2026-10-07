@@ -1,6 +1,6 @@
 {
   "$note": "Upstream's pinned versions for every dependency both trees declare in the SAME section, snapshotted at `cursor`. The sync ports deltas, which is correct per commit and lets a one-time divergence become permanent: once a version is off upstream's line, every later `chore(deps)` batch skips it, because those ports bump only where this fork already matched upstream's pre-image. `prettier` sat at ^3.8.4 against upstream's ^3.9.6 for that reason, through four ported batches, until this file was written. Section-aware on purpose: 18 packages are declared on both sides but in different sections — the whole `@tiptap/*` family is a peer `^3` upstream and a dependency `^3.29.2` here, and `ai` is a peer there and a devDependency here. Those are structural divergences, not drift, and comparing a peer range against a dependency range says nothing. They are absent from this file by construction rather than by omission. Guarded by `test/utils/dep-parity.spec.ts`. Refresh with `node .sync/dep-parity.mjs <path-to-nuxt-ui-mirror> [cursor]`, which preserves `exceptions`.",
-  "cursor": "74c640a3d94d2830719cbc43c36bb8fc2ad36fa6",
+  "cursor": "ac6bfdf7de9ad61fa869575d102e8f917a1f61c3",
   "manifests": {
     "package.json": {
       "dependencies": {
@@ -78,6 +78,7 @@
         "eslint": "^10.12.0",
         "eslint-plugin-better-tailwindcss": "^4.8.0",
         "happy-dom": "^20.14.5",
+        "jiti": "^2.7.0",
         "nuxt": "^4.6.0",
         "unbuild": "^3.6.1",
         "vitest": "^4.1.11",
