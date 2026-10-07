@@ -53,7 +53,13 @@ export interface ToastProps extends Pick<ToastRootProps, 'defaultOpen' | 'open' 
    * - next to the close button when orientation is `horizontal`
    * `{ size: 'sm' }`{lang="ts"}
    */
-  actions?: ButtonProps[]
+  actions?: (ButtonProps & {
+    /**
+     * Whether the toast closes when the action is clicked.
+     * @defaultValue true
+     */
+    closeOnClick?: boolean
+  })[]
   /**
    * The time in milliseconds before the toast automatically closes. Overrides the global `toaster.duration`.
    *
@@ -176,7 +182,14 @@ defineExpose({
 
       <div v-if="props.orientation === 'vertical' && (props.actions?.length || !!slots.actions)" data-slot="actions" :class="b24ui.actions({ class: props.b24ui?.actions })">
         <slot name="actions">
-          <ToastAction v-for="(action, index) in props.actions" :key="index" :alt-text="action.label || 'Action'" as-child @click.stop>
+          <ToastAction
+            v-for="({ closeOnClick, ...action }, index) in props.actions"
+            :key="index"
+            :alt-text="action.label || 'Action'"
+            :close-on-click="closeOnClick"
+            as-child
+            @click.stop
+          >
             <B24Button size="sm" :color="props.color as ButtonProps['color']" v-bind="action" />
           </ToastAction>
         </slot>
@@ -186,7 +199,14 @@ defineExpose({
     <div v-if="(props.orientation === 'horizontal' && (props.actions?.length || !!slots.actions)) || props.close !== null" data-slot="actions" :class="b24ui.actions({ class: props.b24ui?.actions, orientation: 'horizontal' })">
       <template v-if="props.orientation === 'horizontal' && (props.actions?.length || !!slots.actions)">
         <slot name="actions">
-          <ToastAction v-for="(action, index) in props.actions" :key="index" :alt-text="action.label || 'Action'" as-child @click.stop>
+          <ToastAction
+            v-for="({ closeOnClick, ...action }, index) in props.actions"
+            :key="index"
+            :alt-text="action.label || 'Action'"
+            :close-on-click="closeOnClick"
+            as-child
+            @click.stop
+          >
             <B24Button size="sm" :color="props.color as ButtonProps['color']" v-bind="action" />
           </ToastAction>
         </slot>
