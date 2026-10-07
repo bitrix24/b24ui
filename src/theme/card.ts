@@ -33,8 +33,8 @@ export default {
           'border border-(--ui-color-design-filled-stroke) border-(length:--ui-design-filled-stroke-weight)',
           'text-(--ui-color-design-filled-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-filled-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-filled-content-divider) border-t-1',
+        header: 'border-b border-(--ui-color-design-filled-content-divider)',
+        footer: 'border-t border-(--ui-color-design-filled-content-divider)',
         title: 'text-(--ui-color-design-filled-content)',
         description: 'text-(--ui-color-design-filled-content-secondary)'
       },
@@ -44,8 +44,8 @@ export default {
           'border border-(--ui-color-design-filled-success-stroke) border-(length:--ui-design-filled-success-stroke-weight)',
           'text-(--ui-color-design-filled-success-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-filled-success-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-filled-success-content-divider) border-t-1',
+        header: 'border-b border-(--ui-color-design-filled-success-content-divider)',
+        footer: 'border-t border-(--ui-color-design-filled-success-content-divider)',
         title: 'text-(--ui-color-design-filled-success-content)',
         description: 'text-(--ui-color-design-filled-success-content)'
       },
@@ -55,8 +55,8 @@ export default {
           'border border-(--ui-color-design-filled-alert-stroke) border-(length:--ui-design-filled-alert-stroke-weight)',
           'text-(--ui-color-design-filled-alert-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-filled-alert-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-filled-alert-content-divider) border-t-1',
+        header: 'border-b border-(--ui-color-design-filled-alert-content-divider)',
+        footer: 'border-t border-(--ui-color-design-filled-alert-content-divider)',
         title: 'text-(--ui-color-design-filled-alert-content)',
         description: 'text-(--ui-color-design-filled-alert-content-secondary)'
       },
@@ -66,8 +66,8 @@ export default {
           'border border-(--ui-color-design-filled-warning-stroke) border-(length:--ui-design-filled-warning-stroke-weight)',
           'text-(--ui-color-design-filled-warning-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-filled-warning-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-filled-warning-content-divider) border-t-1',
+        header: 'border-b border-(--ui-color-design-filled-warning-content-divider)',
+        footer: 'border-t border-(--ui-color-design-filled-warning-content-divider)',
         title: 'text-(--ui-color-design-filled-warning-content)',
         description: 'text-(--ui-color-design-filled-warning-content)'
       },
@@ -77,8 +77,8 @@ export default {
           'border border-(--ui-color-design-filled-copilot-stroke) border-(length:--ui-design-filled-copilot-stroke-weight)',
           'text-(--ui-color-design-filled-copilot-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-filled-copilot-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-filled-copilot-content-divider) border-t-1',
+        header: 'border-b border-(--ui-color-design-filled-copilot-content-divider)',
+        footer: 'border-t border-(--ui-color-design-filled-copilot-content-divider)',
         title: 'text-(--ui-color-design-filled-copilot-content)',
         description: 'text-(--ui-color-design-filled-copilot-content)'
       },
@@ -88,8 +88,8 @@ export default {
           'border border-(--ui-color-design-filled-na-stroke) border-(length:--ui-design-filled-na-stroke-weight)',
           'text-(--ui-color-design-filled-na-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-filled-na-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-filled-na-content-divider) border-t-1',
+        header: 'border-b border-(--ui-color-design-filled-na-content-divider)',
+        footer: 'border-t border-(--ui-color-design-filled-na-content-divider)',
         title: 'text-(--ui-color-design-filled-na-content)',
         description: 'text-(--ui-color-design-filled-na-content)'
       },
@@ -99,8 +99,8 @@ export default {
           'border border-(--ui-color-design-filled-black-stroke) border-(length:--ui-design-filled-black-stroke-weight)',
           'text-(--ui-color-design-filled-black-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-filled-black-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-filled-black-content-divider) border-t-1',
+        header: 'border-b border-(--ui-color-design-filled-black-content-divider)',
+        footer: 'border-t border-(--ui-color-design-filled-black-content-divider)',
         title: 'text-(--ui-color-design-filled-black-content)',
         description: 'text-(--ui-color-design-filled-black-content)'
       },
@@ -110,8 +110,8 @@ export default {
           'border border-(--ui-color-design-tinted-stroke) border-(length:--ui-design-tinted-stroke-weight)',
           'text-(--ui-color-design-tinted-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-tinted-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-tinted-content-divider) border-t-1',
+        header: 'border-b border-(--ui-color-design-tinted-content-divider)',
+        footer: 'border-t border-(--ui-color-design-tinted-content-divider)',
         title: 'text-(--ui-color-design-tinted-content)',
         description: 'text-(--ui-color-design-tinted-content)'
       },
@@ -121,8 +121,8 @@ export default {
           'border border-(--ui-color-design-tinted-stroke) border-(length:--ui-design-tinted-stroke-weight)',
           'text-(--ui-color-design-tinted-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-tinted-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-tinted-content-divider) border-t-1',
+        header: 'border-b border-(--ui-color-design-tinted-content-divider)',
+        footer: 'border-t border-(--ui-color-design-tinted-content-divider)',
         title: 'text-(--ui-color-design-tinted-content)',
         description: 'text-(--ui-color-design-tinted-content)'
       },
@@ -132,8 +132,8 @@ export default {
           'border border-(--ui-color-design-tinted-a1-stroke) border-(length:--ui-design-tinted-a1-stroke-weight)',
           'text-(--ui-color-design-tinted-a1-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-tinted-a1-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-tinted-a1-content-divider) border-t-1',
+        header: 'border-b border-(--ui-color-design-tinted-a1-content-divider)',
+        footer: 'border-t border-(--ui-color-design-tinted-a1-content-divider)',
         title: 'text-(--ui-color-design-tinted-a1-content)',
         description: 'text-(--ui-color-design-tinted-a1-content)'
       },
@@ -143,8 +143,8 @@ export default {
           'border border-(--ui-color-design-tinted-success-stroke) border-(length:--ui-design-tinted-success-stroke-weight)',
           'text-(--ui-color-design-tinted-success-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-tinted-success-content-divider) light:border-(--ui-color-accent-soft-green-1) border-b-1',
-        footer: 'border-t border-(--ui-color-design-tinted-success-content-divider) light:border-(--ui-color-accent-soft-green-1) border-t-1',
+        header: 'border-b border-(--ui-color-design-tinted-success-content-divider) light:border-(--ui-color-accent-soft-green-1)',
+        footer: 'border-t border-(--ui-color-design-tinted-success-content-divider) light:border-(--ui-color-accent-soft-green-1)',
         title: 'text-(--ui-color-design-tinted-success-content)',
         description: 'text-(--ui-color-design-tinted-success-content)'
       },
@@ -154,8 +154,8 @@ export default {
           'border border-(--ui-color-design-tinted-alert-stroke) border-(length:--ui-design-tinted-alert-stroke-weight)',
           'text-(--ui-color-design-tinted-alert-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-tinted-alert-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-tinted-alert-content-divider) border-t-1',
+        header: 'border-b border-(--ui-color-design-tinted-alert-content-divider)',
+        footer: 'border-t border-(--ui-color-design-tinted-alert-content-divider)',
         title: 'text-(--ui-color-design-tinted-alert-content)',
         description: 'text-(--ui-color-design-tinted-alert-content)'
       },
@@ -165,8 +165,8 @@ export default {
           'border border-(--ui-color-design-tinted-warning-stroke) border-(length:--ui-design-tinted-warning-stroke-weight)',
           'text-(--ui-color-design-tinted-warning-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-tinted-warning-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-tinted-warning-content-divider) border-t-1',
+        header: 'border-b border-(--ui-color-design-tinted-warning-content-divider)',
+        footer: 'border-t border-(--ui-color-design-tinted-warning-content-divider)',
         title: 'text-(--ui-color-design-tinted-warning-content)',
         description: 'text-(--ui-color-design-tinted-warning-content)'
       },
@@ -176,8 +176,8 @@ export default {
           'border border-(--ui-color-design-tinted-na-stroke) border-(length:--ui-design-tinted-na-stroke-weight)',
           'text-(--ui-color-design-tinted-na-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-tinted-na-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-tinted-na-content-divider) border-t-1',
+        header: 'border-b border-(--ui-color-design-tinted-na-content-divider)',
+        footer: 'border-t border-(--ui-color-design-tinted-na-content-divider)',
         title: 'text-(--ui-color-design-tinted-na-content)',
         description: 'text-(--ui-color-design-tinted-na-content)'
       },
@@ -187,8 +187,8 @@ export default {
           'border border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight)',
           'text-(--ui-color-design-outline-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-outline-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-outline-content-divider) border-t-1',
+        header: 'border-b border-(--ui-color-design-outline-content-divider)',
+        footer: 'border-t border-(--ui-color-design-outline-content-divider)',
         title: 'text-(--ui-color-design-outline-content)',
         description: 'text-(--ui-color-design-outline-content-secondary)'
       },
@@ -198,8 +198,8 @@ export default {
           'border border-(--ui-color-design-outline-content-divider) border-(length:--ui-design-outline-stroke-weight-alt)',
           'text-(--ui-color-design-outline-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-outline-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-outline-content-divider) border-t-1',
+        header: 'border-b border-(--ui-color-design-outline-content-divider)',
+        footer: 'border-t border-(--ui-color-design-outline-content-divider)',
         title: 'text-(--ui-color-design-outline-content)',
         description: 'text-(--ui-color-design-outline-content-secondary)'
       },
@@ -209,8 +209,8 @@ export default {
           'border border-(--ui-color-design-outline-a1-stroke) border-(length:--ui-design-outline-a1-stroke-weight)',
           'text-(--ui-color-design-outline-a1-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-outline-a1-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-outline-a1-content-divider) border-t-1',
+        header: 'border-b border-(--ui-color-design-outline-a1-content-divider)',
+        footer: 'border-t border-(--ui-color-design-outline-a1-content-divider)',
         title: 'text-(--ui-color-design-outline-a1-content)',
         description: 'text-(--ui-color-design-outline-a1-content)'
       },
@@ -220,8 +220,8 @@ export default {
           'border border-(--ui-color-design-outline-a2-stroke) border-(length:--ui-design-outline-a2-stroke-weight)',
           'text-(--ui-color-design-outline-a2-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-outline-a2-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-outline-a2-content-divider) border-t-1',
+        header: 'border-b border-(--ui-color-design-outline-a2-content-divider)',
+        footer: 'border-t border-(--ui-color-design-outline-a2-content-divider)',
         title: 'text-(--ui-color-design-outline-a2-content)',
         description: 'text-(--ui-color-design-outline-a2-content)'
       },
@@ -231,8 +231,8 @@ export default {
           'border border-(--ui-color-design-outline-success-stroke) border-(length:--ui-design-outline-success-stroke-weight)',
           'text-(--ui-color-design-outline-success-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-outline-success-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-outline-success-content-divider) border-t-1',
+        header: 'border-b border-(--ui-color-design-outline-success-content-divider)',
+        footer: 'border-t border-(--ui-color-design-outline-success-content-divider)',
         title: 'text-(--ui-color-design-outline-success-content)',
         description: 'text-(--ui-color-design-outline-success-content)'
       },
@@ -242,8 +242,8 @@ export default {
           'border border-(--ui-color-design-outline-alert-stroke) border-(length:--ui-design-outline-alert-stroke-weight)',
           'text-(--ui-color-design-outline-alert-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-outline-alert-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-outline-alert-content-divider) border-t-1',
+        header: 'border-b border-(--ui-color-design-outline-alert-content-divider)',
+        footer: 'border-t border-(--ui-color-design-outline-alert-content-divider)',
         title: 'text-(--ui-color-design-outline-alert-content)',
         description: 'text-(--ui-color-design-outline-alert-content)'
       },
@@ -253,8 +253,8 @@ export default {
           'border border-(--ui-color-design-outline-warning-stroke) border-(length:--ui-design-outline-warning-stroke-weight)',
           'text-(--ui-color-design-outline-warning-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-outline-warning-content-divider) light:border-(--ui-color-accent-soft-orange-1) border-b-1',
-        footer: 'border-t border-(--ui-color-design-outline-warning-content-divider) light:border-(--ui-color-accent-soft-orange-1) border-t-1',
+        header: 'border-b border-(--ui-color-design-outline-warning-content-divider) light:border-(--ui-color-accent-soft-orange-1)',
+        footer: 'border-t border-(--ui-color-design-outline-warning-content-divider) light:border-(--ui-color-accent-soft-orange-1)',
         title: 'text-(--ui-color-design-outline-warning-content)',
         description: 'text-(--ui-color-design-outline-warning-content)'
       },
@@ -264,8 +264,8 @@ export default {
           'border border-(--ui-color-design-outline-copilot-stroke) border-(length:--ui-design-outline-copilot-stroke-weight)',
           'text-(--ui-color-design-outline-copilot-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-outline-copilot-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-outline-copilot-content-divider) border-t-1',
+        header: 'border-b border-(--ui-color-design-outline-copilot-content-divider)',
+        footer: 'border-t border-(--ui-color-design-outline-copilot-content-divider)',
         title: 'text-(--ui-color-design-outline-copilot-content)',
         description: 'text-(--ui-color-design-outline-copilot-content)'
       },
@@ -275,8 +275,8 @@ export default {
           'border border-(--ui-color-design-outline-na-stroke) border-(length:--ui-design-outline-na-stroke-weight)',
           'text-(--ui-color-design-outline-na-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-outline-na-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-outline-na-content-divider) border-t-1',
+        header: 'border-b border-(--ui-color-design-outline-na-content-divider)',
+        footer: 'border-t border-(--ui-color-design-outline-na-content-divider)',
         title: 'text-(--ui-color-design-outline-na-content)',
         description: 'text-(--ui-color-design-outline-na-content)'
       },
@@ -286,8 +286,8 @@ export default {
           'border border-(--ui-color-design-plain-stroke) border-(length:--ui-design-plain-stroke-weight)',
           'text-(--ui-color-design-plain-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-plain-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-plain-content-divider) border-t-1',
+        header: 'border-b border-(--ui-color-design-plain-content-divider)',
+        footer: 'border-t border-(--ui-color-design-plain-content-divider)',
         title: 'text-(--ui-color-design-plain-content)',
         description: 'text-(--ui-color-design-plain-content)'
       },
@@ -297,8 +297,8 @@ export default {
           'border border-(--ui-color-design-plain-a-stroke) border-(length:--ui-design-plain-a-stroke-weight)',
           'text-(--ui-color-design-plain-a-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-plain-a-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-plain-a-content-divider) border-t-1',
+        header: 'border-b border-(--ui-color-design-plain-a-content-divider)',
+        footer: 'border-t border-(--ui-color-design-plain-a-content-divider)',
         title: 'text-(--ui-color-design-plain-a-content)',
         description: 'text-(--ui-color-design-plain-a-content)'
       },
@@ -308,8 +308,8 @@ export default {
           'border border-(--ui-color-design-plain-na-stroke) border-(length:--ui-design-plain-na-stroke-weight)',
           'text-(--ui-color-design-plain-na-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-plain-na-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-plain-na-content-divider) border-t-1',
+        header: 'border-b border-(--ui-color-design-plain-na-content-divider)',
+        footer: 'border-t border-(--ui-color-design-plain-na-content-divider)',
         title: 'text-(--ui-color-design-plain-na-content)',
         description: 'text-(--ui-color-design-plain-na-content-secondary)'
       },
@@ -319,8 +319,8 @@ export default {
           'border border-(--ui-color-design-selection-stroke) border-(length:--ui-design-selection-stroke-weight)',
           'text-(--ui-color-design-selection-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-selection-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-selection-content-divider) border-t-1',
+        header: 'border-b border-(--ui-color-design-selection-content-divider)',
+        footer: 'border-t border-(--ui-color-design-selection-content-divider)',
         title: 'text-(--ui-color-design-selection-content)',
         description: 'text-(--ui-color-design-selection-content)'
       }

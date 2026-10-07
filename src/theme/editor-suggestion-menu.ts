@@ -69,19 +69,19 @@ export default {
     size: {
       xss: {
         label: 'px-[14px] text-(length:--ui-font-size-4xs)/[normal] gap-[14px]',
-        item: 'px-[14px] :text-(length:--ui-font-size-4xs)/[normal] gap-[14px]',
+        item: 'px-[14px] text-(length:--ui-font-size-4xs)/[normal] gap-[14px]',
         itemLeadingIcon: 'size-4 text-(length:--ui-font-size-sm)/[normal]',
         itemLeadingAvatarSize: '3xs'
       },
       xs: {
         label: 'px-[14px] text-(length:--ui-font-size-4xs)/[normal] gap-[14px]',
-        item: 'px-[14px] :text-(length:--ui-font-size-xs)/[normal] gap-[14px]',
+        item: 'px-[14px] text-(length:--ui-font-size-xs)/[normal] gap-[14px]',
         itemLeadingIcon: 'size-4 text-(length:--ui-font-size-sm)/[normal]',
         itemLeadingAvatarSize: '3xs'
       },
       sm: {
         label: 'px-4.5 text-(length:--ui-font-size-xs)/[normal] gap-4.5',
-        item: 'px-4.5 :text-(length:--ui-font-size-xs)/[normal] gap-4.5',
+        item: 'px-4.5 text-(length:--ui-font-size-xs)/[normal] gap-4.5',
         itemLeadingIcon: 'size-4 text-(length:--ui-font-size-sm)/[normal]',
         itemLeadingAvatarSize: '3xs'
       },
@@ -93,7 +93,7 @@ export default {
         itemLeadingAvatarSize: '2xs' // @memo this wrong
       },
       lg: {
-        label: 'px-[20px] :text-(length:--ui-font-size-sm)/[normal] gap-[20px]',
+        label: 'px-[20px] text-(length:--ui-font-size-sm)/[normal] gap-[20px]',
         item: 'px-[20px] text-(length:--ui-font-size-sm)/[normal] gap-[20px]',
         itemLeadingIcon: 'size-4.5 text-(length:--ui-font-size-lg)/[normal]',
         itemLeadingAvatar: 'size-[16px] me-2', // @memo 18-2px

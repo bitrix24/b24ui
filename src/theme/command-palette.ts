@@ -138,7 +138,7 @@ export default {
       },
       lg: {
         input: 'ps-[40px] pe-[44px]', // [&>input]:h-13
-        empty: 'py-7 :text-(length:--ui-font-size-sm)',
+        empty: 'py-7 text-(length:--ui-font-size-sm)',
         label: 'p-2 text-(length:--ui-font-size-lg) gap-2',
         item: 'p-2 text-(length:--ui-font-size-lg) gap-2',
         itemLeadingIcon: 'size-5',
