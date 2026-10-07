@@ -126,6 +126,13 @@ export default defineLocale<Messages>({
     drawer: {
       close: 'बंद करें'
     },
+    pagination: {
+      first: 'पहला पृष्ठ',
+      last: 'अंतिम पृष्ठ',
+      next: 'अगला पृष्ठ',
+      page: 'पृष्ठ {page}',
+      prev: 'पिछला पृष्ठ'
+    },
     pricingTable: {
       caption: 'मूल्य योजनाओं की तुलना'
     },

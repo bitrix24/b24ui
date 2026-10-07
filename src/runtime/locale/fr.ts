@@ -126,6 +126,13 @@ export default defineLocale<Messages>({
     drawer: {
       close: 'Fermer'
     },
+    pagination: {
+      first: 'Première page',
+      last: 'Dernière page',
+      next: 'Page suivante',
+      page: 'Page {page}',
+      prev: 'Page précédente'
+    },
     pricingTable: {
       caption: 'Comparaison des forfaits'
     },
