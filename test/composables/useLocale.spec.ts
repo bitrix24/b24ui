@@ -8,6 +8,7 @@ import B24Pagination from '../../src/runtime/components/Pagination.vue'
 import type { AppProps } from '../../src/runtime/components/App.vue'
 import icons from '../../src/runtime/dictionary/icons'
 import ar from '../../src/runtime/locale/ar'
+import de from '../../src/runtime/locale/de'
 
 const teardowns: Array<() => void> = []
 
@@ -91,5 +92,22 @@ describe('useLocale', () => {
     expect(icon('prev')).toBe(icons.chevronRight)
     expect(icon('next')).toBe(icons.chevronLeft)
     expect(icon('last')).toBe(icons.chevronDoubleLeft)
+  })
+
+  it('labels Pagination controls and pages in the App locale', async () => {
+    const wrapper = await mountSuspended(defineComponent({
+      render: () => h(B24App, { locale: de }, () => h(B24Pagination, { total: 30 }))
+    }))
+    teardowns.push(() => wrapper.unmount())
+
+    expect(wrapper.findAll('button').map(button => button.attributes('aria-label'))).toEqual([
+      'Erste Seite',
+      'Vorherige Seite',
+      'Seite 1',
+      'Seite 2',
+      'Seite 3',
+      'Nächste Seite',
+      'Letzte Seite'
+    ])
   })
 })
