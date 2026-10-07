@@ -57,14 +57,14 @@ export default {
       'air-primary-warning': { root: 'style-filled-warning' },
       'air-secondary': { root: 'style-filled-inverted' },
       // @deprecate This rule is deprecated and will be removed in version `3.0.0` ////
-      'default': { root: 'old-style-default' },
-      'danger': { root: 'old-style-danger' },
-      'success': { root: 'old-style-success' },
-      'warning': { root: 'old-style-warning' },
-      'primary': { root: 'old-style-primary' },
-      'secondary': { root: 'old-style-secondary' },
-      'collab': { root: 'old-style-collab' },
-      'ai': { root: 'old-style-ai' }
+      'default': { root: 'style-old-default' },
+      'danger': { root: 'style-old-danger' },
+      'success': { root: 'style-old-success' },
+      'warning': { root: 'style-old-warning' },
+      'primary': { root: 'style-old-primary' },
+      'secondary': { root: 'style-old-secondary' },
+      'collab': { root: 'style-old-collab' },
+      'ai': { root: 'style-old-ai' }
     },
     orientation: {
       horizontal: {

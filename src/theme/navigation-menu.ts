@@ -56,7 +56,7 @@ export default {
     linkTrailingIcon: 'shrink-0 size-[25px] text-(--ui-color-base-5)',
     linkLabel: 'truncate', // @memo remove -mt-px
     linkLabelWrapper: 'flex items-center rtl:flex-row-reverse',
-    linkLabelExternalIcon: 'ddd-fix-in-this-place-2 ml-auto inline-block size-[25px] text-(--ui-color-base-5)',
+    linkLabelExternalIcon: 'ml-auto inline-block size-[25px] text-(--ui-color-base-5)',
     childList: 'isolate',
     childLabel: '',
     childItem: 'h-9 mt-(--menu-item-block-stack-space)',
@@ -84,7 +84,7 @@ export default {
     childLinkBadge: 'inline-flex m-0',
     childLinkBadgeSize: 'xs',
     childLinkLabel: 'truncate ms-0.5 -mt-px',
-    childLinkLabelExternalIcon: 'ddd-fix-in-this-place inline-block size-[25px] text-(--ui-color-base-5)',
+    childLinkLabelExternalIcon: 'inline-block size-[25px] text-(--ui-color-base-5)',
     separator: 'h-px bg-(--leftmenu-bg-divider) my-4',
     popoverWrapper: 'px-0 py-(--menu-popup-padding)',
     viewportWrapper: 'absolute top-[53px] start-0 flex w-full',
