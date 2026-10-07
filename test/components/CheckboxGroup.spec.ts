@@ -63,7 +63,7 @@ describe('CheckboxGroup', () => {
       props: { items: [item, 'a'] as any, max: 1, defaultValue: [value] as any }
     })
 
-    const [checked, blocked] = wrapper.findAll('[data-slot="item"]')
+    const [checked, blocked] = wrapper.findAll('[data-slot="fieldset"] > [data-slot="root"]')
     expect(checked!.classes()).not.toContain('opacity-30')
     expect(blocked!.classes()).toContain('opacity-30')
   })
