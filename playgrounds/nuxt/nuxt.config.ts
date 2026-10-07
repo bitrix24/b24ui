@@ -38,6 +38,10 @@ export default defineNuxtConfig({
     }
   },
 
+  future: {
+    compatibilityVersion: 5
+  },
+
   compatibilityDate: '2024-07-09',
 
   vite: {
