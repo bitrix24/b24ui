@@ -7,7 +7,7 @@ export default {
   slots: {
     root: 'peer [--sidebar-width:15rem] [--sidebar-width-icon:4.5rem]',
     gap: 'relative w-(--sidebar-width) bg-transparent',
-    container: 'fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width) lg:flex',
+    container: 'fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width)',
     inner: 'flex size-full flex-col overflow-hidden divide-y divide-default',
     header: 'flex items-center gap-1.5 overflow-hidden px-4 min-h-(--b24ui-header-height)',
     wrapper: 'min-w-0 flex-1',
@@ -18,7 +18,7 @@ export default {
     body: 'flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto p-4',
     footer: 'flex items-center gap-1.5 overflow-hidden p-4',
     rail: [
-      'absolute inset-y-0 z-20 hidden w-4 after:absolute after:inset-y-0 after:left-1/2 after:w-px lg:flex hover:after:bg-(--ui-color-divider-accent)',
+      'absolute inset-y-0 z-20 hidden w-4 after:absolute after:inset-y-0 after:left-1/2 after:w-px hover:after:bg-(--ui-color-divider-accent)',
       'after:transition-colors'
     ].join(' '),
     // @memo For compatibility with DashboardSidebar & Header
@@ -33,6 +33,28 @@ export default {
         rail: 'transition-all ease-out'
       }
     },
+    breakpoint: {
+      'sm': {
+        container: 'sm:flex',
+        rail: 'sm:flex'
+      },
+      'md': {
+        container: 'md:flex',
+        rail: 'md:flex'
+      },
+      'lg': {
+        container: 'lg:flex',
+        rail: 'lg:flex'
+      },
+      'xl': {
+        container: 'xl:flex',
+        rail: 'xl:flex'
+      },
+      '2xl': {
+        container: '2xl:flex',
+        rail: '2xl:flex'
+      }
+    },
     side: {
       left: {
         container: 'start-0 border-e border-default',
@@ -45,11 +67,11 @@ export default {
     },
     collapsible: {
       offcanvas: {
-        root: 'group/sidebar hidden lg:block',
+        root: 'group/sidebar hidden',
         gap: 'data-[state=collapsed]:w-0'
       },
       icon: {
-        root: 'group/sidebar hidden lg:block',
+        root: 'group/sidebar hidden',
         gap: 'data-[state=collapsed]:w-(--sidebar-width-icon)',
         container: 'data-[state=collapsed]:w-(--sidebar-width-icon)',
         actions: 'group-data-[state=collapsed]/sidebar:hidden',
@@ -74,6 +96,41 @@ export default {
     }
   },
   compoundVariants: [
+    {
+      breakpoint: 'sm',
+      collapsible: ['offcanvas', 'icon'],
+      class: {
+        root: 'sm:block'
+      }
+    },
+    {
+      breakpoint: 'md',
+      collapsible: ['offcanvas', 'icon'],
+      class: {
+        root: 'md:block'
+      }
+    },
+    {
+      breakpoint: 'lg',
+      collapsible: ['offcanvas', 'icon'],
+      class: {
+        root: 'lg:block'
+      }
+    },
+    {
+      breakpoint: 'xl',
+      collapsible: ['offcanvas', 'icon'],
+      class: {
+        root: 'xl:block'
+      }
+    },
+    {
+      breakpoint: '2xl',
+      collapsible: ['offcanvas', 'icon'],
+      class: {
+        root: '2xl:block'
+      }
+    },
     {
       side: 'left',
       collapsible: ['offcanvas', 'icon'],
