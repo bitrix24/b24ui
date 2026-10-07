@@ -1,14 +1,14 @@
 {
   "$note": "Upstream's pinned versions for every dependency both trees declare in the SAME section, snapshotted at `cursor`. The sync ports deltas, which is correct per commit and lets a one-time divergence become permanent: once a version is off upstream's line, every later `chore(deps)` batch skips it, because those ports bump only where this fork already matched upstream's pre-image. `prettier` sat at ^3.8.4 against upstream's ^3.9.6 for that reason, through four ported batches, until this file was written. Section-aware on purpose: 18 packages are declared on both sides but in different sections — the whole `@tiptap/*` family is a peer `^3` upstream and a dependency `^3.29.2` here, and `ai` is a peer there and a devDependency here. Those are structural divergences, not drift, and comparing a peer range against a dependency range says nothing. They are absent from this file by construction rather than by omission. Guarded by `test/utils/dep-parity.spec.ts`. Refresh with `node .sync/dep-parity.mjs <path-to-nuxt-ui-mirror> [cursor]`, which preserves `exceptions`.",
-  "cursor": "a04c3fb747e9bd5c25145cd79a189e0f588fadd2",
+  "cursor": "b1e89e883dd75f69805c854e8360af24577485c5",
   "manifests": {
     "package.json": {
       "dependencies": {
         "@floating-ui/dom": "^1.8.0",
         "@internationalized/date": "^3.12.4",
         "@internationalized/number": "^3.6.8",
-        "@nuxt/kit": "^4.5.2",
-        "@nuxt/schema": "^4.5.2",
+        "@nuxt/kit": "^4.6.0",
+        "@nuxt/schema": "^4.6.0",
         "@standard-schema/spec": "^1.1.0",
         "@tailwindcss/postcss": "^4.3.3",
         "@tailwindcss/vite": "^4.3.3",
@@ -78,7 +78,7 @@
         "eslint": "^10.12.0",
         "eslint-plugin-better-tailwindcss": "^4.8.0",
         "happy-dom": "^20.14.5",
-        "nuxt": "^4.5.2",
+        "nuxt": "^4.6.0",
         "unbuild": "^3.6.1",
         "vitest": "^4.1.11",
         "vitest-axe": "^0.1.0",
@@ -121,7 +121,7 @@
         "maska": "^3.2.2",
         "minimark": "^0.2.0",
         "motion-v": "^2.5.2",
-        "nuxt": "^4.5.2",
+        "nuxt": "^4.6.0",
         "nuxt-component-meta": "^0.18.0",
         "nuxt-llms": "^0.2.0",
         "nuxt-schema-org": "^6.4.3",
@@ -150,7 +150,7 @@
         "@nuxt/content": "^3.16.1",
         "@tiptap/extension-emoji": "^3.31.4",
         "@tiptap/extension-text-align": "^3.31.4",
-        "nuxt": "^4.5.2",
+        "nuxt": "^4.6.0",
         "tailwindcss": "^4.3.3",
         "zod": "^4.6.5"
       },
