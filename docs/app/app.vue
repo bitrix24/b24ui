@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import type { ContentNavigationItem } from '@nuxt/content'
 import type { ToasterProps } from '@bitrix24/b24ui-nuxt'
 
 const route = useRoute()
 const appConfig = useAppConfig()
 const { style, link } = useTheme()
 
-const { data: navigation } = await useFetch('/api/navigation.json')
+const { data: navigation } = await useFetch<ContentNavigationItem[]>('/api/navigation.json')
 
 useHead({
   meta: [
