@@ -1,6 +1,7 @@
 import { createConfigForNuxt } from '@nuxt/eslint-config/flat'
 import { fileURLToPath } from 'node:url'
 import betterTailwindcss from 'eslint-plugin-better-tailwindcss'
+import { getDefaultSelectors } from 'eslint-plugin-better-tailwindcss/defaults'
 
 /**
  * Flag bare prop references in templates of components that use
@@ -306,16 +307,23 @@ const AIR_HOOK_CLASSES = [
   '^scrollbar-transparent$'
 ]
 
+const themeClassMatchers = [
+  { type: 'objectValues', path: '^base.*$' },
+  { type: 'objectValues', path: '^slots(?!.*(Size|Accent)$).*$' },
+  { type: 'objectValues', path: '^variants(?!.*(Size|Accent)$).*$' },
+  { type: 'objectValues', path: '^compoundVariants\\[\\d+\\]\\.class.*$' }
+]
+
 /**
- * Tailwind class checks for the apps in this repo (docs and playgrounds).
- * `src/theme` is not covered yet: the plugin skips `export default (options) => ({...})`
- * until https://github.com/schoero/eslint-plugin-better-tailwindcss/pull/397 ships.
+ * Tailwind class checks for the apps in this repo (docs and playgrounds) and
+ * for the theme files in `src/theme`.
  */
-function betterTailwindcssConfig(files, entryPoint, ignore = []) {
+function betterTailwindcssConfig(files, entryPoint, { ignore = [], settings = {}, rules = {}, ignores = [] } = {}) {
   // Absolute so editor ESLint servers running from a subfolder resolve it too.
   entryPoint = fileURLToPath(new URL(entryPoint, import.meta.url))
   return {
     files,
+    ignores,
     plugins: {
       'better-tailwindcss': betterTailwindcss
     },
@@ -325,12 +333,14 @@ function betterTailwindcssConfig(files, entryPoint, ignore = []) {
         attributes: [
           '^(v-bind:|:)?class$',
           ['^(v-bind:|:)?b24ui$', [{ match: 'objectValues' }]]
-        ]
+        ],
+        ...settings
       }
     },
     rules: {
       ...betterTailwindcss.configs['correctness-error'].rules,
-      'better-tailwindcss/no-unknown-classes': ['error', { ignore }]
+      'better-tailwindcss/no-unknown-classes': ['error', { ignore }],
+      ...rules
     }
   }
 }
@@ -378,17 +388,68 @@ export default createConfigForNuxt({
     'bitrix24-ui/no-bare-prop-refs': 'error',
     'bitrix24-ui/no-unresolved-form-field-refs': 'error'
   }
-}).append(betterTailwindcssConfig(['docs/app/**/*.vue'], 'docs/app/assets/css/main.css', [
-  ...AIR_HOOK_CLASSES,
-  // Hook classes styled in `docs/app/assets/css/main.css` or in scoped `<style>` blocks.
-  '^bg-grid-example$', '^custom-scrollbar-transparent$', '^(nuxt|vue)-only$',
-  '^squircle$', '^example$', '^my-table-tbody$'
-])).append(
-  betterTailwindcssConfig(['playgrounds/nuxt/app/**/*.vue'], 'playgrounds/nuxt/app/assets/css/main.css', AIR_HOOK_CLASSES)
+}).append(betterTailwindcssConfig(['docs/app/**/*.vue'], 'docs/app/assets/css/main.css', {
+  ignore: [
+    ...AIR_HOOK_CLASSES,
+    // Hook classes styled in `docs/app/assets/css/main.css` or in scoped `<style>` blocks.
+    '^bg-grid-example$', '^custom-scrollbar-transparent$', '^(nuxt|vue)-only$',
+    '^squircle$', '^example$', '^my-table-tbody$'
+  ]
+})).append(
+  betterTailwindcssConfig(['playgrounds/nuxt/app/**/*.vue'], 'playgrounds/nuxt/app/assets/css/main.css', { ignore: AIR_HOOK_CLASSES })
 ).append(
-  betterTailwindcssConfig(['playgrounds/vue/src/**/*.vue'], 'playgrounds/vue/src/assets/css/main.css', AIR_HOOK_CLASSES)
+  betterTailwindcssConfig(['playgrounds/vue/src/**/*.vue'], 'playgrounds/vue/src/assets/css/main.css', { ignore: AIR_HOOK_CLASSES })
 ).append(
-  betterTailwindcssConfig(['playgrounds/demo/app/**/*.vue'], 'playgrounds/demo/app/assets/css/main.css', AIR_HOOK_CLASSES)
+  betterTailwindcssConfig(['playgrounds/demo/app/**/*.vue'], 'playgrounds/demo/app/assets/css/main.css', { ignore: AIR_HOOK_CLASSES })
+).append(
+  // Theme files are `export default {...}` or `export default (options) => ({...})`. Only the tv
+  // class paths are checked, minus the `*Size` slots which hold a size prop for a nested component.
+  betterTailwindcssConfig(['src/theme/**/*.ts'], 'playgrounds/nuxt/app/assets/css/main.css', {
+    // TODO: these themes still use classes that need a design decision before they can be linted:
+    // - avatar.ts: `text-8.5/(--ui-font-line-height-reset)` is not a utility (no font size applied)
+    // - listbox.ts: `text-4`, `text-6` are not utilities (no font size applied)
+    // - modal.ts: `backdrop-blur-0.5` is not a utility (no blur applied)
+    // - file-upload.ts: `border-inverted` is a Nuxt UI color this fork does not define
+    // - prose/prompt.ts: `text-highlighted` is a Nuxt UI color this fork does not define
+    // - dashboard-panel.ts: `lg:not-last:border-e lg:not-last:border-e-0` contradict each other
+    // - dashboard-sidebar.ts: `border-e border-e-0` contradict each other
+    // - navigation-menu.ts: `collapsed` is defined nowhere
+    ignores: [
+      'src/theme/avatar.ts',
+      'src/theme/listbox.ts',
+      'src/theme/modal.ts',
+      'src/theme/file-upload.ts',
+      'src/theme/prose/prompt.ts',
+      'src/theme/dashboard-panel.ts',
+      'src/theme/dashboard-sidebar.ts',
+      'src/theme/navigation-menu.ts'
+    ],
+    ignore: [
+      ...AIR_HOOK_CLASSES,
+      // Air hook classes: plain selectors in `src/runtime/air-design-tokens/**/*.css`, not utilities.
+      '^--air$',
+      '^--style-(filled|tinted|outline|plain|selection|default|danger|success|warning|primary|secondary|collab|ai|link)(-[a-z0-9-]+)?$',
+      '^style-(filled|tinted|outline|plain|selection|old|transparent-bg)(-[a-z0-9-]+)?$',
+      '^ui-(btn|label|counter)-(xss|xs|sm|md|lg|xl)$',
+      '^menu-item-vertical-active$'
+    ],
+    settings: {
+      selectors: [
+        ...getDefaultSelectors(),
+        {
+          kind: 'variable',
+          name: '^default$',
+          match: [...themeClassMatchers, { type: 'anonymousFunctionReturn', match: themeClassMatchers }]
+        },
+        // Themes extending another one: `(options) => defuFn({...}, input(options))`
+        { kind: 'callee', name: '^defu(Fn)?$', match: themeClassMatchers }
+      ]
+    },
+    rules: {
+      // Classes built from `options.theme.colors` or a variant prefix are written out in full in the generated theme.
+      'better-tailwindcss/no-concatenated-classes': 'off'
+    }
+  })
 ).append({
   files: ['src/runtime/components/**/*.vue', 'src/runtime/composables/**/*.ts'],
   rules: {
