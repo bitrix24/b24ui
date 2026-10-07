@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "db30f7f4402e80e94b7325f0a16bca1f554a6229",
+  "cursor": "5c302c3bb83661226b74008a17741e8e001b3925",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2611,10 +2611,16 @@
       "summary": "refactor(InputTime): use namespaced `TimeRangeField`"
     },
     "db30f7f4402e80e94b7325f0a16bca1f554a6229": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 717,
+      "b24ui_sha": "84ac23f3",
       "decision": "n/a",
       "summary": "fix(Tree): pass `disabled` to tree item — b24ui has no Tree component"
+    },
+    "5c302c3bb83661226b74008a17741e8e001b3925": {
+      "pr": "pending-merge",
+      "b24ui_sha": "pending-merge",
+      "decision": "port",
+      "summary": "feat(module): export prose components from `@bitrix24/b24ui-nuxt/components/prose`"
     }
   }
 }
