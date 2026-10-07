@@ -384,16 +384,26 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0, listInd
   return props.type === 'single' ? indexes[0] : indexes
 }
 
+const trailingClicks = new WeakSet<Event>()
+
 function onLinkTrailingClick(e: Event, item: NavigationMenuItem, trailingTrigger?: boolean) {
   if (!item.children?.length) {
     return
   }
 
   if (props.orientation === 'horizontal') {
-    e.preventDefault()
+    trailingClicks.add(e)
   } else if (props.orientation === 'vertical' && !props.collapsed && trailingTrigger) {
     e.preventDefault()
     e.stopPropagation()
+  }
+}
+
+// Bound on the link so it runs after the trigger's click handler, which ignores prevented events,
+// and before `LinkBase` calls `navigate`.
+function onLinkClick(e: Event) {
+  if (trailingClicks.has(e)) {
+    e.preventDefault()
   }
 }
 </script>
@@ -643,6 +653,7 @@ function onLinkTrailingClick(e: Event, item: NavigationMenuItem, trailingTrigger
                 disabled: !!item.disabled,
                 level: level > 0
               })"
+              @click="onLinkClick"
             >
               <ReuseLinkTemplate :item="item" :active="active || item.active" :index="index" :trailing-trigger="!!(slotProps as any).href" />
             </B24LinkBase>
@@ -657,6 +668,7 @@ function onLinkTrailingClick(e: Event, item: NavigationMenuItem, trailingTrigger
               disabled: !!item.disabled,
               level: props.orientation === 'horizontal' || level > 0
             })"
+            @click="onLinkClick"
           >
             <ReuseLinkTemplate :item="item" :active="active || item.active" :index="index" :trailing-trigger="!!(slotProps as any).href" />
           </B24LinkBase>
