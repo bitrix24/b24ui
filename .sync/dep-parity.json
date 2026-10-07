@@ -1,6 +1,6 @@
 {
   "$note": "Upstream's pinned versions for every dependency both trees declare in the SAME section, snapshotted at `cursor`. The sync ports deltas, which is correct per commit and lets a one-time divergence become permanent: once a version is off upstream's line, every later `chore(deps)` batch skips it, because those ports bump only where this fork already matched upstream's pre-image. `prettier` sat at ^3.8.4 against upstream's ^3.9.6 for that reason, through four ported batches, until this file was written. Section-aware on purpose: 18 packages are declared on both sides but in different sections — the whole `@tiptap/*` family is a peer `^3` upstream and a dependency `^3.29.2` here, and `ai` is a peer there and a devDependency here. Those are structural divergences, not drift, and comparing a peer range against a dependency range says nothing. They are absent from this file by construction rather than by omission. Guarded by `test/utils/dep-parity.spec.ts`. Refresh with `node .sync/dep-parity.mjs <path-to-nuxt-ui-mirror> [cursor]`, which preserves `exceptions`.",
-  "cursor": "f5f0f570b738567e36f974cfa2b2285eef2bef3e",
+  "cursor": "ce132a050ae9920aedffe9a4da349e6202489348",
   "manifests": {
     "package.json": {
       "dependencies": {
@@ -31,7 +31,7 @@
         "@tiptap/starter-kit": "^3.31.3",
         "@tiptap/suggestion": "^3.31.3",
         "@tiptap/vue-3": "^3.31.3",
-        "@unhead/vue": "^3.4.1",
+        "@unhead/vue": "^3.4.2",
         "@vueuse/core": "^14.4.0",
         "@vueuse/integrations": "^14.4.0",
         "@vueuse/shared": "^14.4.0",
@@ -50,7 +50,7 @@
         "knitwork": "^1.3.0",
         "magic-string": "^1.4.2",
         "mlly": "^1.8.2",
-        "motion-v": "^2.4.4",
+        "motion-v": "^2.5.2",
         "ohash": "^2.0.12",
         "pathe": "^2.0.3",
         "reka-ui": "2.10.5",
@@ -64,18 +64,18 @@
         "unplugin-auto-import": "^21.1.0",
         "unplugin-vue-components": "^32.1.0",
         "vaul-vue": "0.4.1",
-        "vue-component-type-helpers": "^3.3.11"
+        "vue-component-type-helpers": "^3.3.12"
       },
       "devDependencies": {
         "@nuxt/eslint-config": "^1.17.0",
         "@nuxt/module-builder": "^1.0.3",
-        "@nuxt/test-utils": "^4.3.2",
+        "@nuxt/test-utils": "^4.3.3",
         "@tanstack/table-core": "^8.21.3",
         "@vitejs/plugin-vue": "^6.0.9",
         "@vue/test-utils": "^2.5.1",
-        "ai": "^7.0.116",
+        "ai": "^7.0.127",
         "embla-carousel": "^8.6.0",
-        "eslint": "^10.11.0",
+        "eslint": "^10.12.0",
         "eslint-plugin-better-tailwindcss": "^4.8.0",
         "happy-dom": "^20.14.5",
         "nuxt": "^4.5.2",
@@ -106,11 +106,11 @@
         "@comark/vue": "^0.7.0",
         "@nuxt/content": "^3.16.1",
         "@nuxt/image": "^2.0.0",
-        "@nuxtjs/mcp-toolkit": "^0.21.0",
-        "@nuxtjs/mdc": "^0.23.1",
+        "@nuxtjs/mcp-toolkit": "^0.22.0",
+        "@nuxtjs/mdc": "^0.23.2",
         "@octokit/rest": "^22.0.1",
-        "@regle/core": "^1.29.3",
-        "@regle/rules": "^1.29.3",
+        "@regle/core": "^1.29.4",
+        "@regle/rules": "^1.29.4",
         "@tiptap/extension-emoji": "^3.31.3",
         "@tiptap/extension-text-align": "^3.31.3",
         "@vueuse/integrations": "^14.4.0",
@@ -118,15 +118,15 @@
         "fflate": "^0.8.3",
         "joi": "^18.2.9",
         "json5": "^2.2.3",
-        "maska": "^3.2.1",
+        "maska": "^3.2.2",
         "minimark": "^0.2.0",
-        "motion-v": "^2.4.4",
+        "motion-v": "^2.5.2",
         "nuxt": "^4.5.2",
         "nuxt-component-meta": "^0.18.0",
         "nuxt-llms": "^0.2.0",
-        "nuxt-schema-org": "^6.3.2",
+        "nuxt-schema-org": "^6.4.3",
         "prettier": "^3.9.9",
-        "shiki": "^4.4.3",
+        "shiki": "^4.5.0",
         "shiki-transformer-color-highlight": "^1.1.0",
         "sortablejs": "^1.15.7",
         "superstruct": "^2.0.2",
@@ -134,12 +134,12 @@
         "tiptap-extension-code-block-shiki": "^1.2.0",
         "ufo": "^1.6.4",
         "valibot": "^1.5.0",
-        "vue-component-meta": "^3.3.11",
+        "vue-component-meta": "^3.3.12",
         "yup": "^1.7.1",
         "zod": "^4.6.5"
       },
       "devDependencies": {
-        "@shikijs/types": "^4.4.3",
+        "@shikijs/types": "^4.5.0",
         "@types/sortablejs": "^1.15.9"
       }
     },
@@ -171,7 +171,7 @@
       "devDependencies": {
         "@vitejs/plugin-vue": "^6.0.9",
         "typescript": "^6.0.3",
-        "vite": "^8.3.1",
+        "vite": "^8.3.2",
         "vue-tsc": "^3.3.11"
       }
     }
