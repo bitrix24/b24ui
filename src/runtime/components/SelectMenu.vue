@@ -589,7 +589,7 @@ function onFocusOutside(event: Event) {
 
   event.preventDefault()
 
-  const input = searchInputProps.value.autofocus !== false ? el.querySelector<HTMLElement>('[data-slot="input"] input') : null
+  const input = searchInputProps.value.autofocus !== false ? el.querySelector<HTMLElement>('input[data-slot="input"]') : null
   const target = input ?? el
   target.focus({ preventScroll: true })
 }
