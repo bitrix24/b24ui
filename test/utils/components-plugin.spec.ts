@@ -37,6 +37,15 @@ describe('bitrix24:b24ui:components', () => {
     expect(resolveId(join(runtimeDir, 'components/Button.vue'), '/app/src/App.tsx')).toBeUndefined()
   })
 
+  // Upstream checks `../Icon.vue` from `prose/Icon.vue`; with `Link` standing in
+  // (see above), `../Link.vue` from a prose file resolves to the override by path,
+  // while `./Link.vue` from the prose barrel names `prose/Link.vue`, which has no
+  // override, and must not fall back to the `Link.vue` basename match.
+  it('resolves relative imports inside the components directory by path', () => {
+    expect(resolveId('../Link.vue', join(runtimeDir, 'components/prose/A.vue'))).toBe(join(runtimeDir, 'vue/overrides/vue-router/Link.vue'))
+    expect(resolveId('./Link.vue', join(runtimeDir, 'components/prose/index.ts'))).toBeUndefined()
+  })
+
   // Both paths here are chosen so a looser implementation resolves them:
   // `prose/Link.vue` shares its basename with a real override, so a
   // `resolveFile`-style lookup would match it, and the foreign package has the

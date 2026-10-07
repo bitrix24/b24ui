@@ -453,7 +453,7 @@ exports[`CheckboxGroup > renders with disabled correctly 1`] = `
   <fieldset data-slot="fieldset" class="flex flex-col flex-wrap gap-x-[16px] gap-y-2">
     <!--v-if-->
     <div data-slot="root" class="relative flex items-start flex-row opacity-30 style-filled">
-      <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4 cursor-not-allowed" id="v-0:1" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" data-disabled="" disabled="" data-reka-collection-item="" tabindex="-1" data-orientation="vertical">
+      <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4 cursor-not-allowed" id="v-0:1" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" aria-disabled="true" data-disabled="" disabled="" data-reka-collection-item="" tabindex="-1" data-orientation="vertical">
           <!---->
         </button>
         <!--v-if-->
@@ -464,7 +464,7 @@ exports[`CheckboxGroup > renders with disabled correctly 1`] = `
       </div>
     </div>
     <div data-slot="root" class="relative flex items-start flex-row opacity-30 style-filled">
-      <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4 cursor-not-allowed" id="v-0:2" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" data-disabled="" disabled="" data-reka-collection-item="" tabindex="-1" data-orientation="vertical">
+      <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4 cursor-not-allowed" id="v-0:2" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" aria-disabled="true" data-disabled="" disabled="" data-reka-collection-item="" tabindex="-1" data-orientation="vertical">
           <!---->
         </button>
         <!--v-if-->
@@ -475,7 +475,7 @@ exports[`CheckboxGroup > renders with disabled correctly 1`] = `
       </div>
     </div>
     <div data-slot="root" class="relative flex items-start flex-row opacity-30 style-filled">
-      <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4 cursor-not-allowed" id="v-0:3" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" data-disabled="" disabled="" data-reka-collection-item="" tabindex="-1" data-orientation="vertical">
+      <div data-slot="container" class="flex items-center h-4"><button data-slot="base" class="flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-label ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-4 cursor-not-allowed" id="v-0:3" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" aria-disabled="true" data-disabled="" disabled="" data-reka-collection-item="" tabindex="-1" data-orientation="vertical">
           <!---->
         </button>
         <!--v-if-->
