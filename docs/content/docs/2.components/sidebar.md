@@ -275,6 +275,20 @@ class: '!p-0 !justify-start h-[500px] contain-[paint] transform-gpu'
 :placeholder{class="h-full"}
 ::
 
+### Breakpoint :badge{label="Soon" class="align-text-top"}
+
+Use the `breakpoint` prop to change the breakpoint below which the sidebar renders as a menu. Defaults to `lg`.
+
+```vue
+<template>
+  <B24Sidebar breakpoint="xl" />
+</template>
+```
+
+::note
+The values follow the default Tailwind CSS breakpoints. Custom `--breakpoint-*` values are not picked up.
+::
+
 ### Mode
 
 Use the `mode` prop to change the mode of the sidebar menu on mobile. Defaults to `slideover`.
