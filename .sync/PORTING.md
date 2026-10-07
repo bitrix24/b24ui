@@ -432,7 +432,7 @@ material. Reproduce its *intent* in b24ui by editing files under `src/` only.
   or loosen either — a `chore(deps)` that adds a caret is a divergence, not an
   update. Note the override table did not disappear, it moved: `package.json`
   has no `resolutions` field any more, but `pnpm-workspace.yaml`'s `overrides:`
-  still hard-pins `h3` and `unimport` (and constrains `vite` / `rolldown`), each
+  still hard-pins `h3` (and constrains `vite` / `rolldown`), each
   with its reason written beside it. Check there before concluding that nothing
   is being forced. **One exception:** a security patch within the same upstream
   minor may be pinned locally ahead of upstream, with a comment citing the
