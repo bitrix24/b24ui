@@ -29,11 +29,16 @@ export default defineLocale<Messages>({
       next: '下一步',
       prev: '上一步'
     },
+    chatMessages: {
+      autoScroll: '滚动到底部'
+    },
     chatPrompt: {
       placeholder: '在此输入消息…'
     },
     chatPromptSubmit: {
-      label: '发送'
+      label: '发送',
+      reload: '重试',
+      stop: '停止生成'
     },
     colorMode: {
       dark: '深色',
@@ -120,6 +125,13 @@ export default defineLocale<Messages>({
     },
     drawer: {
       close: '关闭'
+    },
+    pagination: {
+      first: '第一页',
+      last: '最后一页',
+      next: '下一页',
+      page: '第 {page} 页',
+      prev: '上一页'
     },
     pricingTable: {
       caption: '价格方案对比'

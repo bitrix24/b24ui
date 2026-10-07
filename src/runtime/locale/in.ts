@@ -29,11 +29,16 @@ export default defineLocale<Messages>({
       next: 'अगला',
       prev: 'पिछला'
     },
+    chatMessages: {
+      autoScroll: 'नीचे स्क्रॉल करें'
+    },
     chatPrompt: {
       placeholder: 'अपना संदेश यहाँ लिखें…'
     },
     chatPromptSubmit: {
-      label: 'भेजें'
+      label: 'भेजें',
+      reload: 'फिर से कोशिश करें',
+      stop: 'जनरेट करना रोकें'
     },
     colorMode: {
       dark: 'डार्क',
@@ -120,6 +125,13 @@ export default defineLocale<Messages>({
     },
     drawer: {
       close: 'बंद करें'
+    },
+    pagination: {
+      first: 'पहला पृष्ठ',
+      last: 'अंतिम पृष्ठ',
+      next: 'अगला पृष्ठ',
+      page: 'पृष्ठ {page}',
+      prev: 'पिछला पृष्ठ'
     },
     pricingTable: {
       caption: 'मूल्य योजनाओं की तुलना'

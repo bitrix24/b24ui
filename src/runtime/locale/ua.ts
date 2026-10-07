@@ -29,11 +29,16 @@ export default defineLocale<Messages>({
       next: 'Далі',
       prev: 'Назад'
     },
+    chatMessages: {
+      autoScroll: 'Прокрутити вниз'
+    },
     chatPrompt: {
       placeholder: 'Введіть ваше повідомлення…'
     },
     chatPromptSubmit: {
-      label: 'Надіслати'
+      label: 'Надіслати',
+      reload: 'Повторити',
+      stop: 'Зупинити генерацію'
     },
     colorMode: {
       dark: 'Темна',
@@ -120,6 +125,13 @@ export default defineLocale<Messages>({
     },
     drawer: {
       close: 'Закрити'
+    },
+    pagination: {
+      first: 'Перша сторінка',
+      last: 'Остання сторінка',
+      next: 'Наступна сторінка',
+      page: 'Сторінка {page}',
+      prev: 'Попередня сторінка'
     },
     pricingTable: {
       caption: 'Порівняння тарифних планів'
