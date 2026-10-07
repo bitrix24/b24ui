@@ -30,11 +30,16 @@ export default defineLocale<Messages>({
       next: 'التالي',
       prev: 'السابق'
     },
+    chatMessages: {
+      autoScroll: 'التمرير إلى الأسفل'
+    },
     chatPrompt: {
       placeholder: 'أدخل رسالتك هنا…'
     },
     chatPromptSubmit: {
-      label: 'إرسال'
+      label: 'إرسال',
+      reload: 'إعادة المحاولة',
+      stop: 'إيقاف التوليد'
     },
     colorMode: {
       dark: 'داكن',
