@@ -2725,8 +2725,8 @@
       "summary": "feat(ContextMenu): add `open` and `pressOpenDelay` props"
     },
     "6067cdf16b36e0a3adbaa3fbd06ba6de57294ad0": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 736,
+      "b24ui_sha": "75aebb33",
       "decision": "port",
       "summary": "docs(server): trim navigation payload"
     }
