@@ -37,8 +37,8 @@ export default {
   },
   variants: {
     overlayBlur: {
-      auto: { overlay: 'motion-safe:backdrop-blur-[2px]' },
-      on: { overlay: 'backdrop-blur-[2px]' },
+      auto: { overlay: 'motion-safe:backdrop-blur-sm' },
+      on: { overlay: 'backdrop-blur-sm' },
       off: { overlay: '' }
     },
     scrollbarThin: {
