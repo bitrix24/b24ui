@@ -5,7 +5,7 @@ exports[`DashboardSidebar > renders with b24ui correctly 1`] = `
   <!---->
   <!---->
   <!--v-if-->
-  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent border-e-0 border-(--ui-color-divider-accent)" style="--width: 240px;">
+  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent" style="--width: 240px;">
     <!--v-if-->
     <div data-slot="body" class="flex flex-col gap-4 flex-1 overflow-y-auto ps-4 pe-4 md:pe-2 scrollbar-thin scrollbar-transparent light:[--leftmenu-group-stroke:var(--ui-color-base-30)] py-4"></div>
     <!--v-if-->
@@ -22,7 +22,7 @@ exports[`DashboardSidebar > renders with class correctly 1`] = `
   <!---->
   <!---->
   <!--v-if-->
-  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent border-e-0 border-(--ui-color-divider-accent) border-none" style="--width: 240px;">
+  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent border-none" style="--width: 240px;">
     <!--v-if-->
     <div data-slot="body" class="flex flex-col gap-4 flex-1 overflow-y-auto py-2 ps-4 pe-4 md:pe-2 scrollbar-thin scrollbar-transparent light:[--leftmenu-group-stroke:var(--ui-color-base-30)]"></div>
     <!--v-if-->
@@ -39,7 +39,7 @@ exports[`DashboardSidebar > renders with collapsedSize correctly 1`] = `
   <!---->
   <!---->
   <!--v-if-->
-  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="true" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent border-e-0 border-(--ui-color-divider-accent)" style="--width: 10px;">
+  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="true" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent" style="--width: 10px;">
     <!--v-if-->
     <div data-slot="body" class="flex flex-col gap-4 flex-1 overflow-y-auto py-2 ps-4 pe-4 md:pe-2 scrollbar-thin scrollbar-transparent light:[--leftmenu-group-stroke:var(--ui-color-base-30)]"></div>
     <!--v-if-->
@@ -56,7 +56,7 @@ exports[`DashboardSidebar > renders with collapsible correctly 1`] = `
   <!---->
   <!---->
   <!--v-if-->
-  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent border-e-0 border-(--ui-color-divider-accent)" style="--width: 240px;">
+  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent" style="--width: 240px;">
     <!--v-if-->
     <div data-slot="body" class="flex flex-col gap-4 flex-1 overflow-y-auto py-2 ps-4 pe-4 md:pe-2 scrollbar-thin scrollbar-transparent light:[--leftmenu-group-stroke:var(--ui-color-base-30)]"></div>
     <!--v-if-->
@@ -73,7 +73,7 @@ exports[`DashboardSidebar > renders with content slot correctly 1`] = `
   <!---->
   <!---->
   <!--v-if-->
-  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent border-e-0 border-(--ui-color-divider-accent)" style="--width: 240px;">
+  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent" style="--width: 240px;">
     <!--v-if-->
     <div data-slot="body" class="flex flex-col gap-4 flex-1 overflow-y-auto py-2 ps-4 pe-4 md:pe-2 scrollbar-thin scrollbar-transparent light:[--leftmenu-group-stroke:var(--ui-color-base-30)]"></div>
     <!--v-if-->
@@ -90,7 +90,7 @@ exports[`DashboardSidebar > renders with default slot correctly 1`] = `
   <!---->
   <!---->
   <!--v-if-->
-  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent border-e-0 border-(--ui-color-divider-accent)" style="--width: 240px;">
+  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent" style="--width: 240px;">
     <!--v-if-->
     <div data-slot="body" class="flex flex-col gap-4 flex-1 overflow-y-auto py-2 ps-4 pe-4 md:pe-2 scrollbar-thin scrollbar-transparent light:[--leftmenu-group-stroke:var(--ui-color-base-30)]">Default slot</div>
     <!--v-if-->
@@ -107,7 +107,7 @@ exports[`DashboardSidebar > renders with defaultSize correctly 1`] = `
   <!---->
   <!---->
   <!--v-if-->
-  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent border-e-0 border-(--ui-color-divider-accent)" style="--width: 50px;">
+  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent" style="--width: 50px;">
     <!--v-if-->
     <div data-slot="body" class="flex flex-col gap-4 flex-1 overflow-y-auto py-2 ps-4 pe-4 md:pe-2 scrollbar-thin scrollbar-transparent light:[--leftmenu-group-stroke:var(--ui-color-base-30)]"></div>
     <!--v-if-->
@@ -124,7 +124,7 @@ exports[`DashboardSidebar > renders with footer slot correctly 1`] = `
   <!---->
   <!---->
   <!--v-if-->
-  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent border-e-0 border-(--ui-color-divider-accent)" style="--width: 240px;">
+  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent" style="--width: 240px;">
     <!--v-if-->
     <div data-slot="body" class="flex flex-col gap-4 flex-1 overflow-y-auto py-2 ps-4 pe-4 md:pe-2 scrollbar-thin scrollbar-transparent light:[--leftmenu-group-stroke:var(--ui-color-base-30)]"></div>
     <div data-slot="footer" class="shrink-0 flex items-center gap-1.5 py-2 ps-4 pe-4 lg:border-t lg:border-(--ui-color-divider-default) light:lg:border-(--ui-color-base-30)">Footer slot</div>
@@ -141,7 +141,7 @@ exports[`DashboardSidebar > renders with header slot correctly 1`] = `
   <!---->
   <!---->
   <!--v-if-->
-  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent border-e-0 border-(--ui-color-divider-accent)" style="--width: 240px;">
+  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent" style="--width: 240px;">
     <div data-slot="header" class="h-(--b24ui-header-height) shrink-0 flex items-center gap-1.5 ps-4 pe-4">Header slot</div>
     <div data-slot="body" class="flex flex-col gap-4 flex-1 overflow-y-auto py-2 ps-4 pe-4 md:pe-2 scrollbar-thin scrollbar-transparent light:[--leftmenu-group-stroke:var(--ui-color-base-30)]"></div>
     <!--v-if-->
@@ -158,7 +158,7 @@ exports[`DashboardSidebar > renders with id correctly 1`] = `
   <!---->
   <!---->
   <!--v-if-->
-  <div id="dashboard-sidebar-test" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent border-e-0 border-(--ui-color-divider-accent)" style="--width: 240px;">
+  <div id="dashboard-sidebar-test" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent" style="--width: 240px;">
     <!--v-if-->
     <div data-slot="body" class="flex flex-col gap-4 flex-1 overflow-y-auto py-2 ps-4 pe-4 md:pe-2 scrollbar-thin scrollbar-transparent light:[--leftmenu-group-stroke:var(--ui-color-base-30)]"></div>
     <!--v-if-->
@@ -175,7 +175,7 @@ exports[`DashboardSidebar > renders with maxSize correctly 1`] = `
   <!---->
   <!---->
   <!--v-if-->
-  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent border-e-0 border-(--ui-color-divider-accent)" style="--width: 240px;">
+  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent" style="--width: 240px;">
     <!--v-if-->
     <div data-slot="body" class="flex flex-col gap-4 flex-1 overflow-y-auto py-2 ps-4 pe-4 md:pe-2 scrollbar-thin scrollbar-transparent light:[--leftmenu-group-stroke:var(--ui-color-base-30)]"></div>
     <!--v-if-->
@@ -192,7 +192,7 @@ exports[`DashboardSidebar > renders with minSize correctly 1`] = `
   <!---->
   <!---->
   <!--v-if-->
-  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent border-e-0 border-(--ui-color-divider-accent)" style="--width: 240px;">
+  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent" style="--width: 240px;">
     <!--v-if-->
     <div data-slot="body" class="flex flex-col gap-4 flex-1 overflow-y-auto py-2 ps-4 pe-4 md:pe-2 scrollbar-thin scrollbar-transparent light:[--leftmenu-group-stroke:var(--ui-color-base-30)]"></div>
     <!--v-if-->
@@ -209,7 +209,7 @@ exports[`DashboardSidebar > renders with mode drawer correctly 1`] = `
   <!---->
   <!---->
   <!--v-if-->
-  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent border-e-0 border-(--ui-color-divider-accent)" style="--width: 240px;" data-aria-hidden="true" aria-hidden="true">
+  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent" style="--width: 240px;" data-aria-hidden="true" aria-hidden="true">
     <!--v-if-->
     <div data-slot="body" class="flex flex-col gap-4 flex-1 overflow-y-auto py-2 ps-4 pe-4 md:pe-2 scrollbar-thin scrollbar-transparent light:[--leftmenu-group-stroke:var(--ui-color-base-30)]"></div>
     <!--v-if-->
@@ -233,7 +233,7 @@ exports[`DashboardSidebar > renders with mode modal correctly 1`] = `
   <!---->
   <!---->
   <!--v-if-->
-  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent border-e-0 border-(--ui-color-divider-accent)" style="--width: 240px;" data-aria-hidden="true" aria-hidden="true">
+  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent" style="--width: 240px;" data-aria-hidden="true" aria-hidden="true">
     <!--v-if-->
     <div data-slot="body" class="flex flex-col gap-4 flex-1 overflow-y-auto py-2 ps-4 pe-4 md:pe-2 scrollbar-thin scrollbar-transparent light:[--leftmenu-group-stroke:var(--ui-color-base-30)]"></div>
     <!--v-if-->
@@ -267,7 +267,7 @@ exports[`DashboardSidebar > renders with mode slideover correctly 1`] = `
   <!---->
   <!---->
   <!--v-if-->
-  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent border-e-0 border-(--ui-color-divider-accent)" style="--width: 240px;" data-aria-hidden="true" aria-hidden="true">
+  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent" style="--width: 240px;" data-aria-hidden="true" aria-hidden="true">
     <!--v-if-->
     <div data-slot="body" class="flex flex-col gap-4 flex-1 overflow-y-auto py-2 ps-4 pe-4 md:pe-2 scrollbar-thin scrollbar-transparent light:[--leftmenu-group-stroke:var(--ui-color-base-30)]"></div>
     <!--v-if-->
@@ -301,7 +301,7 @@ exports[`DashboardSidebar > renders with resizable correctly 1`] = `
   <!---->
   <!---->
   <!--v-if-->
-  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent border-e-0 border-(--ui-color-divider-accent)" style="--width: 240px;">
+  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent" style="--width: 240px;">
     <!--v-if-->
     <div data-slot="body" class="flex flex-col gap-4 flex-1 overflow-y-auto py-2 ps-4 pe-4 md:pe-2 scrollbar-thin scrollbar-transparent light:[--leftmenu-group-stroke:var(--ui-color-base-30)]"></div>
     <!--v-if-->
@@ -318,7 +318,7 @@ exports[`DashboardSidebar > renders with resize-handle slot correctly 1`] = `
   <!---->
   <!---->
   <!--v-if-->
-  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent border-e-0 border-(--ui-color-divider-accent)" style="--width: 240px;">
+  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent" style="--width: 240px;">
     <!--v-if-->
     <div data-slot="body" class="flex flex-col gap-4 flex-1 overflow-y-auto py-2 ps-4 pe-4 md:pe-2 scrollbar-thin scrollbar-transparent light:[--leftmenu-group-stroke:var(--ui-color-base-30)]"></div>
     <!--v-if-->
@@ -351,7 +351,7 @@ exports[`DashboardSidebar > renders with toggle correctly 1`] = `
   <!---->
   <!---->
   <!--v-if-->
-  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent border-e-0 border-(--ui-color-divider-accent)" style="--width: 240px;">
+  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent" style="--width: 240px;">
     <!--v-if-->
     <div data-slot="body" class="flex flex-col gap-4 flex-1 overflow-y-auto py-2 ps-4 pe-4 md:pe-2 scrollbar-thin scrollbar-transparent light:[--leftmenu-group-stroke:var(--ui-color-base-30)]"></div>
     <!--v-if-->
@@ -370,7 +370,7 @@ exports[`DashboardSidebar > renders with toggle slot correctly 1`] = `
   <!---->
   <!---->
   <!--v-if-->
-  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent border-e-0 border-(--ui-color-divider-accent)" style="--width: 240px;">
+  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent" style="--width: 240px;">
     <!--v-if-->
     <div data-slot="body" class="flex flex-col gap-4 flex-1 overflow-y-auto py-2 ps-4 pe-4 md:pe-2 scrollbar-thin scrollbar-transparent light:[--leftmenu-group-stroke:var(--ui-color-base-30)]"></div>
     <!--v-if-->
@@ -387,7 +387,7 @@ exports[`DashboardSidebar > renders with toggleSide correctly 1`] = `
   <!---->
   <!---->
   <!--v-if-->
-  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent border-e-0 border-(--ui-color-divider-accent)" style="--width: 240px;" data-aria-hidden="true" aria-hidden="true">
+  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent" style="--width: 240px;" data-aria-hidden="true" aria-hidden="true">
     <!--v-if-->
     <div data-slot="body" class="flex flex-col gap-4 flex-1 overflow-y-auto py-2 ps-4 pe-4 md:pe-2 scrollbar-thin scrollbar-transparent light:[--leftmenu-group-stroke:var(--ui-color-base-30)]"></div>
     <!--v-if-->
@@ -421,7 +421,7 @@ exports[`DashboardSidebar > renders without toggle correctly 1`] = `
   <!---->
   <!---->
   <!--v-if-->
-  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent border-e-0 border-(--ui-color-divider-accent)" style="--width: 240px;">
+  <div id="dashboard-sidebar-v-0-0-0" data-collapsed="false" data-dragging="false" data-slot="root" class="relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0 backdrop-blur-sm bg-(--ui-color-bg-content-primary)/20 dark:bg-(--ui-color-bg-content-primary)/70 light:bg-transparent" style="--width: 240px;">
     <!--v-if-->
     <div data-slot="body" class="flex flex-col gap-4 flex-1 overflow-y-auto py-2 ps-4 pe-4 md:pe-2 scrollbar-thin scrollbar-transparent light:[--leftmenu-group-stroke:var(--ui-color-base-30)]"></div>
     <!--v-if-->
