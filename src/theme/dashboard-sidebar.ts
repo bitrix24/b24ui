@@ -35,7 +35,7 @@ export default {
     },
     side: {
       left: {
-        root: 'border-e border-e-0 border-(--ui-color-divider-accent)'
+        root: ''
       },
       right: {
         root: ''
