@@ -143,7 +143,9 @@ export default {
     },
     {
       highlight: true,
-      class: 'border-inverted'
+      class: {
+        base: 'ring-1 ring-inset ring-(--b24ui-border-color)'
+      }
     },
     {
       size: 'xs',
