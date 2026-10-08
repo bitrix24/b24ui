@@ -48,8 +48,8 @@ export default {
   },
   variants: {
     overlayBlur: {
-      auto: { overlay: 'motion-safe:backdrop-blur-0.5' },
-      on: { overlay: 'backdrop-blur-0.5' },
+      auto: { overlay: 'motion-safe:backdrop-blur-sm' },
+      on: { overlay: 'backdrop-blur-sm' },
       off: { overlay: '' }
     },
     transition: {
