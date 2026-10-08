@@ -406,7 +406,6 @@ export default createConfigForNuxt({
   // class paths are checked, minus the `*Size` slots which hold a size prop for a nested component.
   betterTailwindcssConfig(['src/theme/**/*.ts'], 'playgrounds/nuxt/app/assets/css/main.css', {
     // TODO: these themes still use classes that need a design decision before they can be linted:
-    // - listbox.ts: `text-4`, `text-6` are not utilities (no font size applied)
     // - modal.ts: `backdrop-blur-0.5` is not a utility (no blur applied)
     // - file-upload.ts: `border-inverted` is a Nuxt UI color this fork does not define
     // - prose/prompt.ts: `text-highlighted` is a Nuxt UI color this fork does not define
@@ -414,7 +413,6 @@ export default createConfigForNuxt({
     // - dashboard-sidebar.ts: `border-e border-e-0` contradict each other
     // - navigation-menu.ts: `collapsed` is defined nowhere
     ignores: [
-      'src/theme/listbox.ts',
       'src/theme/modal.ts',
       'src/theme/file-upload.ts',
       'src/theme/prose/prompt.ts',

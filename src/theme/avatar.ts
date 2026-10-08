@@ -74,7 +74,7 @@ export default {
         icon: 'size-14'
       },
       '3xl': {
-        root: 'ring-2 size-23.5 text-[34px]/(--ui-font-line-height-reset)',
+        root: 'ring-2 size-23.5 text-6xl/(--ui-font-line-height-reset)',
         icon: 'size-22.5'
       }
     }

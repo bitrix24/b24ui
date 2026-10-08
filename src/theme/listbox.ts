@@ -103,10 +103,10 @@ export default {
       },
       md: {
         label: 'px-4.5 py-1.5 text-xs gap-1.5',
-        empty: 'py-6 text-4',
+        empty: 'py-6 text-(length:--ui-font-size-xl)',
         loading: 'py-6',
         loadingIcon: 'size-6',
-        item: 'px-4.5 py-1.5 text-4 gap-1.5',
+        item: 'px-4.5 py-1.5 text-(length:--ui-font-size-xl) gap-1.5',
         itemLeadingIcon: 'size-6',
         itemLeadingAvatar: 'size-6',
         itemLeadingAvatarSize: '2xs', // @memo this wrong
@@ -116,10 +116,10 @@ export default {
       },
       lg: {
         label: 'p-2 text-xs gap-2',
-        empty: 'py-7 text-4',
+        empty: 'py-7 text-(length:--ui-font-size-xl)',
         loading: 'py-7',
         loadingIcon: 'size-8',
-        item: 'p-2 text-4 gap-2',
+        item: 'p-2 text-(length:--ui-font-size-xl) gap-2',
         itemLeadingIcon: 'size-7',
         itemLeadingAvatar: 'size-7',
         itemLeadingAvatarSize: '2xs', // @memo this wrong
@@ -128,18 +128,18 @@ export default {
         itemTrailingIcon: 'size-6'
       },
       xl: {
-        label: 'p-2 text-4 gap-2',
-        empty: 'py-8 text-6',
+        label: 'p-2 text-(length:--ui-font-size-xl) gap-2',
+        empty: 'py-8 text-(length:--ui-font-size-4xl)',
         loading: 'py-8',
         loadingIcon: 'size-10',
-        item: 'p-2 text-6 gap-2',
+        item: 'p-2 text-(length:--ui-font-size-4xl) gap-2',
         itemLeadingIcon: 'size-7',
         itemLeadingAvatar: 'size-7',
         itemLeadingAvatarSize: 'xs', // @memo this wrong
         itemLeadingChip: 'size-6',
         itemLeadingChipSize: 'lg',
         itemTrailingIcon: 'size-6',
-        itemDescription: 'text-4'
+        itemDescription: 'text-(length:--ui-font-size-xl)'
       }
     },
     color: {
