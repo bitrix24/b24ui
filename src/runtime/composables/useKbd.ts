@@ -43,6 +43,9 @@ export const kbdKeysMap = {
 export type KbdKey = keyof typeof kbdKeysMap
 export type KbdKeySpecific = keyof KbdKeysSpecificMap
 
+/**
+ * Labels for the platform-specific keys (`meta`, `ctrl`, `alt`) on macOS and on other platforms. `B24Kbd` renders both and lets CSS show one, so SSR and hydration agree.
+ */
 export const kbdKeysPlatformMap: Record<KbdKeySpecific, { macos: string, other: string }> = {
   meta: { macos: kbdKeysMap.command, other: 'Ctrl' },
   ctrl: { macos: kbdKeysMap.control, other: 'Ctrl' },
