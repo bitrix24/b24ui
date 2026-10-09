@@ -533,20 +533,35 @@ const generateComponentCode = ({
     code += `\`\`\`mdc
 ::${camelName}`
 
-    const proseProps = Object.entries(componentProps).map(([key, value]) => {
-      if (value === undefined || value === null || value === '' || hide?.includes(key)) {
-        return
-      }
+    const entries = Object.entries(componentProps).filter(([key, value]) => {
+      return value !== undefined && value !== null && value !== '' && !hide?.includes(key)
+    })
 
-      return `${key}="${value}"`
-    }).filter(Boolean).join(' ')
+    // A multiline value can't be written inline, it goes in the YAML block.
+    const isMultiline = (value: unknown) => typeof value === 'string' && value.includes('\n')
+
+    const proseProps = entries.filter(([, value]) => !isMultiline(value)).map(([key, value]) => `${key}="${value}"`).join(' ')
+    const blockProps = entries.filter(([, value]) => isMultiline(value)).map(([key, value]) => {
+      return `${key}: |\n${(value as string).trim().replace(/^(?=.)/gm, '  ')}`
+    }).join('\n')
 
     if (proseProps.length) {
       code += `{${proseProps}}`
     }
 
+    if (blockProps.length) {
+      code += `
+---
+${blockProps}
+---`
+    }
+
+    if (slots?.default) {
+      code += `
+${slots.default}`
+    }
+
     code += `
-${slots?.default}
 ::
 \`\`\``
 

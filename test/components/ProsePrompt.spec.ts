@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { renderEach } from '../component-render'
@@ -25,5 +25,20 @@ describe('ProsePrompt', () => {
     })
 
     expect(await axe(wrapper.element)).toHaveNoViolations()
+  })
+
+  it('copies the `prompt` prop as written instead of the default slot', async () => {
+    const open = vi.spyOn(window, 'open').mockImplementation(() => null)
+    const prompt = '  Line one\n\n- item `code`\n  '
+    const wrapper = await mountSuspended(ProsePrompt, {
+      props: { prompt, actions: ['cursor'] as const },
+      slots: { default: () => 'Slot body' }
+    })
+
+    const buttons = wrapper.findAll('button')
+    await buttons[buttons.length - 1]!.trigger('click')
+
+    expect(open).toHaveBeenCalledWith(`cursor://anysphere.cursor-deeplink/prompt?text=${encodeURIComponent(prompt.trim())}`, '_self')
+    open.mockRestore()
   })
 })
