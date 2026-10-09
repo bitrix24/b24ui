@@ -188,7 +188,7 @@ describe('ContentSearch', () => {
     open.value = true
     await wrapper.vm.$nextTick()
 
-    const commandPalette = wrapper.findComponent(CommandPalette)
+    const commandPalette = wrapper.findComponent({ name: 'CommandPalette' })
     expect(() => commandPalette.vm.$emit('update:modelValue', undefined)).not.toThrow()
     await wrapper.vm.$nextTick()
 

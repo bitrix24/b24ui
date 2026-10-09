@@ -84,7 +84,7 @@ describe('DashboardSearch', () => {
     const wrapper = await mountSuspended(DashboardWrapper, { props })
     await vi.dynamicImportSettled()
 
-    const commandPalette = wrapper.findComponent(CommandPalette)
+    const commandPalette = wrapper.findComponent({ name: 'CommandPalette' })
     expect(() => commandPalette.vm.$emit('update:modelValue', undefined)).not.toThrow()
     await wrapper.vm.$nextTick()
 
