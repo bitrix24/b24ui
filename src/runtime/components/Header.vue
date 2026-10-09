@@ -71,15 +71,14 @@ import { createReusableTemplate } from '@vueuse/core'
 import { useAppConfig, useRoute } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
 import { useLocale } from '../composables/useLocale'
+import { useLazyOverlay } from '../composables/useLazyOverlay'
+import { lazyOverlays, loadOverlay } from '../utils/lazy-overlay'
 import { getSlotChildrenText } from '../utils'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Button from './Button.vue'
 import B24Link from './Link.vue'
 import B24Container from './Container.vue'
-import B24Slideover from './Slideover.vue'
-import B24Modal from './Modal.vue'
-import B24Drawer from './Drawer.vue'
 
 defineOptions({ inheritAttrs: false })
 
@@ -120,6 +119,8 @@ watch(() => route.fullPath, () => {
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.header || {}) })())
 
+const { slideover: B24Slideover, modal: B24Modal, drawer: B24Drawer } = lazyOverlays
+
 const Menu = computed(() => ({
   slideover: B24Slideover,
   modal: B24Modal,
@@ -155,6 +156,8 @@ const menuProps = toRef(() => {
   }
   return result
 })
+
+const renderMenu = useLazyOverlay(() => open.value || (props.menu as ModalProps | undefined)?.unmountOnHide === false, () => loadOverlay(props.mode as HeaderMode))
 
 function toggleOpen() {
   open.value = !open.value
@@ -217,6 +220,7 @@ function toggleOpen() {
   </Primitive>
 
   <Menu
+    v-if="renderMenu"
     v-model:open="open"
     :title="locale.messages.header?.title || t('header.open')"
     :description="locale.messages.header?.description"
