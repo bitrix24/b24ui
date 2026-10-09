@@ -14,7 +14,7 @@ import * as themeContent from './theme/content'
 
 // The classes components pass to `usePrefix`, which only adds the prefix at
 // runtime, so Tailwind never sees them prefixed
-export const prefixedClasses = ['absolute', 'dark:block', 'dark:hidden', 'dark:inline-block', 'focus:outline-none', 'hidden', 'inset-0', 'lg:block', 'lg:flex', 'lg:hidden', 'peer', 'sm:block']
+export const prefixedClasses = ['absolute', 'dark:block', 'dark:hidden', 'dark:inline-block', 'focus:outline-none', 'hidden', 'in-[.ui-macos]:hidden', 'in-[.ui-macos]:inline', 'inset-0', 'lg:block', 'lg:flex', 'lg:hidden', 'peer', 'sm:block']
 
 /**
  * Name of the generated CSS template, shared by the site that registers it and

@@ -764,13 +764,8 @@
       "DashboardSidebar > renders with maxSize correctly 1",
       "DashboardSidebar > renders with minSize correctly 1",
       "DashboardSidebar > renders with side right correctly 1",
-      "DashboardSidebar > renders with toggle slot correctly 1"
-    ]
-  },
-  {
-    "file": "components/__snapshots__/DashboardSidebar-vue.spec.ts.snap",
-    "names": [
       "DashboardSidebar > renders with toggle correctly 1",
+      "DashboardSidebar > renders with toggle slot correctly 1",
       "DashboardSidebar > renders without toggle correctly 1"
     ]
   },
@@ -782,13 +777,8 @@
       "DashboardSidebar > renders with maxSize correctly 1",
       "DashboardSidebar > renders with minSize correctly 1",
       "DashboardSidebar > renders with side right correctly 1",
-      "DashboardSidebar > renders with toggle slot correctly 1"
-    ]
-  },
-  {
-    "file": "components/__snapshots__/DashboardSidebar.spec.ts.snap",
-    "names": [
       "DashboardSidebar > renders with toggle correctly 1",
+      "DashboardSidebar > renders with toggle slot correctly 1",
       "DashboardSidebar > renders without toggle correctly 1"
     ]
   },
@@ -1168,14 +1158,16 @@
     "file": "components/__snapshots__/Input-vue.spec.ts.snap",
     "names": [
       "Input > renders with loading and avatar correctly 1",
-      "Input > renders with loading correctly 1"
+      "Input > renders with loading correctly 1",
+      "Input > renders with loading trailing and avatar correctly 1"
     ]
   },
   {
     "file": "components/__snapshots__/Input.spec.ts.snap",
     "names": [
       "Input > renders with loading and avatar correctly 1",
-      "Input > renders with loading correctly 1"
+      "Input > renders with loading correctly 1",
+      "Input > renders with loading trailing and avatar correctly 1"
     ]
   },
   {

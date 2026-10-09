@@ -63,13 +63,12 @@ import { useAppConfig, useRuntimeHook, useRoute } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
 import { useResizable } from '../composables/useResizable'
 import { useLocale } from '../composables/useLocale'
+import { useLazyOverlay } from '../composables/useLazyOverlay'
+import { lazyOverlays, loadOverlay } from '../utils/lazy-overlay'
 import { useDashboard } from '../utils/dashboard'
 import { tv } from '../utils/tv'
 import B24DashboardResizeHandle from './DashboardResizeHandle.vue'
 import B24DashboardSidebarToggle from './DashboardSidebarToggle.vue'
-import B24Slideover from './Slideover.vue'
-import B24Modal from './Modal.vue'
-import B24Drawer from './Drawer.vue'
 
 defineOptions({ inheritAttrs: false })
 
@@ -133,6 +132,8 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.dashboardS
   side: props.side
 }))
 
+const { slideover: B24Slideover, modal: B24Modal, drawer: B24Drawer } = lazyOverlays
+
 const Menu = computed(() => ({
   slideover: B24Slideover,
   modal: B24Modal,
@@ -168,6 +169,8 @@ const menuProps = toRef(() => {
   }
   return result
 })
+
+const renderMenu = useLazyOverlay(() => open.value || (props.menu as ModalProps | undefined)?.unmountOnHide === false, () => loadOverlay(props.mode as DashboardSidebarMode))
 
 function toggleOpen() {
   open.value = !open.value
@@ -229,6 +232,7 @@ function toggleOpen() {
   <ReuseResizeHandleTemplate v-if="props.side === 'left'" />
 
   <Menu
+    v-if="renderMenu"
     v-model:open="open"
     :title="locale.messages.dashboardSidebar?.title || t('dashboardSidebarToggle.open')"
     :description="locale.messages.dashboardSidebar?.description"

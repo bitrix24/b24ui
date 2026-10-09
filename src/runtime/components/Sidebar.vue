@@ -111,12 +111,11 @@ import { createReusableTemplate, useMediaQuery } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
 import { useLocale } from '../composables/useLocale'
+import { useLazyOverlay } from '../composables/useLazyOverlay'
+import { lazyOverlays, loadOverlay } from '../utils/lazy-overlay'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Button from './Button.vue'
-import B24Slideover from './Slideover.vue'
-import B24Modal from './Modal.vue'
-import B24Drawer from './Drawer.vue'
 
 defineOptions({ inheritAttrs: false })
 
@@ -215,6 +214,8 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.sidebar ||
   transition: props.transition
 }))
 
+const { slideover: B24Slideover, modal: B24Modal, drawer: B24Drawer } = lazyOverlays
+
 const Menu = computed(() => ({
   slideover: B24Slideover,
   modal: B24Modal,
@@ -255,6 +256,12 @@ const menuProps = toRef(() => {
     })
   }
   return result
+})
+
+const renderMenu = useLazyOverlay(() => openMobile.value || (props.menu as ModalProps | undefined)?.unmountOnHide === false, async () => {
+  if (isMobile.value) {
+    await loadOverlay(props.mode as SidebarMode)
+  }
 })
 </script>
 
@@ -365,7 +372,7 @@ const menuProps = toRef(() => {
 
     <!-- Mobile menu -->
     <Menu
-      v-if="isMobile"
+      v-if="isMobile && renderMenu"
       v-model:open="openMobile"
       v-bind="menuProps"
     >

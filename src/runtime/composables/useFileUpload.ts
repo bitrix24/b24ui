@@ -13,27 +13,33 @@ export interface UseFileUploadOptions {
   multiple?: MaybeRef<boolean>
   dropzone?: boolean
   onUpdate: (files: File[]) => void
+  /**
+   * Called with the dropped files that do not match `accept`.
+   */
+  onReject?: (files: File[]) => void
 }
 
-function parseAcceptToDataTypes(accept: string): string[] {
-  // An empty list means no restriction (useDropZone allows all types).
-  if (!accept || accept === '*') {
-    return []
+function isFileAccepted(file: File, accept: string): boolean {
+  const types = accept.split(',').map(type => type.trim().toLowerCase()).filter(Boolean)
+  if (!types.length) {
+    return true
   }
 
-  return accept
-    .split(',')
-    .map((type) => {
-      const trimmedType = type.trim()
+  const name = file.name.toLowerCase()
+  const mime = file.type.toLowerCase()
 
-      if (trimmedType.includes('/') && trimmedType.endsWith('/*')) {
-        return trimmedType.split('/')[0] || trimmedType
-      }
-      return trimmedType
-    })
-    .filter((type) => {
-      return !type.startsWith('.')
-    })
+  return types.some((type) => {
+    if (type === '*' || type === '*/*') {
+      return true
+    }
+    if (type.startsWith('.')) {
+      return name.endsWith(type)
+    }
+    if (type.endsWith('/*')) {
+      return mime.startsWith(type.slice(0, -1))
+    }
+    return mime === type
+  })
 }
 
 /**
@@ -41,11 +47,11 @@ function parseAcceptToDataTypes(accept: string): string[] {
  * optional drop zone, and the wiring that keeps the two agreeing on which
  * types are allowed.
  *
- * `accept` goes to the dialog verbatim. The drop zone gets the MIME half of
- * it only: a drag exposes a type, not a filename, so extension entries are
- * dropped from that list and an `accept` written purely as extensions
- * (`'.pdf,.docx'`) leaves the drop zone accepting anything. Validate by name
- * in `onUpdate` when extensions are the contract.
+ * `accept` goes to the dialog verbatim, and the dialog filters on it
+ * natively. A drop is checked here instead, once the files are released: each
+ * file is matched against `accept` by MIME type (`image/png`, `image/*`) or by
+ * extension (`.pdf`, case-insensitive). Files that do not match are left out of
+ * `onUpdate` and handed to `onReject`; if none match, `onUpdate` is not called.
  *
  * @param options How the picker behaves.
  * @param options.accept Comma-separated MIME types or extensions, as the
@@ -57,6 +63,8 @@ function parseAcceptToDataTypes(accept: string): string[] {
  *   `true`.
  * @param options.onUpdate Called with the chosen files, from the dialog and
  *   from a drop alike.
+ * @param options.onReject Called with the dropped files that do not match
+ *   `accept`. Never called for the dialog.
  * @returns `open()` to raise the dialog, `isDragging` for the hover state, and
  *   `inputRef` / `dropzoneRef` to bind to the elements.
  *
@@ -75,12 +83,11 @@ export function useFileUpload(options: UseFileUploadOptions) {
     reset = false,
     multiple = false,
     dropzone = true,
-    onUpdate
+    onUpdate,
+    onReject
   } = options
   const inputRef = ref<ComponentPublicInstance>()
   const dropzoneRef = ref<HTMLDivElement>()
-
-  const dataTypes = computed<readonly string[]>(() => parseAcceptToDataTypes(unref(accept)))
 
   const onDrop = (files: FileList | File[] | null, fromDropZone = false) => {
     if (!files || files.length === 0) {
@@ -88,6 +95,25 @@ export function useFileUpload(options: UseFileUploadOptions) {
     }
     if (files instanceof FileList) {
       files = Array.from(files)
+    }
+
+    // The file dialog filters on `accept` natively, a drop has to be checked here.
+    if (fromDropZone) {
+      const rejected: File[] = []
+      files = files.filter((file) => {
+        if (isFileAccepted(file, unref(accept))) {
+          return true
+        }
+        rejected.push(file)
+        return false
+      })
+
+      if (rejected.length) {
+        onReject?.(rejected)
+      }
+      if (!files.length) {
+        return
+      }
     }
     if (files.length > 1 && !unref(multiple)) {
       files = [files[0]!]
@@ -119,7 +145,7 @@ export function useFileUpload(options: UseFileUploadOptions) {
 
   onMounted(() => {
     const { isOverDropZone } = dropzone
-      ? useDropZone(dropzoneRef, { dataTypes, onDrop: files => onDrop(files, true) })
+      ? useDropZone(dropzoneRef, { onDrop: files => onDrop(files, true) })
       : { isOverDropZone: ref(false) }
 
     watch(isOverDropZone, (value) => {
