@@ -80,6 +80,17 @@ describe('DashboardSearch', () => {
     expect(wrapper.findComponent(CommandPalette).text()).toContain('Home')
   })
 
+  it('closes the modal on an `undefined` selection when an item is toggled off', async () => {
+    const wrapper = await mountSuspended(DashboardWrapper, { props })
+    await vi.dynamicImportSettled()
+
+    const commandPalette = wrapper.findComponent({ name: 'CommandPalette' })
+    expect(() => commandPalette.vm.$emit('update:modelValue', undefined)).not.toThrow()
+    await wrapper.vm.$nextTick()
+
+    expect(wrapper.findComponent(Modal).props('open')).toBe(false)
+  })
+
   // Upstream's test covers ContentSearch only; the same fallback changed here.
   it('labels the dialog with the translated search label', async () => {
     const wrapper = await mountSuspended(DashboardWrapper, { props })
