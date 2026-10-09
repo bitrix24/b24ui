@@ -1,4 +1,5 @@
 import type { H3Event } from 'h3'
+import { defineNitroPlugin } from 'nitropack/runtime'
 import type { PageCollectionItemBase } from '@nuxt/content'
 import { withoutTrailingSlash } from 'ufo'
 import { clearMD } from '../utils/clearMD'

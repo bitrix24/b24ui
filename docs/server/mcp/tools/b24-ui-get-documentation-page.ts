@@ -1,3 +1,5 @@
+import { defineMcpTool } from '@nuxtjs/mcp-toolkit/server'
+import { createError } from 'h3'
 import { z } from 'zod'
 import { withoutTrailingSlash } from 'ufo'
 
