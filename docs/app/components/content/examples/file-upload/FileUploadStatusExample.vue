@@ -3,6 +3,7 @@ import type { FileUploadItem } from '@bitrix24/b24ui-nuxt'
 import LoaderWaitIcon from '@bitrix24/b24icons-vue/animated/LoaderWaitIcon'
 import CircleCheckIcon from '@bitrix24/b24icons-vue/outline/CircleCheckIcon'
 import CrossMIcon from '@bitrix24/b24icons-vue/outline/CrossMIcon'
+import { useIntervalFn } from '@vueuse/core'
 
 interface UploadFileItem extends FileUploadItem {
   progress: number
