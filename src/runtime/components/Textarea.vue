@@ -314,7 +314,7 @@ defineExpose({
           :is="trailingIconName"
           v-if="trailingIconName"
           data-slot="trailingIcon"
-          :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
+          :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon, leading: isLeading })"
         />
       </slot>
     </span>
