@@ -412,14 +412,17 @@ export default defineNuxtConfig({
       maxAge: 60 * 60 * 24
     }],
     prerender: {
-      routes: [
-        ...pages.map((page: string) => `${withoutTrailingSlash(`/raw${page}`)}.md`),
-        ...pagesFrameExamples,
-        ...pagesService
-      ],
-      crawlLinks: true,
       autoSubfolderIndex: false
     }
+  },
+
+  prerender: {
+    routes: [
+      ...pages.map((page: string) => `${withoutTrailingSlash(`/raw${page}`)}.md`),
+      ...pagesFrameExamples,
+      ...pagesService
+    ],
+    crawlLinks: true
   },
 
   vite: {
