@@ -139,7 +139,7 @@ export type ContentSearchSlots = CommandPaletteSlots<ContentSearchItem> & {
 </script>
 
 <script setup lang="ts" generic="T extends ContentSearchLink">
-import { computed, shallowRef, useTemplateRef, watch } from 'vue'
+import { computed, defineAsyncComponent, shallowRef, useAttrs, useTemplateRef, watch } from 'vue'
 import { defu } from 'defu'
 import { reactivePick, refDebounced } from '@vueuse/core'
 import { useAppConfig, useColorMode, defineShortcuts } from '#imports'
@@ -147,11 +147,11 @@ import { useComponentProps } from '../../composables/useComponentProps'
 import { useForwardProps } from '../../composables/useForwardProps'
 import { useContentSearch } from '../../composables/useContentSearch'
 import { useLocale } from '../../composables/useLocale'
+import { useLazyOverlay } from '../../composables/useLazyOverlay'
+import { lazyOverlays, loadOverlay } from '../../utils/lazy-overlay'
 import { omit, transformUI } from '../../utils'
 import { tv } from '../../utils/tv'
 import icons from '../../dictionary/icons'
-import B24Modal from '../Modal.vue'
-import B24CommandPalette from '../CommandPalette.vue'
 
 const _props = withDefaults(defineProps<ContentSearchProps<T>>(), {
   shortcut: 'meta_k',
@@ -198,6 +198,15 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.contentSea
   size: props.size,
   fullscreen: props.fullscreen
 }))
+
+const attrs = useAttrs()
+
+const loadCommandPalette = () => import('../CommandPalette.vue')
+
+const B24Modal = lazyOverlays.modal
+const B24CommandPalette = defineAsyncComponent(loadCommandPalette)
+
+const renderModal = useLazyOverlay(() => open.value || (attrs.open !== undefined && attrs.open !== false) || props.unmountOnHide === false, () => Promise.all([loadOverlay('modal'), loadCommandPalette()]))
 
 const commandPaletteRef = useTemplateRef('commandPaletteRef')
 
@@ -358,6 +367,7 @@ defineExpose({
 
 <template>
   <B24Modal
+    v-if="renderModal"
     v-model:open="open"
     :title="props.title || locale.messages.contentSearch?.title || t('contentSearchButton.label')"
     :description="props.description || locale.messages.contentSearch?.description"
