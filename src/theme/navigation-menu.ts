@@ -254,7 +254,7 @@ export default {
       orientation: 'vertical',
       collapsed: false,
       class: {
-        link: 'collapsed data-[state=open]:-mt-(--leftmenu-group-stroke-weight) data-[state=open]:-mx-(--leftmenu-group-stroke-weight)'
+        link: 'data-[state=open]:-mt-(--leftmenu-group-stroke-weight) data-[state=open]:-mx-(--leftmenu-group-stroke-weight)'
       }
     },
     // endregion ////

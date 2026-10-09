@@ -405,11 +405,6 @@ export default createConfigForNuxt({
   // Theme files are `export default {...}` or `export default (options) => ({...})`. Only the tv
   // class paths are checked, minus the `*Size` slots which hold a size prop for a nested component.
   betterTailwindcssConfig(['src/theme/**/*.ts'], 'playgrounds/nuxt/app/assets/css/main.css', {
-    // TODO: these themes still use classes that need a design decision before they can be linted:
-    // - navigation-menu.ts: `collapsed` is defined nowhere
-    ignores: [
-      'src/theme/navigation-menu.ts'
-    ],
     ignore: [
       ...AIR_HOOK_CLASSES,
       // Air hook classes: plain selectors in `src/runtime/air-design-tokens/**/*.css`, not utilities.
