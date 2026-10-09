@@ -56,6 +56,7 @@ import { defu } from 'defu'
 import { TooltipRoot, TooltipTrigger, TooltipPortal, TooltipContent, TooltipArrow, injectTooltipProviderContext } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
+import { useKbd } from '../composables/useKbd'
 import { useComponentProps } from '../composables/useComponentProps'
 import { useForwardProps } from '../composables/useForwardProps'
 import { FieldGroupReset } from '../composables/useFieldGroup'
@@ -81,6 +82,15 @@ const portalProps = usePortal(toRef(() => props.portal))
 const contentProps = toRef(() => defu(props.content, providerContext.content.value, { side: 'bottom', sideOffset: 8, collisionPadding: 8 }) as TooltipContentProps)
 const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10, rounded: true }) as TooltipArrowProps)
 
+const { getKbdKey } = useKbd()
+const ariaLabel = computed(() => {
+  if (contentProps.value.ariaLabel || slots.content) {
+    return contentProps.value.ariaLabel
+  }
+
+  return [props.text, ...(props.kbds || []).map(kbd => getKbdKey(typeof kbd === 'object' ? kbd.value : kbd))].filter(Boolean).join(' ')
+})
+
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.tooltip || {}) })({
   side: contentProps.value.side
@@ -105,7 +115,7 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.tooltip ||
 
     <TooltipPortal v-bind="portalProps">
       <FieldGroupReset>
-        <TooltipContent v-bind="contentProps" data-slot="content" :class="b24ui.content({ class: [!slots.default && props.class, props.b24ui?.content] })">
+        <TooltipContent v-bind="contentProps" :aria-label="ariaLabel" data-slot="content" :class="b24ui.content({ class: [!slots.default && props.class, props.b24ui?.content] })">
           <slot name="content" :b24ui="b24ui">
             <span v-if="props.text" data-slot="text" :class="b24ui.text({ class: props.b24ui?.text })">{{ props.text }}</span>
 
