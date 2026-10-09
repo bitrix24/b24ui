@@ -416,15 +416,6 @@ export default defineNuxtConfig({
     }
   },
 
-  prerender: {
-    routes: [
-      ...pages.map((page: string) => `${withoutTrailingSlash(`/raw${page}`)}.md`),
-      ...pagesFrameExamples,
-      ...pagesService
-    ],
-    crawlLinks: true
-  },
-
   vite: {
     server: {
       // Fix: "Blocked request. This host is not allowed" when using tunnels like ngrok
@@ -782,6 +773,15 @@ export default defineNuxtConfig({
     version: '1.0.0',
     route: `/mcp/`, // ${baseUrl}
     browserRedirect: '/docs/getting-started/' // '/docs/getting-started/ai/mcp'
+  },
+
+  prerender: {
+    routes: [
+      ...pages.map((page: string) => `${withoutTrailingSlash(`/raw${page}`)}.md`),
+      ...pagesFrameExamples,
+      ...pagesService
+    ],
+    crawlLinks: true
   },
 
   schemaOrg: {
