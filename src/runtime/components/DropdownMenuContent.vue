@@ -60,8 +60,7 @@ type DropdownMenuContentSlots<
 <script setup lang="ts" generic="T extends ArrayOrNested<DropdownMenuItem>">
 import { computed, ref, toRef } from 'vue'
 import { defu } from 'defu'
-import { DropdownMenu } from 'reka-ui/namespaced'
-import { DropdownMenuArrow } from 'reka-ui'
+import { DropdownMenuPortal, DropdownMenuContent, DropdownMenuItem as RekaDropdownMenuItem, DropdownMenuGroup, DropdownMenuSeparator, DropdownMenuCheckboxItem, DropdownMenuItemIndicator, DropdownMenuLabel, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuFilter, DropdownMenuArrow } from 'reka-ui'
 import { reactiveOmit, createReusableTemplate } from '@vueuse/core'
 // import { useAppConfig } from '#imports'
 import { FieldGroupReset } from '../composables/useFieldGroup'
@@ -79,6 +78,8 @@ import B24Avatar from './Avatar.vue'
 import B24Input from './Input.vue'
 import B24Kbd from './Kbd.vue'
 import B24DropdownMenuContent from './DropdownMenuContent.vue'
+
+const DropdownMenu = { Portal: DropdownMenuPortal, Content: DropdownMenuContent, Item: RekaDropdownMenuItem, Group: DropdownMenuGroup, Separator: DropdownMenuSeparator, CheckboxItem: DropdownMenuCheckboxItem, ItemIndicator: DropdownMenuItemIndicator, Label: DropdownMenuLabel, Sub: DropdownMenuSub, SubContent: DropdownMenuSubContent, SubTrigger: DropdownMenuSubTrigger, Filter: DropdownMenuFilter }
 
 defineOptions({ inheritAttrs: false })
 
