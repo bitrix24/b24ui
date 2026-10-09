@@ -256,8 +256,7 @@ export interface InputMenuSlots<
 
 <script setup lang="ts" generic="T extends ArrayOrNested<InputMenuItem>, VK extends GetItemKeys<T> | undefined = undefined, M extends boolean = false, Mod extends Omit<ModelModifiers, 'lazy'> = Omit<ModelModifiers, 'lazy'>, C extends boolean | object = false">
 import { computed, ref, useTemplateRef, toRef, onMounted, toRaw, nextTick, watch } from 'vue'
-import { TagsInputRoot, TagsInputItem, TagsInputItemText, TagsInputItemDelete, TagsInputInput } from 'reka-ui'
-import { Combobox, Autocomplete } from 'reka-ui/namespaced'
+import { TagsInputRoot, TagsInputItem, TagsInputItemText, TagsInputItemDelete, TagsInputInput, ComboboxRoot, ComboboxInput, ComboboxAnchor, ComboboxEmpty, ComboboxTrigger, ComboboxCancel, ComboboxGroup, ComboboxLabel, ComboboxContent, ComboboxVirtualizer, ComboboxItem, ComboboxItemIndicator, ComboboxSeparator, ComboboxArrow, ComboboxPortal, AutocompleteRoot, AutocompleteInput, AutocompleteAnchor, AutocompleteEmpty, AutocompleteTrigger, AutocompleteCancel, AutocompleteGroup, AutocompleteLabel, AutocompleteContent, AutocompleteVirtualizer, AutocompleteItem, AutocompleteItemIndicator, AutocompleteSeparator, AutocompleteArrow, AutocompletePortal } from 'reka-ui'
 import { defu } from 'defu'
 import { isEqual } from 'ohash/utils'
 import { reactivePick, reactiveOmit, createReusableTemplate } from '@vueuse/core'
@@ -278,6 +277,9 @@ import B24Badge from './Badge.vue'
 import B24Avatar from './Avatar.vue'
 import B24Button from './Button.vue'
 import B24Chip from './Chip.vue'
+
+const Combobox = { Root: ComboboxRoot, Input: ComboboxInput, Anchor: ComboboxAnchor, Empty: ComboboxEmpty, Trigger: ComboboxTrigger, Cancel: ComboboxCancel, Group: ComboboxGroup, Label: ComboboxLabel, Content: ComboboxContent, Virtualizer: ComboboxVirtualizer, Item: ComboboxItem, ItemIndicator: ComboboxItemIndicator, Separator: ComboboxSeparator, Arrow: ComboboxArrow, Portal: ComboboxPortal }
+const Autocomplete = { Root: AutocompleteRoot, Input: AutocompleteInput, Anchor: AutocompleteAnchor, Empty: AutocompleteEmpty, Trigger: AutocompleteTrigger, Cancel: AutocompleteCancel, Group: AutocompleteGroup, Label: AutocompleteLabel, Content: AutocompleteContent, Virtualizer: AutocompleteVirtualizer, Item: AutocompleteItem, ItemIndicator: AutocompleteItemIndicator, Separator: AutocompleteSeparator, Arrow: AutocompleteArrow, Portal: AutocompletePortal }
 
 defineOptions({ inheritAttrs: false })
 
