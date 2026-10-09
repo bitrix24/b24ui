@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "896d60962266a62012bc89bb53a8e65e863b2921",
+  "cursor": "988f56b7aa96474475c44c366f3bc8b0df7d1b7f",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2809,10 +2809,16 @@
       "summary": "feat(ProsePrompt): add `prompt` prop"
     },
     "896d60962266a62012bc89bb53a8e65e863b2921": {
+      "pr": 757,
+      "b24ui_sha": "ef41aeab",
+      "decision": "port",
+      "summary": "perf(components): import Reka UI primitives by name instead of from `reka-ui/namespaced`"
+    },
+    "988f56b7aa96474475c44c366f3bc8b0df7d1b7f": {
       "pr": "pending-merge",
       "b24ui_sha": "pending-merge",
       "decision": "port",
-      "summary": "perf(components): import Reka UI primitives by name instead of from `reka-ui/namespaced`"
+      "summary": "docs(search): init index and mount modal on first open"
     }
   }
 }
