@@ -10,6 +10,11 @@ type ProsePrompt = ComponentConfig<typeof theme, AppConfig, 'prompt', 'b24ui.pro
 export interface ProsePromptProps {
   description?: string
   /**
+   * The prompt to copy, kept as written.
+   * The default slot is copied as plain text when not set.
+   */
+  prompt?: string
+  /**
    * Icon component to render. Pass an imported component, not a string;
    * for string names use `iconName` instead.
    * @IconComponent
@@ -70,6 +75,10 @@ const actions = computed(() => [...new Set(['copy', ...props.actions])])
 const iconFromIconName = computed(() => resolveIcon(props.iconName))
 
 function getPromptText() {
+  if (props.prompt) {
+    return props.prompt.trim()
+  }
+
   return extractPromptText(bodyRef.value)
 }
 

@@ -14,17 +14,22 @@ links:
 
 ## Usage
 
-Use the `prompt` component to display a pre-built AI prompt that users can copy to their clipboard or open directly in their IDE. The `description` prop is shown as the visible label, while the default slot contains the prompt text that gets copied.
+Use the `prompt` component to display a pre-built AI prompt that users can copy to their clipboard or open directly in their IDE.
+
+### Prompt :badge{label="Soon" class="align-text-top"}
+
+Use the `prompt` prop to set the text that gets copied. The `description` prop is shown as the visible label.
 
 ::component-code{slug="prompt" prose}
 ---
+ignore:
+  - prompt
+hide:
+  - class
 props:
   description: Build a dashboard layout with Bitrix24 UI.
   class: 'w-full my-0'
-hide:
-  - class
-slots:
-  default: |
+  prompt: |
     You are a Bitrix24 UI expert. Help me build a dashboard layout with a collapsible sidebar and a sticky top navbar.
 
     Requirements:
@@ -36,6 +41,10 @@ slots:
 ---
 ::
 
+::note
+The prompt can also be written in the default slot. Its rendered text is then copied, with block elements turned into line breaks; use the `prompt` prop to copy the text exactly as written.
+::
+
 ### Actions
 
 Use the `actions` prop to display additional buttons. The `copy` button is always displayed. The available actions are `cursor`, `windsurf` and `claude`.
@@ -44,6 +53,7 @@ Use the `actions` prop to display additional buttons. The `copy` button is alway
 ---
 ignore:
   - description
+  - prompt
 hide:
   - class
 props:
@@ -52,8 +62,7 @@ props:
     - cursor
     - claude
   class: 'w-full my-0'
-slots:
-  default: |
+  prompt: |
     Add a color mode toggle to my Nuxt app.
 
     Requirements:
