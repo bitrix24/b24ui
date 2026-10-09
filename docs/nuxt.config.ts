@@ -412,12 +412,6 @@ export default defineNuxtConfig({
       maxAge: 60 * 60 * 24
     }],
     prerender: {
-      routes: [
-        ...pages.map((page: string) => `${withoutTrailingSlash(`/raw${page}`)}.md`),
-        ...pagesFrameExamples,
-        ...pagesService
-      ],
-      crawlLinks: true,
       autoSubfolderIndex: false
     }
   },
@@ -779,6 +773,15 @@ export default defineNuxtConfig({
     version: '1.0.0',
     route: `/mcp/`, // ${baseUrl}
     browserRedirect: '/docs/getting-started/' // '/docs/getting-started/ai/mcp'
+  },
+
+  prerender: {
+    routes: [
+      ...pages.map((page: string) => `${withoutTrailingSlash(`/raw${page}`)}.md`),
+      ...pagesFrameExamples,
+      ...pagesService
+    ],
+    crawlLinks: true
   },
 
   schemaOrg: {
