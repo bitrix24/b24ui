@@ -96,7 +96,7 @@ export interface InputDateSlots {
 
 <script setup lang="ts" generic="R extends boolean">
 import { computed, onMounted, ref } from 'vue'
-import { DateField as SingleDateField, DateRangeField as RangeDateField } from 'reka-ui/namespaced'
+import { DateFieldRoot, DateFieldInput, DateRangeFieldRoot, DateRangeFieldInput } from 'reka-ui'
 import { reactiveOmit, createReusableTemplate } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
@@ -108,6 +108,9 @@ import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Badge from './Badge.vue'
 import B24Avatar from './Avatar.vue'
+
+const SingleDateField = { Root: DateFieldRoot, Input: DateFieldInput }
+const RangeDateField = { Root: DateRangeFieldRoot, Input: DateRangeFieldInput }
 
 defineOptions({ inheritAttrs: false })
 

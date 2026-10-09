@@ -39,8 +39,7 @@ interface ContextMenuContentEmits extends RekaContextMenuContentEmits {}
 
 <script setup lang="ts" generic="T extends ArrayOrNested<ContextMenuItem>">
 import { computed, toRef } from 'vue'
-import { ContextMenu } from 'reka-ui/namespaced'
-import { useForwardPropsEmits } from 'reka-ui'
+import { ContextMenuPortal, ContextMenuContent, ContextMenuItem as RekaContextMenuItem, ContextMenuGroup, ContextMenuSeparator, ContextMenuCheckboxItem, ContextMenuItemIndicator, ContextMenuLabel, ContextMenuSub, ContextMenuSubContent, ContextMenuSubTrigger, useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit, createReusableTemplate } from '@vueuse/core'
 // import { useAppConfig } from '#imports'
 import { FieldGroupReset } from '../composables/useFieldGroup'
@@ -54,6 +53,8 @@ import B24Link from './Link.vue'
 import B24Avatar from './Avatar.vue'
 import B24Kbd from './Kbd.vue'
 import B24ContextMenuContent from './ContextMenuContent.vue'
+
+const ContextMenu = { Portal: ContextMenuPortal, Content: ContextMenuContent, Item: RekaContextMenuItem, Group: ContextMenuGroup, Separator: ContextMenuSeparator, CheckboxItem: ContextMenuCheckboxItem, ItemIndicator: ContextMenuItemIndicator, Label: ContextMenuLabel, Sub: ContextMenuSub, SubContent: ContextMenuSubContent, SubTrigger: ContextMenuSubTrigger }
 
 defineOptions({ inheritAttrs: false })
 
