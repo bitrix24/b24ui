@@ -2833,8 +2833,8 @@
       "summary": "docs(markdown): carry parsed documents in the payload"
     },
     "993fe483ca2b4a06e9b8723dbb2bc53c6577807a": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 761,
+      "b24ui_sha": "3bee4250",
       "decision": "n/a",
       "summary": "docs(home): fix accessibility failures"
     }
