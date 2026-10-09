@@ -275,7 +275,7 @@ defineExpose({
 
     <span v-if="isTrailing || !!slots.trailing" data-slot="trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
       <slot name="trailing" :b24ui="b24ui">
-        <Component :is="trailingIconName" v-if="trailingIconName" data-slot="trailingIcon" :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })" />
+        <Component :is="trailingIconName" v-if="trailingIconName" data-slot="trailingIcon" :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon, leading: isLeading })" />
       </slot>
     </span>
   </DateField.Root>
