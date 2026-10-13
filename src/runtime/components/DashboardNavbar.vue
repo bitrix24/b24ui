@@ -15,7 +15,7 @@ export interface DashboardNavbarProps {
    * The element or component this component should render as.
    * @defaultValue 'div'
    */
-  as?: any
+  as?: any | { root?: any, title?: any }
   /**
    * The icon displayed next to the title.
    * @IconComponent
@@ -57,6 +57,7 @@ import { createReusableTemplate } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
 import { useDashboard } from '../utils/dashboard'
+import { resolveAs } from '../utils'
 import { tv } from '../utils/tv'
 import B24DashboardSidebarToggle from './DashboardSidebarToggle.vue'
 
@@ -76,6 +77,9 @@ const dashboardContext = useDashboard({})
 const [DefineToggleTemplate, ReuseToggleTemplate] = createReusableTemplate()
 
 // eslint-disable-next-line vue/no-dupe-keys
+const as = computed(() => resolveAs(props.as, { root: 'div', title: 'h1' }))
+
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.dashboardNavbar || {}) })())
 </script>
 
@@ -92,7 +96,7 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.dashboardN
     </slot>
   </DefineToggleTemplate>
 
-  <Primitive :as="props.as" v-bind="$attrs" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+  <Primitive :as="as.root" v-bind="$attrs" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <div data-slot="left" :class="b24ui.left({ class: props.b24ui?.left })">
       <ReuseToggleTemplate v-if="props.toggleSide === 'left'" />
 
@@ -106,11 +110,11 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.dashboardN
           />
         </slot>
 
-        <h1 v-if="props.title || !!slots.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
+        <Primitive v-if="props.title || !!slots.title" :as="as.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
           <slot name="title">
             {{ props.title }}
           </slot>
-        </h1>
+        </Primitive>
 
         <slot name="trailing" v-bind="{ ...dashboardContext, b24ui }" />
       </slot>

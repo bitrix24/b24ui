@@ -15,7 +15,7 @@ export interface ErrorProps {
    * The element or component this component should render as.
    * @defaultValue 'main'
    */
-  as?: any
+  as?: any | { root?: any, statusMessage?: any }
   /**
    * The icon displayed above the status code.
    * @IconComponent
@@ -62,12 +62,12 @@ import { Primitive } from 'reka-ui'
 import { clearError, useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
 import { useLocale } from '../composables/useLocale'
+import { resolveAs } from '../utils'
 import { tv } from '../utils/tv'
 import B24Avatar from './Avatar.vue'
 import B24Button from './Button.vue'
 
 const _props = withDefaults(defineProps<ErrorProps>(), {
-  as: 'main',
   redirect: '/',
   clear: true
 })
@@ -79,6 +79,9 @@ const { t } = useLocale()
 const appConfig = useAppConfig() as Error['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
+const as = computed(() => resolveAs(props.as, { root: 'main', statusMessage: 'h1' }))
+
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.error || {}) })())
 
 function handleError() {
@@ -87,7 +90,7 @@ function handleError() {
 </script>
 
 <template>
-  <Primitive :as="props.as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+  <Primitive :as="as.root" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <div v-if="props.icon || props.avatar || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
       <slot name="leading" :b24ui="b24ui">
         <Component :is="props.icon" v-if="props.icon" data-slot="leadingIcon" :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })" />
@@ -106,11 +109,11 @@ function handleError() {
         {{ props.error?.statusCode || props.error?.status }}
       </slot>
     </p>
-    <h1 v-if="!!props.error?.statusMessage || !!props.error?.statusText || !!slots.statusMessage" data-slot="statusMessage" :class="b24ui.statusMessage({ class: props.b24ui?.statusMessage })">
+    <Primitive v-if="!!props.error?.statusMessage || !!props.error?.statusText || !!slots.statusMessage" :as="as.statusMessage" data-slot="statusMessage" :class="b24ui.statusMessage({ class: props.b24ui?.statusMessage })">
       <slot name="statusMessage">
         {{ props.error?.statusMessage || props.error?.statusText }}
       </slot>
-    </h1>
+    </Primitive>
     <p v-if="(props.error?.message && props.error.message !== (props.error.statusMessage || props.error.statusText)) || !!slots.message" data-slot="message" :class="b24ui.message({ class: props.b24ui?.message })">
       <slot name="message">
         {{ props.error?.message }}
