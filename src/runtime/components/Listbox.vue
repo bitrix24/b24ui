@@ -170,7 +170,7 @@ import { useComponentProps } from '../composables/useComponentProps'
 import { useFilter } from '../composables/useFilter'
 import { useFormField } from '../composables/useFormField'
 import { useLocale } from '../composables/useLocale'
-import { get, isArrayOfArray, looseToNumber } from '../utils'
+import { get, isArrayOfArray, looseToNumber, omit, pick } from '../utils'
 import { getEstimateSize } from '../utils/virtualizer'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
@@ -199,6 +199,10 @@ const { t } = useLocale()
 const appConfig = useAppConfig() as Listbox['AppConfig']
 const { filterGroups } = useFilter()
 
+// `role="listbox"` is on the content, not on the root.
+const labelAttrs = ['aria-label', 'aria-labelledby']
+const fieldAttrs = ['aria-describedby', 'aria-invalid']
+
 const rootProps = useForwardProps(reactivePick(props, 'as', 'modelValue', 'defaultValue', 'multiple', 'selectionBehavior', 'highlightOnHover', 'loop', 'by', 'orientation', 'required'), emits)
 
 const virtualizerProps = toRef(() => {
@@ -211,7 +215,7 @@ const virtualizerProps = toRef(() => {
 const inputProps = toRef(() => defu(typeof props.filter === 'object' ? props.filter : {}, { placeholder: t('listbox.search'), variant: 'none' }) as Omit<InputProps, 'modelValue' | 'defaultValue'>)
 
 // @todo error ts: fix this -> this for input ?? color
-const { emitFormChange, emitFormInput, name, size: formFieldSize, id, highlight: formFieldHighlight, disabled: formFieldDisabled, ariaAttrs } = useFormField<InputProps>(_props, { bind: false })
+const { emitFormChange, emitFormInput, name, size: formFieldSize, id, highlight: formFieldHighlight, disabled: formFieldDisabled, labelId, ariaAttrs } = useFormField<InputProps>(_props, { bind: false })
 
 // eslint-disable-next-line vue/no-dupe-keys
 const size = computed(() => formFieldSize.value ?? props.size)
@@ -374,7 +378,7 @@ const filteredItems = computed(() => filteredGroups.value.flatMap(group => group
     :id="id"
     data-slot="root"
     dd-gg="1"
-    v-bind="{ ...rootProps, ...$attrs, ...ariaAttrs }"
+    v-bind="{ ...rootProps, ...omit($attrs, [...labelAttrs, ...fieldAttrs]) }"
     :disabled="disabled"
     :name="name"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
@@ -392,7 +396,14 @@ const filteredItems = computed(() => filteredGroups.value.flatMap(group => group
       />
     </ListboxFilter>
 
-    <ListboxContent data-slot="content" :class="b24ui.content({ class: props.b24ui?.content })">
+    <ListboxContent
+      data-slot="content"
+      v-bind="{ ...pick($attrs, fieldAttrs), ...ariaAttrs }"
+      :aria-required="props.required || undefined"
+      :aria-label="($attrs['aria-label'] as string | undefined)"
+      :aria-labelledby="($attrs['aria-labelledby'] as string | undefined) ?? ($attrs['aria-label'] ? undefined : labelId)"
+      :class="b24ui.content({ class: props.b24ui?.content })"
+    >
       <div v-if="props.loading" data-slot="loading" :class="b24ui.loading({ class: props.b24ui?.loading })">
         <slot name="loading">
           <Component
