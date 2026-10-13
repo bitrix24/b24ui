@@ -9,6 +9,7 @@ describe('PageSection', () => {
   renderEach(PageSection, [
     // Props
     ['with as', { props: { as: 'div' } }],
+    ['with as object', { props: { title: 'Title', as: { root: 'div', title: 'h3' } } }],
     ['with headline', { props: { headline: 'Headline' } }],
     ['with icon', { props: { icon: Bitrix24Icon } }],
     ['with title', { props: { title: 'Title' } }],
