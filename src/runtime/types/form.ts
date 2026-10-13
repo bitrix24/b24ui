@@ -116,6 +116,12 @@ export interface FormFieldInjectedOptions<T> {
    */
   describedBy?: string[]
   ariaId: string
+  /**
+   * Id of the rendered `<label>`, or `undefined` when the FormField has no
+   * label. Lets controls whose `role` sits on an inner element (e.g. the
+   * Listbox content) point `aria-labelledby` at it.
+   */
+  labelId?: string
 }
 
 export interface ValidateReturnSchema<T> {
