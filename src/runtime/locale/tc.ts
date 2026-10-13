@@ -18,10 +18,13 @@ export default defineLocale<Messages>({
       close: '關閉'
     },
     calendar: {
+      label: '事件日期',
+      monthPicker: '月份選擇器',
       nextMonth: '下一個月',
       nextYear: '下一年',
       prevMonth: '上一個月',
-      prevYear: '上一年'
+      prevYear: '上一年',
+      yearPicker: '年份選擇器'
     },
     carousel: {
       dots: '選擇要顯示的投影片',
@@ -52,7 +55,8 @@ export default defineLocale<Messages>({
       close: '關閉',
       noData: '無資料',
       noMatch: '未找到相符項目',
-      placeholder: '輸入指令或搜尋…'
+      placeholder: '輸入指令或搜尋…',
+      results: '搜尋結果'
     },
     contentSearch: {
       links: '結果',
@@ -109,11 +113,13 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: '建立「{label}」',
       noData: '無資料',
-      noMatch: '未找到相符項目'
+      noMatch: '未找到相符項目',
+      trigger: '顯示選項'
     },
     inputNumber: {
       decrement: '減少',
-      increment: '增加'
+      increment: '增加',
+      roledescription: '數字輸入欄位'
     },
     listbox: {
       noData: '無資料',
@@ -184,6 +190,49 @@ export default defineLocale<Messages>({
       close: '關閉導覽',
       slideoverTitle: '導覽',
       slideoverDescription: '內容導覽'
+    },
+    breadcrumb: {
+      label: '導覽路徑'
+    },
+    inputDate: {
+      day: '日',
+      dayPeriod: '上午/下午',
+      era: '紀元',
+      hour: '小時',
+      minute: '分鐘',
+      month: '月',
+      second: '秒',
+      timeZoneName: '時區',
+      year: '年'
+    },
+    inputRating: {
+      rate: '評分 {value} 分，滿分 {length} 分'
+    },
+    inputTime: {
+      dayPeriod: '上午/下午',
+      hour: '小時',
+      minute: '分鐘',
+      second: '秒',
+      timeZoneName: '時區'
+    },
+    pinInput: {
+      input: 'PIN 碼，第 {index} 位，共 {length} 位'
+    },
+    skeleton: {
+      label: '載入中'
+    },
+    range: {
+      max: '最大值',
+      min: '最小值',
+      thumb: '滑桿',
+      value: '第 {index} 個值，共 {total} 個'
+    },
+    stepper: {
+      label: '進度'
+    },
+    toaster: {
+      label: '通知',
+      viewport: '通知（{hotkey}）'
     }
   }
 })

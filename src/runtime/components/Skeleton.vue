@@ -25,6 +25,7 @@ import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
+import { useLocale } from '../composables/useLocale'
 import { tv } from '../utils/tv'
 
 const _props = withDefaults(defineProps<SkeletonProps>(), {
@@ -33,6 +34,7 @@ const _props = withDefaults(defineProps<SkeletonProps>(), {
 
 const props = useComponentProps('skeleton', _props)
 
+const { t } = useLocale()
 const appConfig = useAppConfig() as Skeleton['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
@@ -45,7 +47,7 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.skeleton |
   <Primitive
     :as="props.as"
     aria-busy="true"
-    aria-label="loading"
+    :aria-label="t('skeleton.label')"
     aria-live="polite"
     role="alert"
     data-slot="base"

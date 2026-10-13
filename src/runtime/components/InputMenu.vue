@@ -826,7 +826,7 @@ defineExpose({
         </slot>
       </span>
 
-      <Component.Trigger v-if="isTrailing || !!slots.trailing || !!props.clear" data-slot="trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
+      <Component.Trigger v-if="isTrailing || !!slots.trailing || !!props.clear" :aria-label="t('inputMenu.trigger')" data-slot="trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
         <slot name="trailing" :model-value="(modelValue as ApplyModifiers<GetModelValue<T, VK, M, ExcludeItem>, Mod>)" :open="open" :b24ui="b24ui">
           <Component.Cancel v-if="!!props.clear && !disabled && !isModelValueEmpty(modelValue as ApplyModifiers<GetModelValue<T, VK, M, ExcludeItem>, Mod>)" as-child>
             <B24Button

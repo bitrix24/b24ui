@@ -11,10 +11,13 @@ export type Messages = {
     close: string
   }
   calendar: {
+    label: string
+    monthPicker: string
     nextMonth: string
     nextYear: string
     prevMonth: string
     prevYear: string
+    yearPicker: string
   }
   carousel: {
     dots: string
@@ -46,6 +49,7 @@ export type Messages = {
     noData: string
     noMatch: string
     placeholder: string
+    results: string
   }
   contentSearch: {
     description?: string
@@ -113,10 +117,12 @@ export type Messages = {
     create: string
     noData: string
     noMatch: string
+    trigger: string
   }
   inputNumber: {
     decrement: string
     increment: string
+    roledescription: string
   }
   listbox: {
     noData: string
@@ -187,6 +193,49 @@ export type Messages = {
     close: string
     slideoverTitle: string
     slideoverDescription: string
+  }
+  breadcrumb: {
+    label: string
+  }
+  inputDate: {
+    day: string
+    dayPeriod: string
+    era: string
+    hour: string
+    minute: string
+    month: string
+    second: string
+    timeZoneName: string
+    year: string
+  }
+  inputRating: {
+    rate: string
+  }
+  inputTime: {
+    dayPeriod: string
+    hour: string
+    minute: string
+    second: string
+    timeZoneName: string
+  }
+  pinInput: {
+    input: string
+  }
+  skeleton: {
+    label: string
+  }
+  range: {
+    max: string
+    min: string
+    thumb: string
+    value: string
+  }
+  stepper: {
+    label: string
+  }
+  toaster: {
+    label: string
+    viewport: string
   }
 }
 

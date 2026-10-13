@@ -117,7 +117,7 @@ exports[`FormField > renders with help slot correctly 1`] = `
 exports[`FormField > renders with hint correctly 1`] = `
 "<div data-orientation="vertical" data-slot="root" class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
   <div data-slot="wrapper" class="leading-(--ui-font-line-height-reset) mb-[10px]">
-    <div data-slot="root" class="flex content-center items-center justify-between gap-1"><label for="v-0-0" data-slot="label" class="block text-label">Username</label><span id="v-0-0-hint" data-slot="hint" class="text-description">Use letters, numbers, and special characters</span></div>
+    <div data-slot="root" class="flex content-center items-center justify-between gap-1"><label for="v-0-0" id="v-0-0-label" data-slot="label" class="block text-label">Username</label><span id="v-0-0-hint" data-slot="hint" class="text-description">Use letters, numbers, and special characters</span></div>
     <!--v-if-->
   </div>
   <div data-slot="container" class="relative">
@@ -129,7 +129,7 @@ exports[`FormField > renders with hint correctly 1`] = `
 exports[`FormField > renders with hint slot correctly 1`] = `
 "<div data-orientation="vertical" data-slot="root" class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
   <div data-slot="wrapper" class="leading-(--ui-font-line-height-reset) mb-[10px]">
-    <div data-slot="root" class="flex content-center items-center justify-between gap-1"><label for="v-0-0" data-slot="label" class="block text-label">Username</label><span id="v-0-0-hint" data-slot="hint" class="text-description">Hint slot</span></div>
+    <div data-slot="root" class="flex content-center items-center justify-between gap-1"><label for="v-0-0" id="v-0-0-label" data-slot="label" class="block text-label">Username</label><span id="v-0-0-hint" data-slot="hint" class="text-description">Hint slot</span></div>
     <!--v-if-->
   </div>
   <div data-slot="container" class="relative">
@@ -141,7 +141,7 @@ exports[`FormField > renders with hint slot correctly 1`] = `
 exports[`FormField > renders with label and description correctly 1`] = `
 "<div data-orientation="vertical" data-slot="root" class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
   <div data-slot="wrapper" class="leading-(--ui-font-line-height-reset) mb-[6px]">
-    <div data-slot="root" class="flex content-center items-center justify-between gap-1"><label for="v-0-0" data-slot="label" class="block text-label">Username</label>
+    <div data-slot="root" class="flex content-center items-center justify-between gap-1"><label for="v-0-0" id="v-0-0-label" data-slot="label" class="block text-label">Username</label>
       <!--v-if-->
     </div>
     <p id="v-0-0-description" data-slot="description" class="leading-(--ui-font-line-height-2xs) text-description mt-[2px]">Enter your username</p>
@@ -155,7 +155,7 @@ exports[`FormField > renders with label and description correctly 1`] = `
 exports[`FormField > renders with label slot correctly 1`] = `
 "<div data-orientation="vertical" data-slot="root" class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
   <div data-slot="wrapper" class="leading-(--ui-font-line-height-reset) mb-[10px]">
-    <div data-slot="root" class="flex content-center items-center justify-between gap-1"><label for="v-0-0" data-slot="label" class="block text-label">Label slot</label>
+    <div data-slot="root" class="flex content-center items-center justify-between gap-1"><label for="v-0-0" id="v-0-0-label" data-slot="label" class="block text-label">Label slot</label>
       <!--v-if-->
     </div>
     <!--v-if-->
@@ -169,7 +169,7 @@ exports[`FormField > renders with label slot correctly 1`] = `
 exports[`FormField > renders with orientation horizontal correctly 1`] = `
 "<div data-orientation="horizontal" data-slot="root" class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm) flex justify-between place-items-baseline gap-2">
   <div data-slot="wrapper" class="leading-(--ui-font-line-height-reset)">
-    <div data-slot="root" class="flex content-center items-center justify-between gap-1"><label for="v-0-0" data-slot="label" class="block text-label">Username</label>
+    <div data-slot="root" class="flex content-center items-center justify-between gap-1"><label for="v-0-0" id="v-0-0-label" data-slot="label" class="block text-label">Username</label>
       <!--v-if-->
     </div>
     <p id="v-0-0-description" data-slot="description" class="leading-(--ui-font-line-height-2xs) text-description">Enter your username</p>
@@ -183,7 +183,7 @@ exports[`FormField > renders with orientation horizontal correctly 1`] = `
 exports[`FormField > renders with orientation vertical correctly 1`] = `
 "<div data-orientation="vertical" data-slot="root" class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
   <div data-slot="wrapper" class="leading-(--ui-font-line-height-reset) mb-[6px]">
-    <div data-slot="root" class="flex content-center items-center justify-between gap-1"><label for="v-0-0" data-slot="label" class="block text-label">Username</label>
+    <div data-slot="root" class="flex content-center items-center justify-between gap-1"><label for="v-0-0" id="v-0-0-label" data-slot="label" class="block text-label">Username</label>
       <!--v-if-->
     </div>
     <p id="v-0-0-description" data-slot="description" class="leading-(--ui-font-line-height-2xs) text-description mt-[2px]">Enter your username</p>
@@ -197,7 +197,7 @@ exports[`FormField > renders with orientation vertical correctly 1`] = `
 exports[`FormField > renders with required correctly 1`] = `
 "<div data-orientation="vertical" data-slot="root" class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
   <div data-slot="wrapper" class="leading-(--ui-font-line-height-reset) mb-[10px]">
-    <div data-slot="root" class="flex content-center items-center justify-between gap-1"><label for="v-0-0" data-slot="label" class="block text-label after:content-['*'] after:ms-0.5 after:text-(--ui-color-accent-main-alert)">Username</label>
+    <div data-slot="root" class="flex content-center items-center justify-between gap-1"><label for="v-0-0" id="v-0-0-label" data-slot="label" class="block text-label after:content-['*'] after:ms-0.5 after:text-(--ui-color-accent-main-alert)">Username</label>
       <!--v-if-->
     </div>
     <!--v-if-->
@@ -211,7 +211,7 @@ exports[`FormField > renders with required correctly 1`] = `
 exports[`FormField > renders with size lg correctly 1`] = `
 "<div data-orientation="vertical" data-slot="root" class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-md)">
   <div data-slot="wrapper" class="leading-(--ui-font-line-height-reset) mb-[6px]">
-    <div data-slot="root" class="flex content-center items-center justify-between gap-1"><label for="v-0-0" data-slot="label" class="block text-label">Username</label>
+    <div data-slot="root" class="flex content-center items-center justify-between gap-1"><label for="v-0-0" id="v-0-0-label" data-slot="label" class="block text-label">Username</label>
       <!--v-if-->
     </div>
     <p id="v-0-0-description" data-slot="description" class="leading-(--ui-font-line-height-2xs) text-description mt-[2px]">Enter your username</p>
@@ -225,7 +225,7 @@ exports[`FormField > renders with size lg correctly 1`] = `
 exports[`FormField > renders with size md correctly 1`] = `
 "<div data-orientation="vertical" data-slot="root" class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
   <div data-slot="wrapper" class="leading-(--ui-font-line-height-reset) mb-[6px]">
-    <div data-slot="root" class="flex content-center items-center justify-between gap-1"><label for="v-0-0" data-slot="label" class="block text-label">Username</label>
+    <div data-slot="root" class="flex content-center items-center justify-between gap-1"><label for="v-0-0" id="v-0-0-label" data-slot="label" class="block text-label">Username</label>
       <!--v-if-->
     </div>
     <p id="v-0-0-description" data-slot="description" class="leading-(--ui-font-line-height-2xs) text-description mt-[2px]">Enter your username</p>
@@ -239,7 +239,7 @@ exports[`FormField > renders with size md correctly 1`] = `
 exports[`FormField > renders with size sm correctly 1`] = `
 "<div data-orientation="vertical" data-slot="root" class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-xs)">
   <div data-slot="wrapper" class="leading-(--ui-font-line-height-reset) mb-[6px]">
-    <div data-slot="root" class="flex content-center items-center justify-between gap-1"><label for="v-0-0" data-slot="label" class="block text-label">Username</label>
+    <div data-slot="root" class="flex content-center items-center justify-between gap-1"><label for="v-0-0" id="v-0-0-label" data-slot="label" class="block text-label">Username</label>
       <!--v-if-->
     </div>
     <p id="v-0-0-description" data-slot="description" class="leading-(--ui-font-line-height-2xs) text-description mt-[2px]">Enter your username</p>
@@ -253,7 +253,7 @@ exports[`FormField > renders with size sm correctly 1`] = `
 exports[`FormField > renders with size xs correctly 1`] = `
 "<div data-orientation="vertical" data-slot="root" class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-xs)">
   <div data-slot="wrapper" class="leading-(--ui-font-line-height-reset) mb-[6px]">
-    <div data-slot="root" class="flex content-center items-center justify-between gap-1"><label for="v-0-0" data-slot="label" class="block text-label">Username</label>
+    <div data-slot="root" class="flex content-center items-center justify-between gap-1"><label for="v-0-0" id="v-0-0-label" data-slot="label" class="block text-label">Username</label>
       <!--v-if-->
     </div>
     <p id="v-0-0-description" data-slot="description" class="leading-(--ui-font-line-height-2xs) text-description mt-[2px]">Enter your username</p>

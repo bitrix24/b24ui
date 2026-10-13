@@ -246,8 +246,9 @@ defineExpose({
     />
 
     <NumberFieldInput
-      v-bind="{ ...$attrs, ...ariaAttrs }"
       ref="inputRef"
+      :aria-roledescription="t('inputNumber.roledescription')"
+      v-bind="{ ...$attrs, ...ariaAttrs }"
       :placeholder="props.placeholder"
       :required="props.required"
       data-slot="base"

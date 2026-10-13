@@ -1459,7 +1459,6 @@
       "Listbox > renders with highlight correctly 1",
       "Listbox > renders with items correctly 1",
       "Listbox > renders with name correctly 1",
-      "Listbox > renders with required correctly 1",
       "Listbox > renders with selectedIcon correctly 1",
       "Listbox > renders with size md correctly 1"
     ]
@@ -1479,7 +1478,6 @@
       "Listbox > renders with highlight correctly 1",
       "Listbox > renders with items correctly 1",
       "Listbox > renders with name correctly 1",
-      "Listbox > renders with required correctly 1",
       "Listbox > renders with selectedIcon correctly 1",
       "Listbox > renders with size md correctly 1"
     ]

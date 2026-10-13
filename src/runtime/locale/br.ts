@@ -18,10 +18,13 @@ export default defineLocale<Messages>({
       close: 'Fechar'
     },
     calendar: {
+      label: 'Data do evento',
+      monthPicker: 'Seletor de mês',
       nextMonth: 'Próximo mês',
       nextYear: 'Próximo ano',
       prevMonth: 'Mês anterior',
-      prevYear: 'Ano anterior'
+      prevYear: 'Ano anterior',
+      yearPicker: 'Seletor de ano'
     },
     carousel: {
       dots: 'Selecionar slide para exibir',
@@ -52,7 +55,8 @@ export default defineLocale<Messages>({
       close: 'Fechar',
       noData: 'Sem dados',
       noMatch: 'Nenhum resultado encontrado',
-      placeholder: 'Digite um comando ou pesquise…'
+      placeholder: 'Digite um comando ou pesquise…',
+      results: 'Resultados'
     },
     contentSearch: {
       links: 'Resultados',
@@ -109,11 +113,13 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: 'Criar "{label}"',
       noData: 'Sem dados',
-      noMatch: 'Nenhum resultado encontrado'
+      noMatch: 'Nenhum resultado encontrado',
+      trigger: 'Mostrar opções'
     },
     inputNumber: {
       decrement: 'Diminuir',
-      increment: 'Aumentar'
+      increment: 'Aumentar',
+      roledescription: 'campo numérico'
     },
     listbox: {
       noData: 'Sem dados',
@@ -184,6 +190,49 @@ export default defineLocale<Messages>({
       close: 'Fechar navegação',
       slideoverTitle: 'Navegação',
       slideoverDescription: 'Navegação de conteúdo'
+    },
+    breadcrumb: {
+      label: 'trilha de navegação'
+    },
+    inputDate: {
+      day: 'dia',
+      dayPeriod: 'AM/PM',
+      era: 'era',
+      hour: 'hora',
+      minute: 'minuto',
+      month: 'mês',
+      second: 'segundo',
+      timeZoneName: 'fuso horário',
+      year: 'ano'
+    },
+    inputRating: {
+      rate: 'Avaliar com {value} de {length}'
+    },
+    inputTime: {
+      dayPeriod: 'AM/PM',
+      hour: 'hora',
+      minute: 'minuto',
+      second: 'segundo',
+      timeZoneName: 'fuso horário'
+    },
+    pinInput: {
+      input: 'código PIN, caractere {index} de {length}'
+    },
+    skeleton: {
+      label: 'carregando'
+    },
+    range: {
+      max: 'Máximo',
+      min: 'Mínimo',
+      thumb: 'Cursor',
+      value: 'Valor {index} de {total}'
+    },
+    stepper: {
+      label: 'progresso'
+    },
+    toaster: {
+      label: 'Notificação',
+      viewport: 'Notificações ({hotkey})'
     }
   }
 })

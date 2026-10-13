@@ -28,6 +28,7 @@ describe('Empty', () => {
   renderEach(Empty, [
     // Props
     ['with as', { props: { as: 'section' } }],
+    ['with as object', { props: { title: 'Title', as: { root: 'section', title: 'h3' } } }],
     ['with icon', { props: { icon: SignIcon } }],
     // No `with avatar` case. Upstream's Empty carries `avatar?: AvatarProps`
     // and renders it through `UAvatar`; this fork's does not, by a divergence
