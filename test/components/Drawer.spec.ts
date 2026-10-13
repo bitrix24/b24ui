@@ -87,6 +87,17 @@ describe('Drawer', () => {
     trigger.remove()
   })
 
+  it('does not disable outside pointer events with `noBodyStyles`', async () => {
+    const wrapper = await mountSuspended(Drawer, { props: { open: true, portal: false } })
+    expect(wrapper.findComponent({ name: 'DialogContent' }).props('disableOutsidePointerEvents')).toBeUndefined()
+
+    await wrapper.setProps({ noBodyStyles: true })
+    expect(wrapper.findComponent({ name: 'DialogContent' }).props('disableOutsidePointerEvents')).toBe(false)
+
+    await wrapper.setProps({ content: { disableOutsidePointerEvents: true } })
+    expect(wrapper.findComponent({ name: 'DialogContent' }).props('disableOutsidePointerEvents')).toBe(true)
+  })
+
   it('emits `after:enter` and `after:leave` once the animation ends', async () => {
     vi.useFakeTimers({ shouldAdvanceTime: true })
     const wrapper = await mountSuspended(Drawer, { props: { open: false, portal: false } })
