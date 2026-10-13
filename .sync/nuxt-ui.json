@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "04f253edb99d24993eb74bb83ca5418a77b24997",
+  "cursor": "6ec7b209887d770995cd97344ddf06f57d07f54e",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -2881,10 +2881,16 @@
       "summary": "perf(useComponentProps): skip prop resolution for Vue internal flags"
     },
     "04f253edb99d24993eb74bb83ca5418a77b24997": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 770,
+      "b24ui_sha": "32b3f352",
       "decision": "port",
       "summary": "fix(Drawer): don't disable body pointer events with `noBodyStyles`"
+    },
+    "6ec7b209887d770995cd97344ddf06f57d07f54e": {
+      "pr": "pending-merge",
+      "b24ui_sha": "pending-merge",
+      "decision": "n/a",
+      "summary": "chore(github): only list changed fixtures in bundle size comment"
     }
   }
 }
