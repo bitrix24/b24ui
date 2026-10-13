@@ -2947,8 +2947,8 @@
       "summary": "fix(Table): respect `defaultColumn` cell and header"
     },
     "fcb1f9fc6b71a080ed5e22fe7f3cb024232fcf27": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 781,
+      "b24ui_sha": "cad392f0",
       "decision": "n/a",
       "summary": "docs(showcase): add annuaire-tsa.fr"
     }
