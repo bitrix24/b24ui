@@ -45,11 +45,11 @@ export interface AvatarSlots {
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue'
 import { Primitive, Slot } from 'reka-ui'
-import { defu } from 'defu'
 import { useAppConfig } from '#imports'
 import ImageComponent from '#build/b24ui-image-component'
 import { useComponentProps } from '../composables/useComponentProps'
 import { useAvatarGroup } from '../composables/useAvatarGroup'
+import { resolveAs } from '../utils'
 import { tv } from '../utils/tv'
 import B24Chip from './Chip.vue'
 
@@ -60,13 +60,7 @@ const _props = defineProps<AvatarProps>()
 const props = useComponentProps('avatar', _props)
 
 // eslint-disable-next-line vue/no-dupe-keys
-const as = computed(() => {
-  if (typeof props.as === 'string' || typeof props.as?.render === 'function') {
-    return { root: props.as }
-  }
-
-  return defu(props.as, { root: 'span' })
-})
+const as = computed(() => resolveAs<{ root: any, img?: any }>(props.as, { root: 'span' }))
 
 const fallback = computed(() => props.text || (props.alt || '')
   .replace(/[+\-*)(}\][{]/g, '')
