@@ -18,10 +18,13 @@ export default defineLocale<Messages>({
       close: '閉じる'
     },
     calendar: {
+      label: 'イベントの日付',
+      monthPicker: '月の選択',
       nextMonth: '翌月',
       nextYear: '翌年',
       prevMonth: '前月',
-      prevYear: '前年'
+      prevYear: '前年',
+      yearPicker: '年の選択'
     },
     carousel: {
       dots: '表示するスライドを選択',
@@ -52,7 +55,8 @@ export default defineLocale<Messages>({
       close: '閉じる',
       noData: 'データがありません',
       noMatch: '一致する結果がありません',
-      placeholder: 'コマンドを入力または検索…'
+      placeholder: 'コマンドを入力または検索…',
+      results: '検索結果'
     },
     contentSearch: {
       links: '結果',
@@ -109,11 +113,13 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: '"{label}" を作成',
       noData: 'データがありません',
-      noMatch: '一致する結果がありません'
+      noMatch: '一致する結果がありません',
+      trigger: 'オプションを表示'
     },
     inputNumber: {
       decrement: '減らす',
-      increment: '増やす'
+      increment: '増やす',
+      roledescription: '数値フィールド'
     },
     listbox: {
       noData: 'データがありません',
@@ -184,6 +190,49 @@ export default defineLocale<Messages>({
       close: 'ナビゲーションを閉じる',
       slideoverTitle: 'ナビゲーション',
       slideoverDescription: 'コンテンツナビゲーション'
+    },
+    breadcrumb: {
+      label: 'パンくずリスト'
+    },
+    inputDate: {
+      day: '日',
+      dayPeriod: '午前/午後',
+      era: '時代',
+      hour: '時',
+      minute: '分',
+      month: '月',
+      second: '秒',
+      timeZoneName: 'タイムゾーン',
+      year: '年'
+    },
+    inputRating: {
+      rate: '{length}段階中{value}で評価'
+    },
+    inputTime: {
+      dayPeriod: '午前/午後',
+      hour: '時',
+      minute: '分',
+      second: '秒',
+      timeZoneName: 'タイムゾーン'
+    },
+    pinInput: {
+      input: 'PINコード、{length}文字中{index}文字目'
+    },
+    skeleton: {
+      label: '読み込み中'
+    },
+    range: {
+      max: '最大',
+      min: '最小',
+      thumb: 'つまみ',
+      value: '{total}個中{index}番目の値'
+    },
+    stepper: {
+      label: '進捗'
+    },
+    toaster: {
+      label: '通知',
+      viewport: '通知 ({hotkey})'
     }
   }
 })

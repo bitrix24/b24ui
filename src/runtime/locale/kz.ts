@@ -18,10 +18,13 @@ export default defineLocale<Messages>({
       close: 'Жабу'
     },
     calendar: {
+      label: 'Оқиға күні',
+      monthPicker: 'Айды таңдау',
       nextMonth: 'Келесі ай',
       nextYear: 'Келесі жыл',
       prevMonth: 'Алдыңғы ай',
-      prevYear: 'Алдыңғы жыл'
+      prevYear: 'Алдыңғы жыл',
+      yearPicker: 'Жылды таңдау'
     },
     carousel: {
       dots: 'Көрсету үшін слайдты таңдаңыз',
@@ -52,7 +55,8 @@ export default defineLocale<Messages>({
       close: 'Жабу',
       noData: 'Дерек жоқ',
       noMatch: 'Сәйкестіктер табылмады',
-      placeholder: 'Команда енгізіңіз немесе іздеңіз…'
+      placeholder: 'Команда енгізіңіз немесе іздеңіз…',
+      results: 'Нәтижелер'
     },
     contentSearch: {
       links: 'Нәтижелер',
@@ -109,11 +113,13 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: '"{label}" жасау',
       noData: 'Дерек жоқ',
-      noMatch: 'Сәйкестіктер табылмады'
+      noMatch: 'Сәйкестіктер табылмады',
+      trigger: 'Нұсқаларды көрсету'
     },
     inputNumber: {
       decrement: 'Кеміту',
-      increment: 'Арттыру'
+      increment: 'Арттыру',
+      roledescription: 'сандық өріс'
     },
     listbox: {
       noData: 'Деректер жоқ',
@@ -184,6 +190,49 @@ export default defineLocale<Messages>({
       close: 'Навигацияны жабу',
       slideoverTitle: 'Навигация',
       slideoverDescription: 'Мазмұн навигациясы'
+    },
+    breadcrumb: {
+      label: 'навигациялық жол'
+    },
+    inputDate: {
+      day: 'күн',
+      dayPeriod: 'AM/PM',
+      era: 'дәуір',
+      hour: 'сағат',
+      minute: 'минут',
+      month: 'ай',
+      second: 'секунд',
+      timeZoneName: 'уақыт белдеуі',
+      year: 'жыл'
+    },
+    inputRating: {
+      rate: '{length} ішінен {value} деп бағалау'
+    },
+    inputTime: {
+      dayPeriod: 'AM/PM',
+      hour: 'сағат',
+      minute: 'минут',
+      second: 'секунд',
+      timeZoneName: 'уақыт белдеуі'
+    },
+    pinInput: {
+      input: 'PIN код, {length} ішінен {index}-таңба'
+    },
+    skeleton: {
+      label: 'жүктелуде'
+    },
+    range: {
+      max: 'Максимум',
+      min: 'Минимум',
+      thumb: 'Жүгірткі',
+      value: '{total} ішінен {index}-мән'
+    },
+    stepper: {
+      label: 'прогресс'
+    },
+    toaster: {
+      label: 'Хабарландыру',
+      viewport: 'Хабарландырулар ({hotkey})'
     }
   }
 })

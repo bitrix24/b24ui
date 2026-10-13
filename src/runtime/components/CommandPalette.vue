@@ -758,7 +758,7 @@ function onSelect(e: Event, item: T) {
       </B24Input>
     </ListboxFilter>
 
-    <ListboxContent data-slot="content" :class="b24ui.content({ class: props.b24ui?.content })">
+    <ListboxContent data-slot="content" :aria-label="t('commandPalette.results')" :class="b24ui.content({ class: props.b24ui?.content })">
       <div v-if="filteredGroups?.length" role="presentation" data-slot="viewport" :class="b24ui.viewport({ class: props.b24ui?.viewport })">
         <ListboxVirtualizer
           v-if="!!props.virtualize"

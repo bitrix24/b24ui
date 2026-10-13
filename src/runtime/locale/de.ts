@@ -18,10 +18,13 @@ export default defineLocale<Messages>({
       close: 'Schließen'
     },
     calendar: {
+      label: 'Ereignisdatum',
+      monthPicker: 'Monatsauswahl',
       nextMonth: 'Nächster Monat',
       nextYear: 'Nächstes Jahr',
       prevMonth: 'Vorheriger Monat',
-      prevYear: 'Vorheriges Jahr'
+      prevYear: 'Vorheriges Jahr',
+      yearPicker: 'Jahresauswahl'
     },
     carousel: {
       dots: 'Slide zum Anzeigen auswählen',
@@ -52,7 +55,8 @@ export default defineLocale<Messages>({
       close: 'Schließen',
       noData: 'Keine Daten',
       noMatch: 'Keine Übereinstimmungen gefunden',
-      placeholder: 'Befehl eingeben oder suchen…'
+      placeholder: 'Befehl eingeben oder suchen…',
+      results: 'Ergebnisse'
     },
     contentSearch: {
       links: 'Ergebnisse',
@@ -109,11 +113,13 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: '"{label}" erstellen',
       noData: 'Keine Daten',
-      noMatch: 'Keine Übereinstimmungen gefunden'
+      noMatch: 'Keine Übereinstimmungen gefunden',
+      trigger: 'Optionen anzeigen'
     },
     inputNumber: {
       decrement: 'Verringern',
-      increment: 'Erhöhen'
+      increment: 'Erhöhen',
+      roledescription: 'Zahlenfeld'
     },
     listbox: {
       noData: 'Keine Daten',
@@ -184,6 +190,49 @@ export default defineLocale<Messages>({
       close: 'Navigation schließen',
       slideoverTitle: 'Navigation',
       slideoverDescription: 'Inhaltsnavigation'
+    },
+    breadcrumb: {
+      label: 'Brotkrümelnavigation'
+    },
+    inputDate: {
+      day: 'Tag',
+      dayPeriod: 'AM/PM',
+      era: 'Epoche',
+      hour: 'Stunde',
+      minute: 'Minute',
+      month: 'Monat',
+      second: 'Sekunde',
+      timeZoneName: 'Zeitzone',
+      year: 'Jahr'
+    },
+    inputRating: {
+      rate: 'Mit {value} von {length} bewerten'
+    },
+    inputTime: {
+      dayPeriod: 'AM/PM',
+      hour: 'Stunde',
+      minute: 'Minute',
+      second: 'Sekunde',
+      timeZoneName: 'Zeitzone'
+    },
+    pinInput: {
+      input: 'PIN-Code, Zeichen {index} von {length}'
+    },
+    skeleton: {
+      label: 'wird geladen'
+    },
+    range: {
+      max: 'Maximum',
+      min: 'Minimum',
+      thumb: 'Schieberegler',
+      value: 'Wert {index} von {total}'
+    },
+    stepper: {
+      label: 'Fortschritt'
+    },
+    toaster: {
+      label: 'Benachrichtigung',
+      viewport: 'Benachrichtigungen ({hotkey})'
     }
   }
 })

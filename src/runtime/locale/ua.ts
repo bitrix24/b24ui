@@ -18,10 +18,13 @@ export default defineLocale<Messages>({
       close: 'Закрити'
     },
     calendar: {
+      label: 'Дата події',
+      monthPicker: 'Вибір місяця',
       nextMonth: 'Наступний місяць',
       nextYear: 'Наступний рік',
       prevMonth: 'Попередній місяць',
-      prevYear: 'Попередній рік'
+      prevYear: 'Попередній рік',
+      yearPicker: 'Вибір року'
     },
     carousel: {
       dots: 'Виберіть слайд для показу',
@@ -52,7 +55,8 @@ export default defineLocale<Messages>({
       close: 'Закрити',
       noData: 'Немає даних',
       noMatch: 'Збігів не знайдено',
-      placeholder: 'Введіть команду або пошук…'
+      placeholder: 'Введіть команду або пошук…',
+      results: 'Результати'
     },
     contentSearch: {
       links: 'Результати',
@@ -109,11 +113,13 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: 'Створити "{label}"',
       noData: 'Немає даних',
-      noMatch: 'Збігів не знайдено'
+      noMatch: 'Збігів не знайдено',
+      trigger: 'Показати варіанти'
     },
     inputNumber: {
       decrement: 'Зменшити',
-      increment: 'Збільшити'
+      increment: 'Збільшити',
+      roledescription: 'числове поле'
     },
     listbox: {
       noData: 'Немає даних',
@@ -184,6 +190,49 @@ export default defineLocale<Messages>({
       close: 'Закрити навігацію',
       slideoverTitle: 'Навігація',
       slideoverDescription: 'Навігація по вмісту'
+    },
+    breadcrumb: {
+      label: 'навігаційний ланцюжок'
+    },
+    inputDate: {
+      day: 'день',
+      dayPeriod: 'AM/PM',
+      era: 'ера',
+      hour: 'година',
+      minute: 'хвилина',
+      month: 'місяць',
+      second: 'секунда',
+      timeZoneName: 'часовий пояс',
+      year: 'рік'
+    },
+    inputRating: {
+      rate: 'Оцінити на {value} з {length}'
+    },
+    inputTime: {
+      dayPeriod: 'AM/PM',
+      hour: 'година',
+      minute: 'хвилина',
+      second: 'секунда',
+      timeZoneName: 'часовий пояс'
+    },
+    pinInput: {
+      input: 'PIN-код, символ {index} з {length}'
+    },
+    skeleton: {
+      label: 'завантаження'
+    },
+    range: {
+      max: 'Максимум',
+      min: 'Мінімум',
+      thumb: 'Повзунок',
+      value: 'Значення {index} з {total}'
+    },
+    stepper: {
+      label: 'прогрес'
+    },
+    toaster: {
+      label: 'Сповіщення',
+      viewport: 'Сповіщення ({hotkey})'
     }
   }
 })
