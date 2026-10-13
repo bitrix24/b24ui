@@ -81,6 +81,7 @@ import { useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
 import { useForwardProps } from '../composables/useForwardProps'
 import { useFormField } from '../composables/useFormField'
+import { useLocale } from '../composables/useLocale'
 import { looseToNumber } from '../utils'
 import { tv } from '../utils/tv'
 
@@ -94,6 +95,7 @@ defineSlots<PinInputSlots>()
 
 const props = useComponentProps<PinInputProps<T>>('pinInput', _props)
 
+const { t } = useLocale()
 const appConfig = useAppConfig() as PinInput['AppConfig']
 
 const rootProps = useForwardProps(reactivePick(props, 'disabled', 'id', 'mask', 'name', 'otp', 'required', 'type'), emits)
@@ -206,6 +208,7 @@ defineExpose({
       <PinInputInput
         :ref="el => setInputRef(index as number, el)"
         :index="(index as number)"
+        :aria-label="t('pinInput.input', { index: (index as number) + 1, length: looseToNumber(props.length) })"
         data-slot="base"
         :class="b24ui.base({ class: props.b24ui?.base })"
         :disabled="disabled"

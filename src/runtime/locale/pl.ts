@@ -18,10 +18,13 @@ export default defineLocale<Messages>({
       close: 'Zamknij'
     },
     calendar: {
+      label: 'Data wydarzenia',
+      monthPicker: 'Wybór miesiąca',
       nextMonth: 'Następny miesiąc',
       nextYear: 'Następny rok',
       prevMonth: 'Poprzedni miesiąc',
-      prevYear: 'Poprzedni rok'
+      prevYear: 'Poprzedni rok',
+      yearPicker: 'Wybór roku'
     },
     carousel: {
       dots: 'Wybierz slajd do wyświetlenia',
@@ -52,7 +55,8 @@ export default defineLocale<Messages>({
       close: 'Zamknij',
       noData: 'Brak danych',
       noMatch: 'Nie znaleziono pasujących wyników',
-      placeholder: 'Wpisz polecenie lub szukaj…'
+      placeholder: 'Wpisz polecenie lub szukaj…',
+      results: 'Wyniki'
     },
     contentSearch: {
       links: 'Wyniki',
@@ -109,11 +113,13 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: 'Utwórz "{label}"',
       noData: 'Brak danych',
-      noMatch: 'Nie znaleziono pasujących wyników'
+      noMatch: 'Nie znaleziono pasujących wyników',
+      trigger: 'Pokaż opcje'
     },
     inputNumber: {
       decrement: 'Zmniejsz',
-      increment: 'Zwiększ'
+      increment: 'Zwiększ',
+      roledescription: 'pole liczbowe'
     },
     listbox: {
       noData: 'Brak danych',
@@ -184,6 +190,49 @@ export default defineLocale<Messages>({
       close: 'Zamknij nawigację',
       slideoverTitle: 'Nawigacja',
       slideoverDescription: 'Nawigacja po treści'
+    },
+    breadcrumb: {
+      label: 'ścieżka nawigacji'
+    },
+    inputDate: {
+      day: 'dzień',
+      dayPeriod: 'AM/PM',
+      era: 'era',
+      hour: 'godzina',
+      minute: 'minuta',
+      month: 'miesiąc',
+      second: 'sekunda',
+      timeZoneName: 'strefa czasowa',
+      year: 'rok'
+    },
+    inputRating: {
+      rate: 'Oceń na {value} z {length}'
+    },
+    inputTime: {
+      dayPeriod: 'AM/PM',
+      hour: 'godzina',
+      minute: 'minuta',
+      second: 'sekunda',
+      timeZoneName: 'strefa czasowa'
+    },
+    pinInput: {
+      input: 'kod PIN, znak {index} z {length}'
+    },
+    skeleton: {
+      label: 'ładowanie'
+    },
+    range: {
+      max: 'Maksimum',
+      min: 'Minimum',
+      thumb: 'Suwak',
+      value: 'Wartość {index} z {total}'
+    },
+    stepper: {
+      label: 'postęp'
+    },
+    toaster: {
+      label: 'Powiadomienie',
+      viewport: 'Powiadomienia ({hotkey})'
     }
   }
 })

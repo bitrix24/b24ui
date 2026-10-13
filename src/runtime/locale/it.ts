@@ -18,10 +18,13 @@ export default defineLocale<Messages>({
       close: 'Chiudi'
     },
     calendar: {
+      label: 'Data dell\'evento',
+      monthPicker: 'Selettore del mese',
       nextMonth: 'Mese successivo',
       nextYear: 'Anno successivo',
       prevMonth: 'Mese precedente',
-      prevYear: 'Anno precedente'
+      prevYear: 'Anno precedente',
+      yearPicker: 'Selettore dell\'anno'
     },
     carousel: {
       dots: 'Seleziona la diapositiva da mostrare',
@@ -52,7 +55,8 @@ export default defineLocale<Messages>({
       close: 'Chiudi',
       noData: 'Nessun dato',
       noMatch: 'Nessun risultato trovato',
-      placeholder: 'Inserisci comando o cerca…'
+      placeholder: 'Inserisci comando o cerca…',
+      results: 'Risultati'
     },
     contentSearch: {
       links: 'Risultati',
@@ -109,11 +113,13 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: 'Crea "{label}"',
       noData: 'Nessun dato',
-      noMatch: 'Nessun risultato trovato'
+      noMatch: 'Nessun risultato trovato',
+      trigger: 'Mostra opzioni'
     },
     inputNumber: {
       decrement: 'Decrementa',
-      increment: 'Incrementa'
+      increment: 'Incrementa',
+      roledescription: 'campo numerico'
     },
     listbox: {
       noData: 'Nessun dato',
@@ -184,6 +190,49 @@ export default defineLocale<Messages>({
       close: 'Chiudi navigazione',
       slideoverTitle: 'Navigazione',
       slideoverDescription: 'Navigazione contenuti'
+    },
+    breadcrumb: {
+      label: 'percorso di navigazione'
+    },
+    inputDate: {
+      day: 'giorno',
+      dayPeriod: 'AM/PM',
+      era: 'era',
+      hour: 'ora',
+      minute: 'minuto',
+      month: 'mese',
+      second: 'secondo',
+      timeZoneName: 'fuso orario',
+      year: 'anno'
+    },
+    inputRating: {
+      rate: 'Valuta {value} su {length}'
+    },
+    inputTime: {
+      dayPeriod: 'AM/PM',
+      hour: 'ora',
+      minute: 'minuto',
+      second: 'secondo',
+      timeZoneName: 'fuso orario'
+    },
+    pinInput: {
+      input: 'codice PIN, carattere {index} di {length}'
+    },
+    skeleton: {
+      label: 'caricamento'
+    },
+    range: {
+      max: 'Massimo',
+      min: 'Minimo',
+      thumb: 'Cursore',
+      value: 'Valore {index} di {total}'
+    },
+    stepper: {
+      label: 'avanzamento'
+    },
+    toaster: {
+      label: 'Notifica',
+      viewport: 'Notifiche ({hotkey})'
     }
   }
 })

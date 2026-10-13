@@ -84,6 +84,7 @@ import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
 import { useForwardProps } from '../composables/useForwardProps'
+import { useLocale } from '../composables/useLocale'
 import { tv } from '../utils/tv'
 import { get, itemValueIndex } from '../utils'
 
@@ -99,6 +100,7 @@ const props = useComponentProps<StepperProps<T>>('stepper', _props)
 
 const modelValue = defineModel<string | number>()
 
+const { t } = useLocale()
 const appConfig = useAppConfig() as Stepper['AppConfig']
 
 const rootProps = useForwardProps(reactivePick(props, 'as', 'linear'))
@@ -162,7 +164,14 @@ defineExpose({
 </script>
 
 <template>
-  <StepperRoot v-bind="rootProps" v-model="currentStepIndex" :orientation="props.orientation" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+  <StepperRoot
+    v-bind="rootProps"
+    v-model="currentStepIndex"
+    :orientation="props.orientation"
+    :aria-label="t('stepper.label')"
+    data-slot="root"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
+  >
     <div data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
       <StepperItem
         v-for="(item, count) in props.items"

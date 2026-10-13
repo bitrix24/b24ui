@@ -18,10 +18,13 @@ export default defineLocale<Messages>({
       close: '关闭'
     },
     calendar: {
+      label: '事件日期',
+      monthPicker: '月份选择器',
       nextMonth: '下个月',
       nextYear: '明年',
       prevMonth: '上个月',
-      prevYear: '去年'
+      prevYear: '去年',
+      yearPicker: '年份选择器'
     },
     carousel: {
       dots: '选择要显示的幻灯片',
@@ -52,7 +55,8 @@ export default defineLocale<Messages>({
       close: '关闭',
       noData: '暂无数据',
       noMatch: '未找到匹配项',
-      placeholder: '输入命令或搜索…'
+      placeholder: '输入命令或搜索…',
+      results: '搜索结果'
     },
     contentSearch: {
       links: '结果',
@@ -109,11 +113,13 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: '创建"{label}"',
       noData: '暂无数据',
-      noMatch: '未找到匹配项'
+      noMatch: '未找到匹配项',
+      trigger: '显示选项'
     },
     inputNumber: {
       decrement: '减少',
-      increment: '增加'
+      increment: '增加',
+      roledescription: '数字输入框'
     },
     listbox: {
       noData: '无数据',
@@ -184,6 +190,49 @@ export default defineLocale<Messages>({
       close: '关闭导航',
       slideoverTitle: '导航',
       slideoverDescription: '内容导航'
+    },
+    breadcrumb: {
+      label: '面包屑导航'
+    },
+    inputDate: {
+      day: '日',
+      dayPeriod: '上午/下午',
+      era: '纪元',
+      hour: '小时',
+      minute: '分钟',
+      month: '月',
+      second: '秒',
+      timeZoneName: '时区',
+      year: '年'
+    },
+    inputRating: {
+      rate: '评分 {value} 分，满分 {length} 分'
+    },
+    inputTime: {
+      dayPeriod: '上午/下午',
+      hour: '小时',
+      minute: '分钟',
+      second: '秒',
+      timeZoneName: '时区'
+    },
+    pinInput: {
+      input: 'PIN 码，第 {index} 位，共 {length} 位'
+    },
+    skeleton: {
+      label: '加载中'
+    },
+    range: {
+      max: '最大值',
+      min: '最小值',
+      thumb: '滑块',
+      value: '第 {index} 个值，共 {total} 个'
+    },
+    stepper: {
+      label: '进度'
+    },
+    toaster: {
+      label: '通知',
+      viewport: '通知（{hotkey}）'
     }
   }
 })

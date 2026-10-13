@@ -18,10 +18,13 @@ export default defineLocale<Messages>({
       close: 'Close'
     },
     calendar: {
+      label: 'Event date',
+      monthPicker: 'Month picker',
       nextMonth: 'Next month',
       nextYear: 'Next year',
       prevMonth: 'Previous month',
-      prevYear: 'Previous year'
+      prevYear: 'Previous year',
+      yearPicker: 'Year picker'
     },
     carousel: {
       dots: 'Select slide to display',
@@ -52,7 +55,8 @@ export default defineLocale<Messages>({
       close: 'Close',
       noData: 'No data',
       noMatch: 'No matches found',
-      placeholder: 'Enter command or search…'
+      placeholder: 'Enter command or search…',
+      results: 'Results'
     },
     contentSearch: {
       links: 'Results',
@@ -109,11 +113,13 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: 'Create "{label}"',
       noData: 'No data',
-      noMatch: 'No matches found'
+      noMatch: 'No matches found',
+      trigger: 'Show options'
     },
     inputNumber: {
       decrement: 'Decrement',
-      increment: 'Increment'
+      increment: 'Increment',
+      roledescription: 'number field'
     },
     listbox: {
       noData: 'No data',
@@ -184,6 +190,49 @@ export default defineLocale<Messages>({
       close: 'Close navigation',
       slideoverTitle: 'Navigation',
       slideoverDescription: 'Content navigation'
+    },
+    breadcrumb: {
+      label: 'breadcrumb'
+    },
+    inputDate: {
+      day: 'day',
+      dayPeriod: 'AM/PM',
+      era: 'era',
+      hour: 'hour',
+      minute: 'minute',
+      month: 'month',
+      second: 'second',
+      timeZoneName: 'timezone',
+      year: 'year'
+    },
+    inputRating: {
+      rate: 'Rate {value} out of {length}'
+    },
+    inputTime: {
+      dayPeriod: 'AM/PM',
+      hour: 'hour',
+      minute: 'minute',
+      second: 'second',
+      timeZoneName: 'timezone'
+    },
+    pinInput: {
+      input: 'pin input {index} of {length}'
+    },
+    skeleton: {
+      label: 'loading'
+    },
+    range: {
+      max: 'Maximum',
+      min: 'Minimum',
+      thumb: 'Thumb',
+      value: 'Value {index} of {total}'
+    },
+    stepper: {
+      label: 'progress'
+    },
+    toaster: {
+      label: 'Notification',
+      viewport: 'Notifications ({hotkey})'
     }
   }
 })

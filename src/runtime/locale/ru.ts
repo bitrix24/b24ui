@@ -18,10 +18,13 @@ export default defineLocale<Messages>({
       close: 'Закрыть'
     },
     calendar: {
+      label: 'Дата события',
+      monthPicker: 'Выбор месяца',
       nextMonth: 'Следующий месяц',
       nextYear: 'Следующий год',
       prevMonth: 'Предыдущий месяц',
-      prevYear: 'Предыдущий год'
+      prevYear: 'Предыдущий год',
+      yearPicker: 'Выбор года'
     },
     carousel: {
       dots: 'Выберите слайд для отображения',
@@ -52,7 +55,8 @@ export default defineLocale<Messages>({
       close: 'Закрыть',
       noData: 'Нет данных',
       noMatch: 'Совпадений не найдено',
-      placeholder: 'Введите команду или поиск…'
+      placeholder: 'Введите команду или поиск…',
+      results: 'Результаты'
     },
     contentSearch: {
       links: 'Результаты',
@@ -109,11 +113,13 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: 'Создать "{label}"',
       noData: 'Нет данных',
-      noMatch: 'Совпадений не найдено'
+      noMatch: 'Совпадений не найдено',
+      trigger: 'Показать варианты'
     },
     inputNumber: {
       decrement: 'Уменьшить',
-      increment: 'Увеличить'
+      increment: 'Увеличить',
+      roledescription: 'числовое поле'
     },
     listbox: {
       noData: 'Нет данных',
@@ -184,6 +190,49 @@ export default defineLocale<Messages>({
       close: 'Закрыть навигацию',
       slideoverTitle: 'Навигация',
       slideoverDescription: 'Навигация по содержимому'
+    },
+    breadcrumb: {
+      label: 'навигационная цепочка'
+    },
+    inputDate: {
+      day: 'день',
+      dayPeriod: 'AM/PM',
+      era: 'эра',
+      hour: 'час',
+      minute: 'минута',
+      month: 'месяц',
+      second: 'секунда',
+      timeZoneName: 'часовой пояс',
+      year: 'год'
+    },
+    inputRating: {
+      rate: 'Оценить на {value} из {length}'
+    },
+    inputTime: {
+      dayPeriod: 'AM/PM',
+      hour: 'час',
+      minute: 'минута',
+      second: 'секунда',
+      timeZoneName: 'часовой пояс'
+    },
+    pinInput: {
+      input: 'PIN-код, символ {index} из {length}'
+    },
+    skeleton: {
+      label: 'загрузка'
+    },
+    range: {
+      max: 'Максимум',
+      min: 'Минимум',
+      thumb: 'Ползунок',
+      value: 'Значение {index} из {total}'
+    },
+    stepper: {
+      label: 'прогресс'
+    },
+    toaster: {
+      label: 'Уведомление',
+      viewport: 'Уведомления ({hotkey})'
     }
   }
 })

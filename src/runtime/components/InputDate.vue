@@ -104,6 +104,7 @@ import { useForwardProps } from '../composables/useForwardProps'
 import { useFieldGroup } from '../composables/useFieldGroup'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { useFormField } from '../composables/useFormField'
+import { useLocale } from '../composables/useLocale'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Badge from './Badge.vue'
@@ -122,6 +123,7 @@ const slots = defineSlots<InputDateSlots>()
 
 const props = useComponentProps<InputDateProps<R>>('inputDate', _props)
 
+const { t } = useLocale()
 const appConfig = useAppConfig() as InputDate['AppConfig']
 
 /** @memo we not use `variant`, `leading`, `leadingIcon`, `trailing` and `loadingIcon` */
@@ -169,6 +171,11 @@ const inputsRef = ref<ComponentPublicInstance[]>([])
 function setInputRef(index: number, el: Element | ComponentPublicInstance | null) {
   // @ts-expect-error - ComponentPublicInstance type mismatch in Nuxt module augmentation
   inputsRef.value[index] = el
+}
+
+// Literal segments are hidden from assistive technologies.
+function segmentLabel(part: SegmentPart) {
+  return part !== 'literal' ? t(`inputDate.${part}`) : undefined
 }
 
 function onUpdate(value: any) {
@@ -228,6 +235,7 @@ defineExpose({
       data-slot="segment"
       :class="b24ui.segment({ class: props.b24ui?.segment })"
       :data-segment="segment.part"
+      :aria-label="segmentLabel(segment.part)"
     >
       {{ segment.value.trim() }}
     </DateField.Input>

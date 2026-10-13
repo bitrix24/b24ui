@@ -86,7 +86,7 @@ const slots = defineSlots<BreadcrumbSlots<T>>()
 
 const props = useComponentProps<BreadcrumbProps<T>>('breadcrumb', _props)
 
-const { dir } = useLocale()
+const { dir, t } = useLocale()
 const appConfig = useAppConfig() as Breadcrumb['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
@@ -99,7 +99,7 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.breadcrumb
 </script>
 
 <template>
-  <Primitive :as="props.as" aria-label="breadcrumb" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+  <Primitive :as="props.as" :aria-label="t('breadcrumb.label')" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <ol data-slot="list" :class="b24ui.list({ class: props.b24ui?.list })">
       <template v-for="(item, index) in props.items" :key="index">
         <li data-slot="item" :class="b24ui.item({ class: [props.b24ui?.item, item.b24ui?.item] })">

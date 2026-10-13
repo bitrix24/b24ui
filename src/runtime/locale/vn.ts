@@ -18,10 +18,13 @@ export default defineLocale<Messages>({
       close: 'Đóng'
     },
     calendar: {
+      label: 'Ngày sự kiện',
+      monthPicker: 'Bộ chọn tháng',
       nextMonth: 'Tháng sau',
       nextYear: 'Năm sau',
       prevMonth: 'Tháng trước',
-      prevYear: 'Năm trước'
+      prevYear: 'Năm trước',
+      yearPicker: 'Bộ chọn năm'
     },
     carousel: {
       dots: 'Chọn slide để hiển thị',
@@ -52,7 +55,8 @@ export default defineLocale<Messages>({
       close: 'Đóng',
       noData: 'Không có dữ liệu',
       noMatch: 'Không tìm thấy kết quả',
-      placeholder: 'Nhập lệnh hoặc tìm kiếm…'
+      placeholder: 'Nhập lệnh hoặc tìm kiếm…',
+      results: 'Kết quả'
     },
     contentSearch: {
       links: 'Kết quả',
@@ -109,11 +113,13 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: 'Tạo "{label}"',
       noData: 'Không có dữ liệu',
-      noMatch: 'Không tìm thấy kết quả'
+      noMatch: 'Không tìm thấy kết quả',
+      trigger: 'Hiển thị tùy chọn'
     },
     inputNumber: {
       decrement: 'Giảm',
-      increment: 'Tăng'
+      increment: 'Tăng',
+      roledescription: 'trường số'
     },
     listbox: {
       noData: 'Không có dữ liệu',
@@ -184,6 +190,49 @@ export default defineLocale<Messages>({
       close: 'Đóng điều hướng',
       slideoverTitle: 'Điều hướng',
       slideoverDescription: 'Điều hướng nội dung'
+    },
+    breadcrumb: {
+      label: 'đường dẫn điều hướng'
+    },
+    inputDate: {
+      day: 'ngày',
+      dayPeriod: 'SA/CH',
+      era: 'kỷ nguyên',
+      hour: 'giờ',
+      minute: 'phút',
+      month: 'tháng',
+      second: 'giây',
+      timeZoneName: 'múi giờ',
+      year: 'năm'
+    },
+    inputRating: {
+      rate: 'Đánh giá {value} trên {length}'
+    },
+    inputTime: {
+      dayPeriod: 'SA/CH',
+      hour: 'giờ',
+      minute: 'phút',
+      second: 'giây',
+      timeZoneName: 'múi giờ'
+    },
+    pinInput: {
+      input: 'mã PIN, ký tự {index} trên {length}'
+    },
+    skeleton: {
+      label: 'đang tải'
+    },
+    range: {
+      max: 'Tối đa',
+      min: 'Tối thiểu',
+      thumb: 'Con trượt',
+      value: 'Giá trị {index} trên {total}'
+    },
+    stepper: {
+      label: 'tiến trình'
+    },
+    toaster: {
+      label: 'Thông báo',
+      viewport: 'Thông báo ({hotkey})'
     }
   }
 })
