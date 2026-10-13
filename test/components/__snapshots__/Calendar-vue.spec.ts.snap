@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Calendar > renders with as correctly 1`] = `
-"<section aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<section aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -205,13 +205,13 @@ exports[`Calendar > renders with as correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </section>"
 `;
 
 exports[`Calendar > renders with b24ui correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between gap-4"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -415,13 +415,13 @@ exports[`Calendar > renders with b24ui correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with class correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled max-w-sm">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled max-w-sm">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -625,13 +625,13 @@ exports[`Calendar > renders with class correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with color success correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled-success">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled-success">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -835,13 +835,13 @@ exports[`Calendar > renders with color success correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with day slot correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -1045,13 +1045,13 @@ exports[`Calendar > renders with day slot correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with default value correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -1255,13 +1255,13 @@ exports[`Calendar > renders with default value correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with disabled correctly 1`] = `
-"<div aria-label="Event Date, January 2025" data-disabled="" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" data-disabled="" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" disabled="" data-slot="base" aria-label="Previous year" aria-disabled="true" data-disabled="true" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -1465,13 +1465,13 @@ exports[`Calendar > renders with disabled correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with heading slot correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -1669,13 +1669,13 @@ exports[`Calendar > renders with heading slot correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with isDateDisabled correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -1879,13 +1879,13 @@ exports[`Calendar > renders with isDateDisabled correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with isDateUnavailable correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -2089,13 +2089,13 @@ exports[`Calendar > renders with isDateUnavailable correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with modelValue correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -2299,13 +2299,13 @@ exports[`Calendar > renders with modelValue correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with multiple correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -2509,13 +2509,13 @@ exports[`Calendar > renders with multiple correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with nextMonth correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -2719,13 +2719,13 @@ exports[`Calendar > renders with nextMonth correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with nextYear correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -2929,13 +2929,13 @@ exports[`Calendar > renders with nextYear correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with numberOfMonths correctly 1`] = `
-"<div aria-label="Event Date, January - February 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January - February 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -3298,13 +3298,13 @@ exports[`Calendar > renders with numberOfMonths correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January - February 2025</div>
+    <div role="heading" aria-level="2">Event date, January - February 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with prevMonth correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -3508,13 +3508,13 @@ exports[`Calendar > renders with prevMonth correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with prevYear correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -3718,15 +3718,15 @@ exports[`Calendar > renders with prevYear correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with range and defaultValue correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
@@ -3934,9 +3934,9 @@ exports[`Calendar > renders with range and defaultValue correctly 1`] = `
 `;
 
 exports[`Calendar > renders with range and modelValue correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
@@ -4144,9 +4144,9 @@ exports[`Calendar > renders with range and modelValue correctly 1`] = `
 `;
 
 exports[`Calendar > renders with range correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
@@ -4354,7 +4354,7 @@ exports[`Calendar > renders with range correctly 1`] = `
 `;
 
 exports[`Calendar > renders with readonly correctly 1`] = `
-"<div aria-label="Event Date, January 2025" data-readonly="" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" data-readonly="" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -4558,13 +4558,13 @@ exports[`Calendar > renders with readonly correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with size lg correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -4768,13 +4768,13 @@ exports[`Calendar > renders with size lg correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with size md correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -4978,13 +4978,13 @@ exports[`Calendar > renders with size md correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with size sm correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -5188,13 +5188,13 @@ exports[`Calendar > renders with size sm correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with size xs correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-xs rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -5398,13 +5398,13 @@ exports[`Calendar > renders with size xs correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with type month and isMonthDisabled correctly 1`] = `
-"<div aria-label="Month Picker, 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Month picker, 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between">
     <!--v-if--><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
@@ -5485,13 +5485,13 @@ exports[`Calendar > renders with type month and isMonthDisabled correctly 1`] = 
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Month Picker, 2025</div>
+    <div role="heading" aria-level="2">Month picker, 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with type month and isMonthUnavailable correctly 1`] = `
-"<div aria-label="Month Picker, 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Month picker, 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between">
     <!--v-if--><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
@@ -5572,13 +5572,13 @@ exports[`Calendar > renders with type month and isMonthUnavailable correctly 1`]
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Month Picker, 2025</div>
+    <div role="heading" aria-level="2">Month picker, 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with type month and modelValue correctly 1`] = `
-"<div aria-label="Month Picker, 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Month picker, 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between">
     <!--v-if--><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
@@ -5659,15 +5659,15 @@ exports[`Calendar > renders with type month and modelValue correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Month Picker, 2025</div>
+    <div role="heading" aria-level="2">Month picker, 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with type month and range correctly 1`] = `
-"<div aria-label="Month Picker, 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Month picker, 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Month Picker, 2025</div>
+    <div role="heading" aria-level="2">Month picker, 2025</div>
   </div>
   <div data-slot="header" class="flex items-center justify-between">
     <!--v-if--><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
@@ -5752,7 +5752,7 @@ exports[`Calendar > renders with type month and range correctly 1`] = `
 `;
 
 exports[`Calendar > renders with type month correctly 1`] = `
-"<div aria-label="Month Picker, 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Month picker, 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between">
     <!--v-if--><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
@@ -5833,13 +5833,13 @@ exports[`Calendar > renders with type month correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Month Picker, 2025</div>
+    <div role="heading" aria-level="2">Month picker, 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with type year and isYearDisabled correctly 1`] = `
-"<div aria-label="Year Picker, 2020 - 2031" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Year picker, 2020 - 2031" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between">
     <!--v-if--><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
@@ -5914,13 +5914,13 @@ exports[`Calendar > renders with type year and isYearDisabled correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Year Picker, 2020 - 2031</div>
+    <div role="heading" aria-level="2">Year picker, 2020 - 2031</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with type year and isYearUnavailable correctly 1`] = `
-"<div aria-label="Year Picker, 2020 - 2031" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Year picker, 2020 - 2031" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between">
     <!--v-if--><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
@@ -5995,13 +5995,13 @@ exports[`Calendar > renders with type year and isYearUnavailable correctly 1`] =
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Year Picker, 2020 - 2031</div>
+    <div role="heading" aria-level="2">Year picker, 2020 - 2031</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with type year and modelValue correctly 1`] = `
-"<div aria-label="Year Picker, 2020 - 2031" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Year picker, 2020 - 2031" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between">
     <!--v-if--><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
@@ -6076,15 +6076,15 @@ exports[`Calendar > renders with type year and modelValue correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Year Picker, 2020 - 2031</div>
+    <div role="heading" aria-level="2">Year picker, 2020 - 2031</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with type year and range correctly 1`] = `
-"<div aria-label="Year Picker, 2020 - 2031" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Year picker, 2020 - 2031" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Year Picker, 2020 - 2031</div>
+    <div role="heading" aria-level="2">Year picker, 2020 - 2031</div>
   </div>
   <div data-slot="header" class="flex items-center justify-between">
     <!--v-if--><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
@@ -6163,7 +6163,7 @@ exports[`Calendar > renders with type year and range correctly 1`] = `
 `;
 
 exports[`Calendar > renders with type year and yearsPerPage correctly 1`] = `
-"<div aria-label="Year Picker, 2020 - 2039" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Year picker, 2020 - 2039" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between">
     <!--v-if--><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
@@ -6268,13 +6268,13 @@ exports[`Calendar > renders with type year and yearsPerPage correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Year Picker, 2020 - 2039</div>
+    <div role="heading" aria-level="2">Year picker, 2020 - 2039</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with type year correctly 1`] = `
-"<div aria-label="Year Picker, 2020 - 2031" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Year picker, 2020 - 2031" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between">
     <!--v-if--><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
@@ -6349,13 +6349,13 @@ exports[`Calendar > renders with type year correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Year Picker, 2020 - 2031</div>
+    <div role="heading" aria-level="2">Year picker, 2020 - 2031</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with viewControl correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -6559,13 +6559,13 @@ exports[`Calendar > renders with viewControl correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with week-day slot correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -6769,13 +6769,13 @@ exports[`Calendar > renders with week-day slot correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with weekNumbers correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" weeknumbers="true" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" weeknumbers="true" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -6979,13 +6979,13 @@ exports[`Calendar > renders with weekNumbers correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with weekStartsOn correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -7189,13 +7189,13 @@ exports[`Calendar > renders with weekStartsOn correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders with weekdayFormat correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -7399,13 +7399,13 @@ exports[`Calendar > renders with weekdayFormat correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders without fixedWeeks correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -7585,13 +7585,13 @@ exports[`Calendar > renders without fixedWeeks correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders without monthControls correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -7781,13 +7781,13 @@ exports[`Calendar > renders without monthControls correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders without viewControl correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between"><button type="button" data-slot="base" aria-label="Previous year" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
       <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
@@ -7985,13 +7985,13 @@ exports[`Calendar > renders without viewControl correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
 
 exports[`Calendar > renders without yearControls correctly 1`] = `
-"<div aria-label="Event Date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event date, January 2025" dir="ltr" data-slot="root" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div data-slot="header" class="flex items-center justify-between">
     <!--v-if--><button type="button" data-slot="base" aria-label="Previous month" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height)">
       <!--v-if-->
@@ -8181,7 +8181,7 @@ exports[`Calendar > renders without yearControls correctly 1`] = `
     </table>
   </div>
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-    <div role="heading" aria-level="2">Event Date, January 2025</div>
+    <div role="heading" aria-level="2">Event date, January 2025</div>
   </div>
 </div>"
 `;
