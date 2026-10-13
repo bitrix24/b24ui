@@ -68,7 +68,7 @@ You can use it with Nuxt i18n:
 
 ```vue
 <script setup lang="ts">
-import * as locales from '@bitrix24/b24ui-nuxt/locale'
+import { de, en, fr } from '@bitrix24/b24ui-nuxt/locale'
 
 const { locale, setLocale } = useI18n()
 </script>
@@ -76,7 +76,7 @@ const { locale, setLocale } = useI18n()
 <template>
   <B24LocaleSelect
     :model-value="locale"
-    :locales="Object.values(locales)"
+    :locales="[de, en, fr]"
     @update:model-value="setLocale($event)"
   />
 </template>
@@ -91,7 +91,7 @@ You can use it with Vue i18n:
 ```vue
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-import * as locales from '@bitrix24/b24ui-nuxt/locale'
+import { de, en } from '@bitrix24/b24ui-nuxt/locale'
 
 const { locale, setLocale } = useI18n()
 </script>
@@ -99,7 +99,7 @@ const { locale, setLocale } = useI18n()
 <template>
   <B24LocaleSelect
     :model-value="locale"
-    :locales="Object.values(locales)"
+    :locales="[de, en]"
     @update:model-value="setLocale($event)"
   />
 </template>
