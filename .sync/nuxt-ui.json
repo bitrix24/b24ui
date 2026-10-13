@@ -2941,10 +2941,16 @@
       "summary": "feat(App): follow the `@nuxtjs/i18n` locale"
     },
     "da9125cabe1d7e3814cde33c4af8d8b3a8bdb8bb": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 780,
+      "b24ui_sha": "4faaa8b3",
       "decision": "port",
       "summary": "fix(Table): respect `defaultColumn` cell and header"
+    },
+    "fcb1f9fc6b71a080ed5e22fe7f3cb024232fcf27": {
+      "pr": "pending-merge",
+      "b24ui_sha": "pending-merge",
+      "decision": "n/a",
+      "summary": "docs(showcase): add annuaire-tsa.fr"
     }
   }
 }
