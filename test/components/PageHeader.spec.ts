@@ -13,6 +13,7 @@ describe('PageHeader', () => {
     ['with headline', { props: { headline: 'Headline' } }],
     ['with links', { props: { links: [{ label: 'GitHub', icon: GitHubIcon }] } }],
     ['with as', { props: { as: 'section' } }],
+    ['with as object', { props: { title: 'Title', as: { root: 'section', title: 'h2' } } }],
     ['with class', { props: { class: 'py-12' } }],
     ['with b24ui', { props: { b24ui: { container: 'py-12' } } }],
     // Slots

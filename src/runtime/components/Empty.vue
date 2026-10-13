@@ -13,7 +13,7 @@ export interface EmptyProps {
    * The element or component this component should render as.
    * @defaultValue 'div'
    */
-  as?: any
+  as?: any | { root?: any, title?: any }
   /**
    * The icon displayed above the title.
    * @IconComponent
@@ -67,6 +67,7 @@ import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
+import { resolveAs } from '../utils'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Button from './Button.vue'
@@ -83,6 +84,9 @@ const appConfig = useAppConfig() as Empty['AppConfig']
 const iconName = computed(() => props.loading ? (props.loadingIcon || icons.loading) : props.icon)
 
 // eslint-disable-next-line vue/no-dupe-keys
+const as = computed(() => resolveAs(props.as, { root: 'div', title: 'h2' }))
+
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.empty || {}) })({
   color: props.color,
   inverted: Boolean(props.inverted),
@@ -92,7 +96,7 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.empty || {
 </script>
 
 <template>
-  <Primitive :as="props.as" :aria-busy="props.loading ? 'true' : undefined" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+  <Primitive :as="as.root" :aria-busy="props.loading ? 'true' : undefined" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <div v-if="!!slots.header || (iconName || !!slots.leading) || (props.title || !!slots.title) || (props.description || !!slots.description)" data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
       <slot name="header">
         <slot name="leading" :b24ui="b24ui">
@@ -105,11 +109,11 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.empty || {
           </div>
         </slot>
 
-        <h2 v-if="props.title || !!slots.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
+        <Primitive v-if="props.title || !!slots.title" :as="as.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
           <slot name="title">
             {{ props.title }}
           </slot>
-        </h2>
+        </Primitive>
 
         <div v-if="props.description || !!slots.description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
           <slot name="description">
