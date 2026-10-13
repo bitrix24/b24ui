@@ -18,10 +18,13 @@ export default defineLocale<Messages>({
       close: 'ปิด'
     },
     calendar: {
+      label: 'วันที่ของกิจกรรม',
+      monthPicker: 'ตัวเลือกเดือน',
       nextMonth: 'เดือนถัดไป',
       nextYear: 'ปีถัดไป',
       prevMonth: 'เดือนก่อนหน้า',
-      prevYear: 'ปีก่อนหน้า'
+      prevYear: 'ปีก่อนหน้า',
+      yearPicker: 'ตัวเลือกปี'
     },
     carousel: {
       dots: 'เลือกสไลด์ที่จะแสดง',
@@ -52,7 +55,8 @@ export default defineLocale<Messages>({
       close: 'ปิด',
       noData: 'ไม่มีข้อมูล',
       noMatch: 'ไม่พบรายการที่ตรงกัน',
-      placeholder: 'ป้อนคำสั่งหรือค้นหา…'
+      placeholder: 'ป้อนคำสั่งหรือค้นหา…',
+      results: 'ผลลัพธ์'
     },
     contentSearch: {
       links: 'ผลลัพธ์',
@@ -109,11 +113,13 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: 'สร้าง"{label}"',
       noData: 'ไม่มีข้อมูล',
-      noMatch: 'ไม่พบรายการที่ตรงกัน'
+      noMatch: 'ไม่พบรายการที่ตรงกัน',
+      trigger: 'แสดงตัวเลือก'
     },
     inputNumber: {
       decrement: 'ลดลง',
-      increment: 'เพิ่มขึ้น'
+      increment: 'เพิ่มขึ้น',
+      roledescription: 'ช่องตัวเลข'
     },
     listbox: {
       noData: 'ไม่มีข้อมูล',
@@ -184,6 +190,49 @@ export default defineLocale<Messages>({
       close: 'ปิดการนำทาง',
       slideoverTitle: 'การนำทาง',
       slideoverDescription: 'การนำทางเนื้อหา'
+    },
+    breadcrumb: {
+      label: 'เส้นทางนำทาง'
+    },
+    inputDate: {
+      day: 'วัน',
+      dayPeriod: 'ก่อนเที่ยง/หลังเที่ยง',
+      era: 'สมัย',
+      hour: 'ชั่วโมง',
+      minute: 'นาที',
+      month: 'เดือน',
+      second: 'วินาที',
+      timeZoneName: 'เขตเวลา',
+      year: 'ปี'
+    },
+    inputRating: {
+      rate: 'ให้คะแนน {value} จาก {length}'
+    },
+    inputTime: {
+      dayPeriod: 'ก่อนเที่ยง/หลังเที่ยง',
+      hour: 'ชั่วโมง',
+      minute: 'นาที',
+      second: 'วินาที',
+      timeZoneName: 'เขตเวลา'
+    },
+    pinInput: {
+      input: 'รหัส PIN ตัวที่ {index} จาก {length}'
+    },
+    skeleton: {
+      label: 'กำลังโหลด'
+    },
+    range: {
+      max: 'สูงสุด',
+      min: 'ต่ำสุด',
+      thumb: 'ตัวเลื่อน',
+      value: 'ค่าที่ {index} จาก {total}'
+    },
+    stepper: {
+      label: 'ความคืบหน้า'
+    },
+    toaster: {
+      label: 'การแจ้งเตือน',
+      viewport: 'การแจ้งเตือน ({hotkey})'
     }
   }
 })

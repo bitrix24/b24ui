@@ -18,10 +18,13 @@ export default defineLocale<Messages>({
       close: 'Tutup'
     },
     calendar: {
+      label: 'Tanggal acara',
+      monthPicker: 'Pemilih bulan',
       nextMonth: 'Bulan depan',
       nextYear: 'Tahun depan',
       prevMonth: 'Bulan sebelumnya',
-      prevYear: 'Tahun sebelumnya'
+      prevYear: 'Tahun sebelumnya',
+      yearPicker: 'Pemilih tahun'
     },
     carousel: {
       dots: 'Pilih slide untuk ditampilkan',
@@ -52,7 +55,8 @@ export default defineLocale<Messages>({
       close: 'Tutup',
       noData: 'Tidak ada data',
       noMatch: 'Tidak ditemukan hasil',
-      placeholder: 'Masukkan perintah atau cari…'
+      placeholder: 'Masukkan perintah atau cari…',
+      results: 'Hasil'
     },
     contentSearch: {
       links: 'Hasil',
@@ -109,11 +113,13 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: 'Buat "{label}"',
       noData: 'Tidak ada data',
-      noMatch: 'Tidak ditemukan hasil'
+      noMatch: 'Tidak ditemukan hasil',
+      trigger: 'Tampilkan opsi'
     },
     inputNumber: {
       decrement: 'Kurangi',
-      increment: 'Tambah'
+      increment: 'Tambah',
+      roledescription: 'bidang angka'
     },
     listbox: {
       noData: 'Tidak ada data',
@@ -184,6 +190,49 @@ export default defineLocale<Messages>({
       close: 'Tutup navigasi',
       slideoverTitle: 'Navigasi',
       slideoverDescription: 'Navigasi konten'
+    },
+    breadcrumb: {
+      label: 'jejak navigasi'
+    },
+    inputDate: {
+      day: 'hari',
+      dayPeriod: 'AM/PM',
+      era: 'era',
+      hour: 'jam',
+      minute: 'menit',
+      month: 'bulan',
+      second: 'detik',
+      timeZoneName: 'zona waktu',
+      year: 'tahun'
+    },
+    inputRating: {
+      rate: 'Beri nilai {value} dari {length}'
+    },
+    inputTime: {
+      dayPeriod: 'AM/PM',
+      hour: 'jam',
+      minute: 'menit',
+      second: 'detik',
+      timeZoneName: 'zona waktu'
+    },
+    pinInput: {
+      input: 'kode PIN, karakter {index} dari {length}'
+    },
+    skeleton: {
+      label: 'memuat'
+    },
+    range: {
+      max: 'Maksimum',
+      min: 'Minimum',
+      thumb: 'Penggeser',
+      value: 'Nilai {index} dari {total}'
+    },
+    stepper: {
+      label: 'kemajuan'
+    },
+    toaster: {
+      label: 'Notifikasi',
+      viewport: 'Notifikasi ({hotkey})'
     }
   }
 })

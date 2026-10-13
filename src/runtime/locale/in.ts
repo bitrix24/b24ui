@@ -18,10 +18,13 @@ export default defineLocale<Messages>({
       close: 'बंद करें'
     },
     calendar: {
+      label: 'इवेंट की तारीख',
+      monthPicker: 'महीना चयनकर्ता',
       nextMonth: 'अगला महीना',
       nextYear: 'अगला वर्ष',
       prevMonth: 'पिछला महीना',
-      prevYear: 'पिछला वर्ष'
+      prevYear: 'पिछला वर्ष',
+      yearPicker: 'वर्ष चयनकर्ता'
     },
     carousel: {
       dots: 'प्रदर्शित करने के लिए स्लाइड चुनें',
@@ -52,7 +55,8 @@ export default defineLocale<Messages>({
       close: 'बंद करें',
       noData: 'कोई डेटा नहीं',
       noMatch: 'कोई मिलान नहीं मिला',
-      placeholder: 'कमांड दर्ज करें या खोजें…'
+      placeholder: 'कमांड दर्ज करें या खोजें…',
+      results: 'परिणाम'
     },
     contentSearch: {
       links: 'परिणाम',
@@ -109,11 +113,13 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: '"{label}" बनाएँ',
       noData: 'कोई डेटा नहीं',
-      noMatch: 'कोई मिलान नहीं मिला'
+      noMatch: 'कोई मिलान नहीं मिला',
+      trigger: 'विकल्प दिखाएं'
     },
     inputNumber: {
       decrement: 'घटाएँ',
-      increment: 'बढ़ाएँ'
+      increment: 'बढ़ाएँ',
+      roledescription: 'संख्या फ़ील्ड'
     },
     listbox: {
       noData: 'कोई डेटा नहीं',
@@ -184,6 +190,49 @@ export default defineLocale<Messages>({
       close: 'नेविगेशन बंद करें',
       slideoverTitle: 'नेविगेशन',
       slideoverDescription: 'सामग्री नेविगेशन'
+    },
+    breadcrumb: {
+      label: 'ब्रेडक्रंब'
+    },
+    inputDate: {
+      day: 'दिन',
+      dayPeriod: 'AM/PM',
+      era: 'युग',
+      hour: 'घंटा',
+      minute: 'मिनट',
+      month: 'महीना',
+      second: 'सेकंड',
+      timeZoneName: 'समय क्षेत्र',
+      year: 'वर्ष'
+    },
+    inputRating: {
+      rate: '{length} में से {value} रेटिंग दें'
+    },
+    inputTime: {
+      dayPeriod: 'AM/PM',
+      hour: 'घंटा',
+      minute: 'मिनट',
+      second: 'सेकंड',
+      timeZoneName: 'समय क्षेत्र'
+    },
+    pinInput: {
+      input: 'पिन कोड, {length} में से वर्ण {index}'
+    },
+    skeleton: {
+      label: 'लोड हो रहा है'
+    },
+    range: {
+      max: 'अधिकतम',
+      min: 'न्यूनतम',
+      thumb: 'हैंडल',
+      value: '{total} में से मान {index}'
+    },
+    stepper: {
+      label: 'प्रगति'
+    },
+    toaster: {
+      label: 'सूचना',
+      viewport: 'सूचनाएं ({hotkey})'
     }
   }
 })

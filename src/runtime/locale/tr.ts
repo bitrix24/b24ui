@@ -18,10 +18,13 @@ export default defineLocale<Messages>({
       close: 'Kapat'
     },
     calendar: {
+      label: 'Etkinlik tarihi',
+      monthPicker: 'Ay seçici',
       nextMonth: 'Sonraki ay',
       nextYear: 'Sonraki yıl',
       prevMonth: 'Önceki ay',
-      prevYear: 'Önceki yıl'
+      prevYear: 'Önceki yıl',
+      yearPicker: 'Yıl seçici'
     },
     carousel: {
       dots: 'Görüntülenecek slaytı seç',
@@ -52,7 +55,8 @@ export default defineLocale<Messages>({
       close: 'Kapat',
       noData: 'Veri yok',
       noMatch: 'Eşleşme bulunamadı',
-      placeholder: 'Komut girin veya arayın…'
+      placeholder: 'Komut girin veya arayın…',
+      results: 'Sonuçlar'
     },
     contentSearch: {
       links: 'Sonuçlar',
@@ -109,11 +113,13 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: '"{label}" oluştur',
       noData: 'Veri yok',
-      noMatch: 'Eşleşme bulunamadı'
+      noMatch: 'Eşleşme bulunamadı',
+      trigger: 'Seçenekleri göster'
     },
     inputNumber: {
       decrement: 'Azalt',
-      increment: 'Artır'
+      increment: 'Artır',
+      roledescription: 'sayı alanı'
     },
     listbox: {
       noData: 'Veri yok',
@@ -184,6 +190,49 @@ export default defineLocale<Messages>({
       close: 'Navigasyonu kapat',
       slideoverTitle: 'Navigasyon',
       slideoverDescription: 'İçerik navigasyonu'
+    },
+    breadcrumb: {
+      label: 'içerik haritası'
+    },
+    inputDate: {
+      day: 'gün',
+      dayPeriod: 'ÖÖ/ÖS',
+      era: 'çağ',
+      hour: 'saat',
+      minute: 'dakika',
+      month: 'ay',
+      second: 'saniye',
+      timeZoneName: 'saat dilimi',
+      year: 'yıl'
+    },
+    inputRating: {
+      rate: '{length} üzerinden {value} puan ver'
+    },
+    inputTime: {
+      dayPeriod: 'ÖÖ/ÖS',
+      hour: 'saat',
+      minute: 'dakika',
+      second: 'saniye',
+      timeZoneName: 'saat dilimi'
+    },
+    pinInput: {
+      input: 'PIN kodu, {index}. karakter (toplam {length})'
+    },
+    skeleton: {
+      label: 'yükleniyor'
+    },
+    range: {
+      max: 'Maksimum',
+      min: 'Minimum',
+      thumb: 'Kaydırıcı',
+      value: '{index}. değer (toplam {total})'
+    },
+    stepper: {
+      label: 'ilerleme'
+    },
+    toaster: {
+      label: 'Bildirim',
+      viewport: 'Bildirimler ({hotkey})'
     }
   }
 })
