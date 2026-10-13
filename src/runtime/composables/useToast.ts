@@ -18,7 +18,16 @@ export interface Toast extends Omit<ToastProps, 'defaultOpen'>, EmitsToProps<Toa
   _duplicate?: number
   /** @internal */
   _updated?: boolean
+  /** @internal */
+  _animatedAt?: number
 }
+
+/**
+ * How long a toast counts as still animating after it entered or pulsed.
+ * Covers the longest of the `toaster` theme's slide-in (200ms) and pulse
+ * (300ms) animations.
+ */
+const ANIMATION_DURATION = 300
 
 /**
  * The queue behind `Toaster`. Every call returns the same shared list, so a
@@ -58,10 +67,16 @@ export function useToast() {
   const generateId = () => `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`
 
   function mergeDuplicate(index: number, toast: Toast) {
+    const existing = toasts.value[index] as Toast
+    const now = Date.now()
+    // The pulse replaces the slide-in, and two pulses in the same tick cancel each other out, so skip it while the toast is still animating.
+    const animating = now - (existing._animatedAt || 0) < ANIMATION_DURATION
+
     toasts.value[index] = {
-      ...toasts.value[index] as Toast,
+      ...existing,
       ...toast,
-      _duplicate: ((toasts.value[index] as Toast)._duplicate || 0) + 1
+      _duplicate: animating ? existing._duplicate : (existing._duplicate || 0) + 1,
+      _animatedAt: animating ? existing._animatedAt : now
     }
   }
 
@@ -91,7 +106,7 @@ export function useToast() {
         continue
       }
 
-      toasts.value = [...toasts.value, toast].slice(-maxValue)
+      toasts.value = [...toasts.value, { ...toast, _animatedAt: Date.now() }].slice(-maxValue)
     }
 
     running.value = false
