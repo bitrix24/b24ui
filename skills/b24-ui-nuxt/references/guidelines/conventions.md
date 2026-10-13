@@ -270,9 +270,9 @@ export default defineNuxtConfig({
   modules: ['@bitrix24/b24ui-nuxt', '@nuxtjs/i18n'],
   i18n: {
     locales: [
-      { code: 'en', name: 'English' },
-      { code: 'fr', name: 'Français' },
-      { code: 'ar', name: 'العربية' }
+      { code: 'en', language: 'en', name: 'English' },
+      { code: 'fr', language: 'fr', name: 'Français' },
+      { code: 'ar', language: 'ar', dir: 'rtl', name: 'العربية' }
     ]
   }
 })
@@ -280,26 +280,21 @@ export default defineNuxtConfig({
 
 ```vue
 <script setup lang="ts">
-import * as locales from '@bitrix24/b24ui-nuxt/locale'
+const head = useLocaleHead()
 
-const { locale } = useI18n()
-
-const lang = computed(() => locales[locale.value]?.code)
-const dir = computed(() => locales[locale.value]?.dir)
-
-useHead({
-  htmlAttrs: { lang, dir }
-})
+useHead(() => ({
+  htmlAttrs: head.value.htmlAttrs
+}))
 </script>
 
 <template>
-  <B24App :locale="locales[locale]">
+  <B24App>
     <NuxtPage />
   </B24App>
 </template>
 ```
 
-Each locale has a `dir` property (`'ltr'` or `'rtl'`). `B24App` uses it to set directionality on all components. Use `useHead` to propagate `lang` and `dir` to the `<html>` element.
+With `@nuxtjs/i18n` installed, `B24App` follows the current i18n locale and only bundles the Bitrix24 UI locales matching `i18n.locales` — matched on each entry's `language` (or `code`) against the locale's language tag, so give `language` when the `code` is not a tag. Don't use `import * as locales from '@bitrix24/b24ui-nuxt/locale'`: it bundles every locale. Each locale's `dir` (`'ltr'` or `'rtl'`) sets directionality on all components; use `useLocaleHead` to propagate `lang` and `dir` to the `<html>` element.
 
 ## Color mode
 

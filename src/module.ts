@@ -1,11 +1,13 @@
 import type { HookResult, ModuleDependencies } from '@nuxt/schema'
 import type { ColorModeType, ColorModeTypeLight } from './runtime/types'
 import { defu } from 'defu'
-import { createResolver, defineNuxtModule, addComponentsDir, addImports, addImportsDir, addPlugin, hasNuxtModule } from '@nuxt/kit'
+import { createResolver, defineNuxtModule, addComponentsDir, addImports, addImportsDir, addPlugin, addPluginTemplate, hasNuxtModule } from '@nuxt/kit'
 import { addTemplates } from './templates'
 import { publicComposables } from './imports'
 // @memo skep:  resolveColors
 import { defaultOptions, getDefaultConfig } from './utils/defaults'
+import { generateI18nPlugin, getLocaleTags } from './utils/locales'
+import type { I18nLocale } from './utils/locales'
 import { name, version } from '../package.json'
 
 export type * from './runtime/types'
@@ -213,6 +215,18 @@ export default defineNuxtModule<ModuleOptions>({
     addPlugin({ src: resolve('./runtime/plugins/colors') })
     addPlugin({ src: resolve('./runtime/plugins/ui-version') })
     addPlugin({ src: resolve('./runtime/plugins/platform') })
+
+    if (hasNuxtModule('@nuxtjs/i18n')) {
+      addPluginTemplate({
+        filename: 'b24ui-i18n.mjs',
+        getContents: () => {
+          // Resolved by `@nuxtjs/i18n`, including layers
+          const { locales } = (nuxt.options.runtimeConfig.public.i18n || {}) as { locales?: I18nLocale[] }
+
+          return generateI18nPlugin(Array.isArray(locales) ? locales : [], getLocaleTags(resolve('./runtime/locale')), resolve('./runtime'))
+        }
+      })
+    }
 
     if (options.prose || options.mdc || options.content || hasNuxtModule('@nuxtjs/mdc') || hasNuxtModule('@nuxt/content')) {
       addComponentsDir({
