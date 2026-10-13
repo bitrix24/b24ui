@@ -259,7 +259,7 @@ export interface SelectMenuSlots<
 </script>
 
 <script setup lang="ts" generic="T extends ArrayOrNested<SelectMenuItem>, VK extends GetItemKeys<T> | undefined = undefined, M extends boolean = false, Mod extends Omit<ModelModifiers, 'lazy'> = Omit<ModelModifiers, 'lazy'>, C extends boolean | object = false">
-import { useTemplateRef, computed, ref, onMounted, toRef, toRaw, watch, nextTick } from 'vue'
+import { useTemplateRef, useId, computed, ref, onMounted, toRef, toRaw, watch, nextTick } from 'vue'
 // @memo we use Primitive
 import { Primitive, ComboboxRoot, ComboboxArrow, ComboboxAnchor, ComboboxInput, ComboboxTrigger, ComboboxCancel, ComboboxPortal, ComboboxContent, ComboboxEmpty, ComboboxGroup, ComboboxVirtualizer, ComboboxLabel, ComboboxSeparator, ComboboxItem, ComboboxItemIndicator, FocusScope } from 'reka-ui'
 import { defu } from 'defu'
@@ -603,6 +603,9 @@ function onUnmountAutoFocus(event: Event) {
 }
 
 const viewportRef = useTemplateRef('viewportRef')
+const selectMenuId = useId()
+const triggerId = computed(() => id.value ?? `select-menu-${selectMenuId}`)
+const listboxId = `select-menu-listbox-${selectMenuId}`
 
 const comboboxRootRef = useTemplateRef('comboboxRootRef')
 
@@ -753,12 +756,13 @@ defineExpose({
     >
       <ComboboxAnchor as-child>
         <ComboboxTrigger
-          :id="id"
+          :id="triggerId"
           ref="triggerRef"
           data-slot="base"
           :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
           tabindex="0"
           v-bind="{ 'aria-label': undefined, ...$attrs, ...ariaAttrs }"
+          :aria-controls="listboxId"
           @keydown.down="onTriggerKeydown"
           @keydown.up="onTriggerKeydown"
         >
@@ -836,7 +840,15 @@ defineExpose({
 
       <ComboboxPortal v-bind="portalProps">
         <FieldGroupReset>
-          <ComboboxContent data-slot="content" :class="b24ui.content({ class: props.b24ui?.content })" v-bind="contentProps" @focus-outside="onFocusOutside">
+          <ComboboxContent
+            data-slot="content"
+            :class="b24ui.content({ class: props.b24ui?.content })"
+            v-bind="contentProps"
+            :role="undefined"
+            :aria-orientation="undefined"
+            :aria-multiselectable="undefined"
+            @focus-outside="onFocusOutside"
+          >
             <FocusScope
               ref="focusScopeRef"
               loop
@@ -851,6 +863,7 @@ defineExpose({
                 v-if="!!props.searchInput"
                 v-model="searchTerm"
                 :display-value="() => searchTerm"
+                :aria-controls="listboxId"
                 as-child
               >
                 <B24Input
@@ -873,8 +886,12 @@ defineExpose({
               </ComboboxEmpty>
 
               <div
+                :id="listboxId"
                 ref="viewportRef"
-                role="presentation"
+                role="listbox"
+                :aria-labelledby="triggerId"
+                :aria-multiselectable="!!props.multiple"
+                aria-orientation="vertical"
                 data-slot="viewport"
                 :class="b24ui.viewport({ class: props.b24ui?.viewport })"
               >
