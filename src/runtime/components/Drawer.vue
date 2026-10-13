@@ -130,7 +130,8 @@ const appConfig = useAppConfig() as Drawer['AppConfig']
 // restore the bare `emits` argument when that is fixed upstream. See #159.
 const rootProps = useForwardProps(reactivePick(props, 'activeSnapPoint', 'closeThreshold', 'shouldScaleBackground', 'setBackgroundColorOnScale', 'scrollLockTimeout', 'fixed', 'dismissible', 'modal', 'open', 'defaultOpen', 'nested', 'direction', 'noBodyStyles', 'handleOnly', 'preventScrollRestoration', 'snapPoints'), useBlurOnOpen(() => props.open, emits))
 const portalProps = usePortal(toRef(() => props.portal))
-const contentProps = toRef(() => props.content)
+// reka-ui sets `pointer-events: none` on `<body>` for modal dialogs, so `noBodyStyles` must opt out of it too
+const contentProps = toRef(() => props.noBodyStyles ? { disableOutsidePointerEvents: false, ...props.content } : props.content)
 const contentEvents = computed(() => {
   if (!props.dismissible) {
     const events = ['interactOutside', 'escapeKeyDown']
