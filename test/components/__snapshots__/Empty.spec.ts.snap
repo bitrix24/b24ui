@@ -47,6 +47,18 @@ exports[`Empty > renders with as correctly 1`] = `
 </section>"
 `;
 
+exports[`Empty > renders with as object correctly 1`] = `
+"<section data-slot="root" class="relative flex flex-col items-center justify-center gap-4 rounded-lg p-4 sm:p-6 lg:p-8 min-w-0 bg-(--b24ui-background) ring-(--b24ui-border-color) ring-(length:--b24ui-border-width) style-outline">
+  <div data-slot="header" class="flex flex-col items-center gap-2 max-w-[384px] text-center">
+    <!--v-if-->
+    <h3 data-slot="title" class="text-(--b24ui-color) text-pretty font-(--ui-font-weight-medium) text-base">Title</h3>
+    <!--v-if-->
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+</section>"
+`;
+
 exports[`Empty > renders with b24ui correctly 1`] = `
 "<div data-slot="root" class="relative flex flex-col items-center justify-center gap-4 rounded-lg p-4 sm:p-6 lg:p-8 min-w-0 bg-(--b24ui-background) ring-(--b24ui-border-color) ring-(length:--b24ui-border-width) style-outline">
   <div data-slot="header" class="flex flex-col items-center gap-2 max-w-[384px] text-center">

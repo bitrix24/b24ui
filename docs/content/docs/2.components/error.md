@@ -43,6 +43,10 @@ props:
 ---
 ::
 
+::tip
+The status message is rendered as an `h1` by default. Use the `as` prop with an object to change it, for example `:as="{ statusMessage: 'h2' }"`{lang="ts-type"}. You can also set the root element this way: `:as="{ root: 'div', statusMessage: 'h2' }"`{lang="ts-type"}.
+::
+
 ### Icon
 
 Use the `icon` prop to display an icon above the status code.

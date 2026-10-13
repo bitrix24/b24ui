@@ -14,7 +14,7 @@ export interface PageSectionProps {
    * The element or component this component should render as.
    * @defaultValue 'section'
    */
-  as?: any
+  as?: any | { root?: any, title?: any }
   /**
    * The headline displayed above the title.
    */
@@ -71,13 +71,13 @@ import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
 import { useComponentProps } from '../composables/useComponentProps'
 import { usePrefix } from '../composables/usePrefix'
+import { resolveAs } from '../utils'
 import { tv } from '../utils/tv'
 import B24PageFeature from './PageFeature.vue'
 import B24Container from './Container.vue'
 import B24Button from './Button.vue'
 
 const _props = withDefaults(defineProps<PageSectionProps>(), {
-  as: 'section',
   orientation: 'vertical'
 })
 const slots = defineSlots<PageSectionSlots>()
@@ -86,6 +86,9 @@ const props = useComponentProps('pageSection', _props)
 
 const appConfig = useAppConfig() as PageSection['AppConfig']
 const prefix = usePrefix()
+
+// eslint-disable-next-line vue/no-dupe-keys
+const as = computed(() => resolveAs(props.as, { root: 'section', title: 'h2' }))
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.pageSection || {}) })({
@@ -98,7 +101,7 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.pageSectio
 </script>
 
 <template>
-  <Primitive :as="props.as" :data-orientation="props.orientation" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+  <Primitive :as="as.root" :data-orientation="props.orientation" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <slot name="top" />
 
     <B24Container data-slot="container" :class="b24ui.container({ class: props.b24ui?.container })">
@@ -122,11 +125,11 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.pageSectio
               </slot>
             </div>
 
-            <h2 v-if="props.title || !!slots.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
+            <Primitive v-if="props.title || !!slots.title" :as="as.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
               <slot name="title">
                 {{ props.title }}
               </slot>
-            </h2>
+            </Primitive>
 
             <div v-if="props.description || !!slots.description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
               <slot name="description">

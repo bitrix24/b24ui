@@ -76,6 +76,7 @@ describe('FooterColumns', () => {
     // Props
     ['with columns', { props }],
     ['with as', { props: { ...props, as: 'section' } }],
+    ['with as object', { props: { ...props, as: { root: 'section', label: 'h4' } } }],
     ['with class', { props: { ...props, class: 'px-10' } }],
     ['with b24ui', { props: { ...props, b24ui: { list: 'lg:gap-1.5' } } }],
     // Slots
