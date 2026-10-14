@@ -14,7 +14,8 @@ export default () => {
       viewport: [
         'relative',
         'scroll-py-1',
-        'w-60 flex-1',
+        // 240px list, never narrower than the field (#783)
+        'w-60 min-w-(--reka-combobox-trigger-width) flex-1',
         'overflow-x-hidden overflow-y-auto scrollbar-thin'
       ].join(' '),
       content: (content: string) => [

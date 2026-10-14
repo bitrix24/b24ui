@@ -7,7 +7,9 @@
 export default {
   slots: {
     root: 'relative flex rounded-lg',
-    container: 'relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6',
+    // `lg:grid-cols-1` is `minmax(0,1fr)`: an implicit `auto` track would grow to the
+    // content's min-content (e.g. the longest InputMenu tag) and overflow the card (#783).
+    container: 'relative flex flex-col flex-1 lg:grid lg:grid-cols-1 gap-x-8 gap-y-4 p-4 sm:p-6',
     wrapper: 'flex flex-col flex-1 items-start',
     header: 'mb-4',
     body: 'flex-1',
