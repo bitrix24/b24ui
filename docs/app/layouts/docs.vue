@@ -13,7 +13,7 @@ const filteredNavigation = computed(() => {
   if (!cleanedSearchTerm.value) {
     return navigationMenuByCategory.value
   }
-  return navigationMenuByCategory.value?.filter(item => scoreItem(item, cleanedSearchTerm.value, ['title', 'description']))
+  return navigationMenuByCategory.value?.filter(item => scoreItem(item, cleanedSearchTerm.value, ['title', 'description']) !== null)
 })
 // endregion ////
 
