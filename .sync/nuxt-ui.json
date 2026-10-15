@@ -2989,8 +2989,8 @@
       "summary": "fix(Table): measure virtualized rows with variable heights"
     },
     "f4322e7a3577939f43be0781170a4827af15122c": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 791,
+      "b24ui_sha": "058c8042",
       "decision": "port",
       "summary": "fix(FileUpload): make the dropzone prop reactive"
     }
