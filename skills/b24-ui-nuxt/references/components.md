@@ -103,6 +103,7 @@ Quick-reference index of 130+ components. The table below lists the ones you com
 | Component | Purpose | Docs |
 |---|---|---|
 | `B24Table` | Data table (TanStack Table) with sorting, selection, pinning | [table.md](https://bitrix24.github.io/b24ui/raw/docs/components/table.md) |
+| `B24Chart` | Line, area, bar and donut charts (TanStack Charts, optional peer `@tanstack/charts`) | [chart.md](https://bitrix24.github.io/b24ui/raw/docs/components/chart.md) |
 | `B24TableWrapper` | Wrapper that styles a plain HTML `<table>` | [table-wrapper.md](https://bitrix24.github.io/b24ui/raw/docs/components/table-wrapper.md) |
 | `B24DescriptionList` | Key/value list — a table row turned into its own block | [description-list.md](https://bitrix24.github.io/b24ui/raw/docs/components/description-list.md) |
 

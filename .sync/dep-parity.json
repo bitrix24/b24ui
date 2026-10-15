@@ -1,6 +1,6 @@
 {
   "$note": "Upstream's pinned versions for every dependency both trees declare in the SAME section, snapshotted at `cursor`. The sync ports deltas, which is correct per commit and lets a one-time divergence become permanent: once a version is off upstream's line, every later `chore(deps)` batch skips it, because those ports bump only where this fork already matched upstream's pre-image. `prettier` sat at ^3.8.4 against upstream's ^3.9.6 for that reason, through four ported batches, until this file was written. Section-aware on purpose: 18 packages are declared on both sides but in different sections — the whole `@tiptap/*` family is a peer `^3` upstream and a dependency `^3.29.2` here, and `ai` is a peer there and a devDependency here. Those are structural divergences, not drift, and comparing a peer range against a dependency range says nothing. They are absent from this file by construction rather than by omission. Guarded by `test/utils/dep-parity.spec.ts`. Refresh with `node .sync/dep-parity.mjs <path-to-nuxt-ui-mirror> [cursor]`, which preserves `exceptions`.",
-  "cursor": "da9125cabe1d7e3814cde33c4af8d8b3a8bdb8bb",
+  "cursor": "8b372869000484efbb9f687f9095782351ab2acf",
   "manifests": {
     "package.json": {
       "dependencies": {
@@ -70,6 +70,7 @@
         "@nuxt/eslint-config": "^1.17.0",
         "@nuxt/module-builder": "^1.0.3",
         "@nuxt/test-utils": "^4.3.3",
+        "@tanstack/charts": "^1.1.0",
         "@tanstack/table-core": "^8.21.3",
         "@vitejs/plugin-vue": "^6.0.10",
         "@vue/test-utils": "^2.5.1",
@@ -92,6 +93,7 @@
         "@internationalized/date": "^3",
         "@internationalized/number": "^3",
         "@nuxt/content": "^3",
+        "@tanstack/charts": "^1",
         "joi": "^18",
         "superstruct": "^2",
         "tailwindcss": "^4",
@@ -112,6 +114,7 @@
         "@octokit/rest": "^22.0.1",
         "@regle/core": "^1.29.4",
         "@regle/rules": "^1.29.4",
+        "@tanstack/charts": "^1.1.0",
         "@tiptap/extension-emoji": "^3.31.4",
         "@tiptap/extension-text-align": "^3.31.4",
         "@vueuse/integrations": "^14.4.0",
@@ -149,6 +152,7 @@
         "@comark/vue": "^0.7.0",
         "@internationalized/date": "^3.12.4",
         "@nuxt/content": "^3.16.1",
+        "@tanstack/charts": "^1.1.0",
         "@tiptap/extension-emoji": "^3.31.4",
         "@tiptap/extension-text-align": "^3.31.4",
         "nuxt": "^4.6.1",
@@ -162,6 +166,7 @@
     },
     "playgrounds/vue/package.json": {
       "dependencies": {
+        "@tanstack/charts": "^1.1.0",
         "@tiptap/extension-emoji": "^3.31.4",
         "@tiptap/extension-text-align": "^3.31.4",
         "tailwindcss": "^4.3.3",

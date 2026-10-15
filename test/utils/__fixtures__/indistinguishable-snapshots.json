@@ -448,6 +448,20 @@
     ]
   },
   {
+    "file": "components/__snapshots__/Chart-vue.spec.ts.snap",
+    "names": [
+      "Chart > renders with empty colors correctly 1",
+      "Chart > renders with type line correctly 1"
+    ]
+  },
+  {
+    "file": "components/__snapshots__/Chart.spec.ts.snap",
+    "names": [
+      "Chart > renders with empty colors correctly 1",
+      "Chart > renders with type line correctly 1"
+    ]
+  },
+  {
     "file": "components/__snapshots__/ChatMessage-vue.spec.ts.snap",
     "names": [
       "ChatMessage > renders with b24ui correctly 1",

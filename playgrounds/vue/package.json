@@ -12,6 +12,7 @@
   "dependencies": {
     "@bitrix24/b24ui-nuxt": "catalog:",
     "@bitrix24/b24icons-vue": "catalog:",
+    "@tanstack/charts": "catalog:",
     "@tiptap/extension-emoji": "catalog:",
     "@tiptap/extension-text-align": "catalog:",
     "@internationalized/date": "catalog:vue-legacy",

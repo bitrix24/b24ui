@@ -223,6 +223,7 @@
     "@nuxt/eslint-config": "catalog:",
     "@nuxt/module-builder": "catalog:",
     "@nuxt/test-utils": "catalog:",
+    "@tanstack/charts": "catalog:",
     "@tanstack/table-core": "catalog:",
     "@types/canvas-confetti": "catalog:",
     "@types/node": "catalog:",
@@ -252,6 +253,7 @@
     "@internationalized/date": "^3",
     "@internationalized/number": "^3",
     "@nuxt/content": "^3",
+    "@tanstack/charts": "^1",
     "joi": "^18",
     "superstruct": "^2",
     "tailwindcss": "^4",
@@ -273,6 +275,9 @@
       "optional": true
     },
     "@nuxt/content": {
+      "optional": true
+    },
+    "@tanstack/charts": {
       "optional": true
     },
     "joi": {
