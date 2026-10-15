@@ -27,9 +27,9 @@ const data = [
 ]
 
 const categories = [
-  { key: 'desktop', label: 'Desktop' },
-  { key: 'mobile', label: 'Mobile' },
-  { key: 'tablet', label: 'Tablet' }
+  { key: 'desktop' as const, label: 'Desktop' },
+  { key: 'mobile' as const, label: 'Mobile' },
+  { key: 'tablet' as const, label: 'Tablet' }
 ]
 </script>
 
@@ -58,7 +58,7 @@ const categories = [
         :data="data"
         index="month"
         :categories="categories"
-        :aria-label="`Visitors by device (${props.type})`"
+        :aria-label="`Visitors by device (${props?.type})`"
         v-bind="{ ...singleAttrs, ...props }"
         class="w-[36rem]"
       />
