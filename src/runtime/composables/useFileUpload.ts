@@ -1,5 +1,5 @@
 import type { ComponentPublicInstance, MaybeRef } from 'vue'
-import { ref, computed, unref, onMounted, watch, reactive } from 'vue'
+import { ref, computed, unref, onMounted, watch, reactive, effectScope } from 'vue'
 import { useFileDialog, useDropZone } from '@vueuse/core'
 
 export interface UseFileUploadOptions {
@@ -11,7 +11,7 @@ export interface UseFileUploadOptions {
   accept?: MaybeRef<string>
   reset?: MaybeRef<boolean>
   multiple?: MaybeRef<boolean>
-  dropzone?: boolean
+  dropzone?: MaybeRef<boolean>
   onUpdate: (files: File[]) => void
   /**
    * Called with the dropped files that do not match `accept`.
@@ -59,8 +59,8 @@ function isFileAccepted(file: File, accept: string): boolean {
  * @param options.reset Clear the selection before each dialog, so picking the
  *   same file twice fires `onUpdate` twice. Defaults to `false`.
  * @param options.multiple Allow more than one file. Defaults to `false`.
- * @param options.dropzone Attach the drop zone to `dropzoneRef`. Defaults to
- *   `true`.
+ * @param options.dropzone Attach the drop zone to `dropzoneRef`. Reactive:
+ *   toggling it attaches or detaches the drop zone. Defaults to `true`.
  * @param options.onUpdate Called with the chosen files, from the dialog and
  *   from a drop alike.
  * @param options.onReject Called with the dropped files that do not match
@@ -144,13 +144,26 @@ export function useFileUpload(options: UseFileUploadOptions) {
   }
 
   onMounted(() => {
-    const { isOverDropZone } = dropzone
-      ? useDropZone(dropzoneRef, { onDrop: files => onDrop(files, true) })
-      : { isOverDropZone: ref(false) }
+    // A fresh scope per enable, so VueUse's drag counter doesn't outlive a disable mid-drag.
+    watch(() => unref(dropzone), (enabled, _, onCleanup) => {
+      if (!enabled) {
+        return
+      }
 
-    watch(isOverDropZone, (value) => {
-      isDragging.value = value
-    })
+      const scope = effectScope()
+      scope.run(() => {
+        const { isOverDropZone } = useDropZone(dropzoneRef, { onDrop: files => onDrop(files, true) })
+
+        watch(isOverDropZone, (value) => {
+          isDragging.value = value
+        })
+      })
+
+      onCleanup(() => {
+        scope.stop()
+        isDragging.value = false
+      })
+    }, { immediate: true })
 
     const { onChange, open } = useFileDialog({
       accept,
