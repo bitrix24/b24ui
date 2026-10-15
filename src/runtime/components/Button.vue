@@ -128,7 +128,7 @@ const props = useComponentProps('button', _props)
 const appConfig = useAppConfig() as Button['AppConfig']
 const { orientation, size: buttonSize, noSplit } = useFieldGroup<ButtonProps>(_props)
 
-const linkProps = useForwardProps(pickLinkProps(props))
+const linkProps = useForwardProps(computed(() => pickLinkProps(props)))
 
 /**
  * @memo Problem use at Docs (vue): omit not exports
