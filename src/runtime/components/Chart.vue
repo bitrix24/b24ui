@@ -523,6 +523,10 @@ const chartDefinition = computed(() => (props.definition ?? generatedDefinition.
       :on-render="onRender"
     />
 
+    <div v-if="!!slots.center" data-slot="center" :class="b24ui.center({ class: props.b24ui?.center })" :style="plotInset">
+      <slot name="center" />
+    </div>
+
     <B24Tooltip
       v-if="hasTooltip"
       :open="!!primaryPoint"
@@ -550,9 +554,5 @@ const chartDefinition = computed(() => (props.definition ?? generatedDefinition.
         </slot>
       </template>
     </B24Tooltip>
-
-    <div v-if="!!slots.center" data-slot="center" :class="b24ui.center({ class: props.b24ui?.center })" :style="plotInset">
-      <slot name="center" />
-    </div>
   </div>
 </template>
