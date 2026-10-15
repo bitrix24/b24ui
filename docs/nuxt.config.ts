@@ -87,6 +87,7 @@ const pages = [
   // endregion ////
   // region Data ////,
   '/docs/components/accordion/',
+  '/docs/components/chart/',
   '/docs/components/description-list/',
   '/docs/components/empty/',
   '/docs/components/scroll-area/',

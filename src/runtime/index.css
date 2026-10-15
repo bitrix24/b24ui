@@ -40,6 +40,18 @@
   :root, :host {
     --b24ui-header-height: 3.625rem;
     --b24ui-container-width: 90rem;
+
+    /*
+     * Default series colors of `B24Chart`, from upstream's `--ui-chart-1` … `--ui-chart-6`.
+     * Upstream fills 2–6 from the Tailwind palette and redefines them under `.dark`; here
+     * every step is an air accent token, which already follows light / dark / edge contexts.
+     */
+    --b24ui-chart-1: var(--ui-color-accent-main-primary);
+    --b24ui-chart-2: var(--ui-color-accent-main-success);
+    --b24ui-chart-3: var(--ui-color-copilot-accent-primary);
+    --b24ui-chart-4: var(--ui-color-accent-main-warning);
+    --b24ui-chart-5: var(--ui-color-accent-main-alert);
+    --b24ui-chart-6: var(--ui-color-collab-accent-primary);
   }
 }
 

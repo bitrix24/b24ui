@@ -20,6 +20,7 @@
     "@octokit/rest": "catalog:",
     "@regle/core": "catalog:",
     "@regle/rules": "catalog:",
+    "@tanstack/charts": "catalog:",
     "@tiptap/extension-emoji": "catalog:",
     "@tiptap/extension-text-align": "catalog:",
     "@vueuse/integrations": "catalog:",
