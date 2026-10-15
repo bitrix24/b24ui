@@ -1,4 +1,3 @@
-import { reactivePick } from '@vueuse/core'
 import { isEqual, diff } from 'ohash/utils'
 import type { LinkProps } from '../components/Link.vue'
 import { linkKeys } from './link-keys'
@@ -8,31 +7,30 @@ import { linkKeys } from './link-keys'
  * finds it beside `pickLinkProps`, which is the function that consumes it.
  *
  * The list itself lives in its own module so a reader of the names does not
- * have to load `reactivePick` and `ohash` with them — which is why
+ * have to load `ohash` with them — which is why
  * `link-passthrough.spec.ts` imports `./link-keys` directly rather than going
  * through here.
  */
 export { linkKeys }
+
+const linkKeySet = new Set<string>(linkKeys)
 
 /**
  * Splits the link-shaped props out of a component's own, so `Button`, `Badge`
  * and the rest can forward them to `Link` without listing them each time.
  *
  * Keyed on `linkKeys`, which is the single list those components share.
+ * Returns a plain snapshot, not a reactive proxy: callers needing reactivity
+ * wrap it in `computed` (see `Button.vue`).
  */
 export function pickLinkProps(link: LinkProps & { [key: string]: any }) {
-  const keys = Object.keys(link)
-
-  const ariaKeys = keys.filter(key => key.startsWith('aria-'))
-  const dataKeys = keys.filter(key => key.startsWith('data-'))
-
-  const propsToInclude = [
-    ...linkKeys,
-    ...ariaKeys,
-    ...dataKeys
-  ]
-
-  return reactivePick(link, ...propsToInclude)
+  const picked: Record<string, any> = {}
+  for (const key of Object.keys(link)) {
+    if (linkKeySet.has(key) || key.startsWith('aria-') || key.startsWith('data-')) {
+      picked[key] = link[key]
+    }
+  }
+  return picked
 }
 
 /**
