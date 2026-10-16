@@ -1,7 +1,7 @@
 {
   "upstream": "nuxt/ui",
   "branch": "v4",
-  "cursor": "6902550d67d752982adb76dedec97771d6f66811",
+  "cursor": "4629ed4ecbe3fdc3bb416bb54c7ab5d852ee6772",
   "_cursor_note": "cursor = last upstream commit ported into b24ui. The sync is manual by decision: one commit at a time, oldest-first, each with a `.sync/log/<sha>.md` journal and an entry in `processed`. There is no dispatcher, no porter workflow and no kill-switch — `.sync/PORTING.md` is the whole procedure. `processed` is maintained per port (backfilled #68-#72 on 2026-06-09).",
   "processed": {
     "2799fa6f2b25ce3eb15e050f3ef7c57d0d9a2fdb": {
@@ -3019,10 +3019,16 @@
       "summary": "chore(release): v4.12.0 — fork releases through release-please"
     },
     "6902550d67d752982adb76dedec97771d6f66811": {
-      "pr": "pending-merge",
-      "b24ui_sha": "pending-merge",
+      "pr": 798,
+      "b24ui_sha": "777062f8",
       "decision": "n/a",
       "summary": "docs(content): update badges — fork Soon badges track its own releases"
+    },
+    "4629ed4ecbe3fdc3bb416bb54c7ab5d852ee6772": {
+      "pr": "pending-merge",
+      "b24ui_sha": "pending-merge",
+      "decision": "skip",
+      "summary": "test(bench): repeat the re-render cycles 20 times — CodSpeed-only, same as 26f28e0a"
     }
   }
 }
