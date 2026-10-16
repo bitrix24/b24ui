@@ -618,7 +618,7 @@ This example uses `useLazyFetch` with `immediate: false` to only fetch data when
 
 :component-emits
 
-## Accessibility :badge{label="Soon" class="align-text-top"}
+## Accessibility :badge{label="2.14+" class="align-text-top"}
 
 On open, focus is moved off the trigger for one tick before the dialog's focus
 trap takes over. This works around a [reka-ui timing

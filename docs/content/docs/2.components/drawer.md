@@ -330,7 +330,7 @@ export default defineNuxtConfig({
 
 ::
 
-### No Body Styles :badge{label="Soon" class="align-text-top"}
+### No Body Styles :badge{label="2.15+" class="align-text-top"}
 
 Use the `no-body-styles` prop to prevent the Drawer from applying styles to the `<body>` element, such as `pointer-events: none` which blocks interaction with the page while the Drawer is open.
 
@@ -444,7 +444,7 @@ This example uses `useLazyFetch` with `immediate: false` to only fetch data when
 
 :component-emits
 
-## Accessibility :badge{label="Soon" class="align-text-top"}
+## Accessibility :badge{label="2.14+" class="align-text-top"}
 
 On open, focus is moved off the trigger for one tick before the dialog's focus
 trap takes over. This works around a [reka-ui timing
