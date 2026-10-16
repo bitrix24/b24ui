@@ -345,7 +345,7 @@ props:
 ---
 ::
 
-### Max :badge{label="Soon" class="align-text-top"}
+### Max :badge{label="2.15+" class="align-text-top"}
 
 Use the `max` prop to limit the number of items that can be checked. Once the limit is reached, the unchecked items can't be checked anymore.
 

@@ -2,7 +2,7 @@
 title: Chart
 description: Plots data as lines, areas, bars or a donut, rendered as SVG on the server.
 category: data
-navigation.badge: Soon
+navigation.badge: New
 keywords:
   - graph
   - line chart
@@ -26,7 +26,7 @@ links:
     to: https://tanstack.com/charts/latest
 ---
 
-## Usage :badge{label="Soon" class="align-text-top"}
+## Usage :badge{label="2.15+" class="align-text-top"}
 
 The Chart component is built on top of [TanStack Charts](https://tanstack.com/charts/latest) and renders an SVG on the server.
 

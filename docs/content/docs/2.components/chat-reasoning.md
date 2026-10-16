@@ -50,7 +50,7 @@ props:
 ---
 ::
 
-### Streaming :badge{label="Soon" class="align-text-top"}
+### Streaming :badge{label="2.15+" class="align-text-top"}
 
 Use the `streaming` prop to indicate active reasoning. The component auto-opens when streaming starts and auto-closes when it ends.
 

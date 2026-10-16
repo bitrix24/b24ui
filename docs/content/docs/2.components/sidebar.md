@@ -275,7 +275,7 @@ class: '!p-0 !justify-start h-[500px] contain-[paint] transform-gpu'
 :placeholder{class="h-full"}
 ::
 
-### Breakpoint :badge{label="Soon" class="align-text-top"}
+### Breakpoint :badge{label="2.15+" class="align-text-top"}
 
 Use the `breakpoint` prop to change the breakpoint below which the sidebar renders as a menu. Defaults to `lg`.
 
